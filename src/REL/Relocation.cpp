@@ -42,7 +42,6 @@
 #define NODEFERWINDOWPOS
 #define NOMCX
 
-#include <Psapi.h>
 #include <Windows.h>
 
 namespace REL
