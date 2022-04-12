@@ -1465,8 +1465,7 @@ namespace REL
 		std::ptrdiff_t vrVtableIndex, typename detail::RelocateVirtualHelper<Fn>::this_type* self, Args&&... args)
 	{
 		return (*reinterpret_cast<typename detail::RelocateVirtualHelper<Fn>::function_type**>(
-			*reinterpret_cast<const uintptr_t*>(reinterpret_cast<uintptr_t>(self) + (Module::get().IsVR() ? vrVtableOffset : seAndAEVtableOffset))
-			+ (Module::get().IsVR() ? vrVtableIndex : seAndAEVtableIndex) * sizeof(uintptr_t)))(self, std::forward<Args>(args)...);
+			*reinterpret_cast<const uintptr_t*>(reinterpret_cast<uintptr_t>(self) + (Module::get().IsVR() ? vrVtableOffset : seAndAEVtableOffset)) + (Module::get().IsVR() ? vrVtableIndex : seAndAEVtableIndex) * sizeof(uintptr_t)))(self, std::forward<Args>(args)...);
 	}
 
 	/**
