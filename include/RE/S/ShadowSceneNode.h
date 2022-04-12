@@ -31,9 +31,9 @@ namespace RE
 		~ShadowSceneNode() override;  // 00
 
 		// override (NiNode)
-		const NiRTTI* GetRTTI() const override;                         // 02
+		const NiRTTI* GetRTTI() const override;  // 02
 		// The following are virtual functions past the point where VR compatibility breaks.
-//		void          OnVisible(NiCullingProcess& a_process) override;  // 34
+		//		void          OnVisible(NiCullingProcess& a_process) override;  // 34
 
 		// members
 		std::uint64_t                      unk128;              // 128

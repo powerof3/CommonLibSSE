@@ -46,35 +46,36 @@ namespace RE
 			};
 		};
 
-		struct RUNTIME_DATA {
-			NiPointer<NiProperty>                properties[States::kTotal];  // 00
-			NiPointer<NiSkinInstance>            skinInstance;                // 10
-			BSGraphics::TriShape*                rendererData;                // 18
-			void*                                unk20;                       // 20 - smart ptr
-			BSGraphics::VertexDesc               vertexDesc;                  // 28
+		struct RUNTIME_DATA
+		{
+			NiPointer<NiProperty>     properties[States::kTotal];  // 00
+			NiPointer<NiSkinInstance> skinInstance;                // 10
+			BSGraphics::TriShape*     rendererData;                // 18
+			void*                     unk20;                       // 20 - smart ptr
+			BSGraphics::VertexDesc    vertexDesc;                  // 28
 		};
 		static_assert(sizeof(RUNTIME_DATA) == 0x30);
 
 		~BSGeometry() override;  // 00
 
 		// override (NiAVObject)
-		const NiRTTI* GetRTTI() const override;                                                                                    // 02
-		BSGeometry*   AsGeometry() override;                                                                                       // 07 - { return this; }
-		void          LoadBinary(NiStream& a_stream) override;                                                                     // 18
-		void          LinkObject(NiStream& a_stream) override;                                                                     // 19
-		bool          RegisterStreamables(NiStream& a_stream) override;                                                            // 1A
-		void          SaveBinary(NiStream& a_stream) override;                                                                     // 1B
-		bool          IsEqual(NiObject* a_object) override;                                                                        // 1C - { return false; }
-		void          ProcessClone(NiCloningProcess& a_cloning) override;                                                          // 1D
-		void          PostLinkObject(NiStream& a_stream) override;                                                                 // 1E
+		const NiRTTI* GetRTTI() const override;                            // 02
+		BSGeometry*   AsGeometry() override;                               // 07 - { return this; }
+		void          LoadBinary(NiStream& a_stream) override;             // 18
+		void          LinkObject(NiStream& a_stream) override;             // 19
+		bool          RegisterStreamables(NiStream& a_stream) override;    // 1A
+		void          SaveBinary(NiStream& a_stream) override;             // 1B
+		bool          IsEqual(NiObject* a_object) override;                // 1C - { return false; }
+		void          ProcessClone(NiCloningProcess& a_cloning) override;  // 1D
+		void          PostLinkObject(NiStream& a_stream) override;         // 1E
 		// The following are virtual functions past the point where VR compatibility breaks.
-//		void          AttachProperty(NiAlphaProperty* a_property) override;                                                        // 27
-//		void          SetSelectiveUpdateFlags(bool& a_selectiveUpdate, bool a_selectiveUpdateTransforms, bool& a_rigid) override;  // 2B
-//		void          UpdateDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;                                     // 2C
-//		void          UpdateSelectedDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;                             // 2D
-//		void          UpdateRigidDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;                                // 2E
-//		void          UpdateWorldBound() override;                                                                                 // 2F
-//		void          OnVisible(NiCullingProcess& a_process) override;                                                             // 34
+		//		void          AttachProperty(NiAlphaProperty* a_property) override;                                                        // 27
+		//		void          SetSelectiveUpdateFlags(bool& a_selectiveUpdate, bool a_selectiveUpdateTransforms, bool& a_rigid) override;  // 2B
+		//		void          UpdateDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;                                     // 2C
+		//		void          UpdateSelectedDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;                             // 2D
+		//		void          UpdateRigidDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;                                // 2E
+		//		void          UpdateWorldBound() override;                                                                                 // 2F
+		//		void          OnVisible(NiCullingProcess& a_process) override;                                                             // 34
 
 		// add
 		BSMultiIndexTriShape*   AsMultiIndexTriShape();    // 35 - { return 0; }
@@ -112,24 +113,24 @@ namespace RE
 		}
 
 		// members
-		NiBound                               modelBound;           // 110, 138
+		NiBound modelBound;  // 110, 138
 #if !defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE)
-		NiPoint3                              unk148;               // 148
-		NiPoint3                              unk154;               // 154
+		NiPoint3 unk148;  // 148
+		NiPoint3 unk154;  // 154
 #endif
-		RUNTIME_DATA                          runtimeData;          // 120, 160
+		RUNTIME_DATA runtimeData;  // 120, 160
 #ifndef ENABLE_SKYRIM_VR
-		stl::enumeration<Type, std::uint8_t>  type;                        // 150
-		std::uint8_t                          pad31;                       // 151
-		std::uint16_t                         pad32;                       // 152
-		std::uint32_t                         pad34;                       // 154
+		stl::enumeration<Type, std::uint8_t> type;   // 150
+		std::uint8_t                         pad31;  // 151
+		std::uint16_t                        pad32;  // 152
+		std::uint32_t                        pad34;  // 154
 #elif !defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE)
-		stl::enumeration<Type, std::uint32_t> type;                        // 190
-		std::uint8_t                          pad31;                       // 194
-		std::uint16_t                         pad32;                       // 195
-		std::uint32_t                         pad34;                       // 197
+		stl::enumeration<Type, std::uint32_t> type;   // 190
+		std::uint8_t                          pad31;  // 194
+		std::uint16_t                         pad32;  // 195
+		std::uint32_t                         pad34;  // 197
 #else
-		std::uint64_t                         pad150;                      // 150
+		std::uint64_t pad150;  // 150
 #endif
 	};
 #if !defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE)

@@ -36,14 +36,14 @@ namespace RE
 	static_assert(sizeof(AMMO_DATA) == 0x10);
 
 	class TESAmmo :
-		public TESBoundObject,             // 000
-		public TESFullName,                // 030
-		public TESModelTextureSwap,        // 040
-		public TESIcon,                    // 078
-		public BGSMessageIcon,             // 088
-		public TESValueForm,               // 0A0
+		public TESBoundObject,       // 000
+		public TESFullName,          // 030
+		public TESModelTextureSwap,  // 040
+		public TESIcon,              // 078
+		public BGSMessageIcon,       // 088
+		public TESValueForm,         // 0A0
 #ifndef ENABLE_SKYRIM_VR
-		public TESWeightForm,              // 0B0
+		public TESWeightForm,  // 0B0
 #endif
 		public BGSDestructibleObjectForm,  // 0C0, 0B0
 		public BGSPickupPutdownSounds,     // 0D0, 0C0,
@@ -77,7 +77,8 @@ namespace RE
 		NiAVObject* Clone3D(TESObjectREFR* a_ref, bool a_arg3) override;                 // 40
 		void        HandleRemoveItemFromContainer(TESObjectREFR* a_container) override;  // 4E
 
-		[[nodiscard]] inline float GetWeight() const noexcept {
+		[[nodiscard]] inline float GetWeight() const noexcept
+		{
 			return REL::Module::get().IsVR() ? 0.0f : REL::RelocateMember<float>(this, 0xB8, 0);
 		}
 

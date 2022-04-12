@@ -13,19 +13,19 @@ namespace RE
 		~BSMultiStreamInstanceTriShape() override;  // 00
 
 		// override (BSInstanceTriShape)
-		const NiRTTI* GetRTTI() const override;                                                                                            // 02
-		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;                                                                   // 17
+		const NiRTTI* GetRTTI() const override;                           // 02
+		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;  // 17
 		// The following are virtual functions past the point where VR compatibility breaks.
-//		void          OnVisible(NiCullingProcess& a_process) override;                                                                     // 34
+		//		void          OnVisible(NiCullingProcess& a_process) override;                                                                     // 34
 
 		// overrides for BSTriShape
-//		void          Unk_37(void) override;                                                                                               // 37
-//		void          BeginAddingInstances(std::uint32_t a_numFloatsPerInstance) override;                                                 // 38
-//		void          AddInstances(std::uint32_t a_numFloatsPerInstance, std::uint16_t& a_instanceData) override;                          // 39
-//		void          DoneAddingInstances(BSTArray<std::uint32_t>& a_instances) override;                                                  // 3A
-//		bool          GetIsAddingInstances() override;                                                                                     // 3B
-//		std::uint32_t AddGroup(std::uint32_t a_numInstances, std::uint16_t& a_instanceData, std::uint32_t a_arg3, float a_arg4) override;  // 3C
-//		void          RemoveGroup(std::uint32_t a_numInstance) override;                                                                   // 3D
+		//		void          Unk_37(void) override;                                                                                               // 37
+		//		void          BeginAddingInstances(std::uint32_t a_numFloatsPerInstance) override;                                                 // 38
+		//		void          AddInstances(std::uint32_t a_numFloatsPerInstance, std::uint16_t& a_instanceData) override;                          // 39
+		//		void          DoneAddingInstances(BSTArray<std::uint32_t>& a_instances) override;                                                  // 3A
+		//		bool          GetIsAddingInstances() override;                                                                                     // 3B
+		//		std::uint32_t AddGroup(std::uint32_t a_numInstances, std::uint16_t& a_instanceData, std::uint32_t a_arg3, float a_arg4) override;  // 3C
+		//		void          RemoveGroup(std::uint32_t a_numInstance) override;                                                                   // 3D
 
 		// members
 		BSTArray<void*> unk160;  // 160

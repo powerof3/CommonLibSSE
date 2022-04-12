@@ -46,17 +46,19 @@ namespace RE
 		UI_MESSAGE_RESULTS ProcessMessage(UIMessage& a_message) override;    // 04
 		void               PostDisplay() override;                           // 06
 
-		[[nodiscard]] inline RUNTIME_DATA& GetRuntimeData() noexcept {
+		[[nodiscard]] inline RUNTIME_DATA& GetRuntimeData() noexcept
+		{
 			return REL::RelocateMember<RUNTIME_DATA>(this, 0x30, 0x40);
 		}
 
-		[[nodiscard]] inline const RUNTIME_DATA& GetRuntimeData() const noexcept {
+		[[nodiscard]] inline const RUNTIME_DATA& GetRuntimeData() const noexcept
+		{
 			return REL::RelocateMember<RUNTIME_DATA>(this, 0x30, 0x40);
 		}
 
 		// members
 #if !defined(ENABLE_SKYRIM_VR) || (!defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE))
-		RUNTIME_DATA runtimeData; // 30, 40
+		RUNTIME_DATA runtimeData;  // 30, 40
 #endif
 	};
 #ifndef ENABLE_SKYRIM_VR

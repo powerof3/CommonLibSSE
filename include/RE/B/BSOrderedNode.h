@@ -13,17 +13,17 @@ namespace RE
 		~BSOrderedNode() override;  // 00
 
 		// override (BSNiNode)
-		const NiRTTI* GetRTTI() const override;                                                         // 02
-		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;                                // 17
-		void          LoadBinary(NiStream& a_stream) override;                                          // 18
-		void          LinkObject(NiStream& a_stream) override;                                          // 19
-		bool          RegisterStreamables(NiStream& a_stream) override;                                 // 1A
-		void          SaveBinary(NiStream& a_stream) override;                                          // 1B
-		bool          IsEqual(NiObject* a_object) override;                                             // 1C
+		const NiRTTI* GetRTTI() const override;                           // 02
+		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;  // 17
+		void          LoadBinary(NiStream& a_stream) override;            // 18
+		void          LinkObject(NiStream& a_stream) override;            // 19
+		bool          RegisterStreamables(NiStream& a_stream) override;   // 1A
+		void          SaveBinary(NiStream& a_stream) override;            // 1B
+		bool          IsEqual(NiObject* a_object) override;               // 1C
 		// The following are virtual functions past the point where VR compatibility breaks.
-//		void          UpdateDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;          // 2C
-//		void          UpdateSelectedDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;  // 2D
-//		void          OnVisible(NiCullingProcess& a_process) override;                                  // 34
+		//		void          UpdateDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;          // 2C
+		//		void          UpdateSelectedDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;  // 2D
+		//		void          OnVisible(NiCullingProcess& a_process) override;                                  // 34
 
 		// members
 		NiBound       orderedBound;    // 128

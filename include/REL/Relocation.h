@@ -426,7 +426,8 @@ namespace REL
 		/**
 		 * Identifies a Skyrim runtime.
 		 */
-		enum class Runtime : uint8_t {
+		enum class Runtime : uint8_t
+		{
 			/**
 			 * The Skyrim runtime is a post-Anniversary Edition Skyrim SE release (version 1.6.x and later).
 			 */
@@ -449,9 +450,9 @@ namespace REL
 			return singleton;
 		}
 
-		[[nodiscard]] std::uintptr_t               base() const noexcept { return _base; }
-		[[nodiscard]] stl::zwstring                filename() const noexcept { return _filename; }
-		[[nodiscard]] Version                      version() const noexcept { return _version; }
+		[[nodiscard]] std::uintptr_t base() const noexcept { return _base; }
+		[[nodiscard]] stl::zwstring  filename() const noexcept { return _filename; }
+		[[nodiscard]] Version        version() const noexcept { return _version; }
 
 		[[nodiscard]] Segment segment(Segment::Name a_segment) const noexcept { return _segments[a_segment]; }
 
@@ -571,11 +572,9 @@ namespace REL
 			std::make_pair(".gfids"sv, static_cast<std::uint32_t>(0))
 		};
 
-		static constexpr auto ENVIRONMENT = L"SKSE_RUNTIME"sv;
-		static constexpr std::array<std::wstring_view, 2> RUNTIMES{ {
-			L"SkyrimVR.exe",
-			L"SkyrimSE.exe"
-		} };
+		static constexpr auto                             ENVIRONMENT = L"SKSE_RUNTIME"sv;
+		static constexpr std::array<std::wstring_view, 2> RUNTIMES{ { L"SkyrimVR.exe",
+			L"SkyrimSE.exe" } };
 
 		std::wstring                        _filename;
 		std::array<Segment, Segment::total> _segments;
@@ -763,7 +762,7 @@ namespace REL
 				const auto filename =
 					stl::utf8_to_utf16(
 						USING_AE ?
-							fmt::format("Data/SKSE/Plugins/versionlib-{}.bin"sv,
+                            fmt::format("Data/SKSE/Plugins/versionlib-{}.bin"sv,
 								version.string()) :
                             fmt::format("Data/SKSE/Plugins/version-{}.bin"sv,
 								version.string()))
@@ -1408,7 +1407,7 @@ namespace REL
 		};
 
 		template <class Ret, class This>
-		struct RelocateVirtualHelper<Ret(This::*)()>
+		struct RelocateVirtualHelper<Ret (This::*)()>
 		{
 			using this_type = This;
 			using return_type = Ret;
@@ -1416,7 +1415,7 @@ namespace REL
 		};
 
 		template <class Ret, class This, class... Args>
-		struct RelocateVirtualHelper<Ret(This::*)(Args...)>
+		struct RelocateVirtualHelper<Ret (This::*)(Args...)>
 		{
 			using this_type = This;
 			using return_type = Ret;
@@ -1424,7 +1423,7 @@ namespace REL
 		};
 
 		template <class Ret, class This>
-		struct RelocateVirtualHelper<Ret(This::*)() const>
+		struct RelocateVirtualHelper<Ret (This::*)() const>
 		{
 			using this_type = const This;
 			using return_type = Ret;
@@ -1432,7 +1431,7 @@ namespace REL
 		};
 
 		template <class Ret, class This, class... Args>
-		struct RelocateVirtualHelper<Ret(This::*)(Args...) const>
+		struct RelocateVirtualHelper<Ret (This::*)(Args...) const>
 		{
 			using this_type = const This;
 			using return_type = Ret;
@@ -1452,6 +1451,41 @@ namespace REL
 	 *
 	 * @tparam Fn the type of the function being called.
 	 * @tparam Args the types of the arguments being passed.
+	 * @param seAndAEVtableOffset the offset from the <code>this</code> pointer to the vtable with the virtual function in SE/AE.
+	 * @param vrVtableIndex the offset from the <code>this</code> pointer to the vtable with the virtual function in VR.
+	 * @param seAndAEVtableIndex the index of the function in the class' vtable in SE and AE.
+	 * @param vrVtableIndex the index of the function in the class' vtable in VR.
+	 * @param self the <code>this</code> argument for the call.
+	 * @param args the remaining arguments for the call, if any.
+	 * @return The result of the function call.
+	 */
+	template <class Fn, class... Args>
+	[[nodiscard]] inline typename detail::RelocateVirtualHelper<Fn>::return_type RelocateVirtual(
+		std::ptrdiff_t seAndAEVtableOffset, std::ptrdiff_t vrVtableOffset, std::ptrdiff_t seAndAEVtableIndex,
+		std::ptrdiff_t vrVtableIndex, typename detail::RelocateVirtualHelper<Fn>::this_type* self, Args&&... args)
+	{
+		return (*reinterpret_cast<typename detail::RelocateVirtualHelper<Fn>::function_type**>(
+			*reinterpret_cast<const uintptr_t*>(reinterpret_cast<uintptr_t>(self) + (Module::get().IsVR() ? vrVtableOffset : seAndAEVtableOffset))
+			+ (Module::get().IsVR() ? vrVtableIndex : seAndAEVtableIndex) * sizeof(uintptr_t)))(self, std::forward<Args>(args)...);
+	}
+
+	/**
+	 * Invokes a virtual function in a cross-platform way where the vtable structure is variant across AE/SE and VR runtimes.
+	 *
+	 * <p>
+	 * Some classes in Skyrim VR add new virtual functions in the middle of the vtable structure, which makes it ABI-incompatible with AE/SE.
+	 * A naive virtual function call, therefore, cannot work across all runtimes without the plugin being recompiled specifically for VR.
+	 * This call works with types which have variant vtables to allow a non-virtual function definition to be created in the virtual function's
+	 * place, and to have that call dynamically lookup the correct function based on the vtable structure expected in the current runtime.
+	 * </p>
+	 *
+	 * <p>
+	 * This call assumes the vtable to be used is the one at offset 0, i.e. it invokes a virtual function either on the first parent class
+	 * or the current class.
+	 * </p>
+	 *
+	 * @tparam Fn the type of the function being called.
+	 * @tparam Args the types of the arguments being passed.
 	 * @param seAndAEVtableIndex the index of the function in the class' vtable in SE and AE.
 	 * @param vrVtableIndex the index of the function in the class' vtable in VR.
 	 * @param self the <code>this</code> argument for the call.
@@ -1463,9 +1497,7 @@ namespace REL
 		std::ptrdiff_t seAndAEVtableIndex, std::ptrdiff_t vrVtableIndex,
 		typename detail::RelocateVirtualHelper<Fn>::this_type* self, Args&&... args)
 	{
-		return (*reinterpret_cast<typename detail::RelocateVirtualHelper<Fn>::function_type**>(
-			*reinterpret_cast<const uintptr_t*>(self) + (Module::get().IsVR() ? vrVtableIndex : seAndAEVtableIndex) *
-													  sizeof(uintptr_t)))(self, std::forward<Args>(args)...);
+		return RelocateVirtual<Fn, Args...>(0, 0, seAndAEVtableIndex, vrVtableIndex, self, std::forward<Args>(args)...);
 	}
 
 	/**
@@ -1486,7 +1518,8 @@ namespace REL
 	 * @return A reference to the member.
 	 */
 	template <class T, class This>
-	[[nodiscard]] inline T& RelocateMember(This* self, ptrdiff_t seAndAE, ptrdiff_t vr) {
+	[[nodiscard]] inline T& RelocateMember(This* self, ptrdiff_t seAndAE, ptrdiff_t vr)
+	{
 		return *reinterpret_cast<T*>(reinterpret_cast<uintptr_t>(self) + Relocate(seAndAE, seAndAE, vr));
 	}
 }

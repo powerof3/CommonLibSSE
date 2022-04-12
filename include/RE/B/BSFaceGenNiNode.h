@@ -19,10 +19,10 @@ namespace RE
 		~BSFaceGenNiNode() override;  // 00
 
 		// override (NiNode)
-		const NiRTTI* GetRTTI() const override;                                                 // 02
-		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;                        // 17
+		const NiRTTI* GetRTTI() const override;                           // 02
+		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;  // 17
 		// The following are virtual functions past the point where VR compatibility breaks.
-//		void          UpdateDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;  // 2C
+		//		void          UpdateDownwardPass(NiUpdateData& a_data, std::uint32_t a_arg2) override;  // 2C
 
 		// add
 		void FixSkinInstances(NiNode* a_skeleton, bool a_arg2);  // 3E

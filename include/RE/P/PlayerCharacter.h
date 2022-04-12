@@ -208,8 +208,8 @@ namespace RE
 
 		struct CrimeValue
 		{
-			BSTHashMap<const TESFaction*, CrimeGoldStruct>       crimeGoldMap;       // 00
-			BSTHashMap<const TESFaction*, StolenItemValueStruct> stolenItemValueMap; // 30
+			BSTHashMap<const TESFaction*, CrimeGoldStruct>       crimeGoldMap;        // 00
+			BSTHashMap<const TESFaction*, StolenItemValueStruct> stolenItemValueMap;  // 30
 		};
 		static_assert(sizeof(CrimeValue) == 0x60);
 
@@ -370,14 +370,14 @@ namespace RE
 		NiPointer<TESObjectREFR> GetGrabbedRef();
 		std::uint32_t            GetNumTints(std::uint32_t a_tintType);
 #ifndef ENABLE_SKYRIM_VR
-		TintMask*                GetOverlayTintMask(TintMask* a_original);
-		BSTArray<TintMask*>&     GetTintList();
-		TintMask*                GetTintMask(std::uint32_t a_tintType, std::uint32_t a_index);
+		TintMask*            GetOverlayTintMask(TintMask* a_original);
+		BSTArray<TintMask*>& GetTintList();
+		TintMask*            GetTintMask(std::uint32_t a_tintType, std::uint32_t a_index);
 #endif
-		bool                     HasActorDoingCommand() const;
-		bool                     IsGrabbing() const;
-		void                     PlayPickupEvent(TESForm* a_item, TESForm* a_containerOwner, TESObjectREFR* a_containerRef, EventType a_eventType);
-		void                     StartGrabObject();
+		bool HasActorDoingCommand() const;
+		bool IsGrabbing() const;
+		void PlayPickupEvent(TESForm* a_item, TESForm* a_containerOwner, TESObjectREFR* a_containerRef, EventType a_eventType);
+		void StartGrabObject();
 
 		template <class T>
 		inline BSTEventSource<T>* GetEventSource()

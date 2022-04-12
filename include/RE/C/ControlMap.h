@@ -44,9 +44,10 @@ namespace RE
 		struct InputContext
 		{
 		public:
-			[[nodiscard]] static inline std::size_t GetNumDeviceMappings() noexcept {
+			[[nodiscard]] static inline std::size_t GetNumDeviceMappings() noexcept
+			{
 				return REL::Module::get().IsVR() ? INPUT_DEVICES::kTotal :
-                    static_cast<std::size_t>(INPUT_DEVICES::kVRRight) - 1;
+                                                   static_cast<std::size_t>(INPUT_DEVICES::kVRRight) - 1;
 			}
 
 			// members

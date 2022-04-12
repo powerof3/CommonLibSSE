@@ -1,8 +1,8 @@
 #pragma once
 #if !defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE)
 
-#include "RE/B/BSTEvent.h"
-#include "RE/I/IMenu.h"
+#	include "RE/B/BSTEvent.h"
+#	include "RE/I/IMenu.h"
 
 namespace RE
 {
@@ -25,12 +25,12 @@ namespace RE
 		virtual void Unk_13();
 
 		// members
-		std::uint16_t unk48{ 0 }; // 40
-		std::uint8_t  unk50{ 0 }; // 42
-		std::uint8_t  unk51{ 0 }; // 43
-		std::uint8_t  unk52{ 0 }; // 44
-		std::uint8_t  pad53{ 0 }; // 45
-		std::uint32_t pad54{ 0 }; // 46
+		std::uint16_t unk48{ 0 };  // 40
+		std::uint8_t  unk50{ 0 };  // 42
+		std::uint8_t  unk51{ 0 };  // 43
+		std::uint8_t  unk52{ 0 };  // 44
+		std::uint8_t  pad53{ 0 };  // 45
+		std::uint32_t pad54{ 0 };  // 46
 	};
 	static_assert(sizeof(WorldSpaceMenu) == 0x58);
 }

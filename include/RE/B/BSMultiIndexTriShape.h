@@ -22,9 +22,9 @@ namespace RE
 		~BSMultiIndexTriShape() override;  // 00
 
 		// override (BSGeometry)
-//		const NiRTTI*         GetRTTI() const override;                           // 02
-//		NiObject*             CreateClone(NiCloningProcess& a_cloning) override;  // 17
-//		BSMultiIndexTriShape* AsMultiIndexTriShape() override;                    // 35 - { return this; }
+		//		const NiRTTI*         GetRTTI() const override;                           // 02
+		//		NiObject*             CreateClone(NiCloningProcess& a_cloning) override;  // 17
+		//		BSMultiIndexTriShape* AsMultiIndexTriShape() override;                    // 35 - { return this; }
 
 		// members
 		BSGraphics::IndexBuffer*    altIndexBuffer;            // 160

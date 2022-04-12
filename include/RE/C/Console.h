@@ -52,7 +52,7 @@ namespace RE
 
 		// members
 #if !defined(ENABLE_SKYRIM_VR) || (!defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE))
-		RUNTIME_DATA runtimeData; // 30, 40
+		RUNTIME_DATA runtimeData;  // 30, 40
 #endif
 
 	protected:

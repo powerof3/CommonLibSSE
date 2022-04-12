@@ -1501,8 +1501,6 @@ set(SOURCES
 	src/RE/G/GameSettingCollection.cpp
 	src/RE/G/GiftMenu.cpp
 	src/RE/H/Hazard.cpp
-	src/RE/H/HUDMeter.cpp
-	src/RE/H/HUDObject.cpp
 	src/RE/H/HeapBlock.cpp
 	src/RE/H/hkBaseTypes.cpp
 	src/RE/H/hkReferencedObject.cpp
@@ -1513,6 +1511,9 @@ set(SOURCES
 	src/RE/H/hkpCharacterProxyListener.cpp
 	src/RE/H/hkpMaterial.cpp
 	src/RE/H/hkpWorldObject.cpp
+	src/RE/H/HUDMenu.cpp
+	src/RE/H/HUDMeter.cpp
+	src/RE/H/HUDObject.cpp
 	src/RE/I/IAnimationGraphManagerHolder.cpp
 	src/RE/I/IFormFactory.cpp
 	src/RE/I/IFunction.cpp
@@ -1544,6 +1545,7 @@ set(SOURCES
 	src/RE/M/MagicItem.cpp
 	src/RE/M/MagicTarget.cpp
 	src/RE/M/Main.cpp
+	src/RE/M/MapMenu.cpp
 	src/RE/M/MemoryPage.cpp
 	src/RE/M/MenuControls.cpp
 	src/RE/M/MenuEventHandler.cpp
