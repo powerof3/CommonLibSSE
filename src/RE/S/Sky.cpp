@@ -22,4 +22,25 @@ namespace RE
 		return currentWeather && currentWeather->data.flags.any(TESWeather::WeatherDataFlag::kSnow) && (currentWeather->data.precipitationBeginFadeIn * (1.0f / 255)) < currentWeatherPct ||
 		       lastWeather && lastWeather->data.flags.any(TESWeather::WeatherDataFlag::kSnow) && ((lastWeather->data.precipitationEndFadeOut * (1.0f / 255)) + 0.001f) > currentWeatherPct;
 	}
+
+	void Sky::SetWeather(TESWeather* apWeather, bool abOverride, bool abAccelerate)
+	{
+		using func_t = decltype(&Sky::SetWeather);
+		REL::Relocation<func_t> func{ Offset::Sky::SetWeather };
+		func(this, apWeather, abOverride, abAccelerate);
+	}
+
+	void Sky::ForceWeather(TESWeather* apWeather, bool abOverride)
+	{
+		using func_t = decltype(&Sky::ForceWeather);
+		REL::Relocation<func_t> func{ Offset::Sky::ForceWeather };
+		func(this, apWeather, abOverride);
+	}
+
+	void Sky::ResetWeather()
+	{
+		using func_t = decltype(&Sky::ResetWeather);
+		REL::Relocation<func_t> func{ Offset::Sky::ResetWeather };
+		func(this);
+	}
 }
