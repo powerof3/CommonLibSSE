@@ -361,6 +361,7 @@ namespace RE
 		const BSTSmartPointer<BipedAnim>&       GetBiped() const;
 		const BSTSmartPointer<BipedAnim>&       GetBiped(bool a_firstPerson) const;
 		TESContainer*                           GetContainer() const;
+		BGSLocation*                            GetCurrentLocation() const;
 		const char*                             GetDisplayFullName();
 		InventoryDropMap                        GetDroppedInventory();
 		InventoryDropMap                        GetDroppedInventory(std::function<bool(TESBoundObject&)> a_filter);
@@ -437,5 +438,5 @@ namespace RE
 		void              MoveTo_Impl(const ObjectRefHandle& a_targetHandle, TESObjectCELL* a_targetCell, TESWorldSpace* a_selfWorldSpace, const NiPoint3& a_position, const NiPoint3& a_rotation);
 		void              PlayAnimation_Impl(NiControllerManager* a_manager, NiControllerSequence* a_toSeq, NiControllerSequence* a_fromSeq, bool a_arg4 = false);
 	};
-	static_assert(sizeof(TESObjectREFR) == 0x98);
+	static_assert(sizeof(TESObjectREFR) == 0xA0);
 };

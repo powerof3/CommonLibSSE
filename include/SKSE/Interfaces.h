@@ -374,19 +374,26 @@ namespace SKSE
 		constexpr void MinimumRequiredXSEVersion(REL::Version a_version) noexcept { xseMinimum = a_version.pack(); }
 		constexpr void PluginName(std::string_view a_plugin) noexcept { SetCharBuffer(a_plugin, std::span{ pluginName }); }
 		constexpr void PluginVersion(REL::Version a_version) noexcept { pluginVersion = a_version.pack(); }
+		constexpr void HasNoStructUse(bool a_value) noexcept { noStructUse = a_value; }
 		constexpr void UsesAddressLibrary(bool a_value) noexcept { addressLibrary = a_value; }
 		constexpr void UsesSigScanning(bool a_value) noexcept { sigScanning = a_value; }
+		constexpr void UsesStructsPost629(bool a_value) noexcept { structsPost629 = a_value; }
 
 		const std::uint32_t dataVersion{ kVersion };
 		std::uint32_t       pluginVersion = 0;
 		char                pluginName[256] = {};
 		char                author[256] = {};
-		char                supportEmail[256] = {};
-		bool                addressLibrary: 1 = false;
-		bool                sigScanning: 1 = false;
-		std::uint8_t        padding1: 6 = 0;
+		char                supportEmail[252] = {};
+		bool                noStructUse: 1 = false;
+		std::uint8_t        padding1: 7 = 0;
 		std::uint8_t        padding2 = 0;
 		std::uint16_t       padding3 = 0;
+		bool                addressLibrary: 1 = false;
+		bool                sigScanning: 1 = false;
+		bool                structsPost629: 1 = true;
+		std::uint8_t        padding4: 5 = 0;
+		std::uint8_t        padding5 = 0;
+		std::uint16_t       padding6 = 0;
 		std::uint32_t       compatibleVersions[16] = {};
 		std::uint32_t       xseMinimum = 0;
 
@@ -405,8 +412,10 @@ namespace SKSE
 	static_assert(offsetof(PluginVersionData, pluginName) == 0x008);
 	static_assert(offsetof(PluginVersionData, author) == 0x108);
 	static_assert(offsetof(PluginVersionData, supportEmail) == 0x208);
-	static_assert(offsetof(PluginVersionData, padding2) == 0x309);
-	static_assert(offsetof(PluginVersionData, padding3) == 0x30A);
+	static_assert(offsetof(PluginVersionData, padding2) == 0x305);
+	static_assert(offsetof(PluginVersionData, padding3) == 0x306);
+	static_assert(offsetof(PluginVersionData, padding5) == 0x309);
+	static_assert(offsetof(PluginVersionData, padding6) == 0x30A);
 	static_assert(offsetof(PluginVersionData, compatibleVersions) == 0x30C);
 	static_assert(offsetof(PluginVersionData, xseMinimum) == 0x34C);
 	static_assert(sizeof(PluginVersionData) == 0x350);
