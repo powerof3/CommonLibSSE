@@ -15,36 +15,6 @@ namespace RE
 	class InventoryChanges;
 	class TESBoundObject;
 
-	class BaseExtraList
-	{
-	public:
-		struct PresenceBitfield
-		{
-		public:
-			[[nodiscard]] bool HasType(std::uint32_t a_type) const;
-			void               MarkType(std::uint32_t a_type, bool a_cleared);
-
-			// members
-			std::uint8_t bits[0x18];  // 00
-		};
-		static_assert(sizeof(PresenceBitfield) == 0x18);
-
-#ifndef SKYRIM_SUPPORT_AE
-		~BaseExtraList();  // 00
-#else
-		virtual ~BaseExtraList();  // 00
-#endif
-
-		// members
-		BSExtraData*      data = nullptr;      // 08
-		PresenceBitfield* presence = nullptr;  // 10
-	};
-#ifndef SKYRIM_SUPPORT_AE
-	static_assert(sizeof(BaseExtraList) == 0x10);
-#else
-	static_assert(sizeof(BaseExtraList) == 0x18);
-#endif
-
 	class ExtraDataList
 	{
 	public:
@@ -129,6 +99,9 @@ namespace RE
 		using iterator = iterator_base<BSExtraData>;
 		using const_iterator = iterator_base<const BSExtraData>;
 
+		ExtraDataList();
+		~ExtraDataList();
+
 		TES_HEAP_REDEFINE_NEW();
 
 		iterator       begin();
@@ -189,18 +162,28 @@ namespace RE
 		void                  SetLinkedRef(TESObjectREFR* a_targetRef, BGSKeyword* a_keyword);
 		void                  SetOwner(TESForm* a_owner);
 
-	private:
-		BSExtraData* GetByTypeImpl(ExtraDataType a_type) const;
-		void         MarkType(std::uint32_t a_type, bool a_cleared);
-		void         MarkType(ExtraDataType a_type, bool a_cleared);
+	protected:
+		struct PresenceBitfield
+		{
+		public:
+			[[nodiscard]] bool HasType(std::uint32_t a_type) const;
+			void               MarkType(std::uint32_t a_type, bool a_cleared);
+
+			// members
+			std::uint8_t bits[0x18];  // 00
+		};
+		static_assert(sizeof(PresenceBitfield) == 0x18);
+
+		void MarkType(std::uint32_t a_type, bool a_cleared);
+		void MarkType(ExtraDataType a_type, bool a_cleared);
 
 		// members
-		BaseExtraList           _extraData;  // 00
-		mutable BSReadWriteLock _lock;       // 18
+		BSExtraData*            _data;      // 00
+		PresenceBitfield*       _presence;  // 08
+		mutable BSReadWriteLock _lock;      // 10
+
+	private:
+		BSExtraData* GetByTypeImpl(ExtraDataType a_type) const;
 	};
-#ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(ExtraDataList) == 0x18);
-#else
-	static_assert(sizeof(ExtraDataList) == 0x20);
-#endif
 }

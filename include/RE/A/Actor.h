@@ -660,9 +660,5 @@ namespace RE
 		TESFaction* GetCrimeFactionImpl() const;
 		void        RemoveOutfitItems(BGSOutfit* a_outfit);
 	};
-#ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(Actor) == 0x2B0);
-#else
-	static_assert(sizeof(Actor) == 0x2B8);
-#endif
 }

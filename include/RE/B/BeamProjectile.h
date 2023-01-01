@@ -48,9 +48,5 @@ namespace RE
 		// members
 		std::uint64_t unk238;  // 238
 	};
-#ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(BeamProjectile) == 0x240);
-#else
-	static_assert(sizeof(BeamProjectile) == 0x248);
-#endif
 }

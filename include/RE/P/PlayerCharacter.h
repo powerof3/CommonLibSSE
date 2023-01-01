@@ -483,9 +483,5 @@ namespace RE
 	private:
 		bool CenterOnCell_Impl(const char* a_cellName, RE::TESObjectCELL* a_cell);
 	};
-#ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(PlayerCharacter) == 0xBE0);
-#else
-	static_assert(sizeof(PlayerCharacter) == 0xBE8);
-#endif
 }

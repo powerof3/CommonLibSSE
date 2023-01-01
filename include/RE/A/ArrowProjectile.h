@@ -45,9 +45,5 @@ namespace RE
 		EnchantmentItem* enchantItem;  // 1E0
 		AlchemyItem*     poison;       // 1E8
 	};
-#ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(ArrowProjectile) == 0x1F0);
-#else
-	static_assert(sizeof(ArrowProjectile) == 0x1F8);
-#endif
 }

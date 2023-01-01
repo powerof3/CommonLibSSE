@@ -1,7 +1,6 @@
 #pragma once
 
 #include "RE/A/AITimer.h"
-#include "RE/B/BSAtomic.h"
 #include "RE/B/BSPointerHandle.h"
 #include "RE/B/BSTArray.h"
 #include "RE/C/CombatState.h"
@@ -28,29 +27,26 @@ namespace RE
 		}
 
 		// members
-		CombatGroup*                   combatGroup;           // 00
-		CombatState*                   state;                 // 08
-		CombatInventory*               inventory;             // 10
-		CombatBlackboard*              blackboard;            // 18
-		CombatBehaviorController*      behaviorController;    // 20
-		ActorHandle                    actorHandle;           // 28
-		ActorHandle                    targetHandle;          // 2C
-		ActorHandle                    previousTargetHandle;  // 30
-		std::uint8_t                   unk34;                 // 34
-		bool                           startedCombat;         // 35
-		std::uint8_t                   unk36;                 // 36
-		std::uint8_t                   unk37;                 // 37
-		TESCombatStyle*                combatStyle;           // 38
-		bool                           stoppedCombat;         // 40
-		bool                           unk41;                 // 41 - isbeingMeleeAttacked?
-		bool                           ignoringCombat;        // 42
-		bool                           inactive;              // 43
-		AITimer                        unk44;                 // 44
-		float                          unk4C;                 // 4C
-		BSTArray<CombatAimController*> aimControllers;        // 50
-#ifdef SKYRIM_SUPPORT_AE
-		mutable BSSpinLock aimControllerLock;  // 68
-#endif
+		CombatGroup*                            combatGroup;             // 00
+		CombatState*                            state;                   // 08
+		CombatInventory*                        inventory;               // 10
+		CombatBlackboard*                       blackboard;              // 18
+		CombatBehaviorController*               behaviorController;      // 20
+		ActorHandle                             actorHandle;             // 28
+		ActorHandle                             targetHandle;            // 2C
+		ActorHandle                             previousTargetHandle;    // 30
+		std::uint8_t                            unk34;                   // 34
+		bool                                    startedCombat;           // 35
+		std::uint8_t                            unk36;                   // 36
+		std::uint8_t                            unk37;                   // 37
+		TESCombatStyle*                         combatStyle;             // 38
+		bool                                    stoppedCombat;           // 40
+		bool                                    unk41;                   // 41 - isbeingMeleeAttacked?
+		bool                                    ignoringCombat;          // 42
+		bool                                    inactive;                // 43
+		AITimer                                 unk44;                   // 44
+		float                                   unk4C;                   // 4C
+		BSTArray<CombatAimController*>          aimControllers;          // 50
 		CombatAimController*                    currentAimController;    // 68
 		CombatAimController*                    previousAimController;   // 70
 		BSTArray<CombatAreaStandard*>           areas;                   // 78
@@ -63,9 +59,5 @@ namespace RE
 		NiPointer<Actor>                        cachedActor;             // C8 - actorHandle
 		NiPointer<Actor>                        cachedTarget;            // D0 - targetHandle
 	};
-#ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(CombatController) == 0xD8);
-#else
-	static_assert(sizeof(CombatController) == 0xE0);
-#endif
 }

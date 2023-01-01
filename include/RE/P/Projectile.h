@@ -217,9 +217,6 @@ namespace RE
 		std::uint32_t              flags;              // 1CC
 		std::uint64_t              unk1D0;             // 1D0
 	};
-#ifndef SKYRIM_SUPPORT_AE
+
 	static_assert(sizeof(Projectile) == 0x1D8);
-#else
-	static_assert(sizeof(Projectile) == 0x1E0);
-#endif
 }

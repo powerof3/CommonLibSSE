@@ -358,18 +358,6 @@ namespace SKSE
 			kVersion = 1,
 		};
 
-		enum
-		{
-			kVersionIndependent_AddressLibraryPostAE = 1 << 0,
-			kVersionIndependent_Signatures = 1 << 1,
-			kVersionIndependent_StructsPost629 = 1 << 2,
-		};
-
-		enum
-		{
-			kVersionIndependentEx_NoStructUse = 1 << 0,
-		};
-
 		constexpr void AuthorEmail(std::string_view a_email) noexcept { SetCharBuffer(a_email, std::span{ supportEmail }); }
 		constexpr void AuthorName(std::string_view a_name) noexcept { SetCharBuffer(a_name, std::span{ author }); }
 
@@ -386,19 +374,19 @@ namespace SKSE
 		constexpr void MinimumRequiredXSEVersion(REL::Version a_version) noexcept { xseMinimum = a_version.pack(); }
 		constexpr void PluginName(std::string_view a_plugin) noexcept { SetCharBuffer(a_plugin, std::span{ pluginName }); }
 		constexpr void PluginVersion(REL::Version a_version) noexcept { pluginVersion = a_version.pack(); }
-		constexpr void UsesAddressLibrary() noexcept { versionIndependence |= kVersionIndependent_AddressLibraryPostAE; }
-		constexpr void UsesSigScanning() noexcept { versionIndependence |= kVersionIndependent_Signatures; }
-		constexpr void UsesUpdatedStructs() noexcept { versionIndependence |= kVersionIndependent_StructsPost629; }
-
-		constexpr void UsesNoStructs() noexcept { versionIndependenceEx |= kVersionIndependentEx_NoStructUse; }
+		constexpr void UsesAddressLibrary(bool a_value) noexcept { addressLibrary = a_value; }
+		constexpr void UsesSigScanning(bool a_value) noexcept { sigScanning = a_value; }
 
 		const std::uint32_t dataVersion{ kVersion };
 		std::uint32_t       pluginVersion = 0;
 		char                pluginName[256] = {};
 		char                author[256] = {};
-		char                supportEmail[252] = {};
-		std::uint32_t       versionIndependenceEx = 0;
-		std::uint32_t       versionIndependence = 0;
+		char                supportEmail[256] = {};
+		bool                addressLibrary: 1 = false;
+		bool                sigScanning: 1 = false;
+		std::uint8_t        padding1: 6 = 0;
+		std::uint8_t        padding2 = 0;
+		std::uint16_t       padding3 = 0;
 		std::uint32_t       compatibleVersions[16] = {};
 		std::uint32_t       xseMinimum = 0;
 
@@ -417,8 +405,8 @@ namespace SKSE
 	static_assert(offsetof(PluginVersionData, pluginName) == 0x008);
 	static_assert(offsetof(PluginVersionData, author) == 0x108);
 	static_assert(offsetof(PluginVersionData, supportEmail) == 0x208);
-	static_assert(offsetof(PluginVersionData, versionIndependenceEx) == 0x304);
-	static_assert(offsetof(PluginVersionData, versionIndependence) == 0x308);
+	static_assert(offsetof(PluginVersionData, padding2) == 0x309);
+	static_assert(offsetof(PluginVersionData, padding3) == 0x30A);
 	static_assert(offsetof(PluginVersionData, compatibleVersions) == 0x30C);
 	static_assert(offsetof(PluginVersionData, xseMinimum) == 0x34C);
 	static_assert(sizeof(PluginVersionData) == 0x350);

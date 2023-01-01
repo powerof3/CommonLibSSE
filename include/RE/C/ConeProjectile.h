@@ -60,9 +60,5 @@ namespace RE
 		hkRefPtr<hkpSphereShape> collisionShape;                // 1F8
 		BSTArray<void*>          collisions;                    // 200
 	};
-#ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(ConeProjectile) == 0x218);
-#else
-	static_assert(sizeof(ConeProjectile) == 0x220);
-#endif
 }

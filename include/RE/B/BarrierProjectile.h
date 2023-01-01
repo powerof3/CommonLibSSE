@@ -47,9 +47,5 @@ namespace RE
 		std::uint32_t           pad1DC;         // 1DC
 		BSTArray<CollisionData> collisionData;  // 1E0
 	};
-#ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(BarrierProjectile) == 0x1F8);
-#else
-	static_assert(sizeof(BarrierProjectile) == 0x200);
-#endif
 }
