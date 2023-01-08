@@ -16,7 +16,10 @@ namespace RE
 
 			auto collision = static_cast<bhkNiCollisionObject*>(a_object->collisionObject.get());
 			if (collision) {
-				return a_func(collision);
+				auto result = a_func(collision);
+				if (result == BSVisitControl::kStop) {
+					return result;
+				}
 			}
 
 			auto result = BSVisitControl::kContinue;
