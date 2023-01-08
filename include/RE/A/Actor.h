@@ -255,10 +255,10 @@ namespace RE
 		public:
 			inline static constexpr auto RTTI = RTTI_Actor__ForEachSpellVisitor;
 
-			virtual ~ForEachSpellVisitor() = default; // 00
+			virtual ~ForEachSpellVisitor() = default;  // 00
 
 			// add
-		    virtual BSContainer::ForEachResult Visit(SpellItem* a_spell) = 0; // 01
+			virtual BSContainer::ForEachResult Visit(SpellItem* a_spell) = 0;  // 01
 		};
 
 		~Actor() override;  // 000

@@ -11,7 +11,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI___AttachLightHitEffectVisitor;
 
-        ~AttachLightHitEffectVisitor() override;  // 00
+		~AttachLightHitEffectVisitor() override;  // 00
 
 		// override (ActiveEffect::ForEachHitEffectVisitor)
 		BSContainer::ForEachResult Visit(ReferenceEffect* a_hitEffect) override;  // 01
