@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RE/B/BSTEvent.h"
+#include "RE/B/BSContainer.h"
 #include "RE/B/BaseFormComponent.h"
 #include "RE/C/ContainerItemExtra.h"
 

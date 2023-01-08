@@ -250,16 +250,15 @@ namespace RE
 			};
 		};
 
-		struct ForEachSpellVisitor
+		class ForEachSpellVisitor
 		{
-			enum class Result : uint32_t
-			{
-				kStop = 0,
-				kContinue = 1
-			};
+		public:
+			inline static constexpr auto RTTI = RTTI_Actor__ForEachSpellVisitor;
 
-			virtual ~ForEachSpellVisitor(){};
-			virtual Result visit(RE::SpellItem* a) = 0;
+			virtual ~ForEachSpellVisitor() = default; // 00
+
+			// add
+		    virtual BSContainer::ForEachResult Visit(SpellItem* a_spell) = 0; // 01
 		};
 
 		~Actor() override;  // 000

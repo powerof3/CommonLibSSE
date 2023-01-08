@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RE/A/ActiveEffectReferenceEffectController.h"
+#include "RE/B/BSContainer.h"
 #include "RE/B/BSFixedString.h"
 #include "RE/B/BSPointerHandle.h"
 #include "RE/B/BSSoundHandle.h"
@@ -36,7 +37,7 @@ namespace RE
 			virtual ~ForEachHitEffectVisitor();  // 00
 
 			// add
-			virtual std::uint32_t Accept(ReferenceEffect* a_hitEffect) = 0;  // 01
+			virtual BSContainer::ForEachResult Visit(ReferenceEffect* a_hitEffect) = 0;  // 01
 		};
 
 		enum class Flag

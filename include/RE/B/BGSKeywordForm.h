@@ -1,7 +1,7 @@
 #pragma once
 
 #include "RE/B/BGSKeyword.h"
-#include "RE/B/BSTEvent.h"
+#include "RE/B/BSContainer.h"
 #include "RE/B/BaseFormComponent.h"
 
 namespace RE

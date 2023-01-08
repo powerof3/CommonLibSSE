@@ -201,6 +201,7 @@
 #include "RE/B/BSBitField.h"
 #include "RE/B/BSBloodSplatterShaderProperty.h"
 #include "RE/B/BSBound.h"
+#include "RE/B/BSContainer.h"
 #include "RE/B/BSCullingProcess.h"
 #include "RE/B/BSDismemberSkinInstance.h"
 #include "RE/B/BSDynamicTriShape.h"

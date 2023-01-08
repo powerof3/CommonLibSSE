@@ -14,15 +14,6 @@ namespace RE
 		kStop = 1
 	};
 
-	struct BSContainer
-	{
-		enum class ForEachResult
-		{
-			kContinue = 0,
-			kStop = 1
-		};
-	};
-
 	template <class Event>
 	class BSTEventSource
 	{
