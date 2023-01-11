@@ -4,18 +4,18 @@
 
 namespace RE
 {
-	class CombatMagicCasterTargetEffect : public CombatMagicCaster
+	class CombatMagicCasterInvisibility : public CombatMagicCaster
 	{
 	public:
-		inline static constexpr auto RTTI = RTTI_CombatMagicCasterTargetEffect;
-		inline static constexpr auto VTABLE = VTABLE_CombatMagicCasterTargetEffect;
+		inline static constexpr auto RTTI = RTTI_CombatMagicCasterInvisibility;
+		inline static constexpr auto VTABLE = VTABLE_CombatMagicCasterInvisibility;
 
-		~CombatMagicCasterTargetEffect() override;  // 00
+		~CombatMagicCasterInvisibility() override;  // 00
 
 		// override (CombatMagicCaster)
 		std::uint32_t                 GetObjectType() override;                                       // 02
 		CombatInventoryItem::CATEGORY GetCategory() override;                                         // 05
 		bool                          CheckStartCast(CombatController* a_combatController) override;  // 06
 	};
-	static_assert(sizeof(CombatMagicCasterTargetEffect) == 0x20);
+	static_assert(sizeof(CombatMagicCasterInvisibility) == 0x20);
 }

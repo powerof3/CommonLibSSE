@@ -2,6 +2,7 @@
 
 #include "RE/C/CombatInventoryItem.h"
 #include "RE/C/CombatObject.h"
+#include "RE/N/NiSmartPointer.h"
 
 namespace RE
 {
@@ -47,8 +48,8 @@ namespace RE
 		}
 
 		// members
-		CombatInventoryItemMagic* inventoryItem;  // 10
-		MagicItem*                magicItem;      // 18
+		NiPointer<CombatInventoryItemMagic> inventoryItem;  // 10
+		MagicItem*                          magicItem;      // 18
 	};
 	static_assert(sizeof(CombatMagicCaster) == 0x20);
 }

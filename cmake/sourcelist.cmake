@@ -420,9 +420,20 @@ set(SOURCES
 	include/RE/C/CombatInventoryItemShout.h
 	include/RE/C/CombatInventoryItemStaff.h
 	include/RE/C/CombatMagicCaster.h
+	include/RE/C/CombatMagicCasterBoundItem.h
+	include/RE/C/CombatMagicCasterCloak.h
+	include/RE/C/CombatMagicCasterDisarm.h
+	include/RE/C/CombatMagicCasterInvisibility.h
+	include/RE/C/CombatMagicCasterLight.h
 	include/RE/C/CombatMagicCasterOffensive.h
+	include/RE/C/CombatMagicCasterParalyze.h
+	include/RE/C/CombatMagicCasterReanimate.h
 	include/RE/C/CombatMagicCasterRestore.h
+	include/RE/C/CombatMagicCasterScript.h
+	include/RE/C/CombatMagicCasterStagger.h
+	include/RE/C/CombatMagicCasterSummon.h
 	include/RE/C/CombatMagicCasterTargetEffect.h
+	include/RE/C/CombatMagicCasterWard.h
 	include/RE/C/CombatManager.h
 	include/RE/C/CombatObject.h
 	include/RE/C/CombatSearchLocation.h
