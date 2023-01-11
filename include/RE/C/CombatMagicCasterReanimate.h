@@ -24,7 +24,7 @@ namespace RE
 		void                          SetupAimController(CombatProjectileAimController* a_aimController) override;  // 0D
 
 		// members
-		NiPointer<CombatProjectileAimController> animController;   // 20
+		NiPointer<CombatProjectileAimController> aimController;    // 20
 		ActorHandle                              reanimateTarget;  // 28
 	};
 	static_assert(sizeof(CombatMagicCasterReanimate) == 0x30);
