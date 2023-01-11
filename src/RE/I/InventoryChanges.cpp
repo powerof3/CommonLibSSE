@@ -62,6 +62,20 @@ namespace RE
 		return func(this, a_itemList, a_oldForm, a_newForm);
 	}
 
+	void InventoryChanges::VisitInventory(IItemChangeVisitor& visitor)
+	{
+		using func_t = decltype(&InventoryChanges::VisitInventory);
+		REL::Relocation<func_t> func{ RELOCATION_ID(15855, 16095) };
+		return func(this, visitor);
+	}
+
+	void InventoryChanges::VisitWornItems(IItemChangeVisitor& visitor)
+	{
+		using func_t = decltype(&InventoryChanges::VisitWornItems);
+		REL::Relocation<func_t> func{ RELOCATION_ID(15856, 16096) };
+		return func(this, visitor);
+	}
+
 	void InventoryChanges::InitFromContainerExtra()
 	{
 		using func_t = decltype(&InventoryChanges::InitFromContainerExtra);

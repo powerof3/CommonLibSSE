@@ -1,8 +1,10 @@
 #pragma once
 
+#include "RE/B/BSContainer.h"
 #include "RE/B/BSTList.h"
 #include "RE/F/FormTypes.h"
 #include "RE/M/MemoryManager.h"
+#include "RE/T/TESBoundObject.h"
 
 namespace RE
 {
@@ -16,13 +18,18 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_InventoryChanges__IItemChangeVisitor;
+			inline static constexpr auto VTABLE = VTABLE_InventoryChanges__IItemChangeVisitor;
 
-			virtual ~IItemChangeVisitor();  // 00
+			virtual ~IItemChangeVisitor() = default;  // 00
 
 			// add
-			virtual bool Visit(InventoryEntryData* a_entryData) = 0;  // 01
-			virtual void Unk_02(void);                                // 02 - { return 1; }
-			virtual void Unk_03(void);                                // 03
+			virtual BSContainer::ForEachResult Visit(InventoryEntryData* a_entryData) = 0;                                                                                // 01
+			virtual bool                       ShouldVisit([[maybe_unused]] InventoryEntryData* a_entryData, [[maybe_unused]] TESBoundObject* a_object) { return true; }  // 02
+			virtual BSContainer::ForEachResult Unk_03(InventoryEntryData* a_entryData, [[maybe_unused]] void* a_arg2, bool* a_arg3)                                       // 03
+			{
+				*a_arg3 = true;
+				return Visit(a_entryData);
+			}
 		};
 		static_assert(sizeof(IItemChangeVisitor) == 0x8);
 
@@ -39,6 +46,8 @@ namespace RE
 		void           InitScripts();
 		void           SendContainerChangedEvent(ExtraDataList* a_itemExtraList, TESObjectREFR* a_fromRefr, TESForm* a_item, std::int32_t a_count);
 		void           SetUniqueID(ExtraDataList* a_itemList, TESForm* a_oldForm, TESForm* a_newForm);
+		void           VisitInventory(IItemChangeVisitor& visitor);
+		void           VisitWornItems(IItemChangeVisitor& visitor);
 
 		TES_HEAP_REDEFINE_NEW();
 
