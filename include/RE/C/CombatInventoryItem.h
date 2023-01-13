@@ -79,7 +79,7 @@ namespace RE
 		virtual void                 GetDescription(const char* a_dest, std::uint32_t a_size);  // 14
 
 		// members
-		TESBoundObject*         item;       // 10
+		TESForm*                item;       // 10
 		float                   itemScore;  // 18
 		std::uint32_t           unk1C;      // 1C
 		CombatInventoryItemSlot itemSlot;   // 20
