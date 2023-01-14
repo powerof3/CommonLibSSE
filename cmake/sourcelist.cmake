@@ -295,6 +295,7 @@ set(SOURCES
 	include/RE/B/BSShaderMaterial.h
 	include/RE/B/BSShaderProperty.h
 	include/RE/B/BSShaderPropertyLightData.h
+	include/RE/B/BSShaderRenderTargets.h
 	include/RE/B/BSShaderTextureSet.h
 	include/RE/B/BSShadowLight.h
 	include/RE/B/BSSimpleScaleController.h
@@ -1191,6 +1192,8 @@ set(SOURCES
 	include/RE/R/RegisterPrefix.h
 	include/RE/R/RemoveCallbackVisitor.h
 	include/RE/R/RemoveItemFunctor.h
+	include/RE/R/RenderTargetManager.h
+	include/RE/R/RenderTargetProperties.h
 	include/RE/R/Request.h
 	include/RE/R/RunHandler.h
 	include/RE/RTTI.h
