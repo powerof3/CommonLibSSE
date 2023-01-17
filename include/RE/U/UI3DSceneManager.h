@@ -33,23 +33,23 @@ namespace RE
 		kTotal = 8
 	};
 
+	class MenuLight
+	{
+	public:
+		// members
+		NiColor            color;         // 00
+		NiPoint3           translate;     // 0C
+		float              radius;        // 18
+		float              fade;          // 1C
+		bool               castsShadows;  // 20
+		NiPointer<BSLight> light;         // 28
+		MenuLight*         last;          // 30
+	};
+	static_assert(sizeof(MenuLight) == 0x38);
+
 	class UI3DSceneManager : public BSTSingletonSDM<UI3DSceneManager>
 	{
 	public:
-		struct MenuLight
-		{
-		public:
-			// members
-			NiColor            color;         // 00
-			NiPoint3           translate;     // 0C
-			float              radius;        // 18
-			float              fade;          // 1C
-			bool               castsShadows;  // 20
-			NiPointer<BSLight> light;         // 28
-			MenuLight*         last;          // 30
-		};
-		static_assert(sizeof(MenuLight) == 0x38);
-
 		static UI3DSceneManager* GetSingleton()
 		{
 			REL::Relocation<UI3DSceneManager**> singleton{ RELOCATION_ID(517052, 403560) };
