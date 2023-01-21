@@ -8,11 +8,12 @@ namespace RE
 {
 	class BSLight;
 	class BSFogProperty;
+	class BSLensFlareRenderData;
 	class BSPortalGraph;
 	class BSShadowLight;
 	class BSShadowDirectionalLight;
 
-	class ShadowSceneNode : NiNode
+	class ShadowSceneNode : public NiNode
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ShadowSceneNode;
@@ -22,10 +23,19 @@ namespace RE
 		{
 		public:
 			// members
-			std::uint8_t unk0;        // 0
-			std::uint8_t unk1;        // 1
-			std::uint8_t unk2;        // 2
-			bool         affectLand;  // 3
+			std::uint8_t           unk00;          // 00
+			std::uint8_t           unk01;          // 01
+			bool                   portalStrict;   // 02
+			bool                   affectLand;     // 03
+			std::uint8_t           unk04;          // 04
+			bool                   neverFades;     // 05
+			float                  fov;            // 08
+			float                  falloff;        // 0C
+			float                  nearDistance;   // 10
+			float                  depthBias;      // 14
+			std::uint32_t          unk18;          // 18
+			NiAVObject*            objectNode;     // 20
+			BSLensFlareRenderData* lensFlareData;  // 28
 		};
 
 		~ShadowSceneNode() override;  // 00

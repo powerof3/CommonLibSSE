@@ -1601,6 +1601,7 @@ set(SOURCES
 	src/RE/I/IObjectHandlePolicy.cpp
 	src/RE/I/IStackCallbackFunctor.cpp
 	src/RE/I/IVirtualMachine.cpp
+	src/RE/I/IngredientItem.cpp
 	src/RE/I/InputEvent.cpp
 	src/RE/I/InterfaceStrings.cpp
 	src/RE/I/Inventory.cpp
