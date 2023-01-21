@@ -48,11 +48,25 @@ namespace RE
 		return func(this);
 	}
 
+	void InventoryChanges::RemoveFavorite(InventoryEntryData* a_entry, ExtraDataList* a_itemList)
+	{
+		using func_t = decltype(&InventoryChanges::RemoveFavorite);
+		REL::Relocation<func_t> func{ RELOCATION_ID(15859, 16099) };
+		return func(this, a_entry, a_itemList);
+	}
+
 	void InventoryChanges::SendContainerChangedEvent(ExtraDataList* a_itemExtraList, TESObjectREFR* a_fromRefr, TESForm* a_item, std::int32_t a_count)
 	{
 		using func_t = decltype(&InventoryChanges::SendContainerChangedEvent);
 		REL::Relocation<func_t> func{ Offset::InventoryChanges::SendContainerChangedEvent };
 		return func(this, a_itemExtraList, a_fromRefr, a_item, a_count);
+	}
+
+	void InventoryChanges::SetFavorite(InventoryEntryData* a_entry, ExtraDataList* a_itemList)
+	{
+		using func_t = decltype(&InventoryChanges::SetFavorite);
+		REL::Relocation<func_t> func{ RELOCATION_ID(15858, 16098) };
+		return func(this, a_entry, a_itemList);
 	}
 
 	void InventoryChanges::SetUniqueID(ExtraDataList* a_itemList, TESForm* a_oldForm, TESForm* a_newForm)

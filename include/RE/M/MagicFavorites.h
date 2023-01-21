@@ -17,7 +17,10 @@ namespace RE
 
 		static MagicFavorites* GetSingleton();
 
-		// members
+		void RemoveFavorite(TESForm* a_form);
+	    void SetFavorite(TESForm* a_form);
+
+        // members
 		std::uint8_t       pad09;    // 09
 		std::uint16_t      pad0A;    // 0A
 		std::uint32_t      pad0C;    // 0C

@@ -44,7 +44,9 @@ namespace RE
 		void           InitFromContainerExtra();
 		void           InitLeveledItems();
 		void           InitScripts();
+		void           RemoveFavorite(InventoryEntryData* a_entry, ExtraDataList* a_itemList);
 		void           SendContainerChangedEvent(ExtraDataList* a_itemExtraList, TESObjectREFR* a_fromRefr, TESForm* a_item, std::int32_t a_count);
+		void           SetFavorite(InventoryEntryData* a_entry, ExtraDataList* a_itemList);
 		void           SetUniqueID(ExtraDataList* a_itemList, TESForm* a_oldForm, TESForm* a_newForm);
 		void           VisitInventory(IItemChangeVisitor& visitor);
 		void           VisitWornItems(IItemChangeVisitor& visitor);
