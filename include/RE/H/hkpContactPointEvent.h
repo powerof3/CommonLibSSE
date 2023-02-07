@@ -24,7 +24,7 @@ namespace RE
 			kManifoldFromSavedContactPoint
 		};
 
-		inline hkpShapeKey* GetShapeKeys(int a_bodyIdx) const
+		inline hkpShapeKey* GetShapeKeys(std::uint32_t a_bodyIdx) const
 		{
 			if (a_bodyIdx == 0 || a_bodyIdx == 1) {
 				if (bodies[a_bodyIdx]->numShapeKeysInContactPointProperties > 0) {
@@ -35,16 +35,17 @@ namespace RE
 		}
 
 		// members
-		Type                       type;
-		hkContactPoint*            contactPoint;
-		hkpContactPointProperties* contactPointProperties;
-		bool                       firingCallbacksForFullManifold;
-		bool                       firstCallbackForFullManifold;
-		bool                       lastCallbackForFullManifold;
-		float*                     separatingVelocity;
-		float*                     rotateNormal;
-		hkpShapeKey*               shapeKeyStorage;
-		hkpVelocityAccumulator*    accumulators[2];
+		Type                       type;                            // 20
+		std::uint32_t              pad24;                           // 24
+		hkContactPoint*            contactPoint;                    // 28
+		hkpContactPointProperties* contactPointProperties;          // 30
+		bool                       firingCallbacksForFullManifold;  // 38
+		bool                       firstCallbackForFullManifold;    // 39
+		bool                       lastCallbackForFullManifold;     // 3A
+		float*                     separatingVelocity;              // 40
+		float*                     rotateNormal;                    // 48
+		hkpShapeKey*               shapeKeyStorage;                 // 50
+		hkpVelocityAccumulator*    accumulators[2];                 // 58
 	};
 	static_assert(sizeof(hkpContactPointEvent) == 0x68);
 }

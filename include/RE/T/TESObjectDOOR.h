@@ -67,6 +67,13 @@ namespace RE
 		// override (BGSOpenCloseForm)
 		void HandleOpen(TESObjectREFR* a_target, TESObjectREFR* a_activator) override;  // 01
 
+		static void LinkRandomTeleportDoors(TESObjectREFR* a_door, TESObjectREFR* a_linkedDoor)
+		{
+			using func_t = decltype(&TESObjectDOOR::LinkRandomTeleportDoors);
+			REL::Relocation<func_t> func{ RELOCATION_ID(17539, 17944) };
+			return func(a_door, a_linkedDoor);
+		}
+
 		// members
 		std::uint64_t                        unk90;            // 90
 		BGSSoundDescriptorForm*              openSound;        // 98 - SNAM

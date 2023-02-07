@@ -211,6 +211,7 @@ set(SOURCES
 	include/RE/B/BSFaceGenKeyframe.h
 	include/RE/B/BSFaceGenKeyframeMultiple.h
 	include/RE/B/BSFaceGenManager.h
+	include/RE/B/BSFaceGenModel.h
 	include/RE/B/BSFaceGenNiNode.h
 	include/RE/B/BSFadeNode.h
 	include/RE/B/BSFile.h
@@ -219,8 +220,6 @@ set(SOURCES
 	include/RE/B/BSGameSound.h
 	include/RE/B/BSGamepadDevice.h
 	include/RE/B/BSGeometry.h
-	include/RE/B/BSGraphicsRenderTargetManager.h
-	include/RE/B/BSGraphicsRenderTargetProperties.h
 	include/RE/B/BSHandleRefObject.h
 	include/RE/B/BSIInputDevice.h
 	include/RE/B/BSIMusicTrack.h
@@ -294,6 +293,7 @@ set(SOURCES
 	include/RE/B/BSScaleformTranslator.h
 	include/RE/B/BSScriptObjectBindPolicy.h
 	include/RE/B/BSShader.h
+	include/RE/B/BSShaderManager.h
 	include/RE/B/BSShaderMaterial.h
 	include/RE/B/BSShaderProperty.h
 	include/RE/B/BSShaderPropertyLightData.h
@@ -369,6 +369,7 @@ set(SOURCES
 	include/RE/B/BooksRead.h
 	include/RE/B/BottomBar.h
 	include/RE/B/ButtonEvent.h
+	include/RE/B/bhkBackfaceContactListener.h
 	include/RE/B/bhkCachingShapePhantom.h
 	include/RE/B/bhkCharProxyController.h
 	include/RE/B/bhkCharacterController.h
@@ -385,6 +386,7 @@ set(SOURCES
 	include/RE/B/bhkCollisionObject.h
 	include/RE/B/bhkCompressedMeshShape.h
 	include/RE/B/bhkCompressedMeshShapeData.h
+	include/RE/B/bhkContactListener.h
 	include/RE/B/bhkEntity.h
 	include/RE/B/bhkListShape.h
 	include/RE/B/bhkMeshMaterial.h
@@ -658,6 +660,7 @@ set(SOURCES
 	include/RE/E/ExtraWeaponIdleSound.h
 	include/RE/E/ExtraWorn.h
 	include/RE/E/ExtraWornLeft.h
+	include/RE/F/FOCollisionListener.h
 	include/RE/F/FORM.h
 	include/RE/F/FORM_ENUM_STRING.h
 	include/RE/F/FactionRank.h
@@ -1194,6 +1197,8 @@ set(SOURCES
 	include/RE/R/RegisterPrefix.h
 	include/RE/R/RemoveCallbackVisitor.h
 	include/RE/R/RemoveItemFunctor.h
+	include/RE/R/RenderTargetManager.h
+	include/RE/R/RenderTargetProperties.h
 	include/RE/R/Request.h
 	include/RE/R/RunHandler.h
 	include/RE/RTTI.h
@@ -1416,6 +1421,7 @@ set(SOURCES
 	include/RE/U/UIMessage.h
 	include/RE/U/UIMessageQueue.h
 	include/RE/U/UISaveLoadManager.h
+	include/RE/U/UnlinkedTypes.h
 	include/RE/U/UserEventEnabled.h
 	include/RE/U/UserEvents.h
 	include/RE/V/VATS.h
@@ -1524,6 +1530,7 @@ set(SOURCES
 	src/RE/D/DisarmedEvent.cpp
 	src/RE/D/DragonSoulsGained.cpp
 	src/RE/E/Effect.cpp
+	src/RE/E/EffectArchetypes.cpp
 	src/RE/E/ExtraAliasInstanceArray.cpp
 	src/RE/E/ExtraAshPileRef.cpp
 	src/RE/E/ExtraCanTalkToPlayer.cpp
@@ -1623,6 +1630,7 @@ set(SOURCES
 	src/RE/M/MagicItem.cpp
 	src/RE/M/MagicTarget.cpp
 	src/RE/M/Main.cpp
+	src/RE/M/MaterialIDs.cpp
 	src/RE/M/MemoryPage.cpp
 	src/RE/M/MenuControls.cpp
 	src/RE/M/MenuEventHandler.cpp
@@ -1725,6 +1733,7 @@ set(SOURCES
 	src/RE/U/UI.cpp
 	src/RE/U/UIBlurManager.cpp
 	src/RE/U/UIMessageQueue.cpp
+	src/RE/U/UnlinkedTypes.cpp
 	src/RE/U/UserEvents.cpp
 	src/RE/V/Variable.cpp
 	src/RE/V/VirtualMachine.cpp

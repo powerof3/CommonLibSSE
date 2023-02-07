@@ -517,6 +517,7 @@ namespace RE
 		const TESPackage*            GetCurrentPackage() const;
 		InventoryEntryData*          GetEquippedEntryData(bool a_leftHand) const;
 		TESForm*                     GetEquippedObject(bool a_leftHand) const;
+		float                        GetEquippedWeight();
 		std::int32_t                 GetGoldAmount();
 		ActorHandle                  GetHandle();
 		[[nodiscard]] NiAVObject*    GetHeadPartObject(BGSHeadPart::HeadPartType a_type);
@@ -656,6 +657,7 @@ namespace RE
 	private:
 		void        AddWornOutfit(BGSOutfit* a_outfit, bool a_forceUpdate);
 		void        CalculateCurrentVendorFaction() const;
+		float       CalcEquippedWeight();
 		TESFaction* GetCrimeFactionImpl() const;
 		void        RemoveOutfitItems(BGSOutfit* a_outfit);
 	};

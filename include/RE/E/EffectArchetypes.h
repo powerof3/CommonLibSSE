@@ -56,4 +56,49 @@ namespace RE
 			kVampireLord = 46
 		};
 	};
+	using EffectArchetype = EffectArchetypes::ArchetypeID;
+
+	[[nodiscard]] std::string_view EffectArchetypeToString(EffectArchetype a_archetype) noexcept;
 }
+
+namespace std
+{
+	[[nodiscard]] inline std::string to_string(RE::EffectArchetype a_archetype)
+	{
+		return RE::EffectArchetypeToString(a_archetype).data();
+	}
+}
+
+namespace fmt
+{
+	template <>
+	struct formatter<RE::EffectArchetype>
+	{
+		template <class ParseContext>
+		constexpr auto parse(ParseContext& a_ctx)
+		{
+			return a_ctx.begin();
+		}
+
+		template <class FormatContext>
+		auto format(const RE::EffectArchetype& a_archetype, FormatContext& a_ctx)
+		{
+			return fmt::format_to(a_ctx.out(), "{}", RE::EffectArchetypeToString(a_archetype));
+		}
+	};
+}
+
+#ifdef __cpp_lib_format
+namespace std
+{
+	template <class CharT>
+	struct formatter<RE::EffectArchetype, CharT> : std::formatter<std::string_view, CharT>
+	{
+		template <class FormatContext>
+		auto format(RE::EffectArchetype a_archetype, FormatContext& a_ctx)
+		{
+			return formatter<std::string_view, CharT>::format(RE::EffectArchetypeToString(a_archetype), a_ctx);
+		}
+	};
+}
+#endif

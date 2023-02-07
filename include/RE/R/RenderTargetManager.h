@@ -1,7 +1,7 @@
 #pragma once
 
-#include "RE/B/BSGraphicsRenderTargetProperties.h"
 #include "RE/B/BSShaderRenderTargets.h"
+#include "RE/R/RenderTargetProperties.h"
 
 namespace RE
 {

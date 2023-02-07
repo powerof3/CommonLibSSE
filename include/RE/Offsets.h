@@ -43,7 +43,7 @@ namespace RE
 
 		namespace BGSFootstepManager
 		{
-			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(401262));
+			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(403553));
 		}
 
 		namespace BGSListForm

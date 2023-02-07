@@ -94,4 +94,48 @@ namespace RE
 		kDLC1SwingingBridge = 4239621792,
 		kBoulderMedium = 4283869410
 	};
+
+	[[nodiscard]] std::string_view MaterialIDToString(MATERIAL_ID a_materialID) noexcept;
 }
+
+namespace std
+{
+	[[nodiscard]] inline std::string to_string(RE::MATERIAL_ID a_materialID)
+	{
+		return RE::MaterialIDToString(a_materialID).data();
+	}
+}
+
+namespace fmt
+{
+	template <>
+	struct formatter<RE::MATERIAL_ID>
+	{
+		template <class ParseContext>
+		constexpr auto parse(ParseContext& a_ctx)
+		{
+			return a_ctx.begin();
+		}
+
+		template <class FormatContext>
+		auto format(const RE::MATERIAL_ID& a_materialID, FormatContext& a_ctx)
+		{
+			return fmt::format_to(a_ctx.out(), "{}", RE::MaterialIDToString(a_materialID));
+		}
+	};
+}
+
+#ifdef __cpp_lib_format
+namespace std
+{
+	template <class CharT>
+	struct formatter<RE::MATERIAL_ID, CharT> : std::formatter<std::string_view, CharT>
+	{
+		template <class FormatContext>
+		auto format(RE::MATERIAL_ID a_materialID, FormatContext& a_ctx)
+		{
+			return formatter<std::string_view, CharT>::format(RE::MaterialIDToString(a_materialID), a_ctx);
+		}
+	};
+}
+#endif

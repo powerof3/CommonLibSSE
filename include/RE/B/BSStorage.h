@@ -35,11 +35,11 @@ namespace RE
 		virtual BSStorageDefs::ErrorCode Write(std::size_t a_numBytes, const std::byte* a_bytes) = 0;               // 05
 
 		// members
-		bool          unk0C;  // 0C
-		bool          unk0D;  // 0D
-		uint16_t      unk0E;  // 0E
-		UnkData*      unk10;  // 10
-		std::uint64_t unk18;  // 18
+		bool          swapBytes;  // 0C
+		bool          unk0D;      // 0D
+		uint16_t      unk0E;      // 0E
+		UnkData*      unk10;      // 10
+		std::uint64_t unk18;      // 18
 	};
 	static_assert(sizeof(BSStorage) == 0x20);
 }

@@ -327,6 +327,14 @@ namespace RE
 		}
 	}
 
+	float Actor::GetEquippedWeight()
+	{
+		if (equippedWeight < 0.0f) {
+			return CalcEquippedWeight();
+		}
+		return equippedWeight;
+	}
+
 	std::int32_t Actor::GetGoldAmount()
 	{
 		const auto inv = GetInventory([](TESBoundObject& a_object) -> bool {
@@ -983,6 +991,13 @@ namespace RE
 	{
 		using func_t = decltype(&Actor::CalculateCurrentVendorFaction);
 		REL::Relocation<func_t> func{ RELOCATION_ID(36392, 37383) };
+		return func(this);
+	}
+
+	float Actor::CalcEquippedWeight()
+	{
+		using func_t = decltype(&Actor::CalcEquippedWeight);
+		REL::Relocation<func_t> func{ RELOCATION_ID(37016, 38044) };
 		return func(this);
 	}
 

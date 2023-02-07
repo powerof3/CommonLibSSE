@@ -89,6 +89,8 @@ namespace RE
 				kFormRetainsID = 1 << 22,
 				kDestroyed = 1 << 23,
 
+				kUnk24 = 1 << 24,
+
 				kNoAIAcquire = 1 << 25,
 				kObstacle = 1 << 25,
 

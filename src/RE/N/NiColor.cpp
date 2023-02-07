@@ -27,4 +27,11 @@ namespace RE
 
 		return fmt::format("{:X}{:X}{:X}", r, g, b);
 	}
+
+	NiColorA::NiColorA(const Color& a_rhs) :
+		red(a_rhs.red / 255.0f),
+		green(a_rhs.green / 255.0f),
+		blue(a_rhs.blue / 255.0f),
+		alpha(0.0f)
+	{}
 }

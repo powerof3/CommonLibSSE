@@ -49,10 +49,9 @@ namespace RE
 
 		if (rigidBody && rigidBody->referencedObject) {
 			if (const auto havokRigidBody = static_cast<hkpRigidBody*>(rigidBody->referencedObject.get())) {
-				const auto collidable = havokRigidBody->GetCollidable();
-				const auto clFilterInfo = collidable->broadPhaseHandle.collisionFilterInfo;
-
-				return static_cast<COL_LAYER>(clFilterInfo & 0x7F);
+				if (const auto collidable = havokRigidBody->GetCollidable()) {
+					return collidable->GetCollisionLayer();
+				}
 			}
 		}
 

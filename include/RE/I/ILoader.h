@@ -1,16 +1,12 @@
 #pragma once
 
 #include "RE/B/BSTSmartPointer.h"
+#include "RE/U/UnlinkedTypes.h"
 
 namespace RE
 {
 	namespace BSScript
 	{
-		namespace UnlinkedTypes
-		{
-			class Object;
-		}
-
 		class IStore;
 
 		struct ILoader

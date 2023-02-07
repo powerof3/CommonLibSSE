@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/C/CollisionLayers.h"
 #include "RE/H/hkpCdBody.h"
 #include "RE/H/hkpShape.h"
 #include "RE/H/hkpTypedBroadPhaseHandle.h"
@@ -47,6 +48,11 @@ namespace RE
 			hkpShapeKey*  childShapeKeys;           // 30
 		};
 		static_assert(sizeof(BoundingVolumeData) == 0x38);
+
+		[[nodiscard]] COL_LAYER GetCollisionLayer() const
+		{
+			return static_cast<COL_LAYER>(broadPhaseHandle.collisionFilterInfo & 0x7F);
+		}
 
 		[[nodiscard]] void* GetOwner() const
 		{

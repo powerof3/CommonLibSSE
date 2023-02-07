@@ -313,6 +313,7 @@ namespace RE
 			alpha(a_alpha)
 		{}
 
+		NiColorA(const Color& a_rhs);
 		~NiColorA() noexcept = default;
 
 		constexpr NiColorA& operator=(const NiColorA& a_rhs) noexcept

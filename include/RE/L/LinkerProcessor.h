@@ -18,6 +18,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_BSScript__LinkerProcessor;
+			inline static constexpr auto VTABLE = VTABLE_BSScript__LinkerProcessor;
 
 			~LinkerProcessor() override;  // 00
 
@@ -30,7 +31,7 @@ namespace RE
 			IVirtualMachine*                                            vm;                  // 08
 			ErrorLogger*                                                errorHandler;        // 10
 			ILoader*                                                    loader;              // 18
-			std::uint64_t                                               unk20;               // 20
+			bool                                                        allowRelinking;      // 20 - whether to allow relinking when calling `Process` on already linked class
 			BSScrapArray<BSFixedString>                                 loadedParents;       // 28
 			BSScrapArray<BSFixedString>                                 objectsToTypecheck;  // 48
 			BSScrapArray<BSFixedString>                                 processQueue;        // 68
