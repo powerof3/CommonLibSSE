@@ -118,6 +118,13 @@ namespace RE
 			template <class F>
 			void RegisterFunction(std::string_view a_fnName, std::string_view a_className, F a_callback, bool a_callableFromTasklets = false);
 
+			template <class R, class F>
+			void RegisterLatentFunction(std::string_view a_fnName, std::string_view a_className, F a_callback, bool a_callableFromTasklets = false);
+
+			template <class V>
+			requires is_return_convertible_v<V>
+			void ReturnLatentResult(VMStackID a_stackID, V result);
+
 			void SetCallableFromTasklets(const char* a_className, const char* a_stateName, const char* a_fnName, bool a_callable);
 			void SetCallableFromTasklets(const char* a_className, const char* a_fnName, bool a_callable);
 			void TraceForm(TESForm* a_form, const char* a_str, VMStackID a_stackID, Severity a_severity = Severity::kError);

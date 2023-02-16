@@ -232,7 +232,20 @@ namespace RE
 				is_valid_short_sig<R, Cls, Args...>>
 		{};
 
+		template <class R, class Int, class F, class Cls, class... Args>
+		struct is_valid_latent_long_sig :
+			std::conjunction<
+				is_return_convertible<R>,
+				is_integral<Int>,
+				std::bool_constant<sizeof(F) == 1>,
+				std::is_enum<F>,
+				is_valid_short_sig<F, Cls, Args...>>
+		{};
+
 		template <class Int, class R, class Cls, class... Args>
 		inline constexpr bool is_valid_long_sig_v = is_valid_long_sig<Int, R, Cls, Args...>::value;
+
+		template <class R, class Int, class F, class Cls, class... Args>
+		inline constexpr bool is_valid_latent_long_sig_v = is_valid_latent_long_sig<R, Int, F, Cls, Args...>::value;
 	}
 }

@@ -1,10 +1,9 @@
 #pragma once
 
-#include "RE/N/NiPoint3.h"
-
 namespace RE
 {
 	class NiAVObject;
+	class NiPoint3;
 
 	struct BSSoundHandle
 	{
@@ -33,7 +32,9 @@ namespace RE
 		BSSoundHandle();
 		~BSSoundHandle() = default;
 
+		bool               FadeInPlay(std::uint16_t a_fadeTimeMS);
 		bool               FadeOutAndRelease(std::uint16_t a_fadeTimeMS);
+		[[nodiscard]] bool IsPlaying() const;
 		[[nodiscard]] bool IsValid() const;
 		bool               SetFrequency(float a_frequency);
 		bool               SetPosition(NiPoint3 a_pos);

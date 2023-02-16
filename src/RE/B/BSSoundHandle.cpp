@@ -1,5 +1,7 @@
 #include "RE/B/BSSoundHandle.h"
 
+#include "RE/N/NiPoint3.h"
+
 namespace RE
 {
 	BSSoundHandle::BSSoundHandle() :
@@ -10,11 +12,25 @@ namespace RE
 		state(AssumedState::kInitialized)
 	{}
 
+	bool BSSoundHandle::FadeInPlay(std::uint16_t a_fadeTimeMS)
+	{
+		using func_t = decltype(&BSSoundHandle::FadeInPlay);
+		REL::Relocation<func_t> func{ RELOCATION_ID(66384, 67645) };
+		return func(this, a_fadeTimeMS);
+	}
+
 	bool BSSoundHandle::FadeOutAndRelease(std::uint16_t a_fadeTimeMS)
 	{
 		using func_t = decltype(&BSSoundHandle::FadeOutAndRelease);
 		REL::Relocation<func_t> func{ RELOCATION_ID(66385, 67646) };
 		return func(this, a_fadeTimeMS);
+	}
+
+	bool BSSoundHandle::IsPlaying() const
+	{
+		using func_t = decltype(&BSSoundHandle::IsPlaying);
+		REL::Relocation<func_t> func{ RELOCATION_ID(66359, 67620) };
+		return func(this);
 	}
 
 	bool BSSoundHandle::IsValid() const

@@ -873,6 +873,13 @@ namespace RE
 		return func(this, a_armor, a_extraData);
 	}
 
+	void Actor::UpdateAwakeSound(NiAVObject* a_obj3D)
+	{
+		using func_t = decltype(&Actor::UpdateAwakeSound);
+		REL::Relocation<func_t> func{ RELOCATION_ID(36943, 37968) };
+		return func(this, a_obj3D);
+	}
+
 	void Actor::Update3DModel()
 	{
 		if (currentProcess) {

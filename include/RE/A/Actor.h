@@ -584,6 +584,7 @@ namespace RE
 		void                         SwitchRace(TESRace* a_race, bool a_player);
 		void                         TrespassAlarm(TESObjectREFR* a_ref, TESForm* a_ownership, std::int32_t a_crime);
 		void                         UpdateArmorAbility(TESForm* a_armor, ExtraDataList* a_extraData);
+		void                         UpdateAwakeSound(NiAVObject* a_obj3D);
 		void                         Update3DModel();
 		void                         UpdateHairColor();
 		void                         UpdateSkinColor();

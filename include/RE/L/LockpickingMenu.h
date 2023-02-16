@@ -5,6 +5,7 @@
 #include "RE/I/IMenu.h"
 #include "RE/M/MenuEventHandler.h"
 #include "RE/N/NiMatrix3.h"
+#include "RE/N/NiPoint3.h"
 
 namespace RE
 {

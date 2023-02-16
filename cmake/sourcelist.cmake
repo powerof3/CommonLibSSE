@@ -391,10 +391,12 @@ set(SOURCES
 	include/RE/B/bhkListShape.h
 	include/RE/B/bhkMeshMaterial.h
 	include/RE/B/bhkNiCollisionObject.h
+	include/RE/B/bhkPCollisionObject.h
 	include/RE/B/bhkPhantom.h
 	include/RE/B/bhkPickData.h
 	include/RE/B/bhkRefObject.h
 	include/RE/B/bhkRigidBody.h
+	include/RE/B/bhkSPCollisionObject.h
 	include/RE/B/bhkSerializable.h
 	include/RE/B/bhkShape.h
 	include/RE/B/bhkShapeCollection.h
@@ -1059,6 +1061,7 @@ set(SOURCES
 	include/RE/M/MultiBoundMarkerData.h
 	include/RE/N/NativeFunction.h
 	include/RE/N/NativeFunctionBase.h
+	include/RE/N/NativeLatentFunction.h
 	include/RE/N/NavMesh.h
 	include/RE/N/NavMeshInfoMap.h
 	include/RE/N/NiAVObject.h
@@ -1279,6 +1282,7 @@ set(SOURCES
 	include/RE/T/TESBoundObject.h
 	include/RE/T/TESCamera.h
 	include/RE/T/TESCameraState.h
+	include/RE/T/TESCellAttachDetachEvent.h
 	include/RE/T/TESCellFullyLoadedEvent.h
 	include/RE/T/TESChildCell.h
 	include/RE/T/TESClass.h
