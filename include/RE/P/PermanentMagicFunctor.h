@@ -12,11 +12,11 @@ namespace RE
 	{
 		enum class Flags
 		{
-		    kNone = 0,
+			kNone = 0,
 			kRemoveHitEffectArt = 1 << 0
 		};
 
-	    PermanentMagicFunctor(MagicCaster* a_caster, Actor* a_actor) :
+		PermanentMagicFunctor(MagicCaster* a_caster, Actor* a_actor) :
 			caster(a_caster),
 			actor(a_actor)
 		{
@@ -31,7 +31,7 @@ namespace RE
 		}
 
 		// members
-	    MagicCaster*  caster;                 // 00
+		MagicCaster*  caster;                 // 00
 		Actor*        actor;                  // 08
 		std::uint8_t  isSpellType{ 0xFF };    // 10
 		std::uint8_t  isNotSpellType{ 0xA };  // 11
