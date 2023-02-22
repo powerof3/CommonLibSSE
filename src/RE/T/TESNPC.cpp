@@ -227,6 +227,12 @@ namespace RE
 		return false;
 	}
 
+	bool TESNPC::SetDefaultOutfit(BGSOutfit* a_outfit)
+	{
+		defaultOutfit = a_outfit;
+		return AddChange(ChangeFlags::kDefaultOutfit);
+	}
+
 	void TESNPC::SetFaceTexture(BGSTextureSet* a_textureSet)
 	{
 		if (!headRelatedData && a_textureSet) {
@@ -254,6 +260,12 @@ namespace RE
 		using func_t = decltype(&TESNPC::SetSkinFromTint);
 		REL::Relocation<func_t> func{ Offset::TESNPC::SetSkinFromTint };
 		return func(this, a_result, a_tintMask, a_fromTint);
+	}
+
+	bool TESNPC::SetSleepOutfit(BGSOutfit* a_outfit)
+	{
+		sleepOutfit = a_outfit;
+		return AddChange(ChangeFlags::kSleepOutfit);
 	}
 
 	void TESNPC::UpdateNeck(BSFaceGenNiNode* a_faceNode)

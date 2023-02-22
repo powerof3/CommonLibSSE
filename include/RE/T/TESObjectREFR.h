@@ -356,6 +356,7 @@ namespace RE
 		static TESObjectREFR*           FindReferenceFor3D(NiAVObject* a_object3D);
 
 		bool                                    ActivateRef(TESObjectREFR* a_activator, uint8_t a_arg2, TESBoundObject* a_object, int32_t a_count, bool a_defaultProcessingOnly);
+		bool                                    CanBeMoved();
 		ObjectRefHandle                         CreateRefHandle();
 		void                                    DoTrap(TrapData& a_data);
 		void                                    DoTrap(TrapEntry* a_trap, TargetEntry* a_target);
@@ -432,6 +433,7 @@ namespace RE
 		bool                                    IsLocked() const;
 		bool                                    IsMarkedForDeletion() const;
 		bool                                    IsOffLimits();
+		bool                                    IsPersistent() const;
 		float                                   IsPointDeepUnderWater(float a_zPos, TESObjectCELL* a_cell) const;
 		bool                                    IsPointSubmergedMoreThan(const NiPoint3& a_pos, TESObjectCELL* a_cell, float a_waterLevel) const;
 		void                                    MoveTo(TESObjectREFR* a_target);

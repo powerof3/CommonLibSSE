@@ -256,9 +256,11 @@ namespace RE
 		bool                         IsInFaction(TESFaction* a_faction) const;
 		bool                         RemovePerk(BGSPerk* a_perk);
 		bool                         RemovePerks(const std::vector<BGSPerk*>& a_perks);
+		bool                         SetDefaultOutfit(BGSOutfit* a_outfit);
 		void                         SetFaceTexture(BGSTextureSet* a_textureSet);
 		void                         SetHairColor(BGSColorForm* a_hairColor);
 		void                         SetSkinFromTint(NiColorA* a_result, TintMask* a_tintMask, bool a_fromTint);
+		bool                         SetSleepOutfit(BGSOutfit* a_outfit);
 		void                         UpdateNeck(BSFaceGenNiNode* a_faceNode);
 
 		// members

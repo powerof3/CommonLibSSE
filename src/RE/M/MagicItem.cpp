@@ -38,9 +38,9 @@ namespace RE
 		return GetData1();
 	}
 
-	bool MagicItem::IsValid() const
+	bool MagicItem::IsPermanent() const
 	{
-		using func_t = decltype(&MagicItem::IsValid);
+		using func_t = decltype(&MagicItem::IsPermanent);
 		REL::Relocation<func_t> func{ RELOCATION_ID(11183, 11290) };
 		return func(this);
 	}

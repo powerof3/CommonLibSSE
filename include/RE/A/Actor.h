@@ -485,8 +485,10 @@ namespace RE
 		bool                         AddAnimationGraphEventSink(BSTEventSink<BSAnimationGraphEvent>* a_sink) const;
 		bool                         AddSpell(SpellItem* a_spell);
 		void                         AddToFaction(TESFaction* a_faction, std::int8_t a_rank);
+		void                         AddWornOutfit(BGSOutfit* a_outfit, bool a_forceUpdate);
 		void                         AllowBleedoutDialogue(bool a_canTalk);
 		void                         AllowPCDialogue(bool a_talk);
+		void                         CastPermanentMagic(bool a_wornItemEnchantments, bool a_baseSpells, bool a_raceSpells, bool a_everyActorAbility);
 		bool                         CanAttackActor(Actor* a_actor);
 		bool                         CanFlyHere() const;
 		bool                         CanOfferServices() const;
@@ -539,6 +541,7 @@ namespace RE
 		[[nodiscard]] TESObjectARMO* GetWornArmor(FormID a_formID);
 		bool                         HasKeywordString(std::string_view a_formEditorID);
 		bool                         HasLineOfSight(TESObjectREFR* a_ref, bool& a_arg2);
+		bool                         HasOutfitItems(BGSOutfit* a_outfit);
 		bool                         HasPerk(BGSPerk* a_perk) const;
 		bool                         HasSpell(SpellItem* a_spell) const;
 		void                         InterruptCast(bool a_restoreMagicka) const;
@@ -571,10 +574,12 @@ namespace RE
 		void                         KillImmediate();
 		void                         RemoveAnimationGraphEventSink(BSTEventSink<BSAnimationGraphEvent>* a_sink) const;
 		void                         RemoveExtraArrows3D();
+		void                         RemoveOutfitItems(BGSOutfit* a_outfit);
 		bool                         RemoveSpell(SpellItem* a_spell);
 		std::int32_t                 RequestDetectionLevel(Actor* a_target, DETECTION_PRIORITY a_priority = DETECTION_PRIORITY::kNormal);
+		bool                         SetDefaultOutfit(BGSOutfit* a_outfit, bool a_update3D);
 		void                         SetLifeState(ACTOR_LIFE_STATE a_lifeState);
-		bool                         SetOutfit(BGSOutfit* a_outfit, bool a_sleepOutfit);
+		bool                         SetSleepOutfit(BGSOutfit* a_outfit, bool a_update3D);
 		void                         SetRotationX(float a_angle);
 		void                         SetRotationZ(float a_angle);
 		void                         StealAlarm(TESObjectREFR* a_ref, TESForm* a_object, std::int32_t a_num, std::int32_t a_total, TESForm* a_owner, bool a_allowWarning);
@@ -656,11 +661,9 @@ namespace RE
 		WinAPI::CRITICAL_SECTION                              unk288;                             // 288 - havok related
 
 	private:
-		void        AddWornOutfit(BGSOutfit* a_outfit, bool a_forceUpdate);
 		void        CalculateCurrentVendorFaction() const;
 		float       CalcEquippedWeight();
 		TESFaction* GetCrimeFactionImpl() const;
-		void        RemoveOutfitItems(BGSOutfit* a_outfit);
 	};
 	static_assert(sizeof(Actor) == 0x2B0);
 }
