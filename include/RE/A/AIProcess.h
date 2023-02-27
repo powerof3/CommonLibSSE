@@ -3,13 +3,16 @@
 #include "RE/A/ActorPackage.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTList.h"
+#include "RE/B/BSTSmartPointer.h"
 
 namespace RE
 {
 	enum class RESET_3D_FLAGS;
 	class Actor;
 	class bhkCharacterController;
+	class BipedAnim;
 	class HighProcess;
+	class NiAVObject;
 	class NiPoint3;
 	class TESForm;
 	struct HighProcessData;
@@ -153,10 +156,12 @@ namespace RE
 		TESForm*                GetEquippedRightHand();
 		ObjectRefHandle         GetHeadtrackTarget() const;
 		[[nodiscard]] bool      GetIsSummonedCreature() const noexcept;
+		NiAVObject*             GetMagicNode(const BSTSmartPointer<BipedAnim>& a_biped) const;
 		ObjectRefHandle         GetOccupiedFurniture() const;
 		TESPackage*             GetRunningPackage() const;
 		Actor*                  GetUserData() const;
 		float                   GetVoiceRecoveryTime() const;
+		NiAVObject*             GetWeaponNode(const BSTSmartPointer<BipedAnim>& a_biped) const;
 		bool                    InHighProcess() const;
 		bool                    InMiddleHighProcess() const;
 		bool                    InMiddleLowProcess() const;

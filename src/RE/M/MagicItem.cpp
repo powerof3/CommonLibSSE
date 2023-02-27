@@ -12,6 +12,13 @@ namespace RE
 		return CalculateCost(a_caster);
 	}
 
+	EffectSetting* MagicItem::GetAVEffectSetting() const
+	{
+		using func_t = decltype(&MagicItem::GetAVEffectSetting);
+		REL::Relocation<func_t> func{ Offset::MagicItem::GetAVEffectSetting };
+		return func(this);
+	}
+
 	Effect* MagicItem::GetCostliestEffectItem(std::uint32_t a_arg1, bool a_arg2)
 	{
 		using func_t = decltype(&MagicItem::GetCostliestEffectItem);

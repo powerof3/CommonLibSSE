@@ -32,6 +32,13 @@ namespace RE
 		return criticalData.damage;
 	}
 
+	NiAVObject* TESObjectWEAP::GetFireNode(NiAVObject* a_root) const
+	{
+		using func_t = decltype(&TESObjectWEAP::GetFireNode);
+		REL::Relocation<func_t> func{ RELOCATION_ID(17689, 18098) };
+		return func(this, a_root);
+	}
+
 	void TESObjectWEAP::GetNodeName(char* a_dstBuff) const
 	{
 		sprintf_s(a_dstBuff, WinAPI::MAX_PATH, "%s  (%08X)", "Weapon", formID);

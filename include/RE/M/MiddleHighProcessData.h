@@ -146,7 +146,7 @@ namespace RE
 		BSTSmartPointer<AnimResponse>                  animResponse;                // 0F8
 		BSTArray<CommandedActorData>                   commandedActors;             // 100
 		NiNode*                                        damageRootNode[6];           // 118
-		std::uint64_t                                  unk148;                      // 148
+		NiAVObject*                                    unk148;                      // 148
 		NiNode*                                        weaponBone;                  // 150
 		NiAVObject*                                    headNode;                    // 158
 		NiAVObject*                                    torsoNode;                   // 160

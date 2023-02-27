@@ -19,9 +19,7 @@ namespace RE
 		PermanentMagicFunctor(MagicCaster* a_caster, Actor* a_actor) :
 			caster(a_caster),
 			actor(a_actor)
-		{
-			flags = (flags & 0xF9) | 1;
-		}
+		{}
 
 		BSContainer::ForEachResult operator()(MagicItem* a_spell)
 		{

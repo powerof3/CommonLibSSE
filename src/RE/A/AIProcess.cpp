@@ -1,5 +1,7 @@
 #include "RE/A/AIProcess.h"
 
+#include "RE/B/BipedAnim.h"
+#include "RE/F/FixedStrings.h"
 #include "RE/F/FormTraits.h"
 #include "RE/H/HighProcessData.h"
 #include "RE/M/MiddleHighProcessData.h"
@@ -57,6 +59,27 @@ namespace RE
 	bool AIProcess::GetIsSummonedCreature() const noexcept
 	{
 		return middleHigh && middleHigh->summonedCreature;
+	}
+
+	NiAVObject* AIProcess::GetMagicNode(const BSTSmartPointer<BipedAnim>& a_biped) const
+	{
+		if (middleHigh && a_biped) {
+			return a_biped->root->GetObjectByName(FixedStrings::GetSingleton()->npcRMagicNode);
+		}
+		return nullptr;
+	}
+
+	NiAVObject* AIProcess::GetWeaponNode(const BSTSmartPointer<BipedAnim>& a_biped) const
+	{
+		if (middleHigh) {
+			if (a_biped) {
+				return a_biped->root->GetObjectByName(FixedStrings::GetSingleton()->weapon);
+			} else {
+				return middleHigh->unk148;
+			}
+		} else {
+			return nullptr;
+		}
 	}
 
 	ObjectRefHandle AIProcess::GetOccupiedFurniture() const

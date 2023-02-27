@@ -11,6 +11,7 @@
 #include "RE/B/bhkCharacterController.h"
 #include "RE/E/ExtraCanTalkToPlayer.h"
 #include "RE/E/ExtraFactionChanges.h"
+#include "RE/F/FixedStrings.h"
 #include "RE/F/FormTraits.h"
 #include "RE/H/HighProcessData.h"
 #include "RE/I/InventoryEntryData.h"
@@ -244,6 +245,29 @@ namespace RE
 		return func(this, a_modifier, a_value);
 	}
 
+	float Actor::GetAimAngle() const
+	{
+		bool aimActive{ false };
+		GetGraphVariableBool(FixedStrings::GetSingleton()->bAimActive, aimActive);
+		if (!aimActive) {
+			return GetAngleX();
+		}
+
+		float aimPitchCurrent;
+		GetGraphVariableFloat(FixedStrings::GetSingleton()->aimPitchCurrent, aimPitchCurrent);
+		return -aimPitchCurrent;
+	}
+
+	float Actor::GetAimHeading() const
+	{
+		const float heading = GetHeading(false);
+
+		float aimHeadingCurrent{ 0.0f };
+		GetGraphVariableFloat(FixedStrings::GetSingleton()->aimHeadingCurrent, aimHeadingCurrent);
+
+		return heading - aimHeadingCurrent;
+	}
+
 	InventoryEntryData* Actor::GetAttackingWeapon()
 	{
 		if (!currentProcess || !currentProcess->high || !currentProcess->high->attackData || !currentProcess->middleHigh) {
@@ -342,11 +366,12 @@ namespace RE
 		return equippedWeight;
 	}
 
-	std::int32_t Actor::GetGoldAmount()
+	std::int32_t Actor::GetGoldAmount(bool a_noInit)
 	{
 		const auto inv = GetInventory([](TESBoundObject& a_object) -> bool {
 			return a_object.IsGold();
-		});
+		},
+			a_noInit);
 
 		const auto dobj = BGSDefaultObjectManager::GetSingleton();
 		if (!dobj) {
@@ -457,9 +482,9 @@ namespace RE
 		return nullptr;
 	}
 
-	TESObjectARMO* Actor::GetSkin(BGSBipedObjectForm::BipedObjectSlot a_slot)
+	TESObjectARMO* Actor::GetSkin(BGSBipedObjectForm::BipedObjectSlot a_slot, bool a_noInit)
 	{
-		if (const auto worn = GetWornArmor(a_slot); worn) {
+		if (const auto worn = GetWornArmor(a_slot, a_noInit); worn) {
 			return worn;
 		}
 		return GetSkin();
@@ -495,11 +520,12 @@ namespace RE
 		return func(this);
 	}
 
-	TESObjectARMO* Actor::GetWornArmor(BGSBipedObjectForm::BipedObjectSlot a_slot)
+	TESObjectARMO* Actor::GetWornArmor(BGSBipedObjectForm::BipedObjectSlot a_slot, bool a_noInit)
 	{
 		const auto inv = GetInventory([](TESBoundObject& a_object) {
 			return a_object.IsArmor();
-		});
+		},
+			a_noInit);
 
 		for (const auto& [item, invData] : inv) {
 			const auto& [count, entry] = invData;
@@ -514,11 +540,12 @@ namespace RE
 		return nullptr;
 	}
 
-	TESObjectARMO* Actor::GetWornArmor(FormID a_formID)
+	TESObjectARMO* Actor::GetWornArmor(FormID a_formID, bool a_noInit)
 	{
 		const auto inv = GetInventory([=](TESBoundObject& a_object) {
 			return a_object.IsArmor() && a_object.GetFormID() == a_formID;
-		});
+		},
+			a_noInit);
 
 		for (const auto& [item, invData] : inv) {
 			const auto& [count, entry] = invData;

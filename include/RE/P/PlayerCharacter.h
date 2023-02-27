@@ -16,6 +16,7 @@
 #include "RE/N/NiSmartPointer.h"
 #include "RE/N/NiTMap.h"
 #include "RE/P/PositionPlayerEvent.h"
+#include "RE/T/TESObjectWEAP.h"
 
 namespace RE
 {
@@ -196,6 +197,15 @@ namespace RE
 			kServingJailTime = 1 << 4
 		};
 
+		struct QueuedWeapon
+		{
+		public:
+			// members
+			TESObjectWEAP* rightHandWeapon;  // 00
+			TESObjectWEAP* leftHandWeapon;   // 08
+		};
+		static_assert(sizeof(QueuedWeapon) == 0x10);
+
 		struct Data928
 		{
 		public:
@@ -370,7 +380,7 @@ namespace RE
 		std::int32_t                                            jailSentence;                                 // 720
 		std::uint32_t                                           pad724;                                       // 724
 		void*                                                   unk728;                                       // 728 - smart ptr
-		std::uint8_t                                            unk730[0xA0];                                 // 730
+		QueuedWeapon                                            queuedWeaponAttachs[WEAPON_TYPE::kTotal];     // 730 - Weapons are attached on next PlayerCharacter::Update
 		std::int32_t                                            vampireFeedDetection;                         // 7D0
 		std::uint32_t                                           mapMarkerIterator;                            // 7D4
 		RefHandle                                               forceActivateRef;                             // 7D8

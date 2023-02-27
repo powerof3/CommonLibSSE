@@ -20,6 +20,7 @@ namespace RE
 		}
 
 		auto bounty = player->GetCrimeGoldValue(this);
+		// At this point, the player has already had their inventory initialized
 		return player->GetGoldAmount() >= static_cast<std::int32_t>(bounty);
 	}
 

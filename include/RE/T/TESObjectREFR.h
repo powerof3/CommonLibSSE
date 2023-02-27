@@ -118,6 +118,8 @@ namespace RE
 		using InventoryItemMap = std::map<TESBoundObject*, std::pair<Count, std::unique_ptr<InventoryEntryData>>>;
 		using InventoryDropMap = std::map<TESBoundObject*, std::pair<Count, std::vector<ObjectRefHandle>>>;
 
+		static inline constexpr auto DEFAULT_INVENTORY_FILTER = [](TESBoundObject&) { return true; };
+
 		enum class MotionType  // hkpMotion::MotionType
 		{
 			kDynamic = 1,
@@ -348,7 +350,7 @@ namespace RE
 		virtual bool                              ApplyCurrent(float a_velocityTime, const hkVector4& a_velocity);                                                                                                                                             // 9D - { return 0; }
 		virtual TESAmmo*                          GetCurrentAmmo() const;                                                                                                                                                                                      // 9E - { return 0; }
 		virtual BGSDecalGroup*                    GetDecalGroup() const;                                                                                                                                                                                       // 9F
-		virtual void                              Unk_A0(void);                                                                                                                                                                                                // A0
+		virtual bool                              Unk_A0(NiAVObject* a_node, float& a_angleX, float& a_angleZ, NiPoint3& a_pos) const;                                                                                                                         // A0
 		virtual void                              UnequipItem(std::uint64_t a_arg1, TESBoundObject* a_object);                                                                                                                                                 // A1 - { return; }
 
 		static NiPointer<TESObjectREFR> LookupByHandle(RefHandle a_refHandle);
@@ -386,11 +388,11 @@ namespace RE
 		float                                   GetHeadingAngle(const RE::NiPoint3& a_pos, bool a_abs);
 		float                                   GetHeight() const;
 		InventoryItemMap                        GetInventory();
-		InventoryItemMap                        GetInventory(std::function<bool(TESBoundObject&)> a_filter);
-		std::int32_t                            GetInventoryCount();
+		InventoryItemMap                        GetInventory(std::function<bool(TESBoundObject&)> a_filter, bool a_noInit = false);
+		std::int32_t                            GetInventoryCount(bool no_init = false);
 		InventoryCountMap                       GetInventoryCounts();
-		InventoryCountMap                       GetInventoryCounts(std::function<bool(TESBoundObject&)> a_filter);
-		InventoryChanges*                       GetInventoryChanges();
+		InventoryCountMap                       GetInventoryCounts(std::function<bool(TESBoundObject&)> a_filter, bool a_noInit = false);
+		InventoryChanges*                       GetInventoryChanges(bool a_noInit = false);
 		TESObjectREFR*                          GetLinkedRef(BGSKeyword* a_keyword);
 		REFR_LOCK*                              GetLock() const;
 		LOCK_LEVEL                              GetLockLevel() const;

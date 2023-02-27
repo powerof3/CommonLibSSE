@@ -15,6 +15,7 @@
 
 namespace RE
 {
+	class Actor;
 	class bhkCollisionObject;
 	class bhkShape;
 	class bhkSimpleShapePhantom;
@@ -52,12 +53,27 @@ namespace RE
 			BSTArray<WobbleControl>    wobble;          // 58
 		};
 
+		struct ProjectileRot
+		{
+		public:
+			// members
+			float x;
+			float z;
+		};
+		static_assert(sizeof(ProjectileRot) == 0x08);
+
 		struct LaunchData
 		{
+		public:
 			inline static constexpr auto RTTI = RTTI_Projectile__LaunchData;
 			inline static constexpr auto VTABLE = VTABLE_Projectile__LaunchData;
 
-			virtual ~LaunchData();
+			virtual ~LaunchData() = default;
+
+			LaunchData() = default;
+			LaunchData(BGSProjectile* a_bproj, Actor* a_shooter, const NiPoint3& a_origin, const ProjectileRot& a_angles);
+			LaunchData(Actor* a_shooter, const NiPoint3& a_origin, const ProjectileRot& a_angles, MagicItem* a_spell);
+			LaunchData(Actor* a_shooter, const NiPoint3& a_origin, const ProjectileRot& a_angles, TESAmmo* a_ammo, TESObjectWEAP* a_weap);
 
 			// members
 			NiPoint3                   origin;                 // 08
@@ -76,7 +92,7 @@ namespace RE
 			TESObjectCELL*             parentCell;             // 68
 			MagicItem*                 spell;                  // 70
 			MagicSystem::CastingSource castingSource;          // 78
-			std::uint32_t              unk7C;                  // 7C
+			std::uint32_t              pad7C;                  // 7C
 			EnchantmentItem*           enchantItem;            // 80
 			AlchemyItem*               poison;                 // 88
 			std::int32_t               area;                   // 90
@@ -111,6 +127,43 @@ namespace RE
 			std::uint8_t                              unk49;               // 49
 		};
 		static_assert(sizeof(ImpactData) == 0x50);
+
+		enum class Flags
+		{
+			kNone = 0,
+			kUnk0 = 1 << 0,
+			kNotAddThreat = 1 << 1,
+			kUnk2 = 1 << 2,
+			kUnk3 = 1 << 3,
+			kIsTracer = 1 << 4,
+			kFading = 1 << 5,
+			kGravityUpdateModel = 1 << 6,
+			kUnk7 = 1 << 7,
+			kInited = 1 << 8,
+			kUnk9 = 1 << 9,
+			kUnk10 = 1 << 10,
+			kUnk11 = 1 << 11,
+			kAlwaysHit = 1 << 12,
+			kHitScan = 1 << 13,
+			kUnk14 = 1 << 14,
+			kDestroyAfterHit = 1 << 15,
+			kAddedToManager = 1 << 16,
+			kNoDamageOutsideCombat = 1 << 17,
+			kCanStartTrails = 1 << 18,
+			kAggressiveActor = 1 << 19,
+			kAddedVisualEffectOnGround = 1 << 20,
+			kAutoAim = 1 << 21,
+			kProcessedImpacts = 1 << 22,
+			kUnk23 = 1 << 23,
+			kUnk24 = 1 << 24,
+			kDestroyed = 1 << 25,
+			kUnk26 = 1 << 26,
+			kUnk27 = 1 << 27,
+			kIsDual = 1 << 28,
+			kUseOrigin = 1 << 29,
+			kUnk30 = 1 << 30,
+			kMoved = 1 << 31
+		};
 
 		~Projectile() override;  // 00
 
@@ -170,52 +223,60 @@ namespace RE
 		virtual void          Handle3DLoaded();                                                                                                                                                  // C0 - { return; }
 		virtual bool          ShouldUseDesiredTarget();                                                                                                                                          // C1 - { return 0; }
 
-		float GetHeight() const;
-		float GetSpeed() const;
+		BGSProjectile* GetProjectileBase() const;
+		float          GetHeight() const;
+		float          GetSpeed() const;
 
-		static BSPointerHandle<Projectile>* Launch(BSPointerHandle<Projectile>* a_result, LaunchData& a_data) noexcept;
+		static ProjectileHandle* Launch(ProjectileHandle* a_result, LaunchData& a_data) noexcept;
+		static ProjectileHandle* LaunchSpell(ProjectileHandle* a_result, Actor* a_shooter, SpellItem* a_spell, const NiPoint3& a_origin, const ProjectileRot& a_angles) noexcept;
+		static ProjectileHandle* LaunchSpell(ProjectileHandle* a_result, Actor* a_shooter, SpellItem* a_spell, MagicSystem::CastingSource a_source) noexcept;
+		static ProjectileHandle* LaunchArrow(ProjectileHandle* a_result, Actor* a_shooter, TESAmmo* a_ammo, TESObjectWEAP* a_weap, const NiPoint3& a_origin, const ProjectileRot& a_angles) noexcept;
+		static ProjectileHandle* LaunchArrow(ProjectileHandle* a_result, Actor* a_shooter, TESAmmo* a_ammo, TESObjectWEAP* a_weap) noexcept;
 
 		// members
-		BSSimpleList<ImpactData*>  impacts;            // 098
-		NiTransform                unk0A8;             // 0A8
-		float                      unk0DC;             // 0DC
-		bhkSimpleShapePhantom*     unk0E0;             // 0E0 - smart ptr
-		mutable BSSpinLock         unk0E8;             // 0E8
-		NiPoint3                   velocity;           // 0F0
-		NiPoint3                   linearVelocity;     // 0FC
-		void*                      unk108;             // 108 - smart ptr
-		void*                      unk110;             // 110 - smart ptr
-		NiPointer<ActorCause>      actorCause;         // 118
-		ObjectRefHandle            shooter;            // 120
-		ObjectRefHandle            desiredTarget;      // 124
-		BSSoundHandle              sndHandle;          // 128
-		BSSoundHandle              sndCountdown;       // 134
-		std::uint32_t*             unk140;             // 140
-		InventoryEntryData*        unk148;             // 148
-		BGSExplosion*              explosion;          // 150
-		MagicItem*                 spell;              // 158
-		MagicSystem::CastingSource castingSource;      // 160
-		std::uint32_t              pad164;             // 164
-		EffectSetting*             avEffect;           // 168
-		NiPointer<QueuedFile>      projectileDBFiles;  // 170
-		std::uint64_t              unk178;             // 178
-		std::uint64_t              unk180;             // 180
-		float                      power;              // 188 - 14074B774
-		float                      speedMult;          // 18C - 1407501B2
-		float                      range;              // 190
-		float                      livingTime;         // 194
-		float                      weaponDamage;       // 198
-		float                      transparency;       // 19C - for beam disappearing
-		std::uint64_t              unk1A0;             // 1A0
-		float                      unk1A8;             // 1A8
-		float                      unk1AC;             // 1AC
-		TESObjectWEAP*             weaponSource;       // 1B0
-		TESAmmo*                   ammoSource;         // 1B8
-		float                      distanceMoved;      // 1C0
-		std::uint32_t              unk1C4;             // 1C4 - pad?
-		float                      scale;              // 1C8 - for double cast model scale
-		std::uint32_t              flags;              // 1CC
-		std::uint64_t              unk1D0;             // 1D0
+		BSSimpleList<ImpactData*>              impacts;            // 098
+		NiTransform                            unk0A8;             // 0A8
+		float                                  unk0DC;             // 0DC
+		bhkSimpleShapePhantom*                 unk0E0;             // 0E0 - smart ptr
+		mutable BSSpinLock                     unk0E8;             // 0E8
+		NiPoint3                               velocity;           // 0F0
+		NiPoint3                               linearVelocity;     // 0FC
+		void*                                  unk108;             // 108 - smart ptr
+		void*                                  unk110;             // 110 - smart ptr
+		NiPointer<ActorCause>                  actorCause;         // 118
+		ObjectRefHandle                        shooter;            // 120
+		ObjectRefHandle                        desiredTarget;      // 124
+		BSSoundHandle                          sndHandle;          // 128
+		BSSoundHandle                          sndCountdown;       // 134
+		std::uint32_t*                         unk140;             // 140
+		InventoryEntryData*                    unk148;             // 148
+		BGSExplosion*                          explosion;          // 150
+		MagicItem*                             spell;              // 158
+		MagicSystem::CastingSource             castingSource;      // 160
+		std::uint32_t                          pad164;             // 164
+		EffectSetting*                         avEffect;           // 168
+		NiPointer<QueuedFile>                  projectileDBFiles;  // 170
+		std::uint64_t                          unk178;             // 178
+		std::uint64_t                          unk180;             // 180
+		float                                  power;              // 188
+		float                                  speedMult;          // 18C
+		float                                  range;              // 190
+		float                                  livingTime;         // 194
+		float                                  weaponDamage;       // 198
+		float                                  transparency;       // 19C - for beam disappearing
+		float                                  ExplosionTimer;     // 1A0
+		std::uint32_t                          unk1A4;             // 1A4
+		float                                  unk1A8;             // 1A8 - 0.0f
+		float                                  unk1AC;             // 1AC - 0.0f
+		TESObjectWEAP*                         weaponSource;       // 1B0
+		TESAmmo*                               ammoSource;         // 1B8
+		float                                  distanceMoved;      // 1C0
+		std::uint32_t                          pad_1C4;            // 1C4
+		float                                  scale;              // 1C8 - for double cast model scale
+		stl::enumeration<Flags, std::uint32_t> flags;              // 1CC
+		bool                                   unk1D0;             // 1D0
+		bool                                   unk1D1;             // 1D0
+		char                                   unk1D2[6];          // 1D2
 	};
 
 	static_assert(sizeof(Projectile) == 0x1D8);
