@@ -7,6 +7,7 @@
 #include "RE/B/BSTEvent.h"
 #include "RE/B/BSTList.h"
 #include "RE/B/BSTSmartPointer.h"
+#include "RE/B/BipedObjects.h"
 #include "RE/E/ExtraDataList.h"
 #include "RE/F/FormTypes.h"
 #include "RE/H/hkVector4.h"
@@ -320,7 +321,7 @@ namespace RE
 		virtual const BSTSmartPointer<BipedAnim>& GetBiped2() const;                                                                                                                                                                                           // 7F
 		virtual const BSTSmartPointer<BipedAnim>& GetCurrentBiped() const;                                                                                                                                                                                     // 80 - { return GetBiped2(); }
 		virtual void                              SetBiped(const BSTSmartPointer<BipedAnim>& a_biped);                                                                                                                                                         // 81 - { return; }
-		virtual void                              Unk_82(void);                                                                                                                                                                                                // 82 - { return; }
+		virtual void                              RemoveWeapon(BIPED_OBJECT equipIndex);                                                                                                                                                                       // 82 - { return; }
 		virtual void                              Unk_83(void);                                                                                                                                                                                                // 83 - { return; }
 		virtual void                              SetObjectReference(TESBoundObject* a_object);                                                                                                                                                                // 84 - sets flag 24 if the object has destructibles
 		virtual void                              MoveHavok(bool a_forceRec);                                                                                                                                                                                  // 85

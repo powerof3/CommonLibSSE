@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSContainer.h"
 #include "RE/B/BSPointerHandle.h"
 #include "RE/B/BSTList.h"
 #include "RE/B/BSTSmartPointer.h"
@@ -31,10 +32,10 @@ namespace RE
 		public:
 			inline static constexpr auto RTTI = RTTI_MagicTarget__ForEachActiveEffectVisitor;
 
-			virtual ~ForEachActiveEffectVisitor();  // 00
+			virtual ~ForEachActiveEffectVisitor(){};  // 00
 
 			// add
-			virtual bool Accept(ActiveEffect* a_effect) = 0;  // 01
+			virtual BSContainer::ForEachResult Accept(ActiveEffect* a_effect) = 0;  // 01
 		};
 		static_assert(sizeof(ForEachActiveEffectVisitor) == 0x8);
 
@@ -86,6 +87,7 @@ namespace RE
 		void DispelEffectsWithArchetype(Archetype a_type, bool a_force);
 		bool HasEffectWithArchetype(Archetype a_type);
 		bool HasMagicEffect(EffectSetting* a_effect);
+		void VisitEffects(ForEachActiveEffectVisitor& visitor);
 
 		// members
 		SpellDispelData* postUpdateDispelList;  // 08

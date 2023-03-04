@@ -14,6 +14,7 @@ namespace RE
 	class BSCullingProcess;
 	class BSLight;
 	class BSShaderAccumulator;
+	class NiAVObject;
 	class NiCamera;
 	class NiNode;
 	class ShadowSceneNode;
@@ -50,30 +51,14 @@ namespace RE
 	class UI3DSceneManager : public BSTSingletonSDM<UI3DSceneManager>
 	{
 	public:
-		static UI3DSceneManager* GetSingleton()
-		{
-			REL::Relocation<UI3DSceneManager**> singleton{ RELOCATION_ID(517052, 403560) };
-			return *singleton;
-		}
+		static UI3DSceneManager* GetSingleton();
 
-		void SetCameraFOV(float a_fov)
-		{
-			using func_t = decltype(&UI3DSceneManager::SetCameraFOV);
-			REL::Relocation<func_t> func{ RELOCATION_ID(51870, 52742) };
-			return func(this, a_fov);
-		}
-		void SetCameraRotate(const RE::NiMatrix3& a_rotate)
-		{
-			using func_t = decltype(&UI3DSceneManager::SetCameraRotate);
-			REL::Relocation<func_t> func{ RELOCATION_ID(51869, 52741) };
-			return func(this, a_rotate);
-		}
-		void SetCameraPosition(const RE::NiPoint3& a_pos)
-		{
-			using func_t = decltype(&UI3DSceneManager::SetCameraRotate);
-			REL::Relocation<func_t> func{ RELOCATION_ID(51867, 52739) };
-			return func(this, a_pos);
-		}
+		void AttachChild(NiAVObject* a_obj);
+		void AttachChild(NiAVObject* a_obj, INTERFACE_LIGHT_SCHEME a_scheme);
+		void DetachChild(NiAVObject* a_obj);
+		void SetCameraFOV(float a_fov);
+		void SetCameraRotate(const NiMatrix3& a_rotate);
+		void SetCameraPosition(const NiPoint3& a_pos);
 
 		// members
 		std::uint8_t                               pad01;               // 01

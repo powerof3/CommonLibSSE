@@ -47,7 +47,7 @@ namespace RE
 	}
 
 	Projectile::LaunchData::LaunchData(Actor* a_shooter, const NiPoint3& a_origin, const ProjectileRot& a_angles, MagicItem* a_spell) :
-		LaunchData(a_spell->GetAVEffectSetting()->data.projectileBase, a_shooter, a_origin, a_angles)
+		LaunchData(a_spell->GetAVEffect()->data.projectileBase, a_shooter, a_origin, a_angles)
 	{
 		const auto costliestEffect = a_spell->GetCostliestEffectItem();
 

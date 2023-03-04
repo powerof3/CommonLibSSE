@@ -39,7 +39,9 @@ namespace RE
 			kTouch = 1,
 			kAimed = 2,
 			kTargetActor = 3,
-			kTargetLocation = 4
+			kTargetLocation = 4,
+
+			kTotal
 		};
 
 		enum class SoundID

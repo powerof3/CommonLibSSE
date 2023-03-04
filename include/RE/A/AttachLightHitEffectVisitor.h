@@ -14,7 +14,7 @@ namespace RE
 		~AttachLightHitEffectVisitor() override;  // 00
 
 		// override (ActiveEffect::ForEachHitEffectVisitor)
-		BSContainer::ForEachResult Visit(ReferenceEffect* a_hitEffect) override;  // 01
+		BSContainer::ForEachResult operator()(ReferenceEffect* a_hitEffect) override;  // 01
 
 		// members
 		NiAVObject*   attachRoot;       // 08

@@ -37,13 +37,15 @@ namespace RE
 			virtual ~ForEachHitEffectVisitor();  // 00
 
 			// add
-			virtual BSContainer::ForEachResult Visit(ReferenceEffect* a_hitEffect) = 0;  // 01
+			virtual BSContainer::ForEachResult operator()(ReferenceEffect* a_hitEffect) = 0;  // 01
 		};
 
 		enum class Flag
 		{
 			kHasConditions = 1 << 7,
+			kEnchanting = 1 << 8,
 			kRecovers = 1 << 9,
+			kDual = 1 << 12,
 			kInactive = 1 << 15,
 			kDispelled = 1 << 18
 		};
@@ -88,6 +90,7 @@ namespace RE
 		[[nodiscard]] EffectSetting*       GetBaseObject() noexcept;
 		[[nodiscard]] const EffectSetting* GetBaseObject() const noexcept;
 		NiPointer<Actor>                   GetCasterActor() const;
+		float                              GetMagnitude() const;
 		Actor*                             GetTargetActor();
 		const Actor*                       GetTargetActor() const;
 

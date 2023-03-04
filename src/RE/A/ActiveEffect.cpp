@@ -44,4 +44,11 @@ namespace RE
 			return nullptr;
 		}
 	}
+
+	float ActiveEffect::GetMagnitude() const
+	{
+		using func_t = decltype(&ActiveEffect::GetMagnitude);
+		REL::Relocation<func_t> func{ RELOCATION_ID(33282, 34057) };
+		return func(this);
+	}
 }

@@ -78,8 +78,10 @@ namespace RE
 		// add
 		virtual bool Deactivate(float a_easeOutTime, bool a_transition);  // 25
 
+		bool                         Activate(std::uint8_t a_interpIndex, bool a_maxOffset, float a_seqWeight, float a_easeInTime, NiControllerSequence* a_partnerSequence, bool a_transition);
 		[[nodiscard]] constexpr bool Animating() const noexcept { return state == AnimState::kAnimating; }
 		[[nodiscard]] constexpr bool Inactive() const noexcept { return state == AnimState::kInactive; }
+		void                         SetPhase(float a_phase, bool a_arg2);
 
 		// members
 		BSFixedString                                                name;                     // 10

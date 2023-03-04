@@ -257,7 +257,7 @@ namespace RE
 		std::uint32_t                                        currentInstanceID;                        // 050
 		std::uint32_t                                        pad054;                                   // 054
 		BSTArray<BGSBaseAlias*>                              aliases;                                  // 058
-		BSTHashMap<UnkKey, UnkValue>                         unk070;                                   // 070 - alias related
+		BSTHashMap<std::uint32_t, ObjectRefHandle>           refAliasMap;                              // 070
 		BSTHashMap<UnkKey, UnkValue>                         unk0A0;                                   // 0A0 - alias related
 		mutable BSReadWriteLock                              aliasAccessLock;                          // 0D0
 		QUEST_DATA                                           data;                                     // 0D8 - DNAM

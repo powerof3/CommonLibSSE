@@ -259,6 +259,7 @@ set(SOURCES
 	include/RE/B/BSMasterParticleSystem.h
 	include/RE/B/BSMaterialObject.h
 	include/RE/B/BSMemStorage.h
+	include/RE/B/BSModelDB.h
 	include/RE/B/BSMouseDevice.h
 	include/RE/B/BSMultiBound.h
 	include/RE/B/BSMultiBoundAABB.h
@@ -289,6 +290,7 @@ set(SOURCES
 	include/RE/B/BSReloadShaderI.h
 	include/RE/B/BSRenderManager.h
 	include/RE/B/BSRenderPass.h
+	include/RE/B/BSResourceEntryDB.h
 	include/RE/B/BSResourceNiBinaryStream.h
 	include/RE/B/BSResponse.h
 	include/RE/B/BSSaveDataSystemUtility.h
@@ -472,6 +474,7 @@ set(SOURCES
 	include/RE/C/CriticalHit.h
 	include/RE/C/CrosshairPickData.h
 	include/RE/C/CursorMenu.h
+	include/RE/D/DBTraits.h
 	include/RE/D/DecalData.h
 	include/RE/D/DefaultObjectsReadyEvent.h
 	include/RE/D/DelayFunctor.h
@@ -1023,6 +1026,8 @@ set(SOURCES
 	include/RE/M/MagicCaster.h
 	include/RE/M/MagicFavorites.h
 	include/RE/M/MagicItem.h
+	include/RE/M/MagicItemDataCollector.h
+	include/RE/M/MagicItemTraversalFunctor.h
 	include/RE/M/MagicMenu.h
 	include/RE/M/MagicSystem.h
 	include/RE/M/MagicTarget.h
@@ -1052,6 +1057,7 @@ set(SOURCES
 	include/RE/M/MissileProjectile.h
 	include/RE/M/MistMenu.h
 	include/RE/M/ModManagerMenu.h
+	include/RE/M/ModelProcessor.h
 	include/RE/M/ModelReferenceEffect.h
 	include/RE/M/Moon.h
 	include/RE/M/MouseMoveEvent.h
@@ -1503,6 +1509,7 @@ set(SOURCES
 	src/RE/B/BSInputDeviceManager.cpp
 	src/RE/B/BSLightingShaderMaterialBase.cpp
 	src/RE/B/BSLightingShaderProperty.cpp
+	src/RE/B/BSModelDB.cpp
 	src/RE/B/BSPointerHandle.cpp
 	src/RE/B/BSResourceNiBinaryStream.cpp
 	src/RE/B/BSResponse.cpp
@@ -1637,6 +1644,7 @@ set(SOURCES
 	src/RE/L/LooseFileStream.cpp
 	src/RE/M/MagicFavorites.cpp
 	src/RE/M/MagicItem.cpp
+	src/RE/M/MagicItemDataCollector.cpp
 	src/RE/M/MagicTarget.cpp
 	src/RE/M/Main.cpp
 	src/RE/M/MaterialIDs.cpp
@@ -1655,6 +1663,7 @@ set(SOURCES
 	src/RE/N/NiColorData.cpp
 	src/RE/N/NiColorKey.cpp
 	src/RE/N/NiControllerManager.cpp
+	src/RE/N/NiControllerSequence.cpp
 	src/RE/N/NiExtraData.cpp
 	src/RE/N/NiFloatData.cpp
 	src/RE/N/NiFloatExtraData.cpp
@@ -1740,6 +1749,7 @@ set(SOURCES
 	src/RE/T/ThumbstickEvent.cpp
 	src/RE/T/TypeInfo.cpp
 	src/RE/U/UI.cpp
+	src/RE/U/UI3DSceneManager.cpp
 	src/RE/U/UIBlurManager.cpp
 	src/RE/U/UIMessageQueue.cpp
 	src/RE/U/UnlinkedTypes.cpp

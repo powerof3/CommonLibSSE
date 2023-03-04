@@ -17,6 +17,7 @@
 #include "RE/N/NiTMap.h"
 #include "RE/P/PositionPlayerEvent.h"
 #include "RE/T/TESObjectWEAP.h"
+#include "RE/T/TESQuest.h"
 
 namespace RE
 {
@@ -278,6 +279,9 @@ namespace RE
 
 		~PlayerCharacter() override;  // 000
 
+		// override
+		void RemoveWeapon(BIPED_OBJECT equipIndex) override;  // 082
+
 		// add
 		virtual void          Unk_12A(void);                                                   // 12A
 		virtual std::uint32_t GetViolentCrimeGoldValue(const TESFaction* a_faction) const;     // 12B
@@ -345,7 +349,7 @@ namespace RE
 		BSTArray<void*>                                         imageSpaceModifierAnims2;                     // 558
 		BSSimpleList<TESQuestStageItem*>                        questLog;                                     // 570
 		BSTArray<BGSInstancedQuestObjective>                    objectives;                                   // 580
-		BSTHashMap<UnkKey, UnkValue>                            questTargets;                                 // 598
+		BSTHashMap<TESQuest*, BSTArray<TESQuestTarget*>*>       questTargets;                                 // 598
 		BSTHashMap<UnkKey, UnkValue>                            currentSayOnceInfosMap;                       // 5C8
 		BSSimpleList<ObjectRefHandle>                           droppedRefList;                               // 5F8
 		NiTMap<std::uint32_t, std::uint8_t>                     randomDoorSpaceMap;                           // 608

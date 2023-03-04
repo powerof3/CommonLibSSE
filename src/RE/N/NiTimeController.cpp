@@ -78,6 +78,13 @@ namespace RE
 		return func(this, a_time);
 	}
 
+	void NiTimeController::StartAnimations(NiObjectNET* a_target)
+	{
+		using func_t = decltype(&NiTimeController::StartAnimations);
+		REL::Relocation<func_t> func{ RELOCATION_ID(69444, 70821) };
+		return func(a_target);
+	}
+
 	NiTimeController* NiTimeController::ctor()
 	{
 		using func_t = decltype(&NiTimeController::ctor);

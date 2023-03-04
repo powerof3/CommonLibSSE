@@ -33,6 +33,9 @@ namespace RE
 		[[nodiscard]] NiTimeController* GetControllers() const;
 		NiTimeController*               GetController(const NiRTTI* a_rtti) const;
 
+		template <class T>
+		[[nodiscard]] T* GetController() const;
+
 		[[nodiscard]] NiExtraData* GetExtraData(const BSFixedString& a_key) const;
 		template <class T>
 		[[nodiscard]] T* GetExtraData(const BSFixedString& a_key) const;
@@ -55,6 +58,13 @@ namespace RE
 		std::uint32_t               pad2C;          // 2C
 	};
 	static_assert(sizeof(NiObjectNET) == 0x30);
+
+	template <class T>
+	T* NiObjectNET::GetController() const
+	{
+		const REL::Relocation<const NiRTTI*> rtti{ T::Ni_RTTI };
+		return static_cast<T*>(GetController(rtti.get()));
+	}
 
 	template <class T>
 	T* NiObjectNET::GetExtraData(const BSFixedString& a_key) const
