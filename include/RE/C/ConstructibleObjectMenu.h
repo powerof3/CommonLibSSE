@@ -28,24 +28,32 @@ namespace RE
 			};
 			static_assert(sizeof(CreationConfirmCallback) == 0x18);
 
+			struct ItemEntry
+			{
+				BGSConstructibleObject* constructibleObject;  // 00
+				std::uint32_t           filterFlag;           // 08
+				std::uint32_t           pad0C;                // 0C
+			};
+			static_assert(sizeof(ItemEntry) == 0x10);
+
 			~ConstructibleObjectMenu() override;  // 00
 
 			// override (CraftingSubMenu)
-			void Accept(CallbackProcessor* a_cbReg) override;  // 01
-			void Unk_06(void) override;                        // 06
-			void Unk_07(void) override;                        // 07
+			void Accept(CallbackProcessor* a_cbReg) override;     // 01
+			void Unk_06(void) override;                           // 06
+			void SetItemCardInfo(ItemCard* a_itemCard) override;  // 07
 
 			// members
-			BSTArray<void*> unk100;  // 100
-			std::uint64_t   unk118;  // 118
-			std::uint64_t   unk120;  // 120
-			std::uint64_t   unk128;  // 128
-			std::uint64_t   unk130;  // 130
-			std::uint64_t   unk138;  // 138
-			std::uint64_t   unk140;  // 140
-			std::uint64_t   unk148;  // 148
-			std::uint64_t   unk150;  // 150
-			std::uint64_t   unk158;  // 158
+			BSTArray<ItemEntry> unk100;  // 100
+			std::uint64_t       unk118;  // 118
+			std::uint64_t       unk120;  // 120
+			std::uint64_t       unk128;  // 128
+			std::uint64_t       unk130;  // 130
+			std::uint64_t       unk138;  // 138
+			std::uint64_t       unk140;  // 140
+			std::uint64_t       unk148;  // 148
+			std::uint64_t       unk150;  // 150
+			std::uint64_t       unk158;  // 158
 		};
 		static_assert(sizeof(ConstructibleObjectMenu) == 0x160);
 	}

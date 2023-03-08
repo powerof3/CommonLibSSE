@@ -46,11 +46,11 @@ namespace RE
 
 		// members
 		std::uint64_t                   unk128;              // 128
-		BSTArray<NiPointer<BSLight>>    unk130;              // 130
+		BSTArray<NiPointer<BSLight>>    activeLights;        // 130
 		BSTArray<NiPointer<BSLight>>    unk148;              // 148
 		BSTArray<NiPointer<BSLight>>    unk160;              // 160
 		BSTArray<void*>                 unk178;              // 178
-		BSTArray<void*>                 unk190;              // 190
+		BSTArray<NiPointer<BSLight>>    unk190;              // 190
 		mutable BSSpinLock              unk1A8;              // 1A8
 		BSTArray<NiPointer<NiAVObject>> geometries;          // 1B0
 		BSTArray<NiPointer<NiAVObject>> particleNodes;       // 1C8

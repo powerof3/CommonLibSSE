@@ -56,6 +56,20 @@ namespace RE
 		return func(this, a_activator, a_arg2, a_object, a_count, a_defaultProcessingOnly);
 	}
 
+	ModelReferenceEffect* TESObjectREFR::ApplyArtObject(BGSArtObject* a_artObject, float a_duration, TESObjectREFR* a_facingRef, bool a_faceTarget, bool a_attachToCamera, NiAVObject* a_attachNode, bool a_interfaceEffect)
+	{
+		using func_t = decltype(&TESObjectREFR::ApplyArtObject);
+		REL::Relocation<func_t> func{ RELOCATION_ID(22289, 22769) };
+		return func(this, a_artObject, a_duration, a_facingRef, a_faceTarget, a_attachToCamera, a_attachNode, a_interfaceEffect);
+	}
+
+	ShaderReferenceEffect* TESObjectREFR::ApplyEffectShader(TESEffectShader* a_effectShader, float a_duration, TESObjectREFR* a_facingRef, bool a_faceTarget, bool a_attachToCamera, NiAVObject* a_attachNode, bool a_interfaceEffect)
+	{
+		using func_t = decltype(&TESObjectREFR::ApplyEffectShader);
+		REL::Relocation<func_t> func{ RELOCATION_ID(19446, 19872) };
+		return func(this, a_effectShader, a_duration, a_facingRef, a_faceTarget, a_attachToCamera, a_attachNode, a_interfaceEffect);
+	}
+
 	bool TESObjectREFR::CanBeMoved()
 	{
 		using func_t = decltype(&TESObjectREFR::CanBeMoved);
@@ -333,8 +347,8 @@ namespace RE
 				const auto it = results.find(a_object);
 				const auto entryData =
 					it != results.end() ?
-                        it->second.second.get() :
-                        nullptr;
+						it->second.second.get() :
+						nullptr;
 				return entryData ? entryData->IsLeveled() : false;
 			};
 
@@ -588,20 +602,6 @@ namespace RE
 		using func_t = decltype(&TESObjectREFR::InitInventoryIfRequired);
 		REL::Relocation<func_t> func{ Offset::TESObjectREFR::InitInventoryIfRequired };
 		return func(this, a_ignoreContainerExtraData);
-	}
-
-	ModelReferenceEffect* TESObjectREFR::InstantiateHitArt(BGSArtObject* a_art, float a_dur, TESObjectREFR* a_facingRef, bool a_faceTarget, bool a_attachToCamera, NiAVObject* a_attachNode, bool a_interfaceEffect)
-	{
-		using func_t = decltype(&TESObjectREFR::InstantiateHitArt);
-		REL::Relocation<func_t> func{ RELOCATION_ID(22289, 22769) };
-		return func(this, a_art, a_dur, a_facingRef, a_faceTarget, a_attachToCamera, a_attachNode, a_interfaceEffect);
-	}
-
-	ShaderReferenceEffect* TESObjectREFR::InstantiateHitShader(TESEffectShader* a_shader, float a_dur, TESObjectREFR* a_facingRef, bool a_faceTarget, bool a_attachToCamera, NiAVObject* a_attachNode, bool a_interfaceEffect)
-	{
-		using func_t = decltype(&TESObjectREFR::InstantiateHitShader);
-		REL::Relocation<func_t> func{ RELOCATION_ID(19446, 19872) };
-		return func(this, a_shader, a_dur, a_facingRef, a_faceTarget, a_attachToCamera, a_attachNode, a_interfaceEffect);
 	}
 
 	bool TESObjectREFR::Is3DLoaded() const

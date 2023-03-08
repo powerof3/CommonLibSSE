@@ -260,8 +260,15 @@ namespace RE
 		auto xTeleport = GetByType<ExtraTeleport>();
 
 		return xTeleport && xTeleport->teleportData ?
-                   xTeleport->teleportData->linkedDoor :
-                   ObjectRefHandle();
+		           xTeleport->teleportData->linkedDoor :
+		           ObjectRefHandle();
+	}
+
+	void ExtraDataList::SetCount(std::uint16_t a_count)
+	{
+		using func_t = decltype(&ExtraDataList::SetCount);
+		REL::Relocation<func_t> func{ Offset::ExtraDataList::SetCount };
+		return func(this, a_count);
 	}
 
 	void ExtraDataList::SetEncounterZone(BGSEncounterZone* a_zone)

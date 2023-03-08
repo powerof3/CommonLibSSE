@@ -12,7 +12,7 @@ namespace RE
 		virtual ~ArmorRatingVisitorBase();  // 00
 
 		// override (InventoryChanges::IItemChangeVisitor)
-		RE::BSContainer::ForEachResult Visit(InventoryEntryData* a_entryData) override;  // 01
+		BSContainer::ForEachResult Visit(InventoryEntryData* a_entryData) override;  // 01
 
 		// add
 		virtual bool HaveNotVisitedArmor(TESObjectARMO* a_armor);  // 04 - { return true; }

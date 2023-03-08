@@ -15,6 +15,13 @@ namespace RE
 		return *singleton;
 	}
 
+	bool BSScaleformManager::IsValidName(const char* a_name)
+	{
+		using func_t = decltype(&BSScaleformManager::IsValidName);
+		REL::Relocation<func_t> func{ RELOCATION_ID(80307, 82331) };
+		return func(this, a_name);
+	}
+
 	bool BSScaleformManager::FileExists(const char* a_fileName)
 	{
 		using func_t = decltype(&BSScaleformManager::FileExists);

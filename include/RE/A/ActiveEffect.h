@@ -58,25 +58,25 @@ namespace RE
 		};
 
 		// add
-		virtual void           AdjustForPerks(Actor* a_caster, MagicTarget* a_target);          // 00
-		virtual void           OnAdd(MagicTarget* a_target);                                    // 01
-		virtual void           Unk_02(void);                                                    // 02 - { return; }
-		virtual TESObjectREFR* GetVisualsTarget();                                              // 03 - { return target ? target->GetTargetStatsObject() : 0; }
-		virtual void           Update(float a_delta);                                           // 04 - { return; }
-		virtual void           EvaluateConditions(float a_delta, bool a_forceUpdate);           // 05
-		virtual bool           IsCausingHealthDamage();                                         // 06 - { return 0; }
-		virtual void           SetLocation(const NiPoint3& a_location);                         // 07 - { return; }
-		virtual void           LoadGame(BGSSaveFormBuffer* a_buf);                              // 08
-		virtual void           SaveGame(BGSLoadFormBuffer* a_buf);                              // 09
-		virtual void           FinishLoadGame(BGSLoadFormBuffer* a_buf);                        // 0A
-		virtual void           Revert(BGSLoadFormBuffer* a_buf);                                // 0B - { castingSource = 4; }
-		virtual std::int32_t   Compare(ActiveEffect* a_otherEffect);                            // 0C
-		virtual void           HandleEvent(const BSFixedString& a_eventName);                   // 0D - { return; }
-		virtual void           SwitchAttachedRoot(std::uint64_t a_arg2, NiNode* a_attachRoot);  // 0E - { return; }
-		virtual void           Unk_0F(void);                                                    // 0F - { return; }
-		virtual bool           ShouldDispelOnDeath() const;                                     // 10 - { return effect->baseEffect->data.flags.any(EffectSetting::EffectSettingData::Flag::kNoDeathDispel); }
-		virtual bool           GetAllowMultipleCastingSourceStacking();                         // 11 - { return 0; }
-		virtual void           ClearTargetImpl();                                               // 12 - { return; }
+		virtual void           AdjustForPerks(Actor* a_caster, MagicTarget* a_target);    // 00
+		virtual void           OnAdd(MagicTarget* a_target);                              // 01
+		virtual void           Unk_02(void);                                              // 02 - { return; }
+		virtual TESObjectREFR* GetVisualsTarget();                                        // 03 - { return target ? target->GetTargetStatsObject() : 0; }
+		virtual void           Update(float a_delta);                                     // 04 - { return; }
+		virtual void           EvaluateConditions(float a_delta, bool a_forceUpdate);     // 05
+		virtual bool           IsCausingHealthDamage();                                   // 06 - { return 0; }
+		virtual void           SetLocation(const NiPoint3& a_location);                   // 07 - { return; }
+		virtual void           LoadGame(BGSSaveFormBuffer* a_buf);                        // 08
+		virtual void           SaveGame(BGSLoadFormBuffer* a_buf);                        // 09
+		virtual void           FinishLoadGame(BGSLoadFormBuffer* a_buf);                  // 0A
+		virtual void           Revert(BGSLoadFormBuffer* a_buf);                          // 0B - { castingSource = 4; }
+		virtual std::int32_t   Compare(ActiveEffect* a_otherEffect);                      // 0C
+		virtual void           HandleEvent(const BSFixedString& a_eventName);             // 0D - { return; }
+		virtual void           SwitchAttachedRoot(NiNode* a_root, NiNode* a_attachRoot);  // 0E - { return; }
+		virtual void           Unk_0F(void);                                              // 0F - { return; }
+		virtual bool           ShouldDispelOnDeath() const;                               // 10 - { return effect->baseEffect->data.flags.any(EffectSetting::EffectSettingData::Flag::kNoDeathDispel); }
+		virtual bool           GetAllowMultipleCastingSourceStacking();                   // 11 - { return 0; }
+		virtual void           ClearTargetImpl();                                         // 12 - { return; }
 
 		virtual ~ActiveEffect();  // 13
 

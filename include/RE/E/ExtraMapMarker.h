@@ -70,12 +70,12 @@ namespace RE
 		kDLC02CastleKarstaag = 59,
 		kTotalLocationTypes,
 
-		kDoor,
-		kQuestTarget,
+		kDoor = 61,
+		kQuestTarget = 62,
 		kQuestTargetDoor,
-		kMultipleQuestTarget,
-		kPlayerSet,
-		kYouAreHere
+		kMultipleQuestTarget = kQuestTargetDoor,  // verify this
+		kPlayerSet = 64,
+		kYouAreHere = 65,
 	};
 
 	class MapMarkerData
@@ -115,8 +115,8 @@ namespace RE
 		virtual ~ExtraMapMarker();  // 00
 
 		// override (BSExtraData)
-		virtual ExtraDataType GetType() const override;                             // 01 - { return kMapMarker; }
-		virtual bool          IsNotEqual(const BSExtraData* a_rhs) const override;  // 02
+		ExtraDataType GetType() const override;                             // 01 - { return kMapMarker; }
+		bool          IsNotEqual(const BSExtraData* a_rhs) const override;  // 02
 
 		// members
 		MapMarkerData* mapData;  // 10

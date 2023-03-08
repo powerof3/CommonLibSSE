@@ -12,13 +12,10 @@ namespace RE
 		~BSMouseDevice() override;  // 00
 
 		// add
-		virtual void Unk_09(void);  // 09 - { return; }
+		virtual void Reinitialize(void);  // 09 - { return; }
 
 		// members
-		bool          backgroundMouse;  // 70
-		std::uint8_t  unk71;            // 71
-		std::uint16_t unk72;            // 72
-		std::uint32_t unk74;            // 74
+		bool backgroundMouse;  // 70
 	};
 	static_assert(sizeof(BSMouseDevice) == 0x78);
 }

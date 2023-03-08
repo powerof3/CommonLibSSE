@@ -18,11 +18,14 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSScaleformTranslator;
+		inline static constexpr auto VTABLE = VTABLE_BSScaleformTranslator;
 
 		~BSScaleformTranslator() override;  // 00
 
 		// override (GFxTranslator)
 		void Translate(TranslateInfo* a_translateInfo) override;  // 02
+
+		static void GetCachedString(wchar_t** a_pOut, wchar_t* a_bufIn, std::uint32_t a_unused);
 
 		// members
 		BSTranslator translator;  // 20

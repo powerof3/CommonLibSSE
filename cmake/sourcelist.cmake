@@ -73,6 +73,7 @@ set(SOURCES
 	include/RE/B/BGSCollisionLayer.h
 	include/RE/B/BGSColorForm.h
 	include/RE/B/BGSConstructibleObject.h
+	include/RE/B/BGSCreatedObjectManager.h
 	include/RE/B/BGSDebris.h
 	include/RE/B/BGSDecalEmitter.h
 	include/RE/B/BGSDecalGroup.h
@@ -277,6 +278,7 @@ set(SOURCES
 	include/RE/B/BSOrderedNode.h
 	include/RE/B/BSPCGamepadDeviceDelegate.h
 	include/RE/B/BSPCGamepadDeviceHandler.h
+	include/RE/B/BSPCOrbisGamepadDevice.h
 	include/RE/B/BSParticleShaderCubeEmitter.h
 	include/RE/B/BSParticleShaderEmitter.h
 	include/RE/B/BSParticleShaderObjectEmitter.h
@@ -692,41 +694,91 @@ set(SOURCES
 	include/RE/F/FxDelegateHandler.h
 	include/RE/F/FxResponseArgs.h
 	include/RE/F/FxResponseArgsBase.h
+	include/RE/G/GASActionBufferData.h
+	include/RE/G/GASDoAction.h
+	include/RE/G/GASDoInitAction.h
+	include/RE/G/GASExecuteTag.h
+	include/RE/G/GAcquireInterface.h
 	include/RE/G/GAllocator.h
 	include/RE/G/GAllocatorBaseGH.h
+	include/RE/G/GAllocatorBaseLH.h
 	include/RE/G/GArray.h
 	include/RE/G/GArrayBase.h
+	include/RE/G/GArrayConstPolicy.h
 	include/RE/G/GArrayData.h
 	include/RE/G/GArrayDataBase.h
 	include/RE/G/GArrayDefaultPolicy.h
+	include/RE/G/GArrayLH.h
 	include/RE/G/GAtomic.h
 	include/RE/G/GColor.h
 	include/RE/G/GConstructorMov.h
+	include/RE/G/GEvent.h
 	include/RE/G/GFixedSizeHash.h
 	include/RE/G/GFxActionControl.h
+	include/RE/G/GFxButtonCharacterDef.h
+	include/RE/G/GFxCharacterDef.h
+	include/RE/G/GFxConstShapeCharacterDef.h
+	include/RE/G/GFxConstShapeNoStyles.h
+	include/RE/G/GFxConstShapeWithStyles.h
+	include/RE/G/GFxEditTextCharacterDef.h
 	include/RE/G/GFxEvent.h
 	include/RE/G/GFxExternalInterface.h
 	include/RE/G/GFxFileConstants.h
 	include/RE/G/GFxFunctionHandler.h
+	include/RE/G/GFxInitImportActions.h
 	include/RE/G/GFxKey.h
 	include/RE/G/GFxKeyboardState.h
+	include/RE/G/GFxLoadProcess.h
+	include/RE/G/GFxLoadStates.h
+	include/RE/G/GFxLoadUpdateSync.h
 	include/RE/G/GFxLoader.h
+	include/RE/G/GFxLoaderImpl.h
+	include/RE/G/GFxLoaderTask.h
 	include/RE/G/GFxLog.h
 	include/RE/G/GFxLogBase.h
 	include/RE/G/GFxLogConstants.h
+	include/RE/G/GFxMorphCharacterDef.h
 	include/RE/G/GFxMovie.h
+	include/RE/G/GFxMovieBindProcess.h
+	include/RE/G/GFxMovieDataDef.h
 	include/RE/G/GFxMovieDef.h
+	include/RE/G/GFxMovieDefBindStates.h
+	include/RE/G/GFxMovieDefImpl.h
+	include/RE/G/GFxMovieImageLoadTask.h
 	include/RE/G/GFxMovieRoot.h
 	include/RE/G/GFxMovieView.h
+	include/RE/G/GFxPlaceObject.h
+	include/RE/G/GFxPlaceObject2.h
+	include/RE/G/GFxPlaceObject2a.h
+	include/RE/G/GFxPlaceObject3.h
+	include/RE/G/GFxPlaceObjectBase.h
+	include/RE/G/GFxPlaceObjectUnpacked.h
 	include/RE/G/GFxPlayerStats.h
+	include/RE/G/GFxRemoveObject.h
+	include/RE/G/GFxRemoveObject2.h
 	include/RE/G/GFxRenderConfig.h
 	include/RE/G/GFxResource.h
 	include/RE/G/GFxResourceID.h
 	include/RE/G/GFxResourceKey.h
+	include/RE/G/GFxResourceLib.h
 	include/RE/G/GFxResourceLibBase.h
+	include/RE/G/GFxResourceReport.h
+	include/RE/G/GFxResourceWeakLib.h
+	include/RE/G/GFxSetBackgroundColor.h
+	include/RE/G/GFxShapeBase.h
+	include/RE/G/GFxShapeBaseCharacterDef.h
+	include/RE/G/GFxShapeCharacterDef.h
+	include/RE/G/GFxShapeNoStyles.h
+	include/RE/G/GFxShapeWithStyles.h
 	include/RE/G/GFxSpecialKeysState.h
+	include/RE/G/GFxSpriteDef.h
 	include/RE/G/GFxState.h
 	include/RE/G/GFxStateBag.h
+	include/RE/G/GFxStateBagImpl.h
+	include/RE/G/GFxStaticTextCharacterDef.h
+	include/RE/G/GFxStream.h
+	include/RE/G/GFxTask.h
+	include/RE/G/GFxTimelineDef.h
 	include/RE/G/GFxTranslator.h
 	include/RE/G/GFxValue.h
 	include/RE/G/GFxWStringBuffer.h
@@ -735,8 +787,12 @@ set(SOURCES
 	include/RE/G/GHashNode.h
 	include/RE/G/GHashSet.h
 	include/RE/G/GHashSetBase.h
+	include/RE/G/GHashSetUncached.h
+	include/RE/G/GHashUncached.h
 	include/RE/G/GHashsetCachedEntry.h
 	include/RE/G/GHashsetCachedNodeEntry.h
+	include/RE/G/GHashsetEntry.h
+	include/RE/G/GHashsetNodeEntry.h
 	include/RE/G/GImage.h
 	include/RE/G/GImageBase.h
 	include/RE/G/GList.h
@@ -745,6 +801,7 @@ set(SOURCES
 	include/RE/G/GMatrix3D.h
 	include/RE/G/GMemory.h
 	include/RE/G/GMemoryHeap.h
+	include/RE/G/GMutex.h
 	include/RE/G/GNewOverrideBase.h
 	include/RE/G/GPoint.h
 	include/RE/G/GPtr.h
@@ -760,10 +817,14 @@ set(SOURCES
 	include/RE/G/GStats.h
 	include/RE/G/GStd.h
 	include/RE/G/GString.h
+	include/RE/G/GStringDH.h
+	include/RE/G/GStringHash.h
 	include/RE/G/GSysAllocBase.h
 	include/RE/G/GSysAllocPaged.h
 	include/RE/G/GTexture.h
 	include/RE/G/GViewport.h
+	include/RE/G/GWaitCondition.h
+	include/RE/G/GWaitable.h
 	include/RE/G/GameSettingCollection.h
 	include/RE/G/GiftMenu.h
 	include/RE/G/GlobalLocations.h
@@ -1458,6 +1519,7 @@ set(SOURCES
 	include/SKSE/Impl/RegistrationTraits.h
 	include/SKSE/Impl/Stubs.h
 	include/SKSE/Impl/WinAPI.h
+	include/SKSE/InputMap.h
 	include/SKSE/Interfaces.h
 	include/SKSE/Logger.h
 	include/SKSE/RegistrationMap.h
@@ -1466,6 +1528,7 @@ set(SOURCES
 	include/SKSE/RegistrationSetUnique.h
 	include/SKSE/SKSE.h
 	include/SKSE/Trampoline.h
+	include/SKSE/Translation.h
 	include/SKSE/Version.h
 	src/RE/A/AIFormulas.cpp
 	src/RE/A/AIProcess.cpp
@@ -1483,6 +1546,7 @@ set(SOURCES
 	src/RE/B/BGSBaseAlias.cpp
 	src/RE/B/BGSBipedObjectForm.cpp
 	src/RE/B/BGSColorForm.cpp
+	src/RE/B/BGSCreatedObjectManager.cpp
 	src/RE/B/BGSDebris.cpp
 	src/RE/B/BGSEntryPointFunctionDataActivateChoice.cpp
 	src/RE/B/BGSEntryPointPerkEntry.cpp
@@ -1514,6 +1578,7 @@ set(SOURCES
 	src/RE/B/BSResourceNiBinaryStream.cpp
 	src/RE/B/BSResponse.cpp
 	src/RE/B/BSScaleformManager.cpp
+	src/RE/B/BSScaleformTranslator.cpp
 	src/RE/B/BSScriptObjectBindPolicy.cpp
 	src/RE/B/BSShaderProperty.cpp
 	src/RE/B/BSShaderTextureSet.cpp
@@ -1547,6 +1612,7 @@ set(SOURCES
 	src/RE/D/DragonSoulsGained.cpp
 	src/RE/E/Effect.cpp
 	src/RE/E/EffectArchetypes.cpp
+	src/RE/E/EnchantConstructMenu.cpp
 	src/RE/E/ExtraAliasInstanceArray.cpp
 	src/RE/E/ExtraAshPileRef.cpp
 	src/RE/E/ExtraCanTalkToPlayer.cpp
@@ -1579,6 +1645,7 @@ set(SOURCES
 	src/RE/G/GFxLoader.cpp
 	src/RE/G/GFxLog.cpp
 	src/RE/G/GFxMovie.cpp
+	src/RE/G/GFxMovieDataDef.cpp
 	src/RE/G/GFxMovieDef.cpp
 	src/RE/G/GFxMovieView.cpp
 	src/RE/G/GFxRenderConfig.cpp
@@ -1700,6 +1767,8 @@ set(SOURCES
 	src/RE/P/ProcessLists.cpp
 	src/RE/P/Projectile.cpp
 	src/RE/Q/QuestStatus.cpp
+	src/RE/R/RaceSexMenu.cpp
+	src/RE/R/ReferenceEffectController.cpp
 	src/RE/R/RemoveCallbackVisitor.cpp
 	src/RE/S/ScrapHeap.cpp
 	src/RE/S/Script.cpp
@@ -1762,9 +1831,11 @@ set(SOURCES
 	src/SKSE/IAT.cpp
 	src/SKSE/Impl/PCH.cpp
 	src/SKSE/Impl/WinAPI.cpp
+	src/SKSE/InputMap.cpp
 	src/SKSE/Interfaces.cpp
 	src/SKSE/Logger.cpp
 	src/SKSE/RegistrationSet.cpp
 	src/SKSE/RegistrationSetUnique.cpp
 	src/SKSE/Trampoline.cpp
+	src/SKSE/Translation.cpp
 )

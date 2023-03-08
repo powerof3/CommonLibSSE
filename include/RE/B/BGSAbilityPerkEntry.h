@@ -12,7 +12,7 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_BGSAbilityPerkEntry;
 		inline static constexpr auto VTABLE = VTABLE_BGSAbilityPerkEntry;
 
-		~BGSAbilityPerkEntry() override;  // 00
+		~BGSAbilityPerkEntry() override;  // 03
 
 		// override (BGSPerkEntry)
 		PERK_ENTRY_TYPE GetType() const override;                  // 04 - { return kAbility; }

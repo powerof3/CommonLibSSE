@@ -38,6 +38,8 @@ namespace RE
 		[[nodiscard]] NiPoint3 UnitCross(const NiPoint3& a_pt) const;
 		float                  Unitize();
 
+		static const NiPoint3& Zero();
+
 		// members
 		float x{ 0.0F };  // 0
 		float y{ 0.0F };  // 4

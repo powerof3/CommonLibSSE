@@ -14,7 +14,7 @@ namespace RE
 			kStatID = SID
 		};
 
-		static void* Alloc(UPInt a_size)
+		static void* Alloc([[maybe_unused]] const void* a_heapAddr, UPInt a_size)
 		{
 			return GMemory::Alloc(a_size);
 		}

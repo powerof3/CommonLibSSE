@@ -16,7 +16,7 @@ namespace RE
 		// override (BSGamepadDevice)
 		void Initialize() override;           // 01 - { return; }
 		void Process(float a_arg1) override;  // 02 - { return; }
-		void Unk_03(void) override;           // 03 - { return; }
+		void Release() override;              // 03 - { return; }
 		void Reset() override;                // 08 - { return; }
 		void Unk_09(void) override;           // 09 - { return; }
 

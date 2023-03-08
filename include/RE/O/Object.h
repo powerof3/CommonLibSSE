@@ -30,6 +30,8 @@ namespace RE
 
 			Variable*                     GetProperty(const BSFixedString& a_name);
 			[[nodiscard]] const Variable* GetProperty(const BSFixedString& a_name) const;
+			Variable*                     GetVariable(const BSFixedString& a_name);
+			[[nodiscard]] const Variable* GetVariable(const BSFixedString& a_name) const;
 
 			TES_HEAP_REDEFINE_NEW();
 

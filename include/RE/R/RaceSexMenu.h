@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSTArray.h"
 #include "RE/I/IMenu.h"
 #include "RE/M/MenuEventHandler.h"
 #include "RE/R/RaceSexCamera.h"
@@ -31,6 +32,8 @@ namespace RE
 		bool ProcessThumbstick(ThumbstickEvent* a_event) override;  // 03
 		bool ProcessMouseMove(MouseMoveEvent* a_event) override;    // 04
 		bool ProcessButton(ButtonEvent* a_event) override;          // 05
+
+		void ChangeName(const char* a_name);
 
 		// members
 		BSTArray<void*>                      unk040[7];  // 040

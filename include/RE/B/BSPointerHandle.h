@@ -159,7 +159,7 @@ namespace RE
 			return ptr;
 		}
 
-		[[nodiscard]] native_handle_type native_handle() noexcept { return _handle.value(); }
+		[[nodiscard]] native_handle_type native_handle() const noexcept { return _handle.value(); }
 
 		[[nodiscard]] explicit operator bool() const noexcept { return _handle.has_value(); }
 

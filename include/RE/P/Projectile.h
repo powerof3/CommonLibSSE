@@ -20,9 +20,10 @@ namespace RE
 	class bhkShape;
 	class bhkSimpleShapePhantom;
 	class BGSMaterialType;
-	class QueuedFile;
+	class BSLight;
 	class CombatController;
 	class MagicItem;
+	class QueuedFile;
 
 	class Projectile : public TESObjectREFR
 	{
@@ -241,7 +242,7 @@ namespace RE
 		mutable BSSpinLock                     unk0E8;             // 0E8
 		NiPoint3                               velocity;           // 0F0
 		NiPoint3                               linearVelocity;     // 0FC
-		void*                                  unk108;             // 108 - smart ptr
+		NiPointer<BSLight>                     light;              // 108 - smart ptr
 		void*                                  unk110;             // 110 - smart ptr
 		NiPointer<ActorCause>                  actorCause;         // 118
 		ObjectRefHandle                        shooter;            // 120
@@ -256,7 +257,7 @@ namespace RE
 		std::uint32_t                          pad164;             // 164
 		EffectSetting*                         avEffect;           // 168
 		NiPointer<QueuedFile>                  projectileDBFiles;  // 170
-		std::uint64_t                          unk178;             // 178
+		std::uint64_t                          unk178;             // 178 - DBHandle
 		std::uint64_t                          unk180;             // 180
 		float                                  power;              // 188
 		float                                  speedMult;          // 18C

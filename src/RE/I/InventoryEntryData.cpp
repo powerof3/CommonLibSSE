@@ -71,6 +71,37 @@ namespace RE
 		extraLists->push_front(a_extra);
 	}
 
+	const char* InventoryEntryData::GetDisplayName()
+	{
+		const char* name = nullptr;
+		if (extraLists) {
+			for (auto& xList : *extraLists) {
+				if (xList) {
+					name = xList->GetDisplayName(object);
+				}
+			}
+		}
+
+		if ((!name || name[0] == '\0') && object) {
+			name = object->GetName();
+		}
+
+		if (!name || name[0] == '\0') {
+			auto gmst = GameSettingCollection::GetSingleton();
+			auto sMissingName = gmst ? gmst->GetSetting("sMissingName") : nullptr;
+			name = sMissingName ? sMissingName->GetString() : "";
+		}
+
+		return name;
+	}
+
+	EnchantmentItem* InventoryEntryData::GetEnchantment() const
+	{
+		using func_t = decltype(&InventoryEntryData::GetEnchantment);
+		REL::Relocation<func_t> func{ RELOCATION_ID(15788, 16026) };
+		return func(this);
+	}
+
 	std::optional<double> InventoryEntryData::GetEnchantmentCharge() const
 	{
 		std::optional<double> result;
@@ -105,30 +136,6 @@ namespace RE
 		}
 
 		return result;
-	}
-
-	const char* InventoryEntryData::GetDisplayName()
-	{
-		const char* name = nullptr;
-		if (extraLists) {
-			for (auto& xList : *extraLists) {
-				if (xList) {
-					name = xList->GetDisplayName(object);
-				}
-			}
-		}
-
-		if ((!name || name[0] == '\0') && object) {
-			name = object->GetName();
-		}
-
-		if (!name || name[0] == '\0') {
-			auto gmst = GameSettingCollection::GetSingleton();
-			auto sMissingName = gmst ? gmst->GetSetting("sMissingName") : nullptr;
-			name = sMissingName ? sMissingName->GetString() : "";
-		}
-
-		return name;
 	}
 
 	TESForm* InventoryEntryData::GetOwner()
@@ -168,6 +175,13 @@ namespace RE
 	float InventoryEntryData::GetWeight() const
 	{
 		return object ? object->GetWeight() : -1.0F;
+	}
+
+	std::int32_t InventoryEntryData::GetValue() const
+	{
+		using func_t = decltype(&InventoryEntryData::GetValue);
+		REL::Relocation<func_t> func{ RELOCATION_ID(15757, 15995) };
+		return func(this);
 	}
 
 	bool InventoryEntryData::IsEnchanted() const
@@ -217,5 +231,36 @@ namespace RE
 		}
 
 		return false;
+	}
+
+	bool InventoryEntryData::IsOwnedBy(Actor* a_testOwner, bool a_defaultTo)
+	{
+		return IsOwnedBy(a_testOwner, GetOwner(), a_defaultTo);
+	}
+
+	bool InventoryEntryData::IsOwnedBy(Actor* a_testOwner, TESForm* a_itemOwner, bool a_defaultTo)
+	{
+		return IsOwnedBy_Impl(a_testOwner, a_itemOwner, a_defaultTo);
+	}
+
+	bool InventoryEntryData::IsQuestObject() const
+	{
+		using func_t = decltype(&InventoryEntryData::IsQuestObject);
+		REL::Relocation<func_t> func{ RELOCATION_ID(15767, 16005) };
+		return func(this);
+	}
+
+	void InventoryEntryData::PoisonObject(AlchemyItem* a_alchItem, std::uint32_t a_count)
+	{
+		using func_t = decltype(&InventoryEntryData::PoisonObject);
+		REL::Relocation<func_t> func{ RELOCATION_ID(15786, 16024) };
+		return func(this, a_alchItem, a_count);
+	}
+
+	bool InventoryEntryData::IsOwnedBy_Impl(Actor* a_testOwner, TESForm* a_itemOwner, bool a_defaultTo)
+	{
+		using func_t = decltype(&InventoryEntryData::IsOwnedBy_Impl);
+		REL::Relocation<func_t> func{ RELOCATION_ID(15782, 16020) };
+		return func(this, a_testOwner, a_itemOwner, a_defaultTo);
 	}
 }

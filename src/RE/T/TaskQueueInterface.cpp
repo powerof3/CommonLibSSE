@@ -15,6 +15,13 @@ namespace RE
 		return func();
 	}
 
+	void TaskQueueInterface::QueueNodeAttach(NiAVObject* a_obj, NiNode* a_root, bool a_arg3, bool a_arg4)
+	{
+		using func_t = decltype(&TaskQueueInterface::QueueNodeAttach);
+		REL::Relocation<func_t> func{ RELOCATION_ID(35922, 36897) };
+		return func(this, a_obj, a_root, a_arg3, a_arg4);
+	}
+
 	void TaskQueueInterface::QueueAddRipple(float a_scale, const NiPoint3& a_pos)
 	{
 		using func_t = decltype(&TaskQueueInterface::QueueAddRipple);
