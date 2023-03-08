@@ -347,8 +347,8 @@ namespace RE
 				const auto it = results.find(a_object);
 				const auto entryData =
 					it != results.end() ?
-						it->second.second.get() :
-						nullptr;
+                        it->second.second.get() :
+                        nullptr;
 				return entryData ? entryData->IsLeveled() : false;
 			};
 

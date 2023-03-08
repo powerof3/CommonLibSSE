@@ -260,8 +260,8 @@ namespace RE
 		auto xTeleport = GetByType<ExtraTeleport>();
 
 		return xTeleport && xTeleport->teleportData ?
-		           xTeleport->teleportData->linkedDoor :
-		           ObjectRefHandle();
+                   xTeleport->teleportData->linkedDoor :
+                   ObjectRefHandle();
 	}
 
 	void ExtraDataList::SetCount(std::uint16_t a_count)
