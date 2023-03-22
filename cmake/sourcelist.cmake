@@ -298,6 +298,7 @@ set(SOURCES
 	include/RE/B/BSSaveDataSystemUtility.h
 	include/RE/B/BSScaleformManager.h
 	include/RE/B/BSScaleformTranslator.h
+	include/RE/B/BSSceneGraph.h
 	include/RE/B/BSScriptObjectBindPolicy.h
 	include/RE/B/BSShader.h
 	include/RE/B/BSShaderManager.h
@@ -829,6 +830,7 @@ set(SOURCES
 	include/RE/G/GiftMenu.h
 	include/RE/G/GlobalLocations.h
 	include/RE/G/GlobalPaths.h
+	include/RE/G/GrabActorEffect.h
 	include/RE/G/GrassParam.h
 	include/RE/G/GrenadeProjectile.h
 	include/RE/G/GridArray.h
@@ -1281,6 +1283,7 @@ set(SOURCES
 	include/RE/S/SaveFileHandleReaderWriter.h
 	include/RE/S/SavePatcher.h
 	include/RE/S/SaveStorageWrapper.h
+	include/RE/S/SceneGraph.h
 	include/RE/S/ScrapHeap.h
 	include/RE/S/ScreenSplatter.h
 	include/RE/S/Script.h
@@ -1479,6 +1482,7 @@ set(SOURCES
 	include/RE/T/TLSData.h
 	include/RE/T/TargetValueModifierEffect.h
 	include/RE/T/TaskQueueInterface.h
+	include/RE/T/TelekinesisEffect.h
 	include/RE/T/TempEffectTraits.h
 	include/RE/T/TextureAddressModes.h
 	include/RE/T/ThirdPersonState.h
@@ -1597,6 +1601,7 @@ set(SOURCES
 	src/RE/B/BookMenu.cpp
 	src/RE/B/BooksRead.cpp
 	src/RE/B/bhkCharProxyController.cpp
+	src/RE/B/bhkRigidBody.cpp
 	src/RE/C/Calendar.cpp
 	src/RE/C/ChestsLooted.cpp
 	src/RE/C/Color.cpp

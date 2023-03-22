@@ -22,7 +22,7 @@ namespace RE
 		std::uint32_t                    pad00;           // 00
 		ObjectRefHandle                  target;          // 04
 		ObjectRefHandle                  targetActor;     // 08
-		ObjectRefHandle                  unk0C;           // 0C
+		ObjectRefHandle                  grabPickRef;     // 0C
 		NiPoint3                         collisionPoint;  // 10
 		std::uint32_t                    pad1C;           // 1C
 		bhkRigidBody*                    targetCollider;  // 20

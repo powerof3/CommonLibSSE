@@ -43,9 +43,23 @@ namespace RE
 		return CenterOnCell_Impl(a_cellName, nullptr);
 	}
 
-	bool PlayerCharacter::CenterOnCell(RE::TESObjectCELL* a_cell)
+	bool PlayerCharacter::CenterOnCell(TESObjectCELL* a_cell)
 	{
 		return CenterOnCell_Impl(nullptr, a_cell);
+	}
+
+	void PlayerCharacter::DestroyMouseSprings()
+	{
+		using func_t = decltype(&PlayerCharacter::DestroyMouseSprings);
+		REL::Relocation<func_t> func{ RELOCATION_ID(39480, 40557) };
+		return func(this);
+	}
+
+	void PlayerCharacter::EndGrabObject()
+	{
+		if (grabType == GrabbingType::kNormal) {
+			DestroyMouseSprings();
+		}
 	}
 
 	NiPointer<Actor> PlayerCharacter::GetActorDoingPlayerCommand() const

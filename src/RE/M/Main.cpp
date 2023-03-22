@@ -1,6 +1,7 @@
 #include "RE/M/Main.h"
 
 #include "RE/N/NiCamera.h"
+#include "RE/N/NiSmartPointer.h"
 
 namespace RE
 {
@@ -21,5 +22,11 @@ namespace RE
 		using func_t = decltype(&Main::WorldRootCamera);
 		REL::Relocation<func_t> func{ RELOCATION_ID(35601, 36609) };
 		return func();
+	}
+
+	Scenegraph* Main::WorldRootNode()
+	{
+		REL::Relocation<NiPointer<Scenegraph>*> nodePtr{ RELOCATION_ID(517006, 403513) };
+		return nodePtr->get();
 	}
 }

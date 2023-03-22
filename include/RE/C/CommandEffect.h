@@ -14,8 +14,8 @@ namespace RE
 		void           OnAdd(MagicTarget* a_target) override;              // 01
 		TESObjectREFR* GetVisualsTarget() override;                        // 03
 		void           Update(float a_delta) override;                     // 04
-		void           LoadGame(BGSSaveFormBuffer* a_buf) override;        // 08
-		void           SaveGame(BGSLoadFormBuffer* a_buf) override;        // 09
+		void           SaveGame(BGSSaveFormBuffer* a_buf) override;        // 08
+		void           LoadGame(BGSLoadFormBuffer* a_buf) override;        // 09
 		void           FinishLoadGame(BGSLoadFormBuffer* a_buf) override;  // 0A
 		void           ClearTargetImpl() override;                         // 12
 
