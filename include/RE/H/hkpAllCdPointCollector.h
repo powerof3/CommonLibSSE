@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpAllCdPointCollector;
+		inline static constexpr auto VTABLE = VTABLE_hkpAllCdPointCollector;
 
 		~hkpAllCdPointCollector() override;  // 00
 

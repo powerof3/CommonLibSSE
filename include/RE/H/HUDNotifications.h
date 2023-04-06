@@ -15,6 +15,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_HUDNotifications;
+		inline static constexpr auto VTABLE = VTABLE_HUDNotifications;
 
 		struct Notification
 		{

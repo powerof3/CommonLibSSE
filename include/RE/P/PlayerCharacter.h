@@ -344,6 +344,7 @@ namespace RE
 		virtual void          Unk_12E(void);                                                   // 12E - { return 0; }
 
 		static PlayerCharacter* GetSingleton();
+		static bool             IsGodMode();
 
 		void                     ActivatePickRef();
 		void                     AddPlayerAddItemEvent(TESObject* a_object, TESForm* a_owner, TESObjectREFR* a_container, AQUIRE_TYPE a_type);
@@ -351,6 +352,7 @@ namespace RE
 		bool                     AttemptPickpocket(TESObjectREFR* a_containerRef, InventoryEntryData* a_entry, std::int32_t a_number, bool a_fromContainer = true);
 		bool                     CenterOnCell(const char* a_cellName);
 		bool                     CenterOnCell(TESObjectCELL* a_cell);
+		bool                     CheckCast(MagicItem* a_spell, Effect* a_effect, MagicSystem::CannotCastReason& a_reason);
 		void                     DestroyMouseSprings();
 		void                     EndGrabObject();
 		NiPointer<Actor>         GetActorDoingPlayerCommand() const;

@@ -1,45 +1,44 @@
 #include "SKSE/InputMap.h"
 
-#include <Windows.h>
-
-#include <Xinput.h>
+#include "SKSE/Impl/XInputAPI.h"
 
 namespace SKSE
 {
 	std::uint32_t InputMap::GamepadMaskToKeycode(std::uint32_t keyMask)
 	{
+		using XInputButton = RE::XInput::XInputButton;
 		switch (keyMask) {
-		case XINPUT_GAMEPAD_DPAD_UP:
+		case XInputButton::XINPUT_GAMEPAD_DPAD_UP:
 			return kGamepadButtonOffset_DPAD_UP;
-		case XINPUT_GAMEPAD_DPAD_DOWN:
+		case XInputButton::XINPUT_GAMEPAD_DPAD_DOWN:
 			return kGamepadButtonOffset_DPAD_DOWN;
-		case XINPUT_GAMEPAD_DPAD_LEFT:
+		case XInputButton::XINPUT_GAMEPAD_DPAD_LEFT:
 			return kGamepadButtonOffset_DPAD_LEFT;
-		case XINPUT_GAMEPAD_DPAD_RIGHT:
+		case XInputButton::XINPUT_GAMEPAD_DPAD_RIGHT:
 			return kGamepadButtonOffset_DPAD_RIGHT;
-		case XINPUT_GAMEPAD_START:
+		case XInputButton::XINPUT_GAMEPAD_START:
 			return kGamepadButtonOffset_START;
-		case XINPUT_GAMEPAD_BACK:
+		case XInputButton::XINPUT_GAMEPAD_BACK:
 			return kGamepadButtonOffset_BACK;
-		case XINPUT_GAMEPAD_LEFT_THUMB:
+		case XInputButton::XINPUT_GAMEPAD_LEFT_THUMB:
 			return kGamepadButtonOffset_LEFT_THUMB;
-		case XINPUT_GAMEPAD_RIGHT_THUMB:
+		case XInputButton::XINPUT_GAMEPAD_RIGHT_THUMB:
 			return kGamepadButtonOffset_RIGHT_THUMB;
-		case XINPUT_GAMEPAD_LEFT_SHOULDER:
+		case XInputButton::XINPUT_GAMEPAD_LEFT_SHOULDER:
 			return kGamepadButtonOffset_LEFT_SHOULDER;
-		case XINPUT_GAMEPAD_RIGHT_SHOULDER:
+		case XInputButton::XINPUT_GAMEPAD_RIGHT_SHOULDER:
 			return kGamepadButtonOffset_RIGHT_SHOULDER;
-		case XINPUT_GAMEPAD_A:
+		case XInputButton::XINPUT_GAMEPAD_A:
 			return kGamepadButtonOffset_A;
-		case XINPUT_GAMEPAD_B:
+		case XInputButton::XINPUT_GAMEPAD_B:
 			return kGamepadButtonOffset_B;
-		case XINPUT_GAMEPAD_X:
+		case XInputButton::XINPUT_GAMEPAD_X:
 			return kGamepadButtonOffset_X;
-		case XINPUT_GAMEPAD_Y:
+		case XInputButton::XINPUT_GAMEPAD_Y:
 			return kGamepadButtonOffset_Y;
-		case 0x9:
+		case 0x9:  // Left Trigger game-defined ID
 			return kGamepadButtonOffset_LT;
-		case 0xA:
+		case 0xA:  // Right Trigger game-defined ID
 			return kGamepadButtonOffset_RT;
 		default:
 			return kMaxMacros;  // Invalid
@@ -48,39 +47,41 @@ namespace SKSE
 
 	std::uint32_t InputMap::GamepadKeycodeToMask(std::uint32_t keyCode)
 	{
+		using XInputButton = RE::XInput::XInputButton;
+
 		switch (keyCode) {
 		case kGamepadButtonOffset_DPAD_UP:
-			return XINPUT_GAMEPAD_DPAD_UP;
+			return XInputButton::XINPUT_GAMEPAD_DPAD_UP;
 		case kGamepadButtonOffset_DPAD_DOWN:
-			return XINPUT_GAMEPAD_DPAD_DOWN;
+			return XInputButton::XINPUT_GAMEPAD_DPAD_DOWN;
 		case kGamepadButtonOffset_DPAD_LEFT:
-			return XINPUT_GAMEPAD_DPAD_LEFT;
+			return XInputButton::XINPUT_GAMEPAD_DPAD_LEFT;
 		case kGamepadButtonOffset_DPAD_RIGHT:
-			return XINPUT_GAMEPAD_DPAD_RIGHT;
+			return XInputButton::XINPUT_GAMEPAD_DPAD_RIGHT;
 		case kGamepadButtonOffset_START:
-			return XINPUT_GAMEPAD_START;
+			return XInputButton::XINPUT_GAMEPAD_START;
 		case kGamepadButtonOffset_BACK:
-			return XINPUT_GAMEPAD_BACK;
+			return XInputButton::XINPUT_GAMEPAD_BACK;
 		case kGamepadButtonOffset_LEFT_THUMB:
-			return XINPUT_GAMEPAD_LEFT_THUMB;
+			return XInputButton::XINPUT_GAMEPAD_LEFT_THUMB;
 		case kGamepadButtonOffset_RIGHT_THUMB:
-			return XINPUT_GAMEPAD_RIGHT_THUMB;
+			return XInputButton::XINPUT_GAMEPAD_RIGHT_THUMB;
 		case kGamepadButtonOffset_LEFT_SHOULDER:
-			return XINPUT_GAMEPAD_LEFT_SHOULDER;
+			return XInputButton::XINPUT_GAMEPAD_LEFT_SHOULDER;
 		case kGamepadButtonOffset_RIGHT_SHOULDER:
-			return XINPUT_GAMEPAD_RIGHT_SHOULDER;
+			return XInputButton::XINPUT_GAMEPAD_RIGHT_SHOULDER;
 		case kGamepadButtonOffset_A:
-			return XINPUT_GAMEPAD_A;
+			return XInputButton::XINPUT_GAMEPAD_A;
 		case kGamepadButtonOffset_B:
-			return XINPUT_GAMEPAD_B;
+			return XInputButton::XINPUT_GAMEPAD_B;
 		case kGamepadButtonOffset_X:
-			return XINPUT_GAMEPAD_X;
+			return XInputButton::XINPUT_GAMEPAD_X;
 		case kGamepadButtonOffset_Y:
-			return XINPUT_GAMEPAD_Y;
+			return XInputButton::XINPUT_GAMEPAD_Y;
 		case kGamepadButtonOffset_LT:
-			return 0x9;
+			return 0x9;  // Left Trigger game-defined ID
 		case kGamepadButtonOffset_RT:
-			return 0xA;
+			return 0xA;  // Right Trigger game-defined ID
 		default:
 			return 0xFF;  // Invalid
 		}
@@ -99,61 +100,63 @@ namespace SKSE
 
 	std::string InputMap::GetKeyboardKeyName(std::uint32_t a_keyCode)
 	{
-		std::uint32_t scancode = a_keyCode & 0xFF;
+		std::int32_t scancode = static_cast<std::int32_t>(a_keyCode & 0xFF);
+
+		using DIKey = RE::DirectInput8::DIKey;
 
 		switch (scancode) {
-		case 0x9C:  // Numpad Enter
+		case DIKey::DIK_NUMPADENTER:  // Numpad Enter
 			scancode = 0x11C;
 			break;
-		case 0x9D:  // Right Control
+		case DIKey::DIK_RCONTROL:  // Right Control
 			scancode = 0x11D;
 			break;
-		case 0xB5:  // Numpad /
+		case DIKey::DIK_DIVIDE:  // Numpad /
 			scancode = 0x135;
 			break;
-		case 0xB8:  // Right Alt
+		case DIKey::DIK_RALT:  // Right Alt
 			scancode = 0x138;
 			break;
-		case 0xC7:  // Home
+		case DIKey::DIK_HOME:  // Home
 			scancode = 0x147;
 			break;
-		case 0xC8:  // Up Arrow
+		case DIKey::DIK_UPARROW:  // Up Arrow
 			scancode = 0x148;
 			break;
-		case 0xC9:  // Page Up
+		case DIKey::DIK_PGUP:  // Page Up
 			scancode = 0x149;
 			break;
-		case 0xCB:  // Left Arrow
+		case DIKey::DIK_LEFTARROW:  // Left Arrow
 			scancode = 0x14B;
 			break;
-		case 0xCD:  // Right Arrow
+		case DIKey::DIK_RIGHTARROW:  // Right Arrow
 			scancode = 0x14D;
 			break;
-		case 0xCF:  // End
+		case DIKey::DIK_END:  // End
 			scancode = 0x14F;
 			break;
-		case 0xD0:  // Down Arrow
+		case DIKey::DIK_DOWNARROW:  // Down Arrow
 			scancode = 0x150;
 			break;
-		case 0xD1:  // Page Down
+		case DIKey::DIK_PGDN:  // Page Down
 			scancode = 0x151;
 			break;
-		case 0xD2:  // Insert
+		case DIKey::DIK_INSERT:  // Insert
 			scancode = 0x152;
 			break;
-		case 0xD3:  // Delete
+		case DIKey::DIK_DELETE:  // Delete
 			scancode = 0x153;
 			break;
 		}
 
-		std::uint32_t lParam = scancode << 16;
+		std::int32_t lParam = scancode << 16;
 
 		if (scancode == 0x45) {
 			lParam |= (0x1 << 24);
 		}
 
-		wchar_t      buffer[MAX_PATH];
-		auto         length = ::GetKeyNameTextW(lParam, buffer, MAX_PATH);
+		wchar_t      buffer[WinAPI::MAX_PATH];
+		auto         length = WinAPI::GetKeyNameText(lParam, buffer, WinAPI::MAX_PATH);
 		std::wstring keyNameW{ buffer, static_cast<std::size_t>(length) };
 
 		return stl::utf16_to_utf8(keyNameW).value_or(""s);

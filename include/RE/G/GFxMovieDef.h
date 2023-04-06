@@ -9,6 +9,8 @@
 
 namespace RE
 {
+	class GASRefCountCollector;
+	class GASStringManager;
 	class GFxExporterInfo;
 	class GFxMovieView;
 
@@ -64,6 +66,36 @@ namespace RE
 		};
 		static_assert(sizeof(MemoryContext) == 0x10);
 
+		class MemoryContextImpl : public MemoryContext
+		{
+		public:
+			class HeapLimit : public GMemoryHeap::LimitHandler
+			{
+			public:
+				~HeapLimit() override;
+
+				// override (GMemoryHeap::LimitHandler)
+				bool OnExceedLimit(GMemoryHeap* a_heap, UPInt a_overLimit) override;    // 01
+				void OnFreeSegment(GMemoryHeap* a_heap, UPInt a_freeingSize) override;  // 02
+
+				// members
+				std::uint64_t unk08;  // 08
+				std::uint64_t unk10;  // 10
+				std::uint64_t unk18;  // 18
+				std::uint64_t unk20;  // 20
+				std::uint64_t unk28;  // 28
+			};
+			static_assert(sizeof(HeapLimit) == 0x30);
+
+			// members
+			GMemoryHeap*               heap;               // 10
+			GPtr<GASRefCountCollector> refCountCollector;  // 18
+			GPtr<GASStringManager>     stringManager;      // 20
+			std::uint64_t              unk28;              // 28
+			HeapLimit                  heapLimit;          // 30
+		};
+		static_assert(sizeof(MemoryContextImpl) == 0x60);
+
 		struct ImportVisitor
 		{
 			virtual ~ImportVisitor();  // 00
@@ -102,8 +134,8 @@ namespace RE
 		[[nodiscard]] virtual GFxResource*           GetMovieDataResource() const = 0;                                                                               // 14
 		[[nodiscard]] virtual const GFxExporterInfo* GetExporterInfo() const = 0;                                                                                    // 15
 		virtual MemoryContext*                       CreateMemoryContext(const char* a_heapName, const MemoryParams& a_memParams, bool a_debugHeap) = 0;             // 16
-		virtual GFxMovieView*                        CreateInstance(const MemoryParams& a_memParams, bool a_initFirstFrame = true) = 0;                              // 17
-		virtual GFxMovieView*                        CreateInstance(MemoryContext* a_memContext, bool a_initFirstFrame = true) = 0;                                  // 18
+		virtual GFxMovieView*                        CreateInstance(MemoryContext* a_memContext, bool a_initFirstFrame = true) = 0;                                  // 17
+		virtual GFxMovieView*                        CreateInstance(const MemoryParams& a_memParams, bool a_initFirstFrame = true) = 0;                              // 18
 		virtual void                                 VisitImportedMovies(ImportVisitor* a_visitor) = 0;                                                              // 19
 		virtual void                                 VisitResources(ResourceVisitor* a_visitor, VisitResourceMask a_visitMask = VisitResourceMask::kAllImages) = 0;  // 1A
 		virtual GFxResource*                         GetResource(const char* a_exportName) const = 0;                                                                // 1B

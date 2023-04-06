@@ -32,6 +32,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpShape;
+		inline static constexpr auto VTABLE = VTABLE_hkpShape;
 
 		using GetSupportingVertexFunc = void(const void* a_this, const hkVector4& a_direction, hkpCdVertex& a_supportVertex);
 		using ConvertVertexIdsToVerticesFunc = void(const void* a_this, const hkpVertexID* a_ids, std::int32_t a_numIDs, class hkpCdVertex* a_verticesOut);

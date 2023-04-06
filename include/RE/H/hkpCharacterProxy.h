@@ -24,6 +24,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpCharacterProxy;
+		inline static constexpr auto VTABLE = VTABLE_hkpCharacterProxy;
 
 		~hkpCharacterProxy() override;  // 00
 

@@ -16,6 +16,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpCompressedMeshShape;
+		inline static constexpr auto VTABLE = VTABLE_hkpCompressedMeshShape;
 
 		enum class MaterialType
 		{

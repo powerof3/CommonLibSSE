@@ -40,6 +40,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpCharacterProxyListener;
+		inline static constexpr auto VTABLE = VTABLE_hkpCharacterProxyListener;
 
 		virtual ~hkpCharacterProxyListener();  // 00
 

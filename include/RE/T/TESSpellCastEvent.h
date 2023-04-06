@@ -10,8 +10,8 @@ namespace RE
 	{
 	public:
 		// members
-		TESObjectREFR* object;  // 00
-		FormID         spell;   // 08
+		NiPointer<TESObjectREFR> object;  // 00
+		FormID                   spell;   // 08
 	};
 	static_assert(sizeof(TESSpellCastEvent) == 0x10);
 }

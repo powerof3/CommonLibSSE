@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkaAnimatedReferenceFrame;
+		inline static constexpr auto VTABLE = VTABLE_hkaAnimatedReferenceFrame;
 
 		// add
 		virtual void  GetReferenceFrame(float a_time, hkQsTransform& a_motionOut) const = 0;                                                                                           // 03

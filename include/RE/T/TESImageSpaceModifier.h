@@ -192,6 +192,13 @@ namespace RE
 		const char* GetFormEditorID() const override;             // 32 - { return formEditorID.c_str(); }
 		bool        SetFormEditorID(const char* a_str) override;  // 33 - { formEditorID = a_str; }
 
+		ImageSpaceModifierInstanceForm* TriggerIfNotActive(float a_strength, NiAVObject* a_target)
+		{
+			using func_t = decltype(&TESImageSpaceModifier::TriggerIfNotActive);
+			REL::Relocation<func_t> func{ RELOCATION_ID(18187, 18572) };
+			return func(this, a_strength, a_target);
+		}
+
 		// members
 		ImageSpaceModifierData         data;                  // 020 - DNAM
 		std::uint32_t                  pad114;                // 114

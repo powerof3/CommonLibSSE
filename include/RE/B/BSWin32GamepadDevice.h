@@ -4,51 +4,39 @@
 
 namespace RE
 {
-	// So we don't have to include XInput.h
-	struct __XINPUT_GAMEPAD
-	{
-		std::uint16_t wButtons;
-		std::byte     bLeftTrigger;
-		std::byte     bRightTrigger;
-		std::int16_t  sThumbLX;
-		std::int16_t  sThumbLY;
-		std::int16_t  sThumbRX;
-		std::int16_t  sThumbRY;
-	};
-	struct __XINPUT_STATE
-	{
-		std::uint32_t    dwPacketNumber;
-		__XINPUT_GAMEPAD Gamepad;
-	};
 	class BSWin32GamepadDevice : public BSPCGamepadDeviceDelegate
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSWin32GamepadDevice;
+		inline static constexpr auto VTABLE = VTABLE_BSWin32GamepadDevice;
 
 		struct Keys
 		{
 			enum Key : std::uint32_t
 			{
 				// button masks for wButtons
-				kUp = 0x0001,
-				kDown = 0x0002,
-				kLeft = 0x0004,
-				kRight = 0x0008,
-				kStart = 0x0010,
-				kBack = 0x0020,
-				kLeftThumb = 0x0040,
-				kRightThumb = 0x0080,
-				kLeftShoulder = 0x0100,
-				kRightShoulder = 0x0200,
-
-				kA = 0x1000,
-				kB = 0x2000,
-				kX = 0x4000,
-				kY = 0x8000,
+				kUp = XInput::XInputButton::XINPUT_GAMEPAD_DPAD_UP,                    // 0x0001
+				kDown = XInput::XInputButton::XINPUT_GAMEPAD_DPAD_DOWN,                // 0x0002
+				kLeft = XInput::XInputButton::XINPUT_GAMEPAD_DPAD_LEFT,                // 0x0004
+				kRight = XInput::XInputButton::XINPUT_GAMEPAD_DPAD_RIGHT,              // 0x0008
+				kStart = XInput::XInputButton::XINPUT_GAMEPAD_START,                   // 0x0010
+				kBack = XInput::XInputButton::XINPUT_GAMEPAD_BACK,                     // 0x0020
+				kLeftThumb = XInput::XInputButton::XINPUT_GAMEPAD_LEFT_THUMB,          // 0x0040
+				kRightThumb = XInput::XInputButton::XINPUT_GAMEPAD_RIGHT_THUMB,        // 0x0080
+				kLeftShoulder = XInput::XInputButton::XINPUT_GAMEPAD_LEFT_SHOULDER,    // 0x0100
+				kRightShoulder = XInput::XInputButton::XINPUT_GAMEPAD_RIGHT_SHOULDER,  // 0x0200
+				kA = XInput::XInputButton::XINPUT_GAMEPAD_A,                           // 0x1000
+				kB = XInput::XInputButton::XINPUT_GAMEPAD_B,                           // 0x2000
+				kX = XInput::XInputButton::XINPUT_GAMEPAD_X,                           // 0x4000
+				kY = XInput::XInputButton::XINPUT_GAMEPAD_Y,                           // 0x8000
 
 				// arbitrary values
+				// IDs meant to be used with ButtonEvent
 				kLeftTrigger = 0x0009,
-				kRightTrigger = 0x000A
+				kRightTrigger = 0x000A,
+				// IDs meant to be used with ThumbstickEvent
+				kLeftStick = 0x000B,
+				kRightStick = 0x000C
 			};
 		};
 		using Key = Keys::Key;
@@ -74,50 +62,43 @@ namespace RE
 		~BSWin32GamepadDevice() override;  // 00
 
 		// override (BSPCGamepadDeviceDelegate)
-		void Initialize() override;           // 01
-		void Process(float a_arg1) override;  // 02
-		void Release() override;              // 03 - { return; }
-		void Reset() override;                // 08 - { std::memset(&unk0D8, 0, 0x50); }
-		void Unk_09(void) override;           // 09 - { return; }
+		void Initialize() override;                           // 01
+		void Process(float a_arg1) override;                  // 02
+		void Release() override;                              // 03 - { return; }
+		void Reset() override;                                // 08 - { std::memset(&unk0D8, 0, 0x50); }
+		void SetRumble(float lValue, float rValue) override;  // 09 - { return; }
 
-		static constexpr uint32_t BUTTON_MASK = Key::kUp | Key::kDown | Key::kLeft | Key::kRight | Key::kStart | Key::kBack | Key::kLeftThumb | Key::kRightThumb | Key::kLeftShoulder | Key::kRightShoulder | Key::kA | Key::kB | Key::kX | Key::kY;
-		// helper functions
-
-		/**
-		 * Returns the previous ButtonState of the gamepad
-		 *
-		 * @return ButtonState
-		 */
-		ButtonState GetPreviousButtonState()
+		// Returns the previous ButtonState of the gamepad
+		ButtonState GetPreviousButtonState() const
 		{
-			return stl::unrestricted_cast<ButtonState>(PreviousState.Gamepad.wButtons & BUTTON_MASK);
-		};
+			return stl::unrestricted_cast<ButtonState>(previousState.Gamepad.wButtons & XInput::XINPUT_BUTTON_MASK);
+		}
 
-		/**
-		 * Returns the current ButtonState of the gamepad
-		 *
-		 * @return ButtonState
-		 */
-		ButtonState GetCurrentButtonState()
+		// Returns the current ButtonState of the gamepad
+		ButtonState GetCurrentButtonState() const
 		{
-			return stl::unrestricted_cast<ButtonState>(CurrentState.Gamepad.wButtons & BUTTON_MASK);
-		};
+			return stl::unrestricted_cast<ButtonState>(currentState.Gamepad.wButtons & XInput::XINPUT_BUTTON_MASK);
+		}
 
 		// members
-		__XINPUT_STATE PreviousState;  // 0D8
-		float          PreviousLT;     // 0E8
-		float          PreviousRT;     // 0EC
-		float          PreviousLX;     // 0F0
-		float          PreviousLY;     // 0F4
-		float          PreviousRX;     // 0F8
-		float          PreviousRY;     // 0FC
-		__XINPUT_STATE CurrentState;   // 100
-		float          CurrentLT;      // 110
-		float          CurrentRT;      // 114
-		float          CurrentLX;      // 118
-		float          CurrentLY;      // 11C
-		float          CurrentRX;      // 120
-		float          CurrentRY;      // 124
+		XInput::XINPUT_STATE previousState;  // 0D8
+		float                previousLT;     // 0E8
+		float                previousRT;     // 0EC
+		float                previousLX;     // 0F0
+		float                previousLY;     // 0F4
+		float                previousRX;     // 0F8
+		float                previousRY;     // 0FC
+		XInput::XINPUT_STATE currentState;   // 100
+		float                currentLT;      // 110
+		float                currentRT;      // 114
+		float                currentLX;      // 118
+		float                currentLY;      // 11C
+		float                currentRX;      // 120
+		float                currentRY;      // 124
+
+	protected:
+		friend class BSGamepadDeviceHandler;
+		BSWin32GamepadDevice();
 	};
 	static_assert(sizeof(BSWin32GamepadDevice) == 0x128);
 }

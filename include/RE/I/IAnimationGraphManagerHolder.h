@@ -12,6 +12,8 @@ namespace RE
 	class NiAVObject;
 	class NiPoint3;
 
+	struct BSAnimationUpdateData;
+
 	class IAnimationGraphManagerHolder
 	{
 	public:
@@ -49,6 +51,7 @@ namespace RE
 		bool SetGraphVariableInt(const BSFixedString& a_variableName, std::int32_t a_in);
 		bool SetGraphVariableFloat(const BSFixedString& a_variableName, float a_in);
 		bool SetGraphVariableNiPoint3(const BSFixedString& a_variableName, NiPoint3& a_in) const;
+		bool UpdateAnimationGraphManager(const BSAnimationUpdateData& a_updateData);
 	};
 	static_assert(sizeof(IAnimationGraphManagerHolder) == 0x8);
 }

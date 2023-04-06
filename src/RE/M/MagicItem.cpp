@@ -1,7 +1,5 @@
 #include "RE/M/MagicItem.h"
 
-#include "RE/M/MagicItemDataCollector.h"
-
 namespace RE
 {
 	float MagicItem::CalculateMagickaCost(Actor* a_caster) const
@@ -66,6 +64,13 @@ namespace RE
 		using func_t = decltype(&MagicItem::GetLongestDuration);
 		REL::Relocation<func_t> func{ RELOCATION_ID(11218, 11337) };
 		return func(this);
+	}
+
+	bool MagicItem::HasEffect(EffectArchetype a_archetype)
+	{
+		using func_t = decltype(&MagicItem::HasEffect);
+		REL::Relocation<func_t> func{ RELOCATION_ID(11207, 11315) };
+		return func(this, a_archetype);
 	}
 
 	bool MagicItem::IsPermanent() const

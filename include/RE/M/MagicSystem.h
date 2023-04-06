@@ -2,6 +2,8 @@
 
 namespace RE
 {
+	class BGSSoundDescriptorForm;
+
 	namespace MagicSystem
 	{
 		enum class CannotCastReason
@@ -85,5 +87,9 @@ namespace RE
 
 			kTotal
 		};
+
+		const char*             GetCannotCastString(CannotCastReason a_reason);
+		float                   GetMagicCasterTargetUpdateInterval();
+		BGSSoundDescriptorForm* GetMagicFailureSound(SpellType a_type);
 	}
 }

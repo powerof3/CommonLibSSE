@@ -6,8 +6,19 @@
 
 namespace RE
 {
-	class GFxMovieRoot : public GFxMovieView
+	class GFxSprite;
+
+	class GFxActionPriority
 	{
+	public:
+	};
+	static_assert(sizeof(GFxActionPriority) == 0x1);
+
+	class GFxMovieRoot :
+		public GFxMovieView,      // 0000
+		public GFxActionPriority  // 0018
+	{
+	public:
 		enum class Flag
 		{
 			kNone = 0,
@@ -95,15 +106,14 @@ namespace RE
 		virtual void Unk_48(void);  // 48
 
 		// members
-		std::uint64_t                         unk0018;                          // 0018
 		std::uint64_t                         unk0020;                          // 0020
-		void*                                 refCountCollector;                // 0028
+		GFxMovieDef::MemoryContextImpl*       memoryContext;                    // 0028
 		std::uint64_t                         unk0030;                          // 0030
 		GMemoryHeap*                          heap;                             // 0038
 		std::uint64_t                         unk0040;                          // 0040
 		std::uint64_t                         unk0048;                          // 0048
 		std::uint64_t                         unk0050;                          // 0050
-		void*                                 unk0058;                          // 0058
+		GFxSprite*                            timeline;                         // 0058
 		GFxMovieDef*                          movieDef;                         // 0060
 		std::uint64_t                         unk0068;                          // 0068
 		std::uint64_t                         unk0070;                          // 0070
@@ -129,7 +139,9 @@ namespace RE
 		void*                                 userData;                         // 0A70
 		std::uint64_t                         unk0A78;                          // 0A78
 		GFxKeyboardState                      keyboardState;                    // 0A80
-		std::uint64_t                         unk1108[(0x25E0 - 0x1108) >> 3];  // 1108
+		std::uint64_t                         unk1108[(0x24A0 - 0x1108) >> 3];  // 1108
+		GASGlobalContext*                     globalContext;                    // 24A0
+		std::uint64_t                         unk24A8[(0x25E0 - 0x24A8) >> 3];  // 1108
 		stl::enumeration<Flag, std::uint32_t> flags;                            // 25E0
 		std::uint32_t                         unk25E4;                          // 25E4
 		std::uint64_t                         unk25E8[(0x2B48 - 0x25E8) >> 3];  // 25E8
@@ -138,5 +150,7 @@ namespace RE
 		std::uint32_t                         unk2B54;                          // 2B54
 		std::uint64_t                         unk2B58[(0x2BE8 - 0x2B58) >> 3];  // 2B58
 	};
+#ifndef __INTELLISENSE__
 	static_assert(sizeof(GFxMovieRoot) == 0x2BF0);
+#endif
 }

@@ -48,6 +48,6 @@ namespace SKSE
 		std::string GetKeyName(std::uint32_t keyCode);
 		std::string GetKeyboardKeyName(std::uint32_t keyCode);
 		std::string GetMouseButtonName(std::uint32_t keyCode);
-		std::string GetGamepadButtonName(std::uint32_t keyCode);
+		std::string GetGamepadButtonName(std::uint32_t a_keyCode);
 	}
 }

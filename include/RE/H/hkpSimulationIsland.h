@@ -16,6 +16,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpSimulationIsland;
+		inline static constexpr auto VTABLE = VTABLE_hkpSimulationIsland;
 
 		~hkpSimulationIsland() override;  // 00
 

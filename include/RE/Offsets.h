@@ -58,6 +58,17 @@ namespace RE
 			inline constexpr REL::ID Load(static_cast<std::uint64_t>(35728));
 		}
 
+		namespace BGSSkillPerkTreeNode
+		{
+			inline constexpr REL::ID Ctor(static_cast<std::uint64_t>(27263));
+		}
+
+		namespace BGSStoryEventManager
+		{
+			inline constexpr REL::ID AddEvent(static_cast<std::uint64_t>(32359));
+			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(22790));
+		}
+
 		namespace BGSStoryTeller
 		{
 			inline constexpr REL::ID BeginShutDownQuest(static_cast<std::uint64_t>(32486));
@@ -633,6 +644,17 @@ namespace RE
 			inline constexpr REL::ID Save(static_cast<std::uint64_t>(34818));
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(516860));
 			inline constexpr REL::ID Load(static_cast<std::uint64_t>(34819));
+		}
+
+		namespace BGSSkillPerkTreeNode
+		{
+			inline constexpr REL::ID Ctor(static_cast<std::uint64_t>(26592));
+		}
+
+		namespace BGSStoryEventManager
+		{
+			inline constexpr REL::ID AddEvent(static_cast<std::uint64_t>(31576));
+			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(22317));
 		}
 
 		namespace BGSStoryTeller

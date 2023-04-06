@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_HeldStateHandler;
+		inline static constexpr auto VTABLE = VTABLE_HeldStateHandler;
 
 		~HeldStateHandler() override;  // 00
 

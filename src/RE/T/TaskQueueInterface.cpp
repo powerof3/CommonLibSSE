@@ -22,6 +22,13 @@ namespace RE
 		return func(this, a_obj, a_root, a_arg3, a_arg4);
 	}
 
+	void TaskQueueInterface::QueueNodeDetach(NiAVObject* a_obj)
+	{
+		using func_t = decltype(&TaskQueueInterface::QueueNodeDetach);
+		REL::Relocation<func_t> func{ RELOCATION_ID(35923, 36898) };
+		return func(this, a_obj);
+	}
+
 	void TaskQueueInterface::QueueUpdateDestructibleObject(TESObjectREFR* a_refr, float a_damage, bool a_arg3, TESObjectREFR* a_cause)
 	{
 		using func_t = decltype(&TaskQueueInterface::QueueUpdateDestructibleObject);

@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpBoxShape;
+		inline static constexpr auto VTABLE = VTABLE_hkpBoxShape;
 
 		~hkpBoxShape() override;  // 00
 

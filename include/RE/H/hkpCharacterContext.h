@@ -41,6 +41,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpCharacterContext;
+		inline static constexpr auto VTABLE = VTABLE_hkpCharacterContext;
 
 		enum class CharacterType
 		{

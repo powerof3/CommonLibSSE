@@ -57,6 +57,13 @@ namespace RE
 		return func(this, a_effect);
 	}
 
+	bool MagicTarget::HasMagicEffectWithKeyword(BGSKeyword* a_keyword, std::uint64_t a_arg2)
+	{
+		using func_t = decltype(&MagicTarget::HasMagicEffectWithKeyword);
+		REL::Relocation<func_t> func{ RELOCATION_ID(33734, 34518) };
+		return func(this, a_keyword, a_arg2);
+	}
+
 	void MagicTarget::VisitEffects(ForEachActiveEffectVisitor& visitor)
 	{
 		using func_t = decltype(&MagicTarget::VisitEffects);

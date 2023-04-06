@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpPhantomListener;
+		inline static constexpr auto VTABLE = VTABLE_hkpPhantomListener;
 
 		virtual ~hkpPhantomListener();  // 00
 

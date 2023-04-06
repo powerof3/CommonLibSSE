@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpAction;
+		inline static constexpr auto VTABLE = VTABLE_hkpAction;
 
 		virtual ~hkpAction() override;  // 00
 

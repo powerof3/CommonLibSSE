@@ -6,6 +6,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkbBehaviorGraphStringData;
+		inline static constexpr auto VTABLE = VTABLE_hkbBehaviorGraphStringData;
 
 		virtual ~hkbBehaviorGraphStringData() = default;  // 00
 

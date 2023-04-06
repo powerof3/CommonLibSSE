@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkaAnimationControl;
+		inline static constexpr auto VTABLE = VTABLE_hkaAnimationControl;
 
 		~hkaAnimationControl() override;  // 00
 

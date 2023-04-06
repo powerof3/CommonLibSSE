@@ -11,6 +11,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_SkyrimScript__HandlePolicy;
+			inline static constexpr auto VTABLE = VTABLE_SkyrimScript__HandlePolicy;
 
 			~HandlePolicy() override;  // 00
 

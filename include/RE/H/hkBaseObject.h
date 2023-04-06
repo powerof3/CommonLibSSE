@@ -6,6 +6,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkBaseObject;
+		inline static constexpr auto VTABLE = VTABLE_hkBaseObject;
 
 		virtual ~hkBaseObject() = default;  // 00
 	};

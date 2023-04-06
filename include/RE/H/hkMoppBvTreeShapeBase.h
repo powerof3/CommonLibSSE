@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkMoppBvTreeShapeBase;
+		inline static constexpr auto VTABLE = VTABLE_hkMoppBvTreeShapeBase;
 
 		~hkMoppBvTreeShapeBase() override;  // 00
 

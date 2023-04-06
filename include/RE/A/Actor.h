@@ -483,6 +483,7 @@ namespace RE
 		static bool             LookupByHandle(RefHandle a_refHandle, NiPointer<Actor>& a_refrOut);
 
 		bool                         AddAnimationGraphEventSink(BSTEventSink<BSAnimationGraphEvent>* a_sink) const;
+		void                         AddCastPower(SpellItem* a_power);
 		bool                         AddSpell(SpellItem* a_spell);
 		void                         AddToFaction(TESFaction* a_faction, std::int8_t a_rank);
 		void                         AddWornOutfit(BGSOutfit* a_outfit, bool a_forceUpdate);
@@ -500,6 +501,7 @@ namespace RE
 		ActorHandle                  CreateRefHandle();
 		bool                         Decapitate();
 		void                         DeselectSpell(SpellItem* a_spell);
+		void                         DispelAlteredStates(RE::EffectArchetype a_exception);
 		void                         DispelWornItemEnchantments();
 		void                         DoReset3D(bool a_updateWeight);
 		void                         EnableAI(bool a_enable);
@@ -519,9 +521,12 @@ namespace RE
 		const TESFaction*            GetCrimeFaction() const;
 		TESPackage*                  GetCurrentPackage();
 		const TESPackage*            GetCurrentPackage() const;
+		TESShout*                    GetCurrentShout();
+		const TESShout*              GetCurrentShout() const;
 		InventoryEntryData*          GetEquippedEntryData(bool a_leftHand) const;
 		TESForm*                     GetEquippedObject(bool a_leftHand) const;
 		float                        GetEquippedWeight();
+		std::int32_t                 GetFactionRank(TESFaction* a_faction, bool a_isPlayer);
 		std::int32_t                 GetGoldAmount(bool a_noInit = false);
 		ActorHandle                  GetHandle();
 		[[nodiscard]] NiAVObject*    GetHeadPartObject(BGSHeadPart::HeadPartType a_type);
@@ -530,6 +535,7 @@ namespace RE
 		std::uint16_t                GetLevel() const;
 		bool                         GetMount(NiPointer<Actor>& a_outMount);
 		bool                         GetMountedBy(NiPointer<Actor>& a_outRider);
+		double                       GetMoveDirectionRelativeToFacing();
 		ObjectRefHandle              GetOccupiedFurniture() const;
 		TESRace*                     GetRace() const;
 		bool                         GetRider(NiPointer<Actor>& a_outRider);
@@ -538,6 +544,7 @@ namespace RE
 		[[nodiscard]] SOUL_LEVEL     GetSoulSize() const;
 		TESFaction*                  GetVendorFaction();
 		const TESFaction*            GetVendorFaction() const;
+		float                        GetVoiceRecoveryTime();
 		float                        GetWarmthRating() const;
 		[[nodiscard]] TESObjectARMO* GetWornArmor(BGSBipedObjectForm::BipedObjectSlot a_slot, bool a_noInit = false);
 		[[nodiscard]] TESObjectARMO* GetWornArmor(FormID a_formID, bool a_noInit = false);
@@ -545,6 +552,7 @@ namespace RE
 		bool                         HasLineOfSight(TESObjectREFR* a_ref, bool& a_arg2);
 		bool                         HasOutfitItems(BGSOutfit* a_outfit);
 		bool                         HasPerk(BGSPerk* a_perk) const;
+		bool                         HasShout(TESShout* a_shout) const;
 		bool                         HasSpell(SpellItem* a_spell) const;
 		void                         InterruptCast(bool a_restoreMagicka) const;
 		bool                         IsAttacking() const;
@@ -556,15 +564,18 @@ namespace RE
 		bool                         IsBlocking() const;
 		bool                         IsCasting(MagicItem* a_spell) const;
 		bool                         IsCommandedActor() const;
+		bool                         IsCurrentShout(SpellItem* a_power);
 		bool                         IsEssential() const;
 		bool                         IsFactionInCrimeGroup(const TESFaction* a_faction) const;
 		bool                         IsGhost() const;
 		bool                         IsGuard() const;
 		bool                         IsHostileToActor(Actor* a_actor);
-		bool                         IsLimbGone(std::uint32_t a_limb);
+		bool                         IsInCastPowerList(SpellItem* a_power);
 		[[nodiscard]] constexpr bool IsInKillMove() const noexcept { return boolFlags.all(BOOL_FLAGS::kIsInKillMove); }
 		bool                         IsInMidair() const;
 		bool                         IsInRagdollState() const;
+		bool                         IsLimbGone(std::uint32_t a_limb);
+		bool                         IsMoving() const;
 		bool                         IsOnMount() const;
 		bool                         IsOverEncumbered() const;
 		bool                         IsPlayerTeammate() const;
@@ -574,7 +585,10 @@ namespace RE
 		[[nodiscard]] bool           IsSummoned() const noexcept;
 		bool                         IsTrespassing() const;
 		void                         KillImmediate();
+		void                         PlayASound(BSSoundHandle& a_result, FormID a_formID, bool a_unk03, std::uint32_t a_flags);
+		void                         ProcessVATSAttack(MagicCaster* a_caster, bool a_hasTargetAnim, TESObjectREFR* a_target, bool a_leftHand);
 		void                         RemoveAnimationGraphEventSink(BSTEventSink<BSAnimationGraphEvent>* a_sink) const;
+		void                         RemoveCastScroll(SpellItem* a_spell, MagicSystem::CastingSource a_source);
 		void                         RemoveExtraArrows3D();
 		void                         RemoveOutfitItems(BGSOutfit* a_outfit);
 		bool                         RemoveSpell(SpellItem* a_spell);
@@ -599,6 +613,7 @@ namespace RE
 		void                         VisitArmorAddon(TESObjectARMO* a_armor, TESObjectARMA* a_arma, std::function<void(bool a_firstPerson, NiAVObject& a_obj)> a_visitor);
 		bool                         VisitFactions(std::function<bool(TESFaction* a_faction, std::int8_t a_rank)> a_visitor);
 		void                         VisitSpells(ForEachSpellVisitor& a_visitor);
+		std::uint8_t                 WhoIsCasting();
 		bool                         WouldBeStealing(const TESObjectREFR* a_target) const;
 
 		// members

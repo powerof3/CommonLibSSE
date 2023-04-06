@@ -15,6 +15,7 @@ namespace RE
 	class NiAVObject;
 	class NiPoint3;
 	class TESForm;
+	class TESShout;
 	struct HighProcessData;
 	struct MiddleHighProcessData;
 
@@ -152,6 +153,7 @@ namespace RE
 		float                   GetCachedHeight() const;
 		bhkCharacterController* GetCharController();
 		ActorHandle             GetCommandingActor() const;
+		TESShout*               GetCurrentShout();
 		TESForm*                GetEquippedLeftHand();
 		TESForm*                GetEquippedRightHand();
 		ObjectRefHandle         GetHeadtrackTarget() const;

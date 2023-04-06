@@ -39,6 +39,11 @@ namespace RE
 		return middleHigh ? middleHigh->commandingActor : ActorHandle{};
 	}
 
+	TESShout* AIProcess::GetCurrentShout()
+	{
+		return high ? high->currentShout : nullptr;
+	}
+
 	TESForm* AIProcess::GetEquippedLeftHand()
 	{
 		return equippedObjects[Hands::kLeft];

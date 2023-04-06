@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkaDefaultAnimationControl;
+		inline static constexpr auto VTABLE = VTABLE_hkaDefaultAnimationControl;
 
 		enum class EaseStatus
 		{

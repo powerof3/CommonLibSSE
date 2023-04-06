@@ -2,6 +2,7 @@
 
 #include "RE/T/TESActivateEvent.h"
 #include "RE/T/TESObjectREFR.h"
+#include "RE/T/TESSpellCastEvent.h"
 
 namespace RE
 {
@@ -27,5 +28,15 @@ namespace RE
 		using func_t = decltype(&ScriptEventSourceHolder::SendOpenCloseEvent);
 		REL::Relocation<func_t> func{ RELOCATION_ID(14190, 14299) };
 		return func(this, a_ref, a_activeRef, a_isOpened);
+	}
+
+	void ScriptEventSourceHolder::SendSpellCastEvent(const NiPointer<TESObjectREFR>& a_object, FormID a_formID)
+	{
+		const TESSpellCastEvent e{
+			a_object,
+			a_formID
+		};
+
+		this->SendEvent(&e);
 	}
 }

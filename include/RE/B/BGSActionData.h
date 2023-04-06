@@ -1,10 +1,13 @@
 #pragma once
 
 #include "RE/A/ActionInput.h"
+#include "RE/A/ActionOutput.h"
 
 namespace RE
 {
-	class BGSActionData : public ActionInput
+	class BGSActionData :
+		public ActionInput,  // 00
+		public ActionOutput  // 28
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSActionData;
@@ -17,13 +20,7 @@ namespace RE
 		virtual bool           Process();      // 05 - { return false; }
 
 		// members
-		BSFixedString unk28;  // 08
-		BSFixedString unk30;  // 30
-		uint64_t      unk38;  // 38
-		uint64_t      unk40;  // 40
-		uint64_t      unk48;  // 48
-		uint64_t      unk50;  // 50
-		uint64_t      unk58;  // 58
+		uint32_t flags;  // 58
 	};
 	static_assert(sizeof(BGSActionData) == 0x60);
 }

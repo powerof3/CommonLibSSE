@@ -57,6 +57,7 @@ namespace RE
 		};
 
 		inline static constexpr auto RTTI = RTTI_hkpConstraintData;
+		inline static constexpr auto VTABLE = VTABLE_hkpConstraintData;
 
 		~hkpConstraintData() override;  // 00
 

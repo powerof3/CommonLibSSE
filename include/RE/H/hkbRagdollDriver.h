@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkbRagdollDriver;
+		inline static constexpr auto VTABLE = VTABLE_hkbRagdollDriver;
 
 		~hkbRagdollDriver() override;  // 00
 

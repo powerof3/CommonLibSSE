@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkbNode;
+		inline static constexpr auto VTABLE = VTABLE_hkbNode;
 
 		~hkbNode() override;  // 00
 

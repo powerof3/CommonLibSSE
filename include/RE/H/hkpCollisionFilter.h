@@ -20,6 +20,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpCollisionFilter;
+		inline static constexpr auto VTABLE = VTABLE_hkpCollisionFilter;
 
 		enum class hkpFilterType
 		{

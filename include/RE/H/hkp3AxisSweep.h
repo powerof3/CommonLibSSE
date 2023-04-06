@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkp3AxisSweep;
+		inline static constexpr auto VTABLE = VTABLE_hkp3AxisSweep;
 
 		using BpInt = std::uint16_t;
 

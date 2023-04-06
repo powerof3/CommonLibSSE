@@ -7,7 +7,8 @@ namespace RE
 	class hkpEaseConstraintsAction : public hkpArrayAction
 	{
 	public:
-		inline static constexpr auto RTTI = RTTI_hkpArrayAction;
+		inline static constexpr auto RTTI = RTTI_hkpEaseConstraintsAction;
+		inline static constexpr auto VTABLE = VTABLE_hkpEaseConstraintsAction;
 
 		virtual ~hkpEaseConstraintsAction() override;  // 00
 

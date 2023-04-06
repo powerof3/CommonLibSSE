@@ -1,10 +1,11 @@
 #pragma once
 
-#include "MagicItemDataCollector.h"
 #include "RE/A/ActorValues.h"
 #include "RE/B/BGSKeywordForm.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTSmartPointer.h"
+#include "RE/E/EffectArchetypes.h"
+#include "RE/M/MagicItemDataCollector.h"
 #include "RE/M/MagicItemTraversalFunctor.h"
 #include "RE/M/MagicSystem.h"
 #include "RE/T/TESBoundObject.h"
@@ -116,6 +117,7 @@ namespace RE
 		[[nodiscard]] const Data*            GetData() const;
 		[[nodiscard]] std::int32_t           GetLargestArea() const;
 		[[nodiscard]] std::uint32_t          GetLongestDuration() const;
+		[[nodiscard]] bool                   HasEffect(EffectArchetype a_archetype);
 		[[nodiscard]] bool                   IsPermanent() const;
 		void                                 Traverse(MagicItemTraversalFunctor& a_visitor) const;
 

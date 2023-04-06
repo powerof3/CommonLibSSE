@@ -152,18 +152,18 @@ namespace SKSE
 					if (nestLevel == 0) {
 						// Recursion
 						auto        nestedKey = key.substr(tokenStart, i - tokenStart);
-						std::string value;
+						std::string value = nestedKey;
 						Translate(nestedKey, value);
 						nested.push_back(value);
 						key = key.substr(0, tokenStart) + key.substr(i, key.length() - i);
-						i = tokenStart + 1;
+						i = tokenStart;
 					}
 				}
 			}
 		}
 
 		// Lookup translation
-		std::wstring         key_utf16 = stl::utf8_to_utf16(a_key).value_or(L""s);
+		std::wstring         key_utf16 = stl::utf8_to_utf16(key).value_or(L""s);
 		RE::GFxWStringBuffer result;
 
 		RE::GFxTranslator::TranslateInfo translateInfo;

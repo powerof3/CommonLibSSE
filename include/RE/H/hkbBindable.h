@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkbBindable;
+		inline static constexpr auto VTABLE = VTABLE_hkbBindable;
 
 		~hkbBindable() override;  // 00
 

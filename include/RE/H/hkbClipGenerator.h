@@ -26,6 +26,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkbClipTriggerArray;
+		inline static constexpr auto VTABLE = VTABLE_hkbClipTriggerArray;
 
 		~hkbClipTriggerArray() override;  // 00
 
@@ -38,6 +39,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkbClipGenerator;
+		inline static constexpr auto VTABLE = VTABLE_hkbClipGenerator;
 
 		enum PlaybackMode
 		{
@@ -62,15 +64,16 @@ namespace RE
 		// members
 		hkStringPtr                             animationName;                       // 048
 		hkRefPtr<hkbClipTriggerArray>           triggers;                            // 050
-		float                                   cropEndAmountLocalTime;              // 058
-		float                                   startTime;                           // 05C
-		float                                   playbackSpeed;                       // 060
-		float                                   enforcedDuration;                    // 064
-		float                                   userControlledTimeFraction;          // 068
-		std::uint16_t                           animationBindingIndex;               // 06C
-		stl::enumeration<PlaybackMode, uint8_t> mode;                                // 06E
-		std::uint8_t                            flags;                               // 06F
-		std::uint64_t                           unk70;                               // 070
+		float                                   cropStartAmountLocalTime;            // 058
+		float                                   cropEndAmountLocalTime;              // 05C
+		float                                   startTime;                           // 060
+		float                                   playbackSpeed;                       // 064
+		float                                   enforcedDuration;                    // 068
+		float                                   userControlledTimeFraction;          // 06C
+		std::uint16_t                           animationBindingIndex;               // 070
+		stl::enumeration<PlaybackMode, uint8_t> mode;                                // 072
+		std::uint8_t                            flags;                               // 073
+		std::uint32_t                           unk74;                               // 074
 		hkArray<hkRefVariant>                   animDatas;                           // 078
 		hkRefPtr<hkaDefaultAnimationControl>    animationControl;                    // 088
 		hkRefPtr<hkbClipTriggerArray>           originalTriggers;                    // 090

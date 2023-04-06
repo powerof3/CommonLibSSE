@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpSphereShape;
+		inline static constexpr auto VTABLE = VTABLE_hkpSphereShape;
 
 		~hkpSphereShape() override;  // 00
 

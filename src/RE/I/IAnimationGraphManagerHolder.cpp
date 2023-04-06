@@ -61,4 +61,11 @@ namespace RE
 		REL::Relocation<func_t> func{ RELOCATION_ID(32144, 32888) };
 		return func(this, a_variableName, a_in);
 	}
+
+	bool IAnimationGraphManagerHolder::UpdateAnimationGraphManager(const BSAnimationUpdateData& a_updateData)
+	{
+		using func_t = decltype(&IAnimationGraphManagerHolder::UpdateAnimationGraphManager);
+		REL::Relocation<func_t> func{ RELOCATION_ID(32155, 32899) };
+		return func(this, a_updateData);
+	}
 }

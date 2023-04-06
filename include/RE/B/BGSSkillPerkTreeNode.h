@@ -12,7 +12,11 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSSkillPerkTreeNode;
 
-		virtual ~BGSSkillPerkTreeNode();  // 00
+		BGSSkillPerkTreeNode(std::int32_t a_index, ActorValueInfo* a_avInfo);
+
+		virtual ~BGSSkillPerkTreeNode() = default;  // 00
+
+		TES_HEAP_REDEFINE_NEW();
 
 		// members
 		std::uint32_t                   index;               // 08 - INAM

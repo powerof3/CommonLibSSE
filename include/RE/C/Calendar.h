@@ -71,6 +71,7 @@ namespace RE
 		void                        GetTimeDateString(char* a_dest, std::uint32_t a_max, bool a_showYear) const;
 		[[nodiscard]] float         GetHour() const;
 		[[nodiscard]] float         GetHoursPassed() const;
+		[[nodiscard]] float         GetHoursPerDay() const;
 		[[nodiscard]] std::uint32_t GetMonth() const;
 		[[nodiscard]] std::string   GetMonthName() const;
 		[[nodiscard]] std::tm       GetTime() const;

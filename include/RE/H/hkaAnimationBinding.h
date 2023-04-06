@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkaAnimationBinding;
+		inline static constexpr auto VTABLE = VTABLE_hkaAnimationBinding;
 
 		enum class BlendHint
 		{
