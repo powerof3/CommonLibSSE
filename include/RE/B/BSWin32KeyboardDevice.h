@@ -15,12 +15,12 @@ namespace RE
 		~BSWin32KeyboardDevice() override;  // 00
 
 		// override (BSKeyboardDevice)
-		void Initialize() override;           // 01
-		void Process(float a_unk1) override;  // 02
-		void Release() override;              // 03
-		void Reset() override;                // 08 - { std::memset(&curState, 0, 0x200); }
-		void Unk_09(void) override;           // 09 - { return; }
-		void Unk_0A(void) override;           // 0A - { return; }
+		void Initialize() override;             // 01
+		void Poll(float a_timeDelta) override;  // 02
+		void Shutdown() override;               // 03
+		void ClearInputState() override;        // 08 - { std::memset(&curState, 0, 0x200); }
+		void Unk_09(void) override;             // 09 - { return; }
+		void Unk_0A(void) override;             // 0A - { return; }
 
 		[[nodiscard]] bool IsPressed(std::uint32_t a_keyCode) const;
 		[[nodiscard]] Key  RemapNumpadKey(REX::W32::DIK a_key);
