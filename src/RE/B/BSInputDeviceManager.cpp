@@ -15,6 +15,12 @@ namespace RE
 		return *singleton;
 	}
 
+	bool BSInputDeviceManager::GetButtonNameFromID(INPUT_DEVICE a_device, std::int32_t a_id, BSFixedString& a_buttonName) const
+	{
+		const auto device = devices[a_device];
+		return device && device->GetButtonNameFromID(a_id, a_buttonName);
+	}
+
 	BSPCGamepadDeviceDelegate* BSInputDeviceManager::GetGamepad()
 	{
 		auto handler = GetGamepadHandler();
