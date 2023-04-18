@@ -324,6 +324,7 @@ set(SOURCES
 	include/RE/B/BSPrecomputedNavmeshInfoPathMap.h
 	include/RE/B/BSReloadShaderI.h
 	include/RE/B/BSRenderPass.h
+	include/RE/B/BSResource.h
 	include/RE/B/BSResourceEntry.h
 	include/RE/B/BSResourceEntryCache.h
 	include/RE/B/BSResourceEntryDB.h

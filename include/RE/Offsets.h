@@ -111,6 +111,17 @@ namespace RE
 			inline constexpr REL::ID UnlockForWrite(static_cast<std::uint64_t>(68240));
 		}
 
+		namespace BSResource
+		{
+			namespace LooseFileLocation
+			{
+				inline constexpr REL::ID Vtbl(static_cast<std::uint64_t>(188191));
+			}
+
+			inline constexpr REL::ID RegisterGlobalPath(static_cast<std::uint64_t>(69833));
+			inline constexpr REL::ID RegisterLocation(static_cast<std::uint64_t>(69829));
+		}
+
 		namespace BSResourceNiBinaryStream
 		{
 			inline constexpr REL::ID Ctor(static_cast<std::uint64_t>(71014));
