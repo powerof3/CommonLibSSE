@@ -46,6 +46,18 @@ namespace RE
 			inline constexpr REL::ID Dtor(static_cast<std::uint64_t>(11572));
 		}
 
+		namespace BGSEntryPoint
+		{
+			inline constexpr REL::ID EntryPoints(static_cast<std::uint64_t>(368994));
+			inline constexpr REL::ID HandleEntryPoint(static_cast<std::uint64_t>(23526));
+		}
+
+		namespace BGSEntryPointFunction
+		{
+			inline constexpr REL::ID EntryPointFunctions(static_cast<std::uint64_t>(369178));
+			inline constexpr REL::ID EntryPointFunctionTypeArgumentCount(static_cast<std::uint64_t>(369210));
+		}
+
 		namespace BGSFootstepManager
 		{
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(403553));
