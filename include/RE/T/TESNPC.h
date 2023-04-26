@@ -88,7 +88,7 @@ namespace RE
 				kLockpicking = 8,
 				kSneak = 9,
 				kAlchemy = 10,
-				kSpecchcraft = 11,
+				kSpeechcraft = 11,
 				kAlteration = 12,
 				kConjuration = 13,
 				kDestruction = 14,

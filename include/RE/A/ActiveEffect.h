@@ -27,6 +27,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ActiveEffect;
+		inline static constexpr auto VTABLE = VTABLE_ActiveEffect;
 		inline static constexpr auto VMTYPEID = static_cast<VMTypeID>(142);
 
 		class ForEachHitEffectVisitor

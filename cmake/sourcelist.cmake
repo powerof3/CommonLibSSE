@@ -5,6 +5,7 @@ set(SOURCES
 	include/RE/A/AITimer.h
 	include/RE/A/AbsorbEffect.h
 	include/RE/A/AbstractHeap.h
+	include/RE/A/AccumulatingValueModifierEffect.h
 	include/RE/A/ActionInput.h
 	include/RE/A/ActionOutput.h
 	include/RE/A/ActivateHandler.h
@@ -14,6 +15,7 @@ set(SOURCES
 	include/RE/A/Actor.h
 	include/RE/A/ActorCause.h
 	include/RE/A/ActorEquipManager.h
+	include/RE/A/ActorInventoryEvent.h
 	include/RE/A/ActorKill.h
 	include/RE/A/ActorKnowledge.h
 	include/RE/A/ActorMagicCaster.h
@@ -297,7 +299,6 @@ set(SOURCES
 	include/RE/B/BSPortalGraph.h
 	include/RE/B/BSPrecomputedNavmeshInfoPathMap.h
 	include/RE/B/BSReloadShaderI.h
-	include/RE/B/BSRenderManager.h
 	include/RE/B/BSRenderPass.h
 	include/RE/B/BSResourceEntryDB.h
 	include/RE/B/BSResourceNiBinaryStream.h
@@ -372,6 +373,7 @@ set(SOURCES
 	include/RE/B/BSXAudio2GameSound.h
 	include/RE/B/BSXFlags.h
 	include/RE/B/BShkbAnimationGraph.h
+	include/RE/B/BanishEffect.h
 	include/RE/B/BarrierProjectile.h
 	include/RE/B/BarterMenu.h
 	include/RE/B/BaseFormComponent.h
@@ -383,6 +385,7 @@ set(SOURCES
 	include/RE/B/BookMenu.h
 	include/RE/B/BooksRead.h
 	include/RE/B/BottomBar.h
+	include/RE/B/BoundItemEffect.h
 	include/RE/B/ButtonEvent.h
 	include/RE/B/bhkBackfaceContactListener.h
 	include/RE/B/bhkCachingShapePhantom.h
@@ -426,6 +429,7 @@ set(SOURCES
 	include/RE/C/CharEvent.h
 	include/RE/C/Character.h
 	include/RE/C/ChestsLooted.h
+	include/RE/C/CloakEffect.h
 	include/RE/C/Clouds.h
 	include/RE/C/CodeTasklet.h
 	include/RE/C/CollisionLayers.h
@@ -462,12 +466,14 @@ set(SOURCES
 	include/RE/C/CombatSearchLocation.h
 	include/RE/C/CombatState.h
 	include/RE/C/CommandEffect.h
+	include/RE/C/CommandSummonedEffect.h
 	include/RE/C/CommandTable.h
 	include/RE/C/CommonTypeTraits.h
 	include/RE/C/CompactingStore.h
 	include/RE/C/CompiledScriptLoader.h
 	include/RE/C/ConcreteFormFactory.h
 	include/RE/C/ConcreteObjectFormFactory.h
+	include/RE/C/ConcussionEffect.h
 	include/RE/C/ConeProjectile.h
 	include/RE/C/Console.h
 	include/RE/C/ConsoleData.h
@@ -484,13 +490,16 @@ set(SOURCES
 	include/RE/C/Crime.h
 	include/RE/C/CriticalHit.h
 	include/RE/C/CrosshairPickData.h
+	include/RE/C/CureEffect.h
 	include/RE/C/CursorMenu.h
 	include/RE/D/DBTraits.h
+	include/RE/D/DarknessEffect.h
 	include/RE/D/DecalData.h
 	include/RE/D/DefaultObjectsReadyEvent.h
 	include/RE/D/DelayFunctor.h
 	include/RE/D/DemoralizeEffect.h
 	include/RE/D/DepthStencilDepthModes.h
+	include/RE/D/DetectLifeEffect.h
 	include/RE/D/DetectionListener.h
 	include/RE/D/DetectionPriorities.h
 	include/RE/D/DetectionState.h
@@ -500,18 +509,24 @@ set(SOURCES
 	include/RE/D/DialogueMenu.h
 	include/RE/D/DialoguePackage.h
 	include/RE/D/DialogueTypes.h
+	include/RE/D/DisarmEffect.h
 	include/RE/D/DisarmedEvent.h
+	include/RE/D/DisguiseEffect.h
+	include/RE/D/DispelEffect.h
 	include/RE/D/DoNothingUnhandledPolicy.h
 	include/RE/D/DragonSoulsGained.h
 	include/RE/D/DropObjectFunctor.h
+	include/RE/D/DualValueModifierEffect.h
 	include/RE/E/Effect.h
 	include/RE/E/EffectArchetypes.h
 	include/RE/E/EffectSetting.h
 	include/RE/E/EmotionTypes.h
 	include/RE/E/EnchantConstructMenu.h
 	include/RE/E/EnchantmentItem.h
+	include/RE/E/EnhanceWeaponEffect.h
 	include/RE/E/ErrorCodes.h
 	include/RE/E/ErrorLogger.h
+	include/RE/E/EtherealizationEffect.h
 	include/RE/E/Explosion.h
 	include/RE/E/ExtraAction.h
 	include/RE/E/ExtraActivateLoopSound.h
@@ -858,6 +873,7 @@ set(SOURCES
 	include/RE/G/GrenadeProjectile.h
 	include/RE/G/GridArray.h
 	include/RE/G/GridCellArray.h
+	include/RE/G/GuideEffect.h
 	include/RE/H/HUDChargeMeter.h
 	include/RE/H/HUDData.h
 	include/RE/H/HUDMenu.h
@@ -1084,8 +1100,10 @@ set(SOURCES
 	include/RE/I/Inventory3DManager.h
 	include/RE/I/InventoryChanges.h
 	include/RE/I/InventoryEntryData.h
+	include/RE/I/InventoryEvent.h
 	include/RE/I/InventoryMenu.h
 	include/RE/I/InventoryUpdateData.h
+	include/RE/I/InvisibilityEffect.h
 	include/RE/I/ItemCard.h
 	include/RE/I/ItemCrafted.h
 	include/RE/I/ItemHarvested.h
@@ -1114,6 +1132,7 @@ set(SOURCES
 	include/RE/L/LocationDiscovery.h
 	include/RE/L/LocationTraverser.h
 	include/RE/L/LocationTree.h
+	include/RE/L/LockEffect.h
 	include/RE/L/LockpickingMenu.h
 	include/RE/L/LogEvent.h
 	include/RE/L/Logger.h
@@ -1259,12 +1278,14 @@ set(SOURCES
 	include/RE/N/NiTexture.h
 	include/RE/N/NiTimeController.h
 	include/RE/N/NiTransform.h
+	include/RE/N/NightEyeEffect.h
 	include/RE/N/NonActorMagicCaster.h
 	include/RE/N/NonActorMagicTarget.h
 	include/RE/O/Object.h
 	include/RE/O/ObjectTypeInfo.h
 	include/RE/O/ObjectiveState.h
 	include/RE/O/OldMessageBoxCallback.h
+	include/RE/O/OpenEffect.h
 	include/RE/Offsets.h
 	include/RE/Offsets_NiRTTI.h
 	include/RE/Offsets_RTTI.h
@@ -1276,6 +1297,7 @@ set(SOURCES
 	include/RE/P/PackedInstructionStream.h
 	include/RE/P/ParalysisEffect.h
 	include/RE/P/PathingCell.h
+	include/RE/P/PeakValueModifierEffect.h
 	include/RE/P/PerkEntryVisitor.h
 	include/RE/P/PerkRankVisitor.h
 	include/RE/P/PermanentMagicFunctor.h
@@ -1299,6 +1321,7 @@ set(SOURCES
 	include/RE/R/RaceSexCamera.h
 	include/RE/R/RaceSexMenu.h
 	include/RE/R/RaceSexMenuEvent.h
+	include/RE/R/RallyEffect.h
 	include/RE/R/RawFuncCallQuery.h
 	include/RE/R/ReadyWeaponHandler.h
 	include/RE/R/ReanimateEffect.h
@@ -1312,8 +1335,10 @@ set(SOURCES
 	include/RE/R/RegisterPrefix.h
 	include/RE/R/RemoveCallbackVisitor.h
 	include/RE/R/RemoveItemFunctor.h
+	include/RE/R/RenderTargetData.h
 	include/RE/R/RenderTargetManager.h
 	include/RE/R/RenderTargetProperties.h
+	include/RE/R/Renderer.h
 	include/RE/R/Request.h
 	include/RE/R/ReticuleController.h
 	include/RE/R/Rumble.h
@@ -1328,8 +1353,10 @@ set(SOURCES
 	include/RE/S/ScrapHeap.h
 	include/RE/S/ScreenSplatter.h
 	include/RE/S/Script.h
+	include/RE/S/ScriptEffect.h
 	include/RE/S/ScriptEventSourceHolder.h
 	include/RE/S/ScriptFunction.h
+	include/RE/S/ScriptedRefEffect.h
 	include/RE/S/ScrollItem.h
 	include/RE/S/SendPlayerToJailFunctor.h
 	include/RE/S/SetEventData.h
@@ -1356,17 +1383,21 @@ set(SOURCES
 	include/RE/S/SkyrimScriptStore.h
 	include/RE/S/SkyrimVM.h
 	include/RE/S/SleepWaitMenu.h
+	include/RE/S/SlowTimeEffect.h
 	include/RE/S/SmithingMenu.h
 	include/RE/S/SneakHandler.h
 	include/RE/S/SoulLevels.h
+	include/RE/S/SoulTrapEffect.h
 	include/RE/S/SoulsTrapped.h
 	include/RE/S/SoundLevels.h
 	include/RE/S/SourceActionMap.h
+	include/RE/S/SpawnHazardEffect.h
 	include/RE/S/SpellItem.h
 	include/RE/S/SpellsLearned.h
 	include/RE/S/SprintHandler.h
 	include/RE/S/Stack.h
 	include/RE/S/StackFrame.h
+	include/RE/S/StaggerEffect.h
 	include/RE/S/StandardItemData.h
 	include/RE/S/Stars.h
 	include/RE/S/State.h
@@ -1527,12 +1558,15 @@ set(SOURCES
 	include/RE/T/TelekinesisEffect.h
 	include/RE/T/TempEffectTraits.h
 	include/RE/T/TextureAddressModes.h
+	include/RE/T/TextureFileFormat.h
+	include/RE/T/TextureFormat.h
 	include/RE/T/ThirdPersonState.h
 	include/RE/T/ThumbstickEvent.h
 	include/RE/T/TitleSequenceMenu.h
 	include/RE/T/TogglePOVHandler.h
 	include/RE/T/ToggleRunHandler.h
 	include/RE/T/TrainingMenu.h
+	include/RE/T/TurnUndeadEffect.h
 	include/RE/T/TutorialMenu.h
 	include/RE/T/TweenMenu.h
 	include/RE/T/TypeInfo.h
@@ -1548,13 +1582,17 @@ set(SOURCES
 	include/RE/U/UserEvents.h
 	include/RE/V/VATS.h
 	include/RE/V/VDescTable.h
+	include/RE/V/ValueAndConditionsEffect.h
 	include/RE/V/ValueModifierEffect.h
+	include/RE/V/VampireLordEffect.h
 	include/RE/V/Variable.h
 	include/RE/V/VertexDesc.h
 	include/RE/V/VirtualMachine.h
 	include/RE/V/VoiceSpellFireHandler.h
 	include/RE/W/WeaponAnimationGraphManagerHolder.h
 	include/RE/W/WeatherType.h
+	include/RE/W/WerewolfEffect.h
+	include/RE/W/WerewolfFeedEffect.h
 	include/RE/Z/ZeroFunctionArguments.h
 	include/RE/Z/ZeroOverheadHeap.h
 	include/REL/Relocation.h
@@ -1840,6 +1878,7 @@ set(SOURCES
 	src/RE/R/RaceSexMenu.cpp
 	src/RE/R/ReferenceEffectController.cpp
 	src/RE/R/RemoveCallbackVisitor.cpp
+	src/RE/R/Renderer.cpp
 	src/RE/R/Rumble.cpp
 	src/RE/S/ScrapHeap.cpp
 	src/RE/S/Script.cpp

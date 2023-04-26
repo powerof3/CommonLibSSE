@@ -104,6 +104,13 @@ namespace RE
 		return func(this);
 	}
 
+	void InventoryChanges::InitOutfitItems(BGSOutfit* a_outfit, std::uint16_t a_npcLevel)
+	{
+		using func_t = decltype(&InventoryChanges::InitOutfitItems);
+		REL::Relocation<func_t> func{ RELOCATION_ID(15833, 16072) };
+		return func(this, a_outfit, a_npcLevel);
+	}
+
 	void InventoryChanges::InitScripts()
 	{
 		using func_t = decltype(&InventoryChanges::InitScripts);

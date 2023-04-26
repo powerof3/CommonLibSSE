@@ -43,6 +43,7 @@ namespace RE
 		std::uint32_t  GetWornMask();
 		void           InitFromContainerExtra();
 		void           InitLeveledItems();
+		void           InitOutfitItems(BGSOutfit* a_outfit, std::uint16_t a_npcLevel);
 		void           InitScripts();
 		void           RemoveFavorite(InventoryEntryData* a_entry, ExtraDataList* a_itemList);
 		void           SendContainerChangedEvent(ExtraDataList* a_itemExtraList, TESObjectREFR* a_fromRefr, TESForm* a_item, std::int32_t a_count);
