@@ -14,6 +14,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_MenuEventHandler;
+		inline static constexpr auto VTABLE = VTABLE_MenuEventHandler;
 
 		MenuEventHandler() = default;
 		virtual ~MenuEventHandler() = default;  // 00
