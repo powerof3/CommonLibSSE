@@ -49,7 +49,10 @@ namespace RE
 		}
 #endif
 
-		[[nodiscard]] constexpr float Value() const noexcept { return value; }
+		[[nodiscard]] constexpr float Value() const noexcept
+		{
+			return value;
+		}
 		[[nodiscard]] constexpr float HeldDuration() const noexcept { return heldDownSecs; }
 		[[nodiscard]] constexpr bool  IsPressed() const noexcept { return Value() > 0.0F; }
 		[[nodiscard]] constexpr bool  IsRepeating() const noexcept { return HeldDuration() > 0.0F; }
