@@ -17,6 +17,7 @@ namespace RE
 	class TESObjectCELL;
 	class TESWorldSpace;
 	class TESWaterDisplacement;
+	class TESWaterForm;
 	class TESWaterNormals;
 	class TESWaterObject;
 	class TESWaterReflections;
@@ -53,7 +54,7 @@ namespace RE
 		NiPoint2                                     unk084;                   // 084
 		std::uint32_t                                pad08C;                   // 08C
 		NiPointer<NiNode>                            waterRoot;                // 090
-		std::uint64_t                                unk098;                   // 098
+		TESWaterForm*                                currentWaterType;         // 098
 		std::uint32_t                                reflectionExteriorCount;  // 0A0
 		std::uint32_t                                reflectionInteriorCount;  // 0A4
 		TESWorldSpace*                               worldSpace;               // 0A8

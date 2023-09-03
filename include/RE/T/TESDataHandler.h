@@ -40,6 +40,8 @@ namespace RE
 	public:
 		static TESDataHandler* GetSingleton();
 
+		bool AddFormToDataHandler(TESForm* a_form);
+
 		std::uint32_t LoadScripts();
 		TESForm*      LookupForm(FormID a_rawFormID, std::string_view a_modName);
 		template <class T>

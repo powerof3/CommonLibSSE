@@ -5,8 +5,11 @@
 
 namespace RE
 {
+	struct BGSPackageDataList;
+	class BGSStoryEvent;
 	class TESGlobal;
 	class TESObjectREFR;
+	class TESQuest;
 
 	enum class CONDITIONITEMOBJECT
 	{
@@ -951,21 +954,23 @@ namespace RE
 		constexpr ConditionCheckParams(TESObjectREFR* a_actionRef, TESObjectREFR* a_targetRef) :
 			actionRef(a_actionRef),
 			targetRef(a_targetRef),
-			unk10(nullptr),
-			unk18(nullptr),
+			quest(nullptr),
+			questStartEvent(nullptr),
 			unk20(nullptr),
-			unk28(nullptr)
+			unk28(false),
+			packageDataList(nullptr)
 		{}
 
 		// members
-		TESObjectREFR* actionRef;  // 00
-		TESObjectREFR* targetRef;  // 08
-		void*          unk10;      // 10
-		void*          unk18;      // 18
-		void*          unk20;      // 20
-		void*          unk28;      // 28
+		TESObjectREFR*      actionRef;        // 00
+		TESObjectREFR*      targetRef;        // 08
+		TESQuest*           quest;            // 10
+		BGSStoryEvent*      questStartEvent;  // 18
+		void*               unk20;            // 20
+		bool                unk28;            // 28
+		BGSPackageDataList* packageDataList;  // 30
 	};
-	static_assert(sizeof(ConditionCheckParams) == 0x30);
+	static_assert(sizeof(ConditionCheckParams) == 0x38);
 
 	struct TESConditionItem  // CTDA
 	{

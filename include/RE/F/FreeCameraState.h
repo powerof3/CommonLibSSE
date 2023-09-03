@@ -31,12 +31,12 @@ namespace RE
 		void ProcessButton(ButtonEvent* a_event, PlayerControlsData* a_movementData) override;  // 04
 
 		// members
-		NiPoint3         translation;    // 30
-		BSTPoint2<float> rotationInput;  // 3C
-		BSTPoint2<float> unk44;          // 44
-		std::uint16_t    unk4C;          // 4C
-		bool             useRunSpeed;    // 4E
-		std::uint8_t     unk4F;          // 4F
+		NiPoint3         translation;        // 30
+		BSTPoint2<float> rotation;           // 3C
+		BSTPoint2<float> zUpDown;            // 44
+		std::int16_t     verticalDirection;  // 4C
+		bool             useRunSpeed;        // 4E
+		bool             lockToZPlane;       // 4F
 	};
 	static_assert(sizeof(FreeCameraState) == 0x50);
 }

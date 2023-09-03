@@ -19,7 +19,7 @@ namespace RE
 		virtual void  Unk_03(void) = 0;                                 // 03
 		virtual void  Unk_04(void) = 0;                                 // 04
 		virtual float DoGetMovementSpeed() = 0;                         // 05
-		virtual void  Unk_06(void) = 0;                                 // 06
+		virtual float DoGetRotationSpeed() = 0;                         // 06
 		virtual void  Unk_07(void) = 0;                                 // 07
 		virtual void  Unk_08(void) = 0;                                 // 08
 		virtual void  DoGetMovementRotation(NiPoint3& a_rotation) = 0;  // 09

@@ -45,6 +45,8 @@ namespace RE
 	class TrespassPackage;
 	struct ActorMotionFeedbackData;
 	struct ActorMotionFeedbackOutput;
+	struct HighProcessData;
+	struct MiddleHighProcessData;
 
 	enum class ACTOR_CRITICAL_STAGE
 	{
@@ -516,7 +518,7 @@ namespace RE
 		InventoryEntryData*          GetAttackingWeapon();
 		const InventoryEntryData*    GetAttackingWeapon() const;
 		bhkCharacterController*      GetCharController() const;
-		uint32_t                     GetCollisionFilterInfo(uint32_t& a_outCollisionFilterInfo);
+		std::uint32_t                GetCollisionFilterInfo(std::uint32_t& a_outCollisionFilterInfo);
 		NiPointer<Actor>             GetCommandingActor() const;
 		TESFaction*                  GetCrimeFaction();
 		const TESFaction*            GetCrimeFaction() const;
@@ -532,8 +534,10 @@ namespace RE
 		ActorHandle                  GetHandle();
 		[[nodiscard]] NiAVObject*    GetHeadPartObject(BGSHeadPart::HeadPartType a_type);
 		float                        GetHeight();
+		HighProcessData*             GetHighProcess() const;
 		Actor*                       GetKiller() const;
 		std::uint16_t                GetLevel() const;
+		MiddleHighProcessData*       GetMiddleHighProcess() const;
 		bool                         GetMount(NiPointer<Actor>& a_outMount);
 		bool                         GetMountedBy(NiPointer<Actor>& a_outRider);
 		double                       GetMoveDirectionRelativeToFacing();
@@ -555,6 +559,7 @@ namespace RE
 		bool                         HasPerk(BGSPerk* a_perk) const;
 		bool                         HasShout(TESShout* a_shout) const;
 		bool                         HasSpell(SpellItem* a_spell) const;
+		void                         InitiateDoNothingPackage();
 		void                         InterruptCast(bool a_restoreMagicka) const;
 		bool                         IsAttacking() const;
 		bool                         IsAIEnabled() const;

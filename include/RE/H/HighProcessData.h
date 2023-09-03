@@ -225,7 +225,7 @@ namespace RE
 		float                                                 unk128;                                    // 128
 		float                                                 unk12C;                                    // 12C
 		stl::enumeration<FADE_STATE, std::uint32_t>           fadeState;                                 // 130
-		float                                                 unk134;                                    // 134
+		float                                                 fadeAlpha;                                 // 134
 		TESObjectREFR*                                        fadeTrigger;                               // 138
 		ObjectRefHandle                                       headTrackTarget[HEAD_TRACK_TYPE::kTotal];  // 140
 		bool                                                  headTracked[HEAD_TRACK_TYPE::kTotal];      // 158
@@ -375,7 +375,7 @@ namespace RE
 		bool                                                  unk46D;                                    // 46D
 		bool                                                  unk46E;                                    // 46E
 		bool                                                  unk46F;                                    // 46F
-		bool                                                  unk470;                                    // 470
+		bool                                                  doorActivated;                             // 470
 		bool                                                  unk471;                                    // 471
 		bool                                                  aggroRadiusStarted;                        // 472
 		std::uint8_t                                          pad473;                                    // 473

@@ -80,6 +80,8 @@ namespace RE
 		constexpr bool            IsSneakingControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kSneaking); }
 		constexpr bool            IsVATSControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kVATS); }
 		constexpr bool            IsWheelZoomControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kWheelZoom); }
+		void                      PopInputContext(InputContextID a_context);
+		void                      PushInputContext(InputContextID a_context);
 		void                      ToggleControls(UEFlag a_flags, bool a_enable);
 
 		// members

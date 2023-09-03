@@ -21,6 +21,13 @@ namespace RE
 		[[nodiscard]] virtual std::uint32_t GetFullNameLength() const;  // 04
 		[[nodiscard]] virtual const char*   GetFullName() const;        // 05
 
+		void SetFullName(const char* a_name)
+		{
+			using func_t = decltype(&TESFullName::SetFullName);
+			REL::Relocation<func_t> func{ RELOCATION_ID(22318, 22791) };
+			return func(this, a_name);
+		}
+
 		// members
 		BSFixedString fullName;  // 08 - FULL
 	};

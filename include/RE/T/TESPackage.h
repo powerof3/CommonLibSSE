@@ -72,7 +72,14 @@ namespace RE
 		kPickPocketWarning = 35,
 		kMovementBlocked = 36,
 		kVampireFeed = 37,
-		kCannibal = 38
+		kCannibal = 38,
+		kUnk39 = 39,
+		kUnk40 = 40,
+		kUnk41 = 41,
+		kUnk42 = 42,
+		kUnk43 = 43,
+		kUnk44 = 44,
+		kUnk45 = 45,
 	};
 
 	enum class PACK_EVENT_ACTION_TYPE

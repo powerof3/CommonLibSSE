@@ -15,12 +15,13 @@ namespace RE
 	class hkClipTrigger
 	{
 	public:
-		float            localTime;
-		hkbEventProperty event;
-		bool             relativeToEndOfClip;
-		bool             acyclic;
-		bool             isAnnotation;
+		float            localTime;            // 00
+		hkbEventProperty event;                // 08
+		bool             relativeToEndOfClip;  // 18
+		bool             acyclic;              // 19
+		bool             isAnnotation;         // 1A
 	};
+	static_assert(sizeof(hkClipTrigger) == 0x20);
 
 	class hkbClipTriggerArray : public hkReferencedObject
 	{

@@ -13,6 +13,13 @@ namespace RE
 		// add
 		virtual std::uint8_t GetVersion(void);  // 01
 
+		void LoadDataEndian(void* a_data, std::uint32_t a_offset, std::uint32_t a_size)
+		{
+			using func_t = decltype(&BGSLoadGameBuffer::LoadDataEndian);
+			REL::Relocation<func_t> func{ RELOCATION_ID(35112, 36005) };
+			return func(this, a_data, a_offset, a_size);
+		}
+
 		// members
 		void*         buffer;          // 08
 		std::uint64_t unk10;           // 10

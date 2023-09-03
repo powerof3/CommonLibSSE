@@ -95,7 +95,10 @@ namespace RE
 		stl::enumeration<Flag, std::uint32_t>                       flags;                  // A0 - FNAM
 		std::uint32_t                                               padA4;                  // A4
 		TESCondition                                                conditions;             // A8 - CTDA
-		std::uint32_t                                               unkB0;                  // B0
+		bool                                                        isPlaying;              // B0
+		std::uint8_t                                                unkB1;                  // B1
+		std::uint8_t                                                unkB2;                  // B2
+		std::uint8_t                                                unkB3;                  // B3
 		std::uint32_t                                               unkB4;                  // B4
 		std::uint32_t                                               unkB8;                  // B8
 		std::uint32_t                                               unkBC;                  // BC
