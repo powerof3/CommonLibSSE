@@ -9,6 +9,7 @@ namespace RE
 	class BGSSaveGameBuffer;
 	class CombatController;
 	class TESBoundObject;
+	class TESForm;
 	class BGSEquipSlot;
 
 	struct CombatInventoryItemResource

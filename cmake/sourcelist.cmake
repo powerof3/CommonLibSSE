@@ -439,6 +439,16 @@ set(SOURCES
 	include/RE/C/CollisionLayers.h
 	include/RE/C/Color.h
 	include/RE/C/ColorUtil.h
+	include/RE/C/CombatBehaviorContextCloseMovement.h
+	include/RE/C/CombatBehaviorContextMagic.h
+	include/RE/C/CombatBehaviorContextMelee.h
+	include/RE/C/CombatBehaviorController.h
+	include/RE/C/CombatBehaviorEquipContext.h
+	include/RE/C/CombatBehaviorStack.h
+	include/RE/C/CombatBehaviorThread.h
+	include/RE/C/CombatBehaviorTree.h
+	include/RE/C/CombatBehaviorTreeCreateContextNode.h
+	include/RE/C/CombatBehaviorTreeNode.h
 	include/RE/C/CombatController.h
 	include/RE/C/CombatGroup.h
 	include/RE/C/CombatGroupDetectionListener.h
@@ -466,6 +476,7 @@ set(SOURCES
 	include/RE/C/CombatMagicCasterTargetEffect.h
 	include/RE/C/CombatMagicCasterWard.h
 	include/RE/C/CombatManager.h
+	include/RE/C/CombatMeleeAimController.h
 	include/RE/C/CombatObject.h
 	include/RE/C/CombatSearchLocation.h
 	include/RE/C/CombatState.h
@@ -1716,6 +1727,11 @@ set(SOURCES
 	src/RE/C/ChestsLooted.cpp
 	src/RE/C/Color.cpp
 	src/RE/C/ColorUtil.cpp
+	src/RE/C/CombatBehaviorEquipContext.cpp
+	src/RE/C/CombatBehaviorStack.cpp
+	src/RE/C/CombatBehaviorThread.cpp
+	src/RE/C/CombatBehaviorTree.cpp
+	src/RE/C/CombatBehaviorTreeNode.cpp
 	src/RE/C/CommandTable.cpp
 	src/RE/C/Console.cpp
 	src/RE/C/ConsoleLog.cpp
