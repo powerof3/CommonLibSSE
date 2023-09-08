@@ -132,7 +132,7 @@ namespace RE
 			return CreateContextInlined<CombatBehaviorContextRanged, 0x30, RE::VTABLE_CombatBehaviorTreeCreateContextNode1_CombatBehaviorContextRanged_CombatBehaviorExpression_CombatBehaviorMemberFunc_CombatBehaviorEquipContext_NiPointer_CombatInventoryItem_const_CombatBehaviorEquipContext____void____>(arg);
 		}
 
-		template<>
+		template <>
 		CombatBehaviorTreeNode* CreateContext<CombatBehaviorEquipContext>(decltype(&CombatBehaviorThread::GetChildIndex) arg)
 		{
 			return CreateContextInlined<CombatBehaviorEquipContext, 0x30, RE::VTABLE_CombatBehaviorTreeCreateContextNode1_CombatBehaviorEquipContext_CombatBehaviorExpression_CombatBehaviorMemberFunc_CombatBehaviorThread_unsignedint_CombatBehaviorThread____void____>(arg);

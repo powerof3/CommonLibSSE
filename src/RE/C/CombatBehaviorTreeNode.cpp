@@ -22,7 +22,7 @@ namespace RE
 		*(uint64_t*)this = id.address();
 	}
 
-	bool CombatBehaviorBranch::Validate(CombatBehaviorTreeNode * node)
+	bool CombatBehaviorBranch::Validate(CombatBehaviorTreeNode* node)
 	{
 		using func_t = decltype(&CombatBehaviorBranch::Validate);
 		REL::Relocation<func_t> func{ RELOCATION_ID(46093, 0) };  // I do not know for AE

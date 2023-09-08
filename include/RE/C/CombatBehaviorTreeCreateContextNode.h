@@ -47,7 +47,6 @@ namespace RE
 
 		void LoadGame(CombatBehaviorThread* a_thread, BGSLoadFormBuffer* a_buf) override
 		{
-
 		}
 
 		bool Validate(CombatBehaviorTreeNode* node) const override
@@ -63,12 +62,13 @@ namespace RE
 
 		~CombatBehaviorTreeCreateContextNode() {}
 
-		const BSFixedString& GetName() const {
+		const BSFixedString& GetName() const
+		{
 			return name;
 		}
 
-		CombatBehaviorTreeCreateContextNode() {
-
+		CombatBehaviorTreeCreateContextNode()
+		{
 		}
 	};
 }

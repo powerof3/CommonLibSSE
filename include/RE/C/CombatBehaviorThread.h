@@ -1,7 +1,7 @@
 #pragma once
 
-#include "RE/C/CombatBehaviorStack.h"
 #include "RE/B/BSTTuple.h"
+#include "RE/C/CombatBehaviorStack.h"
 
 namespace RE
 {
@@ -33,8 +33,9 @@ namespace RE
 			kIsWorking_mb = 1 << 3
 		};
 
-		template<typename T>
-		T& GetCurrentStackObject() {
+		template <typename T>
+		T& GetCurrentStackObject()
+		{
 			return stack.Access<T>(stack_for_cur_node);
 		}
 

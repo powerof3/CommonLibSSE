@@ -23,7 +23,7 @@ namespace RE
 		return func(this, other);
 	}
 
-	CombatBehaviorTree::TreeBuilder& CombatBehaviorTree::TreeBuilder::operator,(const CombatBehaviorTree::TreeBuilder& other)
+	CombatBehaviorTree::TreeBuilder &CombatBehaviorTree::TreeBuilder::operator,(const CombatBehaviorTree::TreeBuilder&other)
 	{
 		using func_t = decltype(&CombatBehaviorTree::TreeBuilder::operator[]);
 		REL::Relocation<func_t> func{ RELOCATION_ID(46255, 0) };  // I do not know for AE

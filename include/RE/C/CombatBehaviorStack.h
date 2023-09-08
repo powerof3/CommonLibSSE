@@ -17,10 +17,10 @@ namespace RE
 		};
 		static_assert(sizeof(ObjectPtr) == 0x10);
 
-		template<typename T, typename ... Args>
+		template <typename T, typename... Args>
 		ObjectPtr Allocate(Args&&... args)
 		{
-			ObjectPtr ans{this, size};
+			ObjectPtr ans{ this, size };
 
 			uint32_t new_size = size + sizeof(T);
 			CheckBuffer(new_size);
@@ -30,13 +30,14 @@ namespace RE
 			return ans;
 		}
 
-		template<typename T>
-		void Deallocate() {
+		template <typename T>
+		void Deallocate()
+		{
 			size -= sizeof(T);
 			reinterpret_cast<T*>(&data[size])->~T();
 		}
 
-		template<typename T>
+		template <typename T>
 		void StoreData(const T& obj)
 		{
 			uint32_t old_size = size;
@@ -47,12 +48,13 @@ namespace RE
 		}
 
 		template <typename T>
-		T RemoveData() {
+		T RemoveData()
+		{
 			size -= sizeof(T);
 			return *reinterpret_cast<T*>(&data[size]);
 		}
 
-		template<typename T>
+		template <typename T>
 		T& Access(uint32_t offset)
 		{
 			return *reinterpret_cast<T*>(&data[offset]);
