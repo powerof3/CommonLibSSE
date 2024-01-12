@@ -9,8 +9,6 @@ This a version of CommonLibVR that is based off of the latest CommonLibSSE after
 ## Build Dependencies
 
 - [binary_io](https://github.com/Ryan-rsm-McKenzie/binary_io)
-- [Boost](https://www.boost.org/)
-  - Stl_interfaces
 - [spdlog](https://github.com/gabime/spdlog)
 - [fmt](https://github.com/fmtlib/fmt)
 - [Visual Studio Community 2022](https://visualstudio.microsoft.com/vs/preview/) (or later)
