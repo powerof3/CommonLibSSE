@@ -330,6 +330,7 @@ namespace RE
 			inline constexpr REL::Offset Play(static_cast<std::uint64_t>(0xC283E0));
 			inline constexpr REL::Offset SetObjectToFollow(static_cast<std::uint64_t>(0xC289C0));
 			inline constexpr REL::Offset SetPosition(static_cast<std::uint64_t>(0xC287D0));
+			inline constexpr REL::Offset Pause(static_cast<std::uint64_t>(0xC28470));
 			inline constexpr REL::Offset Stop(static_cast<std::uint64_t>(0xC284B0));
 		}
 
