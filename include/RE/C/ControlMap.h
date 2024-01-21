@@ -50,7 +50,7 @@ namespace RE
 #ifndef SKYRIMVR
 		static_assert(sizeof(InputContext) == 0x60);
 #else
-		static_assert(sizeof(InputContext) == 0xA8);
+		static_assert(sizeof(InputContext) == 0xF0);
 #endif
 
 		struct LinkedMapping

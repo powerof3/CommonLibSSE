@@ -10,13 +10,15 @@ namespace RE
 			kKeyboard = 0,
 			kMouse,
 			kGamepad,
-			kVirtualKeyboard,
 #ifdef SKYRIMVR
-			kVRRight = 5,
-			kVRLeft = 6,
-			kWMRRight = 7,
-			kWMRLeft = 8,
+			kVivePrimary,
+			kViveSecondary,
+			kOculusPrimary,
+			kOculusSecondary,
+			kWMRPrimary,
+			kWMRSecondary,
 #endif
+			kVirtualKeyboard,
 			kTotal
 		};
 	private:
