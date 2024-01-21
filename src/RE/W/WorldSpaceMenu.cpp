@@ -12,7 +12,6 @@ namespace RE
 			if (menuNode.get()->parent) {
 				menuNode.get()->parent->DetachChild2(menuNode.get());
 			}
-			menuNode->DeleteThis();
 			menuNode.reset();
 		}
 
