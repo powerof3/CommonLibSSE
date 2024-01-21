@@ -64,6 +64,6 @@ namespace RE
 #ifndef SKYRIMVR
 	static_assert(sizeof(BSInputDeviceManager) == 0xF0);
 #else
-	static_assert(sizeof(BSInputDeviceManager) == 0x108);
+	static_assert(sizeof(BSInputDeviceManager) == 0x120);
 #endif
 }
