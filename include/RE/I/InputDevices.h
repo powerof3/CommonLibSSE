@@ -14,6 +14,8 @@ namespace RE
 #ifdef SKYRIMVR
 			kVRRight = 5,
 			kVRLeft = 6,
+			kWMRRight = 7,
+			kWMRLeft = 8,
 #endif
 			kTotal
 		};
