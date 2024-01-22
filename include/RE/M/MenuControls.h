@@ -69,15 +69,25 @@ namespace RE
 		MenuOpenHandler*            menuOpenHandler;       // 68
 		FavoritesHandler*           favoritesHandler;      // 70
 		ScreenshotHandler*          screenshotHandler;     // 78
-		bool                        isProcessing;          // 80
-		bool                        beastForm;             // 81
-		bool                        remapMode;             // 82
-		std::uint8_t                unk83;                 // 83
-		std::uint32_t               unk84;                 // 84
+#ifdef SKYRIMVR
+		std::uint64_t occlusionCullingToggleHandler;  // 80
+#endif
+		bool          isProcessing;  // 80
+		bool          beastForm;     // 81
+		bool          remapMode;     // 82
+		std::uint8_t  unk83;         // 83
+		std::uint32_t unk84;         // 84
 	private:
 		KEEP_FOR_RE()
 	};
 	static_assert(offsetof(MenuControls, handlers) == 0x18);
-	static_assert(offsetof(MenuControls, remapMode) == 0x82);
+
+#ifndef SKYRIMVR
 	static_assert(sizeof(MenuControls) == 0x88);
+	static_assert(offsetof(MenuControls, remapMode) == 0x82);
+#else
+	static_assert(offsetof(MenuControls, remapMode) == 0x8A);
+	static_assert(sizeof(MenuControls) == 0x90);
+#endif
+
 }
