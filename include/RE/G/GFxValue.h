@@ -260,6 +260,7 @@ namespace RE
 			bool SetText(void* a_data, const char* a_text, bool a_isHTML);
 
 			bool AttachMovie(void* a_data, GFxValue* a_movieClip, const char* a_symbolName, const char* a_instanceName, std::int32_t a_depth, const GFxValue* a_initObj);
+			bool CreateEmptyMovieClip(void* a_data, GFxValue* a_movieClip, const char* a_instanceName, std::int32_t a_depth);
 			bool GotoAndPlay(void* a_data, const char* a_frame, bool a_stop);
 
 			bool IsSameContext(const ObjectInterface* a_rhs) const;
@@ -399,6 +400,7 @@ namespace RE
 
 		// AS MovieClip support. Valid for MovieClips.
 		bool AttachMovie(GFxValue* a_movieClip, const char* a_symbolName, const char* a_instanceName, std::int32_t a_depth = -1, const GFxValue* a_initObj = nullptr);
+		bool CreateEmptyMovieClip(GFxValue* a_movieClip, const char* a_instanceName, std::int32_t a_depth = -1);
 		bool GotoAndPlay(const char* a_frame);
 		bool GotoAndStop(const char* a_frame);
 

@@ -401,6 +401,7 @@ namespace RE
 		ObjectRefHandle                         CreateRefHandle();
 		void                                    DoTrap(TrapData& a_data);
 		void                                    DoTrap(TrapEntry* a_trap, TargetEntry* a_target);
+		void                                    Enable(bool a_resetInventory);
 		NiAVObject*                             Get3D() const;
 		NiAVObject*                             Get3D(bool a_firstPerson) const;
 		TESNPC*                                 GetActorOwner();

@@ -5,10 +5,5 @@
   "homepage": "https://github.com/alandtse/CommonLibVR",
   "license": "MIT",
   "supports": "windows & x64",
-  "dependencies": [
-    "fmt",
-    "rsm-binary-io",
-    "spdlog",
-    "xbyak"
-   ]
+  "dependencies": ["rsm-binary-io", "spdlog", "xbyak"]
 }

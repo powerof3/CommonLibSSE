@@ -424,6 +424,13 @@ namespace RE
 		return func(this, a_data, a_movieClip, a_symbolName, a_instanceName, a_depth, a_initObj);
 	}
 
+	bool GFxValue::ObjectInterface::CreateEmptyMovieClip(void* a_data, GFxValue* a_movieClip, const char* a_instanceName, std::int32_t a_depth)
+	{
+		using func_t = decltype(&GFxValue::ObjectInterface::CreateEmptyMovieClip);
+		REL::Relocation<func_t> func{ RELOCATION_ID(80201, 82224) };
+		return func(this, a_data, a_movieClip, a_instanceName, a_depth);
+	}
+
 	bool GFxValue::ObjectInterface::GotoAndPlay(void* a_data, const char* a_frame, bool a_stop)
 	{
 		using func_t = decltype(&GFxValue::ObjectInterface::GotoAndPlay);
@@ -965,6 +972,12 @@ namespace RE
 	{
 		assert(IsDisplayObject());
 		return _objectInterface->AttachMovie(_value.obj, a_movieClip, a_symbolName, a_instanceName, a_depth, a_initObj);
+	}
+
+	bool GFxValue::CreateEmptyMovieClip(GFxValue* a_movieClip, const char* a_instanceName, std::int32_t a_depth)
+	{
+		assert(IsDisplayObject());
+		return _objectInterface->CreateEmptyMovieClip(_value.obj, a_movieClip, a_instanceName, a_depth);
 	}
 
 	bool GFxValue::GotoAndPlay(const char* a_frame)

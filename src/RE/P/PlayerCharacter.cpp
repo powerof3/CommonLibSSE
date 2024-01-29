@@ -185,6 +185,13 @@ namespace RE
 	}
 #endif
 
+	void PlayerCharacter::PlayMagicFailureSound(MagicSystem::SpellType a_spellType)
+	{
+		using func_t = decltype(&PlayerCharacter::PlayMagicFailureSound);
+		REL::Relocation<func_t> func{ RELOCATION_ID(39486, 40565) };
+		return func(this, a_spellType);
+	}
+
 	void PlayerCharacter::PlayPickupEvent(TESForm* a_item, TESForm* a_containerOwner, TESObjectREFR* a_containerRef, EventType a_eventType)
 	{
 		using func_t = decltype(&PlayerCharacter::PlayPickupEvent);

@@ -116,6 +116,7 @@ target_link_libraries(
 		binary_io::binary_io
 		spdlog::spdlog
 		Version.lib
+		Dbghelp.lib
 )
 
 target_precompile_headers(

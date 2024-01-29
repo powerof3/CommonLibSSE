@@ -10,21 +10,21 @@
 
 namespace RE
 {
-	void TESObjectCELL::ForEachReference(std::function<BSContainer::ForEachResult(TESObjectREFR&)> a_callback) const
+	void TESObjectCELL::ForEachReference(std::function<BSContainer::ForEachResult(TESObjectREFR*)> a_callback) const
 	{
 		BSSpinLockGuard locker(spinLock);
 		for (const auto& ref : references) {
-			if (ref && a_callback(*ref) == BSContainer::ForEachResult::kStop) {
+			if (ref && a_callback(ref.get()) == BSContainer::ForEachResult::kStop) {
 				break;
 			}
 		}
 	}
 
-	void TESObjectCELL::ForEachReferenceInRange(const NiPoint3& a_origin, float a_radius, std::function<BSContainer::ForEachResult(TESObjectREFR&)> a_callback) const
+	void TESObjectCELL::ForEachReferenceInRange(const NiPoint3& a_origin, float a_radius, std::function<BSContainer::ForEachResult(TESObjectREFR*)> a_callback) const
 	{
 		const float squaredRadius = a_radius * a_radius;
-		ForEachReference([&](TESObjectREFR& ref) {
-			const auto distance = a_origin.GetSquaredDistance(ref.GetPosition());
+		ForEachReference([&](TESObjectREFR* ref) {
+			const auto distance = a_origin.GetSquaredDistance(ref->GetPosition());
 			return distance <= squaredRadius ?
 			           a_callback(ref) :
 			           BSContainer::ForEachResult::kContinue;

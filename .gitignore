@@ -1,4 +1,14 @@
-/build*
+# dot folders
+.vs/
+.vscode/
+.xmake/
+
+# folders
+build*/
+out/
+
+# files
+*.zip
 CMakeUserPresets.json
 .DS_Store
 vcpkg*

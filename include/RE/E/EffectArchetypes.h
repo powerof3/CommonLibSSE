@@ -69,6 +69,7 @@ namespace std
 	}
 }
 
+#ifdef FMT_VERSION
 namespace fmt
 {
 	template <>
@@ -87,6 +88,7 @@ namespace fmt
 		}
 	};
 }
+#endif
 
 #ifdef __cpp_lib_format
 namespace std

@@ -704,6 +704,7 @@ namespace RE
 		double                       GetMoveDirectionRelativeToFacing();
 		ObjectRefHandle              GetOccupiedFurniture() const;
 		TESRace*                     GetRace() const;
+		float                        GetRegenDelay(ActorValue a_actorValue) const;
 		bool                         GetRider(NiPointer<Actor>& a_outRider);
 		[[nodiscard]] TESObjectARMO* GetSkin() const;
 		[[nodiscard]] TESObjectARMO* GetSkin(BGSBipedObjectForm::BipedObjectSlot a_slot, bool a_noInit = false);
@@ -736,6 +737,7 @@ namespace RE
 		bool                         IsCasting(MagicItem* a_spell) const;
 		bool                         IsCommandedActor() const;
 		bool                         IsCurrentShout(SpellItem* a_power);
+		bool                         IsDualCasting() const;
 		bool                         IsEssential() const;
 		bool                         IsFactionInCrimeGroup(const TESFaction* a_faction) const;
 		bool                         IsGhost() const;
@@ -780,6 +782,7 @@ namespace RE
 		void                         UpdateAwakeSound(NiAVObject* a_obj3D);
 		void                         Update3DModel();
 		void                         UpdateHairColor();
+		void                         UpdateRegenDelay(ActorValue a_actorValue, float a_regenDelay);
 		void                         UpdateSkinColor();
 		void                         UpdateWeaponAbility(TESForm* a_weapon, ExtraDataList* a_extraData, bool a_leftHand);
 		void                         VisitArmorAddon(TESObjectARMO* a_armor, TESObjectARMA* a_arma, std::function<void(bool a_firstPerson, NiAVObject& a_obj)> a_visitor);

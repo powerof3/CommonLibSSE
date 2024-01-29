@@ -1002,6 +1002,7 @@ set(SOURCES
 	include/RE/H/hkpConstraintData.h
 	include/RE/H/hkpConstraintInfo.h
 	include/RE/H/hkpConstraintInstance.h
+	include/RE/H/hkpConstraintMotor.h
 	include/RE/H/hkpConstraintOwner.h
 	include/RE/H/hkpContactListener.h
 	include/RE/H/hkpContactPointEvent.h
@@ -1046,6 +1047,7 @@ set(SOURCES
 	include/RE/H/hkpSimulationIsland.h
 	include/RE/H/hkpSingleShapeContainer.h
 	include/RE/H/hkpSolverInfo.h
+	include/RE/H/hkpSolverResults.h
 	include/RE/H/hkpSphereRepShape.h
 	include/RE/H/hkpSphereShape.h
 	include/RE/H/hkpTypedBroadPhaseHandle.h
@@ -1394,6 +1396,7 @@ set(SOURCES
 	include/RE/S/ScriptedRefEffect.h
 	include/RE/S/ScrollItem.h
 	include/RE/S/SendPlayerToJailFunctor.h
+	include/RE/S/SendUIMessage.h
 	include/RE/S/SetEventData.h
 	include/RE/S/SetMotionTypeFunctor.h
 	include/RE/S/SetPositionFunctor.h
@@ -1640,7 +1643,13 @@ set(SOURCES
 	include/RE/W/WorldSpaceMenu.h
 	include/RE/Z/ZeroFunctionArguments.h
 	include/RE/Z/ZeroOverheadHeap.h
+	include/REL/ID.h
+	include/REL/Module.h
+	include/REL/Offset.h
+	include/REL/Pattern.h
+	include/REL/REL.h
 	include/REL/Relocation.h
+	include/REL/Version.h
 	include/SKSE/API.h
 	include/SKSE/Events.h
 	include/SKSE/IAT.h
@@ -1931,6 +1940,7 @@ set(SOURCES
 	src/RE/S/ScrapHeap.cpp
 	src/RE/S/Script.cpp
 	src/RE/S/ScriptEventSourceHolder.cpp
+	src/RE/S/SendUIMessage.cpp
 	src/RE/S/Setting.cpp
 	src/RE/S/ShoutAttack.cpp
 	src/RE/S/SkillIncrease.cpp
@@ -1986,7 +1996,8 @@ set(SOURCES
 	src/RE/V/VirtualMachine.cpp
 	src/RE/W/WorldSpaceMenu.cpp
 	src/RE/Z/ZeroFunctionArguments.cpp
-	src/REL/Relocation.cpp
+	src/REL/ID.cpp
+	src/REL/Module.cpp
 	src/SKSE/API.cpp
 	src/SKSE/IAT.cpp
 	src/SKSE/Impl/PCH.cpp
