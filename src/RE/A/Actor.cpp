@@ -396,6 +396,21 @@ namespace RE
 		}
 	}
 
+	TESForm* Actor::GetEquippedObjectInSlot(const BGSEquipSlot* slot) const
+	{
+		if (!currentProcess) {
+			return nullptr;
+		}
+
+		for (const auto& equippedObject : currentProcess->equippedForms) {
+			if (equippedObject.slot == slot) {
+				return equippedObject.object;
+			}
+		}
+
+		return nullptr;
+	}
+
 	float Actor::GetEquippedWeight()
 	{
 		if (equippedWeight < 0.0f) {
