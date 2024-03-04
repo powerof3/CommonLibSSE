@@ -137,8 +137,8 @@ namespace RE
 
 		struct EquippedObject
 		{
-			TESForm*		object;	// 00
-			BGSEquipSlot*	slot;	// 08
+			TESForm*      object;  // 00
+			BGSEquipSlot* slot;    // 08
 		};
 		static_assert(sizeof(EquippedObject) == 0x10);
 

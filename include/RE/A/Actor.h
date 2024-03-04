@@ -689,7 +689,7 @@ namespace RE
 		const TESShout*              GetCurrentShout() const;
 		InventoryEntryData*          GetEquippedEntryData(bool a_leftHand) const;
 		TESForm*                     GetEquippedObject(bool a_leftHand) const;
-		TESForm*					 GetEquippedObjectInSlot(const BGSEquipSlot* slot) const;
+		TESForm*                     GetEquippedObjectInSlot(const BGSEquipSlot* slot) const;
 		float                        GetEquippedWeight();
 		std::int32_t                 GetFactionRank(TESFaction* a_faction, bool a_isPlayer);
 		std::int32_t                 GetGoldAmount(bool a_noInit = false);
