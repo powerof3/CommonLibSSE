@@ -95,6 +95,7 @@ set(SOURCES
 	include/RE/B/BGSEntryPointFunctionData.h
 	include/RE/B/BGSEntryPointFunctionDataActivateChoice.h
 	include/RE/B/BGSEntryPointFunctionDataOneValue.h
+	include/RE/B/BGSEntryPointFunctionDataSpellItem.h
 	include/RE/B/BGSEntryPointFunctionDataText.h
 	include/RE/B/BGSEntryPointPerkEntry.h
 	include/RE/B/BGSEquipSlot.h
@@ -191,6 +192,7 @@ set(SOURCES
 	include/RE/B/BGSStoryManagerTreeForm.h
 	include/RE/B/BGSStoryTeller.h
 	include/RE/B/BGSTalkingActivator.h
+	include/RE/B/BGSTerrainManager.h
 	include/RE/B/BGSTextureModel.h
 	include/RE/B/BGSTextureSet.h
 	include/RE/B/BGSTypedItem.h
@@ -308,6 +310,8 @@ set(SOURCES
 	include/RE/B/BSResourceNiBinaryStream.h
 	include/RE/B/BSResponse.h
 	include/RE/B/BSSaveDataSystemUtility.h
+	include/RE/B/BSScaleformExternalTexture.h
+	include/RE/B/BSScaleformImageLoader.h
 	include/RE/B/BSScaleformManager.h
 	include/RE/B/BSScaleformTranslator.h
 	include/RE/B/BSSceneGraph.h
@@ -708,6 +712,7 @@ set(SOURCES
 	include/RE/F/FavoritesMenu.h
 	include/RE/F/FightReactions.h
 	include/RE/F/FileID.h
+	include/RE/F/FindMaxMagnitudeVisitor.h
 	include/RE/F/FirstPersonState.h
 	include/RE/F/FixedStrings.h
 	include/RE/F/FlameProjectile.h
@@ -765,6 +770,8 @@ set(SOURCES
 	include/RE/G/GFxExternalInterface.h
 	include/RE/G/GFxFileConstants.h
 	include/RE/G/GFxFunctionHandler.h
+	include/RE/G/GFxImageLoader.h
+	include/RE/G/GFxImageResource.h
 	include/RE/G/GFxInitImportActions.h
 	include/RE/G/GFxKey.h
 	include/RE/G/GFxKeyboardState.h
@@ -836,6 +843,9 @@ set(SOURCES
 	include/RE/G/GHashsetNodeEntry.h
 	include/RE/G/GImage.h
 	include/RE/G/GImageBase.h
+	include/RE/G/GImageInfo.h
+	include/RE/G/GImageInfoBase.h
+	include/RE/G/GImageInfoBaseImpl.h
 	include/RE/G/GList.h
 	include/RE/G/GMath.h
 	include/RE/G/GMatrix2D.h
@@ -894,6 +904,7 @@ set(SOURCES
 	include/RE/H/HighProcessData.h
 	include/RE/H/HitData.h
 	include/RE/H/HorseCameraState.h
+	include/RE/H/SendHUDMessage.h
 	include/RE/H/hkAabb.h
 	include/RE/H/hkArray.h
 	include/RE/H/hkBaseObject.h
@@ -981,6 +992,7 @@ set(SOURCES
 	include/RE/H/hkpConstraintData.h
 	include/RE/H/hkpConstraintInfo.h
 	include/RE/H/hkpConstraintInstance.h
+	include/RE/H/hkpConstraintMotor.h
 	include/RE/H/hkpConstraintOwner.h
 	include/RE/H/hkpContactListener.h
 	include/RE/H/hkpContactPointEvent.h
@@ -1025,6 +1037,7 @@ set(SOURCES
 	include/RE/H/hkpSimulationIsland.h
 	include/RE/H/hkpSingleShapeContainer.h
 	include/RE/H/hkpSolverInfo.h
+	include/RE/H/hkpSolverResults.h
 	include/RE/H/hkpSphereRepShape.h
 	include/RE/H/hkpSphereShape.h
 	include/RE/H/hkpTypedBroadPhaseHandle.h
@@ -1086,7 +1099,6 @@ set(SOURCES
 	include/RE/I/IVMSaveLoadInterface.h
 	include/RE/I/IVirtualMachine.h
 	include/RE/I/IXAudio2VoiceCallback.h
-	include/RE/I/ImageData.h
 	include/RE/I/ImageSpaceData.h
 	include/RE/I/ImageSpaceEffect.h
 	include/RE/I/ImageSpaceEffectDepthOfField.h
@@ -1370,6 +1382,7 @@ set(SOURCES
 	include/RE/S/ScriptedRefEffect.h
 	include/RE/S/ScrollItem.h
 	include/RE/S/SendPlayerToJailFunctor.h
+	include/RE/S/SendUIMessage.h
 	include/RE/S/SetEventData.h
 	include/RE/S/SetMotionTypeFunctor.h
 	include/RE/S/SetPositionFunctor.h
@@ -1607,17 +1620,47 @@ set(SOURCES
 	include/RE/W/WerewolfFeedEffect.h
 	include/RE/Z/ZeroFunctionArguments.h
 	include/RE/Z/ZeroOverheadHeap.h
+	include/REL/ID.h
+	include/REL/Module.h
+	include/REL/Offset.h
+	include/REL/Pattern.h
+	include/REL/REL.h
 	include/REL/Relocation.h
+	include/REL/Version.h
+	include/REX/PS4.h
+	include/REX/PS4/SCEPAD.h
+	include/REX/W32.h
+	include/REX/W32/ADVAPI32.h
+	include/REX/W32/BASE.h
+	include/REX/W32/COM.h
+	include/REX/W32/COMPTR.h
+	include/REX/W32/D3D.h
+	include/REX/W32/D3D11.h
+	include/REX/W32/D3D11_1.h
+	include/REX/W32/D3D11_2.h
+	include/REX/W32/D3D11_3.h
+	include/REX/W32/D3D11_4.h
+	include/REX/W32/D3DCOMPILER.h
+	include/REX/W32/DBGHELP.h
+	include/REX/W32/DINPUT.h
+	include/REX/W32/DXGI.h
+	include/REX/W32/DXGI_2.h
+	include/REX/W32/DXGI_3.h
+	include/REX/W32/DXGI_4.h
+	include/REX/W32/DXGI_5.h
+	include/REX/W32/DXGI_6.h
+	include/REX/W32/KERNEL32.h
+	include/REX/W32/OLE32.h
+	include/REX/W32/SHELL32.h
+	include/REX/W32/USER32.h
+	include/REX/W32/VERSION.h
+	include/REX/W32/XINPUT.h
 	include/SKSE/API.h
 	include/SKSE/Events.h
 	include/SKSE/IAT.h
-	include/SKSE/Impl/DInputAPI.h
 	include/SKSE/Impl/PCH.h
 	include/SKSE/Impl/RegistrationTraits.h
-	include/SKSE/Impl/ScePadAPI.h
 	include/SKSE/Impl/Stubs.h
-	include/SKSE/Impl/WinAPI.h
-	include/SKSE/Impl/XInputAPI.h
 	include/SKSE/InputMap.h
 	include/SKSE/Interfaces.h
 	include/SKSE/Logger.h
@@ -1753,6 +1796,7 @@ set(SOURCES
 	src/RE/E/ExtraSoul.cpp
 	src/RE/E/ExtraTextDisplayData.cpp
 	src/RE/E/ExtraUniqueID.cpp
+	src/RE/F/FindMaxMagnitudeVisitor.cpp
 	src/RE/F/FormTypes.cpp
 	src/RE/F/FxDelegate.cpp
 	src/RE/F/FxDelegateArgs.cpp
@@ -1895,6 +1939,7 @@ set(SOURCES
 	src/RE/S/ScrapHeap.cpp
 	src/RE/S/Script.cpp
 	src/RE/S/ScriptEventSourceHolder.cpp
+	src/RE/S/SendUIMessage.cpp
 	src/RE/S/Setting.cpp
 	src/RE/S/ShoutAttack.cpp
 	src/RE/S/SkillIncrease.cpp
@@ -1949,11 +1994,23 @@ set(SOURCES
 	src/RE/V/Variable.cpp
 	src/RE/V/VirtualMachine.cpp
 	src/RE/Z/ZeroFunctionArguments.cpp
+	src/REL/ID.cpp
+	src/REL/Module.cpp
 	src/REL/Relocation.cpp
+	src/REL/Version.cpp
+	src/REX/W32/ADVAPI32.cpp
+	src/REX/W32/D3D11.cpp
+	src/REX/W32/D3DCOMPILER.cpp
+	src/REX/W32/DBGHELP.cpp
+	src/REX/W32/DXGI.cpp
+	src/REX/W32/KERNEL32.cpp
+	src/REX/W32/OLE32.cpp
+	src/REX/W32/SHELL32.cpp
+	src/REX/W32/USER32.cpp
+	src/REX/W32/VERSION.cpp
 	src/SKSE/API.cpp
 	src/SKSE/IAT.cpp
 	src/SKSE/Impl/PCH.cpp
-	src/SKSE/Impl/WinAPI.cpp
 	src/SKSE/InputMap.cpp
 	src/SKSE/Interfaces.cpp
 	src/SKSE/Logger.cpp

@@ -4,6 +4,8 @@
 #include "RE/N/NiColor.h"
 #include "RE/N/NiSmartPointer.h"
 
+#include "REX/W32/D3D.h"
+
 namespace RE
 {
 	namespace BSGraphics
@@ -29,7 +31,7 @@ namespace RE
 		// members
 		BSGraphics::IndexBuffer*    altIndexBuffer;            // 160
 		std::uint32_t               altPrimCount;              // 168
-		DirectX::XMFLOAT4X4         materialProjection;        // 16C
+		REX::W32::XMFLOAT4X4        materialProjection;        // 16C
 		std::uint32_t               pad1AC;                    // 1AC
 		NiPointer<BSShaderProperty> additionalShaderProperty;  // 1B0
 		std::uint8_t                useAdditionalTriList;      // 1B8

@@ -366,6 +366,7 @@ namespace RE
 		ObjectRefHandle                         CreateRefHandle();
 		void                                    DoTrap(TrapData& a_data);
 		void                                    DoTrap(TrapEntry* a_trap, TargetEntry* a_target);
+		void                                    Enable(bool a_resetInventory);
 		NiAVObject*                             Get3D() const;
 		NiAVObject*                             Get3D(bool a_firstPerson) const;
 		TESNPC*                                 GetActorOwner();
@@ -449,6 +450,7 @@ namespace RE
 		bool                                    MoveToNode(TESObjectREFR* a_target, const BSFixedString& a_nodeName);
 		bool                                    MoveToNode(TESObjectREFR* a_target, NiAVObject* a_node);
 		bool                                    NameIncludes(std::string a_word);
+		void                                    OpenContainer(std::int32_t a_openType) const;
 		NiPointer<TESObjectREFR>                PlaceObjectAtMe(TESBoundObject* a_baseToPlace, bool a_forcePersist) const;
 		void                                    PlayAnimation(stl::zstring a_from, stl::zstring a_to);
 		void                                    PlayAnimation(NiControllerManager* a_manager, NiControllerSequence* a_toSeq, NiControllerSequence* a_fromSeq);

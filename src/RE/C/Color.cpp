@@ -18,6 +18,6 @@ namespace RE
 
 	std::string Color::ToHex() const
 	{
-		return fmt::format("{:X}{:X}{:X}{:X}", red, green, blue, alpha);
+		return std::format("{:X}{:X}{:X}{:X}", red, green, blue, alpha);
 	}
 }

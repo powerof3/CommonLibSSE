@@ -1,10 +1,10 @@
 #pragma once
 
 #include "RE/B/BSCullingProcess.h"
+#include "RE/B/BSScaleformExternalTexture.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTSmartPointer.h"
 #include "RE/G/GFxValue.h"
-#include "RE/I/ImageData.h"
 #include "RE/I/ImageSpaceShaderParam.h"
 #include "RE/L/LocalMapCamera.h"
 #include "RE/M/MenuEventHandler.h"
@@ -79,7 +79,7 @@ namespace RE
 		float                         unk00038;             // 00038
 		float                         unk0003C;             // 0003C
 		LocalMapCullingProcess        localCullingProcess;  // 00040
-		ImageData                     unk303A0;             // 303A0
+		BSScaleformExternalTexture    unk303A0;             // 303A0
 		GFxValue                      unk303B8;             // 303B8
 		GFxValue                      unk303D0;             // 303D0
 		void*                         unk303E8;             // 303E8

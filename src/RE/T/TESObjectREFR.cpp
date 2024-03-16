@@ -92,6 +92,13 @@ namespace RE
 		return DoTrap2(a_trap, a_target);
 	}
 
+	void TESObjectREFR::Enable(bool a_resetInventory)
+	{
+		using func_t = decltype(&TESObjectREFR::Enable);
+		REL::Relocation<func_t> func{ RELOCATION_ID(19373, 19800) };
+		return func(this, a_resetInventory);
+	}
+
 	NiAVObject* TESObjectREFR::Get3D() const
 	{
 		return Get3D2();
@@ -571,8 +578,8 @@ namespace RE
 
 		bool hasKeyword = false;
 
-		a_keywordList->ForEachForm([&](TESForm& a_form) {
-			const auto keyword = a_form.As<BGSKeyword>();
+		a_keywordList->ForEachForm([&](TESForm* a_form) {
+			const auto keyword = a_form->As<BGSKeyword>();
 			hasKeyword = keyword && HasKeyword(keyword);
 			if (a_matchAll && !hasKeyword || hasKeyword) {
 				return BSContainer::ForEachResult::kStop;
@@ -781,6 +788,13 @@ namespace RE
 		std::string name = obj ? obj->GetName() : "";
 
 		return name.find(a_word) != std::string::npos;
+	}
+
+	void TESObjectREFR::OpenContainer(std::int32_t a_openType) const
+	{
+		using func_t = decltype(&TESObjectREFR::OpenContainer);
+		REL::Relocation<func_t> func{ RELOCATION_ID(50211, 51140) };
+		func(this, a_openType);
 	}
 
 	NiPointer<TESObjectREFR> TESObjectREFR::PlaceObjectAtMe(TESBoundObject* a_baseToPlace, bool a_forcePersist) const

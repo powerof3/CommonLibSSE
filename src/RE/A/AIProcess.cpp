@@ -96,6 +96,23 @@ namespace RE
 		}
 	}
 
+	float AIProcess::GetRegenDelay(ActorValue a_actorValue) const
+	{
+		if (high) {
+			switch (a_actorValue) {
+			case ActorValue::kHealth:
+				return high->healthRegenDelay;
+			case ActorValue::kMagicka:
+				return high->magickaRegenDelay;
+			case ActorValue::kStamina:
+				return high->staminaRegenDelay;
+			default:
+				break;
+			}
+		}
+		return 0.0f;
+	}
+
 	TESPackage* AIProcess::GetRunningPackage() const
 	{
 		TESPackage* package = nullptr;
@@ -253,5 +270,24 @@ namespace RE
 		using func_t = decltype(&AIProcess::Update3DModel_Impl);
 		REL::Relocation<func_t> func{ Offset::AIProcess::Update3DModel };
 		return func(this, a_actor);
+	}
+
+	void AIProcess::UpdateRegenDelay(ActorValue a_actorValue, float a_regenDelay)
+	{
+		if (high) {
+			switch (a_actorValue) {
+			case ActorValue::kHealth:
+				high->healthRegenDelay = a_regenDelay;
+				break;
+			case ActorValue::kMagicka:
+				high->magickaRegenDelay = a_regenDelay;
+				break;
+			case ActorValue::kStamina:
+				high->staminaRegenDelay = a_regenDelay;
+				break;
+			default:
+				break;
+			}
+		}
 	}
 }

@@ -86,12 +86,13 @@ namespace RE
 		virtual float                        CheckResistance(MagicItem* a_magicItem, Effect* a_effect, TESBoundObject* a_object);  // 0A - { return 1.0; }
 		virtual bool                         CheckAbsorb(Actor* a_actor, MagicItem* a_magicItem, const Effect* a_effect);          // 0B - { return false; }
 
-		bool DispelEffect(MagicItem* a_spell, BSPointerHandle<Actor>& a_caster, ActiveEffect* a_effect = nullptr);
-		void DispelEffectsWithArchetype(Archetype a_type, bool a_force);
-		bool HasEffectWithArchetype(Archetype a_type);
-		bool HasMagicEffect(EffectSetting* a_effect);
-		bool HasMagicEffectWithKeyword(BGSKeyword* a_keyword, std::uint64_t a_arg2);
-		void VisitEffects(ForEachActiveEffectVisitor& visitor);
+		bool   DispelEffect(MagicItem* a_spell, BSPointerHandle<Actor>& a_caster, ActiveEffect* a_effect = nullptr);
+		void   DispelEffectsWithArchetype(Archetype a_type, bool a_force);
+		Actor* GetTargetAsActor();
+		bool   HasEffectWithArchetype(Archetype a_type);
+		bool   HasMagicEffect(EffectSetting* a_effect);
+		bool   HasMagicEffectWithKeyword(BGSKeyword* a_keyword, std::uint64_t a_arg2);
+		void   VisitEffects(ForEachActiveEffectVisitor& visitor);
 
 		// members
 		SpellDispelData* postUpdateDispelList;  // 08

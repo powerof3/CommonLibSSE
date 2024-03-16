@@ -16,7 +16,7 @@ namespace RE
 	bool MagicCaster::FindTargets(float a_effectivenessMult, std::uint32_t& a_targetCount, TESBoundObject* a_source, bool a_loadCast, bool a_adjustOnlyHostileEffectiveness)
 	{
 		using func_t = decltype(&MagicCaster::FindTargets);
-		REL::Relocation<func_t> func{ RELOCATION_ID(33676, 34456) };
+		REL::Relocation<func_t> func{ RELOCATION_ID(33632, 34410) };
 		return func(this, a_effectivenessMult, a_targetCount, a_source, a_loadCast, a_adjustOnlyHostileEffectiveness);
 	}
 
@@ -45,6 +45,13 @@ namespace RE
 	{
 		using func_t = decltype(&MagicCaster::PlayReleaseSound);
 		REL::Relocation<func_t> func{ RELOCATION_ID(33675, 34448) };
+		return func(this, a_item);
+	}
+
+	void MagicCaster::SetCurrentSpell(MagicItem* a_item)
+	{
+		using func_t = decltype(&MagicCaster::SetCurrentSpell);
+		REL::Relocation<func_t> func{ RELOCATION_ID(33644, 34422) };
 		return func(this, a_item);
 	}
 

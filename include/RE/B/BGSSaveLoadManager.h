@@ -101,8 +101,7 @@ namespace RE
 		std::uint64_t                            unk0C0;           // 0C0
 		std::uint64_t                            unk0C8;           // 0C8
 		std::uint64_t                            currentPlayerID;  // 0D0
-		std::uint32_t                            unk0D8;           // 0D8
-		std::uint32_t                            unk0DC;           // 0DC
+		std::uint64_t                            displayPlayerID;  // 0D8
 		std::uint32_t                            unk0E0;           // 0E0
 		std::uint32_t                            unk0E4;           // 0E4
 		BSTArray<void*>                          unk0E8;           // 0E8

@@ -194,8 +194,8 @@ namespace RE
 
 		TESNPC*        GetActorOwner();
 		bhkWorld*      GetbhkWorld() const;
-		void           ForEachReference(std::function<BSContainer::ForEachResult(TESObjectREFR&)> a_callback) const;
-		void           ForEachReferenceInRange(const NiPoint3& a_origin, float a_radius, std::function<BSContainer::ForEachResult(TESObjectREFR&)> a_callback) const;
+		void           ForEachReference(std::function<BSContainer::ForEachResult(TESObjectREFR*)> a_callback) const;
+		void           ForEachReferenceInRange(const NiPoint3& a_origin, float a_radius, std::function<BSContainer::ForEachResult(TESObjectREFR*)> a_callback) const;
 		EXTERIOR_DATA* GetCoordinates();
 		TESFaction*    GetFactionOwner();
 		INTERIOR_DATA* GetLighting();

@@ -15,7 +15,6 @@ if("${PROJECT_SOURCE_DIR}" STREQUAL "${PROJECT_BINARY_DIR}")
 endif()
 
 find_package(binary_io REQUIRED CONFIG)
-find_package(Boost MODULE REQUIRED)
 find_package(spdlog REQUIRED CONFIG)
 
 include(cmake/sourcelist.cmake)
@@ -38,7 +37,6 @@ add_library("${PROJECT_NAME}::${PROJECT_NAME}" ALIAS "${PROJECT_NAME}")
 target_compile_definitions(
 	"${PROJECT_NAME}"
 	PUBLIC
-		BOOST_STL_INTERFACES_DISABLE_CONCEPTS
 		WINVER=0x0601	# windows 7, minimum supported version by skyrim special edition
 		_WIN32_WINNT=0x0601
 		"$<$<BOOL:${SKSE_SUPPORT_XBYAK}>:SKSE_SUPPORT_XBYAK=1>"
@@ -48,7 +46,7 @@ target_compile_definitions(
 target_compile_features(
 	"${PROJECT_NAME}"
 	PUBLIC
-		cxx_std_20
+		cxx_std_23
 )
 
 if (MSVC)
@@ -95,8 +93,13 @@ target_link_libraries(
 	"${PROJECT_NAME}"
 	PUBLIC
 		binary_io::binary_io
-		Boost::headers
 		spdlog::spdlog
+ 		Advapi32.lib
+		D3D11.lib
+		d3dcompiler.lib
+		Dbghelp.lib
+		DXGI.lib
+		Ole32.lib
 		Version.lib
 )
 
@@ -132,6 +135,7 @@ install(
 	DIRECTORY
 		"include/RE"
 		"include/REL"
+		"include/REX"
 		"include/SKSE"
 	DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
 )

@@ -20,6 +20,13 @@ namespace RE
 		void               Accept(CallbackProcessor* a_processor) override;  // 01
 		UI_MESSAGE_RESULTS ProcessMessage(UIMessage& a_message) override;    // 04
 
+		static void OpenTutorialMenu(DEFAULT_OBJECT a_tutorial)
+		{
+			using func_t = decltype(&TutorialMenu::OpenTutorialMenu);
+			REL::Relocation<func_t> func{ RELOCATION_ID(51818, 52692) };
+			return func(a_tutorial);
+		}
+
 		// members
 		GFxValue root;  // 30 - "Menu_mc"
 	};

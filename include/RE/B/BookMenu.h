@@ -1,10 +1,10 @@
 #pragma once
 
+#include "RE/B/BSScaleformExternalTexture.h"
 #include "RE/B/BSString.h"
 #include "RE/B/BSTEvent.h"
 #include "RE/G/GPtr.h"
 #include "RE/I/IMenu.h"
-#include "RE/I/ImageData.h"
 #include "RE/N/NiMatrix3.h"
 #include "RE/N/NiSmartPointer.h"
 #include "RE/S/SimpleAnimationGraphManagerHolder.h"
@@ -48,19 +48,19 @@ namespace RE
 		static void OpenBookMenu(const BSString& a_description, const ExtraDataList* a_extraList, TESObjectREFR* a_ref, TESObjectBOOK* a_book, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);
 
 		// members
-		BSTArray<ImageData>   unk50;      // 50
-		GPtr<GFxMovieView>    book;       // 68
-		NiPointer<NiAVObject> book3D;     // 70
-		std::uint32_t         unk78;      // 78
-		std::uint32_t         pad7C;      // 7C
-		std::uint64_t         unk80;      // 80
-		void*                 unk88;      // 88 - smart ptr
-		std::uint16_t         unk90;      // 90
-		std::uint16_t         unk92;      // 92
-		bool                  closeMenu;  // 94
-		bool                  isNote;     // 95
-		std::uint8_t          unk96;      // 96
-		std::uint8_t          pad97;      // 97
+		BSTArray<BSScaleformExternalTexture> bookTextures;  // 50
+		GPtr<GFxMovieView>                   book;          // 68
+		NiPointer<NiAVObject>                book3D;        // 70
+		std::uint32_t                        unk78;         // 78
+		std::uint32_t                        pad7C;         // 7C
+		std::uint64_t                        unk80;         // 80
+		void*                                unk88;         // 88 - smart ptr
+		std::uint16_t                        unk90;         // 90
+		std::uint16_t                        unk92;         // 92
+		bool                                 closeMenu;     // 94
+		bool                                 isNote;        // 95
+		std::uint8_t                         unk96;         // 96
+		std::uint8_t                         pad97;         // 97
 	};
 	static_assert(sizeof(BookMenu) == 0x98);
 }

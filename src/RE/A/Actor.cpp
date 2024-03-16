@@ -396,6 +396,21 @@ namespace RE
 		}
 	}
 
+	TESForm* Actor::GetEquippedObjectInSlot(const BGSEquipSlot* slot) const
+	{
+		if (!currentProcess) {
+			return nullptr;
+		}
+
+		for (const auto& equippedObject : currentProcess->equippedForms) {
+			if (equippedObject.slot == slot) {
+				return equippedObject.object;
+			}
+		}
+
+		return nullptr;
+	}
+
 	float Actor::GetEquippedWeight()
 	{
 		if (equippedWeight < 0.0f) {
@@ -525,6 +540,14 @@ namespace RE
 
 		auto base = GetActorBase();
 		return base ? base->race : nullptr;
+	}
+
+	float Actor::GetRegenDelay(ActorValue a_actorValue) const
+	{
+		if (currentProcess) {
+			return currentProcess->GetRegenDelay(a_actorValue);
+		}
+		return 0.0f;
 	}
 
 	bool Actor::GetRider(NiPointer<Actor>& a_outRider)
@@ -741,11 +764,21 @@ namespace RE
 		return boolFlags.all(BOOL_FLAGS::kIsCommandedActor);
 	}
 
-	bool Actor::IsCurrentShout(SpellItem* a_spell)
+	bool Actor::IsCurrentShout(SpellItem* a_power)
 	{
 		using func_t = decltype(&Actor::IsCurrentShout);
 		REL::Relocation<func_t> func{ RELOCATION_ID(37858, 38812) };
-		return func(this, a_spell);
+		return func(this, a_power);
+	}
+
+	bool Actor::IsDualCasting() const
+	{
+		if (!currentProcess) {
+			return false;
+		}
+
+		const auto highProcess = currentProcess->high;
+		return highProcess && highProcess->isDualCasting;
 	}
 
 	bool Actor::IsEssential() const
@@ -804,6 +837,13 @@ namespace RE
 	{
 		using func_t = decltype(&Actor::IsInRagdollState);
 		REL::Relocation<func_t> func{ RELOCATION_ID(36492, 37491) };
+		return func(this);
+	}
+
+	bool Actor::IsLeveled() const
+	{
+		using func_t = decltype(&Actor::IsLeveled);
+		REL::Relocation<func_t> func{ RELOCATION_ID(19824, 20229) };
 		return func(this);
 	}
 
@@ -1088,6 +1128,13 @@ namespace RE
 		}
 	}
 
+	void Actor::UpdateRegenDelay(ActorValue a_actorValue, float a_regenDelay)
+	{
+		if (currentProcess) {
+			currentProcess->UpdateRegenDelay(a_actorValue, a_regenDelay);
+		}
+	}
+
 	void Actor::UpdateSkinColor()
 	{
 		const auto* npc = GetActorBase();
@@ -1125,7 +1172,7 @@ namespace RE
 			kTotal
 		};
 
-		char addonString[WinAPI::MAX_PATH]{ '\0' };
+		char addonString[REX::W32::MAX_PATH]{ '\0' };
 		a_arma->GetNodeName(addonString, this, a_armor, -1);
 		std::array<NiAVObject*, kTotal> skeletonRoot = { Get3D(k3rd), Get3D(k1st) };
 		if (skeletonRoot[k1st] == skeletonRoot[k3rd]) {
@@ -1178,7 +1225,7 @@ namespace RE
 			if (auto magicCaster = magicCasters[i]) {
 				auto castingSource = magicCaster->GetCastingSource();
 				if (magicCaster->currentSpell) {
-					result |= 1 << stl::to_underlying(castingSource);
+					result |= 1 << std::to_underlying(castingSource);
 				}
 			}
 		}

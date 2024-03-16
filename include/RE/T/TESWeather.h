@@ -107,7 +107,7 @@ namespace RE
 			static_assert(sizeof(Color3) == 0x3);
 
 			// members
-			std::int8_t                                     windSpeed;                    // 00
+			std::uint8_t                                    windSpeed;                    // 00
 			std::int8_t                                     unk01;                        // 01
 			std::int8_t                                     unk02;                        // 02
 			std::int8_t                                     transDelta;                   // 03

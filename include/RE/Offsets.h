@@ -1,6 +1,6 @@
 #pragma once
 
-#include "REL/Relocation.h"
+#include "REL/ID.h"
 
 namespace RE
 {
@@ -146,6 +146,7 @@ namespace RE
 			inline constexpr REL::ID Play(static_cast<std::uint64_t>(67616));
 			inline constexpr REL::ID SetObjectToFollow(static_cast<std::uint64_t>(67636));
 			inline constexpr REL::ID SetPosition(static_cast<std::uint64_t>(67631));
+			inline constexpr REL::ID Pause(static_cast<std::uint64_t>(67618));
 			inline constexpr REL::ID Stop(static_cast<std::uint64_t>(67619));
 		}
 
@@ -726,6 +727,7 @@ namespace RE
 			inline constexpr REL::ID Play(static_cast<std::uint64_t>(66355));
 			inline constexpr REL::ID SetObjectToFollow(static_cast<std::uint64_t>(66375));
 			inline constexpr REL::ID SetPosition(static_cast<std::uint64_t>(66370));
+			inline constexpr REL::ID Pause(static_cast<std::uint64_t>(66357));
 			inline constexpr REL::ID Stop(static_cast<std::uint64_t>(66358));
 		}
 

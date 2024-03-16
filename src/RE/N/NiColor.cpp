@@ -25,7 +25,7 @@ namespace RE
 		auto g = static_cast<std::uint32_t>(green * 255);
 		auto b = static_cast<std::uint32_t>(blue * 255);
 
-		return fmt::format("{:X}{:X}{:X}", r, g, b);
+		return std::format("{:X}{:X}{:X}", r, g, b);
 	}
 
 	NiColorA::NiColorA(const Color& a_rhs) :

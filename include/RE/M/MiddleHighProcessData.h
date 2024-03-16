@@ -120,7 +120,7 @@ namespace RE
 		BSTArray<BGSPerkEntry*>& operator[](BGSEntryPoint::ENTRY_POINT a_pos)
 		{
 			assert(a_pos < BGSEntryPoint::ENTRY_POINT::kTotal);
-			return perkEntryArrays[stl::to_underlying(a_pos)];
+			return perkEntryArrays[std::to_underlying(a_pos)];
 		}
 
 		// members
@@ -171,7 +171,7 @@ namespace RE
 		float                                          headHeightOffset;            // 204
 		ObjectRefHandle                                occupiedFurniture;           // 208
 		std::uint32_t                                  unk20C;                      // 20C
-		std::uint64_t                                  unk210;                      // 210
+		TESIdleForm*                                   unk210;                      // 210
 		ActorHandle                                    commandingActor;             // 218
 		std::uint32_t                                  pad21C;                      // 21C
 		InventoryEntryData*                            leftHand;                    // 220
@@ -199,7 +199,7 @@ namespace RE
 		float                                          unk2B0;                      // 2B0
 		float                                          bleedoutRate;                // 2B4
 		float                                          unk2B8;                      // 2B8
-		float                                          unk2BC;                      // 2BC
+		float                                          maximumWardPower;            // 2BC
 		float                                          unk2C0;                      // 2C0
 		float                                          torchEvaluationTimer;        // 2C4
 		float                                          alphaMult;                   // 2C8

@@ -1,9 +1,9 @@
 #pragma once
 
+#include "RE/B/BSScaleformExternalTexture.h"
 #include "RE/B/BSTEvent.h"
 #include "RE/G/GFxFunctionHandler.h"
 #include "RE/I/IMenu.h"
-#include "RE/I/ImageData.h"
 
 namespace RE
 {
@@ -40,12 +40,12 @@ namespace RE
 		void Call(Params& a_params) override;  // 01
 
 		// members
-		ImageData     unk50;  // 50
-		std::uint32_t unk68;  // 68
-		std::uint8_t  unk6C;  // 6C
-		std::uint8_t  unk6D;  // 6D
-		std::uint8_t  unk6E;  // 6E
-		std::uint8_t  pad6F;  // 6F
+		BSScaleformExternalTexture gamerIconTexture;  // 50
+		std::uint32_t              unk68;             // 68
+		std::uint8_t               unk6C;             // 6C
+		std::uint8_t               unk6D;             // 6D
+		std::uint8_t               unk6E;             // 6E
+		std::uint8_t               pad6F;             // 6F
 	};
 	static_assert(sizeof(MainMenu) == 0x70);
 }

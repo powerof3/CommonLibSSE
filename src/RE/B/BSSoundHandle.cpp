@@ -26,6 +26,13 @@ namespace RE
 		return func(this, a_fadeTimeMS);
 	}
 
+	std::uint64_t BSSoundHandle::GetDuration()
+	{
+		using func_t = decltype(&BSSoundHandle::GetDuration);
+		REL::Relocation<func_t> func{ RELOCATION_ID(66369, 67630) };
+		return func(this);
+	}
+
 	bool BSSoundHandle::IsPlaying() const
 	{
 		using func_t = decltype(&BSSoundHandle::IsPlaying);
@@ -61,6 +68,13 @@ namespace RE
 		return func(this, a_node);
 	}
 
+	void BSSoundHandle::SetOutputModel(const BGSSoundOutput* a_outputModel)
+	{
+		using func_t = decltype(&BSSoundHandle::SetOutputModel);
+		REL::Relocation<func_t> func{ RELOCATION_ID(66363, 67624) };
+		return func(this, a_outputModel);
+	}
+
 	bool BSSoundHandle::SetVolume(float a_volume)
 	{
 		using func_t = decltype(&BSSoundHandle::SetVolume);
@@ -79,6 +93,13 @@ namespace RE
 	{
 		using func_t = decltype(&BSSoundHandle::Play);
 		REL::Relocation<func_t> func{ Offset::BSSoundHandle::Play };
+		return func(this);
+	}
+
+	bool BSSoundHandle::Pause()
+	{
+		using func_t = decltype(&BSSoundHandle::Pause);
+		REL::Relocation<func_t> func{ Offset::BSSoundHandle::Pause };
 		return func(this);
 	}
 }

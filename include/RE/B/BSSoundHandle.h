@@ -2,6 +2,7 @@
 
 namespace RE
 {
+	class BGSSoundOutput;
 	class NiAVObject;
 	class NiPoint3;
 
@@ -34,14 +35,17 @@ namespace RE
 
 		bool               FadeInPlay(std::uint16_t a_fadeTimeMS);
 		bool               FadeOutAndRelease(std::uint16_t a_fadeTimeMS);
+		std::uint64_t      GetDuration();
 		[[nodiscard]] bool IsPlaying() const;
 		[[nodiscard]] bool IsValid() const;
 		bool               SetFrequency(float a_frequency);
 		bool               SetPosition(NiPoint3 a_pos);
 		void               SetObjectToFollow(NiAVObject* a_node);
+		void               SetOutputModel(const BGSSoundOutput* a_outputModel);
 		bool               SetVolume(float a_volume);
 		bool               Stop();
 		bool               Play();
+		bool               Pause();
 
 		// members
 		std::uint32_t                                 soundID;        // 00

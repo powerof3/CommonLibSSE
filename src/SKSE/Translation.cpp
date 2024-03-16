@@ -58,7 +58,7 @@ namespace SKSE
 		// Construct translation filename
 		std::string language = (setting && setting->GetType() == RE::Setting::Type::kString) ? setting->data.s : "ENGLISH"s;
 
-		std::string path = fmt::format("Interface\\Translations\\{}_{}.txt"sv, a_name, language);
+		std::string path = std::format("Interface\\Translations\\{}_{}.txt"sv, a_name, language);
 
 		RE::BSResourceNiBinaryStream fileStream{ path };
 		if (!fileStream.good()) {
