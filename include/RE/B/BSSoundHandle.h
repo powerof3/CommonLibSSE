@@ -2,7 +2,7 @@
 
 namespace RE
 {
-	class BGSSoundOutput;
+	class BSISoundOutputModel;
 	class NiAVObject;
 	class NiPoint3;
 
@@ -41,7 +41,7 @@ namespace RE
 		bool               SetFrequency(float a_frequency);
 		bool               SetPosition(NiPoint3 a_pos);
 		void               SetObjectToFollow(NiAVObject* a_node);
-		void               SetOutputModel(const BGSSoundOutput* a_outputModel);
+		void               SetOutputModel(const BSISoundOutputModel* a_outputModel);
 		bool               SetVolume(float a_volume);
 		bool               Stop();
 		bool               Play();
