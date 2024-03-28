@@ -68,6 +68,12 @@ namespace RE
 			inline constexpr REL::ID AddForm(static_cast<std::uint64_t>(20913));
 		}
 
+		namespace BGSOpenCloseForm
+		{
+			inline constexpr REL::ID GetOpenState(static_cast<std::uint64_t>(14288));
+			inline constexpr REL::ID SetOpenState(static_cast<std::uint64_t>(14287));
+		}
+
 		namespace BGSSaveLoadManager
 		{
 			inline constexpr REL::ID Save(static_cast<std::uint64_t>(35727));
