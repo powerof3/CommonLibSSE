@@ -1613,6 +1613,7 @@
 #include "RE/T/TESProduceForm.h"
 #include "RE/T/TESQualityForm.h"
 #include "RE/T/TESQuest.h"
+#include "RE/T/TESQuestInitEvent.h"
 #include "RE/T/TESQuestStageEvent.h"
 #include "RE/T/TESQuestStageItem.h"
 #include "RE/T/TESQuestStartStopEvent.h"
