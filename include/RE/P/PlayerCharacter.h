@@ -684,7 +684,8 @@ namespace RE
 		NiPointer<NiNode> PrimaryMagicOffsetNode;                                        // 538
 		NiPointer<NiNode> PrimaryMagicAimNode;                                           // 540
 		NiPointer<NiNode> PrimaryStaffMagicOffsetNode;                                   // 548
-		std::uint64_t unk550;                                                            // 550
+		std::uint32_t unk550;                                                            // 550 - left hand for something?
+		std::uint32_t unk554;                                                            // 554 - right hand for something?
 		NiPointer<NiBillboardNode> CrosshairParent;                                      // 558
 		NiPointer<NiBillboardNode> CrosshairSecondaryParent;                             // 560
 		NiPointer<NiBillboardNode> TargetLockParent;                                     // 568
@@ -699,7 +700,8 @@ namespace RE
 		std::uint32_t unk5B0;                                                            // 5B0
 		std::uint32_t unk5B4;                                                            // 5B4
 		std::uint64_t unk5B8;                                                            // 5B8
-		std::uint64_t unk5C0;                                                            // 5C0
+		std::uint32_t unk5C0;                                                            // 5C0
+		std::uint32_t unk5C4;                                                            // 5C4
 		NiPointer<NiNode> BowAimNode;                                                    // 5C8
 		NiPointer<NiNode> BowRotationNode;                                               // 5D0
 		NiPointer<NiNode> ArrowSnapNode;                                                 // 5D8
@@ -708,7 +710,7 @@ namespace RE
 		std::uint64_t unk5F0;                                                            // 5F0
 		NiPointer<NiNode> ArrowHoldOffsetNode;                                           // 5F8
 		NiPointer<NiNode> ArrowHoldNode;                                                 // 600
-		std::uint64_t unk608;                                                            // 608
+		NiPointer<NiNode> unk608;                                                        // 608
 		float unkFloat610;                                                               // 610
 		std::uint32_t unk614;                                                            // 614
 		std::uint64_t unk618;                                                            // 618

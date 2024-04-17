@@ -103,7 +103,7 @@ namespace RE
 		// add
 		virtual void UpdateControllers(NiUpdateData& a_data);  // 25
 #ifdef SKYRIMVR
-		virtual void Unk_VRFunc(void);
+		virtual void ApplyLocalTransformToWorld();
 #endif
 		virtual void        PerformOp(PerformOpFunc& a_func);                                                                   // 26
 		virtual void        AttachProperty(NiAlphaProperty* a_property);                                                        // 27 - { return; }

@@ -134,11 +134,17 @@ namespace RE
 		bool                                   closingAllMenus;               // 1C1
 		std::uint16_t                          pad1C2;                        // 1C2
 		std::uint32_t                          pad1C4;                        // 1C4
+#ifdef SKYRIMVR
+		std::uint32_t unk1C8;  // 1C8
+		std::uint32_t unk1CA;  // 1CA
+#endif
 	private:
 		KEEP_FOR_RE()
 	};
 #ifndef SKYRIMVR
 	static_assert(sizeof(UI) == 0x1C8);
+#else
+	static_assert(sizeof(UI) == 0x1D0);
 #endif
 
 	template <class T>
