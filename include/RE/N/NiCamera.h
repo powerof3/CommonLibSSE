@@ -26,6 +26,8 @@ namespace RE
 		void          UpdateWorldBound() override;                        // 2F - { return; }
 		void          UpdateWorldData(NiUpdateData* a_data) override;     // 30
 
+		bool WorldPtToScreenPt3(const NiPoint3& a_point, float& a_xOut, float& a_yOut, float& a_zOut, float a_zeroTolerance);
+		
 		static bool BoundInFrustum(const NiBound& a_bound, NiCamera* a_camera);
 		static bool NodeInFrustum(NiAVObject* a_node, NiCamera* a_camera);
 		static bool PointInFrustum(const NiPoint3& a_point, NiCamera* a_camera, float a_radius);

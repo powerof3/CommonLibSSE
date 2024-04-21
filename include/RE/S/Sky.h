@@ -66,13 +66,16 @@ namespace RE
 
 		static Sky* GetSingleton();
 
-		[[nodiscard]] bool IsRaining() const;
-		[[nodiscard]] bool IsSnowing() const;
-
-		void SetWeather(TESWeather* a_weather, bool a_override, bool a_accelerate);
-		void ForceWeather(TESWeather* a_weather, bool a_override);
-		void ReleaseWeatherOverride();
-		void ResetWeather();
+		[[nodiscard]] float GetSunriseBegin();
+		[[nodiscard]] float GetSunriseEnd();
+		[[nodiscard]] float GetSunsetBegin();
+		[[nodiscard]] float GetSunsetEnd();
+		void                ForceWeather(TESWeather* a_weather, bool a_override);
+		[[nodiscard]] bool  IsRaining() const;
+		[[nodiscard]] bool  IsSnowing() const;
+		void                ReleaseWeatherOverride();
+		void                ResetWeather();
+		void                SetWeather(TESWeather* a_weather, bool a_override, bool a_accelerate);
 
 		// members
 		NiPointer<BSMultiBoundNode>            root;                            // 008

@@ -91,14 +91,14 @@ namespace RE
 		BSPathingLOSGridMap*           gridMap;                      // 0E0
 		AITimer                        searchUpdateTimer;            // 0E8
 		AITimer                        searchAreaUpdateTimer;        // 0F0
-		AITimeStamp                    unkF8;                        // 0F8
+		AITimeStamp                    searchStartedTimeStamp;       // 0F8
 		ActorHandle                    targetToSearchFor;            // 0FC
 		BGSWorldLocation               searchTargetLoc;              // 100
 		float                          searchRadius;                 // 118
-		std::uint32_t                  unk11C;                       // 11C
+		std::uint32_t                  pad11C;                       // 11C
 		BSTArray<CombatSearchLocation> searchLocations;              // 120
 		BSTArray<CombatSearchDoor>     searchDoors;                  // 138
-		std::uint32_t                  unk150;                       // 150 - count
+		std::uint32_t                  initializedMemberCount;       // 150 - count
 		std::uint32_t                  fleeCount;                    // 154
 		std::uint32_t                  fightCount;                   // 158
 		std::uint8_t                   musicState;                   // 15C

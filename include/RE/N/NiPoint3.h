@@ -16,6 +16,7 @@ namespace RE
 		const float& operator[](std::size_t a_idx) const;
 		bool         operator==(const NiPoint3& a_rhs) const;
 		bool         operator!=(const NiPoint3& a_rhs) const;
+		bool         operator<(const NiPoint3& a_rhs) const;
 		NiPoint3     operator+(const NiPoint3& a_rhs) const;
 		NiPoint3     operator-(const NiPoint3& a_rhs) const;
 		float        operator*(const NiPoint3& a_rhs) const;
