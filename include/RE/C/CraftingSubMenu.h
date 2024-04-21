@@ -34,7 +34,7 @@ namespace RE
 
 			void UpdateCraftingInfo(ActorValue a_actorValue)
 			{
-				using func_t = decltype(&UpdateCraftingInfo);
+				using func_t = decltype(&CraftingSubMenu::UpdateCraftingInfo);
 				REL::Relocation<func_t> func{ RELOCATION_ID(50461, 51364) };
 				return func(this, a_actorValue);
 			}
