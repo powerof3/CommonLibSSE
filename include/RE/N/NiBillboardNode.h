@@ -15,7 +15,7 @@ namespace RE
 			FACE_MODE_POS = 0,
 			FACE_MODE_MASK = 7,
 		};
-		
+
 		enum class FaceMode
 		{
 			kAlwaysFaceCamera,
