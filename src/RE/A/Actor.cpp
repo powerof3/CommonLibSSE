@@ -1008,11 +1008,25 @@ namespace RE
 		return true;
 	}
 
+	void Actor::SetHeading(float a_angle)
+	{
+		using func_t = decltype(&Actor::SetHeading);
+		REL::Relocation<func_t> func{ RELOCATION_ID(36248, 37230) };
+		return func(this, a_angle);
+	}
+
 	void Actor::SetLifeState(ACTOR_LIFE_STATE a_lifeState)
 	{
 		using func_t = decltype(&Actor::SetLifeState);
 		REL::Relocation<func_t> func{ RELOCATION_ID(36604, 37612) };
 		return func(this, a_lifeState);
+	}
+
+	void Actor::SetLooking(float a_angle)
+	{
+		using func_t = decltype(&Actor::SetLooking);
+		REL::Relocation<func_t> func{ RELOCATION_ID(36602, 37610) };
+		return func(this, a_angle);
 	}
 
 	bool Actor::SetSleepOutfit(BGSOutfit* a_outfit, bool a_update3D)
@@ -1028,20 +1042,6 @@ namespace RE
 			AddWornOutfit(a_outfit, a_update3D);
 		}
 		return true;
-	}
-
-	void Actor::SetRotationX(float a_angle)
-	{
-		using func_t = decltype(&Actor::SetRotationX);
-		REL::Relocation<func_t> func{ RELOCATION_ID(36602, 37610) };
-		return func(this, a_angle);
-	}
-
-	void Actor::SetRotationZ(float a_angle)
-	{
-		using func_t = decltype(&Actor::SetRotationZ);
-		REL::Relocation<func_t> func{ RELOCATION_ID(36248, 37230) };
-		return func(this, a_angle);
 	}
 
 	void Actor::StealAlarm(TESObjectREFR* a_ref, TESForm* a_object, std::int32_t a_num, std::int32_t a_total, TESForm* a_owner, bool a_allowWarning)

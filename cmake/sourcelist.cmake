@@ -880,6 +880,7 @@ set(SOURCES
 	include/RE/G/GWaitCondition.h
 	include/RE/G/GWaitable.h
 	include/RE/G/GameSettingCollection.h
+	include/RE/G/GarbageCollector.h
 	include/RE/G/GiftMenu.h
 	include/RE/G/GlobalLocations.h
 	include/RE/G/GlobalPaths.h
@@ -1451,6 +1452,7 @@ set(SOURCES
 	include/RE/T/TESAmmo.h
 	include/RE/T/TESAttackDamageForm.h
 	include/RE/T/TESBipedModelForm.h
+	include/RE/T/TESBookReadEvent.h
 	include/RE/T/TESBoundAnimObject.h
 	include/RE/T/TESBoundObject.h
 	include/RE/T/TESCamera.h
