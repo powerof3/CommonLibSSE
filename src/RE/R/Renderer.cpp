@@ -1,5 +1,7 @@
 #include "RE/R/Renderer.h"
 
+#include "RE/S/State.h"
+
 namespace RE
 {
 	namespace BSGraphics
@@ -135,19 +137,20 @@ namespace RE
 			REL::Relocation<RendererData**> singleton{ RELOCATION_ID(524728, 411347) };
 			return *singleton;
 		}
+
 		[[nodiscard]] ScreenSize Renderer::GetScreenSize()
 		{
-			// This is a global managed by Renderer, but not part of the RendererData struct.
-			// We pass back the value so users are not tempted to modify this directly.
-			REL::Relocation<ScreenSize*> singleton{ RELOCATION_ID(525002, 411483) };
-			return *singleton;
+			const auto state = RE::BSGraphics::State::GetSingleton();
+			return ScreenSize{ state->screenWidth, state->screenHeight };
 		}
+
 		[[nodiscard]] REX::W32::ID3D11Device* Renderer::GetDevice()
 		{
 			// Location is a global pointer to the device in the Renderer Data
 			REL::Relocation<REX::W32::ID3D11Device**> device{ RELOCATION_ID(524729, 411348) };
 			return *device;
 		}
+
 		[[nodiscard]] RendererWindow* Renderer::GetCurrentRenderWindow()
 		{
 			// Location is a global pointer to the current renderWindow (which is not necessarily at index 0 in the renderWindows array)

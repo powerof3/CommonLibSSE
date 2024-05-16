@@ -75,8 +75,8 @@ namespace RE
 
 		struct ScreenSize
 		{
-			uint32_t width;   // 00
-			uint32_t height;  // 04
+			std::uint32_t width;   // 00
+			std::uint32_t height;  // 04
 		};
 		static_assert(sizeof(ScreenSize) == 0x8);
 
@@ -118,17 +118,16 @@ namespace RE
 			[[nodiscard]] static REX::W32::ID3D11Device* GetDevice();
 			[[nodiscard]] static RendererWindow*         GetCurrentRenderWindow();
 
+			// members
+			std::uint64_t unk00;  // 00
+			std::uint64_t unk08;  // 08
+			RendererData  data;   // 10
+
 		private:
 			void Begin(std::uint32_t windowID);
 			void Init(RendererInitOSData* a_data, ApplicationWindowProperties* a_windowProps, REX::W32::HWND a_window);
 			void End();
 			void Shutdown();
-
-		public:
-			// members
-			std::uint64_t unk00;  // 00
-			std::uint64_t unk08;  // 08
-			RendererData  data;   // 10
 		};
 	}
 }

@@ -64,8 +64,8 @@ namespace RE
 		TESWorldSpace*                  worldSpace;            // 30538
 		GFxValue                        unk30540;              // 30540
 		std::uint32_t                   unk30558;              // 30558
-		NiPoint3                        unk3055C;              // 3055C
-		NiPoint3                        unk30568;              // 30568
+		NiPoint3                        cameraPickOrigin;      // 3055C
+		NiPoint3                        cameraPickDirection;   // 30568
 		BSSoundHandle                   unk30574;              // 30574
 		std::uint64_t                   unk30580;              // 30580
 		std::uint64_t                   unk30588;              // 30588

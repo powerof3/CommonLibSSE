@@ -608,10 +608,10 @@ namespace RE
 		bool                         RemoveSpell(SpellItem* a_spell);
 		std::int32_t                 RequestDetectionLevel(Actor* a_target, DETECTION_PRIORITY a_priority = DETECTION_PRIORITY::kNormal);
 		bool                         SetDefaultOutfit(BGSOutfit* a_outfit, bool a_update3D);
+		void                         SetHeading(float a_angle);  // SetRotationZ
 		void                         SetLifeState(ACTOR_LIFE_STATE a_lifeState);
+		void                         SetLooking(float a_angle);  // SetRotationX
 		bool                         SetSleepOutfit(BGSOutfit* a_outfit, bool a_update3D);
-		void                         SetRotationX(float a_angle);
-		void                         SetRotationZ(float a_angle);
 		void                         StealAlarm(TESObjectREFR* a_ref, TESForm* a_object, std::int32_t a_num, std::int32_t a_total, TESForm* a_owner, bool a_allowWarning);
 		void                         StopAlarmOnActor();
 		void                         StopInteractingQuick(bool a_unk02);

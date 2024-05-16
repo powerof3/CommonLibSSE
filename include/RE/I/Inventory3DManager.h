@@ -38,11 +38,13 @@ namespace RE
 
 		static Inventory3DManager* GetSingleton();
 
-		void UpdateItem3D(InventoryEntryData* a_objDesc);
-		void UpdateMagic3D(TESForm* a_form, std::uint32_t a_arg2);
-		void Clear3D();
-		void Render();
+		void Begin3D(INTERFACE_LIGHT_SCHEME a_scheme);
+		void End3D();
+		void LoadInventoryItem(InventoryEntryData* a_objDesc);
+		void LoadInventoryItem(TESBoundObject* a_object, ExtraDataList* a_extraDataList);	
+		void Render();	
 		bool ToggleItemZoom();
+		void UnloadInventoryItem();
 
 		// members
 		std::uint8_t                                  unk011;              // 011

@@ -5,6 +5,7 @@
 namespace RE
 {
 	class NiCamera;
+	class NiVisibleArray;
 
 	class BSSceneGraph : public NiNode
 	{
@@ -23,12 +24,12 @@ namespace RE
 		virtual void  SetViewDistanceBasedOnFrameRate(float a_frameRate);  // 40
 
 		// members
-		NiPointer<NiCamera> camera;     // 128
-		std::uint64_t       unk130;     // 130 - 0x18
-		bool                unk138;     // 138
-		std::uint8_t        pad139;     // 139
-		std::uint16_t       pad13A;     // 13A
-		float               cameraFOV;  // 13C
+		NiPointer<NiCamera> camera;          // 128
+		NiVisibleArray*     visArray;        // 130 - 0x18
+		bool                menuSceneGraph;  // 138
+		std::uint8_t        pad139;          // 139
+		std::uint16_t       pad13A;          // 13A
+		float               cameraFOV;       // 13C
 	};
 	static_assert(sizeof(BSSceneGraph) == 0x140);
 }

@@ -13,8 +13,10 @@ namespace RE
 {
 	struct BSAnimationGraphEvent;
 
+	class BSGeometry;
 	class ExtraDataList;
 	class NiAVObject;
+	class NiSourceTexture;
 	class TESObjectBOOK;
 	class TESObjectREFR;
 
@@ -48,19 +50,19 @@ namespace RE
 		static void OpenBookMenu(const BSString& a_description, const ExtraDataList* a_extraList, TESObjectREFR* a_ref, TESObjectBOOK* a_book, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);
 
 		// members
-		BSTArray<BSScaleformExternalTexture> bookTextures;  // 50
-		GPtr<GFxMovieView>                   book;          // 68
-		NiPointer<NiAVObject>                book3D;        // 70
-		std::uint32_t                        unk78;         // 78
-		std::uint32_t                        pad7C;         // 7C
-		std::uint64_t                        unk80;         // 80
-		void*                                unk88;         // 88 - smart ptr
-		std::uint16_t                        unk90;         // 90
-		std::uint16_t                        unk92;         // 92
-		bool                                 closeMenu;     // 94
-		bool                                 isNote;        // 95
-		std::uint8_t                         unk96;         // 96
-		std::uint8_t                         pad97;         // 97
+		BSTArray<BSScaleformExternalTexture> bookTextures;      // 50
+		GPtr<GFxMovieView>                   book;              // 68
+		NiPointer<NiAVObject>                bookModel;         // 70
+		std::uint32_t                        numRenderTargets;  // 78
+		std::uint32_t                        pad7C;             // 7C
+		NiSourceTexture*                     pageTexture;       // 80
+		NiPointer<BSGeometry>                pageTextGeo;       // 88 - smart ptr
+		std::uint16_t                        unk90;             // 90
+		std::uint16_t                        startAnimating;    // 92
+		bool                                 closeMenu;         // 94
+		bool                                 isNote;            // 95
+		bool                                 bookInitialized;   // 96
+		std::uint8_t                         pad97;             // 97
 	};
 	static_assert(sizeof(BookMenu) == 0x98);
 }
