@@ -41,7 +41,7 @@ namespace RE
 	{
 		auto factory = IFormFactory::GetConcreteFormFactoryByType<T>();
 		auto form = factory ? factory->Create() : nullptr;
-		
+
 		return form ? form->As<T>() : nullptr;
 	}
 }
