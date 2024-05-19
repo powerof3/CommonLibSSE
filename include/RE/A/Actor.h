@@ -344,27 +344,27 @@ namespace RE
 		TESAmmo* GetCurrentAmmo() const override;                                                               // 09E
 		void     UnequipItem(std::uint64_t a_arg1, TESBoundObject* a_object) override;                          // 0A1
 #else
-		void     RemoveWeapon(BIPED_OBJECT equipIndex) override;                                                // 083
-		void     SetObjectReference(TESBoundObject* a_object) override;                                         // 085
-		void     MoveHavok(bool a_forceRec) override;                                                           // 086
-		void     GetLinearVelocity(NiPoint3& a_velocity) const override;                                        // 087
-		void     SetActionComplete(bool a_set) override;                                                        // 088
-		void     Disable() override;                                                                            // 08A
-		void     ResetInventory(bool a_leveledOnly) override;                                                   // 08B
-		NiNode*  GetFireNode() override;                                                                        // 08B
-		void     SetFireNode(NiNode* a_fireNode) override;                                                      // 08C
-		bool     OnAddCellPerformQueueReference(TESObjectCELL& a_cell) const override;                          // 091
-		void     DoMoveToHigh() override;                                                                       // 092
-		void     TryMoveToMiddleLow() override;                                                                 // 093
-		bool     TryChangeSkyCellActorsProcessLevel() override;                                                 // 094
-		void     TryUpdateActorLastSeenTime() override;                                                         // 095
-		void     Unk_97(void);                                                                                  // 097
-		void     SetParentCell(TESObjectCELL* a_cell) override;                                                 // 099
-		bool     IsDead(bool a_notEssential = true) const override;                                             // 09A
-		void     ProcessInWater(hkpCollidable* a_collidable, float a_waterHeight, float a_deltaTime) override;  // 09D
-		bool     ApplyCurrent(float a_velocityTime, const hkVector4& a_velocity) override;                      // 09E
-		TESAmmo* GetCurrentAmmo() const override;                                                               // 09F
-		void     UnequipItem(std::uint64_t a_arg1, TESBoundObject* a_object) override;                          // 0A2
+		void                            RemoveWeapon(BIPED_OBJECT equipIndex) override;                                                                                                                                  // 083
+		void                            SetObjectReference(TESBoundObject* a_object) override;                                                                                                                           // 085
+		void                            MoveHavok(bool a_forceRec) override;                                                                                                                                             // 086
+		void                            GetLinearVelocity(NiPoint3& a_velocity) const override;                                                                                                                          // 087
+		void                            SetActionComplete(bool a_set) override;                                                                                                                                          // 088
+		void                            Disable() override;                                                                                                                                                              // 08A
+		void                            ResetInventory(bool a_leveledOnly) override;                                                                                                                                     // 08B
+		NiNode*                         GetFireNode() override;                                                                                                                                                          // 08B
+		void                            SetFireNode(NiNode* a_fireNode) override;                                                                                                                                        // 08C
+		bool                            OnAddCellPerformQueueReference(TESObjectCELL& a_cell) const override;                                                                                                            // 091
+		void                            DoMoveToHigh() override;                                                                                                                                                         // 092
+		void                            TryMoveToMiddleLow() override;                                                                                                                                                   // 093
+		bool                            TryChangeSkyCellActorsProcessLevel() override;                                                                                                                                   // 094
+		void                            TryUpdateActorLastSeenTime() override;                                                                                                                                           // 095
+		void                            Unk_97(void);                                                                                                                                                                    // 097
+		void                            SetParentCell(TESObjectCELL* a_cell) override;                                                                                                                                   // 099
+		bool                            IsDead(bool a_notEssential = true) const override;                                                                                                                               // 09A
+		void                            ProcessInWater(hkpCollidable* a_collidable, float a_waterHeight, float a_deltaTime) override;                                                                                    // 09D
+		bool                            ApplyCurrent(float a_velocityTime, const hkVector4& a_velocity) override;                                                                                                        // 09E
+		TESAmmo*                        GetCurrentAmmo() const override;                                                                                                                                                 // 09F
+		void                            UnequipItem(std::uint64_t a_arg1, TESBoundObject* a_object) override;                                                                                                            // 0A2
 #endif
 		// override (MagicTarget)
 		Actor*                       GetTargetStatsObject() override;      // 002 - { return this; }
