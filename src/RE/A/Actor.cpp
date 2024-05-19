@@ -847,6 +847,13 @@ namespace RE
 		return func(this);
 	}
 
+	bool Actor::IsLeveled() const
+	{
+		using func_t = decltype(&Actor::IsLeveled);
+		REL::Relocation<func_t> func{ RELOCATION_ID(19824, 20229) };
+		return func(this);
+	}
+
 	bool Actor::IsLimbGone(std::uint32_t a_limb)
 	{
 		using func_t = decltype(&Actor::IsLimbGone);
@@ -1009,11 +1016,25 @@ namespace RE
 		return true;
 	}
 
+	void Actor::SetHeading(float a_angle)
+	{
+		using func_t = decltype(&Actor::SetHeading);
+		REL::Relocation<func_t> func{ RELOCATION_ID(36248, 37230) };
+		return func(this, a_angle);
+	}
+
 	void Actor::SetLifeState(ACTOR_LIFE_STATE a_lifeState)
 	{
 		using func_t = decltype(&Actor::SetLifeState);
 		REL::Relocation<func_t> func{ RELOCATION_ID(36604, 37612) };
 		return func(this, a_lifeState);
+	}
+
+	void Actor::SetLooking(float a_angle)
+	{
+		using func_t = decltype(&Actor::SetLooking);
+		REL::Relocation<func_t> func{ RELOCATION_ID(36602, 37610) };
+		return func(this, a_angle);
 	}
 
 	bool Actor::SetSleepOutfit(BGSOutfit* a_outfit, bool a_update3D)
@@ -1029,20 +1050,6 @@ namespace RE
 			AddWornOutfit(a_outfit, a_update3D);
 		}
 		return true;
-	}
-
-	void Actor::SetRotationX(float a_angle)
-	{
-		using func_t = decltype(&Actor::SetRotationX);
-		REL::Relocation<func_t> func{ RELOCATION_ID(36602, 37610) };
-		return func(this, a_angle);
-	}
-
-	void Actor::SetRotationZ(float a_angle)
-	{
-		using func_t = decltype(&Actor::SetRotationZ);
-		REL::Relocation<func_t> func{ RELOCATION_ID(36248, 37230) };
-		return func(this, a_angle);
 	}
 
 	void Actor::StealAlarm(TESObjectREFR* a_ref, TESForm* a_object, std::int32_t a_num, std::int32_t a_total, TESForm* a_owner, bool a_allowWarning)
@@ -1173,7 +1180,7 @@ namespace RE
 			kTotal
 		};
 
-		char addonString[WinAPI::MAX_PATH]{ '\0' };
+		char addonString[REX::W32::MAX_PATH]{ '\0' };
 		a_arma->GetNodeName(addonString, this, a_armor, -1);
 		std::array<NiAVObject*, kTotal> skeletonRoot = { Get3D(k3rd), Get3D(k1st) };
 		if (skeletonRoot[k1st] == skeletonRoot[k3rd]) {
@@ -1226,7 +1233,7 @@ namespace RE
 			if (auto magicCaster = magicCasters[i]) {
 				auto castingSource = magicCaster->GetCastingSource();
 				if (magicCaster->currentSpell) {
-					result |= 1 << stl::to_underlying(castingSource);
+					result |= 1 << std::to_underlying(castingSource);
 				}
 			}
 		}

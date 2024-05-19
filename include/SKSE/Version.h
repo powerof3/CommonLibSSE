@@ -1,5 +1,7 @@
 #pragma once
 
+#include "REL/Version.h"
+
 namespace SKSE
 {
 	inline constexpr REL::Version RUNTIME_1_1_47(1, 1, 47, 0);

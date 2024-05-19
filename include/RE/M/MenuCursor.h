@@ -17,17 +17,17 @@ namespace RE
 #ifdef SKYRIMVR
 		float unkVR04;
 #endif
-		float        cursorXPosition;     // 04
-		float        cursorYPosition;     // 08
-		float        cursorXMin;          // 0C
-		float        cursorYMin;          // 10
-		float        cursorXMax;          // 14
-		float        cursorYMax;          // 18
-		float        cursorSensitivity;   // 1C
-		float        unk20;               // 20
-		float        unk24;               // 24
-		float        logicalWidth;        // 28
-		std::int32_t cursorDisplayCount;  // 2C
+		float        cursorPosX;         // 04
+		float        cursorPosY;         // 08
+		float        safeZoneX;          // 0C
+		float        safeZoneY;          // 10
+		float        screenWidthX;       // 14
+		float        screenWidthY;       // 18
+		float        cursorSensitivity;  // 1C
+		float        unk20;              // 20
+		float        unk24;              // 24
+		float        defaultMouseSpeed;  // 28
+		std::int32_t showCursorCount;    // 2C
 	private:
 		KEEP_FOR_RE()
 	};

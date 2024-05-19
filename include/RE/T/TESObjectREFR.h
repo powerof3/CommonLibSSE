@@ -12,6 +12,7 @@
 #include "RE/E/ExtraDataList.h"
 #include "RE/F/FormTypes.h"
 #include "RE/H/hkVector4.h"
+#include "RE/H/hkpMotion.h"
 #include "RE/I/IAnimationGraphManagerHolder.h"
 #include "RE/M/MagicSystem.h"
 #include "RE/N/NiPoint3.h"
@@ -121,17 +122,6 @@ namespace RE
 		using InventoryDropMap = std::map<TESBoundObject*, std::pair<Count, std::vector<ObjectRefHandle>>>;
 
 		static inline constexpr auto DEFAULT_INVENTORY_FILTER = [](TESBoundObject&) { return true; };
-
-		enum class MotionType  // hkpMotion::MotionType
-		{
-			kDynamic = 1,
-			kSphereInertia = 2,
-			kBoxInertia = 3,
-			kKeyframed = 4,
-			kFixed = 5,
-			kThinBoxInertia = 6,
-			kCharacter = 7
-		};
 
 		struct ChangeFlags
 		{
@@ -390,6 +380,7 @@ namespace RE
 		virtual bool                Unk_A0(NiAVObject* a_node, float& a_angleX, float& a_angleZ, NiPoint3& a_pos) const;  // A1
 		virtual void                UnequipItem(std::uint64_t a_arg1, TESBoundObject* a_object);                          // A2 - { return; }
 #endif
+		static ObjectRefHandle          CreateReference(ObjectRefHandle& a_handleOut, FormType a_formType, bool a_addActorToProcessList);
 		static NiPointer<TESObjectREFR> LookupByHandle(RefHandle a_refHandle);
 		static bool                     LookupByHandle(RefHandle a_refHandle, NiPointer<TESObjectREFR>& a_refrOut);
 		static TESObjectREFR*           FindReferenceFor3D(NiAVObject* a_object3D);
@@ -484,7 +475,7 @@ namespace RE
 		void                                    MoveTo(TESObjectREFR* a_target);
 		bool                                    MoveToNode(TESObjectREFR* a_target, const BSFixedString& a_nodeName);
 		bool                                    MoveToNode(TESObjectREFR* a_target, NiAVObject* a_node);
-		bool                                    NameIncludes(std::string a_word);
+		bool                                    NameIncludes(std::string_view a_word) const;
 		void                                    OpenContainer(std::int32_t a_openType) const;
 		NiPointer<TESObjectREFR>                PlaceObjectAtMe(TESBoundObject* a_baseToPlace, bool a_forcePersist) const;
 		void                                    PlayAnimation(stl::zstring a_from, stl::zstring a_to);
@@ -493,9 +484,11 @@ namespace RE
 		void                                    SetCollision(bool a_enable);
 		bool                                    SetDisplayName(const BSFixedString& a_name, bool a_force);
 		void                                    SetEncounterZone(BGSEncounterZone* a_zone);
-		bool                                    SetMotionType(MotionType a_motionType, bool a_allowActivate = true);
+		bool                                    SetMotionType(hkpMotion::MotionType a_motionType, bool a_allowActivate = true);
+		void                                    SetOwner(TESForm* a_owner);
 		void                                    SetPosition(float a_x, float a_y, float a_z);
 		void                                    SetPosition(NiPoint3 a_pos);
+		void                                    SetTemporary();
 
 		// members
 		OBJ_REFR         data;          // 40

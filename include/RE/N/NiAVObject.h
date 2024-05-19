@@ -4,6 +4,7 @@
 #include "RE/B/BSLightingShaderProperty.h"
 #include "RE/B/BSShaderMaterial.h"
 #include "RE/C/CollisionLayers.h"
+#include "RE/H/hkpMotion.h"
 #include "RE/N/NiBound.h"
 #include "RE/N/NiObjectNET.h"
 #include "RE/N/NiSmartPointer.h"
@@ -135,7 +136,7 @@ namespace RE
 		void                              SetAppCulled(bool a_cull);
 		void                              SetCollisionLayer(COL_LAYER a_collisionLayer);
 		void                              SetCollisionLayerAndGroup(COL_LAYER a_collisionLayer, std::uint32_t a_group);
-		bool                              SetMotionType(std::uint32_t a_motionType, bool a_arg2 = true, bool a_arg3 = false, bool a_allowActivate = true);
+		bool                              SetMotionType(hkpMotion::MotionType a_motionType, bool a_recurse = true, bool a_force = false, bool a_allowActivate = true);
 		bool                              SetProjectedUVData(const NiColorA& a_projectedUVParams, const NiColor& a_projectedUVColor, bool a_isSnow);
 		void                              TintScenegraph(const NiColorA& a_color);
 		void                              Update(NiUpdateData& a_data);

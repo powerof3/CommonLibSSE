@@ -3,6 +3,8 @@
 #include "RE/N/NiObject.h"
 #include "RE/N/NiSmartPointer.h"
 
+#include "REX/W32/BASE.h"
+
 namespace RE
 {
 	class NiAVObject;
@@ -47,7 +49,7 @@ namespace RE
 		void*                      prevBoneMatrices;              // 50
 		void*                      skinToWorldWorldToSkinMatrix;  // 58
 #ifndef SKYRIMVR
-		WinAPI::CRITICAL_SECTION lock;  // 60
+		REX::W32::CRITICAL_SECTION lock;  // 60
 	private:
 		KEEP_FOR_RE()
 	};

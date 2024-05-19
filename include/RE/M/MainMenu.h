@@ -51,12 +51,12 @@ namespace RE
 #endif
 
 		// members
-		BSScaleformExternalTexture unk50;  // 50
-		std::uint32_t              unk68;  // 68
-		std::uint8_t               unk6C;  // 6C
-		std::uint8_t               unk6D;  // 6D
-		std::uint8_t               unk6E;  // 6E
-		std::uint8_t               pad6F;  // 6F
+		BSScaleformExternalTexture gamerIconTexture;  // 50
+		std::uint32_t              unk68;             // 68
+		std::uint8_t               unk6C;             // 6C
+		std::uint8_t               unk6D;             // 6D
+		std::uint8_t               unk6E;             // 6E
+		std::uint8_t               pad6F;             // 6F
 	private:
 		KEEP_FOR_RE()
 	};

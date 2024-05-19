@@ -2,6 +2,8 @@
 
 #include "REL/Version.h"
 
+#include "REX/W32/KERNEL32.h"
+
 namespace REL
 {
 	class Segment
@@ -61,7 +63,7 @@ namespace REL
 
 		[[nodiscard]] Segment segment(Segment::Name a_segment) const noexcept { return _segments[a_segment]; }
 
-		[[nodiscard]] void* pointer() const noexcept { return reinterpret_cast<void*>(base()); }
+		[[nodiscard]] REX::W32::HMODULE pointer() const noexcept { return reinterpret_cast<REX::W32::HMODULE>(base()); }
 
 		template <class T>
 		[[nodiscard]] T* pointer() const noexcept
@@ -73,7 +75,7 @@ namespace REL
 		Module()
 		{
 			const auto getFilename = [&]() {
-				return WinAPI::GetEnvironmentVariable(
+				return REX::W32::GetEnvironmentVariableW(
 					ENVIRONMENT.data(),
 					_filename.data(),
 					static_cast<std::uint32_t>(_filename.size()));
@@ -103,7 +105,7 @@ namespace REL
 
 		void load()
 		{
-			auto handle = WinAPI::GetModuleHandle(_filename.c_str());
+			auto handle = REX::W32::GetModuleHandleW(_filename.c_str());
 			if (handle == nullptr) {
 				stl::report_and_fail(
 					std::format(
@@ -122,7 +124,7 @@ namespace REL
 
 		void load_version()
 		{
-			const auto version = get_file_version(_filename);
+			const auto version = GetFileVersion(_filename);
 			if (version) {
 				_version = *version;
 			} else {
@@ -135,13 +137,13 @@ namespace REL
 		}
 
 		static constexpr std::array SEGMENTS{
-			std::make_pair(".text"sv, WinAPI::IMAGE_SCN_MEM_EXECUTE),
+			std::make_pair(".text"sv, REX::W32::IMAGE_SCN_MEM_EXECUTE),
 			std::make_pair(".idata"sv, 0u),
 			std::make_pair(".rdata"sv, 0u),
 			std::make_pair(".data"sv, 0u),
 			std::make_pair(".pdata"sv, 0u),
 			std::make_pair(".tls"sv, 0u),
-			std::make_pair(".text"sv, WinAPI::IMAGE_SCN_MEM_WRITE),
+			std::make_pair(".text"sv, REX::W32::IMAGE_SCN_MEM_WRITE),
 			std::make_pair(".gfids"sv, 0u)
 		};
 

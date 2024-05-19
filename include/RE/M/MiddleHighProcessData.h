@@ -23,6 +23,7 @@ namespace RE
 	class bhkCharacterController;
 	class bhkRagdollPenetrationUtil;
 	class BSAnimationGraphManager;
+	class BSCloneReserver;
 	class BSFaceGenAnimationData;
 	class BSFaceGenNiNode;
 	class BSLightingShaderProperty;
@@ -122,7 +123,7 @@ namespace RE
 		BSTArray<BGSPerkEntry*>& operator[](BGSEntryPoint::ENTRY_POINT a_pos)
 		{
 			assert(a_pos < BGSEntryPoint::ENTRY_POINT::kTotal);
-			return perkEntryArrays[stl::to_underlying(a_pos)];
+			return perkEntryArrays[std::to_underlying(a_pos)];
 		}
 
 		// members
@@ -173,7 +174,7 @@ namespace RE
 		float                                          headHeightOffset;            // 204
 		ObjectRefHandle                                occupiedFurniture;           // 208
 		std::uint32_t                                  unk20C;                      // 20C
-		std::uint64_t                                  unk210;                      // 210
+		TESIdleForm*                                   unk210;                      // 210
 		ActorHandle                                    commandingActor;             // 218
 		std::uint32_t                                  pad21C;                      // 21C
 		InventoryEntryData*                            leftHand;                    // 220
@@ -187,7 +188,7 @@ namespace RE
 		InventoryEntryData*                            rightHand;                   // 260
 		InventoryEntryData*                            bothHands;                   // 268
 		NiPointer<QueuedFile>                          bodyPartPreload;             // 270
-		void*                                          unk278;                      // 278
+		NiPointer<BSCloneReserver>                     unk278;                      // 278
 		TESIdleForm*                                   lastIdlePlayed;              // 280
 		AIPerkData*                                    perkData;                    // 288
 		std::uint32_t                                  unk290;                      // 290

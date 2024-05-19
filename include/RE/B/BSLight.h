@@ -49,14 +49,14 @@ namespace RE
 		std::uint32_t          unk040;          // 040
 		bool                   pointLight;      // 044
 		bool                   ambientLight;    // 045
-		bool                   unk046;          // 046
+		bool                   dynamic;         // 046
 		bool                   portalStrict;    // 047
 		NiPointer<NiLight>     light;           // 048
 		NiPoint3               worldTranslate;  // 050
 		std::uint32_t          unk05C;          // 05C
 		std::uint8_t           unk060;          // 060
 		bool                   affectLand;      // 061
-		std::uint8_t           unk062;          // 062
+		bool                   affectWater;     // 062
 		bool                   neverFades;      // 063
 		std::uint32_t          unk064;          // 064
 		std::uint64_t          unk068;          // 068

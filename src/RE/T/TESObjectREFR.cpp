@@ -30,6 +30,13 @@
 
 namespace RE
 {
+	ObjectRefHandle TESObjectREFR::CreateReference(ObjectRefHandle& a_handleOut, FormType a_formType, bool a_addActorToProcessList)
+	{
+		using func_t = decltype(&TESObjectREFR::CreateReference);
+		REL::Relocation<func_t> func{ RELOCATION_ID(19142, 19544) };
+		return func(a_handleOut, a_formType, a_addActorToProcessList);
+	}
+
 	NiPointer<TESObjectREFR> TESObjectREFR::LookupByHandle(RefHandle a_refHandle)
 	{
 		NiPointer<TESObjectREFR> ref;
@@ -782,12 +789,10 @@ namespace RE
 		return true;
 	}
 
-	bool TESObjectREFR::NameIncludes(std::string a_word)
+	bool TESObjectREFR::NameIncludes(std::string_view a_word) const
 	{
-		auto        obj = GetObjectReference();
-		std::string name = obj ? obj->GetName() : "";
-
-		return name.find(a_word) != std::string::npos;
+		BSFixedString name = GetName();
+		return name.contains(a_word);
 	}
 
 	void TESObjectREFR::OpenContainer(std::int32_t a_openType) const
@@ -876,7 +881,7 @@ namespace RE
 		AddChange(ChangeFlags::kEncZoneExtra);
 	}
 
-	bool TESObjectREFR::SetMotionType(MotionType a_motionType, bool a_allowActivate)
+	bool TESObjectREFR::SetMotionType(hkpMotion::MotionType a_motionType, bool a_allowActivate)
 	{
 		auto node = Get3D();
 		if (!node) {
@@ -884,9 +889,16 @@ namespace RE
 			return false;
 		}
 
-		auto result = node->SetMotionType(static_cast<std::uint32_t>(a_motionType), true, false, a_allowActivate);
+		auto result = node->SetMotionType(a_motionType, true, false, a_allowActivate);
 		AddChange(ChangeFlags::kHavokMoved);
 		return result;
+	}
+
+	void TESObjectREFR::SetOwner(TESForm* a_owner)
+	{
+		using func_t = decltype(&TESObjectREFR::SetOwner);
+		REL::Relocation<func_t> func{ RELOCATION_ID(19793, 20198) };
+		return func(this, a_owner);
 	}
 
 	void TESObjectREFR::SetPosition(float a_x, float a_y, float a_z)
@@ -897,6 +909,13 @@ namespace RE
 	void TESObjectREFR::SetPosition(NiPoint3 a_pos)
 	{
 		MoveTo_Impl(ObjectRefHandle(), GetParentCell(), GetWorldspace(), a_pos, data.angle);
+	}
+
+	void TESObjectREFR::SetTemporary()
+	{
+		using func_t = decltype(&TESObjectREFR::SetTemporary);
+		REL::Relocation<func_t> func{ RELOCATION_ID(14485, 14642) };
+		func(this);
 	}
 
 	InventoryChanges* TESObjectREFR::ForceInitInventoryChanges()

@@ -25,7 +25,7 @@ namespace RE
 		NiColor       diffuse;  // 11C
 		NiPoint3      radius;   // 128
 		float         fade;     // 134
-		std::uint32_t unk138;   // 138
+		std::uint64_t unk138;   // 138
 	private:
 		KEEP_FOR_RE()
 	};

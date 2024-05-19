@@ -782,6 +782,7 @@ set(SOURCES
 	include/RE/G/GFxFileConstants.h
 	include/RE/G/GFxFunctionHandler.h
 	include/RE/G/GFxImageLoader.h
+	include/RE/G/GFxImageResource.h
 	include/RE/G/GFxInitImportActions.h
 	include/RE/G/GFxKey.h
 	include/RE/G/GFxKeyboardState.h
@@ -890,6 +891,7 @@ set(SOURCES
 	include/RE/G/GWaitCondition.h
 	include/RE/G/GWaitable.h
 	include/RE/G/GameSettingCollection.h
+	include/RE/G/GarbageCollector.h
 	include/RE/G/GiftMenu.h
 	include/RE/G/GlobalLocations.h
 	include/RE/G/GlobalPaths.h
@@ -915,6 +917,7 @@ set(SOURCES
 	include/RE/H/HitData.h
 	include/RE/H/HorseCameraState.h
 	include/RE/H/HudModeChangeEvent.h
+	include/RE/H/SendHUDMessage.h
 	include/RE/H/hkAabb.h
 	include/RE/H/hkArray.h
 	include/RE/H/hkBaseObject.h
@@ -1126,6 +1129,7 @@ set(SOURCES
 	include/RE/I/IngredientItem.h
 	include/RE/I/InputDevices.h
 	include/RE/I/InputEvent.h
+	include/RE/I/InterfaceLightSchemes.h
 	include/RE/I/InterfaceStrings.h
 	include/RE/I/InteriorData.h
 	include/RE/I/Inventory.h
@@ -1230,6 +1234,7 @@ set(SOURCES
 	include/RE/N/NiAllocator.h
 	include/RE/N/NiAlphaProperty.h
 	include/RE/N/NiAnimationKey.h
+	include/RE/N/NiBillboardNode.h
 	include/RE/N/NiBinaryStream.h
 	include/RE/N/NiBoneMatrixSetterI.h
 	include/RE/N/NiBooleanExtraData.h
@@ -1463,6 +1468,7 @@ set(SOURCES
 	include/RE/T/TESAmmo.h
 	include/RE/T/TESAttackDamageForm.h
 	include/RE/T/TESBipedModelForm.h
+	include/RE/T/TESBookReadEvent.h
 	include/RE/T/TESBoundAnimObject.h
 	include/RE/T/TESBoundObject.h
 	include/RE/T/TESCamera.h
@@ -1650,16 +1656,40 @@ set(SOURCES
 	include/REL/REL.h
 	include/REL/Relocation.h
 	include/REL/Version.h
+	include/REX/PS4.h
+	include/REX/PS4/SCEPAD.h
+	include/REX/W32.h
+	include/REX/W32/ADVAPI32.h
+	include/REX/W32/BASE.h
+	include/REX/W32/COM.h
+	include/REX/W32/COMPTR.h
+	include/REX/W32/D3D.h
+	include/REX/W32/D3D11.h
+	include/REX/W32/D3D11_1.h
+	include/REX/W32/D3D11_2.h
+	include/REX/W32/D3D11_3.h
+	include/REX/W32/D3D11_4.h
+	include/REX/W32/D3DCOMPILER.h
+	include/REX/W32/DBGHELP.h
+	include/REX/W32/DINPUT.h
+	include/REX/W32/DXGI.h
+	include/REX/W32/DXGI_2.h
+	include/REX/W32/DXGI_3.h
+	include/REX/W32/DXGI_4.h
+	include/REX/W32/DXGI_5.h
+	include/REX/W32/DXGI_6.h
+	include/REX/W32/KERNEL32.h
+	include/REX/W32/OLE32.h
+	include/REX/W32/SHELL32.h
+	include/REX/W32/USER32.h
+	include/REX/W32/VERSION.h
+	include/REX/W32/XINPUT.h
 	include/SKSE/API.h
 	include/SKSE/Events.h
 	include/SKSE/IAT.h
-	include/SKSE/Impl/DInputAPI.h
 	include/SKSE/Impl/PCH.h
 	include/SKSE/Impl/RegistrationTraits.h
-	include/SKSE/Impl/ScePadAPI.h
 	include/SKSE/Impl/Stubs.h
-	include/SKSE/Impl/WinAPI.h
-	include/SKSE/Impl/XInputAPI.h
 	include/SKSE/InputMap.h
 	include/SKSE/Interfaces.h
 	include/SKSE/Logger.h
@@ -1998,10 +2028,21 @@ set(SOURCES
 	src/RE/Z/ZeroFunctionArguments.cpp
 	src/REL/ID.cpp
 	src/REL/Module.cpp
+	src/REL/Relocation.cpp
+	src/REL/Version.cpp
+	src/REX/W32/ADVAPI32.cpp
+	src/REX/W32/D3D11.cpp
+	src/REX/W32/D3DCOMPILER.cpp
+	src/REX/W32/DBGHELP.cpp
+	src/REX/W32/DXGI.cpp
+	src/REX/W32/KERNEL32.cpp
+	src/REX/W32/OLE32.cpp
+	src/REX/W32/SHELL32.cpp
+	src/REX/W32/USER32.cpp
+	src/REX/W32/VERSION.cpp
 	src/SKSE/API.cpp
 	src/SKSE/IAT.cpp
 	src/SKSE/Impl/PCH.cpp
-	src/SKSE/Impl/WinAPI.cpp
 	src/SKSE/InputMap.cpp
 	src/SKSE/Interfaces.cpp
 	src/SKSE/Logger.cpp

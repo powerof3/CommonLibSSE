@@ -1,8 +1,5 @@
 #pragma once
 
-#include "RE/B/BSTEvent.h"
-#include "RE/L/LogEvent.h"
-
 #define SKSE_MAKE_SOURCE_LOGGER(a_func, a_type)                           \
                                                                           \
 	template <class... Args>                                              \

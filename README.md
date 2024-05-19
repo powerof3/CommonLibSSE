@@ -1,6 +1,6 @@
 # `CommonLibSSE/CommonLibVR`
 
-[![C++20](https://img.shields.io/static/v1?label=standard&message=C%2B%2B20&color=blue&logo=c%2B%2B&&logoColor=white&style=flat)](https://en.cppreference.com/w/cpp/compiler_support)
+[![C++23](https://img.shields.io/static/v1?label=standard&message=C%2B%2B20&color=blue&logo=c%2B%2B&&logoColor=white&style=flat)](https://en.cppreference.com/w/cpp/compiler_support)
 [![Platform](https://img.shields.io/static/v1?label=platform&message=windows&color=dimgray&style=flat)](#)
 [![Scripted maintenance](https://github.com/alandtse/CommonLibVR/actions/workflows/maintenance.yml/badge.svg?branch=vr)](https://github.com/alandtse/CommonLibVR/actions/workflows/maintenance.yml)
 

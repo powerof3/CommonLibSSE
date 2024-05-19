@@ -155,7 +155,7 @@ namespace RE
 		{
 			using func_t = decltype(&BGSEntryPoint::HandleEntryPoint<Args...>);
 			REL::Relocation<func_t> func{ RELOCATION_ID(23073, 23526) };
-			return func(a_entryPoint, a_perkOwner, a_args...);
+			func(a_entryPoint, a_perkOwner, a_args...);
 		}
 	};
 }

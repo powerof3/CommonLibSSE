@@ -10,7 +10,7 @@ namespace RE
 		public GImageBase
 	{
 	public:
-		~GImage() override;  // 00
+		~GImage() override = default;  // 00
 	private:
 		KEEP_FOR_RE()
 	};

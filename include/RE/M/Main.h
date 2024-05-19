@@ -4,6 +4,8 @@
 #include "RE/B/BSTMessageQueue.h"
 #include "RE/S/ScrapHeap.h"
 
+#include "REX/W32/BASE.h"
+
 namespace RE
 {
 	class NiNode;
@@ -85,8 +87,8 @@ namespace RE
 		bool                         reloadContent;                // 015 VR 0d
 		bool                         freezeTime;                   // 016 VR 0e
 		bool                         freezeNextFrame;              // 017 VR 0f This continues for all members I assume
-		WinAPI::HWND                 wnd;                          // 018
-		WinAPI::HINSTANCE            instance;                     // 020
+		REX::W32::HWND               wnd;                          // 018
+		REX::W32::HINSTANCE          instance;                     // 020
 		std::uint32_t                threadID;                     // 028
 		std::uint32_t                unk02C;                       // 02C
 		std::uint64_t                unk030;                       // 030

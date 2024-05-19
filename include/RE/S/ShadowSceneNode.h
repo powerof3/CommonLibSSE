@@ -23,19 +23,19 @@ namespace RE
 		{
 		public:
 			// members
-			std::uint8_t           unk00;          // 00
-			std::uint8_t           unk01;          // 01
-			bool                   portalStrict;   // 02
-			bool                   affectLand;     // 03
-			std::uint8_t           unk04;          // 04
-			bool                   neverFades;     // 05
-			float                  fov;            // 08
-			float                  falloff;        // 0C
-			float                  nearDistance;   // 10
-			float                  depthBias;      // 14
-			std::uint32_t          unk18;          // 18
-			NiAVObject*            objectNode;     // 20
-			BSLensFlareRenderData* lensFlareData;  // 28
+			bool                   dynamic;         // 00
+			bool                   shadowLight;     // 01
+			bool                   portalStrict;    // 02
+			bool                   affectLand;      // 03
+			bool                   affectWater;     // 04
+			bool                   neverFades;      // 05
+			float                  fov;             // 08
+			float                  falloff;         // 0C
+			float                  nearDistance;    // 10
+			float                  depthBias;       // 14
+			std::uint32_t          unk18;           // 18
+			NiAVObject*            restrictedNode;  // 20
+			BSLensFlareRenderData* lensFlareData;   // 28
 		};
 
 		~ShadowSceneNode() override;  // 00
@@ -43,6 +43,13 @@ namespace RE
 		// override (NiNode)
 		const NiRTTI* GetRTTI() const override;                         // 02
 		void          OnVisible(NiCullingProcess& a_process) override;  // 34
+
+		BSLight* AddLight(NiLight* a_light, const LIGHT_CREATE_PARAMS& a_params)
+		{
+			using func_t = decltype(&ShadowSceneNode::AddLight);
+			REL::Relocation<func_t> func{ RELOCATION_ID(99692, 106326) };
+			return func(this, a_light, a_params);
+		}
 
 		// members
 		std::uint64_t                   unk128;              // 128

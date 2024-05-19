@@ -46,7 +46,7 @@ namespace RE
 		bool                           ignoringCombat;        // 42
 		bool                           inactive;              // 43
 		AITimer                        unk44;                 // 44
-		float                          unk4C;                 // 4C
+		float                          lowMovementDelta;      // 4C
 		BSTArray<CombatAimController*> aimControllers;        // 50
 #ifdef SKYRIM_SUPPORT_AE
 		mutable BSSpinLock aimControllerLock;  // 68

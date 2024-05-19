@@ -24,6 +24,8 @@
 #include "RE/T/TESNPC.h"
 #include "RE/T/TESObjectREFR.h"
 
+#include "REX/W32/BASE.h"
+
 namespace RE
 {
 	class ActorMagicCaster;
@@ -342,27 +344,27 @@ namespace RE
 		TESAmmo* GetCurrentAmmo() const override;                                                               // 09E
 		void     UnequipItem(std::uint64_t a_arg1, TESBoundObject* a_object) override;                          // 0A1
 #else
-		void                            RemoveWeapon(BIPED_OBJECT equipIndex) override;                                                                                                                                  // 083
-		void                            SetObjectReference(TESBoundObject* a_object) override;                                                                                                                           // 085
-		void                            MoveHavok(bool a_forceRec) override;                                                                                                                                             // 086
-		void                            GetLinearVelocity(NiPoint3& a_velocity) const override;                                                                                                                          // 087
-		void                            SetActionComplete(bool a_set) override;                                                                                                                                          // 088
-		void                            Disable() override;                                                                                                                                                              // 08A
-		void                            ResetInventory(bool a_leveledOnly) override;                                                                                                                                     // 08B
-		NiNode*                         GetFireNode() override;                                                                                                                                                          // 08B
-		void                            SetFireNode(NiNode* a_fireNode) override;                                                                                                                                        // 08C
-		bool                            OnAddCellPerformQueueReference(TESObjectCELL& a_cell) const override;                                                                                                            // 091
-		void                            DoMoveToHigh() override;                                                                                                                                                         // 092
-		void                            TryMoveToMiddleLow() override;                                                                                                                                                   // 093
-		bool                            TryChangeSkyCellActorsProcessLevel() override;                                                                                                                                   // 094
-		void                            TryUpdateActorLastSeenTime() override;                                                                                                                                           // 095
-		void                            Unk_97(void);                                                                                                                                                                    // 097
-		void                            SetParentCell(TESObjectCELL* a_cell) override;                                                                                                                                   // 099
-		bool                            IsDead(bool a_notEssential = true) const override;                                                                                                                               // 09A
-		void                            ProcessInWater(hkpCollidable* a_collidable, float a_waterHeight, float a_deltaTime) override;                                                                                    // 09D
-		bool                            ApplyCurrent(float a_velocityTime, const hkVector4& a_velocity) override;                                                                                                        // 09E
-		TESAmmo*                        GetCurrentAmmo() const override;                                                                                                                                                 // 09F
-		void                            UnequipItem(std::uint64_t a_arg1, TESBoundObject* a_object) override;                                                                                                            // 0A2
+		void     RemoveWeapon(BIPED_OBJECT equipIndex) override;                                                // 083
+		void     SetObjectReference(TESBoundObject* a_object) override;                                         // 085
+		void     MoveHavok(bool a_forceRec) override;                                                           // 086
+		void     GetLinearVelocity(NiPoint3& a_velocity) const override;                                        // 087
+		void     SetActionComplete(bool a_set) override;                                                        // 088
+		void     Disable() override;                                                                            // 08A
+		void     ResetInventory(bool a_leveledOnly) override;                                                   // 08B
+		NiNode*  GetFireNode() override;                                                                        // 08B
+		void     SetFireNode(NiNode* a_fireNode) override;                                                      // 08C
+		bool     OnAddCellPerformQueueReference(TESObjectCELL& a_cell) const override;                          // 091
+		void     DoMoveToHigh() override;                                                                       // 092
+		void     TryMoveToMiddleLow() override;                                                                 // 093
+		bool     TryChangeSkyCellActorsProcessLevel() override;                                                 // 094
+		void     TryUpdateActorLastSeenTime() override;                                                         // 095
+		void     Unk_97(void);                                                                                  // 097
+		void     SetParentCell(TESObjectCELL* a_cell) override;                                                 // 099
+		bool     IsDead(bool a_notEssential = true) const override;                                             // 09A
+		void     ProcessInWater(hkpCollidable* a_collidable, float a_waterHeight, float a_deltaTime) override;  // 09D
+		bool     ApplyCurrent(float a_velocityTime, const hkVector4& a_velocity) override;                      // 09E
+		TESAmmo* GetCurrentAmmo() const override;                                                               // 09F
+		void     UnequipItem(std::uint64_t a_arg1, TESBoundObject* a_object) override;                          // 0A2
 #endif
 		// override (MagicTarget)
 		Actor*                       GetTargetStatsObject() override;      // 002 - { return this; }
@@ -689,7 +691,7 @@ namespace RE
 		const TESShout*              GetCurrentShout() const;
 		InventoryEntryData*          GetEquippedEntryData(bool a_leftHand) const;
 		TESForm*                     GetEquippedObject(bool a_leftHand) const;
-		TESForm*					 GetEquippedObjectInSlot(const BGSEquipSlot* slot) const;
+		TESForm*                     GetEquippedObjectInSlot(const BGSEquipSlot* slot) const;
 		float                        GetEquippedWeight();
 		std::int32_t                 GetFactionRank(TESFaction* a_faction, bool a_isPlayer);
 		std::int32_t                 GetGoldAmount(bool a_noInit = false);
@@ -748,6 +750,7 @@ namespace RE
 		[[nodiscard]] constexpr bool IsInKillMove() const noexcept { return boolFlags.all(BOOL_FLAGS::kIsInKillMove); }
 		bool                         IsInMidair() const;
 		bool                         IsInRagdollState() const;
+		bool                         IsLeveled() const;
 		bool                         IsLimbGone(std::uint32_t a_limb);
 		bool                         IsMoving() const;
 		bool                         IsOnMount() const;
@@ -769,10 +772,10 @@ namespace RE
 		bool                         RemoveSpell(SpellItem* a_spell);
 		std::int32_t                 RequestDetectionLevel(Actor* a_target, DETECTION_PRIORITY a_priority = DETECTION_PRIORITY::kNormal);
 		bool                         SetDefaultOutfit(BGSOutfit* a_outfit, bool a_update3D);
+		void                         SetHeading(float a_angle);  // SetRotationZ
 		void                         SetLifeState(ACTOR_LIFE_STATE a_lifeState);
+		void                         SetLooking(float a_angle);  // SetRotationX
 		bool                         SetSleepOutfit(BGSOutfit* a_outfit, bool a_update3D);
-		void                         SetRotationX(float a_angle);
-		void                         SetRotationZ(float a_angle);
 		void                         StealAlarm(TESObjectREFR* a_ref, TESForm* a_object, std::int32_t a_num, std::int32_t a_total, TESForm* a_owner, bool a_allowWarning);
 		void                         StopAlarmOnActor();
 		void                         StopInteractingQuick(bool a_unk02);
@@ -851,7 +854,7 @@ namespace RE
 		std::uint32_t                                         unk274;                             // 274
 		std::uint64_t                                         unk278;                             // 278
 		std::uint64_t                                         unk280;                             // 280
-		WinAPI::CRITICAL_SECTION                              unk288;                             // 288 - havok related
+		REX::W32::CRITICAL_SECTION                            unk288;                             // 288 - havok related
 
 	private:
 		void        CalculateCurrentVendorFaction() const;

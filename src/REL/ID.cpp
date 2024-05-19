@@ -1,5 +1,7 @@
 #include "REL/ID.h"
 
+#include "REX/W32/KERNEL32.h"
+
 namespace REL
 {
 	namespace detail
@@ -8,11 +10,11 @@ namespace REL
 		{
 			close();
 
-			WinAPI::ULARGE_INTEGER bytes;
+			REX::W32::ULARGE_INTEGER bytes;
 			bytes.value = a_size;
 
-			_mapping = WinAPI::OpenFileMapping(
-				WinAPI::FILE_MAP_READ | WinAPI::FILE_MAP_WRITE,
+			_mapping = REX::W32::OpenFileMappingW(
+				REX::W32::FILE_MAP_READ | REX::W32::FILE_MAP_WRITE,
 				false,
 				a_name.data());
 			if (!_mapping) {
@@ -20,9 +22,9 @@ namespace REL
 				return false;
 			}
 
-			_view = WinAPI::MapViewOfFile(
+			_view = REX::W32::MapViewOfFile(
 				_mapping,
-				WinAPI::FILE_MAP_READ | WinAPI::FILE_MAP_WRITE,
+				REX::W32::FILE_MAP_READ | REX::W32::FILE_MAP_WRITE,
 				0,
 				0,
 				bytes.value);
@@ -38,18 +40,18 @@ namespace REL
 		{
 			close();
 
-			WinAPI::ULARGE_INTEGER bytes;
+			REX::W32::ULARGE_INTEGER bytes;
 			bytes.value = a_size;
 
-			_mapping = WinAPI::OpenFileMapping(
-				WinAPI::FILE_MAP_READ | WinAPI::FILE_MAP_WRITE,
+			_mapping = REX::W32::OpenFileMappingW(
+				REX::W32::FILE_MAP_READ | REX::W32::FILE_MAP_WRITE,
 				false,
 				a_name.data());
 			if (!_mapping) {
-				_mapping = WinAPI::CreateFileMapping(
-					WinAPI::INVALID_HANDLE_VALUE,
+				_mapping = REX::W32::CreateFileMappingW(
+					REX::W32::INVALID_HANDLE_VALUE,
 					nullptr,
-					WinAPI::PAGE_READWRITE,
+					REX::W32::PAGE_READWRITE,
 					bytes.hi,
 					bytes.lo,
 					a_name.data());
@@ -58,9 +60,9 @@ namespace REL
 				}
 			}
 
-			_view = WinAPI::MapViewOfFile(
+			_view = REX::W32::MapViewOfFile(
 				_mapping,
-				WinAPI::FILE_MAP_READ | WinAPI::FILE_MAP_WRITE,
+				REX::W32::FILE_MAP_READ | REX::W32::FILE_MAP_WRITE,
 				0,
 				0,
 				bytes.value);
@@ -74,12 +76,12 @@ namespace REL
 		void memory_map::close()
 		{
 			if (_view) {
-				WinAPI::UnmapViewOfFile(static_cast<const void*>(_view));
+				REX::W32::UnmapViewOfFile(static_cast<const void*>(_view));
 				_view = nullptr;
 			}
 
 			if (_mapping) {
-				WinAPI::CloseHandle(_mapping);
+				REX::W32::CloseHandle(_mapping);
 				_mapping = nullptr;
 			}
 		}
