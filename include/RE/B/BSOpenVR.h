@@ -48,10 +48,10 @@ namespace RE
 		void                     Unk_11(void) override;                                                                                               // 11 - { return 0; }
 		void                     Unk_12(void) override;                                                                                               // 12
 		void                     Unk_13() override;                                                                                                   // 13
-		void                     Unk_14(void) override;                                                                                               // 14
+		NiPointer<NiNode>*       GetControllerNode(RE::NiPointer<NiNode>& a_out, Hand a_hand) override;                                               // 14
 		void                     Unk_15(void) override;                                                                                               // 15 - { return 0; }
 		HMDDeviceType            GetHMDDeviceType() override;                                                                                         // 16 - { return hmdDeviceType; }
-		void                     Unk_17(void) override;                                                                                               // 17
+		NiPointer<NiNode>*       CreateControllerNode(RE::NiPointer<NiNode>& a_out, Hand a_hand) override;                                            // 17
 
 		static BSOpenVR* GetSingleton();
 
@@ -62,18 +62,18 @@ namespace RE
 		static vr::IVRSystem*       GetIVRSystem();
 
 		// members
-		vr::IVRSystem*                 vrSystem;               // 208
-		void*                          unk210;                 // 210
-		std::uint64_t                  unk218;                 // 218
-		std::uint64_t                  unk220;                 // 220
-		std::uint64_t                  unk228;                 // 228
-		RE::NiPointer<NiSourceTexture> unk230;                 // 230 - name is SIMPLE_NORMAL_MAP
-		Unk238                         unk238[4];              // 238
-		std::uint64_t                  unk338;                 // 380
-		std::uint64_t                  unk340[9];              // 340
-		RE::NiPointer<NiNode>          unk388[2];              // 388
-		HMDDeviceType                  hmdDeviceType;          // 398 - Set by comparing TrackedSystemName to "lighthouse", "oculus" and "holographic". Defaults to "lighthouse" if none match
-		NiTransform                    eyeToHeadTransform[2];  // 39C - 0 is left eye, 1 is right eye
+		vr::IVRSystem*             vrSystem;                       // 208
+		void*                      unk210;                         // 210
+		std::uint64_t              unk218;                         // 218
+		std::uint64_t              unk220;                         // 220
+		std::uint64_t              unk228;                         // 228
+		NiPointer<NiSourceTexture> unk230;                         // 230 - name is SIMPLE_NORMAL_MAP
+		Unk238                     unk238[4];                      // 238
+		std::uint64_t              unk338;                         // 380
+		std::uint64_t              unk340[9];                      // 340
+		NiPointer<NiNode>          controllerNodes[Hand::kTotal];  // 388 - Cloned for PlayerCharacter's LeftValveIndexControllerNode/RightValveIndexControllerNode
+		HMDDeviceType              hmdDeviceType;                  // 398 - Set by comparing TrackedSystemName to "lighthouse", "oculus" and "holographic". Defaults to "lighthouse" if none match
+		NiTransform                eyeToHeadTransform[2];          // 39C - 0 is left eye, 1 is right eye
 	private:
 		KEEP_FOR_RE()
 	};
