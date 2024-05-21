@@ -431,6 +431,7 @@
 #include "RE/B/bhkShape.h"
 #include "RE/B/bhkShapeCollection.h"
 #include "RE/B/bhkShapePhantom.h"
+#include "RE/B/bhkTelekinesisListener.h"
 #include "RE/B/bhkThreadMemorySource.h"
 #include "RE/B/bhkUnaryAction.h"
 #include "RE/B/bhkWorld.h"
