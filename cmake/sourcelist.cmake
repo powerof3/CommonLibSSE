@@ -504,6 +504,7 @@ set(SOURCES
 	include/RE/C/CureEffect.h
 	include/RE/C/CursorMenu.h
 	include/RE/D/DBTraits.h
+	include/RE/D/DamageImpactData.h
 	include/RE/D/DarknessEffect.h
 	include/RE/D/DecalData.h
 	include/RE/D/DefaultObjectsReadyEvent.h
