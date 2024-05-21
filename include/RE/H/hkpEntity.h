@@ -2,6 +2,7 @@
 
 #include "RE/H/hkArray.h"
 #include "RE/H/hkBaseTypes.h"
+#include "RE/H/hkRefPtr.h"
 #include "RE/H/hkSmallArray.h"
 #include "RE/H/hkpFixedRigidMotion.h"
 #include "RE/H/hkpMaterial.h"
