@@ -395,6 +395,7 @@ set(SOURCES
 	include/RE/B/BottomBar.h
 	include/RE/B/BoundItemEffect.h
 	include/RE/B/ButtonEvent.h
+	include/RE/B/bhkAction.h
 	include/RE/B/bhkBackfaceContactListener.h
 	include/RE/B/bhkCachingShapePhantom.h
 	include/RE/B/bhkCharProxyController.h
@@ -416,6 +417,7 @@ set(SOURCES
 	include/RE/B/bhkEntity.h
 	include/RE/B/bhkListShape.h
 	include/RE/B/bhkMeshMaterial.h
+	include/RE/B/bhkMouseSpringAction.h
 	include/RE/B/bhkNiCollisionObject.h
 	include/RE/B/bhkPCollisionObject.h
 	include/RE/B/bhkPhantom.h
@@ -428,6 +430,7 @@ set(SOURCES
 	include/RE/B/bhkShapeCollection.h
 	include/RE/B/bhkShapePhantom.h
 	include/RE/B/bhkThreadMemorySource.h
+	include/RE/B/bhkUnaryAction.h
 	include/RE/B/bhkWorld.h
 	include/RE/B/bhkWorldObject.h
 	include/RE/C/CFilter.h
@@ -1015,6 +1018,7 @@ set(SOURCES
 	include/RE/H/hkpMoppBvTreeShape.h
 	include/RE/H/hkpMoppCode.h
 	include/RE/H/hkpMotion.h
+	include/RE/H/hkpMouseSpringAction.h
 	include/RE/H/hkpPhantom.h
 	include/RE/H/hkpPhantomListener.h
 	include/RE/H/hkpPhantomType.h
@@ -1042,6 +1046,7 @@ set(SOURCES
 	include/RE/H/hkpSphereRepShape.h
 	include/RE/H/hkpSphereShape.h
 	include/RE/H/hkpTypedBroadPhaseHandle.h
+	include/RE/H/hkpUnaryAction.h
 	include/RE/H/hkpWeldingUtility.h
 	include/RE/H/hkpWorld.h
 	include/RE/H/hkpWorldCinfo.h
