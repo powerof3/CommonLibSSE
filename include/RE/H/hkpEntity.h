@@ -104,6 +104,15 @@ namespace RE
 		std::uint32_t                      npData;                                // 2C0
 		std::uint32_t                      pad2C4;                                // 2C4
 		std::uint64_t                      pad2C8;                                // 2C8
+
+	protected:
+		// Activates the entity and its island.
+		void Activate()
+		{
+			using func_t = decltype(&hkpEntity::Activate);
+			REL::Relocation<func_t> func{ RELOCATION_ID(60096, 60849) };
+			return func(this);
+		}
 	};
 	static_assert(sizeof(hkpEntity) == 0x2D0);
 }
