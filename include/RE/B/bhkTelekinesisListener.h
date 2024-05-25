@@ -24,5 +24,5 @@ namespace RE
 			return *singleton;
 		}
 	};
-	static_assert(sizeof(bhkTelekinesisListener) == 0x8);
+	static_assert(sizeof(bhkTelekinesisListener) == 0x10);
 }
