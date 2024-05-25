@@ -1849,6 +1849,7 @@ set(SOURCES
 	src/RE/H/hkpCdBody.cpp
 	src/RE/H/hkpCharacterProxyListener.cpp
 	src/RE/H/hkpMaterial.cpp
+	src/RE/H/hkpProperty.cpp
 	src/RE/H/hkpRigidBody.cpp
 	src/RE/H/hkpWorldObject.cpp
 	src/RE/I/IAnimationGraphManagerHolder.cpp
