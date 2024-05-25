@@ -1841,6 +1841,7 @@ set(SOURCES
 	src/RE/H/HUDMeter.cpp
 	src/RE/H/HUDObject.cpp
 	src/RE/H/HeapBlock.cpp
+	src/RE/H/HeldStateHandler.cpp
 	src/RE/H/hkBaseTypes.cpp
 	src/RE/H/hkReferencedObject.cpp
 	src/RE/H/hkStringPtr.cpp

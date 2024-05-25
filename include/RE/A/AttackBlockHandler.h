@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_AttackBlockHandler;
+		inline static constexpr auto VTABLE = VTABLE_AttackBlockHandler;
 
 		enum class AttackType : std::uint8_t
 		{
