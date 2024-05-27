@@ -15,7 +15,7 @@ namespace RE
 		virtual ~hkpMouseSpringAction() override;  // 00
 
 		// override (hkpUnaryAction)
-		void       ApplyAction(const hkStepInfo& a_stepInfo) override;                                                         // 04
+		void       ApplyAction(const hkStepInfo& a_stepInfo) override;                                                         // 03
 		void       EntityRemovedCallback(hkpEntity* a_entity) override;                                                        // 06
 		hkpAction* Clone(const hkArray<hkpEntity*>& a_newEntities, const hkArray<hkpPhantom*>& a_newPhantoms) const override;  // 07
 
@@ -27,6 +27,7 @@ namespace RE
 		float                                maxRelativeForce;      // 68
 		float                                objectDamping;         // 6C
 		hkpShapeKey                          shapeKey;              // 70
+		std::uint32_t                        pad74;                 // 74
 		hkArray<MouseSpringAppliedCallback*> applyCallbacks;        // 78
 	};
 	static_assert(sizeof(hkpMouseSpringAction) == 0x90);
