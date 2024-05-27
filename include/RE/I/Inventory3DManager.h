@@ -41,8 +41,8 @@ namespace RE
 		void Begin3D(INTERFACE_LIGHT_SCHEME a_scheme);
 		void End3D();
 		void LoadInventoryItem(InventoryEntryData* a_objDesc);
-		void LoadInventoryItem(TESBoundObject* a_object, ExtraDataList* a_extraDataList);	
-		void Render();	
+		void LoadInventoryItem(TESBoundObject* a_object, ExtraDataList* a_extraDataList);
+		void Render();
 		bool ToggleItemZoom();
 		void UnloadInventoryItem();
 
