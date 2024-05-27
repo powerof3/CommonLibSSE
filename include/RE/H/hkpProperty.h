@@ -12,9 +12,9 @@ namespace RE
 		hkpPropertyValue(float a_value);
 		hkpPropertyValue(void* a_value);
 
-		[[nodiscard]] float GetFloat() const;
-		[[nodiscard]] void*  GetPointer() const;
-		[[nodiscard]] std::int32_t GetSInt() const;
+		[[nodiscard]] float         GetFloat() const;
+		[[nodiscard]] void*         GetPointer() const;
+		[[nodiscard]] std::int32_t  GetSInt() const;
 		[[nodiscard]] std::uint32_t GetUInt() const;
 		[[nodiscard]] std::uint64_t GetUInt64() const;
 
@@ -28,7 +28,7 @@ namespace RE
 	public:
 		hkpProperty() = default;
 		hkpProperty(std::uint32_t a_key, hkpPropertyValue a_value);
-		
+
 		// members
 		std::uint32_t    key;               // 00
 		std::uint32_t    alignmentPadding;  // 04
