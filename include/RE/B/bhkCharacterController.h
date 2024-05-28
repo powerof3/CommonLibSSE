@@ -95,6 +95,20 @@ namespace RE
 
 		inline void GetPosition(hkVector4& a_pos, bool a_applyCenterOffset) const { return GetPositionImpl(a_pos, a_applyCenterOffset); }
 
+		static bool IsHurtfulBody(hkpRigidBody* a_body)
+		{
+			using func_t = decltype(&bhkCharacterController::IsHurtfulBody);
+			REL::Relocation<func_t> func{ RELOCATION_ID(76456, 78298) };
+			return func(a_body);
+		}
+
+		void ProcessHurtfulBody(hkpRigidBody* a_body, const hkContactPoint& a_contactPoint)
+		{
+			using func_t = decltype(&bhkCharacterController::ProcessHurtfulBody);
+			REL::Relocation<func_t> func{ RELOCATION_ID(76460, 78302) };
+			func(this, a_body, a_contactPoint);
+		}
+
 		// members
 		//std::uint64_t						pad068;						// 068
 		hkVector4                                              forwardVec;                 // 070
