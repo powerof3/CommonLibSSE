@@ -102,7 +102,7 @@ namespace RE
 			return func(a_body);
 		}
 
-		void ProcessHurtfulBody(hkpRigidBody* a_body, const hkContactPoint& a_contactPoint)
+		void ProcessHurtfulBody(hkpRigidBody* a_body, const hkContactPoint* a_contactPoint)
 		{
 			using func_t = decltype(&bhkCharacterController::ProcessHurtfulBody);
 			REL::Relocation<func_t> func{ RELOCATION_ID(76460, 78302) };
