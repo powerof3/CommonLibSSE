@@ -99,6 +99,20 @@ namespace RE
 		return firstGeometry;
 	}
 
+	float NiAVObject::GetMass()
+	{
+		float mass = 0.0f;
+
+		BSVisit::TraverseScenegraphCollision(this, [&](bhkNiCollisionObject* a_col) -> BSVisit::BSVisitControl {
+			if (auto hkpBody = a_col->body ? static_cast<RE::hkpRigidBody*>(a_col->body->referencedObject.get()) : nullptr) {
+				mass += hkpBody->motion.GetMass();
+			}
+			return BSVisit::BSVisitControl::kContinue;
+		});
+
+		return mass;
+	}
+
 	TESObjectREFR* NiAVObject::GetUserData() const
 	{
 		if (userData) {
