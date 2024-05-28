@@ -19,6 +19,7 @@ namespace RE
 	class bhkICharOrientationController;
 	class bhkShape;
 	class hkpRigidBody;
+	class hkContactPoint;
 	class hkTransform;
 	class hkVector4;
 
