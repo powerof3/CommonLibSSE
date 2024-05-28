@@ -21,6 +21,7 @@ namespace RE
 	class bhkShape;
 	class bhkWorld;
 	class hkpRigidBody;
+	class hkContactPoint;
 	class hkTransform;
 	class hkVector4;
 
