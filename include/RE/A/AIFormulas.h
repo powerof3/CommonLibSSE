@@ -3,7 +3,7 @@
 namespace RE
 {
 	enum class SOUND_LEVEL;
-	
+
 	class Actor;
 	class TESForm;
 
