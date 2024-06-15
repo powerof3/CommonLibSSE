@@ -19,6 +19,32 @@ namespace REL
 			_impl{ a_v1, a_v2, a_v3, a_v4 }
 		{}
 
+		explicit constexpr Version(std::string_view a_version)
+		{
+			std::array<value_type, 4> powers{ 1, 1, 1, 1 };
+			std::size_t               position = 0;
+			for (std::size_t i = 0; i < a_version.size(); ++i) {
+				if (a_version[i] == '.') {
+					if (++position == powers.size()) {
+						throw std::invalid_argument("Too many parts in version number.");
+					}
+				} else {
+					powers[position] *= 10;
+				}
+			}
+			position = 0;
+			for (std::size_t i = 0; i < a_version.size(); ++i) {
+				if (a_version[i] == '.') {
+					++position;
+				} else if (a_version[i] < '0' || a_version[i] > '9') {
+					throw std::invalid_argument("Invalid character in version number.");
+				} else {
+					powers[position] /= 10;
+					_impl[position] += static_cast<value_type>((a_version[i] - '0') * powers[position]);
+				}
+			}
+		}
+
 		[[nodiscard]] constexpr reference       operator[](std::size_t a_idx) noexcept { return _impl[a_idx]; }
 		[[nodiscard]] constexpr const_reference operator[](std::size_t a_idx) const noexcept { return _impl[a_idx]; }
 

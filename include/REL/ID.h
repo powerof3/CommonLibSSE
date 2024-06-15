@@ -152,6 +152,23 @@ namespace REL
 			return static_cast<std::size_t>(it->offset);
 		}
 
+#ifdef SKYRIMVR
+		bool IsVRAddressLibraryAtLeastVersion(const char* pluginName, const char* minimalVRAddressLibVersion, bool showWindowsMessage = false) const
+		{
+			const auto minimalVersion = REL::Version(minimalVRAddressLibVersion);
+
+			bool validVersion = minimalVersion <= _vrAddressLibraryVersion;
+
+			if (!validVersion && showWindowsMessage) {
+				REX::W32::MessageBoxA(NULL, std::format("You need version: {} of VR Address Library for SKSEVR, you have version: {}", minimalVersion.string(), _vrAddressLibraryVersion.string()).c_str(), pluginName, 0x00000000L | 0x00000030L);
+				REX::W32::TerminateProcess(REX::W32::GetCurrentProcess(), 0);
+				return false;
+			}
+
+			return validVersion;
+		}
+#endif  // SKYRIMVR
+
 	private:
 		friend Offset2ID;
 
@@ -249,6 +266,7 @@ namespace REL
 			auto        mapname = L"CommonLibSSEOffsets-v2-"s;
 			mapname += a_version.wstring();
 			in.read_row(address_count, version);
+			_vrAddressLibraryVersion = Version(version);
 			const auto byteSize = static_cast<std::size_t>(address_count * sizeof(mapping_t));
 			if (!_mmap.open(mapname, byteSize) &&
 				!_mmap.create(mapname, byteSize)) {
@@ -399,6 +417,10 @@ namespace REL
 
 		detail::memory_map   _mmap;
 		std::span<mapping_t> _id2offset;
+
+#ifdef SKYRIMVR
+		Version _vrAddressLibraryVersion;
+#endif  // SKYRIMVR
 	};
 
 	class ID
