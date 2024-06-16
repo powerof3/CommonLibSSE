@@ -5,7 +5,7 @@
 namespace RE
 {
 	class BSStorage;
-	
+
 	namespace REFREventCallbacks
 	{
 		class IEventCallback : public BSIntrusiveRefCounted
