@@ -1352,6 +1352,7 @@ set(SOURCES
 	include/RE/Q/QuestEvents.h
 	include/RE/Q/QuestObjectiveStates.h
 	include/RE/Q/QuestStatus.h
+	include/RE/R/REFREventCallbacks.h
 	include/RE/R/RaceSexCamera.h
 	include/RE/R/RaceSexMenu.h
 	include/RE/R/RaceSexMenuEvent.h
@@ -1575,6 +1576,7 @@ set(SOURCES
 	include/RE/T/TESTexture1024.h
 	include/RE/T/TESTopic.h
 	include/RE/T/TESTopicInfo.h
+	include/RE/T/TESTopicInfoEvent.h
 	include/RE/T/TESTrackedStatsEvent.h
 	include/RE/T/TESUniqueIDChangeEvent.h
 	include/RE/T/TESValueForm.h
