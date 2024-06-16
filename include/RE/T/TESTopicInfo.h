@@ -129,7 +129,7 @@ namespace RE
 		bool BelongsInGroup(FORM* a_form, bool a_allowParentGroups, bool a_currentOnly) override;  // 30
 		void CreateGroupData(FORM* a_form, FORM_GROUP* a_group) override;                          // 31
 
-		DialogueItem GetDialogueData(Actor* a_speaker);
+		DialogueItem GetDialogueData(TESObjectREFR* a_speaker);
 
 		// members
 		TESTopic*                                  parentTopic;    // 20

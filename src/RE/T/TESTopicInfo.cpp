@@ -21,9 +21,8 @@ namespace RE
 		return static_cast<float>(timeUntilReset);
 	}
 
-	DialogueItem TESTopicInfo::GetDialogueData(Actor* a_speaker)
+	DialogueItem TESTopicInfo::GetDialogueData(TESObjectREFR* a_speaker)
 	{
 		return { parentTopic->ownerQuest, parentTopic, this, a_speaker };
 	}
-
 }

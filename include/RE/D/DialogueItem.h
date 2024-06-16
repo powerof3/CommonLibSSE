@@ -40,7 +40,7 @@ namespace RE
 	class DialogueItem : public BSIntrusiveRefCounted
 	{
 	public:
-		DialogueItem(TESQuest* a_quest, TESTopic* a_topic, TESTopicInfo* a_topicInfo, Actor* a_speaker)
+		DialogueItem(TESQuest* a_quest, TESTopic* a_topic, TESTopicInfo* a_topicInfo, TESObjectREFR* a_speaker)
 		{
 			Ctor(a_quest, a_topic, a_topicInfo, a_speaker);
 		}
@@ -60,7 +60,7 @@ namespace RE
 		ExtraSayToTopicInfo*                   extraData{ nullptr };        // 40
 
 	private:
-		DialogueItem* Ctor(TESQuest* a_quest, TESTopic* a_topic, TESTopicInfo* a_topicInfo, Actor* a_speaker)
+		DialogueItem* Ctor(TESQuest* a_quest, TESTopic* a_topic, TESTopicInfo* a_topicInfo, TESObjectREFR* a_speaker)
 		{
 			using func_t = decltype(&DialogueItem::Ctor);
 			REL::Relocation<func_t> func{ RELOCATION_ID(34413, 35220) };
