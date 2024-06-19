@@ -1255,6 +1255,7 @@ set(SOURCES
 	include/RE/N/NiFloatsExtraData.h
 	include/RE/N/NiFrustum.h
 	include/RE/N/NiFrustumPlanes.h
+	include/RE/N/NiGeometry.h
 	include/RE/N/NiGeometryData.h
 	include/RE/N/NiIntegerExtraData.h
 	include/RE/N/NiIntegersExtraData.h
@@ -1312,6 +1313,8 @@ set(SOURCES
 	include/RE/N/NiTexture.h
 	include/RE/N/NiTimeController.h
 	include/RE/N/NiTransform.h
+	include/RE/N/NiTriBasedGeometry.h
+	include/RE/N/NiTriShape.h
 	include/RE/N/NightEyeEffect.h
 	include/RE/N/NonActorMagicCaster.h
 	include/RE/N/NonActorMagicTarget.h
