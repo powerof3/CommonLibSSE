@@ -563,6 +563,7 @@ namespace RE
 		};
 		static_assert(sizeof(PlayerSkills) == 0x8);
 
+#pragma pack(push, 4)
 		struct INFO_RUNTIME_DATA
 		{
 #define INFO_RUNTIME_DATA_CONTENT                                                                                     \
@@ -618,7 +619,8 @@ namespace RE
 
 			INFO_RUNTIME_DATA_CONTENT
 		};
-		static_assert(sizeof(INFO_RUNTIME_DATA) == 0x140);
+		static_assert(sizeof(INFO_RUNTIME_DATA) == 0x13C);
+#pragma pack(pop)
 
 		struct VR_INFO_RUNTIME_DATA
 		{
@@ -1093,7 +1095,7 @@ namespace RE
 		{
 			if SKYRIM_REL_CONSTEXPR (REL::Module::IsAE()) {
 				if (REL::Module::get().version().compare(SKSE::RUNTIME_SSE_1_6_629) != std::strong_ordering::less) {
-					return REL::RelocateMember<INFO_RUNTIME_DATA>(this, 0x8D8);
+					return REL::RelocateMember<INFO_RUNTIME_DATA>(this, 0x8EC);
 				}
 			}
 			return REL::RelocateMember<INFO_RUNTIME_DATA>(this, 0x8E4, 0);
@@ -1103,7 +1105,7 @@ namespace RE
 		{
 			if SKYRIM_REL_CONSTEXPR (REL::Module::IsAE()) {
 				if (REL::Module::get().version().compare(SKSE::RUNTIME_SSE_1_6_629) != std::strong_ordering::less) {
-					return REL::RelocateMember<INFO_RUNTIME_DATA>(this, 0x8DC);
+					return REL::RelocateMember<INFO_RUNTIME_DATA>(this, 0x8EC);
 				}
 			}
 			return REL::RelocateMember<INFO_RUNTIME_DATA>(this, 0x8E4, 0);
