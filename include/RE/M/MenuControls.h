@@ -41,7 +41,7 @@ namespace RE
 
 		struct RUNTIME_DATA
 		{
-#define RUNTIME_DATA_CONTENT             \
+#define RUNTIME_DATA_CONTENT                    \
 	bool          isProcessing; /* 80, VR 88 */ \
 	bool          beastForm;    /* 81, VR 89 */ \
 	bool          remapMode;    /* 82, VR 8A */ \
@@ -62,12 +62,12 @@ namespace RE
 
 		static MenuControls* GetSingleton();
 
-		void                         AddHandler(MenuEventHandler* a_handler);
+		void               AddHandler(MenuEventHandler* a_handler);
 		[[nodiscard]] bool InBeastForm() const noexcept { return GetRuntimeData().beastForm; }
-		void                         RegisterHandler(MenuEventHandler* a_handler);
-		void                         RemoveHandler(MenuEventHandler* a_handler);
-		bool                         QueueScreenshot();
-		void                         UnregisterHandler(MenuEventHandler* a_handler);
+		void               RegisterHandler(MenuEventHandler* a_handler);
+		void               RemoveHandler(MenuEventHandler* a_handler);
+		bool               QueueScreenshot();
+		void               UnregisterHandler(MenuEventHandler* a_handler);
 
 		[[nodiscard]] inline RUNTIME_DATA& GetRuntimeData() noexcept
 		{

@@ -24,7 +24,6 @@
 #include <RE/B/BSCoreTypes.h>
 #include <RE/N/NiPoint3.h>
 
-
 namespace RE
 {
 	enum class AQUIRE_TYPE;
@@ -281,7 +280,7 @@ namespace RE
 		public BSTEventSink<UserEventEnabledEvent>,  // 2C0
 		public BSTEventSink<TESTrackedStatsEvent>    // 2C8
 #else
-		public Character  // 000
+		public Character                                                                   // 000
 #endif
 	{
 	public:
@@ -394,25 +393,25 @@ namespace RE
 			bool          pad5_5: 3;  // 5:5
 			std::uint16_t pad6;       // 6
 #else
-			bool unk5_5: 1;  // 5:5
-			bool unk5_6: 1;  // 5:6
-			bool unk5_7: 1;  // 5:7
-			bool unk6_0: 1;  // 6:0
-			bool unk6_1: 1;  // 6:1
-			bool unk6_2: 1;  // 6:2
-			bool unk6_3: 1;  // 6:3
-			bool unk6_4: 1;  // 6:4
-			bool unk6_5: 1;  // 6:5
-			bool unk6_6: 1;  // 6:6
-			bool unk6_7: 1;  // 6:7
-			bool unk7_0: 1;  // 7:0
-			bool unk7_1: 1;  // 7:1
-			bool unk7_2: 1;  // 7:2
-			bool unk7_3: 1;  // 7:3
-			bool unk7_4: 1;  // 7:4
-			bool unk7_5: 1;  // 7:5
-			bool unk7_6: 1;  // 7:6
-			bool unk7_7: 1;  // 7:7
+			bool unk5_5: 1;                                                                // 5:5
+			bool unk5_6: 1;                                                                // 5:6
+			bool unk5_7: 1;                                                                // 5:7
+			bool unk6_0: 1;                                                                // 6:0
+			bool unk6_1: 1;                                                                // 6:1
+			bool unk6_2: 1;                                                                // 6:2
+			bool unk6_3: 1;                                                                // 6:3
+			bool unk6_4: 1;                                                                // 6:4
+			bool unk6_5: 1;                                                                // 6:5
+			bool unk6_6: 1;                                                                // 6:6
+			bool unk6_7: 1;                                                                // 6:7
+			bool unk7_0: 1;                                                                // 7:0
+			bool unk7_1: 1;                                                                // 7:1
+			bool unk7_2: 1;                                                                // 7:2
+			bool unk7_3: 1;                                                                // 7:3
+			bool unk7_4: 1;                                                                // 7:4
+			bool unk7_5: 1;                                                                // 7:5
+			bool unk7_6: 1;                                                                // 7:6
+			bool unk7_7: 1;                                                                // 7:7
 #endif
 		};
 		static_assert(sizeof(PlayerFlags) == 0x8);
@@ -876,7 +875,7 @@ namespace RE
 	float                                          telekinesisDistance;                               /* AD4 */             \
 	float                                          commandTimer;                                      /* AD8 */             \
 	float                                          sunGazeTimer;                                      /* ADC */             \
-	TESImageSpaceModifier*                         sunGazeImageModifierSpace;                         /* AE0 */             \
+	TESImageSpaceModifier*                         sunGazeImageSpaceModifier;                         /* AE0 */             \
 	ActorValue                                     advanceSkill;                                      /* AE8 */             \
 	std::uint32_t                                  advanceAction;                                     /* AEC */             \
 	stl::enumeration<DEFAULT_OBJECT, std::int32_t> animationObjectAction;                             /* AF0 */             \

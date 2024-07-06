@@ -104,7 +104,7 @@ namespace RE
 		// add
 		virtual void UpdateControllers(NiUpdateData& a_data);  // 25
 #if !defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE)
-		virtual void Unk_VRFunc(void);
+		virtual void ApplyLocalTransformToWorld();
 #endif
 		SKYRIM_REL_VR_VIRTUAL void        PerformOp(PerformOpFunc& a_func);                                                                   // 26
 		SKYRIM_REL_VR_VIRTUAL void        AttachProperty(NiAlphaProperty* a_property);                                                        // 27 - { return; }
