@@ -80,6 +80,14 @@ namespace RE
 		kInvalidMarker
 	};
 
+	enum VR_Bow_State : std::uint32_t
+	{
+		kNone,
+		kNoAmmo,
+		kIdle,
+		kArrowKnocked,
+	};
+
 	struct CrimeGoldStruct
 	{
 	public:
@@ -700,7 +708,7 @@ namespace RE
 		std::uint32_t unk5B0;                                                            // 5B0
 		std::uint32_t unk5B4;                                                            // 5B4
 		std::uint64_t unk5B8;                                                            // 5B8
-		std::uint32_t unk5C0;                                                            // 5C0
+		VR_Bow_State bowState;                                                           // 5C0
 		std::uint32_t unk5C4;                                                            // 5C4
 		NiPointer<NiNode> BowAimNode;                                                    // 5C8
 		NiPointer<NiNode> BowRotationNode;                                               // 5D0
@@ -711,9 +719,10 @@ namespace RE
 		NiPointer<NiNode> ArrowHoldOffsetNode;                                           // 5F8
 		NiPointer<NiNode> ArrowHoldNode;                                                 // 600
 		NiPointer<NiNode> unk608;                                                        // 608
-		float unkFloat610;                                                               // 610
+		float currentArrowSnapDistance;                                                  // 610
 		std::uint32_t unk614;                                                            // 614
-		std::uint64_t unk618;                                                            // 618
+		float currentBowDrawAmount;                                                      // 618 - 0 to 1
+		float lastRumbleBowDrawAmount;                                                   // 61C - 0 to 1
 		std::uint64_t unk620;                                                            // 620
 		std::uint64_t unk628;                                                            // 628
 		std::uint64_t unk630;                                                            // 630
