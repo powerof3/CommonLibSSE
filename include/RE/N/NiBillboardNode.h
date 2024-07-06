@@ -57,7 +57,7 @@ namespace RE
 #if !defined(ENABLE_SKYRIM_VR)
 	static_assert(sizeof(NiBillboardNode) == 0x130);
 #elif !defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE)
-	static_assert(sizeof(NiBillboardNode) == 0x118);
+	static_assert(sizeof(NiBillboardNode) == 0x158);
 #else
 	static_assert(sizeof(NiBillboardNode) == 0x118);
 #endif

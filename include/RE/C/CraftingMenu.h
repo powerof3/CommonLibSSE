@@ -42,6 +42,13 @@ namespace RE
 			REL::RelocateMember<CraftingSubMenus::CraftingSubMenu*>(this, 0x30, 0x40) = craftingSubMenu;
 		}
 
+		static void QuitMenu()
+		{
+			using func_t = decltype(&CraftingMenu::QuitMenu);
+			REL::Relocation<func_t> func{ RELOCATION_ID(50447, 51352) };
+			return func();
+		}
+
 		// members
 #ifndef SKYRIM_CROSS_VR
 		CraftingSubMenus::CraftingSubMenu* subMenu;  // 30, 40

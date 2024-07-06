@@ -32,6 +32,20 @@ namespace RE
 			return func(a_mass, a_speed);
 		}
 
+		void PopTemporaryMass(bhkRigidBody* a_body)
+		{
+			using func_t = decltype(&PopTemporaryMass);
+			REL::Relocation<func_t> func{ RELOCATION_ID(25484, 26024) };
+			return func(a_body);
+		}
+
+		void PushTemporaryMass(bhkRigidBody* a_body, float a_mass)
+		{
+			using func_t = decltype(&PushTemporaryMass);
+			REL::Relocation<func_t> func{ RELOCATION_ID(25483, 26023) };
+			return func(a_body, a_mass);
+		}
+
 		float ScaleGameplayImpulseForce(float a_inputForce, bhkRigidBody* a_body, bool a_factorMass)
 		{
 			using func_t = decltype(&ScaleGameplayImpulseForce);

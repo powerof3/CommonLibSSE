@@ -97,7 +97,7 @@ namespace RE
 		public:
 			struct RUNTIME_DATA
 			{
-#if !defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE)            // VR
+#if !defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE)  // VR
 #	define RUNTIME_DATA_CONTENT                                                                                               \
 		uint32_t                   firstCameraStateIndex;                /*	058 VR   only ?*/                                  \
 		NiPointer<NiSourceTexture> defaultTextureBlack;                  /* SE 058, AE,VR 060 - "BSShader_DefHeightMap"*/      \
@@ -110,15 +110,18 @@ namespace RE
 		NiPointer<NiSourceTexture> defaultTextureNormalMap;              /* SE 090, AE,VR 098 */                               \
 		NiPointer<NiSourceTexture> defaultTextureDitherNoiseMap;         /* SE 098, AE,VR 0a0 */                               \
 		BSTArray<CameraStateData>  cameraDataCacheA;                     /* SE 0a0, AE,VR 0a8 */                               \
-		float                      _pad2;                                /* SE 0a8, AE,VR 0c0 */                               \
+		std::uint32_t              unk0C0;                               /* SE 0a8, AE,VR 0c0 */                               \
 		float                      haltonSequence[2][8];                 /* SE 0c0, AE,VR 0c4 (2, 3) Halton Sequence points */ \
-		float                      dynamicResolutionCurrentWidthScale;   /* SE 0c4, AE,VR 104 */                               \
-		float                      dynamicResolutionCurrentHeightScale;  /* SE 104, AE,VR 108 */                               \
-		float                      dynamicResolutionPreviousWidthScale;  /* SE 108, AE,VR 10c */                               \
-		float                      dynamicResolutionPreviousHeightScale; /* SE 10c, AE,VR 110 */                               \
-		float                      dynamicResolutionWidthRatio;          /* SE 110, AE,VR 114 */                               \
-		float                      dynamicResolutionHeightRatio;         /* SE 114, AE,VR 118 */                               \
-		uint16_t                   dynamicResolutionCounter;             /* SE 118, AE,VR 11c */
+		float                      dynamicResolutionWidthRatio;          /* SE 0c4, AE,VR 104 */                               \
+		float                      dynamicResolutionHeightRatio;         /* SE 104, AE,VR 108 */                               \
+		float                      dynamicResolutionPreviousWidthRatio;  /* SE 108, AE,VR 10c */                               \
+		float                      dynamicResolutionPreviousHeightRatio; /* SE 10c, AE,VR 110 */                               \
+		std::uint32_t              dynamicResolutionIncreaseFrameWaited; /* SE 110, AE,VR 114 */                               \
+		volatile std::int32_t      dynamicResolutionLock;                /* SE 114, AE,VR 118 */                               \
+		bool                       canIncreaseDynamicResolution;         /* SE 118, AE,VR 11c */                               \
+		bool                       canDecreaseDynamicResolution;         /* SE 119, AE,VR 11d */                               \
+		bool                       canChangeDynamicResolution;           /* SE 120, AE,VR 11e */
+
 #else
 #	define RUNTIME_DATA_CONTENT                                                                                               \
 		NiPointer<NiSourceTexture> defaultTextureBlack;                  /* SE 058, AE,VR 060 - "BSShader_DefHeightMap"*/      \
@@ -131,24 +134,26 @@ namespace RE
 		NiPointer<NiSourceTexture> defaultTextureNormalMap;              /* SE 090, AE,VR 098 */                               \
 		NiPointer<NiSourceTexture> defaultTextureDitherNoiseMap;         /* SE 098, AE,VR 0a0 */                               \
 		BSTArray<CameraStateData>  cameraDataCacheA;                     /* SE 0a0, AE,VR 0a8 */                               \
-		float                      _pad2;                                /* SE 0a8, AE,VR 0c0 */                               \
+		std::uint32_t              unk0C0;                               /* SE 0a8, AE,VR 0c0 */                               \
 		float                      haltonSequence[2][8];                 /* SE 0c0, AE,VR 0c4 (2, 3) Halton Sequence points */ \
-		float                      dynamicResolutionCurrentWidthScale;   /* SE 0c4, AE,VR 104 */                               \
-		float                      dynamicResolutionCurrentHeightScale;  /* SE 104, AE,VR 108 */                               \
-		float                      dynamicResolutionPreviousWidthScale;  /* SE 108, AE,VR 10c */                               \
-		float                      dynamicResolutionPreviousHeightScale; /* SE 10c, AE,VR 110 */                               \
-		float                      dynamicResolutionWidthRatio;          /* SE 110, AE,VR 114 */                               \
-		float                      dynamicResolutionHeightRatio;         /* SE 114, AE,VR 118 */                               \
-		uint16_t                   dynamicResolutionCounter;             /* SE 118, AE,VR 11c */
+		float                      dynamicResolutionWidthRatio;          /* SE 0c4, AE,VR 104 */                               \
+		float                      dynamicResolutionHeightRatio;         /* SE 104, AE,VR 108 */                               \
+		float                      dynamicResolutionPreviousWidthRatio;  /* SE 108, AE,VR 10c */                               \
+		float                      dynamicResolutionPreviousHeightRatio; /* SE 10c, AE,VR 110 */                               \
+		std::uint32_t              dynamicResolutionIncreaseFrameWaited; /* SE 110, AE,VR 114 */                               \
+		volatile std::int32_t      dynamicResolutionLock;                /* SE 114, AE,VR 118 */                               \
+		bool                       canIncreaseDynamicResolution;         /* SE 118, AE,VR 11c */                               \
+		bool                       canDecreaseDynamicResolution;         /* SE 119, AE,VR 11d */                               \
+		bool                       canChangeDynamicResolution;           /* SE 120, AE,VR 11e */
 #endif
 				RUNTIME_DATA_CONTENT;
 			};
 #if !defined(ENABLE_SKYRIM_VR)  // Non-VR
-			static_assert(offsetof(RUNTIME_DATA, dynamicResolutionCurrentWidthScale) == 0xA4);
+			static_assert(offsetof(RUNTIME_DATA, dynamicResolutionWidthRatio) == 0xA4);
 #elif !defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE)  // VR
-			static_assert(offsetof(RUNTIME_DATA, dynamicResolutionCurrentWidthScale) == 0xAC);
+			static_assert(offsetof(RUNTIME_DATA, dynamicResolutionWidthRatio) == 0xAC);
 #else
-			static_assert(offsetof(RUNTIME_DATA, dynamicResolutionCurrentWidthScale) == 0xA4);
+			static_assert(offsetof(RUNTIME_DATA, dynamicResolutionWidthRatio) == 0xA4);
 #endif
 			[[nodiscard]] static State* GetSingleton()
 			{
@@ -186,28 +191,36 @@ namespace RE
 				return REL::RelocateMember<RUNTIME_DATA>(this, 0x58, 0x60);
 			}
 
+			[[nodiscard]] inline bool GetDoubleDynamicResolutionAdjustmentFrequency() noexcept
+			{
+				if SKYRIM_REL_CONSTEXPR (REL::Module::IsAE()) {
+					return REL::RelocateMember<bool>(this, 0x57);
+				}
+				return false;
+			}
 			// members
-			NiPointer<NiTexture> defaultTextureProjNoiseMap;         // 000
-			NiPointer<NiTexture> defaultTextureProjDiffuseMap;       // 008
-			NiPointer<NiTexture> defaultTextureProjNormalMap;        // 010
-			NiPointer<NiTexture> defaultTextureProjNormalDetailMap;  // 018
-			std::uint32_t        unk20;                              // 020
-			std::uint32_t        screenWidth;                        // 024
-			std::uint32_t        screenHeight;                       // 028
-			std::uint32_t        frameBufferViewport[2];             // 02C
-			std::uint32_t        unk34;                              // 034
-			std::uint32_t        unk38;                              // 038
-			float                unknown[2];                         // 03c
-			float                projectionPosScaleX;                // 044
-			float                projectionPosScaleY;                // 048
-			uint32_t             uiFrameCount;                       // 04C
-			bool                 insideFrame;                        // 050
-			bool                 letterbox;                          // 051
-			bool                 unk52;                              // 052
-			bool                 compiledShaderThisFrame;            // 053
-			uint8_t              unk54;                              // 054
-			bool                 useEarlyZ;                          // 055
-			RUNTIME_DATA_CONTENT;                                    // 058, VR 060
+			NiPointer<NiSourceTexture> defaultTextureProjNoiseMap;         // 000
+			NiPointer<NiSourceTexture> defaultTextureProjDiffuseMap;       // 008
+			NiPointer<NiSourceTexture> defaultTextureProjNormalMap;        // 010
+			NiPointer<NiSourceTexture> defaultTextureProjNormalDetailMap;  // 018
+			std::uint32_t              unk20;                              // 020
+			std::uint32_t              screenWidth;                        // 024
+			std::uint32_t              screenHeight;                       // 028
+			std::uint32_t              frameBufferViewport[2];             // 02C
+			std::uint32_t              unk34;                              // 034
+			std::uint32_t              unk38;                              // 038
+			std::uint32_t              unk03C;                             // 03C
+			std::uint32_t              unk040;                             // 040
+			float                      projectionPosScaleX;                // 044
+			float                      projectionPosScaleY;                // 048
+			std::uint32_t              frameCount;                         // 04C
+			bool                       insideFrame;                        // 050
+			bool                       letterbox;                          // 051
+			bool                       unk052;                             // 052
+			bool                       compiledShaderThisFrame;            // 053
+			bool                       useEarlyZ;                          // 054
+			bool                       unk055;                             // 055
+			RUNTIME_DATA_CONTENT;                                          // 058, AE,VR 060
 		};
 #if !defined(ENABLE_SKYRIM_VR)  // Non-VR
 		static_assert(offsetof(State, screenWidth) == 0x24);
@@ -216,7 +229,7 @@ namespace RE
 		static_assert(offsetof(State, defaultTextureBlack) == 0x58);
 		static_assert(offsetof(State, defaultTextureWhite) == 0x60);
 		static_assert(offsetof(State, cameraDataCacheA) == 0xa0);
-		static_assert(offsetof(State, dynamicResolutionCurrentWidthScale) == 0x0fc);
+		static_assert(offsetof(State, dynamicResolutionWidthRatio) == 0x0fc);
 #elif !defined(ENABLE_SKYRIM_AE) && !defined(ENABLE_SKYRIM_SE)  // VR
 		static_assert(offsetof(State, screenWidth) == 0x24);
 		static_assert(offsetof(State, frameBufferViewport) == 0x2C);
@@ -224,7 +237,7 @@ namespace RE
 		static_assert(offsetof(State, defaultTextureBlack) == 0x60);
 		static_assert(offsetof(State, defaultTextureWhite) == 0x68);
 		static_assert(offsetof(State, cameraDataCacheA) == 0xa8);
-		static_assert(offsetof(State, dynamicResolutionCurrentWidthScale) == 0x104);
+		static_assert(offsetof(State, dynamicResolutionWidthRatio) == 0x104);
 #else
 		static_assert(offsetof(State, screenWidth) == 0x24);
 		static_assert(offsetof(State, frameBufferViewport) == 0x2C);
@@ -232,7 +245,7 @@ namespace RE
 		static_assert(offsetof(State, defaultTextureBlack) == 0x58);
 		static_assert(offsetof(State, defaultTextureWhite) == 0x60);
 		static_assert(offsetof(State, cameraDataCacheA) == 0xa0);
-		static_assert(offsetof(State, dynamicResolutionCurrentWidthScale) == 0x0fc);
+		static_assert(offsetof(State, dynamicResolutionWidthRatio) == 0x0fc);
 #endif
 	}
 }

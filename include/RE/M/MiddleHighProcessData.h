@@ -23,6 +23,7 @@ namespace RE
 	class bhkCharacterController;
 	class bhkRagdollPenetrationUtil;
 	class BSAnimationGraphManager;
+	class BSCloneReserver;
 	class BSFaceGenAnimationData;
 	class BSFaceGenNiNode;
 	class BSLightingShaderProperty;
@@ -187,7 +188,7 @@ namespace RE
 		InventoryEntryData*                            rightHand;                   // 260
 		InventoryEntryData*                            bothHands;                   // 268
 		NiPointer<QueuedFile>                          bodyPartPreload;             // 270
-		void*                                          unk278;                      // 278
+		NiPointer<BSCloneReserver>                     unk278;                      // 278
 		TESIdleForm*                                   lastIdlePlayed;              // 280
 		AIPerkData*                                    perkData;                    // 288
 		std::uint32_t                                  unk290;                      // 290

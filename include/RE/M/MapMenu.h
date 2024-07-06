@@ -135,10 +135,9 @@ namespace RE
 	std::uint64_t            unk30530;             /* 0D0 */ \
 	TESWorldSpace*           worldSpace;           /* 0D8 */ \
 	GFxValue                 unk30540;             /* 0E0 */ \
-	std::uint64_t            unk30558;             /* 0F8 */ \
-	std::uint64_t            unk30560;             /* 100 */ \
-	std::uint64_t            unk30568;             /* 108 */ \
-	std::uint32_t            unk30570;             /* 110 */ \
+	std::uint32_t            unk30558;             /* 0F8 */ \
+	NiPoint3                 cameraPickOrigin;     /* 0FC */ \
+	NiPoint3                 cameraPickDirection;  /* 108 */ \
 	BSSoundHandle            unk30574;             /* 114 */ \
 	std::uint64_t            unk30580;             /* 120 */ \
 	std::uint64_t            unk30588;             /* 128 */ \

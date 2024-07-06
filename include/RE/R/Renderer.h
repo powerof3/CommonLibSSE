@@ -138,8 +138,8 @@ namespace RE
 
 		struct ScreenSize
 		{
-			uint32_t width;   // 00
-			uint32_t height;  // 04
+			std::uint32_t width;   // 00
+			std::uint32_t height;  // 04
 		};
 		static_assert(sizeof(ScreenSize) == 0x8);
 
@@ -241,13 +241,6 @@ namespace RE
 			[[nodiscard]] static REX::W32::ID3D11Device* GetDevice();
 			[[nodiscard]] static RendererWindow*         GetCurrentRenderWindow();
 
-		private:
-			void Begin(std::uint32_t windowID);
-			void Init(RendererInitOSData* a_data, ApplicationWindowProperties* a_windowProps, REX::W32::HWND a_window);
-			void End();
-			void Shutdown();
-
-		public:
 			// members
 			std::uint64_t unk000;      // 0000
 			bool          drawStereo;  // 0008
@@ -256,6 +249,12 @@ namespace RE
 			std::uint64_t unk010;  // 0010
 #endif
 			RUNTIME_DATA_CONTENT;  // 0010, VR 18
+
+		private:
+			void Begin(std::uint32_t windowID);
+			void Init(RendererInitOSData* a_data, ApplicationWindowProperties* a_windowProps, REX::W32::HWND a_window);
+			void End();
+			void Shutdown();
 		};
 #if !defined(ENABLE_SKYRIM_VR)
 		static_assert(sizeof(Renderer) == 0x21C0);

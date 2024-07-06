@@ -99,6 +99,20 @@ namespace RE
 		return firstGeometry;
 	}
 
+	float NiAVObject::GetMass()
+	{
+		float mass = 0.0f;
+
+		BSVisit::TraverseScenegraphCollision(this, [&](bhkNiCollisionObject* a_col) -> BSVisit::BSVisitControl {
+			if (auto hkpBody = a_col->body ? static_cast<RE::hkpRigidBody*>(a_col->body->referencedObject.get()) : nullptr) {
+				mass += hkpBody->motion.GetMass();
+			}
+			return BSVisit::BSVisitControl::kContinue;
+		});
+
+		return mass;
+	}
+
 	TESObjectREFR* NiAVObject::GetUserData() const
 	{
 		auto* thisUserData = REL::RelocateMember<RE::TESObjectREFR*>(this, 0x0F8, 0x110);
@@ -170,11 +184,11 @@ namespace RE
 		return func(this, a_collisionLayer, a_group);
 	}
 
-	bool NiAVObject::SetMotionType(std::uint32_t a_motionType, bool a_arg2, bool a_arg3, bool a_allowActivate)
+	bool NiAVObject::SetMotionType(hkpMotion::MotionType a_motionType, bool a_recurse, bool a_force, bool a_allowActivate)
 	{
 		using func_t = decltype(&NiAVObject::SetMotionType);
 		REL::Relocation<func_t> func{ Offset::NiAVObject::SetMotionType };
-		return func(this, a_motionType, a_arg2, a_arg3, a_allowActivate);
+		return func(this, a_motionType, a_recurse, a_force, a_allowActivate);
 	}
 
 	bool NiAVObject::SetProjectedUVData(const NiColorA& a_projectedUVParams, const NiColor& a_projectedUVColor, bool a_isSnow)

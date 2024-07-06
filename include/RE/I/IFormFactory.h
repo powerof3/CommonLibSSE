@@ -40,6 +40,8 @@ namespace RE
 		static ConcreteFormFactory<T, T::FORMTYPE>* GetConcreteFormFactoryByType();
 
 		TESForm* Create();
+		template <class T>
+		static T* Create();
 	};
 	static_assert(sizeof(IFormFactory) == 0x8);
 }

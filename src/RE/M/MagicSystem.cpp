@@ -1,4 +1,5 @@
 #include "RE/M/MagicSystem.h"
+#include "RE/M/MagicItem.h"
 
 namespace RE
 {
@@ -23,6 +24,13 @@ namespace RE
 			using func_t = decltype(&MagicSystem::GetMagicFailureSound);
 			REL::Relocation<func_t> func{ RELOCATION_ID(11286, 11411) };
 			return func(a_type);
+		}
+
+		void GetMagicItemDescription(BSString& a_out, MagicItem* a_magicItem, const char* a_beginTagFormat, const char* a_endTagFormat)
+		{
+			using func_t = decltype(&MagicSystem::GetMagicItemDescription);
+			REL::Relocation<func_t> func{ RELOCATION_ID(11299, 11427) };
+			return func(a_out, a_magicItem, a_beginTagFormat, a_endTagFormat);
 		}
 	}
 }

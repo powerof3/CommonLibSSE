@@ -88,37 +88,35 @@ namespace RE
 
 	void BSInputEventQueue::AddButtonEvent(INPUT_DEVICE a_device, std::int32_t a_arg2, std::int32_t a_id, float a_value, float a_duration)
 	{
-		if SKYRIM_REL_CONSTEXPR (!REL::Module::IsVR()) {
-			return;
-		}
-		if (buttonEventCount < MAX_BUTTON_EVENTS) {
-			auto& cachedEvent = GetRuntimeData().buttonEvents[buttonEventCount];
-			cachedEvent.GetRuntimeData().value = a_value;
-			cachedEvent.GetRuntimeData().heldDownSecs = a_duration;
-			cachedEvent.device = a_device;
-			cachedEvent.idCode = a_id;
-			cachedEvent.userEvent = {};
-			cachedEvent.AsVRWandEvent()->unkVR28 = a_arg2;
-			PushOntoInputQueue(&cachedEvent);
-			++buttonEventCount;
+		if SKYRIM_REL_CONSTEXPR (REL::Module::IsVR()) {
+			if (buttonEventCount < MAX_BUTTON_EVENTS) {
+				auto& cachedEvent = GetRuntimeData().buttonEvents[buttonEventCount];
+				cachedEvent.GetRuntimeData().value = a_value;
+				cachedEvent.GetRuntimeData().heldDownSecs = a_duration;
+				cachedEvent.device = a_device;
+				cachedEvent.idCode = a_id;
+				cachedEvent.userEvent = {};
+				cachedEvent.AsVRWandEvent()->unkVR28 = a_arg2;
+				PushOntoInputQueue(&cachedEvent);
+				++buttonEventCount;
+			}
 		}
 	}
 
 	void BSInputEventQueue::AddThumbstickEvent(ThumbstickEvent::InputType a_id, INPUT_DEVICE a_device, float a_xValue, float a_yValue)
 	{
-		if SKYRIM_REL_CONSTEXPR (!REL::Module::IsVR()) {
-			return;
-		}
-		if (thumbstickEventCount < MAX_THUMBSTICK_EVENTS) {
-			auto& cachedEvent = GetRuntimeData().thumbstickEvents[thumbstickEventCount];
-			cachedEvent.xValue = a_xValue;
-			cachedEvent.yValue = a_yValue;
-			cachedEvent.device = a_device;
-			cachedEvent.idCode = a_id;
-			cachedEvent.userEvent = {};
+		if SKYRIM_REL_CONSTEXPR (REL::Module::IsVR()) {
+			if (thumbstickEventCount < MAX_THUMBSTICK_EVENTS) {
+				auto& cachedEvent = GetRuntimeData().thumbstickEvents[thumbstickEventCount];
+				cachedEvent.xValue = a_xValue;
+				cachedEvent.yValue = a_yValue;
+				cachedEvent.device = a_device;
+				cachedEvent.idCode = a_id;
+				cachedEvent.userEvent = {};
 
-			PushOntoInputQueue(&cachedEvent);
-			++thumbstickEventCount;
+				PushOntoInputQueue(&cachedEvent);
+				++thumbstickEventCount;
+			}
 		}
 	}
 

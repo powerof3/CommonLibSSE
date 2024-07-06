@@ -64,13 +64,10 @@ namespace RE
 		virtual void ApplyTorque(const float a_deltaTime, const hkVector4& a_torque) = 0;                                                                 // 18
 		virtual void GetMotionStateAndVelocitiesAndDeactivationType(hkpMotion* a_motionOut);                                                              // 19
 
-		float GetMass()
+		float GetMass() const
 		{
-			float mass = reinterpret_cast<float*>(&inertiaAndMassInv.quad)[3];
-			if (mass != 0.0f) {
-				return 1.0f / mass;
-			}
-			return 0.0f;
+			float massInv = inertiaAndMassInv.quad.m128_f32[3];
+			return massInv != 0.0f ? 1.0f / massInv : 0.0f;
 		}
 
 		// members
