@@ -411,6 +411,7 @@ namespace RE
 		const char*                             GetDisplayFullName();
 		InventoryDropMap                        GetDroppedInventory();
 		InventoryDropMap                        GetDroppedInventory(std::function<bool(TESBoundObject&)> a_filter);
+		BGSEncounterZone*                       GetEncounterZone() const;
 		BGSLocation*                            GetEditorLocation() const;
 		bool                                    GetEditorLocation(NiPoint3& a_outPos, NiPoint3& a_outRot, TESForm*& a_outWorldOrCell, TESObjectCELL* a_fallback);
 		std::optional<double>                   GetEnchantmentCharge() const;

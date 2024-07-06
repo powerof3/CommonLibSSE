@@ -32,6 +32,13 @@ namespace RE
 		void               AdvanceMovie(float a_interval, std::uint32_t a_currentTime) override;  // 05
 		void               PostDisplay() override;                                                // 06
 
+		static void QuitMenu()
+		{
+			using func_t = decltype(&CraftingMenu::QuitMenu);
+			REL::Relocation<func_t> func{ RELOCATION_ID(50447, 51352) };
+			return func();
+		}
+
 		// members
 		CraftingSubMenus::CraftingSubMenu* subMenu;  // 30
 	private:

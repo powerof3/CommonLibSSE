@@ -251,6 +251,13 @@ namespace RE
 		return results;
 	}
 
+	BGSEncounterZone* TESObjectREFR::GetEncounterZone() const
+	{
+		using func_t = decltype(&TESObjectREFR::GetEncounterZone);
+		REL::Relocation<func_t> func{ RELOCATION_ID(19797, 20202) };
+		return func(this);
+	}
+
 	BGSLocation* TESObjectREFR::GetEditorLocation() const
 	{
 		return GetEditorLocation1();

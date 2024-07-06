@@ -129,6 +129,7 @@ namespace RE
 		[[nodiscard]] bhkCollisionObject* GetCollisionObject() const;
 		[[nodiscard]] COL_LAYER           GetCollisionLayer() const;
 		[[nodiscard]] BSGeometry*         GetFirstGeometryOfShaderType(BSShaderMaterial::Feature a_type);
+		[[nodiscard]] float               GetMass();
 		[[nodiscard]] TESObjectREFR*      GetUserData() const;
 		[[nodiscard]] bool                HasAnimation() const;
 		[[nodiscard]] bool                HasShaderType(BSShaderMaterial::Feature a_type);

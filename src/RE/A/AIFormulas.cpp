@@ -1,5 +1,7 @@
 #include "RE/A/AIFormulas.h"
 
+#include "RE/S/SoundLevels.h"
+
 namespace RE
 {
 	namespace AIFormulas
@@ -9,6 +11,13 @@ namespace RE
 			using func_t = decltype(ComputePickpocketSuccess);
 			REL::Relocation<func_t> func{ RELOCATION_ID(25822, 26379) };
 			return func(a_thiefSkill, a_targetSkill, a_valueStolen, a_weightStolen, a_thief, a_target, a_isDetected, a_itemPickpocketing);
+		}
+
+		std::int32_t GetSoundLevelValue(SOUND_LEVEL a_soundLevel)
+		{
+			using func_t = decltype(GetSoundLevelValue);
+			REL::Relocation<func_t> func{ RELOCATION_ID(25814, 26367) };
+			return func(a_soundLevel);
 		}
 	}
 }

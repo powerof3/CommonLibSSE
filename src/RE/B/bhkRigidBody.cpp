@@ -1,7 +1,14 @@
 #include "RE/B/bhkRigidBody.h"
+#include "RE/H/hkpRigidBody.h"
+#include "RE/RTTI.h"
 
 namespace RE
 {
+	hkpRigidBody* bhkRigidBody::GetRigidBody() const
+	{
+		return skyrim_cast<hkpRigidBody*>(referencedObject.get());
+	}
+
 	void bhkRigidBody::SetAngularImpulse(const hkVector4& a_impulse)
 	{
 		using func_t = decltype(&bhkRigidBody::SetAngularImpulse);
