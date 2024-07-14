@@ -24,9 +24,27 @@ namespace RE
 				if (form) {
 					auto ll = form->As<TESLeveledList>();
 					if (ll) {
-						queued.push(ll);
+						//check to see if ll is already in queued  before pushing back.
+						//Makes the function MUCH slower, but should avoid circular leveled lists.
+						auto stackCopy = queued;
+						bool duplicateFound = false;
+
+						while (!stackCopy.empty() && !duplicateFound) {
+							auto copyTop = stackCopy.top();
+							stackCopy.pop();
+							if (copyTop == ll) {
+								duplicateFound = true;
+							}
+						}
+
+						if (!duplicateFound) {
+							queued.push(ll);
+						}
 					} else {
-						results.push_back(form);
+						//We only care about contained forms and don't want to see multiples.
+						if (std::find(results.begin(), results.end(), form) != results.end()) {
+							results.push_back(form);
+						}
 					}
 				}
 			}
