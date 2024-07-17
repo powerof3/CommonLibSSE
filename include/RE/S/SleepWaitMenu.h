@@ -21,6 +21,13 @@ namespace RE
 		void               Accept(CallbackProcessor* a_processor) override;  // 01
 		UI_MESSAGE_RESULTS ProcessMessage(UIMessage& a_message) override;    // 04
 
+		static void ToggleOpenSleepWaitMenu(bool a_sleeping)
+		{
+			using func_t = decltype(&SleepWaitMenu::ToggleOpenSleepWaitMenu);
+			REL::Relocation<func_t> func{ RELOCATION_ID(51618, 52490) };
+			return func(a_sleeping);
+		}
+
 		// members
 		std::uint32_t unk30;  // 30
 		std::uint32_t pad34;  // 34
