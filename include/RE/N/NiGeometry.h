@@ -39,16 +39,16 @@ namespace RE
 		virtual void  Unk_35(void);                           // 35 - call controller vtbl+0xA0?
 		virtual void  Unk_36(void);                           // 36 - ret 0
 		virtual void  Unk_37(void);                           // 37 - same as Unk_33
-		virtual void* Unk_38(void);                           // 38 - ret call m_spModelData vtbl+0x9C
+		virtual void* Unk_38(void);                           // 38 - ret call spModelData vtbl+0x9C
 		virtual void  SetGeometryData(NiGeometryData* unk1);  // 39 - set and AddRef geometry data
-		virtual void* Unk_3A(void);                           // 3A - ret call m_spModelData vtbl+0x94
+		virtual void* Unk_3A(void);                           // 3A - ret callspModelData vtbl+0x94
 
 		// members
-		NiPointer<NiProperty>     m_spPropertyState;  // 110
-		NiPointer<NiProperty>     m_spEffectState;    // 118
-		NiPointer<NiSkinInstance> m_spSkinInstance;   // 120
-		NiPointer<NiGeometryData> m_spModelData;      // 128
-		std::uint64_t             unk130;             // 130
+		NiPointer<NiProperty>     spPropertyState;  // 110
+		NiPointer<NiProperty>     spEffectState;    // 118
+		NiPointer<NiSkinInstance> spSkinInstance;   // 120
+		NiPointer<NiGeometryData> spModelData;      // 128
+		std::uint64_t             unk130;           // 130
 	};
 	static_assert(sizeof(NiGeometry) == 0x138);
 }
