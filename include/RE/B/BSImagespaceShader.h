@@ -38,7 +38,7 @@ namespace RE
 		BSTArray<BSFixedString> psConstantNames;     // 150
 		BSTArray<BSFixedString> samplerNames;        // 158
 		BSTArray<BSFixedString> unk180;              // 180
-		BSComputeShader* computeShader;       // 198
+		BSComputeShader*        computeShader;       // 198
 		bool                    unk1A0;              // 1A0
 		bool                    isComputeShader;     // 1A1
 	};
