@@ -54,7 +54,7 @@ namespace RE
 		void SetMagicTimeSlowdown(float a_magicTimeSlowdown, float a_playerMagicTimeSlowdown)
 		{
 			using func_t = decltype(&VATS::SetMagicTimeSlowdown);
-			REL::Relocation<func_t> func{ RELOCATION_ID(43103, 44300) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(43103, 44300) };
 			return func(this, a_magicTimeSlowdown, a_playerMagicTimeSlowdown);
 		}
 

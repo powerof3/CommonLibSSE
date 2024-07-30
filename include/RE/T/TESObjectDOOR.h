@@ -70,7 +70,7 @@ namespace RE
 		static void LinkRandomTeleportDoors(TESObjectREFR* a_door, TESObjectREFR* a_linkedDoor)
 		{
 			using func_t = decltype(&TESObjectDOOR::LinkRandomTeleportDoors);
-			REL::Relocation<func_t> func{ RELOCATION_ID(17539, 17944) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(17539, 17944) };
 			return func(a_door, a_linkedDoor);
 		}
 

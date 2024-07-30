@@ -21,7 +21,7 @@ namespace RE
 		static void ClearEffectForWeapon(NiAVObject* a_weapon3D)
 		{
 			using func_t = decltype(&ClearEffectForWeapon);
-			REL::Relocation<func_t> func{ RELOCATION_ID(29303, 30154) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(29303, 30154) };
 			return func(a_weapon3D);
 		}
 

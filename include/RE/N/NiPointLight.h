@@ -34,7 +34,7 @@ namespace RE
 		void SetLightAttenuation(float a_radius)
 		{
 			using func_t = decltype(&NiPointLight::SetLightAttenuation);
-			REL::Relocation<func_t> func{ RELOCATION_ID(17224, 17626) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(17224, 17626) };
 			return func(this, a_radius);
 		}
 
@@ -47,7 +47,7 @@ namespace RE
 		NiPointLight* Ctor()
 		{
 			using func_t = decltype(&NiPointLight::Ctor);
-			REL::Relocation<func_t> func{ RELOCATION_ID(69583, 70967) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(69583, 70967) };
 			return func(this);
 		}
 	};

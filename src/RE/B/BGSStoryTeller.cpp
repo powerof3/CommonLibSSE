@@ -11,14 +11,14 @@ namespace RE
 	void BGSStoryTeller::BeginShutDownQuest(TESQuest* a_quest)
 	{
 		using func_t = decltype(&BGSStoryTeller::BeginShutDownQuest);
-		REL::Relocation<func_t> func{ Offset::BGSStoryTeller::BeginShutDownQuest };
+		static REL::Relocation<func_t> func{ Offset::BGSStoryTeller::BeginShutDownQuest };
 		return func(this, a_quest);
 	}
 
 	void BGSStoryTeller::BeginStartUpQuest(TESQuest* a_quest)
 	{
 		using func_t = decltype(&BGSStoryTeller::BeginStartUpQuest);
-		REL::Relocation<func_t> func{ Offset::BGSStoryTeller::BeginStartUpQuest };
+		static REL::Relocation<func_t> func{ Offset::BGSStoryTeller::BeginStartUpQuest };
 		return func(this, a_quest);
 	}
 }

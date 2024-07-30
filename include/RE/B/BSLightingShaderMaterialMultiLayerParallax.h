@@ -43,7 +43,7 @@ namespace RE
 		BSLightingShaderMaterialMultiLayerParallax* Ctor()
 		{
 			using func_t = decltype(&BSLightingShaderMaterialMultiLayerParallax::Ctor);
-			REL::Relocation<func_t> func{ RELOCATION_ID(100125, 106832) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(100125, 106832) };
 			return func(this);
 		}
 		friend class BSLightingShaderMaterialBase;

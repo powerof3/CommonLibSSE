@@ -33,14 +33,14 @@ namespace RE
 		bool AddTexture(BSScaleformExternalTexture& a_texture)
 		{
 			using func_t = decltype(&BSScaleformImageLoader::AddTexture);
-			REL::Relocation<func_t> func{ RELOCATION_ID(82382, 84469) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(82382, 84469) };
 			return func(this, a_texture);
 		}
 
 		void RemoveTexture(BSScaleformExternalTexture& a_texture)
 		{
 			using func_t = decltype(&BSScaleformImageLoader::RemoveTexture);
-			REL::Relocation<func_t> func{ RELOCATION_ID(82383, 84470) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(82383, 84470) };
 			return func(this, a_texture);
 		}
 

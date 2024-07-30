@@ -40,7 +40,7 @@ namespace RE
 	bhkWorld* TESObjectCELL::GetbhkWorld() const
 	{
 		using func_t = decltype(&TESObjectCELL::GetbhkWorld);
-		REL::Relocation<func_t> func{ RELOCATION_ID(18536, 18995) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(18536, 18995) };
 		return func(this);
 	}
 
@@ -63,7 +63,7 @@ namespace RE
 	BGSLocation* TESObjectCELL::GetLocation() const
 	{
 		using func_t = decltype(&TESObjectCELL::GetLocation);
-		REL::Relocation<func_t> func{ RELOCATION_ID(18474, 18905) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(18474, 18905) };
 		return func(this);
 	}
 
@@ -113,14 +113,14 @@ namespace RE
 	TESRegionList* TESObjectCELL::GetRegionList(bool a_createIfMissing)
 	{
 		using func_t = decltype(&TESObjectCELL::GetRegionList);
-		REL::Relocation<func_t> func{ RELOCATION_ID(18540, 18999) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(18540, 18999) };
 		return func(this, a_createIfMissing);
 	}
 
 	bool TESObjectCELL::GetWaterHeight(const NiPoint3& a_pos, float& a_waterHeight)
 	{
 		using func_t = decltype(&TESObjectCELL::GetWaterHeight);
-		REL::Relocation<func_t> func{ RELOCATION_ID(18543, 19002) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(18543, 19002) };
 		return func(this, a_pos, a_waterHeight);
 	}
 

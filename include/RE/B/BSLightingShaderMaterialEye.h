@@ -40,7 +40,7 @@ namespace RE
 		BSLightingShaderMaterialEye* Ctor()
 		{
 			using func_t = decltype(&BSLightingShaderMaterialEye::Ctor);
-			REL::Relocation<func_t> func{ RELOCATION_ID(100033, 106740) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(100033, 106740) };
 			return func(this);
 		}
 		friend class BSLightingShaderMaterialBase;
