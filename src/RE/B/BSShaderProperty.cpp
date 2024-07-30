@@ -13,21 +13,21 @@ namespace RE
 	void BSShaderProperty::SetMaterial(BSShaderMaterial* a_material, bool a_unk1)
 	{
 		using func_t = decltype(&BSShaderProperty::SetMaterial);
-		REL::Relocation<func_t> func{ RELOCATION_ID(98897, 105544) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(98897, 105544) };
 		return func(this, a_material, a_unk1);
 	}
 
 	void BSShaderProperty::SetFlags(EShaderPropertyFlag8 a_flag, bool a_set)
 	{
 		using func_t = decltype(&BSShaderProperty::SetFlags);
-		REL::Relocation<func_t> func{ RELOCATION_ID(98893, 105540) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(98893, 105540) };
 		return func(this, a_flag, a_set);
 	}
 
 	void BSShaderProperty::LinkMaterial(BSShaderMaterial* a_material, bool a_unk1)
 	{
 		using func_t = decltype(&BSShaderProperty::LinkMaterial);
-		REL::Relocation<func_t> func{ RELOCATION_ID(98897, 105544) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(98897, 105544) };
 		return func(this, a_material, a_unk1);
 	}
 
@@ -41,14 +41,14 @@ namespace RE
 	BSRenderPass* BSShaderProperty::RenderPassArray::MakeRenderPass(BSShader* a_shader, BSShaderProperty* a_property, BSGeometry* a_geometry, uint32_t a_technique, uint8_t a_numLights, BSLight** a_lights)
 	{
 		using func_t = decltype(&BSShaderProperty::RenderPassArray::MakeRenderPass);
-		REL::Relocation<func_t> func{ RELOCATION_ID(100717, 107497) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(100717, 107497) };
 		return func(this, a_shader, a_property, a_geometry, a_technique, a_numLights, a_lights);
 	}
 
 	void BSShaderProperty::RenderPassArray::ClearRenderPass(BSRenderPass* a_pass)
 	{
 		using func_t = decltype(&RenderPassArray::ClearRenderPass);
-		REL::Relocation<func_t> func{ RELOCATION_ID(100718, 107498) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(100718, 107498) };
 		func(this, a_pass);
 	}
 

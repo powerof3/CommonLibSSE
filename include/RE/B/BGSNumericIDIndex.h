@@ -19,13 +19,13 @@ namespace RE
 		[[nodiscard]] FormID GetNumericID() const
 		{
 			using func_t = decltype(&BGSNumericIDIndex::GetNumericID);
-			REL::Relocation<func_t> func{ RELOCATION_ID(35026, 35927) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(35026, 35927) };
 			return func(this);
 		}
 		void SetNumericID(FormID a_formID)
 		{
 			using func_t = decltype(&BGSNumericIDIndex::SetNumericID);
-			REL::Relocation<func_t> func{ RELOCATION_ID(35027, 35928) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(35027, 35928) };
 			return func(this, a_formID);
 		}
 

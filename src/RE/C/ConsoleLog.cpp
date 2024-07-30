@@ -25,7 +25,7 @@ namespace RE
 	void ConsoleLog::VPrint(const char* a_fmt, std::va_list a_args)
 	{
 		using func_t = decltype(&ConsoleLog::Print);
-		REL::Relocation<func_t> func{ Offset::ConsoleLog::VPrint };
+		static REL::Relocation<func_t> func{ Offset::ConsoleLog::VPrint };
 		func(this, a_fmt, a_args);
 	}
 }

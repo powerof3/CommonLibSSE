@@ -11,14 +11,14 @@ namespace RE
 	void MagicFavorites::RemoveFavorite(TESForm* a_form)
 	{
 		using func_t = decltype(&MagicFavorites::RemoveFavorite);
-		REL::Relocation<func_t> func{ RELOCATION_ID(51122, 52005) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(51122, 52005) };
 		return func(this, a_form);
 	}
 
 	void MagicFavorites::SetFavorite(TESForm* a_form)
 	{
 		using func_t = decltype(&MagicFavorites::SetFavorite);
-		REL::Relocation<func_t> func{ RELOCATION_ID(51121, 52004) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(51121, 52004) };
 		return func(this, a_form);
 	}
 }

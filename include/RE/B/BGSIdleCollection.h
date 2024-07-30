@@ -46,7 +46,7 @@ namespace RE
 		BGSIdleCollection* Ctor()
 		{
 			using func_t = decltype(&BGSIdleCollection::Ctor);
-			REL::Relocation<func_t> func{ RELOCATION_ID(14127, 14227) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(14127, 14227) };
 			return func(this);
 		}
 		void CopyIdles(const std::vector<TESIdleForm*>& a_copiedData);

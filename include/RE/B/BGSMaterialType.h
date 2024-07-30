@@ -41,7 +41,7 @@ namespace RE
 		static BGSMaterialType* GetMaterialType(MATERIAL_ID a_materialID)
 		{
 			using func_t = decltype(&BGSMaterialType::GetMaterialType);
-			REL::Relocation<func_t> func{ RELOCATION_ID(20529, 20968) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(20529, 20968) };
 			return func(a_materialID);
 		}
 

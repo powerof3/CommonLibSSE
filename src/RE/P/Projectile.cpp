@@ -91,7 +91,7 @@ namespace RE
 	ProjectileHandle* Projectile::Launch(ProjectileHandle* a_result, LaunchData& a_data) noexcept
 	{
 		using func_t = decltype(&Projectile::Launch);
-		REL::Relocation<func_t> func{ RELOCATION_ID(42928, 44108) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(42928, 44108) };
 		return func(a_result, a_data);
 	}
 
