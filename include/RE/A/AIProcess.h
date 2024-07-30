@@ -196,8 +196,8 @@ namespace RE
 		MiddleHighProcessData*                          middleHigh;                     // 008
 		HighProcessData*                                high;                           // 010
 		ActorPackage                                    currentPackage;                 // 018
-		float                                           unk048;                         // 048
-		std::uint32_t                                   unk04C;                         // 04C
+		float                                           hourLastProcessed;              // 048
+		std::uint32_t                                   dateLastProcessed;              // 04C
 		CachedValues*                                   cachedValues;                   // 050
 		std::int32_t                                    numberItemsActivate;            // 058
 		std::uint32_t                                   pad05C;                         // 05C

@@ -244,7 +244,7 @@ namespace RE
 		bool                                           unk327;                      // 327
 		bool                                           unk328;                      // 328
 		bool                                           preventCombat;               // 329
-		bool                                           unk32A;                      // 32A
+		bool                                           dyingFromBleedout;           // 32A
 		bool                                           isFleeing;                   // 32B
 		bool                                           unk32C;                      // 32C
 		bool                                           hostileGuard;                // 32D
