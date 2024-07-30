@@ -29,7 +29,7 @@ namespace RE
 		static void QuitMenu()
 		{
 			using func_t = decltype(&CraftingMenu::QuitMenu);
-			REL::Relocation<func_t> func{ RELOCATION_ID(50447, 51352) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(50447, 51352) };
 			return func();
 		}
 

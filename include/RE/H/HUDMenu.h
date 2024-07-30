@@ -43,14 +43,14 @@ namespace RE
 		static void FlashMeter(ActorValue a_actorValue)
 		{
 			using func_t = decltype(&HUDMenu::FlashMeter);
-			REL::Relocation<func_t> func{ RELOCATION_ID(51907, 52845) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(51907, 52845) };
 			return func(a_actorValue);
 		}
 
 		static void UpdateCrosshairMagicTarget(bool a_valid)
 		{
 			using func_t = decltype(&HUDMenu::UpdateCrosshairMagicTarget);
-			REL::Relocation<func_t> func{ RELOCATION_ID(50738, 51633) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(50738, 51633) };
 			return func(a_valid);
 		}
 

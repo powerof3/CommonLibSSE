@@ -63,7 +63,7 @@ namespace RE
 		bool CheckConditions(Actor* a_actor, TESObjectREFR* a_target, bool a_checkParentIdle)
 		{
 			using func_t = decltype(&TESIdleForm::CheckConditions);
-			REL::Relocation<func_t> func{ RELOCATION_ID(24069, 24572) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(24069, 24572) };
 			return func(this, a_actor, a_target, a_checkParentIdle);
 		}
 

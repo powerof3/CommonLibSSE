@@ -26,7 +26,7 @@ namespace RE
 		void SetGlobalTimeMultiplier(float a_multiplier, bool a_arg2)
 		{
 			using func_t = decltype(&BSTimer::SetGlobalTimeMultiplier);
-			REL::Relocation<func_t> func{ RELOCATION_ID(66988, 68245) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(66988, 68245) };
 			return func(this, a_multiplier, a_arg2);
 		}
 

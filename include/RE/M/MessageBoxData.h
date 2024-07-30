@@ -19,7 +19,7 @@ namespace RE
 		void QueueMessage()
 		{
 			using func_t = decltype(&MessageBoxData::QueueMessage);
-			REL::Relocation<func_t> func{ RELOCATION_ID(51422, 52271) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(51422, 52271) };
 			return func(this);
 		}
 

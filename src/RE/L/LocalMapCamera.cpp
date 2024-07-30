@@ -45,14 +45,14 @@ namespace RE
 	void LocalMapCamera::SetNorthRotation(float a_northRotation)
 	{
 		using func_t = decltype(&LocalMapCamera::SetNorthRotation);
-		REL::Relocation<func_t> func{ Offset::LocalMapCamera::SetNorthRotation };
+		static REL::Relocation<func_t> func{ Offset::LocalMapCamera::SetNorthRotation };
 		return func(this, a_northRotation);
 	}
 
 	LocalMapCamera* LocalMapCamera::Ctor(float a_zRotation)
 	{
 		using func_t = decltype(&LocalMapCamera::Ctor);
-		REL::Relocation<func_t> func{ Offset::LocalMapCamera::Ctor };
+		static REL::Relocation<func_t> func{ Offset::LocalMapCamera::Ctor };
 		return func(this, a_zRotation);
 	}
 }

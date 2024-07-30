@@ -44,7 +44,7 @@ namespace RE
 		void PrepareHeadPartForShaders(BSFaceGenNiNode* a_node, BGSHeadPart* a_headPart, TESNPC* a_npc)
 		{
 			using func_t = decltype(&BSFaceGenManager::PrepareHeadPartForShaders);
-			REL::Relocation<func_t> func{ RELOCATION_ID(26259, 26838) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(26259, 26838) };
 			return func(this, a_node, a_headPart, a_npc);
 		}
 

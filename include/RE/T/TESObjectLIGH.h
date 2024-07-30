@@ -105,7 +105,7 @@ namespace RE
 		NiLight* GenDynamic(RE::TESObjectREFR* a_ref, RE::NiNode* a_node, char a_forceDynamic, char a_useLightRadius, char a_affectRefOnly)
 		{
 			using func_t = decltype(&TESObjectLIGH::GenDynamic);
-			REL::Relocation<func_t> func{ RELOCATION_ID(17208, 17610) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(17208, 17610) };
 			return func(this, a_ref, a_node, a_forceDynamic, a_useLightRadius, a_affectRefOnly);
 		}
 

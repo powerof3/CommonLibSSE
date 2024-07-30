@@ -168,7 +168,7 @@ namespace RE
 	BSExtraData* ExtraDataList::Add(BSExtraData* a_toAdd)
 	{
 		using func_t = decltype(&ExtraDataList::Add);
-		REL::Relocation<func_t> func{ Offset::ExtraDataList::Add };
+		static REL::Relocation<func_t> func{ Offset::ExtraDataList::Add };
 		return func(this, a_toAdd);
 	}
 
@@ -285,14 +285,14 @@ namespace RE
 	bool ExtraDataList::HasQuestObjectAlias()
 	{
 		using func_t = decltype(&ExtraDataList::HasQuestObjectAlias);
-		REL::Relocation<func_t> func{ RELOCATION_ID(11913, 12052) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11913, 12052) };
 		return func(this);
 	}
 
 	void ExtraDataList::SetCount(std::uint16_t a_count)
 	{
 		using func_t = decltype(&ExtraDataList::SetCount);
-		REL::Relocation<func_t> func{ Offset::ExtraDataList::SetCount };
+		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetCount };
 		return func(this, a_count);
 	}
 
@@ -313,21 +313,21 @@ namespace RE
 	void ExtraDataList::SetExtraFlags(ExtraFlags::Flag a_flags, bool a_enable)
 	{
 		using func_t = decltype(&ExtraDataList::SetExtraFlags);
-		REL::Relocation<func_t> func{ Offset::ExtraDataList::SetExtraFlags };
+		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetExtraFlags };
 		return func(this, a_flags, a_enable);
 	}
 
 	void ExtraDataList::SetHeadingTargetRefHandle(ObjectRefHandle& a_handle)
 	{
 		using func_t = decltype(&ExtraDataList::SetHeadingTargetRefHandle);
-		REL::Relocation<func_t> func{ RELOCATION_ID(11530, 11676) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11530, 11676) };
 		return func(this, a_handle);
 	}
 
 	void ExtraDataList::SetInventoryChanges(InventoryChanges* a_changes)
 	{
 		using func_t = decltype(&ExtraDataList::SetInventoryChanges);
-		REL::Relocation<func_t> func{ Offset::ExtraDataList::SetInventoryChanges };
+		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetInventoryChanges };
 		return func(this, a_changes);
 	}
 
@@ -348,7 +348,7 @@ namespace RE
 	void ExtraDataList::SetLinkedRef(TESObjectREFR* a_targetRef, BGSKeyword* a_keyword)
 	{
 		using func_t = decltype(&ExtraDataList::SetLinkedRef);
-		REL::Relocation<func_t> func{ RELOCATION_ID(11633, 11779) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11633, 11779) };
 		return func(this, a_targetRef, a_keyword);
 	}
 

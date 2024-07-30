@@ -41,14 +41,14 @@ namespace RE
 		void SetupMask()
 		{
 			using func_t = decltype(&Precipitation::SetupMask);
-			REL::Relocation<func_t> func{ RELOCATION_ID(25641, 26183) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(25641, 26183) };
 			func(this);
 		}
 
 		void RenderMask(BSParticleShaderRainEmitter* a_emitter)
 		{
 			using func_t = decltype(&Precipitation::RenderMask);
-			REL::Relocation<func_t> func{ RELOCATION_ID(25642, 26184) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(25642, 26184) };
 			func(this, a_emitter);
 		}
 

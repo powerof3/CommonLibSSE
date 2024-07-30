@@ -22,7 +22,7 @@ namespace RE
 		void Clear()
 		{
 			using func_t = decltype(&ScreenSplatter::Clear);
-			REL::Relocation<func_t> func{ RELOCATION_ID(16175, 16407) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(16175, 16407) };
 			return func(this);
 		}
 

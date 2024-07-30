@@ -62,7 +62,7 @@ namespace RE
 		static BGSRelationship* GetRelationship(TESNPC* a_npc1, TESNPC* a_npc2)
 		{
 			using func_t = decltype(&BGSRelationship::GetRelationship);
-			REL::Relocation<func_t> func{ RELOCATION_ID(23632, 24084) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(23632, 24084) };
 			return func(a_npc1, a_npc2);
 		}
 
