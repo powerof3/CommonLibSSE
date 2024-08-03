@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSEntryPointFunctionDataOneValue;
+		inline static constexpr auto VTABLE = VTABLE_BGSEntryPointFunctionDataOneValue;
 
 		~BGSEntryPointFunctionDataOneValue() override;  // 00
 

@@ -9,6 +9,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BSDismemberSkinInstance;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSDismemberSkinInstance;
+		inline static constexpr auto VTABLE = VTABLE_BSDismemberSkinInstance;
 
 		struct Data
 		{

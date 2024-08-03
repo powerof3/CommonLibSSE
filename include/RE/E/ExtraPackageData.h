@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraPackageData;
+		inline static constexpr auto VTABLE = VTABLE_ExtraPackageData;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kPackageData;
 
 		~ExtraPackageData() override;  // 00

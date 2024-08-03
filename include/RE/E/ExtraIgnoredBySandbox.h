@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraIgnoredBySandbox;
+		inline static constexpr auto VTABLE = VTABLE_ExtraIgnoredBySandbox;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kIgnoredBySandbox;
 
 		~ExtraIgnoredBySandbox() override;  // 00

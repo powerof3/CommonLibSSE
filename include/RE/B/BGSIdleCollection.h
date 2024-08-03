@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSIdleCollection;
+		inline static constexpr auto VTABLE = VTABLE_BGSIdleCollection;
 
 		enum class IdleFlags
 		{

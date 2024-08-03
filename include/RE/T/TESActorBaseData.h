@@ -81,6 +81,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_TESActorBaseData;
+		inline static constexpr auto VTABLE = VTABLE_TESActorBaseData;
 
 		~TESActorBaseData() override;
 

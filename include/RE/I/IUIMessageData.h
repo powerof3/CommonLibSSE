@@ -6,6 +6,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_IUIMessageData;
+		inline static constexpr auto VTABLE = VTABLE_IUIMessageData;
 
 		virtual ~IUIMessageData() = default;  // 00
 

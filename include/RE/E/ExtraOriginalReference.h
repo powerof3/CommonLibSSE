@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraOriginalReference;
+		inline static constexpr auto VTABLE = VTABLE_ExtraOriginalReference;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kOriginalReference;
 
 		virtual ~ExtraOriginalReference();  // 00

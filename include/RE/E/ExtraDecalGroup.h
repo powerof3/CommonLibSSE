@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraDecalGroup;
+		inline static constexpr auto VTABLE = VTABLE_ExtraDecalGroup;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kDecalGroup;
 
 		~ExtraDecalGroup() override;  // 00

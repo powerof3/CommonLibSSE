@@ -29,6 +29,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_BSShaderProperty__ForEachVisitor;
+			inline static constexpr auto VTABLE = VTABLE_BSShaderProperty__ForEachVisitor;
 
 			virtual ~ForEachVisitor();  // 00
 

@@ -17,6 +17,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSLight;
+		inline static constexpr auto VTABLE = VTABLE_BSLight;
 
 		struct ShapeData
 		{

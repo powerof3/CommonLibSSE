@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ahkpWorld;
+		inline static constexpr auto VTABLE = VTABLE_ahkpWorld;
 
 		~ahkpWorld() override;  // 00
 

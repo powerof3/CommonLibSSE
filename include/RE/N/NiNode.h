@@ -13,6 +13,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_NiNode;
 		inline static constexpr auto Ni_RTTI = NiRTTI_NiNode;
+		inline static constexpr auto VTABLE = VTABLE_NiNode;
 
 		~NiNode() override;  // 00
 

@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraFactionChanges;
+		inline static constexpr auto VTABLE = VTABLE_ExtraFactionChanges;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kFactionChanges;
 
 		virtual ~ExtraFactionChanges();  // 00

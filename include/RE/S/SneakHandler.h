@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_SneakHandler;
+		inline static constexpr auto VTABLE = VTABLE_SneakHandler;
 
 		~SneakHandler() override;  // 00
 

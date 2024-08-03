@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ThumbstickEvent;
+		inline static constexpr auto VTABLE = VTABLE_ThumbstickEvent;
 
 		struct InputTypes
 		{

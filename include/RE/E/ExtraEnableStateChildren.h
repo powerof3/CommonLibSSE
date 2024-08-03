@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraEnableStateChildren;
+		inline static constexpr auto VTABLE = VTABLE_ExtraEnableStateChildren;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kEnableStateChildren;
 
 		virtual ~ExtraEnableStateChildren();  // 00

@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraWeaponAttackSound;
+		inline static constexpr auto VTABLE = VTABLE_ExtraWeaponAttackSound;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kWeaponAttackSound;
 
 		virtual ~ExtraWeaponAttackSound();  // 00

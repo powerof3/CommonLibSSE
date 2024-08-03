@@ -20,6 +20,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BSMultiIndexTriShape;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSMultiIndexTriShape;
+		inline static constexpr auto VTABLE = VTABLE_BSMultiIndexTriShape;
 
 		~BSMultiIndexTriShape() override;  // 00
 

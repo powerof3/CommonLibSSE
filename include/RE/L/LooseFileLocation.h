@@ -25,6 +25,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_BSResource__LooseFileLocation;
+			inline static constexpr auto VTABLE = VTABLE_BSResource__LooseFileLocation;
 
 			~LooseFileLocation() override;  // 00
 

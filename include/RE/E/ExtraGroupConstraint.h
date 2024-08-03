@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraGroupConstraint;
+		inline static constexpr auto VTABLE = VTABLE_ExtraGroupConstraint;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kGroupConstraint;
 
 		virtual ~ExtraGroupConstraint();  // 00

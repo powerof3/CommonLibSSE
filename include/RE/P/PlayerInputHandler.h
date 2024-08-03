@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_PlayerInputHandler;
+		inline static constexpr auto VTABLE = VTABLE_PlayerInputHandler;
 
 		virtual ~PlayerInputHandler() = default;  // 00
 

@@ -38,6 +38,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_BSScript__IVirtualMachine;
+			inline static constexpr auto VTABLE = VTABLE_BSScript__IVirtualMachine;
 
 			using Severity = BSScript::ErrorLogger::Severity;
 

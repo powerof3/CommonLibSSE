@@ -17,6 +17,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_NiGeometryData;
 		inline static constexpr auto Ni_RTTI = NiRTTI_NiGeometryData;
+		inline static constexpr auto VTABLE = VTABLE_NiGeometryData;
 
 		enum class DataFlag
 		{

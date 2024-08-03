@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraAttachRefChildren;
+		inline static constexpr auto VTABLE = VTABLE_ExtraAttachRefChildren;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kAttachRefChildren;
 
 		virtual ~ExtraAttachRefChildren();  // 00

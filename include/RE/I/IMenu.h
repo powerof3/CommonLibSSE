@@ -55,6 +55,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_IMenu;
+		inline static constexpr auto VTABLE = VTABLE_IMenu;
 
 		using Context = UserEvents::INPUT_CONTEXT_ID;
 		using Flag = UI_MENU_FLAGS;

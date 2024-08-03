@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_IMessageBoxCallback;
+		inline static constexpr auto VTABLE = VTABLE_IMessageBoxCallback;
 
 		enum class Message
 		{

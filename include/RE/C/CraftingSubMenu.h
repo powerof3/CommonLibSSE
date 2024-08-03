@@ -21,6 +21,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_CraftingSubMenus__CraftingSubMenu;
+			inline static constexpr auto VTABLE = VTABLE_CraftingSubMenus__CraftingSubMenu;
 
 			~CraftingSubMenu() override;  // 00
 

@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraHorse;
+		inline static constexpr auto VTABLE = VTABLE_ExtraHorse;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kHorse;
 
 		~ExtraHorse() override;  // 00
