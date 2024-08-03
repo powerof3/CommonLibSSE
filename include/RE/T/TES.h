@@ -40,11 +40,13 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_TES;
+		inline static constexpr auto VTABLE = VTABLE_TES;
 
 		class SystemEventAdapter : public BSTEventSink<BSSystemEvent>
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_TES;
+			inline static constexpr auto VTABLE = VTABLE_TES;
 
 			~SystemEventAdapter() override;  // 00
 

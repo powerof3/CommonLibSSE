@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraCellWaterEnvMap;
+		inline static constexpr auto VTABLE = VTABLE_ExtraCellWaterEnvMap;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kCellWaterEnvMap;
 
 		virtual ~ExtraCellWaterEnvMap();  // 00

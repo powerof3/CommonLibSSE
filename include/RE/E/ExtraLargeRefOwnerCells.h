@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraLargeRefOwnerCells;
+		inline static constexpr auto VTABLE = VTABLE_ExtraLargeRefOwnerCells;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kLargeRefOwnerCells;
 
 		virtual ~ExtraLargeRefOwnerCells();  // 00

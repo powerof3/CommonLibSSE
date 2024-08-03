@@ -20,6 +20,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraRunOncePacks;
+		inline static constexpr auto VTABLE = VTABLE_ExtraRunOncePacks;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kRunOncePacks;
 
 		~ExtraRunOncePacks() override;  // 00

@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSEntryPointFunctionDataActivateChoice;
+		inline static constexpr auto VTABLE = VTABLE_BGSEntryPointFunctionDataActivateChoice;
 
 		enum class Flag1
 		{

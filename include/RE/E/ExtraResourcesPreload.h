@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraResourcesPreload;
+		inline static constexpr auto VTABLE = VTABLE_ExtraResourcesPreload;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kResourcesPreload;
 
 		virtual ~ExtraResourcesPreload();  // 00

@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraCellImageSpace;
+		inline static constexpr auto VTABLE = VTABLE_ExtraCellImageSpace;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kCellImageSpace;
 
 		virtual ~ExtraCellImageSpace();  // 00

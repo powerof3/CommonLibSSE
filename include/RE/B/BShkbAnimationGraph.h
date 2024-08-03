@@ -33,6 +33,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BShkbAnimationGraph;
+		inline static constexpr auto VTABLE = VTABLE_BShkbAnimationGraph;
 
 		struct BoneNodeEntry
 		{

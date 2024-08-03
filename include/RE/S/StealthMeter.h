@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_StealthMeter;
+		inline static constexpr auto VTABLE = VTABLE_StealthMeter;
 
 		~StealthMeter() override;  // 00
 

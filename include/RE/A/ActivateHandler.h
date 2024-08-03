@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ActivateHandler;
+		inline static constexpr auto VTABLE = VTABLE_ActivateHandler;
 
 		~ActivateHandler() override;  // 00
 

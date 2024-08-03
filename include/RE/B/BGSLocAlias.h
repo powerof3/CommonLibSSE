@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSLocAlias;
+		inline static constexpr auto VTABLE = VTABLE_BGSLocAlias;
 		inline static constexpr auto VMTYPEID = static_cast<VMTypeID>(141);
 
 		~BGSLocAlias() override;  // 00

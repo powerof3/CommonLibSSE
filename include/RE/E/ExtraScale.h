@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraScale;
+		inline static constexpr auto VTABLE = VTABLE_ExtraScale;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kScale;
 
 		~ExtraScale() override;  // 00

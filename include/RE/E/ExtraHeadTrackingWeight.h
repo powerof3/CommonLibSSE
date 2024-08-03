@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraHeadTrackingWeight;
+		inline static constexpr auto VTABLE = VTABLE_ExtraHeadTrackingWeight;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kHeadTrackingWeight;
 
 		~ExtraHeadTrackingWeight() override;  // 00

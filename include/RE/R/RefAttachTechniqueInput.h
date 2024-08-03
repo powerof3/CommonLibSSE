@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_RefAttachTechniqueInput;
+		inline static constexpr auto VTABLE = VTABLE_RefAttachTechniqueInput;
 
 		~RefAttachTechniqueInput() override;  // 00
 

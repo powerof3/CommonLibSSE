@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraAnimationSequencer;
+		inline static constexpr auto VTABLE = VTABLE_ExtraAnimationSequencer;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kAnimationSequencer;
 
 		virtual ~ExtraAnimationSequencer();  // 00

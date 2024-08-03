@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI___LegendarySkillResetConfirmCallback;
+		inline static constexpr auto VTABLE = VTABLE___LegendarySkillResetConfirmCallback;
 
 		virtual ~LegendarySkillResetConfirmCallback();  // 00
 

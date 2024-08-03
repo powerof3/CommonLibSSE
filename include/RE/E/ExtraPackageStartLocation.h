@@ -20,6 +20,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraPackageStartLocation;
+		inline static constexpr auto VTABLE = VTABLE_ExtraPackageStartLocation;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kPackageStartLocation;
 
 		virtual ~ExtraPackageStartLocation();  // 00

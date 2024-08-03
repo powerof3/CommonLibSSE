@@ -10,6 +10,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BSInstanceTriShape;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSInstanceTriShape;
+		inline static constexpr auto VTABLE = VTABLE_BSInstanceTriShape;
 
 		~BSInstanceTriShape() override;  // 00
 

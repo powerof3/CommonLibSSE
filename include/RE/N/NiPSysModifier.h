@@ -15,6 +15,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_NiPSysModifier;
 		inline static constexpr auto Ni_RTTI = NiRTTI_NiPSysModifier;
+		inline static constexpr auto VTABLE = VTABLE_NiPSysModifier;
 
 		enum class ORDER
 		{

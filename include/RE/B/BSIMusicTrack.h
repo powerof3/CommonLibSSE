@@ -6,6 +6,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSIMusicTrack;
+		inline static constexpr auto VTABLE = VTABLE_BSIMusicTrack;
 
 		enum class TrackType : std::uint32_t
 		{

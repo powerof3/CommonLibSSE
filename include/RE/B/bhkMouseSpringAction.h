@@ -9,6 +9,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_bhkMouseSpringAction;
 		inline static constexpr auto Ni_RTTI = NiRTTI_bhkMouseSpringAction;
+		inline static constexpr auto VTABLE = VTABLE_bhkMouseSpringAction;
 
 		~bhkMouseSpringAction() override;  // 00
 

@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ConsoleData;
+		inline static constexpr auto VTABLE = VTABLE_ConsoleData;
 
 		enum class DataType
 		{

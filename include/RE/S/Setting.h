@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_Setting;
+		inline static constexpr auto VTABLE = VTABLE_Setting;
 
 		enum class Type
 		{

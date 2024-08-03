@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraObjectHealth;
+		inline static constexpr auto VTABLE = VTABLE_ExtraObjectHealth;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kObjectHealth;
 
 		virtual ~ExtraObjectHealth();  // 00

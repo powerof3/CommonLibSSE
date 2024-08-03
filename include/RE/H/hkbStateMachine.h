@@ -36,6 +36,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_hkbStateMachine__StateInfo;
+			inline static constexpr auto VTABLE = VTABLE_hkbStateMachine__StateInfo;
 
 			~StateInfo() override;  // 00
 
@@ -56,6 +57,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_hkbStateMachine__TransitionInfoArray;
+			inline static constexpr auto VTABLE = VTABLE_hkbStateMachine__TransitionInfoArray;
 
 			~TransitionInfoArray() override;  // 00
 

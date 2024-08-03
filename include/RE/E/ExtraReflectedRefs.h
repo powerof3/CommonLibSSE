@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraReflectedRefs;
+		inline static constexpr auto VTABLE = VTABLE_ExtraReflectedRefs;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kReflectedRefs;
 
 		virtual ~ExtraReflectedRefs();  // 00

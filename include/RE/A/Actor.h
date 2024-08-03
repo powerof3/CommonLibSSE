@@ -134,6 +134,7 @@ namespace RE
 
 	public:
 		inline static constexpr auto RTTI = RTTI_Actor;
+		inline static constexpr auto VTABLE = VTABLE_Actor;
 		inline static constexpr auto FORMTYPE = FormType::ActorCharacter;
 
 		struct SlotTypes
@@ -258,6 +259,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_Actor__ForEachSpellVisitor;
+			inline static constexpr auto VTABLE = VTABLE_Actor__ForEachSpellVisitor;
 
 			virtual ~ForEachSpellVisitor() = default;  // 00
 

@@ -18,6 +18,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_NiControllerManager;
 		inline static constexpr auto Ni_RTTI = NiRTTI_NiControllerManager;
+		inline static constexpr auto VTABLE = VTABLE_NiControllerManager;
 
 		~NiControllerManager() override;  // 00
 
