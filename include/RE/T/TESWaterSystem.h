@@ -35,7 +35,7 @@ namespace RE
 		void AddRipple(const NiPoint3& a_pos, float a_scale)
 		{
 			using func_t = decltype(&TESWaterSystem::AddRipple);
-			REL::Relocation<func_t> func{ RELOCATION_ID(31410, 32217) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(31410, 32217) };
 			return func(this, a_pos, a_scale);
 		}
 

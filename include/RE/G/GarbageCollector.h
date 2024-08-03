@@ -58,7 +58,7 @@ namespace RE
 		void Add(TESObjectREFR* a_object, bool a_removeFromCell)
 		{
 			using func_t = decltype(&GarbageCollector::Add);
-			REL::Relocation<func_t> func{ RELOCATION_ID(35492, 36459) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(35492, 36459) };
 			return func(this, a_object, a_removeFromCell);
 		}
 

@@ -23,7 +23,7 @@ namespace RE
 		static void OpenTutorialMenu(DEFAULT_OBJECT a_tutorial)
 		{
 			using func_t = decltype(&TutorialMenu::OpenTutorialMenu);
-			REL::Relocation<func_t> func{ RELOCATION_ID(51818, 52692) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(51818, 52692) };
 			return func(a_tutorial);
 		}
 

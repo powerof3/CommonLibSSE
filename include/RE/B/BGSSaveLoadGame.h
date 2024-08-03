@@ -75,7 +75,7 @@ namespace RE
 		bool GetChange(TESForm* a_form, std::uint32_t a_changes)
 		{
 			using func_t = decltype(&BGSSaveLoadGame::GetChange);
-			REL::Relocation<func_t> func{ RELOCATION_ID(34655, 35577) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(34655, 35577) };
 			return func(this, a_form, a_changes);
 		}
 

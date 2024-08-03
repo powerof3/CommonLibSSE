@@ -12,14 +12,14 @@ namespace RE
 	bool SkyrimVM::QueuePostRenderCall(const BSTSmartPointer<SkyrimScript::DelayFunctor>& a_functor)
 	{
 		using func_t = decltype(&SkyrimVM::QueuePostRenderCall);
-		REL::Relocation<func_t> func{ Offset::SkyrimVM::QueuePostRenderCall };
+		static REL::Relocation<func_t> func{ Offset::SkyrimVM::QueuePostRenderCall };
 		return func(this, a_functor);
 	}
 
 	void SkyrimVM::RelayEvent(VMHandle a_handle, BSFixedString* a_event, BSScript::IFunctionArguments* a_args, SkyrimVM::ISendEventFilter* a_optionalFilter)
 	{
 		using func_t = decltype(&SkyrimVM::RelayEvent);
-		REL::Relocation<func_t> func{ Offset::SkyrimVM::RelayEvent };
+		static REL::Relocation<func_t> func{ Offset::SkyrimVM::RelayEvent };
 		return func(this, a_handle, a_event, a_args, a_optionalFilter);
 	}
 

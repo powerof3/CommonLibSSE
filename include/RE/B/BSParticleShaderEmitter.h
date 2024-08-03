@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSParticleShaderEmitter;
+		inline static constexpr auto VTABLE = VTABLE_BSParticleShaderEmitter;
 
 		enum class EMITTER_TYPE
 		{

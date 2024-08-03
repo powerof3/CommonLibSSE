@@ -11,6 +11,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BSEffectShaderProperty;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSEffectShaderProperty;
+		inline static constexpr auto VTABLE = VTABLE_BSEffectShaderProperty;
 
 		~BSEffectShaderProperty() override;  // 00
 
