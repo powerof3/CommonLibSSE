@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_FavoritesHandler;
+		inline static constexpr auto VTABLE = VTABLE_FavoritesHandler;
 
 		~FavoritesHandler() override;  // 00
 

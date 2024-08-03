@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraRegionList;
+		inline static constexpr auto VTABLE = VTABLE_ExtraRegionList;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kRegionList;
 
 		~ExtraRegionList() override;  // 00

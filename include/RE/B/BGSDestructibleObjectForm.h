@@ -61,6 +61,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSDestructibleObjectForm;
+		inline static constexpr auto VTABLE = VTABLE_BGSDestructibleObjectForm;
 
 		~BGSDestructibleObjectForm() override;  // 00
 

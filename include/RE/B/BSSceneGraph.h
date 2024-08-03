@@ -12,6 +12,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BSSceneGraph;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSSceneGraph;
+		inline static constexpr auto VTABLE = VTABLE_BSSceneGraph;
 
 		~BSSceneGraph() override;  // 00
 

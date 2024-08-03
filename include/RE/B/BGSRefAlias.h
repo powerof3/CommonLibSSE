@@ -15,6 +15,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSRefAlias;
+		inline static constexpr auto VTABLE = VTABLE_BGSRefAlias;
 		inline static constexpr auto VMTYPEID = static_cast<VMTypeID>(140);
 
 		struct ForcedFillData  // kForced

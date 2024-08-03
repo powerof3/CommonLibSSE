@@ -10,6 +10,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_NiColorData;
 		inline static constexpr auto Ni_RTTI = NiRTTI_NiColorData;
+		inline static constexpr auto VTABLE = VTABLE_NiColorData;
 
 		using KeyType = NiColorKey::KeyType;
 

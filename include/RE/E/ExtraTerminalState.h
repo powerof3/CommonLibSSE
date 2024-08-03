@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraTerminalState;
+		inline static constexpr auto VTABLE = VTABLE_ExtraTerminalState;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kTerminalState;
 
 		virtual ~ExtraTerminalState();  // 00

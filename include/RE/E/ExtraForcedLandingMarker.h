@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraForcedLandingMarker;
+		inline static constexpr auto VTABLE = VTABLE_ExtraForcedLandingMarker;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kForcedLandingMarker;
 
 		virtual ~ExtraForcedLandingMarker();  // 00

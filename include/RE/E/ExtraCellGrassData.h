@@ -25,6 +25,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraCellGrassData;
+		inline static constexpr auto VTABLE = VTABLE_ExtraCellGrassData;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kCellGrassData;
 
 		~ExtraCellGrassData() override;  // 00

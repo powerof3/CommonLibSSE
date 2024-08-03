@@ -18,6 +18,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_ShadowSceneNode;
 		inline static constexpr auto Ni_RTTI = NiRTTI_ShadowSceneNode;
+		inline static constexpr auto VTABLE = VTABLE_ShadowSceneNode;
 
 		struct LIGHT_CREATE_PARAMS
 		{

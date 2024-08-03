@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_GameSettingCollection;
+		inline static constexpr auto VTABLE = VTABLE_GameSettingCollection;
 
 		~GameSettingCollection() override;  // 00
 

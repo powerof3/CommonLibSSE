@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_MovementHandler;
+		inline static constexpr auto VTABLE = VTABLE_MovementHandler;
 
 		~MovementHandler() override;  // 00
 

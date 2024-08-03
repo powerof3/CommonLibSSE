@@ -36,6 +36,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_PlayerControls;
+		inline static constexpr auto VTABLE = VTABLE_PlayerControls;
 
 		PlayerControls();
 		~PlayerControls() override = default;  // 00

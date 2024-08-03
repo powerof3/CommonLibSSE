@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraWornLeft;
+		inline static constexpr auto VTABLE = VTABLE_ExtraWornLeft;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kWornLeft;
 
 		~ExtraWornLeft() override;  // 00

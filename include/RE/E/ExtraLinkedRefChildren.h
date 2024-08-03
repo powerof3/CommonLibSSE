@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraLinkedRefChildren;
+		inline static constexpr auto VTABLE = VTABLE_ExtraLinkedRefChildren;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kLinkedRefChildren;
 
 		struct LinkedRefChild

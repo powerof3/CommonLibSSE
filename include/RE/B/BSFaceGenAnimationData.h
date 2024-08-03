@@ -12,6 +12,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BSFaceGenAnimationData;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSFaceGenAnimationData;
+		inline static constexpr auto VTABLE = VTABLE_BSFaceGenAnimationData;
 
 		~BSFaceGenAnimationData() override;  // 00
 

@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraGhost;
+		inline static constexpr auto VTABLE = VTABLE_ExtraGhost;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kGhost;
 
 		~ExtraGhost() override;  // 00

@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_TESEnchantableForm;
+		inline static constexpr auto VTABLE = VTABLE_TESEnchantableForm;
 
 		~TESEnchantableForm() override;  // 00
 

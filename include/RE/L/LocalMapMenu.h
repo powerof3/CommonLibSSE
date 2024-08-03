@@ -57,6 +57,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_LocalMapMenu__InputHandler;
+			inline static constexpr auto VTABLE = VTABLE_LocalMapMenu__InputHandler;
 
 			~InputHandler() override;  // 00
 

@@ -9,6 +9,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_NiShadeProperty;
 		inline static constexpr auto Ni_RTTI = NiRTTI_NiShadeProperty;
+		inline static constexpr auto VTABLE = VTABLE_NiShadeProperty;
 
 		~NiShadeProperty() override;  // 00
 

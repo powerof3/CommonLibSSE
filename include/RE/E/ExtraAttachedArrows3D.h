@@ -14,6 +14,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraAttachedArrows3D;
+		inline static constexpr auto VTABLE = VTABLE_ExtraAttachedArrows3D;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kAttachedArrows3D;
 
 		struct DataItem

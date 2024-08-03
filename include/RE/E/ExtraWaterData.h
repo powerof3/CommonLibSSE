@@ -25,6 +25,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraWaterData;
+		inline static constexpr auto VTABLE = VTABLE_ExtraWaterData;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kWaterData;
 
 		virtual ~ExtraWaterData();  // 00

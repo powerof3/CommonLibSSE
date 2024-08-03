@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraOpenCloseActivateRef;
+		inline static constexpr auto VTABLE = VTABLE_ExtraOpenCloseActivateRef;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kOpenCloseActivateRef;
 
 		virtual ~ExtraOpenCloseActivateRef();  // 00

@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraModelSwap;
+		inline static constexpr auto VTABLE = VTABLE_ExtraModelSwap;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kModelSwap;
 
 		virtual ~ExtraModelSwap();  // 00

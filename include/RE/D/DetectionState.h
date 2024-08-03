@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_DetectionState;
+		inline static constexpr auto VTABLE = VTABLE_DetectionState;
 
 		~DetectionState() override;  // 00
 

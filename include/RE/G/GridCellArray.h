@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_GridCellArray;
+		inline static constexpr auto VTABLE = VTABLE_GridCellArray;
 
 		~GridCellArray() override;  // 00
 

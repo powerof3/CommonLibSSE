@@ -9,6 +9,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BSMultiStreamInstanceTriShape;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSMultiStreamInstanceTriShape;
+		inline static constexpr auto VTABLE = VTABLE_BSMultiStreamInstanceTriShape;
 
 		~BSMultiStreamInstanceTriShape() override;  // 00
 

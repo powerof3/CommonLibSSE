@@ -14,6 +14,7 @@ namespace RE
 		class EffectInput;
 
 		inline static constexpr auto RTTI = RTTI_ImageSpaceEffect;
+		inline static constexpr auto VTABLE = VTABLE_ImageSpaceEffect;
 
 		virtual ~ImageSpaceEffect();  // 00
 

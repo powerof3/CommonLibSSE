@@ -11,11 +11,13 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSNavmeshInfoMap;
+		inline static constexpr auto VTABLE = VTABLE_BSNavmeshInfoMap;
 
 		struct IVisitor
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_BSNavmeshInfoMap__IVisitor;
+			inline static constexpr auto VTABLE = VTABLE_BSNavmeshInfoMap__IVisitor;
 
 			virtual ~IVisitor();  // 00
 

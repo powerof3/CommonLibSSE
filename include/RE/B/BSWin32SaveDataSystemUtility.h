@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSWin32SaveDataSystemUtility;
+		inline static constexpr auto VTABLE = VTABLE_BSWin32SaveDataSystemUtility;
 
 		~BSWin32SaveDataSystemUtility() override;
 
