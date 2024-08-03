@@ -490,6 +490,7 @@ namespace RE
 
 		bool                         AddAnimationGraphEventSink(BSTEventSink<BSAnimationGraphEvent>* a_sink) const;
 		void                         AddCastPower(SpellItem* a_power);
+		void                         AddDeathItems();
 		bool                         AddSpell(SpellItem* a_spell);
 		void                         AddToFaction(TESFaction* a_faction, std::int8_t a_rank);
 		void                         AddWornOutfit(BGSOutfit* a_outfit, bool a_forceUpdate);
