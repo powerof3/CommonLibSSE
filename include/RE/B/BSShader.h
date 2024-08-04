@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RE/B/BSReloadShaderI.h"
+#include "RE/B/BSTHashMap.h"
 #include "RE/N/NiBoneMatrixSetterI.h"
 #include "RE/N/NiRefObject.h"
 
@@ -98,6 +99,13 @@ namespace RE
 		virtual void RestoreGeometry(BSRenderPass* a_currentPass, std::uint32_t a_renderFlags) = 0;              // 07
 		virtual void GetTechniqueName(std::uint32_t a_techniqueID, char* a_buffer, std::uint32_t a_bufferSize);  // 08
 		virtual void ReloadShaders(bool a_clear);                                                                // 09
+
+		RE::BSRenderPass* MakeRenderPass(BSShaderProperty* property, BSGeometry* geometry, uint32_t technique, uint8_t numLights, BSLight** lights)
+		{
+			using func_t = decltype(&BSShader::MakeRenderPass);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(100717, 107497) };
+			return func(this, property, geometry, technique, numLights, lights);
+		}
 
 		// members
 		std::int32_t                                               shaderType;     // 20
