@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraFromAlias;
+		inline static constexpr auto VTABLE = VTABLE_ExtraFromAlias;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kFromAlias;
 
 		virtual ~ExtraFromAlias();  // 00

@@ -38,6 +38,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_NiObject;
 		inline static constexpr auto Ni_RTTI = NiRTTI_NiObject;
+		inline static constexpr auto VTABLE = VTABLE_NiObject;
 
 		~NiObject() override = default;  // 00
 

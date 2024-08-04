@@ -110,6 +110,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraMapMarker;
+		inline static constexpr auto VTABLE = VTABLE_ExtraMapMarker;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kMapMarker;
 
 		virtual ~ExtraMapMarker();  // 00

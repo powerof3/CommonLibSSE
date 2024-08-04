@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraLeveledItemBase;
+		inline static constexpr auto VTABLE = VTABLE_ExtraLeveledItemBase;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kLeveledItemBase;
 
 		virtual ~ExtraLeveledItemBase();  // 00

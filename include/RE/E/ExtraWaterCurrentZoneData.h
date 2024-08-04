@@ -19,6 +19,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraWaterCurrentZoneData;
+		inline static constexpr auto VTABLE = VTABLE_ExtraWaterCurrentZoneData;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kWaterCurrentZoneData;
 
 		virtual ~ExtraWaterCurrentZoneData();  // 00

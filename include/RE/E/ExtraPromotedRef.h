@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraPromotedRef;
+		inline static constexpr auto VTABLE = VTABLE_ExtraPromotedRef;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kPromotedRef;
 
 		~ExtraPromotedRef() override;  // 00

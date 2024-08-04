@@ -14,6 +14,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_UIBlurManager;
+		inline static constexpr auto VTABLE = VTABLE_UIBlurManager;
 
 		~UIBlurManager() override;  // 00
 

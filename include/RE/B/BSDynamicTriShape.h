@@ -9,6 +9,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BSDynamicTriShape;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSDynamicTriShape;
+		inline static constexpr auto VTABLE = VTABLE_BSDynamicTriShape;
 
 		~BSDynamicTriShape() override;  // 00
 

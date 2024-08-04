@@ -61,6 +61,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSBipedObjectForm;
+		inline static constexpr auto VTABLE = VTABLE_BGSBipedObjectForm;
 
 		using ArmorType = BIPED_MODEL::ArmorType;
 		using BipedObjectSlot = BIPED_MODEL::BipedObjectSlot;

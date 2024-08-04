@@ -6,6 +6,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSGameSound;
+		inline static constexpr auto VTABLE = VTABLE_BSGameSound;
 
 		// add
 		virtual void Unk_00(void);  // 00 - { return; }

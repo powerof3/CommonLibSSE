@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSTempEffectWeaponBlood;
+		inline static constexpr auto VTABLE = VTABLE_BSTempEffectWeaponBlood;
 		inline static constexpr auto TYPE = TEMP_EFFECT_TYPE::kWeaponBlood;
 
 		~BSTempEffectWeaponBlood() override;  // 00

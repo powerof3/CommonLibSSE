@@ -31,6 +31,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_Sky;
+		inline static constexpr auto VTABLE = VTABLE_Sky;
 
 		enum class Mode
 		{

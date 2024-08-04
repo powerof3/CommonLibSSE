@@ -134,6 +134,7 @@ namespace RE
 
 	public:
 		inline static constexpr auto RTTI = RTTI_Actor;
+		inline static constexpr auto VTABLE = VTABLE_Actor;
 		inline static constexpr auto FORMTYPE = FormType::ActorCharacter;
 
 		struct SlotTypes
@@ -258,6 +259,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_Actor__ForEachSpellVisitor;
+			inline static constexpr auto VTABLE = VTABLE_Actor__ForEachSpellVisitor;
 
 			virtual ~ForEachSpellVisitor() = default;  // 00
 
@@ -488,6 +490,7 @@ namespace RE
 
 		bool                         AddAnimationGraphEventSink(BSTEventSink<BSAnimationGraphEvent>* a_sink) const;
 		void                         AddCastPower(SpellItem* a_power);
+		void                         AddDeathItems();
 		bool                         AddSpell(SpellItem* a_spell);
 		void                         AddToFaction(TESFaction* a_faction, std::int8_t a_rank);
 		void                         AddWornOutfit(BGSOutfit* a_outfit, bool a_forceUpdate);

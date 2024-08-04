@@ -17,6 +17,13 @@ namespace RE
 		};
 		static_assert(sizeof(LODMode) == 0x1);
 
+		void ClearRenderPass()
+		{
+			using func_t = decltype(&BSRenderPass::ClearRenderPass);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(100718, 107498) };
+			func(this);
+		}
+
 		// members
 		BSShader*         shader;            // 00
 		BSShaderProperty* shaderProperty;    // 08

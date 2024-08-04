@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraWaterLightRefs;
+		inline static constexpr auto VTABLE = VTABLE_ExtraWaterLightRefs;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kWaterLightRefs;
 
 		virtual ~ExtraWaterLightRefs();  // 00

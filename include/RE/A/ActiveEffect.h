@@ -34,6 +34,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_ActiveEffect__ForEachHitEffectVisitor;
+			inline static constexpr auto VTABLE = VTABLE_ActiveEffect__ForEachHitEffectVisitor;
 
 			virtual ~ForEachHitEffectVisitor();  // 00
 

@@ -71,6 +71,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_bhkCharacterController;
+		inline static constexpr auto VTABLE = VTABLE_bhkCharacterController;
 
 		~bhkCharacterController() override;  // 00
 

@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_GFxTranslator;
+		inline static constexpr auto VTABLE = VTABLE_GFxTranslator;
 
 		using WordWrappingType = GFxWWHelper::WordWrappingType;
 

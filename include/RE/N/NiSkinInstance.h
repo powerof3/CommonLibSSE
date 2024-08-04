@@ -17,6 +17,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_NiSkinInstance;
 		inline static constexpr auto Ni_RTTI = NiRTTI_NiSkinInstance;
+		inline static constexpr auto VTABLE = VTABLE_NiSkinInstance;
 
 		~NiSkinInstance() override;  // 00
 

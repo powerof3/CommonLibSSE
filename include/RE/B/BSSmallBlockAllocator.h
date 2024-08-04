@@ -61,6 +61,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSSmallBlockAllocator;
+		inline static constexpr auto VTABLE = VTABLE_BSSmallBlockAllocator;
 
 		struct Pool : public BSSmallBlockAllocatorUtil::Pool
 		{

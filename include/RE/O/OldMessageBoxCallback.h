@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI___OldMessageBoxCallback;
+		inline static constexpr auto VTABLE = VTABLE___OldMessageBoxCallback;
 
 		using Callback = void(Message);
 

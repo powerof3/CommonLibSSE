@@ -9,6 +9,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_bhkWorldObject;
 		inline static constexpr auto Ni_RTTI = NiRTTI_bhkWorldObject;
+		inline static constexpr auto VTABLE = VTABLE_bhkWorldObject;
 
 		~bhkWorldObject() override;  // 00
 

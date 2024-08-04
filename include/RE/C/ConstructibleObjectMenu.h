@@ -18,6 +18,7 @@ namespace RE
 			{
 			public:
 				inline static constexpr auto RTTI = RTTI_CraftingSubMenus__ConstructibleObjectMenu__CreationConfirmCallback;
+				inline static constexpr auto VTABLE = VTABLE_CraftingSubMenus__ConstructibleObjectMenu__CreationConfirmCallback;
 
 				~CreationConfirmCallback() override;  // 00
 

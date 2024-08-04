@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSFaceGenKeyframeMultiple;
+		inline static constexpr auto VTABLE = VTABLE_BSFaceGenKeyframeMultiple;
 
 		~BSFaceGenKeyframeMultiple() override;  // 00
 

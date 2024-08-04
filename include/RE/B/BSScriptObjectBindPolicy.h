@@ -18,6 +18,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_BSScript__ObjectBindPolicy;
+			inline static constexpr auto VTABLE = VTABLE_BSScript__ObjectBindPolicy;
 
 			virtual ~ObjectBindPolicy();  // 00
 

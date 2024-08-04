@@ -76,6 +76,13 @@ namespace RE
 		return func(this, a_power);
 	}
 
+	void Actor::AddDeathItems()
+	{
+		using func_t = decltype(&Actor::AddDeathItems);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36218, 37198) };
+		return func(this);
+	}
+
 	bool Actor::AddSpell(SpellItem* a_spell)
 	{
 		using func_t = decltype(&Actor::AddSpell);

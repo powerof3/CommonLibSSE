@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraCellSkyRegion;
+		inline static constexpr auto VTABLE = VTABLE_ExtraCellSkyRegion;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kCellSkyRegion;
 
 		~ExtraCellSkyRegion() override;  // 00

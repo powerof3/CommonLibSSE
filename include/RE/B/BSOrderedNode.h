@@ -9,6 +9,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BSOrderedNode;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSOrderedNode;
+		inline static constexpr auto VTABLE = VTABLE_BSOrderedNode;
 
 		~BSOrderedNode() override;  // 00
 

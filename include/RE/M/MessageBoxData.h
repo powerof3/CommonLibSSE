@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_MessageBoxData;
+		inline static constexpr auto VTABLE = VTABLE_MessageBoxData;
 
 		~MessageBoxData() override;  // 00
 

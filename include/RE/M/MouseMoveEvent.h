@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_MouseMoveEvent;
+		inline static constexpr auto VTABLE = VTABLE_MouseMoveEvent;
 
 		~MouseMoveEvent() override;  // 00
 

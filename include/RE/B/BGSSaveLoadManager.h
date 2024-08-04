@@ -50,11 +50,13 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSSaveLoadManager;
+		inline static constexpr auto VTABLE = VTABLE_BGSSaveLoadManager;
 
 		class Thread : public BSThread
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_BGSSaveLoadManager__Thread;
+			inline static constexpr auto VTABLE = VTABLE_BGSSaveLoadManager__Thread;
 
 			~Thread() override;  // 00
 

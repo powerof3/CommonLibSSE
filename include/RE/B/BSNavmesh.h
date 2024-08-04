@@ -149,6 +149,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSNavmesh;
+		inline static constexpr auto VTABLE = VTABLE_BSNavmesh;
 
 		virtual ~BSNavmesh();  // 00
 

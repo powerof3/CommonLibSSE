@@ -19,6 +19,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_TESReactionForm;
+		inline static constexpr auto VTABLE = VTABLE_TESReactionForm;
 
 		~TESReactionForm() override;  // 00
 
