@@ -90,7 +90,7 @@ namespace RE
 		virtual void      CheckSupportImpl() = 0;                                                                   // 0D
 		virtual void      Unk_0E(void) = 0;                                                                         // 0E
 		virtual bhkWorld* GetWorldImpl() = 0;                                                                       // 0F
-		virtual void      Unk_10(void) = 0;                                                                         // 10
+		virtual hkpWorldObject* GetBodyImpl() = 0;                                                                  // 10
 		virtual float     GetVDBAlpha() const = 0;                                                                  // 11
 		virtual void      Unk_12(void) = 0;                                                                         // 12
 		virtual void      RotateImpl(hkTransform& a_tranform) = 0;                                                  // 13
