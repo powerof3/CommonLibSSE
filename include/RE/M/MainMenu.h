@@ -9,6 +9,7 @@ namespace RE
 {
 	class BSSaveDataEvent;
 	class BSSystemEvent;
+	struct MapMenuMarker;
 
 	// menuDepth = 0
 	// flags = kPausesGame | kDisablePauseMenu | kRequiresUpdate | kUpdateUsesCursor | kApplicationMenu

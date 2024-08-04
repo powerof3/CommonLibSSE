@@ -15,6 +15,7 @@ namespace RE
 	class BSShaderAccumulator;
 	class NiCamera;
 	class NiNode;
+	struct MapMenuMarker;
 
 	struct LocalMapMenu
 	{
@@ -73,7 +74,7 @@ namespace RE
 		static_assert(sizeof(InputHandler) == 0x18);
 
 		// members
-		BSTArray<void*>               unk00000;             // 00000
+		BSTArray<MapMenuMarker>       mapMarkers;           // 00000
 		GFxValue                      unk00018;             // 00018
 		float                         unk00030;             // 00030
 		float                         unk00034;             // 00034
@@ -81,11 +82,15 @@ namespace RE
 		float                         unk0003C;             // 0003C
 		LocalMapCullingProcess        localCullingProcess;  // 00040
 		BSScaleformExternalTexture    unk303A0;             // 303A0
-		GFxValue                      unk303B8;             // 303B8
-		GFxValue                      unk303D0;             // 303D0
+		GFxValue                      localMapMovie;        // 303B8
+		GFxValue                      mapMovie;             // 303D0
 		void*                         unk303E8;             // 303E8
 		BSTSmartPointer<InputHandler> unk303F0;             // 303F0
-		std::uint64_t                 unk303F8;             // 303F8
+		std::int32_t                  selectedMarker;       // 303F8
+		bool                          showingMap;           // 303FC
+		bool                          dragging;             // 303FD
+		bool                          controlsReady;        // 303FE
+		std::uint8_t                  unk303FF;             // 303FF
 	};
 	static_assert(sizeof(LocalMapMenu) == 0x30400);
 }
