@@ -12,8 +12,6 @@ namespace RE
 	class BSShaderMaterial;
 	class BSShaderPropertyLightData;
 	class NiSourceTexture;
-	class BSShader;
-	class BSLight;
 
 	class BSShaderProperty : public NiShadeProperty
 	{
@@ -39,13 +37,6 @@ namespace RE
 
 		struct RenderPassArray
 		{
-			BSRenderPass* MakeRenderPass(BSShader* a_shader, BSShaderProperty* a_property, BSGeometry* a_geometry, uint32_t a_technique, uint8_t a_numLights, BSLight** a_lights);
-			void          ClearRenderPass(BSRenderPass* a_pass);
-			void          Clear();
-			BSRenderPass* EmplacePass(BSShader* a_shader, BSShaderProperty* a_property, BSGeometry* a_geometry,
-				uint32_t a_technique, uint8_t a_numLights = 0, BSLight* a_light0 = nullptr, BSLight* a_light1 = nullptr,
-				BSLight* a_light2 = nullptr, BSLight* a_light3 = nullptr);
-
 			BSRenderPass* head;  // 00
 		};
 		static_assert(sizeof(RenderPassArray) == 0x8);
