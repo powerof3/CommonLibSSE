@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSSceneActionTimer;
+		inline static constexpr auto VTABLE = VTABLE_BGSSceneActionTimer;
 		inline static constexpr auto TYPE = Type::kTimer;
 
 		~BGSSceneActionTimer() override;  // 00

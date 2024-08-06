@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraTeleportName;
+		inline static constexpr auto VTABLE = VTABLE_ExtraTeleportName;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kTeleportName;
 
 		~ExtraTeleportName() override;  // 00

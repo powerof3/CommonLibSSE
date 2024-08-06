@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraDroppedItemList;
+		inline static constexpr auto VTABLE = VTABLE_ExtraDroppedItemList;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kDroppedItemList;
 
 		virtual ~ExtraDroppedItemList();  // 00

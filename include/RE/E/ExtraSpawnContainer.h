@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraSpawnContainer;
+		inline static constexpr auto VTABLE = VTABLE_ExtraSpawnContainer;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kSpawnContainer;
 
 		virtual ~ExtraSpawnContainer();  // 00

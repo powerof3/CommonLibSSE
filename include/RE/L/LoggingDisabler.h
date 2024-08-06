@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI___LoggingDisabler;
+		inline static constexpr auto VTABLE = VTABLE___LoggingDisabler;
 
 		LoggingDisabler() = default;
 		~LoggingDisabler() override = default;  // 00

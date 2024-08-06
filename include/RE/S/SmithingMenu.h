@@ -21,6 +21,7 @@ namespace RE
 			{
 			public:
 				inline static constexpr auto RTTI = RTTI_CraftingSubMenus__SmithingMenu__SmithingConfirmCallback;
+				inline static constexpr auto VTABLE = VTABLE_CraftingSubMenus__SmithingMenu__SmithingConfirmCallback;
 
 				~SmithingConfirmCallback() override;  // 00
 

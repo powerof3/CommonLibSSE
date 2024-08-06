@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSProcedureTreeProcedure;
+		inline static constexpr auto VTABLE = VTABLE_BGSProcedureTreeProcedure;
 
 		~BGSProcedureTreeProcedure() override;  // 00
 

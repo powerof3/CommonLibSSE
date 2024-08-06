@@ -21,11 +21,13 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BSShaderProperty;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSShaderProperty;
+		inline static constexpr auto VTABLE = VTABLE_BSShaderProperty;
 
 		class ForEachVisitor
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_BSShaderProperty__ForEachVisitor;
+			inline static constexpr auto VTABLE = VTABLE_BSShaderProperty__ForEachVisitor;
 
 			virtual ~ForEachVisitor();  // 00
 
@@ -35,7 +37,7 @@ namespace RE
 
 		struct RenderPassArray
 		{
-			BSRenderPass* head;  // 0
+			BSRenderPass* head;  // 00
 		};
 		static_assert(sizeof(RenderPassArray) == 0x8);
 
@@ -215,6 +217,7 @@ namespace RE
 		void SetEffectShaderData(const BSTSmartPointer<BSEffectShaderData>& a_data);
 		void SetMaterial(BSShaderMaterial* a_material, bool a_unk1);
 		void SetFlags(EShaderPropertyFlag8 a_flag, bool a_set);
+		void LinkMaterial(BSShaderMaterial* a_material, bool a_unk1);
 
 		// members
 		float                                                alpha;                // 30

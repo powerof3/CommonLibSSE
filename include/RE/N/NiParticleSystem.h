@@ -38,7 +38,7 @@ namespace RE
 		void AddModifier(NiPSysModifier* a_modifier)
 		{
 			using func_t = decltype(&NiParticleSystem::AddModifier);
-			REL::Relocation<func_t> func{ RELOCATION_ID(72799, 74499) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(72799, 74499) };
 			return func(this, a_modifier);
 		}
 

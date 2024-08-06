@@ -9,6 +9,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_BSDismemberSkinInstance;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSDismemberSkinInstance;
+		inline static constexpr auto VTABLE = VTABLE_BSDismemberSkinInstance;
 
 		struct Data
 		{
@@ -35,7 +36,7 @@ namespace RE
 		void UpdateDismemberPartion(std::uint16_t a_slot, bool a_enable)
 		{
 			using func_t = decltype(&BSDismemberSkinInstance::UpdateDismemberPartion);
-			REL::Relocation<func_t> func{ RELOCATION_ID(15576, 15753) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(15576, 15753) };
 			return func(this, a_slot, a_enable);
 		}
 

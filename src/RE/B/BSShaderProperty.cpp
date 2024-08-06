@@ -11,14 +11,28 @@ namespace RE
 	void BSShaderProperty::SetMaterial(BSShaderMaterial* a_material, bool a_unk1)
 	{
 		using func_t = decltype(&BSShaderProperty::SetMaterial);
-		REL::Relocation<func_t> func{ RELOCATION_ID(98897, 105544) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(98897, 105544) };
 		return func(this, a_material, a_unk1);
 	}
 
 	void BSShaderProperty::SetFlags(EShaderPropertyFlag8 a_flag, bool a_set)
 	{
 		using func_t = decltype(&BSShaderProperty::SetFlags);
-		REL::Relocation<func_t> func{ RELOCATION_ID(98893, 105540) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(98893, 105540) };
 		return func(this, a_flag, a_set);
+	}
+
+	void BSShaderProperty::LinkMaterial(BSShaderMaterial* a_material, bool a_unk1)
+	{
+		using func_t = decltype(&BSShaderProperty::LinkMaterial);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(98897, 105544) };
+		return func(this, a_material, a_unk1);
+	}
+
+	void BSShaderProperty::LoadBinary(NiStream& a_stream)
+	{
+		auto vtable = REL::Relocation<void***>(BSShaderProperty::VTABLE[0]);
+		auto baseMethod = reinterpret_cast<void (*)(BSShaderProperty*, NiStream&)>((vtable.get()[0x18]));
+		return baseMethod(this, a_stream);
 	}
 }

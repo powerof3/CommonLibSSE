@@ -44,6 +44,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSAttackData;
+		inline static constexpr auto VTABLE = VTABLE_BGSAttackData;
 
 		~BGSAttackData() override;  // 00
 

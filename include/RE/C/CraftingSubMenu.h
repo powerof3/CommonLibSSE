@@ -21,6 +21,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_CraftingSubMenus__CraftingSubMenu;
+			inline static constexpr auto VTABLE = VTABLE_CraftingSubMenus__CraftingSubMenu;
 
 			~CraftingSubMenu() override;  // 00
 
@@ -35,7 +36,7 @@ namespace RE
 			void UpdateCraftingInfo(ActorValue a_actorValue)
 			{
 				using func_t = decltype(&CraftingSubMenu::UpdateCraftingInfo);
-				REL::Relocation<func_t> func{ RELOCATION_ID(50461, 51364) };
+				static REL::Relocation<func_t> func{ RELOCATION_ID(50461, 51364) };
 				return func(this, a_actorValue);
 			}
 

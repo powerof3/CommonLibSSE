@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSEffectShaderMaterial;
+		inline static constexpr auto VTABLE = VTABLE_BSEffectShaderMaterial;
 
 		~BSEffectShaderMaterial() override;  // 00
 

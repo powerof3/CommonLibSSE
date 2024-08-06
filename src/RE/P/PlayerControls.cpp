@@ -19,7 +19,7 @@ namespace RE
 	PlayerControls* PlayerControls::Ctor()
 	{
 		using func_t = decltype(&PlayerControls::Ctor);
-		REL::Relocation<func_t> func{ Offset::PlayerControls::Ctor };
+		static REL::Relocation<func_t> func{ Offset::PlayerControls::Ctor };
 		return func(this);
 	}
 }

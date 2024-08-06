@@ -6,11 +6,13 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSISoundDescriptor;
+		inline static constexpr auto VTABLE = VTABLE_BSISoundDescriptor;
 
 		class BSIPlaybackCharacteristics
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_BSISoundDescriptor__BSIPlaybackCharacteristics;
+			inline static constexpr auto VTABLE = VTABLE_BSISoundDescriptor__BSIPlaybackCharacteristics;
 
 			virtual ~BSIPlaybackCharacteristics();  // 00
 

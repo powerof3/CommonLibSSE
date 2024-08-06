@@ -14,6 +14,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraSayToTopicInfo;
+		inline static constexpr auto VTABLE = VTABLE_ExtraSayToTopicInfo;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kSayTopicInfo;
 
 		virtual ~ExtraSayToTopicInfo();  // 00

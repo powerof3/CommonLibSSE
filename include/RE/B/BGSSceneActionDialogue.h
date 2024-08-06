@@ -10,6 +10,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BGSSceneActionDialogue;
+		inline static constexpr auto VTABLE = VTABLE_BGSSceneActionDialogue;
 		inline static constexpr auto TYPE = Type::kDialogue;
 
 		~BGSSceneActionDialogue() override;  // 00

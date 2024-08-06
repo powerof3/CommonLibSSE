@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraCell3D;
+		inline static constexpr auto VTABLE = VTABLE_ExtraCell3D;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kCell3D;
 
 		~ExtraCell3D() override;  // 00

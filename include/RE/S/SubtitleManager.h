@@ -30,7 +30,7 @@ namespace RE
 		void KillSubtitles()
 		{
 			using func_t = decltype(&SubtitleManager ::KillSubtitles);
-			REL::Relocation<func_t> func{ RELOCATION_ID(51755, 52628) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(51755, 52628) };
 			return func(this);
 		}
 

@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSAudioManagerThread;
+		inline static constexpr auto VTABLE = VTABLE_BSAudioManagerThread;
 
 		~BSAudioManagerThread() override;  // 00
 

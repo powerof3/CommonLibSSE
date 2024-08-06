@@ -71,6 +71,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_bhkCharacterController;
+		inline static constexpr auto VTABLE = VTABLE_bhkCharacterController;
 
 		~bhkCharacterController() override;  // 00
 
@@ -99,14 +100,14 @@ namespace RE
 		static bool IsHurtfulBody(hkpRigidBody* a_body)
 		{
 			using func_t = decltype(&bhkCharacterController::IsHurtfulBody);
-			REL::Relocation<func_t> func{ RELOCATION_ID(76456, 78298) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(76456, 78298) };
 			return func(a_body);
 		}
 
 		void ProcessHurtfulBody(hkpRigidBody* a_body, const hkContactPoint* a_contactPoint)
 		{
 			using func_t = decltype(&bhkCharacterController::ProcessHurtfulBody);
-			REL::Relocation<func_t> func{ RELOCATION_ID(76460, 78302) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(76460, 78302) };
 			func(this, a_body, a_contactPoint);
 		}
 

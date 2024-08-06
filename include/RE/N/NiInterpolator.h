@@ -17,6 +17,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_NiInterpolator;
 		inline static constexpr auto Ni_RTTI = NiRTTI_NiInterpolator;
+		inline static constexpr auto VTABLE = VTABLE_NiInterpolator;
 
 		~NiInterpolator() override;  // 00
 

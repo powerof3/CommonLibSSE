@@ -9,6 +9,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_Journal_QuestsTab;
+		inline static constexpr auto VTABLE = VTABLE_Journal_QuestsTab;
 
 		~Journal_QuestsTab() override;  // 00
 

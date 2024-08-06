@@ -8,6 +8,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI___ArmorRatingVisitorBase;
+		inline static constexpr auto VTABLE = VTABLE___ArmorRatingVisitorBase;
 
 		virtual ~ArmorRatingVisitorBase();  // 00
 

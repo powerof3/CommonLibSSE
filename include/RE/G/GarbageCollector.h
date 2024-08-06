@@ -43,6 +43,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_GarbageCollector;
+		inline static constexpr auto VTABLE = VTABLE_GarbageCollector;
 
 		~GarbageCollector() override;  // 00
 
@@ -58,7 +59,7 @@ namespace RE
 		void Add(TESObjectREFR* a_object, bool a_removeFromCell)
 		{
 			using func_t = decltype(&GarbageCollector::Add);
-			REL::Relocation<func_t> func{ RELOCATION_ID(35492, 36459) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(35492, 36459) };
 			return func(this, a_object, a_removeFromCell);
 		}
 

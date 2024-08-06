@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraActorCause;
+		inline static constexpr auto VTABLE = VTABLE_ExtraActorCause;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kActorCause;
 
 		virtual ~ExtraActorCause();  // 00

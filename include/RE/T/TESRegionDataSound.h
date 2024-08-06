@@ -13,6 +13,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_TESRegionDataSound;
+		inline static constexpr auto VTABLE = VTABLE_TESRegionDataSound;
 		inline static constexpr auto TYPE = Type::kSound;
 
 		struct Sound

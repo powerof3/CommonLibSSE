@@ -11,6 +11,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraSceneData;
+		inline static constexpr auto VTABLE = VTABLE_ExtraSceneData;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kSceneData;
 
 		virtual ~ExtraSceneData();  // 00

@@ -12,6 +12,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_ExtraMultiBound;
+		inline static constexpr auto VTABLE = VTABLE_ExtraMultiBound;
 		inline static constexpr auto EXTRADATATYPE = ExtraDataType::kMultiBound;
 
 		~ExtraMultiBound() override;  // 00

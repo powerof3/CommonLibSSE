@@ -18,6 +18,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_ShadowSceneNode;
 		inline static constexpr auto Ni_RTTI = NiRTTI_ShadowSceneNode;
+		inline static constexpr auto VTABLE = VTABLE_ShadowSceneNode;
 
 		struct LIGHT_CREATE_PARAMS
 		{
@@ -47,7 +48,7 @@ namespace RE
 		BSLight* AddLight(NiLight* a_light, const LIGHT_CREATE_PARAMS& a_params)
 		{
 			using func_t = decltype(&ShadowSceneNode::AddLight);
-			REL::Relocation<func_t> func{ RELOCATION_ID(99692, 106326) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(99692, 106326) };
 			return func(this, a_light, a_params);
 		}
 

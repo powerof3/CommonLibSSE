@@ -80,14 +80,14 @@ namespace RE
 		void AddContactListener(hkpContactListener* a_listener)
 		{
 			using func_t = decltype(&hkpEntity::AddContactListener);
-			REL::Relocation<func_t> func{ RELOCATION_ID(60094, 60844) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(60094, 60844) };
 			return func(this, a_listener);
 		}
 
 		void RemoveContactListener(hkpContactListener* a_listener)
 		{
 			using func_t = decltype(&hkpEntity::RemoveContactListener);
-			REL::Relocation<func_t> func{ RELOCATION_ID(60095, 60845) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(60095, 60845) };
 			return func(this, a_listener);
 		}
 
@@ -125,7 +125,7 @@ namespace RE
 		void Activate()
 		{
 			using func_t = decltype(&hkpEntity::Activate);
-			REL::Relocation<func_t> func{ RELOCATION_ID(60096, 60849) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(60096, 60849) };
 			return func(this);
 		}
 	};
