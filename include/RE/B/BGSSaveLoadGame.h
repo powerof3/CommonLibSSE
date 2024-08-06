@@ -79,6 +79,13 @@ namespace RE
 			return func(this, a_form, a_changes);
 		}
 
+		void ClearForm(TESForm* a_form)
+		{
+			using func_t = decltype(&BGSSaveLoadGame::ClearForm);
+			REL::Relocation<func_t> func{ Offset::BGSSaveLoadManager::ClearForm };
+			return func(this, a_form);
+		}
+
 		// members
 		BSTArray<TESFile*>                     pluginList;           // 000
 		BSTArray<void*>                        unk18;                // 018

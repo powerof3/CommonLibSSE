@@ -56,6 +56,7 @@ namespace RE
 			inline constexpr REL::ID Save(static_cast<std::uint64_t>(35727));
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(403340));
 			inline constexpr REL::ID Load(static_cast<std::uint64_t>(35728));
+			inline constexpr REL::ID ClearForm(static_cast<std::uint64_t>(35588));
 		}
 
 		namespace BGSSkillPerkTreeNode
@@ -341,6 +342,13 @@ namespace RE
 			inline constexpr REL::ID TransferItemUID(static_cast<std::uint64_t>(16149));
 		}
 
+		namespace InventoryEntryData
+		{
+			inline constexpr REL::ID GetValue(static_cast<std::uint64_t>(15995));
+			inline constexpr REL::ID IsQuestObject(static_cast<std::uint64_t>(16005));
+			inline constexpr REL::ID IsOwnedBy(static_cast<std::uint64_t>(16020));
+		}
+		
 		namespace ItemCrafted
 		{
 			inline constexpr REL::ID GetEventSource(static_cast<std::uint64_t>(51403));
