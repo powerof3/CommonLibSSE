@@ -76,24 +76,24 @@ namespace RE
 		~bhkCharacterController() override;  // 00
 
 		// add
-		virtual void      GetPositionImpl(hkVector4& a_pos, bool a_applyCenterOffset) const = 0;                    // 02
-		virtual void      SetPositionImpl(const hkVector4& a_pos, bool a_applyCenterOffset, bool a_forceWarp) = 0;  // 03
-		virtual void      GetTransformImpl(hkTransform& a_tranform) const = 0;                                      // 04
-		virtual void      SetTransformImpl(const hkTransform& a_tranform) = 0;                                      // 05
-		virtual void      GetLinearVelocityImpl(hkVector4& a_velocity) const = 0;                                   // 06
-		virtual void      SetLinearVelocityImpl(const hkVector4& a_velocity) = 0;                                   // 07
-		virtual void      GetCollisionFilterInfo(std::uint32_t& a_collisionFilterInfo) const = 0;                   // 08
-		virtual void      Unk_09(void) = 0;                                                                         // 09
-		virtual void      Unk_0A(void) = 0;                                                                         // 0A
-		virtual void      Unk_0B(void) = 0;                                                                         // 0B
-		virtual void      Unk_0C(void) = 0;                                                                         // 0C
-		virtual void      CheckSupportImpl() = 0;                                                                   // 0D
-		virtual void      Unk_0E(void) = 0;                                                                         // 0E
-		virtual bhkWorld* GetWorldImpl() = 0;                                                                       // 0F
-		virtual void      Unk_10(void) = 0;                                                                         // 10
-		virtual float     GetVDBAlpha() const = 0;                                                                  // 11
-		virtual void      Unk_12(void) = 0;                                                                         // 12
-		virtual void      RotateImpl(hkTransform& a_tranform) = 0;                                                  // 13
+		virtual void            GetPositionImpl(hkVector4& a_pos, bool a_applyCenterOffset) const = 0;                    // 02
+		virtual void            SetPositionImpl(const hkVector4& a_pos, bool a_applyCenterOffset, bool a_forceWarp) = 0;  // 03
+		virtual void            GetTransformImpl(hkTransform& a_tranform) const = 0;                                      // 04
+		virtual void            SetTransformImpl(const hkTransform& a_tranform) = 0;                                      // 05
+		virtual void            GetLinearVelocityImpl(hkVector4& a_velocity) const = 0;                                   // 06
+		virtual void            SetLinearVelocityImpl(const hkVector4& a_velocity) = 0;                                   // 07
+		virtual void            GetCollisionFilterInfo(std::uint32_t& a_collisionFilterInfo) const = 0;                   // 08
+		virtual void            Unk_09(void) = 0;                                                                         // 09
+		virtual void            Unk_0A(void) = 0;                                                                         // 0A
+		virtual void            Unk_0B(void) = 0;                                                                         // 0B
+		virtual void            Unk_0C(void) = 0;                                                                         // 0C
+		virtual void            CheckSupportImpl() = 0;                                                                   // 0D
+		virtual void            Unk_0E(void) = 0;                                                                         // 0E
+		virtual bhkWorld*       GetWorldImpl() = 0;                                                                       // 0F
+		virtual hkpWorldObject* GetBodyImpl() = 0;                                                                        // 10
+		virtual float           GetVDBAlpha() const = 0;                                                                  // 11
+		virtual void            Unk_12(void) = 0;                                                                         // 12
+		virtual void            RotateImpl(hkTransform& a_tranform) = 0;                                                  // 13
 
 		inline void GetPosition(hkVector4& a_pos, bool a_applyCenterOffset) const { return GetPositionImpl(a_pos, a_applyCenterOffset); }
 

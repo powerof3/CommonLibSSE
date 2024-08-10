@@ -57,18 +57,21 @@ namespace RE
 		LocalMapMenu                    localMapMenu;          // 00060
 		RefHandle                       unk30460;              // 30460
 		NiPoint3                        playerMarkerPosition;  // 30464
-		BSTArray<void*>                 unk30470;              // 30470
-		BSTArray<void*>                 unk30488;              // 30488
+		BSTArray<MapMenuMarker>         mapMarkers;            // 30470
+		BSTArray<GFxValue>              markerData;            // 30488
 		MapCamera                       camera;                // 304A0
 		std::uint64_t                   unk30530;              // 30530
 		TESWorldSpace*                  worldSpace;            // 30538
-		GFxValue                        unk30540;              // 30540
-		std::uint32_t                   unk30558;              // 30558
+		GFxValue                        mapMovie;              // 30540
+		std::int32_t                    selectedMarker;        // 30558
 		NiPoint3                        cameraPickOrigin;      // 3055C
 		NiPoint3                        cameraPickDirection;   // 30568
 		BSSoundHandle                   unk30574;              // 30574
 		std::uint64_t                   unk30580;              // 30580
-		std::uint64_t                   unk30588;              // 30588
+		std::uint32_t                   unk30588;              // 30588
+		bool                            controlsReady;         // 3058C
+		std::uint8_t                    unk3058D;              // 3058D
+		std::uint16_t                   unk3058E;              // 3058E
 		std::uint64_t                   unk30590;              // 30590
 	};
 	static_assert(sizeof(MapMenu) == 0x30598);
