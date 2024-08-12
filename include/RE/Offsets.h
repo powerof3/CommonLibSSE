@@ -463,6 +463,7 @@ namespace RE
 			inline constexpr REL::ID PlayPickupEvent(static_cast<std::uint64_t>(40456));
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(403521));
 			inline constexpr REL::ID StartGrabObject(static_cast<std::uint64_t>(40552));
+			inline constexpr REL::ID Vtbl(static_cast<std::uint64_t>(208040));
 		}
 
 		namespace PlayerControls
