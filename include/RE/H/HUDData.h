@@ -61,7 +61,7 @@ namespace RE
 		std::uint8_t                               unk40;         // 40
 		std::uint8_t                               pad41;         // 41
 		std::uint16_t                              pad42;         // 42
-		stl::enumeration<Discovery, std::uint32_t> discovery;     // 44
+		std::uint32_t                              discovery;     // 44
 	};
 	static_assert(sizeof(HUDData) == 0x48);
 }
