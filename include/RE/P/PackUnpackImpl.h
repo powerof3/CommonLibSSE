@@ -81,7 +81,6 @@ namespace RE
 
 			auto array = a_src->GetArray();
 			if (!array) {
-				assert(false);
 				return container;
 			}
 
