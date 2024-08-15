@@ -536,6 +536,7 @@ namespace RE
 		TESForm*                     GetEquippedObjectInSlot(const BGSEquipSlot* slot) const;
 		float                        GetEquippedWeight();
 		std::int32_t                 GetFactionRank(TESFaction* a_faction, bool a_isPlayer);
+		FIGHT_REACTION               GetFactionReaction(Actor* a_other) const;
 		std::int32_t                 GetGoldAmount(bool a_noInit = false);
 		ActorHandle                  GetHandle();
 		[[nodiscard]] NiAVObject*    GetHeadPartObject(BGSHeadPart::HeadPartType a_type);
@@ -548,13 +549,16 @@ namespace RE
 		bool                         GetMountedBy(NiPointer<Actor>& a_outRider);
 		double                       GetMoveDirectionRelativeToFacing();
 		ObjectRefHandle              GetOccupiedFurniture() const;
+		bool                         GetPlayerControls() const;
 		TESRace*                     GetRace() const;
 		float                        GetRegenDelay(ActorValue a_actorValue) const;
 		bool                         GetRider(NiPointer<Actor>& a_outRider);
 		[[nodiscard]] TESObjectARMO* GetSkin() const;
 		[[nodiscard]] TESObjectARMO* GetSkin(BGSBipedObjectForm::BipedObjectSlot a_slot, bool a_noInit = false);
 		[[nodiscard]] SOUL_LEVEL     GetSoulSize() const;
+		TESNPC*                      GetTemplateBase();
 		float                        GetTotalCarryWeight();
+		float                        GetTrackedDamage() const;
 		TESFaction*                  GetVendorFaction();
 		const TESFaction*            GetVendorFaction() const;
 		float                        GetVoiceRecoveryTime();
@@ -573,12 +577,15 @@ namespace RE
 		bool                         IsAIEnabled() const;
 		bool                         IsAlarmed() const;
 		bool                         IsAMount() const;
+		bool                         IsAngryWithPlayer() const { return boolFlags.all(BOOL_FLAGS::kAngryWithPlayer); };
 		bool                         IsAnimationDriven() const;
 		bool                         IsBeingRidden() const;
 		bool                         IsBlocking() const;
 		bool                         IsCasting(MagicItem* a_spell) const;
+		bool                         IsCombatTarget(Actor* a_other) const;
 		bool                         IsCommandedActor() const;
 		bool                         IsCurrentShout(SpellItem* a_power);
+		bool                         IsDoingFavor() const;
 		bool                         IsDualCasting() const;
 		bool                         IsEssential() const;
 		bool                         IsFactionInCrimeGroup(const TESFaction* a_faction) const;
@@ -614,6 +621,7 @@ namespace RE
 		void                         SetHeading(float a_angle);  // SetRotationZ
 		void                         SetLifeState(ACTOR_LIFE_STATE a_lifeState);
 		void                         SetLooking(float a_angle);  // SetRotationX
+		void                         SetPlayerControls(bool a_enable);
 		bool                         SetSleepOutfit(BGSOutfit* a_outfit, bool a_update3D);
 		void                         StealAlarm(TESObjectREFR* a_ref, TESForm* a_object, std::int32_t a_num, std::int32_t a_total, TESForm* a_owner, bool a_allowWarning);
 		void                         StopAlarmOnActor();
