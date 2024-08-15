@@ -204,6 +204,13 @@ namespace RE
 		return func(this);
 	}
 
+	float TESObjectREFR::GetDistance(TESObjectREFR* a_other, bool a_disabledRefs, bool a_ignoreWorldspace) const
+	{
+		using func_t = decltype(&GetDistance);
+		REL::Relocation<func_t> func{ RELOCATION_ID(19396, 19823) };
+		return func(this, a_other, a_disabledRefs, a_ignoreWorldspace);
+	}
+
 	auto TESObjectREFR::GetDroppedInventory()
 		-> InventoryDropMap
 	{
