@@ -405,6 +405,7 @@ namespace RE
 		[[nodiscard]] float                     GetScale() const;
 		NiControllerSequence*                   GetSequence(stl::zstring a_name) const;
 		std::uint32_t                           GetStealValue(const InventoryEntryData* a_entryData, std::uint32_t a_numItems, bool a_useMult) const;
+		float                                   GetSubmergeLevel(float a_zPos, TESObjectCELL* a_cell) const;
 		void                                    GetTransform(NiTransform& a_transform) const;
 		float                                   GetWaterHeight() const;
 		float                                   GetWeight() const;
@@ -436,7 +437,6 @@ namespace RE
 		bool                                    IsMarkedForDeletion() const;
 		bool                                    IsOffLimits();
 		bool                                    IsPersistent() const;
-		float                                   IsPointDeepUnderWater(float a_zPos, TESObjectCELL* a_cell) const;
 		bool                                    IsPointSubmergedMoreThan(const NiPoint3& a_pos, TESObjectCELL* a_cell, float a_waterLevel) const;
 		void                                    MoveTo(TESObjectREFR* a_target);
 		bool                                    MoveToNode(TESObjectREFR* a_target, const BSFixedString& a_nodeName);

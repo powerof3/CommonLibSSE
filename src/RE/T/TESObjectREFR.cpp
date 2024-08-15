@@ -507,6 +507,21 @@ namespace RE
 		return func(this, a_entryData, a_numItems, a_useMult);
 	}
 
+	float TESObjectREFR::GetSubmergeLevel(float a_zPos, TESObjectCELL* a_cell) const
+	{
+		auto waterHeight = !a_cell || a_cell == parentCell ? GetWaterHeight() : a_cell->GetExteriorWaterHeight();
+
+		if (waterHeight == -NI_INFINITY && a_cell) {
+			waterHeight = a_cell->GetExteriorWaterHeight();
+		}
+
+		if (waterHeight <= a_zPos) {
+			return 0.0f;
+		}
+
+		return std::fminf((waterHeight - a_zPos) / GetHeight(), 1.0f);
+	}
+
 	void TESObjectREFR::GetTransform(NiTransform& a_transform) const
 	{
 		using func_t = decltype(&TESObjectREFR::GetTransform);
@@ -739,24 +754,9 @@ namespace RE
 		return (GetFormFlags() & RecordFlags::kPersistent) != 0;
 	}
 
-	float TESObjectREFR::IsPointDeepUnderWater(float a_zPos, TESObjectCELL* a_cell) const
-	{
-		auto waterHeight = !a_cell || a_cell == parentCell ? GetWaterHeight() : a_cell->GetExteriorWaterHeight();
-
-		if (waterHeight == -NI_INFINITY && a_cell) {
-			waterHeight = a_cell->GetExteriorWaterHeight();
-		}
-
-		if (waterHeight <= a_zPos) {
-			return 0.0f;
-		}
-
-		return std::fminf((waterHeight - a_zPos) / GetHeight(), 1.0f);
-	}
-
 	bool TESObjectREFR::IsPointSubmergedMoreThan(const NiPoint3& a_pos, TESObjectCELL* a_cell, const float a_waterLevel) const
 	{
-		return IsPointDeepUnderWater(a_pos.z, a_cell) >= a_waterLevel;
+		return GetSubmergeLevel(a_pos.z, a_cell) >= a_waterLevel;
 	}
 
 	void TESObjectREFR::MoveTo(TESObjectREFR* a_target)
