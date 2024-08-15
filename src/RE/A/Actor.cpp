@@ -437,7 +437,7 @@ namespace RE
 
 	FIGHT_REACTION Actor::GetFactionReaction(Actor* a_other) const
 	{
-		using func_t = decltype(&GetFactionReaction);
+		using func_t = decltype(&Actor::GetFactionReaction);
 		REL::Relocation<func_t> func{ RELOCATION_ID(36658, 37666) };
 		return func(this, a_other);
 	}
@@ -799,7 +799,7 @@ namespace RE
 
 	bool Actor::IsCombatTarget(Actor* a_other) const
 	{
-		using func_t = decltype(&IsCombatTarget);
+		using func_t = decltype(&Actor::IsCombatTarget);
 		REL::Relocation<func_t> func{ RELOCATION_ID(37618, 38571) };
 		return func(this, a_other);
 	}
