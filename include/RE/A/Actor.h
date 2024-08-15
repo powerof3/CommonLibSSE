@@ -28,6 +28,8 @@
 
 namespace RE
 {
+	enum class FIGHT_REACTION;
+
 	class ActorMagicCaster;
 	class ActorMover;
 	class AIProcess;

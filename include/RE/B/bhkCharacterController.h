@@ -9,6 +9,7 @@
 #include "RE/H/hkpCharacterContext.h"
 #include "RE/H/hkpCharacterControl.h"
 #include "RE/H/hkpCharacterState.h"
+#include "RE/M/MaterialIDs.h"
 #include "RE/N/NiPoint3.h"
 #include "RE/N/NiRefObject.h"
 #include "RE/N/NiSmartPointer.h"
