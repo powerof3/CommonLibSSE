@@ -374,6 +374,7 @@ namespace RE
 		TESContainer*                           GetContainer() const;
 		BGSLocation*                            GetCurrentLocation() const;
 		const char*                             GetDisplayFullName();
+		float                                   GetDistance(TESObjectREFR* a_other, bool a_disabledRefs = false, bool a_ignoreWorldspace = false) const;
 		InventoryDropMap                        GetDroppedInventory();
 		InventoryDropMap                        GetDroppedInventory(std::function<bool(TESBoundObject&)> a_filter);
 		BGSEncounterZone*                       GetEncounterZone() const;
