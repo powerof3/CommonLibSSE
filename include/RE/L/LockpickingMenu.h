@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSResourceHandle.h"
 #include "RE/B/BSSoundHandle.h"
 #include "RE/B/BSTEvent.h"
 #include "RE/I/IMenu.h"
@@ -45,8 +46,8 @@ namespace RE
 		[[nodiscard]] static TESObjectREFR* GetTargetReference();
 
 		// members
-		void*                 lockDBHandle;         // 048
-		void*                 pickDBHandle;         // 050
+		ModelDBHandle         lockModel;            // 048
+		ModelDBHandle         pickModel;            // 050
 		NiMatrix3             pickRotation;         // 058
 		NiPoint3              lockRotCenter;        // 07C
 		NiControllerManager*  lockController;       // 088

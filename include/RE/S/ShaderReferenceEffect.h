@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSResourceHandle.h"
 #include "RE/B/BSSoundHandle.h"
 #include "RE/B/BSTArray.h"
 #include "RE/N/NiSmartPointer.h"
@@ -72,8 +73,8 @@ namespace RE
 
 		// members
 		BSTArray<TextureRequest>              textureRequests;         // 048
-		BSTArray<NiPointer<NiAVObject>>       addonModels;             // 060 - smart ptrs
-		BSTArray<void*>                       unk078;                  // 078
+		BSTArray<NiPointer<NiAVObject>>       addonObjects;            // 060 - smart ptrs
+		BSTArray<ModelDBHandle>               modelHandles;            // 078
 		BSTArray<ParticleShader>              particleShaders;         // 090
 		BSTArray<void*>                       unk0A8;                  // 0A8 - smart ptrs
 		BSSoundHandle                         soundHandle;             // 0C0
