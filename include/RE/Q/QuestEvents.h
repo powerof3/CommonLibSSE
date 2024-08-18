@@ -33,7 +33,7 @@ namespace RE
 		kEscapeJail = 25,                                             // ESIA
 		kTrespass = 26,                                               // TRES
 		kCrimeGold = 27,                                              // ADCR
-		Arrest = 28,                                                  // ARRT
+		kArrest = 28,                                                 // ARRT
 		kCastMagic = 29                                               // CAST
 	};
 }
