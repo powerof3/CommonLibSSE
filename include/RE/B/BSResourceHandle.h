@@ -1,7 +1,7 @@
 #pragma once
 
-#include "RE/N/NiSmartPointer.h"
 #include "RE/B/BSResourceEntryDB.h"
+#include "RE/N/NiSmartPointer.h"
 
 namespace RE
 {
