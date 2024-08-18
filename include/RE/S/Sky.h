@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RE/B/BSPointerHandle.h"
+#include "RE/B/BSResourceHandle.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTList.h"
 #include "RE/B/BSTextureSet.h"
@@ -82,7 +83,7 @@ namespace RE
 		NiPointer<BSMultiBoundNode>            root;                            // 008
 		NiPointer<NiNode>                      moonsRoot;                       // 010
 		NiPointer<NiNode>                      auroraRoot;                      // 018
-		void*                                  auroraDBHandle;                  // 020
+		ModelDBHandle                          auroraModel;                     // 020
 		BGSLightingTemplate*                   extLightingOverride;             // 028
 		ObjectRefHandle                        currentRoom;                     // 030
 		ObjectRefHandle                        previousRoom;                    // 034
