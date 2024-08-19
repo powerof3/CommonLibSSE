@@ -10,7 +10,9 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_BSReloadShaderI;
 		inline static constexpr auto VTABLE = VTABLE_BSReloadShaderI;
 
-		virtual void Unk_00(void) = 0;  // 00
+		virtual void ReloadShaders(void* stream) = 0;  // 00
+	private:
+		KEEP_FOR_RE()
 	};
 	static_assert(sizeof(BSReloadShaderI) == 0x8);
 }
