@@ -13,9 +13,7 @@ namespace RE
 		~BSImagespaceShaderBlur3() override;  // 00
 
 		// override (BSImagespaceShader)
-		void GetShaderMacros(ShaderMacro* macros) override;  // 0D
-	private:
-		KEEP_FOR_RE()
+		void GetShaderMacros(ShaderMacro* a_macros) override;  // 0D
 	};
 	static_assert(sizeof(BSImagespaceShaderBlur3) == 0x1A8);
 }

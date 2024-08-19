@@ -17,6 +17,7 @@ namespace RE
 
 		struct ShaderMacro
 		{
+			// members
 			const char* name;        // 00
 			const char* definition;  // 08
 		};
@@ -32,11 +33,11 @@ namespace RE
 		bool RestoreRenderStates(ImageSpaceEffectParam* a_param) override;                  // 09
 
 		// add
-		virtual void PreRender();                                                                                                // 0A - { return; }
-		virtual void PostRender();                                                                                               // 0B - { return; }
-		virtual void DispatchComputeShader(uint32_t threadGroupCountX, uint32_t threadGroupCountY, uint32_t threadGroupCountZ);  // 0C
-		virtual void GetShaderMacros(ShaderMacro* macros);                                                                       // 0D
-		virtual void LoadShaders();                                                                                              // 0E
+		virtual void PreRender();                                                                                                      // 0A - { return; }
+		virtual void PostRender();                                                                                                     // 0B - { return; }
+		virtual void DispatchComputeShader(uint32_t a_threadGroupCountX, uint32_t a_threadGroupCountY, uint32_t a_threadGroupCountZ);  // 0C
+		virtual void GetShaderMacros(ShaderMacro* a_macros);                                                                           // 0D
+		virtual void LoadShaders();                                                                                                    // 0E
 
 		static BSImagespaceShader* Create()
 		{
