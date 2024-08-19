@@ -29,10 +29,10 @@ namespace RE
 		{
 		public:
 			// members
-			std::uint32_t      id;                  // 00
-			ID3D11PixelShader* shader;              // 08
-			ConstantGroup      constantBuffers[3];  // 10
-			std::int8_t        constantTable[64];   // 58
+			std::uint32_t                id;                  // 00
+			REX::W32::ID3D11PixelShader* shader = nullptr;    // 08
+			ConstantGroup                constantBuffers[3];  // 10
+			std::array<std::int8_t, 64>  constantTable;       // 58
 		};
 		static_assert(sizeof(PixelShader) == 0x80);
 
@@ -40,16 +40,40 @@ namespace RE
 		{
 		public:
 			// members
-			std::uint32_t       id;                  // 00
-			ID3D11VertexShader* shader;              // 08
-			std::uint32_t       byteCodeSize;        // 10
-			ConstantGroup       constantBuffers[3];  // 18
-			std::uint64_t       shaderDesc;          // 48
-			std::int8_t         constantTable[20];   // 50
-			std::uint32_t       pad64;               // 64
-			std::uint8_t        rawBytecode[0];      // 68
+			std::uint32_t                 id;                  // 00
+			REX::W32::ID3D11VertexShader* shader = nullptr;    // 08
+			std::uint32_t                 byteCodeSize;        // 10
+			ConstantGroup                 constantBuffers[3];  // 18
+			std::uint64_t                 shaderDesc;          // 48
+			std::array<std::int8_t, 20>   constantTable;       // 50
+			std::uint32_t                 pad64;               // 64
+			std::uint8_t                  rawBytecode[0];      // 68
 		};
 		static_assert(sizeof(VertexShader) == 0x68);
+
+		class ComputeShader
+		{
+		public:
+			// members
+			uint64_t                       unk00;           // 00
+			uint64_t                       unk08;           // 08
+			uint64_t                       unk10;           // 10
+			uint32_t                       unk18;           // 18
+			uint64_t                       unk20;           // 20
+			uint64_t                       unk28;           // 28
+			uint64_t                       unk30;           // 30
+			uint32_t                       unk38;           // 38
+			uint64_t                       unk40;           // 40
+			uint64_t                       unk48;           // 38
+			uint64_t                       unk50;           // 50
+			uint32_t                       unk58;           // 58
+			REX::W32::ID3D11ComputeShader* shader;          // 60
+			uint32_t                       id;              // 68
+			uint32_t                       byteCodeSize;    // 6C
+			std::array<std::int8_t, 32>    constantTable;   // 70
+			uint8_t                        rawBytecode[0];  // 90
+		};
+		static_assert(sizeof(ComputeShader) == 0x90);
 	}
 
 	namespace BSShaderTechniqueIDMap
