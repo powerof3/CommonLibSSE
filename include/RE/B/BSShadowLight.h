@@ -52,11 +52,11 @@ namespace RE
 		std::uint32_t   unk144;           // 144
 		BSTArray<void*> unk148;           // 148
 		Data            unk160[4];        // 161
-		std::uint32_t   unk520;           // 520
+		std::uint32_t   maskIndex;        // 520
 		std::uint32_t   unk524;           // 524
 		BSTArray<void*> unk528;           // 528
 		float           shadowBiasScale;  // 540
-		std::uint32_t   unk544;           // 544
+		std::uint32_t   sceneGraphIndex;  // 544
 		std::uint32_t   unk548;           // 548
 		std::uint32_t   unk54C;           // 54C
 		std::uint32_t   unk550;           // 550

@@ -7,6 +7,7 @@
 
 namespace RE
 {
+	class BSCullingProcess;
 	class BSPortalGraph;
 	class BSTriShape;
 	class NiAVObject;
@@ -39,11 +40,11 @@ namespace RE
 		~BSLight() override;  // 00
 
 		// add
-		virtual bool Unk_02(NiLight* a_light);  // 02
-		virtual bool Unk_03();                  // 03
+		virtual bool SetLight(NiLight* a_light);  // 02
+		virtual bool IsShadowLight();             // 03
 
 		// members
-		std::uint32_t          unk010;          // 010
+		float                  luminance;       // 010
 		float                  lodDimmer;       // 014
 		Data                   unk018;          // 018
 		std::uint64_t          unk038;          // 038
@@ -54,7 +55,7 @@ namespace RE
 		bool                   portalStrict;    // 047
 		NiPointer<NiLight>     light;           // 048
 		NiPoint3               worldTranslate;  // 050
-		std::uint32_t          unk05C;          // 05C
+		std::uint32_t          frustrumCull;    // 05C
 		std::uint8_t           unk060;          // 060
 		bool                   affectLand;      // 061
 		bool                   affectWater;     // 062
@@ -70,7 +71,7 @@ namespace RE
 		BSTArray<void*>        unk0F0;          // 0F0
 		BSTArray<void*>        unk108;          // 108
 		BSPortalGraph*         portalGraph;     // 120
-		std::uint64_t          unk128;          // 128
+		BSCullingProcess*      cullingProcess;  // 128
 		NiPointer<NiAVObject>  objectNode;      // 130
 		BSLensFlareRenderData* lensFlareData;   // 138
 	};
