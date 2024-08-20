@@ -217,6 +217,7 @@
 #include "RE/B/BSBitField.h"
 #include "RE/B/BSBloodSplatterShaderProperty.h"
 #include "RE/B/BSBound.h"
+#include "RE/B/BSComputeShader.h"
 #include "RE/B/BSContainer.h"
 #include "RE/B/BSCullingProcess.h"
 #include "RE/B/BSDirectInputManager.h"

@@ -15,6 +15,14 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_BSImagespaceShader;
 		inline static constexpr auto VTABLE = VTABLE_BSImagespaceShader;
 
+		struct ShaderMacro
+		{
+			// members
+			const char* name;        // 00
+			const char* definition;  // 08
+		};
+		static_assert(sizeof(ShaderMacro) == 0x10);
+
 		~BSImagespaceShader() override;  // 00
 
 		// override (BSShader)
@@ -25,23 +33,43 @@ namespace RE
 		bool RestoreRenderStates(ImageSpaceEffectParam* a_param) override;                  // 09
 
 		// add
-		virtual void Unk_0A(void);  // 0A - { return; }
-		virtual void Unk_0B(void);  // 0B - { return; }
-		virtual void Unk_0C(void);  // 0C
-		virtual void Unk_0D(void);  // 0D
-		virtual void Unk_0E(void);  // 0E
+		virtual void PreRender();                                                                                                      // 0A - { return; }
+		virtual void PostRender();                                                                                                     // 0B - { return; }
+		virtual void DispatchComputeShader(uint32_t a_threadGroupCountX, uint32_t a_threadGroupCountY, uint32_t a_threadGroupCountZ);  // 0C
+		virtual void GetShaderMacros(ShaderMacro* a_macros);                                                                           // 0D
+		virtual void LoadShaders();                                                                                                    // 0E
+
+		static BSImagespaceShader* Create()
+		{
+			auto isShader = malloc<BSImagespaceShader>();
+			std::memset(reinterpret_cast<void*>(isShader), 0, sizeof(BSImagespaceShader));
+			if (isShader) {
+				isShader->Ctor();
+			}
+			return isShader;
+		}
 
 		// members
-		BSFixedString           name;                // 120
-		BSFixedString           originalShaderName;  // 128
+		const char*             name;                // 120
+		const char*             originalShaderName;  // 128
 		std::uint64_t           unk130;              // 130
 		BSTArray<BSFixedString> vsConstantNames;     // 138
 		BSTArray<BSFixedString> psConstantNames;     // 150
 		BSTArray<BSFixedString> samplerNames;        // 158
-		BSTArray<BSFixedString> unk180;              // 180
+		BSTArray<BSFixedString> uavNames;            // 180
 		BSComputeShader*        computeShader;       // 198
 		bool                    unk1A0;              // 1A0
 		bool                    isComputeShader;     // 1A1
+
+	private:
+		BSImagespaceShader* Ctor()
+		{
+			using func_t = decltype(&BSImagespaceShader::Ctor);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(100943, 107725) };
+			BSImagespaceShader*            isShader = func(this);
+			stl::emplace_vtable<BSImagespaceShader>(isShader);
+			return isShader;
+		}
 	};
 	static_assert(sizeof(BSImagespaceShader) == 0x1A8);
 }
