@@ -122,7 +122,8 @@ namespace RE
 		BSSimpleList<SkySound*>*               skySoundList;                    // 1C0
 		float                                  flash;                           // 1C8
 		std::uint32_t                          pad1CC;                          // 1CC
-		std::time_t                            flashTime;                       // 1D0
+		std::uint32_t                          flashTime;                       // 1D0
+		float                                  windowReflectionTimer;           // 1D4
 		std::uint32_t                          lastMoonPhaseUpdate;             // 1D8
 		stl::enumeration<Flags, std::uint32_t> flags;                           // 1DC
 		ImageSpaceModifierInstanceForm*        currentWeatherImageSpaceMod;     // 1E0
