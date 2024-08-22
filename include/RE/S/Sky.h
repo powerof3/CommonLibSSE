@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RE/B/BSPointerHandle.h"
+#include "RE/B/BSResourceHandle.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTList.h"
 #include "RE/B/BSTextureSet.h"
@@ -82,7 +83,7 @@ namespace RE
 		NiPointer<BSMultiBoundNode>            root;                            // 008
 		NiPointer<NiNode>                      moonsRoot;                       // 010
 		NiPointer<NiNode>                      auroraRoot;                      // 018
-		void*                                  auroraDBHandle;                  // 020
+		ModelDBHandle                          auroraModel;                     // 020
 		BGSLightingTemplate*                   extLightingOverride;             // 028
 		ObjectRefHandle                        currentRoom;                     // 030
 		ObjectRefHandle                        previousRoom;                    // 034
@@ -121,7 +122,8 @@ namespace RE
 		BSSimpleList<SkySound*>*               skySoundList;                    // 1C0
 		float                                  flash;                           // 1C8
 		std::uint32_t                          pad1CC;                          // 1CC
-		std::time_t                            flashTime;                       // 1D0
+		std::uint32_t                          flashTime;                       // 1D0
+		float                                  windowReflectionTimer;           // 1D4
 		std::uint32_t                          lastMoonPhaseUpdate;             // 1D8
 		stl::enumeration<Flags, std::uint32_t> flags;                           // 1DC
 		ImageSpaceModifierInstanceForm*        currentWeatherImageSpaceMod;     // 1E0

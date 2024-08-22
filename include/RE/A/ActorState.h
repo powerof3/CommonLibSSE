@@ -182,6 +182,7 @@ namespace RE
 			}
 		}
 
+		[[nodiscard]] bool IsReanimated() const noexcept { return GetLifeState() == ACTOR_LIFE_STATE::kReanimate; }
 		[[nodiscard]] bool IsSneaking() const noexcept { return static_cast<bool>(actorState1.sneaking); }
 		[[nodiscard]] bool IsSprinting() const noexcept { return static_cast<bool>(actorState1.sprinting); }
 		[[nodiscard]] bool IsSwimming() const noexcept { return static_cast<bool>(actorState1.swimming); }

@@ -543,7 +543,7 @@ namespace RE
 		std::int32_t                                            unkB88;                                       // B88
 		std::uint32_t                                           padB8C;                                       // B8C
 		std::uint64_t                                           unkB90;                                       // B90
-		TESBoundObject*                                         unkB98;                                       // B98 - Set/Cleared in SmithingMenuEntry, may be used to test for enchantment?
+		InventoryEntryData*                                     temperingItem;                                // B98
 		BSTSmallArray<void*, 4>                                 unkBA0;                                       // BA0
 		PreTransformationData*                                  preTransformationData;                        // BD0 - Stores equipped data when transforming to vampire/werewolf, cleared when transforming back to human
 		PlayerFlags                                             playerFlags;                                  // BD8

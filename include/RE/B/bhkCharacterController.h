@@ -10,6 +10,7 @@
 #include "RE/H/hkpCharacterControl.h"
 #include "RE/H/hkpCharacterState.h"
 #include "RE/H/hkpWorldObject.h"
+#include "RE/M/MaterialIDs.h"
 #include "RE/N/NiPoint3.h"
 #include "RE/N/NiRefObject.h"
 #include "RE/N/NiSmartPointer.h"
@@ -22,6 +23,7 @@ namespace RE
 	class bhkShape;
 	class bhkWorld;
 	class hkpRigidBody;
+	class hkpWorldObject;
 	class hkContactPoint;
 	class hkTransform;
 	class hkVector4;
@@ -169,7 +171,8 @@ namespace RE
 		hkRefPtr<hkpRigidBody>                                 bumpedBody;                 // 2C0
 		hkRefPtr<hkpRigidBody>                                 bumpedCharCollisionObject;  // 2C8
 		BSTHashMap<NiPointer<bhkRigidBody>, DamageImpactData*> damageImpacts;              // 2D0
-		std::uint64_t                                          unk300;                     // 300
+		std::uint32_t                                          unk300;                     // 300
+		MATERIAL_ID                                            surfaceMaterial;            // 304
 		std::uint64_t                                          unk308;                     // 308
 		std::uint64_t                                          unk310;                     // 310
 		std::uint64_t                                          unk318;                     // 318

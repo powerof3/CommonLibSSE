@@ -5,6 +5,7 @@
 #include "RE/B/BSFixedString.h"
 #include "RE/B/BSIntrusiveRefCounted.h"
 #include "RE/B/BSPointerHandle.h"
+#include "RE/B/BSResourceHandle.h"
 #include "RE/B/BSSoundHandle.h"
 #include "RE/B/BSTHashMap.h"
 #include "RE/B/BSTList.h"
@@ -151,11 +152,11 @@ namespace RE
 		{
 		public:
 			// members
-			bool                    unk00;                // 00
-			bool                    unk01;                // 01
-			bool                    unk02;                // 02
+			bool                    enabled;              // 00
+			bool                    mpsEnabled;           // 01
+			bool                    updateLight;          // 02
 			bool                    unk03;                // 03
-			float                   unk04;                // 04
+			float                   enableTimer;          // 04
 			float                   muzzleFlashDuration;  // 08
 			std::uint32_t           unk0C;                // 0C
 			NiPointer<NiAVObject>   projectile3D;         // 10
@@ -298,7 +299,7 @@ namespace RE
 		BSTSmartPointer<DialogueItem>                         greetTopic;                                // 360
 		std::uint32_t                                         unk368;                                    // 368
 		RefHandle                                             unk36C;                                    // 36C
-		void*                                                 unk370;                                    // 370
+		ModelDBHandle                                         faceGenGeomHandle;                         // 370
 		std::uint64_t                                         unk378;                                    // 378
 		NiPointer<NiBillboardNode>                            healthBarNode;                             // 380
 		float                                                 unk388;                                    // 388

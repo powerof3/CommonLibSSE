@@ -12,12 +12,14 @@
 #include "RE/B/bhkCharacterController.h"
 #include "RE/E/ExtraCanTalkToPlayer.h"
 #include "RE/E/ExtraFactionChanges.h"
+#include "RE/E/ExtraLeveledCreature.h"
 #include "RE/F/FixedStrings.h"
 #include "RE/F/FormTraits.h"
 #include "RE/H/HighProcessData.h"
 #include "RE/I/InventoryEntryData.h"
 #include "RE/M/MiddleHighProcessData.h"
 #include "RE/M/Misc.h"
+#include "RE/M/MovementControllerNPC.h"
 #include "RE/N/NiColor.h"
 #include "RE/N/NiMath.h"
 #include "RE/N/NiNode.h"
@@ -433,6 +435,13 @@ namespace RE
 		return func(this, a_faction, a_isPlayer);
 	}
 
+	FIGHT_REACTION Actor::GetFactionReaction(Actor* a_other) const
+	{
+		using func_t = decltype(&Actor::GetFactionReaction);
+		REL::Relocation<func_t> func{ RELOCATION_ID(36658, 37666) };
+		return func(this, a_other);
+	}
+
 	std::int32_t Actor::GetGoldAmount(bool a_noInit)
 	{
 		const auto inv = GetInventory([](TESBoundObject& a_object) -> bool {
@@ -539,6 +548,14 @@ namespace RE
 		}
 	}
 
+	bool Actor::GetPlayerControls() const
+	{
+		if (movementController) {
+			return movementController->IsPlayerControlsEnabled();
+		}
+		return false;
+	}
+
 	TESRace* Actor::GetRace() const
 	{
 		if (race) {
@@ -589,11 +606,25 @@ namespace RE
 		return func(this);
 	}
 
+	TESNPC* Actor::GetTemplateBase()
+	{
+		auto leveledCreature = extraList.GetByType<ExtraLeveledCreature>();
+		if (leveledCreature) {
+			return static_cast<TESNPC*>(leveledCreature->templateBase);
+		}
+		return GetActorBase();
+	}
+
 	float Actor::GetTotalCarryWeight()
 	{
 		using func_t = decltype(&Actor::GetTotalCarryWeight);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(36456, 37452) };
 		return func(this);
+	}
+
+	float Actor::GetTrackedDamage() const
+	{
+		return currentProcess ? currentProcess->trackedDamage : 0.0f;
 	}
 
 	TESFaction* Actor::GetVendorFaction()
@@ -766,6 +797,13 @@ namespace RE
 		return func(this, a_spell);
 	}
 
+	bool Actor::IsCombatTarget(Actor* a_other) const
+	{
+		using func_t = decltype(&Actor::IsCombatTarget);
+		REL::Relocation<func_t> func{ RELOCATION_ID(37618, 38571) };
+		return func(this, a_other);
+	}
+
 	bool Actor::IsCommandedActor() const
 	{
 		return boolFlags.all(BOOL_FLAGS::kIsCommandedActor);
@@ -776,6 +814,14 @@ namespace RE
 		using func_t = decltype(&Actor::IsCurrentShout);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(37858, 38812) };
 		return func(this, a_power);
+	}
+
+	bool Actor::IsDoingFavor() const
+	{
+		if (currentProcess) {
+			return currentProcess->IsInCommandState();
+		}
+		return false;
 	}
 
 	bool Actor::IsDualCasting() const
@@ -1034,6 +1080,18 @@ namespace RE
 		using func_t = decltype(&Actor::SetLooking);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(36602, 37610) };
 		return func(this, a_angle);
+	}
+
+	void Actor::SetPlayerControls(bool a_enable)
+	{
+		if (movementController) {
+			EnableAI(!a_enable);
+			if (a_enable) {
+				movementController->EnablePlayerControls();
+			} else {
+				movementController->DisablePlayerControls();
+			}
+		}
 	}
 
 	bool Actor::SetSleepOutfit(BGSOutfit* a_outfit, bool a_update3D)
