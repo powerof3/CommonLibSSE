@@ -38,6 +38,8 @@ namespace RE
 
 		bool      operator==(const NiMatrix3& a_rhs) const;
 		bool      operator!=(const NiMatrix3& a_rhs) const;
+		NiMatrix3 operator+(const NiMatrix3& a_rhs) const;
+		NiMatrix3 operator-(const NiMatrix3& a_rhs) const;
 		NiMatrix3 operator*(const NiMatrix3& a_rhs) const;
 		NiPoint3  operator*(const NiPoint3& a_point) const;
 		NiMatrix3 operator*(float a_scalar) const;
