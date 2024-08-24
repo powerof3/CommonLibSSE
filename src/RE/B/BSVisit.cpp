@@ -13,7 +13,7 @@ namespace RE
 		BSVisitControl TraverseScenegraphCollision(NiAVObject* a_object, std::function<BSVisitControl(bhkNiCollisionObject*)> a_func)
 		{
 			auto result = BSVisitControl::kContinue;
-			
+
 			if (!a_object) {
 				return result;
 			}
