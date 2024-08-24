@@ -221,4 +221,34 @@ namespace RE
 		return result;
 	}
 
+	NiMatrix3 NiMatrix3::operator+(const NiMatrix3& a_rhs) const
+	{
+		NiMatrix3 result;
+		result.entry[0][0] = entry[0][0] + a_rhs.entry[0][0];
+		result.entry[0][1] = entry[0][1] + a_rhs.entry[0][1];
+		result.entry[0][2] = entry[0][2] + a_rhs.entry[0][2];
+		result.entry[1][0] = entry[1][0] + a_rhs.entry[1][0];
+		result.entry[1][1] = entry[1][1] + a_rhs.entry[1][1];
+		result.entry[1][2] = entry[1][2] + a_rhs.entry[1][2];
+		result.entry[2][0] = entry[2][0] + a_rhs.entry[2][0];
+		result.entry[2][1] = entry[2][1] + a_rhs.entry[2][1];
+		result.entry[2][2] = entry[2][2] + a_rhs.entry[2][2];
+		return result;
+	}
+
+	NiMatrix3 NiMatrix3::operator-(const NiMatrix3& a_rhs) const
+	{
+		NiMatrix3 result;
+		result.entry[0][0] = entry[0][0] - a_rhs.entry[0][0];
+		result.entry[0][1] = entry[0][1] - a_rhs.entry[0][1];
+		result.entry[0][2] = entry[0][2] - a_rhs.entry[0][2];
+		result.entry[1][0] = entry[1][0] - a_rhs.entry[1][0];
+		result.entry[1][1] = entry[1][1] - a_rhs.entry[1][1];
+		result.entry[1][2] = entry[1][2] - a_rhs.entry[1][2];
+		result.entry[2][0] = entry[2][0] - a_rhs.entry[2][0];
+		result.entry[2][1] = entry[2][1] - a_rhs.entry[2][1];
+		result.entry[2][2] = entry[2][2] - a_rhs.entry[2][2];
+		return result;
+	}
+
 }
