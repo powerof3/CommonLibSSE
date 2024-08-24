@@ -101,6 +101,7 @@ namespace RE
 		void          SetEquipSlot(BGSEquipSlot* a_slot) override;  // 05 - { return; }
 
 		[[nodiscard]] constexpr bool CanBeCarried() const noexcept { return data.flags.all(TES_LIGHT_FLAGS::kCanCarry); }
+		[[nodiscard]] constexpr bool GetNoFlicker() const noexcept { return data.flags.none(TES_LIGHT_FLAGS::kFlicker, TES_LIGHT_FLAGS::kFlickerSlow, TES_LIGHT_FLAGS::kPulse, TES_LIGHT_FLAGS::kPulseSlow); }
 
 		NiLight* GenDynamic(RE::TESObjectREFR* a_ref, RE::NiNode* a_node, char a_forceDynamic, char a_useLightRadius, char a_affectRefOnly)
 		{

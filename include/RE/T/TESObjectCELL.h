@@ -81,9 +81,9 @@ namespace RE
 		// members
 		NiPointer<BSPortalGraph>                             portalGraph;             // 000 - smart ptr
 		NiPointer<NiNode>                                    cell3D;                  // 008
-		void*                                                unk010;                  // 010 - smart ptr
-		void*                                                unk018;                  // 018 - smart ptr
-		void*                                                unk020;                  // 020 - smart ptr
+		NiPointer<NiNode>                                    lightMarkerNode;         // 010 - smart ptr
+		NiPointer<NiNode>                                    soundMarkerNode;         // 018 - smart ptr
+		NiPointer<NiNode>                                    multiBoundNode;          // 020 - smart ptr
 		std::uint64_t                                        unk028;                  // 028
 		std::uint64_t                                        unk030;                  // 030
 		std::uint64_t                                        unk038;                  // 038

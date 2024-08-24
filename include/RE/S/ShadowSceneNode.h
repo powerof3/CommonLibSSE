@@ -12,6 +12,7 @@ namespace RE
 	class BSPortalGraph;
 	class BSShadowLight;
 	class BSShadowDirectionalLight;
+	class NiLight;
 
 	class ShadowSceneNode : public NiNode
 	{
@@ -45,12 +46,11 @@ namespace RE
 		const NiRTTI* GetRTTI() const override;                         // 02
 		void          OnVisible(NiCullingProcess& a_process) override;  // 34
 
-		BSLight* AddLight(NiLight* a_light, const LIGHT_CREATE_PARAMS& a_params)
-		{
-			using func_t = decltype(&ShadowSceneNode::AddLight);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(99692, 106326) };
-			return func(this, a_light, a_params);
-		}
+		BSLight* AddLight(NiLight* a_light, const LIGHT_CREATE_PARAMS& a_params);
+		BSLight* GetLight(NiLight* a_light);
+		BSLight* GetPointLight(NiLight* a_light);
+		BSLight* GetShadowLight(NiLight* a_light);
+		void     RemoveLight(NiLight* a_light);
 
 		// members
 		std::uint64_t                   unk128;                  // 128
@@ -58,7 +58,7 @@ namespace RE
 		BSTArray<NiPointer<BSLight>>    activeShadowLights;      // 148
 		BSTArray<NiPointer<BSLight>>    lightQueueAdd;           // 160
 		BSTArray<NiPointer<BSLight>>    lightQueueRemove;        // 178
-		BSTArray<NiPointer<BSLight>>    unk190;                  // 190 - unused?
+		BSTArray<NiPointer<BSLight>>    unk190;                  // 190
 		mutable BSSpinLock              lightQueueLock;          // 1A8
 		BSTArray<NiPointer<NiAVObject>> litGeometry;             // 1B0
 		BSTArray<NiPointer<NiAVObject>> objectList1;             // 1C8
