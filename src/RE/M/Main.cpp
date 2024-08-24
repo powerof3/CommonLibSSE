@@ -11,6 +11,13 @@ namespace RE
 		return *singleton;
 	}
 
+	bool Main::IsRoomVisible(NiNode* a_room)
+	{
+		using func_t = decltype(&Main::IsRoomVisible);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(35608, 36618) };
+		return func(this, a_room);
+	}
+
 	float Main::QFrameAnimTime()
 	{
 		REL::Relocation<float*> data{ RELOCATION_ID(516940, 403447) };

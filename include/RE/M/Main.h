@@ -72,6 +72,7 @@ namespace RE
 		static NiCamera*   WorldRootCamera();
 		static Scenegraph* WorldRootNode();
 
+		bool IsRoomVisible(NiNode* a_room);
 		void SetActive(bool a_active);
 
 		// members
