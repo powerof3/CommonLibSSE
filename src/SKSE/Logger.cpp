@@ -134,13 +134,13 @@ namespace SKSE
 			};
 
 			auto logger = std::make_shared<spdlog::logger>("global", sinks.begin(), sinks.end());
-#ifndef NDEBUG
+#	ifndef NDEBUG
 			logger->set_level(spdlog::level::debug);
 			logger->flush_on(spdlog::level::debug);
-#else
+#	else
 			logger->set_level(spdlog::level::info);
 			logger->flush_on(spdlog::level::info);
-#endif
+#	endif
 			spdlog::set_default_logger(std::move(logger));
 			spdlog::set_pattern("[%T.%e] [%=5t] [%L] %v");
 #endif
