@@ -76,7 +76,10 @@ namespace SKSE
 		}
 
 		if (a_log) {
+			// remove ifdef once 1.5.x support is removed
+#ifdef SKYRIM_SUPPORT_AE
 			log::init();
+#endif
 		}
 
 		(void)REL::Module::get();
