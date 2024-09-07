@@ -69,10 +69,14 @@ namespace SKSE
 		}
 	}
 
-	void Init(const LoadInterface* a_intfc) noexcept
+	void Init(const LoadInterface* a_intfc, const bool a_log) noexcept
 	{
 		if (!a_intfc) {
 			stl::report_and_fail("interface is null"sv);
+		}
+
+		if (a_log) {
+			log::init();
 		}
 
 		(void)REL::Module::get();
