@@ -74,14 +74,10 @@ namespace SKSE
 		}
 	}
 
-	void Init(const LoadInterface* a_intfc, const bool a_log) noexcept
+	void Init(const LoadInterface* a_intfc, [[maybe_unused]] const bool a_log) noexcept
 	{
 		if (!a_intfc) {
 			stl::report_and_fail("interface is null"sv);
-		}
-
-		if (a_log) {
-			log::init();
 		}
 
 		(void)REL::Module::get();
@@ -96,6 +92,11 @@ namespace SKSE
 			storage.pluginName = pluginVersionData->GetPluginName();
 			storage.pluginAuthor = pluginVersionData->GetAuthorName();
 			storage.pluginVersion = pluginVersionData->GetPluginVersion();
+		}
+
+		if (a_log) {
+			log::init();
+			log::info("{} v{}", GetPluginName(), GetPluginVersion());
 		}
 #endif
 
