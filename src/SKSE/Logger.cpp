@@ -126,8 +126,7 @@ namespace SKSE
 				return;
 			}
 
-			const auto data = PluginVersionData::GetSingleton();
-			*path /= std::format("{}.log", data->GetPluginName());
+			*path /= std::format("{}.log", SKSE::GetPluginName());
 
 			std::vector<spdlog::sink_ptr> sinks{
 				std::make_shared<spdlog::sinks::basic_file_sink_mt>(path->string(), true),
