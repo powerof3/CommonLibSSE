@@ -87,3 +87,15 @@ namespace REL
 
 	[[nodiscard]] std::optional<Version> GetFileVersion(stl::zwstring a_filename);
 }
+
+#ifdef __cpp_lib_format
+template <class CharT>
+struct std::formatter<REL::Version, CharT> : formatter<std::string, CharT>
+{
+	template <class FormatContext>
+	constexpr auto format(const REL::Version a_version, FormatContext& a_ctx) const
+	{
+		return formatter<std::string, CharT>::format(a_version.string(), a_ctx);
+	}
+};
+#endif
