@@ -342,8 +342,10 @@ namespace SKSE
 		return reinterpret_cast<const detail::SKSETrampolineInterface*>(this);
 	}
 
+#ifdef SKYRIM_SUPPORT_AE
 	const PluginVersionData* PluginVersionData::GetSingleton() noexcept
 	{
 		return reinterpret_cast<const PluginVersionData*>(REX::W32::GetProcAddress(REX::W32::GetCurrentModule(), "SKSEPlugin_Version"));
 	}
+#endif
 }

@@ -1,5 +1,6 @@
 #include "SKSE/API.h"
 
+#include "SKSE/Interfaces.h"
 #include "SKSE/Logger.h"
 
 namespace SKSE

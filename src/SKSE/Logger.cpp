@@ -119,6 +119,8 @@ namespace SKSE
 
 		void init()
 		{
+			// remove ifdef if 1.5.x support is removed
+#ifdef SKYRIM_SUPPORT_AE
 			auto path = log_directory();
 			if (!path) {
 				return;
@@ -142,6 +144,7 @@ namespace SKSE
 #endif
 			spdlog::set_default_logger(std::move(logger));
 			spdlog::set_pattern("[%T.%e] [%=5t] [%L] %v");
+#endif
 		}
 	}
 }
