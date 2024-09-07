@@ -395,7 +395,7 @@ namespace SKSE
 
 		constexpr void AuthorEmail(std::string_view a_email) noexcept { SetCharBuffer(a_email, std::span{ supportEmail }); }
 
-		[[nodiscard]] constexpr std::string_view GetAuthorName() const noexcept { return std::string_view{ supportEmail }; }
+		[[nodiscard]] constexpr std::string_view GetAuthorEmail() const noexcept { return std::string_view{ supportEmail }; }
 
 		constexpr void UsesAddressLibrary() noexcept { versionIndependence |= kVersionIndependent_AddressLibraryPostAE; }
 		constexpr void UsesSigScanning() noexcept { versionIndependence |= kVersionIndependent_Signatures; }
