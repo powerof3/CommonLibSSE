@@ -360,6 +360,7 @@ namespace SKSE
 		const char*   name;
 		std::uint32_t version;
 	};
+
 #ifdef SKYRIM_SUPPORT_AE
 	struct PluginVersionData
 	{
