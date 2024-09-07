@@ -12,7 +12,7 @@
 
 namespace SKSE
 {
-	void Init(const LoadInterface* a_intfc) noexcept;
+	void Init(const LoadInterface* a_intfc, const bool a_log = false) noexcept;
 	void RegisterForAPIInitEvent(std::function<void()> a_fn);
 
 	PluginHandle  GetPluginHandle() noexcept;

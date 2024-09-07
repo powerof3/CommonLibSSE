@@ -341,4 +341,9 @@ namespace SKSE
 		assert(this);
 		return reinterpret_cast<const detail::SKSETrampolineInterface*>(this);
 	}
+
+	const PluginVersionData* PluginVersionData::GetSingleton() noexcept
+	{
+		return reinterpret_cast<const PluginVersionData*>(REX::W32::GetProcAddress(REX::W32::GetCurrentModule(), "SKSEPlugin_Version"));
+	}
 }
