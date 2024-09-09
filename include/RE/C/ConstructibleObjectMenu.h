@@ -76,7 +76,7 @@ namespace RE
 
 			// override (CraftingSubMenu)
 			void Accept(CallbackProcessor* a_cbReg) override;     // 01
-			void Unk_06(void) override;                           // 06
+			void UpdateItemList() override;                       // 06
 			void SetItemCardInfo(ItemCard* a_itemCard) override;  // 07
 
 			// members
