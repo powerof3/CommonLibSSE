@@ -30,7 +30,7 @@ namespace RE
 			virtual void Unk_03(void);                                // 03 - { return; }
 			virtual bool HasItemPreview();                            // 04 - { return 1; }
 			virtual bool ProcessUserEvent(BSFixedString* a_control);  // 05 - { return 0; }
-			virtual void Unk_06(void);                                // 06 - { return; }
+			virtual void UpdateItemList();                            // 06 - { return; }
 			virtual void SetItemCardInfo(ItemCard* a_itemCard);       // 07 - { return; }
 
 			void UpdateCraftingInfo(ActorValue a_actorValue)
