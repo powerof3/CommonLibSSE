@@ -54,7 +54,7 @@ namespace RE
 		std::uint16_t                             pad6A;               // 6A
 		std::uint32_t                             characterID;         // 6C
 		stl::enumeration<SaveType, std::uint32_t> saveType;            // 70
-		std::uint32_t                             pad74;			   // 74
+		std::uint32_t                             pad74;               // 74
 	};
 	static_assert(sizeof(BGSSaveLoadFileEntry) == 0x78);
 
