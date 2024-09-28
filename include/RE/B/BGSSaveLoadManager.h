@@ -20,7 +20,7 @@ namespace RE
 	class BGSSaveLoadFileEntry
 	{
 	public:
-		enum class SaveType : std::uint32_t
+		enum class SaveType
 		{
 			kAutosave = 0x0,
 			kSave = 0x1,
