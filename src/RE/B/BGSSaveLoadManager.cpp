@@ -23,7 +23,7 @@ namespace RE
 		Load_Impl(a_fileName, -1, 0, a_checkForMods);
 	}
 
-	void BGSSaveLoadManager::PopulateSaveList()
+	bool BGSSaveLoadManager::PopulateSaveList()
 	{
 		using func_t = decltype(&BGSSaveLoadManager::PopulateSaveList);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(34850, 35760) };

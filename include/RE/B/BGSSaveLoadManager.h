@@ -20,7 +20,7 @@ namespace RE
 	class BGSSaveLoadFileEntry
 	{
 	public:
-		enum class SaveType : std::uint32_t
+		enum class SaveType
 		{
 			kAutosave = 0x0,
 			kSave = 0x1,
@@ -54,7 +54,7 @@ namespace RE
 		std::uint16_t                             pad6A;               // 6A
 		std::uint32_t                             characterID;         // 6C
 		stl::enumeration<SaveType, std::uint32_t> saveType;            // 70
-		std::uint32_t                             pad74;			   // 74
+		std::uint32_t                             pad74;               // 74
 	};
 	static_assert(sizeof(BGSSaveLoadFileEntry) == 0x78);
 
