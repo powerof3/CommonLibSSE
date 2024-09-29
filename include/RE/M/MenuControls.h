@@ -4,19 +4,19 @@
 #include "RE/B/BSTEvent.h"
 #include "RE/B/BSTSingleton.h"
 #include "RE/B/BSTSmartPointer.h"
+#include "RE/Q/QuickSaveLoadHandler.h"
 
 namespace RE
 {
 	class InputEvent;
 	class MenuEventHandler;
 	class MenuModeChangeEvent;
-	class ClickHandler;
-	class ConsoleOpenHandler;
-	class DirectionHandler;
-	class FavoritesHandler;
-	class MenuOpenHandler;
-	class QuickSaveLoadHandler;
-	class ScreenshotHandler;
+	struct ClickHandler;
+	struct ConsoleOpenHandler;
+	struct DirectionHandler;
+	struct FavoritesHandler;
+	struct MenuOpenHandler;
+	struct ScreenshotHandler;
 
 	class MenuControls :
 		public BSTEventSink<InputEvent*>,         // 00
