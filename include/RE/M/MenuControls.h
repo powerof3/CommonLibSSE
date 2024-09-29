@@ -10,13 +10,13 @@ namespace RE
 	class InputEvent;
 	class MenuEventHandler;
 	class MenuModeChangeEvent;
-	struct ClickHandler;
-	struct ConsoleOpenHandler;
-	struct DirectionHandler;
-	struct FavoritesHandler;
-	struct MenuOpenHandler;
-	struct QuickSaveLoadHandler;
-	struct ScreenshotHandler;
+	class ClickHandler;
+	class ConsoleOpenHandler;
+	class DirectionHandler;
+	class FavoritesHandler;
+	class MenuOpenHandler;
+	class QuickSaveLoadHandler;
+	class ScreenshotHandler;
 
 	class MenuControls :
 		public BSTEventSink<InputEvent*>,         // 00
