@@ -931,6 +931,13 @@ namespace RE
 		return boolBits.all(BOOL_BITS::kPlayerTeammate);
 	}
 
+	bool Actor::IsPowerAttacking() const
+	{
+		using func_t = decltype(&Actor::IsPowerAttacking);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(37639, 38592) };
+		return func(this);
+	}
+
 	bool Actor::IsProtected() const
 	{
 		return boolFlags.all(BOOL_FLAGS::kProtected);
