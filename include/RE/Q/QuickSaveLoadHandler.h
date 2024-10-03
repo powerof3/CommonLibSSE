@@ -14,7 +14,7 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_QuickSaveLoadHandler;
 		inline static constexpr auto VTABLE = VTABLE_QuickSaveLoadHandler;
 
-		virtual ~QuickSaveLoadHandler() = default;                  // 00
+		virtual ~QuickSaveLoadHandler() = default;  // 00
 
 		bool CanProcess(InputEvent* a_event) override;              // 01
 		bool ProcessKinect(KinectEvent* a_event) override;          // 02

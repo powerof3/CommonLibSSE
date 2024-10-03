@@ -1365,6 +1365,7 @@ set(SOURCES
 	include/RE/Q/QuestEvents.h
 	include/RE/Q/QuestObjectiveStates.h
 	include/RE/Q/QuestStatus.h
+	include/RE/Q/QuickSaveLoadHandler.h
 	include/RE/R/REFREventCallbacks.h
 	include/RE/R/RaceSexCamera.h
 	include/RE/R/RaceSexMenu.h
