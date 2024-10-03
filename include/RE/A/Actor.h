@@ -604,6 +604,7 @@ namespace RE
 		bool                         IsOnMount() const;
 		bool                         IsOverEncumbered() const;
 		bool                         IsPlayerTeammate() const;
+		bool                         IsPowerAttacking() const;
 		bool                         IsProtected() const;
 		bool                         IsRunning() const;
 		bool                         IsSneaking() const;
