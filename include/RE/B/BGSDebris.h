@@ -23,6 +23,8 @@ namespace RE
 			kCollisionData = 1 << 0
 		};
 
+		TES_HEAP_REDEFINE_NEW();
+
 		// members
 		std::int8_t                                        percentage;  // 00 - DATA~
 		stl::enumeration<BGSDebrisDataFlags, std::uint8_t> flags;       // 01 - ~DATA
