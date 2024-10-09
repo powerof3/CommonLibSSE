@@ -28,6 +28,8 @@ namespace RE
 			kCustom = 0x3
 		};
 
+		bool PopulateEntryData();
+
 		// members
 		BSFixedString                             fileName;            // 00
 		BSFixedString                             characterName;       // 08
@@ -114,12 +116,12 @@ namespace RE
 
 		static BGSSaveLoadManager* GetSingleton();
 
+		void GenerateCharacterID();
 		void Save(const char* a_fileName);
 		void Load(const char* a_fileName);
 		void Load(const char* a_fileName, bool a_checkForMods);
-		bool PopulateSaveList();
-
 		bool LoadMostRecentSaveGame();
+		bool PopulateSaveList();
 
 		// members
 		BSTHashMap<std::uint64_t, BSFixedString> characterIDNameMap;     // 078
