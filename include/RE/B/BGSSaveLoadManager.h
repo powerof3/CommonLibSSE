@@ -28,7 +28,7 @@ namespace RE
 			kCustom = 0x3
 		};
 
-		bool PopulateEntryData();
+		bool PopulateFileEntryData();
 
 		// members
 		BSFixedString                             fileName;            // 00
