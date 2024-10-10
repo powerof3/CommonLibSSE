@@ -10,7 +10,7 @@ namespace RE
 
     bool BGSSaveLoadFileEntry::PopulateFileEntryData()
     {
-        using func_t = decltype(&BGSSaveLoadFileEntry::PopulateEntryData);
+        using func_t = decltype(&BGSSaveLoadFileEntry::PopulateFileEntryData);
         REL::Relocation<func_t> func{ RELOCATION_ID(34627, 35547) };
         return func(this);
     }
