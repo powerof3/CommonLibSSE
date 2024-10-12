@@ -1,9 +1,6 @@
 -- set minimum xmake version
 set_xmakever("2.8.2")
 
--- make extras available
-includes("xmake-extra.lua")
-
 -- set project
 set_project("commonlibsse")
 set_arch("x64")
@@ -12,7 +9,10 @@ set_warnings("allextra")
 set_encodings("utf-8")
 
 -- add rules
-add_rules("mode.debug", "mode.release")
+add_rules("mode.debug", "mode.releasedbg")
+
+-- make extras available
+includes("xmake-extra.lua")
 
 -- define options
 option("skyrim_ae")
@@ -39,6 +39,9 @@ end
 target("commonlibsse")
     -- set target kind
     set_kind("static")
+
+    -- set build by default
+    set_default(os.scriptdir() == os.projectdir())
 
     -- add packages
     add_packages("rsm-binary-io", "spdlog", { public = true })
