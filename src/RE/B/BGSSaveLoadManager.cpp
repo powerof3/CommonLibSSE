@@ -8,6 +8,20 @@ namespace RE
 		return *singleton;
 	}
 
+    bool BGSSaveLoadFileEntry::PopulateFileEntryData()
+    {
+        using func_t = decltype(&BGSSaveLoadFileEntry::PopulateFileEntryData);
+        REL::Relocation<func_t> func{ RELOCATION_ID(34627, 35547) };
+        return func(this);
+    }
+
+	void BGSSaveLoadManager::GenerateCharacterID()
+	{
+		using func_t = decltype(&BGSSaveLoadManager::GenerateCharacterID);
+		REL::Relocation<func_t> func{ RELOCATION_ID(34847, 35757) };
+		return func(this);
+	}
+
 	void BGSSaveLoadManager::Save(const char* a_fileName)
 	{
 		Save_Impl(2, 0, a_fileName);
