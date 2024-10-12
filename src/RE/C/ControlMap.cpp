@@ -123,6 +123,21 @@ namespace RE
 
 	void ControlMap::ToggleControls(UEFlag a_flags, bool a_enable)
 	{
+		if (storedControls == UEFlag::kInvalid) {
+			storedControls = enabledControls;
+		}
+	}
+
+	void ControlMap::LoadStoredControls()
+	{
+		if (storedControls != UEFlag::kInvalid) {
+			enabledControls = storedControls;
+			storedControls = UEFlag::kInvalid;
+		}
+	}
+
+	void ControlMap::ToggleControls(UEFlag a_flags, bool a_enable, bool a_storeState)
+	{
 		auto oldState = enabledControls;
 
 		if (a_enable) {
