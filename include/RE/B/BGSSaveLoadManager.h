@@ -94,12 +94,12 @@ namespace RE
 
 		struct SaveEntry
 		{
-			std::uint32_t                             characterID;     // 00
-			std::uint32_t                             isModded;        // 04
-			std::uint32_t                             manualSaveCount; // 08
-			std::uint32_t                             autoSaveCount;   // 0C
-			BSTHashMap<std::uint32_t, BSFixedString>  autoSaves;       // 18
-			BSFixedString                             lastQuicksave;   // 40
+			std::uint32_t                            characterID;      // 00
+			std::uint32_t                            isModded;         // 04
+			std::uint32_t                            manualSaveCount;  // 08
+			std::uint32_t                            autoSaveCount;    // 0C
+			BSTHashMap<std::uint32_t, BSFixedString> autoSaves;        // 18
+			BSFixedString                            lastQuicksave;    // 40
 		};
 		static_assert(sizeof(SaveEntry) == 0x48);
 
@@ -124,61 +124,61 @@ namespace RE
 		bool PopulateSaveList();
 
 		// members
-		BSTHashMap<std::uint64_t, BSFixedString> characterIDNameMap;     // 078
-		std::uint64_t                            unk0A0;                 // 0A0
-		std::uint32_t                            unk0A8;                 // 0A8
-		std::uint32_t                            unk0AC;                 // 0AC
-		std::uint32_t                            unk0B0;                 // 0B0
-		std::uint32_t                            unk0B4;                 // 0B4
-		std::uint64_t                            unk0B8;                 // 0B8
-		std::uint64_t                            unk0C0;                 // 0C0
-		std::uint64_t                            unk0C8;                 // 0C8
-		std::uint32_t                            currentCharacterID;     // 0D0
-		std::uint32_t                            currentCharacterModded; // 0D4
-		std::uint32_t                            displayCharacterID;     // 0D8
-		std::uint32_t                            displayCharacterModded; // 0DC
-		std::uint32_t                            unk0E0;                 // 0E0
-		std::uint32_t                            unk0E4;                 // 0E4
-		BSTArray<SaveEntry>                      loadedEntries;          // 0E8
+		BSTHashMap<std::uint64_t, BSFixedString> characterIDNameMap;      // 078
+		std::uint64_t                            unk0A0;                  // 0A0
+		std::uint32_t                            unk0A8;                  // 0A8
+		std::uint32_t                            unk0AC;                  // 0AC
+		std::uint32_t                            unk0B0;                  // 0B0
+		std::uint32_t                            unk0B4;                  // 0B4
+		std::uint64_t                            unk0B8;                  // 0B8
+		std::uint64_t                            unk0C0;                  // 0C0
+		std::uint64_t                            unk0C8;                  // 0C8
+		std::uint32_t                            currentCharacterID;      // 0D0
+		std::uint32_t                            currentCharacterModded;  // 0D4
+		std::uint32_t                            displayCharacterID;      // 0D8
+		std::uint32_t                            displayCharacterModded;  // 0DC
+		std::uint32_t                            unk0E0;                  // 0E0
+		std::uint32_t                            unk0E4;                  // 0E4
+		BSTArray<SaveEntry>                      loadedEntries;           // 0E8
 
-		BSTArray<BGSSaveLoadFileEntry*> saveGameList;  					 // 100
-		std::uint8_t                    unk118;        					 // 118
-		std::uint8_t                    pad119;        					 // 119
-		std::uint16_t                   pad11A;       					 // 11A
-		std::uint32_t                   saveCount;    					 // 11C
-		std::uint8_t                    unk120;       					 // 120
-		std::uint8_t                    pad121;							 // 121
-		std::uint16_t                   pad122;							 // 122
-		std::uint32_t                   pad124;							 // 124
-		std::uint64_t                   tickCount;                		 // 128
-		std::uint8_t                    unk130;                   		 // 130
-		std::uint8_t                    pad131;                   		 // 131
-		std::uint16_t                   pad132;                   		 // 132
-		std::uint32_t                   pad134;                   		 // 134
-		const char                      lastFileFullName[0x104];  		 // 138
-		std::uint32_t                   pad23C;                   	 	 // 23C
-		BSFixedString                   lastFileName;             	 	 // 240
-		std::uint16_t                   lastFileNameLength;       	 	 // 248
-		std::uint16_t                   maxFileNameLength;        	 	 // 24A
-		std::uint32_t                   unk24C;                   	 	 // 24C
-		std::int32_t                    unk250;                   	 	 // 250
-		std::uint32_t                   pad254;                   	 	 // 254
-		std::uint64_t                   unk258;                   	 	 // 258
-		std::uint16_t                   unk260;                   	 	 // 260
-		std::uint16_t                   unk262;                   	 	 // 262
-		std::uint32_t                   unk264;                   	 	 // 264
-		std::uint64_t                   unk268;                   	 	 // 268
-		std::uint32_t                   unk270;                   	 	 // 270
-		std::uint32_t                   unk274;                   	 	 // 274
-		std::uint64_t                   unk278;                   	 	 // 278
-		std::uint64_t                   unk280;                   	 	 // 280
-		std::uint32_t                   unk288;                   	 	 // 288
-		std::uint32_t                   unk28C;                   	 	 // 28C
-		std::uint64_t                   unk290;                   	 	 // 290
-		std::uint64_t                   unk298;                   	 	 // 298
-		std::uint32_t                   unk2A0;                   	 	 // 2A0
-		std::uint32_t                   unk2A4;                   	 	 // 2A4
-		std::uint64_t                   unk2A8;                   	 	 // 2A8
+		BSTArray<BGSSaveLoadFileEntry*> saveGameList;             // 100
+		std::uint8_t                    unk118;                   // 118
+		std::uint8_t                    pad119;                   // 119
+		std::uint16_t                   pad11A;                   // 11A
+		std::uint32_t                   saveCount;                // 11C
+		std::uint8_t                    unk120;                   // 120
+		std::uint8_t                    pad121;                   // 121
+		std::uint16_t                   pad122;                   // 122
+		std::uint32_t                   pad124;                   // 124
+		std::uint64_t                   tickCount;                // 128
+		std::uint8_t                    unk130;                   // 130
+		std::uint8_t                    pad131;                   // 131
+		std::uint16_t                   pad132;                   // 132
+		std::uint32_t                   pad134;                   // 134
+		const char                      lastFileFullName[0x104];  // 138
+		std::uint32_t                   pad23C;                   // 23C
+		BSFixedString                   lastFileName;             // 240
+		std::uint16_t                   lastFileNameLength;       // 248
+		std::uint16_t                   maxFileNameLength;        // 24A
+		std::uint32_t                   unk24C;                   // 24C
+		std::int32_t                    unk250;                   // 250
+		std::uint32_t                   pad254;                   // 254
+		std::uint64_t                   unk258;                   // 258
+		std::uint16_t                   unk260;                   // 260
+		std::uint16_t                   unk262;                   // 262
+		std::uint32_t                   unk264;                   // 264
+		std::uint64_t                   unk268;                   // 268
+		std::uint32_t                   unk270;                   // 270
+		std::uint32_t                   unk274;                   // 274
+		std::uint64_t                   unk278;                   // 278
+		std::uint64_t                   unk280;                   // 280
+		std::uint32_t                   unk288;                   // 288
+		std::uint32_t                   unk28C;                   // 28C
+		std::uint64_t                   unk290;                   // 290
+		std::uint64_t                   unk298;                   // 298
+		std::uint32_t                   unk2A0;                   // 2A0
+		std::uint32_t                   unk2A4;                   // 2A4
+		std::uint64_t                   unk2A8;                   // 2A8
 #ifdef SKYRIM_SUPPORT_AE
 		std::uint16_t   unk2B0;  // 2B0
 		std::uint16_t   unk2B2;  // 2B2
