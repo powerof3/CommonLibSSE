@@ -156,8 +156,10 @@ namespace RE
 		};
 		static_assert(sizeof(Data0B8) == 0x38);
 
+		void                    AddToProcedureIndexRunning(Actor* a_actor, std::uint32_t a_num);
 		void                    ClearActionHeadtrackTarget(bool a_defaultHold);
 		void                    ClearMuzzleFlashes();
+		void                    ComputeLastTimeProcessed();
 		float                   GetCachedHeight() const;
 		bhkCharacterController* GetCharController();
 		ActorHandle             GetCommandingActor() const;
@@ -182,11 +184,13 @@ namespace RE
 		bool                    IsInCommandState() const;
 		void                    KnockExplosion(Actor* a_actor, const NiPoint3& a_location, float a_magnitude);
 		bool                    PlayIdle(Actor* a_actor, TESIdleForm* a_idle, TESObjectREFR* a_target);
+		void                    RandomlyPlaySpecialIdles(Actor* a_actor);
 		void                    SetActorsDetectionEvent(Actor* a_actor, const NiPoint3& a_location, std::int32_t a_soundLevel, TESObjectREFR* a_ref);
 		void                    SetArrested(bool a_arrested);
 		void                    SetCachedHeight(float a_height);
 		void                    SetHeadtrackTarget(Actor* a_owner, NiPoint3& a_targetPosition);
 		void                    Set3DUpdateFlag(RESET_3D_FLAGS a_flags);
+		void                    SetRunOncePackage(TESPackage* a_package, Actor* a_actor);
 		bool                    SetupSpecialIdle(Actor* a_actor, DEFAULT_OBJECT a_action, TESIdleForm* a_idle, bool a_arg5, bool a_arg6, TESObjectREFR* a_target);
 		void                    StopCurrentIdle(Actor* a_actor, bool a_forceIdleStop);
 		void                    Update3DModel(Actor* a_actor);
@@ -198,7 +202,7 @@ namespace RE
 		HighProcessData*                                high;                           // 010
 		ActorPackage                                    currentPackage;                 // 018
 		float                                           hourLastProcessed;              // 048
-		std::uint32_t                                   dateLastProcessed;              // 04C
+		float                                           dateLastProcessed;              // 04C
 		CachedValues*                                   cachedValues;                   // 050
 		std::int32_t                                    numberItemsActivate;            // 058
 		std::uint32_t                                   pad05C;                         // 05C
