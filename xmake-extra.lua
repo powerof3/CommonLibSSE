@@ -37,7 +37,7 @@ bool SKSEPlugin_Query(const SKSE::QueryInterface* a_skse, SKSE::PluginInfo* a_in
 #endif
 ]]
 
-local PLUGIN_VERSION_FILE = [[
+local PLUGIN_RC_FILE = [[
 #include <winres.h>
 
 1 VERSIONINFO
@@ -91,24 +91,33 @@ rule("commonlibsse.plugin")
         target:set("arch", "x64")
         target:set("kind", "shared")
 
+        target:add("installfiles", target:targetfile(), { prefixdir = "SKSE/Plugins" })
+        target:add("installfiles", target:symbolfile(), { prefixdir = "SKSE/Plugins" })
+
+        if os.getenv("XSE_TES5_MODS_PATH") then
+            target:set("installdir", path.join(os.getenv("XSE_TES5_MODS_PATH"), target:name()))
+        elseif os.getenv("XSE_TES5_GAME_PATH") then
+            target:set("installdir", path.join(os.getenv("XSE_TES5_GAME_PATH"), "Data"))
+        end
+
         local conf = target:extraconf("rules", "commonlibsse.plugin")
         local conf_dir = path.join(target:autogendir(), "rules", "commonlibsse", "plugin")
 
         local conf_map = {
-            PLUGIN_AUTHOR                = conf.author or "",
-            PLUGIN_DESCRIPTION           = conf.description or "",
-            PLUGIN_EMAIL                 = conf.email or "",
-            PLUGIN_LICENSE               = (target:license() or "Unknown") .. " License",
-            PLUGIN_NAME                  = conf.name or target:name(),
-            PLUGIN_VERSION               = target:version() or "0.0.0",
-            PLUGIN_VERSION_MAJOR         = semver.new(target:version() or "0.0.0"):major(),
-            PLUGIN_VERSION_MINOR         = semver.new(target:version() or "0.0.0"):minor(),
-            PLUGIN_VERSION_PATCH         = semver.new(target:version() or "0.0.0"):patch(),
-            PROJECT_NAME                 = project.name() or "",
-            PROJECT_VERSION              = project.version() or "0.0.0",
-            PROJECT_VERSION_MAJOR        = semver.new(project.version() or "0.0.0"):major(),
-            PROJECT_VERSION_MINOR        = semver.new(project.version() or "0.0.0"):minor(),
-            PROJECT_VERSION_PATCH        = semver.new(project.version() or "0.0.0"):patch(),
+            PLUGIN_AUTHOR         = conf.author or "",
+            PLUGIN_DESCRIPTION    = conf.description or "",
+            PLUGIN_EMAIL          = conf.email or "",
+            PLUGIN_LICENSE        = (target:license() or "Unknown") .. " License",
+            PLUGIN_NAME           = conf.name or target:name(),
+            PLUGIN_VERSION        = target:version() or "0.0.0",
+            PLUGIN_VERSION_MAJOR  = semver.new(target:version() or "0.0.0"):major(),
+            PLUGIN_VERSION_MINOR  = semver.new(target:version() or "0.0.0"):minor(),
+            PLUGIN_VERSION_PATCH  = semver.new(target:version() or "0.0.0"):patch(),
+            PROJECT_NAME          = project.name() or "",
+            PROJECT_VERSION       = project.version() or "0.0.0",
+            PROJECT_VERSION_MAJOR = semver.new(project.version() or "0.0.0"):major(),
+            PROJECT_VERSION_MINOR = semver.new(project.version() or "0.0.0"):minor(),
+            PROJECT_VERSION_PATCH = semver.new(project.version() or "0.0.0"):patch(),
         }
 
         local conf_parse = function(a_str)
@@ -135,5 +144,54 @@ rule("commonlibsse.plugin")
         end
 
         add_file("plugin.cpp", PLUGIN_FILE)
-        add_file("version.rc", PLUGIN_VERSION_FILE)
+        add_file("version.rc", PLUGIN_RC_FILE)
+    end)
+
+    on_install(function(target)
+        local srcfiles, dstfiles = target:installfiles()
+        if srcfiles and #srcfiles > 0 and dstfiles and #dstfiles > 0 then
+            for idx, srcfile in ipairs(srcfiles) do
+                os.trycp(srcfile, dstfiles[idx])
+            end
+        end
+    end)
+
+    on_package(function(target)
+        import("core.project.config")
+        import("core.project.project")
+        import("utils.archive")
+
+        local archive_name = target:name() .. "-" .. (target:version() or "0.0.0") .. ".zip"
+        print("packing %s .. ", archive_name)
+
+        local root_dir = path.join(os.tmpdir(), "packages", project.name() or "", target:name())
+        os.tryrm(root_dir)
+
+        local srcfiles, dstfiles = target:installfiles(path.join(root_dir, "Data"))
+        if srcfiles and #srcfiles > 0 and dstfiles and #dstfiles > 0 then
+            for idx, srcfile in ipairs(srcfiles) do
+                os.trycp(srcfile, dstfiles[idx])
+            end
+        else
+            return
+        end
+
+        local archive_path = path.join(config.buildir(), "packages", archive_name)
+        local old_dir = os.cd(root_dir)
+        local archive_files = os.files("**")
+        os.cd(old_dir)
+        archive.archive(path.absolute(archive_path), archive_files, { curdir = root_dir })
+    end)
+
+    after_build(function(target)
+        import("core.project.depend")
+        import("core.project.project")
+        import("core.project.task")
+
+        depend.on_changed(function()
+            local srcfiles, dstfiles = target:installfiles()
+            if srcfiles and #srcfiles > 0 and dstfiles and #dstfiles > 0 then 
+                task.run("install")
+            end
+        end, { changed = target:is_rebuilt(), files = { target:targetfile() } })
     end)
