@@ -413,7 +413,7 @@ namespace RE
 		virtual void                    InitiateSpectator(Actor* a_target);                                                                                                                                              // 0DC - { return; }
 		virtual void                    InitiateFlee(TESObjectREFR* a_fleeRef, bool a_runOnce, bool a_knows, bool a_combatMode, TESObjectCELL* a_cell, TESObjectREFR* a_ref, float a_fleeFromDist, float a_fleeToDist);  // 0DD
 		virtual void                    InitiateGetUpPackage();                                                                                                                                                          // 0DE
-		virtual void                    PutCreatedPackage(TESPackage* a_package, bool a_tempPackage, bool a_createdPackage, bool a_allowFromFurniture);                                                                  // 0DF
+		virtual void                    PutCreatedPackage(TESPackage* a_package, bool a_tempPackage, bool a_createdPackage);                                                                                             // 0DF
 		virtual void                    UpdateAlpha();                                                                                                                                                                   // 0E0
 		virtual void                    SetAlpha(float a_alpha = 1.0);                                                                                                                                                   // 0E1
 		virtual float                   GetAlpha();                                                                                                                                                                      // 0E2

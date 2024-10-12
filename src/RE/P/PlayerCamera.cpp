@@ -42,6 +42,13 @@ namespace RE
 		return QCameraEquals(CameraState::kThirdPerson);
 	}
 
+	void PlayerCamera::PushCameraState(CameraState a_state)
+	{
+		using func_t = decltype(&PlayerCamera::PushCameraState);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(49947, 50880) };
+		return func(this, a_state);
+	}
+
 	bool PlayerCamera::QCameraEquals(CameraState a_cameraState) const
 	{
 		return currentState && currentState == cameraStates[a_cameraState];

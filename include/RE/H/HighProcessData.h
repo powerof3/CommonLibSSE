@@ -248,7 +248,7 @@ namespace RE
 		float                                                 takeBackTimer;                             // 200
 		std::uint32_t                                         pad204;                                    // 204
 		Data208*                                              unk208;                                    // 208
-		std::uint32_t                                         unk210;                                    // 210
+		float                                                 avoidWaitTimer;                            // 210
 		PLAYER_ACTION                                         playerActionReaction;                      // 214
 		BSFixedString                                         voiceSubtitle;                             // 218
 		BSTArray<BSTTuple<FormID, NiPointer<ActorKnowledge>>> knowledgeArray;                            // 220

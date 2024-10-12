@@ -50,6 +50,7 @@ set(SOURCES
 	include/RE/A/AutoMoveHandler.h
 	include/RE/A/AutoRegisterCreator.h
 	include/RE/A/AutoRegisterFactory.h
+	include/RE/A/AutoVanityState.h
 	include/RE/A/ahkpCharacterProxy.h
 	include/RE/A/ahkpWorld.h
 	include/RE/B/BGSAbilityPerkEntry.h

@@ -66,6 +66,7 @@ namespace RE
 		bool IsInFirstPerson() const;
 		bool IsInFreeCameraMode() const;
 		bool IsInThirdPerson() const;
+		void PushCameraState(CameraState a_state);
 		void ToggleFreeCameraMode(bool a_freezeTime);
 		void UpdateThirdPerson(bool a_weaponDrawn);
 
