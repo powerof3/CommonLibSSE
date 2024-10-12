@@ -10,6 +10,8 @@ namespace RE
 
 		virtual ~IUIMessageData() = default;  // 00
 
+		TES_HEAP_REDEFINE_NEW();
+
 		// members
 		std::uint16_t unk08;  // 08
 		std::uint16_t pad0A;  // 0A
