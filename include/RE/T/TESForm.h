@@ -314,7 +314,7 @@ namespace RE
 
 		template <class... Args>
 		[[nodiscard]] bool Is(Args... a_args) const noexcept  //
-			requires(std::same_as<Args, FormType>&&...)
+			requires(std::same_as<Args, FormType> && ...)
 		{
 			return (Is(a_args) || ...);
 		}
@@ -334,7 +334,7 @@ namespace RE
 
 		template <class... Args>
 		[[nodiscard]] bool IsNot(Args... a_args) const noexcept  //
-			requires(std::same_as<Args, FormType>&&...)
+			requires(std::same_as<Args, FormType> && ...)
 		{
 			return (IsNot(a_args) && ...);
 		}
@@ -349,13 +349,13 @@ namespace RE
 		void SetPlayerKnows(bool a_known);
 
 		// members
-		TESFileContainer                                sourceFiles;      // 08
-		std::uint32_t                                   formFlags;        // 10
-		FormID                                          formID;           // 14
-		stl::enumeration<InGameFormFlag, std::uint16_t> inGameFormFlags;  // 18
-		stl::enumeration<FormType, std::uint8_t>        formType;         // 1A
-		std::uint8_t                                    pad1B;            // 1B
-		std::uint32_t                                   pad1C;            // 1C
+		TESFileContainer                            sourceFiles;      // 08
+		std::uint32_t                               formFlags;        // 10
+		FormID                                      formID;           // 14
+		REX::EnumSet<InGameFormFlag, std::uint16_t> inGameFormFlags;  // 18
+		REX::EnumSet<FormType, std::uint8_t>        formType;         // 1A
+		std::uint8_t                                pad1B;            // 1B
+		std::uint32_t                               pad1C;            // 1C
 	};
 	static_assert(sizeof(TESForm) == 0x20);
 }

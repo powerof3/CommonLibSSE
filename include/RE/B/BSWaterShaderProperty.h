@@ -44,26 +44,26 @@ namespace RE
 		BSShaderMaterial::Type GetMaterialType() override;                                                                                  // 3E - { return 3; }
 
 		// members
-		stl::enumeration<WaterFlag, std::uint32_t> waterFlags;            // 88
-		std::uint32_t                              unk8C;                 // 8C
-		std::uint64_t                              unk90;                 // 90
-		std::uint64_t                              unk98;                 // 98
-		NiPlane                                    plane;                 // A0
-		std::uint64_t                              unkB0;                 // B0
-		std::uint8_t                               unkB8;                 // B8
-		std::uint8_t                               padB9;                 // B9
-		std::uint16_t                              padBA;                 // BA
-		std::uint16_t                              padBC;                 // BC
-		BSRenderPass*                              unkC0;                 // C0
-		RenderPassArray                            simpleRenderPassList;  // C8
-		std::uint64_t                              unkD0;                 // D0
-		BSTArray<void*>                            unkD8;                 // D8
-		std::int32_t                               unkF0;                 // F0
-		std::uint32_t                              unkF4;                 // F4
-		std::uint8_t                               unkF8;                 // F8
-		std::uint8_t                               padF9;                 // F9
-		std::uint16_t                              padFA;                 // FA
-		std::uint16_t                              padFC;                 // FC
+		REX::EnumSet<WaterFlag, std::uint32_t> waterFlags;            // 88
+		std::uint32_t                          unk8C;                 // 8C
+		std::uint64_t                          unk90;                 // 90
+		std::uint64_t                          unk98;                 // 98
+		NiPlane                                plane;                 // A0
+		std::uint64_t                          unkB0;                 // B0
+		std::uint8_t                           unkB8;                 // B8
+		std::uint8_t                           padB9;                 // B9
+		std::uint16_t                          padBA;                 // BA
+		std::uint16_t                          padBC;                 // BC
+		BSRenderPass*                          unkC0;                 // C0
+		RenderPassArray                        simpleRenderPassList;  // C8
+		std::uint64_t                          unkD0;                 // D0
+		BSTArray<void*>                        unkD8;                 // D8
+		std::int32_t                           unkF0;                 // F0
+		std::uint32_t                          unkF4;                 // F4
+		std::uint8_t                           unkF8;                 // F8
+		std::uint8_t                           padF9;                 // F9
+		std::uint16_t                          padFA;                 // FA
+		std::uint16_t                          padFC;                 // FC
 	};
 	static_assert(sizeof(BSWaterShaderProperty) == 0x100);
 }

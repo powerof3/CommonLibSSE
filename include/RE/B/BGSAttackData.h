@@ -23,18 +23,18 @@ namespace RE
 		};
 
 		// members
-		float                                       damageMult;     // 00
-		float                                       attackChance;   // 04
-		SpellItem*                                  attackSpell;    // 08
-		stl::enumeration<AttackFlag, std::uint32_t> flags;          // 10
-		float                                       attackAngle;    // 14
-		float                                       strikeAngle;    // 18
-		float                                       staggerOffset;  // 1C
-		BGSKeyword*                                 attackType;     // 20
-		float                                       knockDown;      // 28
-		float                                       recoveryTime;   // 2C
-		float                                       staminaMult;    // 30
-		std::uint32_t                               pad34;          // 34
+		float                                   damageMult;     // 00
+		float                                   attackChance;   // 04
+		SpellItem*                              attackSpell;    // 08
+		REX::EnumSet<AttackFlag, std::uint32_t> flags;          // 10
+		float                                   attackAngle;    // 14
+		float                                   strikeAngle;    // 18
+		float                                   staggerOffset;  // 1C
+		BGSKeyword*                             attackType;     // 20
+		float                                   knockDown;      // 28
+		float                                   recoveryTime;   // 2C
+		float                                   staminaMult;    // 30
+		std::uint32_t                           pad34;          // 34
 	};
 	static_assert(sizeof(AttackData) == 0x38);
 

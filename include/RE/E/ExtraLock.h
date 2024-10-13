@@ -31,17 +31,17 @@ namespace RE
 		void                         SetLocked(bool a_locked);
 
 		// members
-		std::int8_t                          baseLevel;  // 00
-		std::uint8_t                         pad01;      // 01
-		std::uint16_t                        pad02;      // 02
-		std::uint32_t                        pad04;      // 04
-		TESKey*                              key;        // 08
-		stl::enumeration<Flag, std::uint8_t> flags;      // 10
-		std::uint8_t                         pad11;      // 11
-		std::uint16_t                        pad12;      // 12
-		std::uint32_t                        numTries;   // 14
-		std::uint32_t                        unk18;      // 18
-		std::uint32_t                        pad1C;      // 1C
+		std::int8_t                      baseLevel;  // 00
+		std::uint8_t                     pad01;      // 01
+		std::uint16_t                    pad02;      // 02
+		std::uint32_t                    pad04;      // 04
+		TESKey*                          key;        // 08
+		REX::EnumSet<Flag, std::uint8_t> flags;      // 10
+		std::uint8_t                     pad11;      // 11
+		std::uint16_t                    pad12;      // 12
+		std::uint32_t                    numTries;   // 14
+		std::uint32_t                    unk18;      // 18
+		std::uint32_t                    pad1C;      // 1C
 	};
 	static_assert(sizeof(REFR_LOCK) == 0x20);
 

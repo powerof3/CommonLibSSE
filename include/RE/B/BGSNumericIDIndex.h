@@ -36,8 +36,8 @@ namespace RE
 			{
 				union
 				{
-					std::uint8_t                          data1;
-					stl::enumeration<Flags, std::uint8_t> flags;
+					std::uint8_t                      data1;
+					REX::EnumSet<Flags, std::uint8_t> flags;
 				};                   // 0
 				std::uint8_t data2;  // 1
 				std::uint8_t data3;  // 2

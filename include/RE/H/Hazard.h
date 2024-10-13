@@ -48,17 +48,17 @@ namespace RE
 		virtual bool IsPermanent() const;  // A4 - { return TESDataHandler::GetSingleton()->IsGeneratedFormID(formID) == 0; }
 
 		// members
-		ModelDBHandle                          hazardDBHandle;  // 98
-		ActorHandle                            ownerActor;      // A0
-		float                                  age;             // A4
-		float                                  lifetime;        // A8
-		float                                  targetTimer;     // AC
-		float                                  radius;          // B0
-		float                                  magnitude;       // B4
-		BGSHazard*                             hazard;          // B8
-		NiPointer<NiLight>                     light;           // C0
-		BSSoundHandle                          sound;           // C8
-		stl::enumeration<Flags, std::uint32_t> flags;           // D4
+		ModelDBHandle                      hazardDBHandle;  // 98
+		ActorHandle                        ownerActor;      // A0
+		float                              age;             // A4
+		float                              lifetime;        // A8
+		float                              targetTimer;     // AC
+		float                              radius;          // B0
+		float                              magnitude;       // B4
+		BGSHazard*                         hazard;          // B8
+		NiPointer<NiLight>                 light;           // C0
+		BSSoundHandle                      sound;           // C8
+		REX::EnumSet<Flags, std::uint32_t> flags;           // D4
 	};
 #ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(Hazard) == 0xD8);

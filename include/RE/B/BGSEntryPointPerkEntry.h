@@ -38,11 +38,11 @@ namespace RE
 			};
 
 			// members
-			stl::enumeration<EntryPoint, std::uint8_t> entryPoint;  // 0
-			stl::enumeration<Function, std::uint8_t>   function;    // 1
-			std::uint8_t                               numArgs;     // 2
-			std::uint8_t                               unk3;        // 3
-			std::uint32_t                              unk4;        // 4
+			REX::EnumSet<EntryPoint, std::uint8_t> entryPoint;  // 0
+			REX::EnumSet<Function, std::uint8_t>   function;    // 1
+			std::uint8_t                           numArgs;     // 2
+			std::uint8_t                           unk3;        // 3
+			std::uint32_t                          unk4;        // 4
 		};
 		static_assert(sizeof(EntryData) == 0x8);
 
