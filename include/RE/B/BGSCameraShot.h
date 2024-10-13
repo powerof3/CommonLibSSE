@@ -58,17 +58,17 @@ namespace RE
 			};
 
 			// members
-			stl::enumeration<CAM_ACTION, std::uint32_t> cameraAction;                // 00
-			stl::enumeration<CAM_OBJECT, std::uint32_t> location;                    // 04
-			stl::enumeration<CAM_OBJECT, std::uint32_t> target;                      // 08
-			stl::enumeration<Flag, std::uint32_t>       flags;                       // 0C
-			float                                       playerTimeMult;              // 10
-			float                                       targetTimeMult;              // 14
-			float                                       globalTimeMult;              // 18
-			float                                       maxTime;                     // 1C
-			float                                       minTime;                     // 20
-			float                                       targetPercentBetweenActors;  // 24
-			float                                       nearTargetDistance;          // 28
+			REX::EnumSet<CAM_ACTION, std::uint32_t> cameraAction;                // 00
+			REX::EnumSet<CAM_OBJECT, std::uint32_t> location;                    // 04
+			REX::EnumSet<CAM_OBJECT, std::uint32_t> target;                      // 08
+			REX::EnumSet<Flag, std::uint32_t>       flags;                       // 0C
+			float                                   playerTimeMult;              // 10
+			float                                   targetTimeMult;              // 14
+			float                                   globalTimeMult;              // 18
+			float                                   maxTime;                     // 1C
+			float                                   minTime;                     // 20
+			float                                   targetPercentBetweenActors;  // 24
+			float                                   nearTargetDistance;          // 28
 		};
 		static_assert(sizeof(CAMERA_SHOT_DATA) == 0x2C);
 

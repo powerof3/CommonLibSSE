@@ -42,16 +42,16 @@ namespace RE
 	{
 	public:
 		// members
-		std::int32_t                                     time;                       // 00
-		std::uint32_t                                    radius;                     // 04
-		Color                                            color;                      // 08
-		stl::enumeration<TES_LIGHT_FLAGS, std::uint32_t> flags;                      // 0C
-		float                                            fallofExponent;             // 10
-		float                                            fov;                        // 14
-		float                                            nearDistance;               // 18
-		float                                            flickerPeriodRecip;         // 1C - CK value * 100
-		float                                            flickerIntensityAmplitude;  // 20
-		float                                            flickerMovementAmplitude;   // 24
+		std::int32_t                                 time;                       // 00
+		std::uint32_t                                radius;                     // 04
+		Color                                        color;                      // 08
+		REX::EnumSet<TES_LIGHT_FLAGS, std::uint32_t> flags;                      // 0C
+		float                                        fallofExponent;             // 10
+		float                                        fov;                        // 14
+		float                                        nearDistance;               // 18
+		float                                        flickerPeriodRecip;         // 1C - CK value * 100
+		float                                        flickerIntensityAmplitude;  // 20
+		float                                        flickerMovementAmplitude;   // 24
 	};
 	static_assert(sizeof(OBJ_LIGH) == 0x28);
 

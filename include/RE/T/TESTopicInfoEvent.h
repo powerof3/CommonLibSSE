@@ -25,7 +25,7 @@ namespace RE
 		BSTSmartPointer<REFREventCallbacks::IEventCallback> callback;         // 00
 		NiPointer<TESObjectREFR>                            speakerRef;       // 08
 		FormID                                              topicInfoFormID;  // 10
-		stl::enumeration<TopicInfoEventType, std::uint32_t> type;             // 14
+		REX::EnumSet<TopicInfoEventType, std::uint32_t>     type;             // 14
 		std::uint16_t                                       stage;            // 18
 	};
 	static_assert(sizeof(TESTopicInfoEvent) == 0x20);

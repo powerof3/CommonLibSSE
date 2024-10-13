@@ -61,7 +61,7 @@ namespace RE
 		BGSArtObject*                          artObject;          // B8
 		BSTSmartPointer<BGSArtObjectCloneTask> cloneTask;          // C0
 		NiPointer<NiAVObject>                  artObject3D;        // C8
-		stl::enumeration<Flags, std::uint32_t> flags;              // D0
+		REX::EnumSet<Flags, std::uint32_t>     flags;              // D0
 		std::uint32_t                          padD4;              // D4
 	};
 	static_assert(sizeof(ModelReferenceEffect) == 0xD8);

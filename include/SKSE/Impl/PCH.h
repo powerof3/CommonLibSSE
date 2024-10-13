@@ -147,14 +147,14 @@ namespace SKSE
 			string(const CharT (&)[N]) -> string<CharT, N - 1>;
 		}
 
-		template <class EF>                                    //
-		requires(std::invocable<std::remove_reference_t<EF>>)  //
-			class scope_exit
+		template <class EF>
+			requires(std::invocable<std::remove_reference_t<EF>>)
+		class scope_exit
 		{
 		public:
 			// 1)
 			template <class Fn>
-			explicit scope_exit(Fn&& a_fn)  //
+			explicit scope_exit(Fn&& a_fn)
 				noexcept(std::is_nothrow_constructible_v<EF, Fn> ||
 						 std::is_nothrow_constructible_v<EF, Fn&>)  //
 				requires(!std::is_same_v<std::remove_cvref_t<Fn>, scope_exit> &&
@@ -171,7 +171,7 @@ namespace SKSE
 			}
 
 			// 2)
-			scope_exit(scope_exit&& a_rhs)  //
+			scope_exit(scope_exit&& a_rhs)
 				noexcept(std::is_nothrow_move_constructible_v<EF> ||
 						 std::is_nothrow_copy_constructible_v<EF>)  //
 				requires(std::is_nothrow_move_constructible_v<EF> ||
@@ -323,7 +323,7 @@ namespace SKSE
 
 		template <class... Args>
 		[[nodiscard]] inline auto pun_bits(Args... a_args)  //
-			requires(std::same_as<std::remove_cv_t<Args>, bool>&&...)
+			requires(std::same_as<std::remove_cv_t<Args>, bool> && ...)
 		{
 			constexpr auto ARGC = sizeof...(Args);
 

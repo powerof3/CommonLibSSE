@@ -73,16 +73,16 @@ namespace RE
 		virtual void                    Unk_37(void);              // 37 - { return 0; }
 
 		// members
-		NiBound                              modelBound;                  // 110
-		NiPointer<NiProperty>                properties[States::kTotal];  // 120
-		NiPointer<NiSkinInstance>            skinInstance;                // 130
-		BSGraphics::TriShape*                rendererData;                // 138
-		void*                                unk140;                      // 140 - smart ptr
-		BSGraphics::VertexDesc               vertexDesc;                  // 148
-		stl::enumeration<Type, std::uint8_t> type;                        // 150
-		std::uint8_t                         pad151;                      // 151
-		std::uint16_t                        pad152;                      // 152
-		std::uint32_t                        pad154;                      // 154
+		NiBound                          modelBound;                  // 110
+		NiPointer<NiProperty>            properties[States::kTotal];  // 120
+		NiPointer<NiSkinInstance>        skinInstance;                // 130
+		BSGraphics::TriShape*            rendererData;                // 138
+		void*                            unk140;                      // 140 - smart ptr
+		BSGraphics::VertexDesc           vertexDesc;                  // 148
+		REX::EnumSet<Type, std::uint8_t> type;                        // 150
+		std::uint8_t                     pad151;                      // 151
+		std::uint16_t                    pad152;                      // 152
+		std::uint32_t                    pad154;                      // 154
 	};
 	static_assert(sizeof(BSGeometry) == 0x158);
 }

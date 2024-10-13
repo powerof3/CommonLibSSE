@@ -87,10 +87,10 @@ namespace REL
 			{
 				const mapping_t elem{ 0, a_offset };
 				const auto      it = std::lower_bound(
-						 _offset2id.begin(),
-						 _offset2id.end(),
-						 elem,
-						 [](auto&& a_lhs, auto&& a_rhs) {
+                    _offset2id.begin(),
+                    _offset2id.end(),
+                    elem,
+                    [](auto&& a_lhs, auto&& a_rhs) {
                         return a_lhs.offset < a_rhs.offset;
                     });
 				if (it == _offset2id.end()) {

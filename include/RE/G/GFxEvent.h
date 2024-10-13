@@ -40,7 +40,7 @@ namespace RE
 		{}
 
 		// members
-		stl::enumeration<EventType, std::uint32_t> type;  // 0
+		REX::EnumSet<EventType, std::uint32_t> type;  // 0
 	};
 	static_assert(sizeof(GFxEvent) == 0x4);
 
