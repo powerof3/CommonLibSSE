@@ -63,6 +63,7 @@ static_assert(
 #include <spdlog/spdlog.h>
 #pragma warning(pop)
 
+#include "REX/REX.h"
 #include "REX/W32/KERNEL32.h"
 #include "REX/W32/USER32.h"
 
