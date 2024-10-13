@@ -211,97 +211,21 @@ namespace SKSE
 		template <class EF>
 		scope_exit(EF) -> scope_exit<EF>;
 
+		// backwards compat
 		template <
-			class Enum,
-			class Underlying = std::underlying_type_t<Enum>>
-		class enumeration
+			class E,
+			class U = std::underlying_type_t<E>>
+		class enumeration : public REX::EnumSet<E, U>
 		{
+			using super = REX::EnumSet<E, U>;
+
 		public:
-			using enum_type = Enum;
-			using underlying_type = Underlying;
+			using enum_type = E;
+			using underlying_type = U;
 
-			static_assert(std::is_enum_v<enum_type>, "enum_type must be an enum");
-			static_assert(std::is_integral_v<underlying_type>, "underlying_type must be an integral");
-
-			constexpr enumeration() noexcept = default;
-
-			constexpr enumeration(const enumeration&) noexcept = default;
-
-			constexpr enumeration(enumeration&&) noexcept = default;
-
-			template <class U2>  // NOLINTNEXTLINE(google-explicit-constructor)
-			constexpr enumeration(enumeration<Enum, U2> a_rhs) noexcept :
-				_impl(static_cast<underlying_type>(a_rhs.get()))
-			{}
-
-			template <class... Args>
-			constexpr enumeration(Args... a_values) noexcept  //
-				requires(std::same_as<Args, enum_type>&&...) :
-				_impl((static_cast<underlying_type>(a_values) | ...))
-			{}
-
-			~enumeration() noexcept = default;
-
-			constexpr enumeration& operator=(const enumeration&) noexcept = default;
-			constexpr enumeration& operator=(enumeration&&) noexcept = default;
-
-			template <class U2>
-			constexpr enumeration& operator=(enumeration<Enum, U2> a_rhs) noexcept
-			{
-				_impl = static_cast<underlying_type>(a_rhs.get());
-			}
-
-			constexpr enumeration& operator=(enum_type a_value) noexcept
-			{
-				_impl = static_cast<underlying_type>(a_value);
-				return *this;
-			}
-
-			[[nodiscard]] explicit constexpr operator bool() const noexcept { return _impl != static_cast<underlying_type>(0); }
-
-			[[nodiscard]] constexpr enum_type       operator*() const noexcept { return get(); }
-			[[nodiscard]] constexpr enum_type       get() const noexcept { return static_cast<enum_type>(_impl); }
-			[[nodiscard]] constexpr underlying_type underlying() const noexcept { return _impl; }
-
-			template <class... Args>
-			constexpr enumeration& set(Args... a_args) noexcept  //
-				requires(std::same_as<Args, enum_type>&&...)
-			{
-				_impl |= (static_cast<underlying_type>(a_args) | ...);
-				return *this;
-			}
-
-			template <class... Args>
-			constexpr enumeration& reset(Args... a_args) noexcept  //
-				requires(std::same_as<Args, enum_type>&&...)
-			{
-				_impl &= ~(static_cast<underlying_type>(a_args) | ...);
-				return *this;
-			}
-
-			template <class... Args>
-			[[nodiscard]] constexpr bool any(Args... a_args) const noexcept  //
-				requires(std::same_as<Args, enum_type>&&...)
-			{
-				return (_impl & (static_cast<underlying_type>(a_args) | ...)) != static_cast<underlying_type>(0);
-			}
-
-			template <class... Args>
-			[[nodiscard]] constexpr bool all(Args... a_args) const noexcept  //
-				requires(std::same_as<Args, enum_type>&&...)
-			{
-				return (_impl & (static_cast<underlying_type>(a_args) | ...)) == (static_cast<underlying_type>(a_args) | ...);
-			}
-
-			template <class... Args>
-			[[nodiscard]] constexpr bool none(Args... a_args) const noexcept  //
-				requires(std::same_as<Args, enum_type>&&...)
-			{
-				return (_impl & (static_cast<underlying_type>(a_args) | ...)) == static_cast<underlying_type>(0);
-			}
-
-		private:
-			underlying_type _impl{ 0 };
+			using super::super;
+			using super::operator=;
+			using super::operator*;
 		};
 
 		template <class... Args>
@@ -312,125 +236,10 @@ namespace SKSE
 	}
 }
 
-#define SKSE_MAKE_LOGICAL_OP(a_op, a_result)                                                                    \
-	template <class E, class U1, class U2>                                                                      \
-	[[nodiscard]] constexpr a_result operator a_op(enumeration<E, U1> a_lhs, enumeration<E, U2> a_rhs) noexcept \
-	{                                                                                                           \
-		return a_lhs.get() a_op a_rhs.get();                                                                    \
-	}                                                                                                           \
-                                                                                                                \
-	template <class E, class U>                                                                                 \
-	[[nodiscard]] constexpr a_result operator a_op(enumeration<E, U> a_lhs, E a_rhs) noexcept                   \
-	{                                                                                                           \
-		return a_lhs.get() a_op a_rhs;                                                                          \
-	}
-
-#define SKSE_MAKE_ARITHMETIC_OP(a_op)                                                        \
-	template <class E, class U>                                                              \
-	[[nodiscard]] constexpr auto operator a_op(enumeration<E, U> a_enum, U a_shift) noexcept \
-		->enumeration<E, U>                                                                  \
-	{                                                                                        \
-		return static_cast<E>(static_cast<U>(a_enum.get()) a_op a_shift);                    \
-	}                                                                                        \
-                                                                                             \
-	template <class E, class U>                                                              \
-	constexpr auto operator a_op##=(enumeration<E, U>& a_enum, U a_shift) noexcept           \
-		->enumeration<E, U>&                                                                 \
-	{                                                                                        \
-		return a_enum = a_enum a_op a_shift;                                                 \
-	}
-
-#define SKSE_MAKE_ENUMERATION_OP(a_op)                                                                      \
-	template <class E, class U1, class U2>                                                                  \
-	[[nodiscard]] constexpr auto operator a_op(enumeration<E, U1> a_lhs, enumeration<E, U2> a_rhs) noexcept \
-		->enumeration<E, std::common_type_t<U1, U2>>                                                        \
-	{                                                                                                       \
-		return static_cast<E>(static_cast<U1>(a_lhs.get()) a_op static_cast<U2>(a_rhs.get()));              \
-	}                                                                                                       \
-                                                                                                            \
-	template <class E, class U>                                                                             \
-	[[nodiscard]] constexpr auto operator a_op(enumeration<E, U> a_lhs, E a_rhs) noexcept                   \
-		->enumeration<E, U>                                                                                 \
-	{                                                                                                       \
-		return static_cast<E>(static_cast<U>(a_lhs.get()) a_op static_cast<U>(a_rhs));                      \
-	}                                                                                                       \
-                                                                                                            \
-	template <class E, class U>                                                                             \
-	[[nodiscard]] constexpr auto operator a_op(E a_lhs, enumeration<E, U> a_rhs) noexcept                   \
-		->enumeration<E, U>                                                                                 \
-	{                                                                                                       \
-		return static_cast<E>(static_cast<U>(a_lhs) a_op static_cast<U>(a_rhs.get()));                      \
-	}                                                                                                       \
-                                                                                                            \
-	template <class E, class U1, class U2>                                                                  \
-	constexpr auto operator a_op##=(enumeration<E, U1>& a_lhs, enumeration<E, U2> a_rhs) noexcept           \
-		->enumeration<E, U1>&                                                                               \
-	{                                                                                                       \
-		return a_lhs = a_lhs a_op a_rhs;                                                                    \
-	}                                                                                                       \
-                                                                                                            \
-	template <class E, class U>                                                                             \
-	constexpr auto operator a_op##=(enumeration<E, U>& a_lhs, E a_rhs) noexcept                             \
-		->enumeration<E, U>&                                                                                \
-	{                                                                                                       \
-		return a_lhs = a_lhs a_op a_rhs;                                                                    \
-	}                                                                                                       \
-                                                                                                            \
-	template <class E, class U>                                                                             \
-	constexpr auto operator a_op##=(E& a_lhs, enumeration<E, U> a_rhs) noexcept                             \
-		->E&                                                                                                \
-	{                                                                                                       \
-		return a_lhs = *(a_lhs a_op a_rhs);                                                                 \
-	}
-
-#define SKSE_MAKE_INCREMENTER_OP(a_op)                                                       \
-	template <class E, class U>                                                              \
-	constexpr auto operator a_op##a_op(enumeration<E, U>& a_lhs) noexcept                    \
-		->enumeration<E, U>&                                                                 \
-	{                                                                                        \
-		return a_lhs a_op## = static_cast<E>(1);                                             \
-	}                                                                                        \
-                                                                                             \
-	template <class E, class U>                                                              \
-	[[nodiscard]] constexpr auto operator a_op##a_op(enumeration<E, U>& a_lhs, int) noexcept \
-		->enumeration<E, U>                                                                  \
-	{                                                                                        \
-		const auto tmp = a_lhs;                                                              \
-		a_op##a_op a_lhs;                                                                    \
-		return tmp;                                                                          \
-	}
-
 namespace SKSE
 {
 	namespace stl
 	{
-		template <
-			class E,
-			class U>
-		[[nodiscard]] constexpr auto operator~(enumeration<E, U> a_enum) noexcept
-			-> enumeration<E, U>
-		{
-			return static_cast<E>(~static_cast<U>(a_enum.get()));
-		}
-
-		SKSE_MAKE_LOGICAL_OP(==, bool);
-		SKSE_MAKE_LOGICAL_OP(<=>, std::strong_ordering);
-
-		SKSE_MAKE_ARITHMETIC_OP(<<);
-		SKSE_MAKE_ENUMERATION_OP(<<);
-		SKSE_MAKE_ARITHMETIC_OP(>>);
-		SKSE_MAKE_ENUMERATION_OP(>>);
-
-		SKSE_MAKE_ENUMERATION_OP(|);
-		SKSE_MAKE_ENUMERATION_OP(&);
-		SKSE_MAKE_ENUMERATION_OP(^);
-
-		SKSE_MAKE_ENUMERATION_OP(+);
-		SKSE_MAKE_ENUMERATION_OP(-);
-
-		SKSE_MAKE_INCREMENTER_OP(+);  // ++
-		SKSE_MAKE_INCREMENTER_OP(-);  // --
-
 		template <class T>
 		class atomic_ref :
 			public std::atomic_ref<T>
@@ -678,11 +487,6 @@ namespace SKSE
 		}
 	}
 }
-
-#undef SKSE_MAKE_INCREMENTER_OP
-#undef SKSE_MAKE_ENUMERATION_OP
-#undef SKSE_MAKE_ARITHMETIC_OP
-#undef SKSE_MAKE_LOGICAL_OP
 
 namespace RE
 {
