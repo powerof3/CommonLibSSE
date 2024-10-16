@@ -1660,9 +1660,11 @@ set(SOURCES
 	include/REL/Version.h
 	include/REX/PS4.h
 	include/REX/PS4/SCEPAD.h
+	include/REX/REX.h
 	include/REX/W32.h
 	include/REX/W32/ADVAPI32.h
 	include/REX/W32/BASE.h
+	include/REX/W32/BCRYPT.h
 	include/REX/W32/COM.h
 	include/REX/W32/COMPTR.h
 	include/REX/W32/D3D.h
