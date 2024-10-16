@@ -157,7 +157,7 @@ namespace RE
 
 		bool removed = false;
 
-		while (_extraData.data->GetType() == a_type) {
+		while (_extraData.data && _extraData.data->GetType() == a_type) {
 			auto tmp = _extraData.data;
 			_extraData.data = _extraData.data->next;
 			delete tmp;
@@ -165,7 +165,7 @@ namespace RE
 		}
 
 		auto prev = _extraData.data;
-		for (auto cur = _extraData.data->next; cur; cur = cur->next) {
+		for (auto cur = _extraData.data ? _extraData.data->next : nullptr; cur; cur = cur->next) {
 			if (cur->GetType() == a_type) {
 				prev->next = cur->next;
 				delete cur;
