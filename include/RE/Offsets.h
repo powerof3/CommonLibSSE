@@ -635,6 +635,7 @@ namespace RE
 			inline constexpr REL::ID HasOverlays(static_cast<std::uint64_t>(24790));
 			inline constexpr REL::ID SetSkinFromTint(static_cast<std::uint64_t>(24710));
 			inline constexpr REL::ID UpdateNeck(static_cast<std::uint64_t>(24711));
+			inline constexpr REL::ID SetWorn(static_cast<std::uint64_t>(16027));
 		}
 
 		namespace TESObjectREFR
