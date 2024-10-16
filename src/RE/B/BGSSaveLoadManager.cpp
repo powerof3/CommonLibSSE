@@ -8,12 +8,12 @@ namespace RE
 		return *singleton;
 	}
 
-    bool BGSSaveLoadFileEntry::PopulateFileEntryData()
-    {
-        using func_t = decltype(&BGSSaveLoadFileEntry::PopulateFileEntryData);
-        REL::Relocation<func_t> func{ RELOCATION_ID(34627, 35547) };
-        return func(this);
-    }
+	bool BGSSaveLoadFileEntry::PopulateFileEntryData()
+	{
+		using func_t = decltype(&BGSSaveLoadFileEntry::PopulateFileEntryData);
+		REL::Relocation<func_t> func{ RELOCATION_ID(34627, 35547) };
+		return func(this);
+	}
 
 	void BGSSaveLoadManager::GenerateCharacterID()
 	{
