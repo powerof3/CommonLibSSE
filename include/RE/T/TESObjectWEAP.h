@@ -87,6 +87,7 @@ namespace RE
 			enum RecordFlag : std::uint32_t
 			{
 				kNonPlayable = 1 << 2,
+				kHasInheritedFromTemplate = 1 << 3, // cleared on load; set by relevant processing in InitItemImpl
 				kDeleted = 1 << 5,
 				kIgnored = 1 << 12
 			};
@@ -96,15 +97,15 @@ namespace RE
 		{
 		public:
 			// members
-			float                                              sightFOV;                        // 00
-			float                                              unk04;                           // 04
-			float                                              firingRumbleLeftMotorStrength;   // 08
-			float                                              firingRumbleRightMotorStrength;  // 0C
-			float                                              firingRumbleDuration;            // 10
-			REX::EnumSet<WEAPON_RUMBLE_PATTERN, std::uint32_t> rumblePattern;                   // 14
-			std::int8_t                                        numProjectiles;                  // 18
-			std::uint8_t                                       pad19;                           // 19
-			std::uint16_t                                      pad1A;                           // 1A
+			float         sightFOV;                        // 00
+			float         fireRate;                        // 04 - Fallout leftover?
+			float         firingRumbleLeftMotorStrength;   // 08
+			float         firingRumbleRightMotorStrength;  // 0C
+			float         firingRumbleDuration;            // 10
+			float         attackShotsPerSec;               // 14 - Fallout leftover?
+			std::int8_t   numProjectiles;                  // 18
+			std::uint8_t  pad19;                           // 19
+			std::uint16_t pad1A;                           // 1A
 		};
 		static_assert(sizeof(RangedData) == 0x1C);
 
@@ -120,6 +121,7 @@ namespace RE
 				kMinorCrime = 1 << 4,
 				kRangeFixed = 1 << 5,
 				kNotUsedInNormalCombat = 1 << 6,
+				kOverridesConditionDamage = 1 << 7, 
 				kDontUse3rdPersonISAnim = 1 << 8,  // unused
 				kBurstShot = 1 << 9,
 				kRumbleAlternate = 1 << 10,
@@ -170,7 +172,7 @@ namespace RE
 			float                                          minRange;             // 10
 			float                                          maxRange;             // 14
 			float                                          animationAttackMult;  // 18
-			float                                          unk1C;                // 1C
+			float                                          damageToWeaponMult;   // 1C - used in (unused?) condition calculations if Flag2::kOverridesConditionDamage is set
 			float                                          staggerValue;         // 20
 			REX::EnumSet<WEAPONHITBEHAVIOR, std::uint32_t> hitBehavior;          // 24
 			REX::EnumSet<ActorValue, std::uint32_t>        skill;                // 28
@@ -205,14 +207,14 @@ namespace RE
 		};
 		static_assert(sizeof(CriticalData) == 0x18);
 
-		struct Unk1B8
+		struct ScopeArt
 		{
 		public:
 			// members
-			TESModel         unk00;  // 00
-			TESEffectShader* unk28;  // 28
+			TESModel         unk00;  // 00 - MOD3 and friends
+			TESEffectShader* unk28;  // 28 - EIDT
 		};
-		static_assert(sizeof(Unk1B8) == 0x30);
+		static_assert(sizeof(ScopeArt) == 0x30);
 
 		~TESObjectWEAP() override;  // 00
 
@@ -256,7 +258,7 @@ namespace RE
 		// members
 		Data                                     weaponData;              // 168 - DNAM
 		CriticalData                             criticalData;            // 1A0 - CRDT
-		Unk1B8*                                  unk1B8;                  // 1B8
+		ScopeArt*                                scopeArt;                // 1B8
 		BGSSoundDescriptorForm*                  attackSound;             // 1C0 - SNAM
 		BGSSoundDescriptorForm*                  attackSound2D;           // 1C8 - XNAM
 		BGSSoundDescriptorForm*                  attackLoopSound;         // 1D0 - NAM7
