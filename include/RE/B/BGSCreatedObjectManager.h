@@ -26,7 +26,7 @@ namespace RE
 
 		EnchantmentItem* AddArmorEnchantment(BSTArray<Effect>& a_effects);
 		EnchantmentItem* AddWeaponEnchantment(BSTArray<Effect>& a_effects);
-		void DestroyEnchantment(EnchantmentItem* a_enchantment, bool a_isWeapon);
+		void             DestroyEnchantment(EnchantmentItem* a_enchantment, bool a_isWeapon);
 
 		// members
 		std::uint8_t                                    pad01;               // 01
