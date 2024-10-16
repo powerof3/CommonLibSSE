@@ -66,50 +66,50 @@ namespace RE
 			};
 
 			// members
-			stl::enumeration<Flag, std::uint32_t> flags;                  // 00
-			float                                 baseCost;               // 04
-			TESForm*                              associatedForm;         // 08
-			ActorValue                            associatedSkill;        // 10
-			ActorValue                            resistVariable;         // 14
-			std::int16_t                          numCounterEffects;      // 18
-			std::uint16_t                         pad1A;                  // 1A
-			std::uint32_t                         pad1C;                  // 1C
-			TESObjectLIGH*                        light;                  // 20
-			float                                 taperWeight;            // 28
-			std::uint32_t                         pad2C;                  // 2C
-			TESEffectShader*                      effectShader;           // 30
-			TESEffectShader*                      enchantShader;          // 38
-			std::int32_t                          minimumSkill;           // 40
-			std::int32_t                          spellmakingArea;        // 44
-			float                                 spellmakingChargeTime;  // 48
-			float                                 taperCurve;             // 4C
-			float                                 taperDuration;          // 50
-			float                                 secondAVWeight;         // 54
-			Archetype                             archetype;              // 58
-			ActorValue                            primaryAV;              // 5C
-			BGSProjectile*                        projectileBase;         // 60
-			BGSExplosion*                         explosion;              // 68
-			MagicSystem::CastingType              castingType;            // 70
-			MagicSystem::Delivery                 delivery;               // 74
-			ActorValue                            secondaryAV;            // 78
-			BGSArtObject*                         castingArt;             // 80
-			BGSArtObject*                         hitEffectArt;           // 88
-			BGSImpactDataSet*                     impactDataSet;          // 90
-			float                                 skillUsageMult;         // 98
-			std::uint32_t                         pad9C;                  // 9C
-			BGSDualCastData*                      dualCastData;           // A0
-			float                                 dualCastScale;          // A8
-			std::uint32_t                         padAC;                  // AC
-			BGSArtObject*                         enchantEffectArt;       // B0
-			BGSReferenceEffect*                   hitVisuals;             // B8
-			BGSReferenceEffect*                   enchantVisuals;         // C0
-			SpellItem*                            equipAbility;           // C8
-			TESImageSpaceModifier*                imageSpaceMod;          // D0
-			BGSPerk*                              perk;                   // D8
-			SOUND_LEVEL                           castingSoundLevel;      // E0
-			float                                 aiScore;                // E4
-			float                                 aiDelayTimer;           // E8
-			std::uint32_t                         padEC;                  // EC
+			REX::EnumSet<Flag, std::uint32_t> flags;                  // 00
+			float                             baseCost;               // 04
+			TESForm*                          associatedForm;         // 08
+			ActorValue                        associatedSkill;        // 10
+			ActorValue                        resistVariable;         // 14
+			std::int16_t                      numCounterEffects;      // 18
+			std::uint16_t                     pad1A;                  // 1A
+			std::uint32_t                     pad1C;                  // 1C
+			TESObjectLIGH*                    light;                  // 20
+			float                             taperWeight;            // 28
+			std::uint32_t                     pad2C;                  // 2C
+			TESEffectShader*                  effectShader;           // 30
+			TESEffectShader*                  enchantShader;          // 38
+			std::int32_t                      minimumSkill;           // 40
+			std::int32_t                      spellmakingArea;        // 44
+			float                             spellmakingChargeTime;  // 48
+			float                             taperCurve;             // 4C
+			float                             taperDuration;          // 50
+			float                             secondAVWeight;         // 54
+			Archetype                         archetype;              // 58
+			ActorValue                        primaryAV;              // 5C
+			BGSProjectile*                    projectileBase;         // 60
+			BGSExplosion*                     explosion;              // 68
+			MagicSystem::CastingType          castingType;            // 70
+			MagicSystem::Delivery             delivery;               // 74
+			ActorValue                        secondaryAV;            // 78
+			BGSArtObject*                     castingArt;             // 80
+			BGSArtObject*                     hitEffectArt;           // 88
+			BGSImpactDataSet*                 impactDataSet;          // 90
+			float                             skillUsageMult;         // 98
+			std::uint32_t                     pad9C;                  // 9C
+			BGSDualCastData*                  dualCastData;           // A0
+			float                             dualCastScale;          // A8
+			std::uint32_t                     padAC;                  // AC
+			BGSArtObject*                     enchantEffectArt;       // B0
+			BGSReferenceEffect*               hitVisuals;             // B8
+			BGSReferenceEffect*               enchantVisuals;         // C0
+			SpellItem*                        equipAbility;           // C8
+			TESImageSpaceModifier*            imageSpaceMod;          // D0
+			BGSPerk*                          perk;                   // D8
+			SOUND_LEVEL                       castingSoundLevel;      // E0
+			float                             aiScore;                // E4
+			float                             aiDelayTimer;           // E8
+			std::uint32_t                     padEC;                  // EC
 		};
 		static_assert(sizeof(EffectSettingData) == 0xF0);
 

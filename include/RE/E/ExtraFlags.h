@@ -30,8 +30,8 @@ namespace RE
 		[[nodiscard]] constexpr bool IsActivationBlocked() const noexcept { return flags.all(Flag::kBlockActivate); }
 
 		// members
-		stl::enumeration<Flag, std::uint32_t> flags;  // 10
-		std::uint32_t                         pad14;  // 14
+		REX::EnumSet<Flag, std::uint32_t> flags;  // 10
+		std::uint32_t                     pad14;  // 14
 	};
 	static_assert(sizeof(ExtraFlags) == 0x18);
 }

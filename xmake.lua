@@ -54,7 +54,7 @@ target("commonlibsse")
     add_options("skyrim_ae", "skse_xbyak", { public = true })
 
     -- add system links
-    add_syslinks("advapi32", "d3d11", "d3dcompiler", "dbghelp", "dxgi", "ole32", "shell32", "user32", "version")
+    add_syslinks("advapi32", "bcrypt", "d3d11", "d3dcompiler", "dbghelp", "dxgi", "ole32", "shell32", "user32", "version")
 
     -- add source files
     add_files("src/**.cpp")

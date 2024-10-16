@@ -28,11 +28,11 @@ namespace RE
 		}
 
 		// members
-		ObjectRefHandle                              ownerRef;                           // 0x00
-		ObjectRefHandle                              containerRef;                       // 0x04
-		BGSLocation*                                 location{ nullptr };                // 0x08
-		TESForm*                                     itemBase{ nullptr };                // 0x10
-		stl::enumeration<AQUIRE_TYPE, std::uint32_t> acquireType{ AQUIRE_TYPE::kNone };  // 0x18
+		ObjectRefHandle                          ownerRef;                           // 0x00
+		ObjectRefHandle                          containerRef;                       // 0x04
+		BGSLocation*                             location{ nullptr };                // 0x08
+		TESForm*                                 itemBase{ nullptr };                // 0x10
+		REX::EnumSet<AQUIRE_TYPE, std::uint32_t> acquireType{ AQUIRE_TYPE::kNone };  // 0x18
 	};
 	static_assert(sizeof(BGSAddToPlayerInventoryEvent) == 0x20);
 }

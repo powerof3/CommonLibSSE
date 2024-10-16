@@ -100,23 +100,13 @@ namespace SKSE
 
 		bool WriteRecord(std::uint32_t a_type, std::uint32_t a_version, const void* a_buf, std::uint32_t a_length) const;
 
-		template <
-			class T,
-			std::enable_if_t<
-				std::negation_v<
-					std::is_pointer<T>>,
-				int> = 0>
+		template <class T, std::enable_if_t<std::negation_v<std::is_pointer<T>>, int> = 0>
 		inline bool WriteRecord(std::uint32_t a_type, std::uint32_t a_version, const T& a_buf) const
 		{
 			return WriteRecord(a_type, a_version, std::addressof(a_buf), sizeof(T));
 		}
 
-		template <
-			class T,
-			std::size_t N,
-			std::enable_if_t<
-				std::is_array_v<T>,
-				int> = 0>
+		template <class T, std::size_t N, std::enable_if_t<std::is_array_v<T>, int> = 0>
 		inline bool WriteRecord(std::uint32_t a_type, std::uint32_t a_version, const T (&a_buf)[N]) const
 		{
 			return WriteRecord(a_type, a_version, std::addressof(a_buf), sizeof(T) * N);
@@ -125,53 +115,59 @@ namespace SKSE
 		[[nodiscard]] bool OpenRecord(std::uint32_t a_type, std::uint32_t a_version) const;
 
 		bool WriteRecordData(const void* a_buf, std::uint32_t a_length) const;
+		bool WriteRecordDataEx(std::uint32_t& a_diff, const void* a_buf, std::uint32_t a_length) const;
 
-		template <
-			class T,
-			std::enable_if_t<
-				std::negation_v<
-					std::is_pointer<T>>,
-				int> = 0>
-		inline bool WriteRecordData(const T& a_buf) const
+		template <class T, std::enable_if_t<std::negation_v<std::is_pointer<T>>, int> = 0>
+		bool WriteRecordData(const T& a_buf) const
 		{
 			return WriteRecordData(std::addressof(a_buf), sizeof(T));
 		}
 
-		template <
-			class T,
-			std::size_t N,
-			std::enable_if_t<
-				std::is_array_v<T>,
-				int> = 0>
-		inline bool WriteRecordData(const T (&a_buf)[N]) const
+		template <class T, std::enable_if_t<std::negation_v<std::is_pointer<T>>, int> = 0>
+		bool WriteRecordDataEx(std::uint32_t& a_diff, const T& a_buf) const
+		{
+			return WriteRecordDataEx(a_diff, std::addressof(a_buf), sizeof(T));
+		}
+
+		template <class T, std::size_t N, std::enable_if_t<std::is_array_v<T>, int> = 0>
+		bool WriteRecordData(const T (&a_buf)[N]) const
 		{
 			return WriteRecordData(std::addressof(a_buf), sizeof(T) * N);
+		}
+
+		template <class T, std::size_t N, std::enable_if_t<std::is_array_v<T>, int> = 0>
+		bool WriteRecordDataEx(std::uint32_t& a_diff, const T (&a_buf)[N]) const
+		{
+			return WriteRecordDataEx(a_diff, std::addressof(a_buf), sizeof(T) * N);
 		}
 
 		bool GetNextRecordInfo(std::uint32_t& a_type, std::uint32_t& a_version, std::uint32_t& a_length) const;
 
 		std::uint32_t ReadRecordData(void* a_buf, std::uint32_t a_length) const;
+		std::uint32_t ReadRecordDataEx(std::uint32_t& a_diff, void* a_buf, std::uint32_t a_length) const;
 
-		template <
-			class T,
-			std::enable_if_t<
-				std::negation_v<
-					std::is_pointer<T>>,
-				int> = 0>
-		inline std::uint32_t ReadRecordData(T& a_buf) const
+		template <class T, std::enable_if_t<std::negation_v<std::is_pointer<T>>, int> = 0>
+		std::uint32_t ReadRecordData(T& a_buf) const
 		{
 			return ReadRecordData(std::addressof(a_buf), sizeof(T));
 		}
 
-		template <
-			class T,
-			std::size_t N,
-			std::enable_if_t<
-				std::is_array_v<T>,
-				int> = 0>
-		inline std::uint32_t ReadRecordData(T (&a_buf)[N]) const
+		template <class T, std::enable_if_t<std::negation_v<std::is_pointer<T>>, int> = 0>
+		std::uint32_t ReadRecordDataEx(std::uint32_t& a_diff, T& a_buf) const
+		{
+			return ReadRecordDataEx(a_diff, std::addressof(a_buf), sizeof(T));
+		}
+
+		template <class T, std::size_t N, std::enable_if_t<std::is_array_v<T>, int> = 0>
+		std::uint32_t ReadRecordData(T (&a_buf)[N]) const
 		{
 			return ReadRecordData(std::addressof(a_buf), sizeof(T) * N);
+		}
+
+		template <class T, std::size_t N, std::enable_if_t<std::is_array_v<T>, int> = 0>
+		std::uint32_t ReadRecordDataEx(std::uint32_t& a_diff, T (&a_buf)[N]) const
+		{
+			return ReadRecordDataEx(a_diff, std::addressof(a_buf), sizeof(T) * N);
 		}
 
 		bool ResolveFormID(RE::FormID a_oldFormID, RE::FormID& a_newFormID) const;

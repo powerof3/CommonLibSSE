@@ -26,7 +26,7 @@ namespace RE
 		};
 
 		// members
-		stl::enumeration<Flag, std::uint32_t> flags;  // 0
+		REX::EnumSet<Flag, std::uint32_t> flags;  // 0
 	};
 	static_assert(sizeof(OBJ_LAND) == 0x4);
 

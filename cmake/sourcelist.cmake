@@ -1681,6 +1681,7 @@ set(SOURCES
 	include/REX/W32/DXGI_5.h
 	include/REX/W32/DXGI_6.h
 	include/REX/W32/KERNEL32.h
+	include/REX/W32/NT.h
 	include/REX/W32/OLE32.h
 	include/REX/W32/SHELL32.h
 	include/REX/W32/USER32.h
@@ -2033,16 +2034,7 @@ set(SOURCES
 	src/REL/Module.cpp
 	src/REL/Relocation.cpp
 	src/REL/Version.cpp
-	src/REX/W32/ADVAPI32.cpp
-	src/REX/W32/D3D11.cpp
-	src/REX/W32/D3DCOMPILER.cpp
-	src/REX/W32/DBGHELP.cpp
-	src/REX/W32/DXGI.cpp
-	src/REX/W32/KERNEL32.cpp
-	src/REX/W32/OLE32.cpp
-	src/REX/W32/SHELL32.cpp
-	src/REX/W32/USER32.cpp
-	src/REX/W32/VERSION.cpp
+	src/REX/W32.cpp
 	src/SKSE/API.cpp
 	src/SKSE/IAT.cpp
 	src/SKSE/Impl/PCH.cpp
