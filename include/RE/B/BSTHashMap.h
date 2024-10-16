@@ -43,8 +43,8 @@ namespace RE
 			entry_type(const entry_type&) = delete;
 
 			entry_type(entry_type&& a_rhs)  //
-				noexcept(std::is_nothrow_move_constructible_v<value_type> &&
-						 std::is_nothrow_destructible_v<value_type>)
+				noexcept(std::is_nothrow_move_constructible_v<value_type>&&
+						std::is_nothrow_destructible_v<value_type>)
 			{
 				if (a_rhs.has_value()) {
 					const auto rnext = a_rhs.next;
@@ -57,8 +57,8 @@ namespace RE
 			entry_type& operator=(const entry_type&) = delete;
 
 			entry_type& operator=(entry_type&& a_rhs)  //
-				noexcept(std::is_nothrow_move_constructible_v<value_type> &&
-						 std::is_nothrow_destructible_v<value_type>)
+				noexcept(std::is_nothrow_move_constructible_v<value_type>&&
+						std::is_nothrow_destructible_v<value_type>)
 			{
 				if (this != std::addressof(a_rhs)) {
 					destroy();
@@ -94,8 +94,8 @@ namespace RE
 			}
 
 			[[nodiscard]] value_type steal() &&  //
-				noexcept(std::is_nothrow_move_constructible_v<value_type> &&
-						 std::is_nothrow_destructible_v<value_type>)
+				noexcept(std::is_nothrow_move_constructible_v<value_type>&&
+						std::is_nothrow_destructible_v<value_type>)
 			{
 				assert(has_value());
 				value_type val = std::move(value);
@@ -130,8 +130,7 @@ namespace RE
 
 			template <class V>
 			iterator_base(const iterator_base<V>& a_rhs) noexcept  //
-				requires(std::convertible_to<typename iterator_base<V>::reference, reference>)
-				:
+				requires(std::convertible_to<typename iterator_base<V>::reference, reference>) :
 				_first(a_rhs._first),
 				_last(a_rhs._last)
 			{}
@@ -222,8 +221,7 @@ namespace RE
 		BSTScatterTable(const BSTScatterTable& a_rhs) { insert(a_rhs.begin(), a_rhs.end()); }
 
 		BSTScatterTable(BSTScatterTable&& a_rhs) noexcept  //
-			requires(std::same_as<typename allocator_type::propagate_on_container_move_assignment, std::true_type>)
-			:
+			requires(std::same_as<typename allocator_type::propagate_on_container_move_assignment, std::true_type>) :
 			_capacity(std::exchange(a_rhs._capacity, 0)),
 			_free(std::exchange(a_rhs._free, 0)),
 			_good(std::exchange(a_rhs._good, 0)),
@@ -540,15 +538,15 @@ namespace RE
 		}
 
 		[[nodiscard]] size_type hash_function(const key_type& a_key) const  //
-			noexcept(std::is_nothrow_constructible_v<hasher> &&
-					 std::is_nothrow_invocable_v<const hasher&, const key_type&>)
+			noexcept(std::is_nothrow_constructible_v<hasher>&&
+					std::is_nothrow_invocable_v<const hasher&, const key_type&>)
 		{
 			return static_cast<size_type>(hasher()(a_key));
 		}
 
 		[[nodiscard]] bool key_eq(const key_type& a_lhs, const key_type& a_rhs) const  //
-			noexcept(std::is_nothrow_constructible_v<key_equal> &&
-					 std::is_nothrow_invocable_v<const key_equal&, const key_type&, const key_type&>)
+			noexcept(std::is_nothrow_constructible_v<key_equal>&&
+					std::is_nothrow_invocable_v<const key_equal&, const key_type&, const key_type&>)
 		{
 			return static_cast<bool>(key_equal()(a_lhs, a_rhs));
 		}

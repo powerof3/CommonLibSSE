@@ -15,7 +15,7 @@ namespace RE
 
 	void UI3DSceneManager::AttachChild(NiAVObject* a_obj, INTERFACE_LIGHT_SCHEME a_scheme)
 	{
-		using func_t = void            (*)(UI3DSceneManager*, NiAVObject*, INTERFACE_LIGHT_SCHEME);
+		using func_t = void (*)(UI3DSceneManager*, NiAVObject*, INTERFACE_LIGHT_SCHEME);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(51859, 52731) };
 		return func(this, a_obj, a_scheme);
 	}

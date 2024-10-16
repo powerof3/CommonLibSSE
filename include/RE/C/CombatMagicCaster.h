@@ -35,14 +35,14 @@ namespace RE
 
 		bool CheckTargetValid(const CombatController* a_combatController)
 		{
-			using func_t = bool*           (*)(CombatMagicCaster*, const CombatController*);
+			using func_t = bool* (*)(CombatMagicCaster*, const CombatController*);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(43956, 45348) };
 			return func(this, a_combatController);
 		}
 
 		static bool CheckTargetValid(const CombatController* a_combatController, Actor* a_target, const CombatInventoryItemMagic* a_inventoryItem)
 		{
-			using func_t = bool*           (*)(const CombatController*, Actor*, const CombatInventoryItemMagic*);
+			using func_t = bool* (*)(const CombatController*, Actor*, const CombatInventoryItemMagic*);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(43952, 45343) };
 			return func(a_combatController, a_target, a_inventoryItem);
 		}

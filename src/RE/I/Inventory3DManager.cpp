@@ -24,14 +24,14 @@ namespace RE
 
 	void Inventory3DManager::LoadInventoryItem(InventoryEntryData* a_objDesc)
 	{
-		using func_t = void            (*)(Inventory3DManager*, InventoryEntryData*);
+		using func_t = void (*)(Inventory3DManager*, InventoryEntryData*);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(50884, 51757) };
 		return func(this, a_objDesc);
 	}
 
 	void Inventory3DManager::LoadInventoryItem(TESBoundObject* a_object, ExtraDataList* a_extraDataList)
 	{
-		using func_t = void            (*)(Inventory3DManager*, TESBoundObject*, ExtraDataList*);
+		using func_t = void (*)(Inventory3DManager*, TESBoundObject*, ExtraDataList*);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(50885, 51758) };
 		return func(this, a_object, a_extraDataList);
 	}
