@@ -1190,6 +1190,8 @@ set(SOURCES
 	include/RE/M/MagicFormulas.h
 	include/RE/M/MagicItem.h
 	include/RE/M/MagicItemDataCollector.h
+	include/RE/M/MagicItemFindFunctor.h
+	include/RE/M/MagicItemFindKeywordFunctor.h
 	include/RE/M/MagicItemTraversalFunctor.h
 	include/RE/M/MagicMenu.h
 	include/RE/M/MagicSystem.h
