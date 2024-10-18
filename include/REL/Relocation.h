@@ -267,8 +267,7 @@ namespace REL
 
 		template <class... Args>
 		std::invoke_result_t<const value_type&, Args...> operator()(Args&&... a_args) const
-			noexcept(std::is_nothrow_invocable_v<const value_type&, Args...>)
-			requires(std::invocable<const value_type&, Args...>)
+			noexcept(std::is_nothrow_invocable_v<const value_type&, Args...>) requires(std::invocable<const value_type&, Args...>)
 		{
 			return REL::invoke(get(), std::forward<Args>(a_args)...);
 		}
@@ -284,56 +283,48 @@ namespace REL
 		}
 
 		template <std::integral U>
-		void write(const U& a_data)
-			requires(std::same_as<value_type, std::uintptr_t>)
+		void write(const U& a_data) requires(std::same_as<value_type, std::uintptr_t>)
 		{
 			safe_write(address(), std::addressof(a_data), sizeof(T));
 		}
 
 		template <class U>
-		void write(const std::span<U> a_data)
-			requires(std::same_as<value_type, std::uintptr_t>)
+		void write(const std::span<U> a_data) requires(std::same_as<value_type, std::uintptr_t>)
 		{
 			safe_write(address(), a_data.data(), a_data.size_bytes());
 		}
 
 		template <std::size_t N>
-		std::uintptr_t write_branch(const std::uintptr_t a_dst)
-			requires(std::same_as<value_type, std::uintptr_t>)
+		std::uintptr_t write_branch(const std::uintptr_t a_dst) requires(std::same_as<value_type, std::uintptr_t>)
 		{
 			return SKSE::GetTrampoline().write_branch<N>(address(), a_dst);
 		}
 
 		template <std::size_t N, class F>
-		std::uintptr_t write_branch(const F a_dst)
-			requires(std::same_as<value_type, std::uintptr_t>)
+		std::uintptr_t write_branch(const F a_dst) requires(std::same_as<value_type, std::uintptr_t>)
 		{
 			return SKSE::GetTrampoline().write_branch<N>(address(), stl::unrestricted_cast<std::uintptr_t>(a_dst));
 		}
 
 		template <std::size_t N>
-		std::uintptr_t write_call(const std::uintptr_t a_dst)
-			requires(std::same_as<value_type, std::uintptr_t>)
+		std::uintptr_t write_call(const std::uintptr_t a_dst) requires(std::same_as<value_type, std::uintptr_t>)
 		{
 			return SKSE::GetTrampoline().write_call<N>(address(), a_dst);
 		}
 
 		template <std::size_t N, class F>
-		std::uintptr_t write_call(const F a_dst)
-			requires(std::same_as<value_type, std::uintptr_t>)
+		std::uintptr_t write_call(const F a_dst) requires(std::same_as<value_type, std::uintptr_t>)
 		{
 			return SKSE::GetTrampoline().write_call<N>(address(), stl::unrestricted_cast<std::uintptr_t>(a_dst));
 		}
 
-		void write_fill(const std::uint8_t a_value, const std::size_t a_count)
-			requires(std::same_as<value_type, std::uintptr_t>)
+		void write_fill(const std::uint8_t a_value, const std::size_t a_count) requires(std::same_as<value_type, std::uintptr_t>)
 		{
 			safe_fill(address(), a_value, a_count);
 		}
 
 		template <class U = value_type>
-		std::uintptr_t write_vfunc(const std::size_t a_idx, const std::uintptr_t a_newFunc)
-			requires(std::same_as<U, std::uintptr_t>)
+		std::uintptr_t write_vfunc(const std::size_t a_idx, const std::uintptr_t a_newFunc) requires(std::same_as<U, std::uintptr_t>)
 		{
 			const auto addr = address() + (sizeof(void*) * a_idx);
 			const auto result = *reinterpret_cast<std::uintptr_t*>(addr);
@@ -342,8 +333,7 @@ namespace REL
 		}
 
 		template <class F>
-		std::uintptr_t write_vfunc(const std::size_t a_idx, const F a_newFunc)
-			requires(std::same_as<value_type, std::uintptr_t>)
+		std::uintptr_t write_vfunc(const std::size_t a_idx, const F a_newFunc) requires(std::same_as<value_type, std::uintptr_t>)
 		{
 			return write_vfunc(a_idx, stl::unrestricted_cast<std::uintptr_t>(a_newFunc));
 		}

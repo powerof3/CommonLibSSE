@@ -92,8 +92,7 @@ namespace REX
 
 		template <class... Args>
 		constexpr EnumSet(Args... a_values) noexcept
-			requires(std::same_as<Args, E> && ...)
-			:
+			requires(std::same_as<Args, E>&&...) :
 			_impl((static_cast<U>(a_values) | ...))
 		{}
 
@@ -124,7 +123,7 @@ namespace REX
 	public:
 		template <class... Args>
 		constexpr EnumSet& set(Args... a_args) noexcept
-			requires(std::same_as<Args, E> && ...)
+			requires(std::same_as<Args, E>&&...)
 		{
 			_impl |= (static_cast<U>(a_args) | ...);
 			return *this;
@@ -132,7 +131,7 @@ namespace REX
 
 		template <class... Args>
 		constexpr EnumSet& set(bool a_set, Args... a_args) noexcept
-			requires(std::same_as<Args, E> && ...)
+			requires(std::same_as<Args, E>&&...)
 		{
 			if (a_set)
 				_impl |= (static_cast<U>(a_args) | ...);
@@ -144,7 +143,7 @@ namespace REX
 
 		template <class... Args>
 		constexpr EnumSet& reset(Args... a_args) noexcept
-			requires(std::same_as<Args, E> && ...)
+			requires(std::same_as<Args, E>&&...)
 		{
 			_impl &= ~(static_cast<U>(a_args) | ...);
 			return *this;
@@ -158,21 +157,21 @@ namespace REX
 
 		template <class... Args>
 		[[nodiscard]] constexpr bool any(Args... a_args) const noexcept
-			requires(std::same_as<Args, E> && ...)
+			requires(std::same_as<Args, E>&&...)
 		{
 			return (_impl & (static_cast<U>(a_args) | ...)) != static_cast<U>(0);
 		}
 
 		template <class... Args>
 		[[nodiscard]] constexpr bool all(Args... a_args) const noexcept
-			requires(std::same_as<Args, E> && ...)
+			requires(std::same_as<Args, E>&&...)
 		{
 			return (_impl & (static_cast<U>(a_args) | ...)) == (static_cast<U>(a_args) | ...);
 		}
 
 		template <class... Args>
 		[[nodiscard]] constexpr bool none(Args... a_args) const noexcept
-			requires(std::same_as<Args, E> && ...)
+			requires(std::same_as<Args, E>&&...)
 		{
 			return (_impl & (static_cast<U>(a_args) | ...)) == static_cast<U>(0);
 		}
