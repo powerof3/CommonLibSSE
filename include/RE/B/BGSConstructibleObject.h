@@ -37,9 +37,9 @@ namespace RE
 		bool Load(TESFile* a_mod) override;  // 06
 		void InitItemImpl() override;        // 13
 
-		[[nodiscard]] bool CanBeCreatedOnWorkbench(const TESFurniture* a_workbench, bool a_checkConditions) const;
+		[[nodiscard]] bool  CanBeCreatedOnWorkbench(const TESFurniture* a_workbench, bool a_checkConditions) const;
 		[[nodiscard]] float CalcSkillUse() const;
-		bool CreateItem() const;
+		bool                CreateItem() const;
 
 		// members
 		TESContainer            requiredItems;  // 20

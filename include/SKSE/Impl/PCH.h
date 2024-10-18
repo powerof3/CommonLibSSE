@@ -272,9 +272,9 @@ namespace SKSE
 
 		template <class... Args>
 		enumeration(Args...) -> enumeration<
-								 std::common_type_t<Args...>,
-								 std::underlying_type_t<
-									 std::common_type_t<Args...>>>;
+			std::common_type_t<Args...>,
+			std::underlying_type_t<
+				std::common_type_t<Args...>>>;
 	}
 }
 
@@ -365,7 +365,7 @@ namespace SKSE
 
 		template <class... Args>
 		[[nodiscard]] inline auto pun_bits(Args... a_args)  //
-			requires(std::same_as<std::remove_cv_t<Args>, bool> && ...)
+			requires(std::same_as<std::remove_cv_t<Args>, bool>&&...)
 		{
 			constexpr auto ARGC = sizeof...(Args);
 

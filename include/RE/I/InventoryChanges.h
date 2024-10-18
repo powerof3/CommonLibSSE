@@ -64,7 +64,7 @@ namespace RE
 
 		[[nodiscard]] std::int32_t GetCount(const TESBoundObject* a_object, std::predicate<const InventoryEntryData*> auto a_itemFilter) const
 		{
-			const auto container = owner ? owner->GetContainer() : nullptr;
+			const auto   container = owner ? owner->GetContainer() : nullptr;
 			std::int32_t count = container ? std::abs(container->GetObjectCount(a_object)) : 0;
 
 			if (entryList) {

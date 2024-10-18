@@ -23,8 +23,8 @@ namespace RE
 			return;
 		}
 
-		const auto objectName = (a_objectName && a_objectName[0]) ? a_objectName : a_object->GetName();
-		const auto phrase = a_added ? *"sAddItemtoInventory"_gs : *"sRemoveItemfromInventory"_gs;
+		const auto        objectName = (a_objectName && a_objectName[0]) ? a_objectName : a_object->GetName();
+		const auto        phrase = a_added ? *"sAddItemtoInventory"_gs : *"sRemoveItemfromInventory"_gs;
 		const std::string message = a_count >= 1 ? fmt::format("{} {}", objectName, phrase) : fmt::format("{} ({}) {}", objectName, a_count, phrase);
 
 		ShowHUDMessage(message.c_str());
