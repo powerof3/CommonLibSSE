@@ -87,7 +87,7 @@ namespace RE
 			enum RecordFlag : std::uint32_t
 			{
 				kNonPlayable = 1 << 2,
-				kHasInheritedFromTemplate = 1 << 3, // cleared on load; set by relevant processing in InitItemImpl
+				kHasInheritedFromTemplate = 1 << 3,  // cleared on load; set by relevant processing in InitItemImpl
 				kDeleted = 1 << 5,
 				kIgnored = 1 << 12
 			};
@@ -121,7 +121,7 @@ namespace RE
 				kMinorCrime = 1 << 4,
 				kRangeFixed = 1 << 5,
 				kNotUsedInNormalCombat = 1 << 6,
-				kOverridesConditionDamage = 1 << 7, 
+				kOverridesConditionDamage = 1 << 7,
 				kDontUse3rdPersonISAnim = 1 << 8,  // unused
 				kBurstShot = 1 << 9,
 				kRumbleAlternate = 1 << 10,
