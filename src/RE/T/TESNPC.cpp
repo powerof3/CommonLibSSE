@@ -91,6 +91,13 @@ namespace RE
 		return IsFemale() ? SEX::kFemale : SEX::kMale;
 	}
 
+	Actor* TESNPC::GetUniqueActor()
+	{
+		using func_t = decltype(&TESNPC::GetUniqueActor);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(24180, 24684) };
+		return func(this);
+	}
+
 	BGSHeadPart* TESNPC::GetCurrentHeadPartByType(HeadPartType a_type)
 	{
 		return HasOverlays() ? GetHeadPartOverlayByType(a_type) : GetHeadPartByType(a_type);
