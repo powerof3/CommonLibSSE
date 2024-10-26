@@ -27,7 +27,7 @@ namespace RE
 	float BGSConstructibleObject::CalcSkillUse() const
 	{
 		const std::int32_t itemValue = createdItem ? TESValueForm::GetFormValue(createdItem) : 0;
-		const float value = itemValue > 0 ? static_cast<float>(itemValue) * data.numConstructed : 1.0f;
+		const float        value = itemValue > 0 ? static_cast<float>(itemValue) * data.numConstructed : 1.0f;
 
 		return std::powf(value, "fConstructibleSkilluseExp"_gs.value_or(0.5f)) *
 		           "fConstructibleSkillUseMult"_gs.value_or(1.0f) +
