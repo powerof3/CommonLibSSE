@@ -4,6 +4,8 @@
 
 namespace RE
 {
+	class TESForm;
+
 	class TESValueForm : public BaseFormComponent
 	{
 	public:
@@ -16,6 +18,8 @@ namespace RE
 		void InitializeDataComponent() override;                // 01
 		void ClearDataComponent() override;                     // 02 - { return; }
 		void CopyComponent(BaseFormComponent* a_rhs) override;  // 03
+
+		[[nodiscard]] static std::int32_t GetFormValue(const TESForm* a_form);
 
 		// members
 		std::int32_t  value;  // 08
