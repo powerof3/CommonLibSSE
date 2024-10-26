@@ -71,17 +71,6 @@ namespace RE
 		const auto uiMessageQueue = UIMessageQueue::GetSingleton();
 		uiMessageQueue->AddMessage(TutorialMenu::MENU_NAME, UI_MESSAGE_TYPE::kShow, msgData);
 
-		const auto          pos = static_cast<std::uint32_t>(std::distance(std::ranges::begin(*tutorialsShown), it));
-		const std::uint32_t oldSize = tutorialsShown->size();
-		const std::uint32_t newSize = oldSize + 1;
-		tutorialsShown->resize(newSize);
-		if (pos < oldSize) {
-			std::memmove(
-				std::addressof((*tutorialsShown)[pos + 1]),
-				std::addressof((*tutorialsShown)[pos]),
-				(oldSize - pos) * sizeof(DEFAULT_OBJECT));
-		}
-
-		(*tutorialsShown)[pos] = a_key;
+		tutorialsShown.emplace(it, a_key);
 	}
 }
