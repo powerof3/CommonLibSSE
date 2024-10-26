@@ -22,6 +22,8 @@ namespace RE
 		void               Accept(CallbackProcessor* a_processor) override;  // 01
 		UI_MESSAGE_RESULTS ProcessMessage(UIMessage& a_message) override;    // 04
 
+		static BSTArray<DEFAULT_OBJECT>& QTutorialsShown();
+
 		static void OpenTutorialMenu(DEFAULT_OBJECT a_id);
 		static void OpenTutorialMenu(BGSMessage* a_message);
 		static void OpenTutorialMenu(DEFAULT_OBJECT a_id, BGSMessage* a_message);
