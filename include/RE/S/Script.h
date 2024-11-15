@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSSimpleList.h"
 #include "RE/C/CommandTable.h"
 #include "RE/F/FormTypes.h"
 #include "RE/T/TESForm.h"

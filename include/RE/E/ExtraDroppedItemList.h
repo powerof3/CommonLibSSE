@@ -2,7 +2,7 @@
 
 #include "RE/B/BSExtraData.h"
 #include "RE/B/BSPointerHandle.h"
-#include "RE/B/BSTList.h"
+#include "RE/B/BSSimpleList.h"
 #include "RE/E/ExtraDataTypes.h"
 
 namespace RE

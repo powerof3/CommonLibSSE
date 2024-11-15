@@ -2,7 +2,7 @@
 
 #include "RE/B/BSContainer.h"
 #include "RE/B/BSPointerHandle.h"
-#include "RE/B/BSTList.h"
+#include "RE/B/BSSimpleList.h"
 #include "RE/F/FormTypes.h"
 #include "RE/I/InventoryEntryData.h"
 #include "RE/M/MemoryManager.h"

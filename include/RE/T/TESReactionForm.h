@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RE/B/BSTList.h"
+#include "RE/B/BSSimpleList.h"
 #include "RE/B/BaseFormComponent.h"
 #include "RE/F/FightReactions.h"
 #include "RE/F/FormTypes.h"

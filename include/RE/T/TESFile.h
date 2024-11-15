@@ -1,7 +1,7 @@
 #pragma once
 
+#include "RE/B/BSSimpleList.h"
 #include "RE/B/BSString.h"
-#include "RE/B/BSTList.h"
 #include "RE/F/FORM.h"
 #include "RE/F/FormTypes.h"
 #include "RE/N/NiFile.h"

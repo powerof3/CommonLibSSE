@@ -354,6 +354,7 @@ set(SOURCES
 	include/RE/B/BSShadowFrustumLight.h
 	include/RE/B/BSShadowLight.h
 	include/RE/B/BSShadowParabolicLight.h
+	include/RE/B/BSSimpleList.h
 	include/RE/B/BSSimpleScaleController.h
 	include/RE/B/BSSkyShaderProperty.h
 	include/RE/B/BSSmallBlockAllocator.h
@@ -372,7 +373,6 @@ set(SOURCES
 	include/RE/B/BSTEvent.h
 	include/RE/B/BSTFreeList.h
 	include/RE/B/BSTHashMap.h
-	include/RE/B/BSTList.h
 	include/RE/B/BSTLocklessQueue.h
 	include/RE/B/BSTMessageQueue.h
 	include/RE/B/BSTObjectDictionary.h
