@@ -147,7 +147,7 @@ namespace RE
 			// postfix
 			[[nodiscard]] constexpr iterator operator++(int) noexcept
 			{
-				iterator tmp(*this);
+				iterator        tmp(*this);
 				const_iterator::operator++();
 				return tmp;
 			}
@@ -162,7 +162,7 @@ namespace RE
 			// postfix
 			[[nodiscard]] constexpr iterator operator--(int) noexcept
 			{
-				iterator tmp(*this);
+				iterator        tmp(*this);
 				const_iterator::operator--();
 				return tmp;
 			}
