@@ -48,6 +48,7 @@ set(SOURCES
 	include/RE/A/AttachedScript.h
 	include/RE/A/AttackAnimationArrayMap.h
 	include/RE/A/AttackBlockHandler.h
+	include/RE/A/AudioDefs.h
 	include/RE/A/AutoMoveHandler.h
 	include/RE/A/AutoRegisterCreator.h
 	include/RE/A/AutoRegisterFactory.h
@@ -215,8 +216,12 @@ set(SOURCES
 	include/RE/B/BSArchive.h
 	include/RE/B/BSArchiveHeader.h
 	include/RE/B/BSAtomic.h
+	include/RE/B/BSAudio.h
+	include/RE/B/BSAudioInit.h
+	include/RE/B/BSAudioListener.h
 	include/RE/B/BSAudioManager.h
 	include/RE/B/BSAudioManagerThread.h
+	include/RE/B/BSAudioMonitor.h
 	include/RE/B/BSBatchRenderer.h
 	include/RE/B/BSBitField.h
 	include/RE/B/BSBloodSplatterShaderProperty.h
@@ -359,6 +364,8 @@ set(SOURCES
 	include/RE/B/BSSkyShaderProperty.h
 	include/RE/B/BSSmallBlockAllocator.h
 	include/RE/B/BSSoundHandle.h
+	include/RE/B/BSSoundInfo.h
+	include/RE/B/BSSoundMessage.h
 	include/RE/B/BSStorage.h
 	include/RE/B/BSStream.h
 	include/RE/B/BSString.h
@@ -411,6 +418,8 @@ set(SOURCES
 	include/RE/B/BSWin32SaveDataSystemUtility.h
 	include/RE/B/BSWin32VirtualKeyboardDevice.h
 	include/RE/B/BSWindModifier.h
+	include/RE/B/BSXAudio2Audio.h
+	include/RE/B/BSXAudio2AudioListener.h
 	include/RE/B/BSXAudio2GameSound.h
 	include/RE/B/BSXFlags.h
 	include/RE/B/BShkbAnimationGraph.h
@@ -471,6 +480,7 @@ set(SOURCES
 	include/RE/B/bhkWorldObject.h
 	include/RE/C/CFilter.h
 	include/RE/C/CRC.h
+	include/RE/C/CXAPOBase.h
 	include/RE/C/Calendar.h
 	include/RE/C/CalmEffect.h
 	include/RE/C/CharEvent.h
@@ -542,6 +552,7 @@ set(SOURCES
 	include/RE/C/CrosshairPickData.h
 	include/RE/C/CureEffect.h
 	include/RE/C/CursorMenu.h
+	include/RE/D/D3DTypes.h
 	include/RE/D/DamageImpactData.h
 	include/RE/D/DarknessEffect.h
 	include/RE/D/DecalData.h
@@ -1154,10 +1165,14 @@ set(SOURCES
 	include/RE/I/IStackCallbackSaveInterface.h
 	include/RE/I/IStore.h
 	include/RE/I/IUIMessageData.h
+	include/RE/I/IUnknown.h
 	include/RE/I/IVMDebugInterface.h
 	include/RE/I/IVMObjectBindInterface.h
 	include/RE/I/IVMSaveLoadInterface.h
 	include/RE/I/IVirtualMachine.h
+	include/RE/I/IXAudio2.h
+	include/RE/I/IXAudio2EngineCallback.h
+	include/RE/I/IXAudio2Voice.h
 	include/RE/I/IXAudio2VoiceCallback.h
 	include/RE/I/ImageSpaceData.h
 	include/RE/I/ImageSpaceEffect.h
@@ -1494,6 +1509,8 @@ set(SOURCES
 	include/RE/S/SoulTrapEffect.h
 	include/RE/S/SoulsTrapped.h
 	include/RE/S/SoundLevels.h
+	include/RE/S/SoundMessageList.h
+	include/RE/S/SoundMessageStack.h
 	include/RE/S/SourceActionMap.h
 	include/RE/S/SpawnHazardEffect.h
 	include/RE/S/SpecificItemCollector.h
@@ -1710,6 +1727,10 @@ set(SOURCES
 	include/RE/W/WeatherType.h
 	include/RE/W/WerewolfEffect.h
 	include/RE/W/WerewolfFeedEffect.h
+	include/RE/W/WorldSpaceMenu.h
+	include/RE/X/X3DAudio.h
+	include/RE/X/XAPO.h
+	include/RE/X/XAudio2.h
 	include/RE/Z/ZeroFunctionArguments.h
 	include/RE/Z/ZeroOverheadHeap.h
 	include/REL/ID.h
@@ -1854,6 +1875,8 @@ set(SOURCES
 	src/RE/B/BSWin32SaveDataSystemUtility.cpp
 	src/RE/B/BSWin32VirtualKeyboardDevice.cpp
 	src/RE/B/BSWindModifier.cpp
+	src/RE/B/BSWin32SystemUtility.cpp
+	src/RE/B/BSXAudio2GameSound.cpp
 	src/RE/B/BSXFlags.cpp
 	src/RE/B/BarterMenu.cpp
 	src/RE/B/BipedAnim.cpp

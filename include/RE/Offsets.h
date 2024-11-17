@@ -138,8 +138,13 @@ namespace RE
 
 		namespace BSAudioManager
 		{
-			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(67652));
-			inline constexpr REL::ID BuildSoundDataFromDescriptor(static_cast<std::uint64_t>(67666));
+			inline constexpr REL::ID CacheSpinLock(static_cast<std::uint64_t>(410115));
+
+			inline constexpr REL::ID ComposeMessage(static_cast<std::uint64_t>(67717));
+			inline constexpr REL::ID KillAll(static_cast<std::uint64_t>(67668));
+			inline constexpr REL::ID QInstance(static_cast<std::uint64_t>(67652));
+			inline constexpr REL::ID QPlatformInstance(static_cast<std::uint64_t>(67653));
+			inline constexpr REL::ID GetSoundHandle(static_cast<std::uint64_t>(67666));
 			inline constexpr REL::ID PrecacheDescriptor(static_cast<std::uint64_t>(67720));
 		}
 
@@ -255,6 +260,17 @@ namespace RE
 		namespace BSWin32SaveDataSystemUtility
 		{
 			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(109278));
+		}
+
+		namespace BSWin32SystemUtility
+		{
+			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(453511));
+		}
+
+		namespace BSXAudio2GameSound
+		{
+			inline constexpr REL::ID pAudioImplementation(static_cast<std::uint64_t>(410149));
+			inline constexpr REL::ID pXAudioListener(static_cast<std::uint64_t>(410150));
 		}
 
 		namespace Calendar

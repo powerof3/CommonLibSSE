@@ -1,8 +1,10 @@
 #include "RE/B/BSAudioManager.h"
 
 #include "RE/B/BGSSoundDescriptorForm.h"
+#include "RE/B/BSAudio.h"
 #include "RE/B/BSSoundHandle.h"
 #include "RE/F/FormTraits.h"
+#include "RE/N/NiAVObject.h"
 #include "RE/T/TESForm.h"
 
 namespace RE
@@ -10,11 +12,53 @@ namespace RE
 	BSAudioManager* BSAudioManager::GetSingleton()
 	{
 		using func_t = decltype(&BSAudioManager::GetSingleton);
-		static REL::Relocation<func_t> func{ Offset::BSAudioManager::GetSingleton };
+		REL::Relocation<func_t> func{ STATIC_OFFSET(BSAudioManager::QInstance) };
 		return func();
 	}
 
-	bool BSAudioManager::Play(FormID a_soundFormID)
+	BSAudio* BSAudioManager::QPlatformInstance()
+	{
+		using func_t = decltype(&BSAudioManager::QPlatformInstance);
+		REL::Relocation<func_t> func{ STATIC_OFFSET(BSAudioManager::QPlatformInstance) };
+		return func();
+	}
+
+	void BSAudioManager::ClearCache()
+	{
+		REL::Relocation<BSSpinLock*> cacheSpinLock{ STATIC_OFFSET(BSAudioManager::CacheSpinLock) };
+		BSSpinLockGuard locker{ *cacheSpinLock };
+
+		for (auto it = audioCache.begin(); it != audioCache.end();) {
+			const auto gameSound = *it;
+			it = audioCache.erase(it);
+			QPlatformInstance()->ReleaseGameSound(gameSound);
+		}
+
+		audioCacheSize = 0;
+	}
+
+	void BSAudioManager::ComposeMessage(SOUND_MSG a_message, std::uint32_t a_id, std::int32_t a_iData, void* a_pData, NiPointer<NiAVObject> a_spData, const NiPoint3& a_vector3)
+	{
+		using func_t = decltype(&BSAudioManager::ComposeMessage);
+		REL::Relocation<func_t> func{ STATIC_OFFSET(BSAudioManager::ComposeMessage) };
+		return func(this, a_message, a_id, a_iData, a_pData, a_spData, a_vector3);
+	}
+
+	bool BSAudioManager::GetSoundHandle(BSSoundHandle& a_soundHandle, BSISoundDescriptor* a_descriptor, std::uint32_t a_flags)
+	{
+		using func_t = decltype(&BSAudioManager::GetSoundHandle);
+		REL::Relocation<func_t> func{ STATIC_OFFSET(BSAudioManager::GetSoundHandle) };
+		return func(this, a_soundHandle, a_descriptor, a_flags);
+	}
+
+	void BSAudioManager::KillAll(bool a_waitForCompletion, std::uint32_t a_waitTicks)
+	{
+		using func_t = decltype(&BSAudioManager::KillAll);
+		REL::Relocation<func_t> func{ STATIC_OFFSET(BSAudioManager::KillAll) };
+		return func(this, a_waitForCompletion, a_waitTicks);
+	}
+
+	bool BSAudioManager::Play(RE::FormID a_soundFormID)
 	{
 		auto descriptor = TESForm::LookupByID<BGSSoundDescriptorForm>(a_soundFormID);
 		return descriptor && Play(descriptor);
@@ -23,7 +67,7 @@ namespace RE
 	bool BSAudioManager::Play(BSISoundDescriptor* a_descriptor)
 	{
 		BSSoundHandle sound;
-		return BuildSoundDataFromDescriptor(sound, a_descriptor) && sound.Play();
+		return GetSoundHandle(sound, a_descriptor) && sound.Play();
 	}
 
 	bool BSAudioManager::BuildSoundDataFromDescriptor(BSSoundHandle& a_soundHandle, BSISoundDescriptor* a_descriptor, std::uint32_t a_flags)
@@ -52,5 +96,15 @@ namespace RE
 		using func_t = decltype(&BSAudioManager::PrecacheDescriptor);
 		REL::Relocation<func_t> func{ Offset::BSAudioManager::PrecacheDescriptor };
 		return func(this, a_descriptor, a_flags);
+	}
+
+	void BSAudioManager::SetCacheEnabled(bool a_enabled)
+	{
+		if (a_enabled) {
+			flags.set(Flags::CacheEnabled);
+		} else {
+			flags.reset(Flags::CacheEnabled);
+			ClearCache();
+		}
 	}
 }

@@ -79,8 +79,8 @@ namespace RE
 
 			~Thread() override;  // 00
 
-			void Unk_01(void) override;  // 01
-			void Unk_02(void) override;  // 02
+			std::uint32_t ThreadProc() override;  // 01
+			void          Unk_02(void) override;  // 02
 
 			// members
 			bool                                                                    isRunnning;                   // 50
