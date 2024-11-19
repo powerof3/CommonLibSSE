@@ -422,6 +422,7 @@
 #include "RE/B/BSWindModifier.h"
 #include "RE/B/BSXAudio2Audio.h"
 #include "RE/B/BSXAudio2AudioListener.h"
+#include "RE/B/BSXAudio2DataSrc.h"
 #include "RE/B/BSXAudio2GameSound.h"
 #include "RE/B/BSXFlags.h"
 #include "RE/B/BShkbAnimationGraph.h"

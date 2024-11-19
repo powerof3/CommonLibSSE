@@ -29,12 +29,12 @@ namespace RE
 	public:
 		enum class Flags : std::uint32_t
 		{
-			ManagerInitialized = 0x1,
-			PlatformInitialized = 0x2,
-			PlatformInitFailed = 0x4,
-			CacheEnabled = 0x8,
-			ShuttingDown = 0x10,
-			RunDisabled = 0x20
+			ManagerInitialized = 1 << 0,
+			PlatformInitialized = 1 << 1,
+			PlatformInitFailed = 1 << 2,
+			CacheEnabled = 1 << 3,
+			ShuttingDown = 1 << 4,
+			RunDisabled = 1 << 5
 		};
 
 		[[nodiscard]] static BSAudioManager* GetSingleton();

@@ -5,9 +5,9 @@
 
 namespace RE
 {
-	namespace LipSynchAnimDB
+	namespace BSExternalAudioIO
 	{
-		class LipAudioInterface;
+		class ExternalIOInterface;
 	}
 
 	class BSISoundDescriptor;
@@ -20,30 +20,31 @@ namespace RE
 		using UnkCallbackFunc = bool(void*, void*);
 
 		// members
-		NumericIDCallbackFunc* numericIDCallback;  // 40
-		NameIDCallbackFunc*    nameIDCallback;     // 48
-		UnkCallbackFunc*       unk50;              // 50
+		NumericIDCallbackFunc* numericIDCallback;  // 00
+		NameIDCallbackFunc*    nameIDCallback;     // 08
+		UnkCallbackFunc*       unk50;              // 10
 	};
+	static_assert(sizeof(BSAudioCallbacks) == 0x18);
 
 	struct BSAudioInit
 	{
 	public:
 		// members
-		BSFixedString                      audioAPI;               // 00
-		WinAPI::HWND                       wnd;                    // 08
-		bool                               disableAudio;           // 10
-		bool                               enableAudioCache;       // 11
-		std::byte                          pad12[2];               // 12
-		std::uint32_t                      initialCacheSize;       // 14
-		std::uint32_t                      maxAudioCacheSize;      // 18
-		std::uint32_t                      maxSizeForCachedSound;  // 1C
-		std::uint32_t                      audioHWThread;          // 20
-		std::uint32_t                      streamingThreshold;     // 24
-		float                              defaultMasterVolume;    // 28
-		std::byte                          pad2C[4];               // 2C
-		LipSynchAnimDB::LipAudioInterface* lipAudioInterface;      // 30
-		BSFixedString                      missingAssetSoundFile;  // 38
-		BSAudioCallbacks                   audioCallbacks;         // 40
+		BSFixedString                           audioAPI;               // 00
+		WinAPI::HWND                            wnd;                    // 08
+		bool                                    disableAudio;           // 10
+		bool                                    enableAudioCache;       // 11
+		std::byte                               pad12[2];               // 12
+		std::uint32_t                           initialCacheSize;       // 14
+		std::uint32_t                           maxAudioCacheSize;      // 18
+		std::uint32_t                           maxSizeForCachedSound;  // 1C
+		std::uint32_t                           audioHWThread;          // 20
+		std::uint32_t                           streamingThreshold;     // 24
+		float                                   defaultMasterVolume;    // 28
+		std::byte                               pad2C[4];               // 2C
+		BSExternalAudioIO::ExternalIOInterface* externalAudioIO;        // 30
+		BSFixedString                           missingAssetSoundFile;  // 38
+		BSAudioCallbacks                        audioCallbacks;         // 40
 	};
 	static_assert(sizeof(BSAudioInit) == 0x58);
 }

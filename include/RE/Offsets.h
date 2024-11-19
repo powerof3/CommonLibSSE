@@ -165,6 +165,11 @@ namespace RE
 			inline constexpr REL::ID FindBSFurnitureMarkerNode(static_cast<std::uint64_t>(76647));
 		}
 
+		namespace BSGameSound
+		{
+			inline constexpr REL::ID SetOutputModel(static_cast<std::uint64_t>(67892));
+		}
+
 		namespace BSGraphics
 		{
 			namespace State
@@ -269,6 +274,7 @@ namespace RE
 
 		namespace BSXAudio2GameSound
 		{
+			inline constexpr REL::ID SeekInSamples(static_cast<std::uint64_t>(68013));
 			inline constexpr REL::ID pAudioImplementation(static_cast<std::uint64_t>(410149));
 			inline constexpr REL::ID pXAudioListener(static_cast<std::uint64_t>(410150));
 		}

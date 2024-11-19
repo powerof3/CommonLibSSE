@@ -54,11 +54,11 @@ namespace RE
 		std::byte             pad0C[4];  // 0C
 		void*                 pData;     // 10
 		NiPointer<NiAVObject> spData;    // 18
-		union
+		union                            // 20
 		{
 			NiPoint3      vector3;
 			std::uint16_t curveValue[5];
-		};                         // 20
+		};
 		std::byte       pad2C[4];  // 2C
 		BSSoundMessage* next;      // 30
 		BSSoundMessage* prev;      // 38
