@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RE/B/BSAtomic.h"
+#include "RE/B/BSFixedString.h"
 #include "RE/B/BSTHashMap.h"
 #include "RE/B/BSTSmartPointer.h"
 
@@ -10,6 +11,7 @@ namespace RE
 	{
 		class IVirtualMachine;
 		class Object;
+		class Variable;
 		struct IVMObjectBindInterface;
 
 		class ObjectBindPolicy

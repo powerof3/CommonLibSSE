@@ -33,6 +33,13 @@ namespace RE
 		free(presence);
 		presence = nullptr;
 	}
+#else
+	BaseExtraList::~BaseExtraList()
+	{
+		using func_t = void(*)(BaseExtraList*);
+		REL::Relocation<func_t> func{ Offset::BaseExtraList::Dtor };
+		func(this);
+	}
 #endif
 
 	bool BaseExtraList::PresenceBitfield::HasType(std::uint32_t a_type) const
@@ -294,6 +301,13 @@ namespace RE
 		using func_t = decltype(&ExtraDataList::SetCount);
 		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetCount };
 		return func(this, a_count);
+	}
+
+	void ExtraDataList::SetEnchantment(EnchantmentItem* a_enchantment, std::uint16_t a_chargeAmount, bool a_removeOnUnequip)
+	{
+		using func_t = decltype(&ExtraDataList::SetEnchantment);
+		REL::Relocation<func_t> func{ Offset::ExtraDataList::SetEnchantment };
+		return func(this, a_enchantment, a_chargeAmount, a_removeOnUnequip);
 	}
 
 	void ExtraDataList::SetEncounterZone(BGSEncounterZone* a_zone)

@@ -41,6 +41,11 @@ namespace RE
 			inline constexpr REL::ID Update3DModel(static_cast<std::uint64_t>(39395));
 		}
 
+		namespace BaseExtraList
+		{
+			inline constexpr REL::ID Dtor(static_cast<std::uint64_t>(11572));
+		}
+
 		namespace BGSFootstepManager
 		{
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(403553));
@@ -208,6 +213,7 @@ namespace RE
 		{
 			inline constexpr REL::ID Add(static_cast<std::uint64_t>(12315));
 			inline constexpr REL::ID SetCount(static_cast<std::uint64_t>(11617));
+			inline constexpr REL::ID SetEnchantment(static_cast<std::uint64_t>(12060));
 			inline constexpr REL::ID SetExtraFlags(static_cast<std::uint64_t>(12042));
 			inline constexpr REL::ID SetInventoryChanges(static_cast<std::uint64_t>(11600));
 		}
