@@ -28,7 +28,7 @@ namespace RE
 	public:
 		[[nodiscard]] static TESWaterSystem* GetSingleton()
 		{
-			REL::Relocation<TESWaterSystem**> singleton{ RELOCATION_ID(514290, 400450) };
+			static REL::Relocation<TESWaterSystem**> singleton{ RELOCATION_ID(514290, 400450) };
 			return *singleton;
 		}
 

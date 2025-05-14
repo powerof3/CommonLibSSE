@@ -75,16 +75,23 @@ namespace RE
 		func(this, a_weather, a_override);
 	}
 
+	bool Sky::IsDaytime()
+	{
+		using func_t = decltype(&Sky::IsDaytime);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(25678, 26221) };
+		return func(this);
+	}
+
 	bool Sky::IsRaining() const
 	{
-		return currentWeather && currentWeather->data.flags.any(TESWeather::WeatherDataFlag::kRainy) && currentWeather->data.precipitationBeginFadeIn * (1.0f / 255.0f) < currentWeatherPct ||
-		       lastWeather && lastWeather->data.flags.any(TESWeather::WeatherDataFlag::kRainy) && (lastWeather->data.precipitationEndFadeOut * (1.0f / 255.0f) + 0.001f) > currentWeatherPct;
+		return (currentWeather && currentWeather->data.flags.any(TESWeather::WeatherDataFlag::kRainy) && (currentWeather->data.precipitationBeginFadeIn * (1.0f / 255.0f) < currentWeatherPct)) ||
+		       (lastWeather && lastWeather->data.flags.any(TESWeather::WeatherDataFlag::kRainy) && (lastWeather->data.precipitationEndFadeOut * (1.0f / 255.0f) + 0.001f > currentWeatherPct));
 	}
 
 	bool Sky::IsSnowing() const
 	{
-		return currentWeather && currentWeather->data.flags.any(TESWeather::WeatherDataFlag::kSnow) && currentWeather->data.precipitationBeginFadeIn * (1.0f / 255.0f) < currentWeatherPct ||
-		       lastWeather && lastWeather->data.flags.any(TESWeather::WeatherDataFlag::kSnow) && (lastWeather->data.precipitationEndFadeOut * (1.0f / 255.0f) + 0.001f) > currentWeatherPct;
+		return (currentWeather && currentWeather->data.flags.any(TESWeather::WeatherDataFlag::kSnow) && (currentWeather->data.precipitationBeginFadeIn * (1.0f / 255.0f) < currentWeatherPct)) ||
+		       (lastWeather && lastWeather->data.flags.any(TESWeather::WeatherDataFlag::kSnow) && (lastWeather->data.precipitationEndFadeOut * (1.0f / 255.0f) + 0.001f > currentWeatherPct));
 	}
 
 	void Sky::ReleaseWeatherOverride()

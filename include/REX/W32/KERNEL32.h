@@ -435,8 +435,8 @@ namespace REX::W32
 	HANDLE                CreateThread(SECURITY_ATTRIBUTES* a_threadAttr, std::size_t a_stackSize, THREAD_START_ROUTINE* a_startAddr, void* a_param, std::uint32_t a_flags, std::uint32_t* a_threadID) noexcept;
 	void                  DeleteCriticalSection(CRITICAL_SECTION* a_criticalSection);
 	void                  EnterCriticalSection(CRITICAL_SECTION* a_criticalSection);
-	std::uint32_t         ExpandEnvironmentStrings(const char* a_src, char* a_dst, std::uint32_t a_dstLen) noexcept;
-	std::uint32_t         ExpandEnvironmentStrings(const wchar_t* a_src, wchar_t* a_dst, std::uint32_t a_dstLen) noexcept;
+	std::uint32_t         ExpandEnvironmentStringsA(const char* a_src, char* a_dst, std::uint32_t a_dstLen) noexcept;
+	std::uint32_t         ExpandEnvironmentStringsW(const wchar_t* a_src, wchar_t* a_dst, std::uint32_t a_dstLen) noexcept;
 	bool                  FindClose(HANDLE a_file) noexcept;
 	HANDLE                FindFirstFileA(const char* a_name, WIN32_FIND_DATAA* a_data) noexcept;
 	HANDLE                FindFirstFileW(const wchar_t* a_name, WIN32_FIND_DATAW* a_data) noexcept;

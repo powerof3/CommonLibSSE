@@ -150,8 +150,8 @@ namespace RE
 		void  Unk_08(void) override;          // 08 - { return 0; }
 
 		// add
-		virtual void Unk_14(void);  // 14
-		virtual void Unk_15(void);  // 15
+		virtual bool DoSetSitSleepState(SIT_SLEEP_STATE a_state);  // 14
+		virtual void Unk_15(void);                                 // 15
 
 		[[nodiscard]] ATTACK_STATE_ENUM GetAttackState() const noexcept { return actorState1.meleeAttackState; }
 		[[nodiscard]] FLY_STATE         GetFlyState() const noexcept { return actorState1.flyState; }
@@ -183,6 +183,18 @@ namespace RE
 		}
 
 		[[nodiscard]] bool IsReanimated() const noexcept { return GetLifeState() == ACTOR_LIFE_STATE::kReanimate; }
+
+		[[nodiscard]] bool IsSitting() const noexcept
+		{
+			switch (GetSitSleepState()) {
+			case SIT_SLEEP_STATE::kIsSitting:
+			case SIT_SLEEP_STATE::kWantToStand:
+				return true;
+			default:
+				return false;
+			}
+		}
+
 		[[nodiscard]] bool IsSneaking() const noexcept { return static_cast<bool>(actorState1.sneaking); }
 		[[nodiscard]] bool IsSprinting() const noexcept { return static_cast<bool>(actorState1.sprinting); }
 		[[nodiscard]] bool IsSwimming() const noexcept { return static_cast<bool>(actorState1.swimming); }

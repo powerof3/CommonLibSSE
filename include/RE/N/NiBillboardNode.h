@@ -48,7 +48,7 @@ namespace RE
 
 		void SetMode(FaceMode a_mode)
 		{
-			userFlags = static_cast<uint16_t>((std::to_underlying(a_mode) << FACE_MODE_POS) | userFlags & ~FACE_MODE_MASK);
+			userFlags = static_cast<uint16_t>((std::to_underlying(a_mode) << FACE_MODE_POS) | (userFlags & ~FACE_MODE_MASK));
 		}
 
 		// members

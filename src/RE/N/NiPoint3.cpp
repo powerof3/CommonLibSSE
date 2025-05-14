@@ -104,6 +104,38 @@ namespace RE
 		return operator*=(1.0F / a_scalar);
 	}
 
+	NiPoint3 operator+(float a_lhs, const NiPoint3& a_rhs)
+	{
+		return NiPoint3(
+			a_lhs + a_rhs.x,
+			a_lhs + a_rhs.y,
+			a_lhs + a_rhs.z);
+	}
+
+	NiPoint3 operator-(float a_lhs, const NiPoint3& a_rhs)
+	{
+		return NiPoint3(
+			a_lhs - a_rhs.x,
+			a_lhs - a_rhs.y,
+			a_lhs - a_rhs.z);
+	}
+
+	NiPoint3 operator*(float a_lhs, const NiPoint3& a_rhs)
+	{
+		return NiPoint3(
+			a_lhs * a_rhs.x,
+			a_lhs * a_rhs.y,
+			a_lhs * a_rhs.z);
+	}
+
+	NiPoint3 operator/(float a_lhs, const NiPoint3& a_rhs)
+	{
+		return NiPoint3(
+			a_lhs / a_rhs.x,
+			a_lhs / a_rhs.y,
+			a_lhs / a_rhs.z);
+	}
+
 	NiPoint3 NiPoint3::Cross(const NiPoint3& a_pt) const
 	{
 		return NiPoint3(

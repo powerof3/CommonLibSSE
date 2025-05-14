@@ -4,11 +4,10 @@
 #include "RE/B/BSTHashMap.h"
 #include "RE/C/CraftingSubMenu.h"
 #include "RE/I/IMessageBoxCallback.h"
+#include "RE/I/InventoryEntryData.h"
 
 namespace RE
 {
-	class InventoryEntryData;
-
 	namespace CraftingSubMenus
 	{
 		class SmithingMenu : public CraftingSubMenu
@@ -55,18 +54,18 @@ namespace RE
 
 			// override (CraftingSubMenu)
 			void Accept(CallbackProcessor* a_cbReg) override;          // 01
-			void Unk_02(void) override;                                // 02
+			void UpdateSmithingList() override;                        // 02
 			bool ProcessUserEvent(BSFixedString* a_control) override;  // 05
 
 			// members
-			BSTArray<SmithingItemEntry>  unk100;        // 100
-			BSTHashMap<UnkKey, UnkValue> unk118;        // 118 - constructibleObject map?
-			NiPointer<TESObjectREFR>     furnitureRef;  // 148
-			std::uint32_t                unk150;        // 150
-			std::int32_t                 unk154;        // 154
-			FormType                     smithingType;  // 158
-			std::uint32_t                unk15C;        // 15C
-			InventoryEntryData*          unk160;        // 160
+			BSTArray<SmithingItemEntry>  recipes;        // 100
+			BSTHashMap<UnkKey, UnkValue> unk118;         // 118 - constructibleObject map?
+			NiPointer<TESObjectREFR>     furnitureRef;   // 148
+			std::uint32_t                currentIndex;   // 150
+			std::int32_t                 selectedIndex;  // 154 - if set, currentIndex will match this value.
+			FormType                     smithingType;   // 158
+			std::uint32_t                unk15C;         // 15C
+			InventoryEntryData*          unk160;         // 160
 		};
 		static_assert(sizeof(SmithingMenu) == 0x168);
 	}

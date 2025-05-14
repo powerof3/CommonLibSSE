@@ -48,10 +48,10 @@ namespace RE
 				kEnvelopeSlow = 1 << 5
 			};
 
-			std::uint8_t                            unk0;             // 0
-			stl::enumeration<Looping, std::uint8_t> looping;          // 1
-			std::uint8_t                            unk2;             // 2
-			std::uint8_t                            rumbleSendValue;  // 3
+			std::uint8_t                        unk0;             // 0
+			REX::EnumSet<Looping, std::uint8_t> looping;          // 1
+			std::uint8_t                        unk2;             // 2
+			std::uint8_t                        rumbleSendValue;  // 3
 		};
 		static_assert(sizeof(LengthCharacteristics) == 0x4);
 

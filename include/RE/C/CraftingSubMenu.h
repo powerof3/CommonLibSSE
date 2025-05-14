@@ -26,11 +26,11 @@ namespace RE
 			~CraftingSubMenu() override;  // 00
 
 			// add
-			virtual void Unk_02(void);                                // 02 - { return; }
+			virtual void UpdateSmithingList(void);                    // 02 - { return; }
 			virtual void Unk_03(void);                                // 03 - { return; }
 			virtual bool HasItemPreview();                            // 04 - { return 1; }
 			virtual bool ProcessUserEvent(BSFixedString* a_control);  // 05 - { return 0; }
-			virtual void Unk_06(void);                                // 06 - { return; }
+			virtual void UpdateConstructibleList();                   // 06 - { return; }
 			virtual void SetItemCardInfo(ItemCard* a_itemCard);       // 07 - { return; }
 
 			void UpdateCraftingInfo(ActorValue a_actorValue)

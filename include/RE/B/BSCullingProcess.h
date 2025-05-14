@@ -10,6 +10,7 @@ namespace RE
 	class BSCompoundFrustum;
 	class BSMultiBound;
 	class BSOcclusionPlane;
+	class BSPortalGraphEntry;
 	class NiAVObject;
 	class NiBound;
 
@@ -60,7 +61,7 @@ namespace RE
 		std::uint64_t                                     unk30178;           // 30178
 		std::uint64_t                                     unk30180;           // 30180
 		std::uint64_t                                     unk30188;           // 30188
-		void*                                             unk30190;           // 30190
+		BSPortalGraphEntry*                               portalGraphEntry;   // 30190
 		std::int32_t                                      cullMode;           // 30198
 		BSCompoundFrustum*                                compoundFrustum;    // 301A0
 		std::uint64_t                                     unk301A8;           // 301A8

@@ -15,7 +15,7 @@ namespace RE
 	public:
 		static ScreenSplatter* GetSingleton()
 		{
-			REL::Relocation<ScreenSplatter**> singleton{ RELOCATION_ID(514512, 400672) };
+			static REL::Relocation<ScreenSplatter**> singleton{ RELOCATION_ID(514512, 400672) };
 			return *singleton;
 		}
 

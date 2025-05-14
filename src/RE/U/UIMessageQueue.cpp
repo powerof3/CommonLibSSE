@@ -7,7 +7,7 @@ namespace RE
 {
 	UIMessageQueue* UIMessageQueue::GetSingleton()
 	{
-		REL::Relocation<UIMessageQueue**> singleton{ Offset::UIMessageQueue::Singleton };
+		static REL::Relocation<UIMessageQueue**> singleton{ Offset::UIMessageQueue::Singleton };
 		return *singleton;
 	}
 

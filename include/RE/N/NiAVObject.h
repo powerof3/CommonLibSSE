@@ -32,8 +32,8 @@ namespace RE
 			kDisableCollision = 1 << 13
 		};
 
-		float                                 time;   // 0
-		stl::enumeration<Flag, std::uint32_t> flags;  // 4
+		float                             time;   // 0
+		REX::EnumSet<Flag, std::uint32_t> flags;  // 4
 	};
 	static_assert(sizeof(NiUpdateData) == 0x8);
 
@@ -139,22 +139,22 @@ namespace RE
 		void                              UpdateRigidConstraints(bool a_enable, std::uint8_t a_arg2 = 1, std::uint32_t a_arg3 = 1);
 
 		// members
-		NiNode*                               parent;                   // 030
-		std::uint32_t                         parentIndex;              // 038
-		std::uint32_t                         unk03C;                   // 03C
-		NiPointer<NiCollisionObject>          collisionObject;          // 040
-		NiTransform                           local;                    // 048
-		NiTransform                           world;                    // 07C
-		NiTransform                           previousWorld;            // 0B0
-		NiBound                               worldBound;               // 0E4
-		stl::enumeration<Flag, std::uint32_t> flags;                    // 0F4
-		TESObjectREFR*                        userData;                 // 0F8
-		float                                 fadeAmount;               // 100
-		std::uint32_t                         lastUpdatedFrameCounter;  // 104
-		std::uint8_t                          unk108;                   // 108
-		std::uint8_t                          flags02;                  // 109
-		std::uint16_t                         unk10A;                   // 10A
-		std::uint32_t                         pad10C;                   // 10C
+		NiNode*                           parent;                   // 030
+		std::uint32_t                     parentIndex;              // 038
+		std::uint32_t                     unk03C;                   // 03C
+		NiPointer<NiCollisionObject>      collisionObject;          // 040
+		NiTransform                       local;                    // 048
+		NiTransform                       world;                    // 07C
+		NiTransform                       previousWorld;            // 0B0
+		NiBound                           worldBound;               // 0E4
+		REX::EnumSet<Flag, std::uint32_t> flags;                    // 0F4
+		TESObjectREFR*                    userData;                 // 0F8
+		float                             fadeAmount;               // 100
+		std::uint32_t                     lastUpdatedFrameCounter;  // 104
+		std::uint8_t                      unk108;                   // 108
+		std::uint8_t                      flags02;                  // 109
+		std::uint16_t                     unk10A;                   // 10A
+		std::uint32_t                     pad10C;                   // 10C
 	};
 	static_assert(sizeof(NiAVObject) == 0x110);
 }

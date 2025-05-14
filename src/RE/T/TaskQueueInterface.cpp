@@ -4,7 +4,7 @@ namespace RE
 {
 	TaskQueueInterface* TaskQueueInterface::GetSingleton()
 	{
-		REL::Relocation<TaskQueueInterface**> singleton{ RELOCATION_ID(517228, 403759) };
+		static REL::Relocation<TaskQueueInterface**> singleton{ RELOCATION_ID(517228, 403759) };
 		return *singleton;
 	}
 
@@ -48,6 +48,13 @@ namespace RE
 		using func_t = decltype(&TaskQueueInterface::QueueForceWeather);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(35991, 36966) };
 		return func(this, a_weather, a_forceOverride);
+	}
+
+	void TaskQueueInterface::QueueUpdateNiObject(NiAVObject* a_obj)
+	{
+		using func_t = decltype(&TaskQueueInterface::QueueUpdateNiObject);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(35929, 36904) };
+		return func(this, a_obj);
 	}
 
 	void TaskQueueInterface::QueueActorDisarm(ActorHandle& a_target, ActorHandle& a_caster)

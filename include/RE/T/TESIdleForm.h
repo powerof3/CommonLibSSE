@@ -25,11 +25,11 @@ namespace RE
 		};
 
 		// members
-		std::int8_t                          loopMin;                  // 0
-		std::int8_t                          loopMax;                  // 1
-		stl::enumeration<Flag, std::uint8_t> flags;                    // 2
-		std::uint8_t                         animationGroupSelection;  // 3
-		std::uint16_t                        replayDelay;              // 4
+		std::int8_t                      loopMin;                  // 0
+		std::int8_t                      loopMax;                  // 1
+		REX::EnumSet<Flag, std::uint8_t> flags;                    // 2
+		std::uint8_t                     animationGroupSelection;  // 3
+		std::uint16_t                    replayDelay;              // 4
 	};
 	static_assert(sizeof(IDLE_DATA) == 0x6);
 

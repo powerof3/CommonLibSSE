@@ -42,8 +42,15 @@ namespace RE
 
 			// members
 			std::uint32_t totalSize;  // 08
-			std::uint32_t flags;      // 0C
+#ifdef SKYRIM_SUPPORT_AE
+			std::uint32_t unk0C;  // 0C
+#endif
+			std::uint32_t flags;  // 10
 		};
+#ifdef SKYRIM_SUPPORT_AE
+		static_assert(sizeof(StreamBase) == 0x18);
+#else
 		static_assert(sizeof(StreamBase) == 0x10);
+#endif
 	}
 }

@@ -59,9 +59,9 @@ namespace RE
 			};
 
 			// members
-			BSEffectShaderProperty*                unk00;  // 00
-			stl::enumeration<State, std::uint32_t> state;  // 08
-			std::uint32_t                          unk0C;  // 0C
+			BSEffectShaderProperty*            unk00;  // 00
+			REX::EnumSet<State, std::uint32_t> state;  // 08
+			std::uint32_t                      unk0C;  // 0C
 		};
 		static_assert(sizeof(UnkData) == 0x10);
 

@@ -6,6 +6,7 @@
 #include "RE/B/BSTSmartPointer.h"
 #include "RE/E/ErrorLogger.h"
 #include "RE/T/TypeInfo.h"
+#include "RE/T/TypeTraits.h"
 
 namespace RE
 {
@@ -123,7 +124,7 @@ namespace RE
 			void RegisterLatentFunction(std::string_view a_fnName, std::string_view a_className, F a_callback, bool a_callableFromTasklets = false);
 
 			template <class V>
-			requires is_return_convertible_v<V>
+				requires is_return_convertible_v<V>
 			void ReturnLatentResult(VMStackID a_stackID, V result);
 
 			void SetCallableFromTasklets(const char* a_className, const char* a_stateName, const char* a_fnName, bool a_callable);

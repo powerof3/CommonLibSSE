@@ -12,7 +12,7 @@ namespace RE
 
 	ObjectRefHandle Console::GetSelectedRefHandle()
 	{
-		REL::Relocation<ObjectRefHandle*> selectedRef{ Offset::Console::SelectedRef };
+		static REL::Relocation<ObjectRefHandle*> selectedRef{ Offset::Console::SelectedRef };
 		return *selectedRef;
 	}
 

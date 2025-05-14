@@ -34,8 +34,8 @@ namespace RE
 		UI_MESSAGE_RESULTS ProcessMessage(UIMessage& a_message) override;    // 04
 		void               PostDisplay() override;                           // 06
 
-		[[nodiscard]] ContainerMode    GetContainerMode();
-		[[nodiscard]] static RefHandle GetTargetRefHandle();
+		[[nodiscard]] static ContainerMode GetContainerMode();
+		[[nodiscard]] static RefHandle     GetTargetRefHandle();
 
 		// members
 		GFxValue        root;             // 30 - "Menu_mc"

@@ -59,8 +59,22 @@ namespace RE
 	bool TESObjectREFR::ActivateRef(TESObjectREFR* a_activator, uint8_t a_arg2, TESBoundObject* a_object, int32_t a_count, bool a_defaultProcessingOnly)
 	{
 		using func_t = decltype(&TESObjectREFR::ActivateRef);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(19369, 19796) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19369, 20221) };
 		return func(this, a_activator, a_arg2, a_object, a_count, a_defaultProcessingOnly);
+	}
+
+	REFR_LOCK* TESObjectREFR::AddLock()
+	{
+		using func_t = decltype(&TESObjectREFR::AddLock);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19816, 20221) };
+		return func(this);
+	}
+
+	DoorTeleportData* TESObjectREFR::AddTeleport()
+	{
+		using func_t = decltype(&TESObjectREFR::AddTeleport);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19809, 20214) };
+		return func(this);
 	}
 
 	ModelReferenceEffect* TESObjectREFR::ApplyArtObject(BGSArtObject* a_artObject, float a_duration, TESObjectREFR* a_facingRef, bool a_faceTarget, bool a_attachToCamera, NiAVObject* a_attachNode, bool a_interfaceEffect)
@@ -207,7 +221,7 @@ namespace RE
 	float TESObjectREFR::GetDistance(TESObjectREFR* a_other, bool a_disabledRefs, bool a_ignoreWorldspace) const
 	{
 		using func_t = decltype(&TESObjectREFR::GetDistance);
-		REL::Relocation<func_t> func{ RELOCATION_ID(19396, 19823) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19396, 19823) };
 		return func(this, a_other, a_disabledRefs, a_ignoreWorldspace);
 	}
 
@@ -273,6 +287,24 @@ namespace RE
 	bool TESObjectREFR::GetEditorLocation(NiPoint3& a_outPos, NiPoint3& a_outRot, TESForm*& a_outWorldOrCell, TESObjectCELL* a_fallback)
 	{
 		return GetEditorLocation2(a_outPos, a_outRot, a_outWorldOrCell, a_fallback);
+	}
+
+	EnchantmentItem* TESObjectREFR::GetEnchantment() const
+	{
+		auto xEnch = extraList.GetByType<ExtraEnchantment>();
+		if (xEnch && xEnch->enchantment) {
+			return xEnch->enchantment;
+		}
+
+		auto obj = GetObjectReference();
+		if (obj) {
+			auto ench = obj->As<TESEnchantableForm>();
+			if (ench) {
+				return ench->formEnchanting;
+			}
+		}
+
+		return nullptr;
 	}
 
 	std::optional<double> TESObjectREFR::GetEnchantmentCharge() const
@@ -598,7 +630,7 @@ namespace RE
 
 		for (const auto& keyword : a_keywords) {
 			hasKeyword = keyword && HasKeyword(keyword);
-			if (a_matchAll && !hasKeyword || hasKeyword) {
+			if ((a_matchAll && !hasKeyword) || hasKeyword) {
 				break;
 			}
 		}
@@ -617,7 +649,7 @@ namespace RE
 		a_keywordList->ForEachForm([&](TESForm* a_form) {
 			const auto keyword = a_form->As<BGSKeyword>();
 			hasKeyword = keyword && HasKeyword(keyword);
-			if (a_matchAll && !hasKeyword || hasKeyword) {
+			if ((a_matchAll && !hasKeyword) || hasKeyword) {
 				return BSContainer::ForEachResult::kStop;
 			}
 			return BSContainer::ForEachResult::kContinue;
@@ -858,6 +890,13 @@ namespace RE
 		extraList.SetExtraFlags(ExtraFlags::Flag::kBlockActivate, a_blocked);
 	}
 
+	void TESObjectREFR::SetAngle(const NiPoint3& a_angle)
+	{
+		using func_t = decltype(&TESObjectREFR::SetAngle);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19359, 19786) };
+		return func(this, a_angle);
+	}
+
 	void TESObjectREFR::SetCollision(bool a_enable)
 	{
 		if (a_enable) {
@@ -920,9 +959,18 @@ namespace RE
 		return SetPosition(NiPoint3(a_x, a_y, a_z));
 	}
 
-	void TESObjectREFR::SetPosition(NiPoint3 a_pos)
+	void TESObjectREFR::SetPosition(const NiPoint3& a_pos)
 	{
-		MoveTo_Impl(ObjectRefHandle(), GetParentCell(), GetWorldspace(), a_pos, data.angle);
+		using func_t = void(TESObjectREFR*, const NiPoint3&);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19363, 19790) };
+		return func(this, a_pos);
+	}
+
+	void TESObjectREFR::SetScale(float a_scale)
+	{
+		using func_t = decltype(&TESObjectREFR::SetScale);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19239, 19665) };
+		func(this, a_scale);
 	}
 
 	void TESObjectREFR::SetTemporary()

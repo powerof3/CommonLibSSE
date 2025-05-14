@@ -14,6 +14,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto      RTTI = RTTI_CursorMenu;
+		inline static constexpr auto      VTABLE = VTABLE_CursorMenu;
 		constexpr static std::string_view MENU_NAME = "Cursor Menu";
 
 		~CursorMenu() override;  // 00

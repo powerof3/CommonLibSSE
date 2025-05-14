@@ -1,5 +1,6 @@
 #include "SKSE/API.h"
 
+#include "SKSE/Interfaces.h"
 #include "SKSE/Logger.h"
 
 namespace SKSE
@@ -14,6 +15,10 @@ namespace SKSE
 				static APIStorage singleton;
 				return singleton;
 			}
+
+			std::string_view pluginName{};
+			std::string_view pluginAuthor{};
+			REL::Version     pluginVersion{};
 
 			PluginHandle  pluginHandle{ static_cast<PluginHandle>(-1) };
 			std::uint32_t releaseIndex{ 0 };
@@ -69,7 +74,7 @@ namespace SKSE
 		}
 	}
 
-	void Init(const LoadInterface* a_intfc) noexcept
+	void Init(const LoadInterface* a_intfc, [[maybe_unused]] const bool a_log) noexcept
 	{
 		if (!a_intfc) {
 			stl::report_and_fail("interface is null"sv);
@@ -82,6 +87,19 @@ namespace SKSE
 		const auto& intfc = *a_intfc;
 
 		const std::scoped_lock l(storage.apiLock);
+#ifdef SKYRIM_SUPPORT_AE
+		if (const auto pluginVersionData = PluginVersionData::GetSingleton()) {
+			storage.pluginName = pluginVersionData->GetPluginName();
+			storage.pluginAuthor = pluginVersionData->GetAuthorName();
+			storage.pluginVersion = pluginVersionData->GetPluginVersion();
+		}
+
+		if (a_log) {
+			log::init();
+			log::info("{} v{}", GetPluginName(), GetPluginVersion());
+		}
+#endif
+
 		if (!storage.apiInit) {
 			storage.pluginHandle = intfc.GetPluginHandle();
 			storage.releaseIndex = intfc.GetReleaseIndex();
@@ -132,6 +150,23 @@ namespace SKSE
 
 		a_fn();
 	}
+
+#ifdef SKYRIM_SUPPORT_AE
+	std::string_view GetPluginName() noexcept
+	{
+		return detail::APIStorage::get().pluginName;
+	}
+
+	std::string_view GetPluginAuthor() noexcept
+	{
+		return detail::APIStorage::get().pluginAuthor;
+	}
+
+	REL::Version GetPluginVersion() noexcept
+	{
+		return detail::APIStorage::get().pluginVersion;
+	}
+#endif
 
 	PluginHandle GetPluginHandle() noexcept
 	{

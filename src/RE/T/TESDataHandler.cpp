@@ -7,7 +7,7 @@ namespace RE
 {
 	TESDataHandler* TESDataHandler::GetSingleton()
 	{
-		REL::Relocation<TESDataHandler**> singleton{ Offset::TESDataHandler::Singleton };
+		static REL::Relocation<TESDataHandler**> singleton{ Offset::TESDataHandler::Singleton };
 		return *singleton;
 	}
 
@@ -124,9 +124,23 @@ namespace RE
 		return mod ? std::make_optional(mod->smallFileCompileIndex) : std::nullopt;
 	}
 
+	TESWorldSpace* TESDataHandler::GetExtCellDataFromFileByEditorID(const char* a_cellID, std::int32_t& a_outX, std::int32_t& a_outY)
+	{
+		using func_t = decltype(&TESDataHandler::GetExtCellDataFromFileByEditorID);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(13618, 13716) };
+		return func(this, a_cellID, a_outX, a_outY);
+	}
+
 	bool TESDataHandler::IsGeneratedID(FormID a_formID)
 	{
 		return a_formID >= 0xFF000000;
+	}
+
+	FormID TESDataHandler::GetNextID()
+	{
+		using func_t = decltype(&TESDataHandler::GetNextID);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(13635, 13740) };
+		return func(this);
 	}
 
 	BSTArray<TESForm*>& TESDataHandler::GetFormArray(FormType a_formType)

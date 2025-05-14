@@ -35,13 +35,13 @@ namespace RE
 		bool                         RemoveIdle(TESIdleForm* a_idle);
 
 		// members
-		stl::enumeration<IdleFlags, std::int8_t> idleFlags;          // 08 - IDLF
-		std::int8_t                              idleCount;          // 09 - IDLC
-		std::uint16_t                            pad0A;              // 0A
-		std::uint32_t                            pad0C;              // 0C
-		TESIdleForm**                            idles;              // 10 - IDLA
-		float                                    timerCheckForIdle;  // 18 - IDLT
-		std::uint32_t                            pad1C;              // 1C
+		REX::EnumSet<IdleFlags, std::int8_t> idleFlags;          // 08 - IDLF
+		std::int8_t                          idleCount;          // 09 - IDLC
+		std::uint16_t                        pad0A;              // 0A
+		std::uint32_t                        pad0C;              // 0C
+		TESIdleForm**                        idles;              // 10 - IDLA
+		float                                timerCheckForIdle;  // 18 - IDLT
+		std::uint32_t                        pad1C;              // 1C
 
 	private:
 		BGSIdleCollection* Ctor()

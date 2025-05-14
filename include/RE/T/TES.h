@@ -22,6 +22,8 @@ namespace RE
 	class ImageSpaceModifierInstance;
 	class NavMeshInfoMap;
 	class NiAVObject;
+	class NiDirectionalLight;
+	class NiFogProperty;
 	class NiNode;
 	class Sky;
 	class TESLandTexture;
@@ -68,6 +70,8 @@ namespace RE
 
 		static TES* GetSingleton();
 
+		void ForEachCell(std::function<void(TESObjectCELL*)> a_callback);
+		void ForEachCellInRange(TESObjectREFR* a_origin, float a_radius, std::function<void(TESObjectCELL*)> a_callback);
 		void ForEachReference(std::function<BSContainer::ForEachResult(TESObjectREFR*)> a_callback);
 		void ForEachReferenceInRange(TESObjectREFR* a_origin, float a_radius, std::function<BSContainer::ForEachResult(TESObjectREFR*)> a_callback);
 
@@ -86,16 +90,18 @@ namespace RE
 		NiNode*                                             lodLandRoot;                // 088
 		NiNode*                                             objLODWaterRoot;            // 090
 		BSTempNodeManager*                                  tempNodeManager;            // 098
-		std::uint64_t                                       unk0A0;                     // 0A0
-		std::uint64_t                                       unk0A8;                     // 0A8
-		std::uint32_t                                       unk0B0;                     // 0B0
-		std::uint32_t                                       unk0B4;                     // 0B4
-		std::uint64_t                                       unk0B8;                     // 0B8
+		NiDirectionalLight*                                 objLight;                   // 0A0
+		NiFogProperty*                                      objFog;                     // 0A8
+		std::int32_t                                        currentGridX;               // 0B0
+		std::int32_t                                        currentGridY;               // 0B4
+		std::int32_t                                        currentQueuedX;             // 0B8
+		std::int32_t                                        currentQueuedY;             // 0BC
 		TESObjectCELL*                                      interiorCell;               // 0C0
 		TESObjectCELL**                                     interiorBuffer;             // 0C8
 		TESObjectCELL**                                     exteriorBuffer;             // 0D0
 		std::uint64_t                                       unk0D8;                     // 0D8
-		std::uint64_t                                       unk0E0;                     // 0E0
+		std::int32_t                                        saveGridX;                  // 0E0
+		std::int32_t                                        saveGridY;                  // 0E0
 		std::uint64_t                                       unk0E8;                     // 0E8
 		std::uint64_t                                       unk0F0;                     // 0F0
 		std::uint64_t                                       unk0F8;                     // 0F8

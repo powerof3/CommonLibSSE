@@ -108,8 +108,12 @@ namespace SKSE
 							for (auto& [eventFilter, handles] : it->second) {
 								if (a_callback(eventFilter.first, eventFilter.second)) {
 									for (auto& handle : handles) {
-										auto args = RE::MakeFunctionArguments(std::forward<Args>(a_args)...);
-										vm->SendEvent(handle, eventName, args);
+										auto copy = std::make_tuple(a_args...);
+										std::apply([&](auto&&... a_copy) {
+											auto args = RE::MakeFunctionArguments(std::forward<Args>(a_copy)...);
+											vm->SendEvent(handle, eventName, args);
+										},
+											copy);
 									}
 								}
 							}

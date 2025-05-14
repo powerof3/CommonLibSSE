@@ -47,7 +47,7 @@ namespace RE
 
 		[[nodiscard]] static VATS* GetSingleton()
 		{
-			REL::Relocation<VATS**> singleton{ RELOCATION_ID(514725, 400883) };
+			static REL::Relocation<VATS**> singleton{ RELOCATION_ID(514725, 400883) };
 			return *singleton;
 		}
 
@@ -61,7 +61,7 @@ namespace RE
 		// members
 		std::uint32_t                          pad00;                    // 00
 		BSTArray<BSTSmartPointer<VATSCommand>> commandList;              // 08
-		VATS_MODE                              VATSMode;                 // 20
+		VATS_MODE                              mode;                     // 20
 		std::uint32_t                          pad24;                    // 24
 		std::uint64_t                          unk28;                    // 28
 		BGSCameraShot*                         cameraShot;               // 30
@@ -87,7 +87,7 @@ namespace RE
 		std::int32_t                           unkA0;                    // A0
 		std::uint32_t                          padA4;                    // A4
 		NiPointer<Actor>                       attacker;                 // A8
-		NiPointer<Actor>                       unkB0;                    // B0 - stranger?
+		NiPointer<Actor>                       stranger;                 // B0
 		mutable BSSpinLock                     lock;                     // B8
 	};
 	static_assert(sizeof(VATS) == 0xC0);

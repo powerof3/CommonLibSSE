@@ -401,13 +401,13 @@ namespace RE
 	{
 	public:
 		// members
-		const char*                                          name;         // 00
-		stl::enumeration<FormType, std::uint8_t>             type;         // 08
-		std::uint8_t                                         pad09;        // 09
-		std::uint16_t                                        pad0A;        // 0A
-		char                                                 uniqueID[4];  // 0C
-		stl::enumeration<DEFAULT_OBJECT_TYPE, std::uint32_t> doType;       // 10
-		std::uint32_t                                        pad14;        // 14
+		const char*                                      name;         // 00
+		REX::EnumSet<FormType, std::uint8_t>             type;         // 08
+		std::uint8_t                                     pad09;        // 09
+		std::uint16_t                                    pad0A;        // 0A
+		char                                             uniqueID[4];  // 0C
+		REX::EnumSet<DEFAULT_OBJECT_TYPE, std::uint32_t> doType;       // 10
+		std::uint32_t                                    pad14;        // 14
 	};
 	static_assert(sizeof(DEFAULT_OBJECT_DATA) == 0x18);
 

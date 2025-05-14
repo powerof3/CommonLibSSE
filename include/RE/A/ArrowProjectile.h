@@ -1,12 +1,10 @@
 #pragma once
 
-#include "RE/F/FormTypes.h"
 #include "RE/M/MissileProjectile.h"
 
 namespace RE
 {
 	class AlchemyItem;
-	class EnchantmentItem;
 
 	class ArrowProjectile : public MissileProjectile
 	{

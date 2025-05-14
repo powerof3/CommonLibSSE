@@ -184,7 +184,7 @@ namespace RE
 		}
 
 		// members
-		stl::enumeration<VOICE_STATE, std::uint32_t>          voiceState;                                // 000
+		REX::EnumSet<VOICE_STATE, std::uint32_t>              voiceState;                                // 000
 		std::uint32_t                                         pad004;                                    // 004
 		TESShout*                                             currentShout;                              // 008
 		TESShout::VariationID                                 currentShoutVariation;                     // 010
@@ -212,7 +212,7 @@ namespace RE
 		std::uint32_t                                         pad0E4;                                    // 0E4
 		MagicItem*                                            reanimateSpell;                            // 0E8
 		Movement::TypeData                                    currentMovementType;                       // 0F0
-		stl::enumeration<FADE_STATE, std::uint32_t>           fadeState;                                 // 130
+		REX::EnumSet<FADE_STATE, std::uint32_t>               fadeState;                                 // 130
 		float                                                 fadeAlpha;                                 // 134
 		TESObjectREFR*                                        fadeTrigger;                               // 138
 		ObjectRefHandle                                       headTrackTarget[HEAD_TRACK_TYPE::kTotal];  // 140
@@ -248,7 +248,7 @@ namespace RE
 		float                                                 takeBackTimer;                             // 200
 		std::uint32_t                                         pad204;                                    // 204
 		Data208*                                              unk208;                                    // 208
-		std::uint32_t                                         unk210;                                    // 210
+		float                                                 avoidWaitTimer;                            // 210
 		PLAYER_ACTION                                         playerActionReaction;                      // 214
 		BSFixedString                                         voiceSubtitle;                             // 218
 		BSTArray<BSTTuple<FormID, NiPointer<ActorKnowledge>>> knowledgeArray;                            // 220

@@ -21,7 +21,7 @@ namespace RE
 			kAllowNoShots = 1 << 7
 		};
 
-		stl::enumeration<PathFlags, std::uint8_t> flags;  // 0
+		REX::EnumSet<PathFlags, std::uint8_t> flags;  // 0
 	};
 	static_assert(sizeof(PATH_DATA) == 0x1);
 

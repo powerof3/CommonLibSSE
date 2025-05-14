@@ -128,6 +128,12 @@ namespace SKSE
 		return GetProxy()->WriteRecordData(a_buf, a_length);
 	}
 
+	bool SerializationInterface::WriteRecordDataEx(std::uint32_t& a_diff, const void* a_buf, std::uint32_t a_length) const
+	{
+		a_diff += a_length;
+		return GetProxy()->WriteRecordData(a_buf, a_length);
+	}
+
 	bool SerializationInterface::GetNextRecordInfo(std::uint32_t& a_type, std::uint32_t& a_version, std::uint32_t& a_length) const
 	{
 		return GetProxy()->GetNextRecordInfo(&a_type, &a_version, &a_length);
@@ -136,6 +142,13 @@ namespace SKSE
 	std::uint32_t SerializationInterface::ReadRecordData(void* a_buf, std::uint32_t a_length) const
 	{
 		return GetProxy()->ReadRecordData(a_buf, a_length);
+	}
+
+	std::uint32_t SerializationInterface::ReadRecordDataEx(std::uint32_t& a_diff, void* a_buf, std::uint32_t a_length) const
+	{
+		const auto result = GetProxy()->ReadRecordData(a_buf, a_length);
+		a_diff -= result;
+		return result;
 	}
 
 	bool SerializationInterface::ResolveFormID(RE::FormID a_oldFormID, RE::FormID& a_newFormID) const
@@ -341,4 +354,11 @@ namespace SKSE
 		assert(this);
 		return reinterpret_cast<const detail::SKSETrampolineInterface*>(this);
 	}
+
+#ifdef SKYRIM_SUPPORT_AE
+	const PluginVersionData* PluginVersionData::GetSingleton() noexcept
+	{
+		return reinterpret_cast<const PluginVersionData*>(REX::W32::GetProcAddress(REX::W32::GetCurrentModule(), "SKSEPlugin_Version"));
+	}
+#endif
 }

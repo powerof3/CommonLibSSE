@@ -4,6 +4,7 @@
 #include "RE/B/BSTEvent.h"
 #include "RE/B/BSTSingleton.h"
 #include "RE/B/BSTSmartPointer.h"
+#include "RE/Q/QuickSaveLoadHandler.h"
 
 namespace RE
 {
@@ -15,7 +16,6 @@ namespace RE
 	struct DirectionHandler;
 	struct FavoritesHandler;
 	struct MenuOpenHandler;
-	struct QuickSaveLoadHandler;
 	struct ScreenshotHandler;
 
 	class MenuControls :

@@ -58,11 +58,11 @@ namespace RE
 				virtual void        SetData(GFxValue* dataContainer);              // 04
 
 				// members
-				stl::enumeration<FilterFlag, std::uint32_t> filterFlag;  // 0C
-				bool                                        selected;    // 10
-				bool                                        enabled;     // 11
-				std::uint16_t                               pad12;       // 12
-				std::uint32_t                               pad14;       // 14
+				REX::EnumSet<FilterFlag, std::uint32_t> filterFlag;  // 0C
+				bool                                    selected;    // 10
+				bool                                    enabled;     // 11
+				std::uint16_t                           pad12;       // 12
+				std::uint32_t                           pad14;       // 14
 			};
 			static_assert(sizeof(CategoryListEntry) == 0x18);
 
@@ -190,11 +190,11 @@ namespace RE
 			void UpdateInterface();
 
 			// members
-			stl::enumeration<FilterFlag, std::uint32_t>  filterDisenchant;        // 100
-			stl::enumeration<FilterFlag, std::uint32_t>  filterDivider;           // 104
-			stl::enumeration<FilterFlag, std::uint32_t>  filterItem;              // 108
-			stl::enumeration<FilterFlag, std::uint32_t>  filterEnchantment;       // 10C
-			stl::enumeration<FilterFlag, std::uint32_t>  filterSoulGem;           // 110
+			REX::EnumSet<FilterFlag, std::uint32_t>      filterDisenchant;        // 100
+			REX::EnumSet<FilterFlag, std::uint32_t>      filterDivider;           // 104
+			REX::EnumSet<FilterFlag, std::uint32_t>      filterItem;              // 108
+			REX::EnumSet<FilterFlag, std::uint32_t>      filterEnchantment;       // 10C
+			REX::EnumSet<FilterFlag, std::uint32_t>      filterSoulGem;           // 110
 			std::uint32_t                                pad114;                  // 114
 			BSTArray<BSTSmartPointer<CategoryListEntry>> listEntries;             // 118
 			BSString                                     customName;              // 130
@@ -206,8 +206,8 @@ namespace RE
 			std::int32_t                                 sliderEnchantmentIndex;  // 200
 			float                                        sliderMaxMagnitude;      // 204
 			std::uint32_t                                highlightIndex;          // 208
-			stl::enumeration<Category, std::uint32_t>    currentCategory;         // 20C
-			stl::enumeration<FilterFlag, std::uint32_t>  enabledFilters;          // 210
+			REX::EnumSet<Category, std::uint32_t>        currentCategory;         // 20C
+			REX::EnumSet<FilterFlag, std::uint32_t>      enabledFilters;          // 210
 			float                                        enchantmentCost;         // 214
 			float                                        chargeAmount;            // 218
 			bool                                         exiting;                 // 21C

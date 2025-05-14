@@ -30,7 +30,7 @@ namespace RE
 		static ButtonEvent* Create(INPUT_DEVICE a_inputDevice, const BSFixedString& a_userEvent, uint32_t a_idCode, float a_value, float a_heldDownSecs)
 		{
 			auto buttonEvent = malloc<ButtonEvent>(sizeof(ButtonEvent));
-			std::memset(buttonEvent, 0, sizeof(ButtonEvent));
+			std::memset((void*)buttonEvent, 0, sizeof(ButtonEvent));
 			if (buttonEvent) {
 				stl::emplace_vtable<ButtonEvent>(buttonEvent);
 				buttonEvent->device = a_inputDevice;

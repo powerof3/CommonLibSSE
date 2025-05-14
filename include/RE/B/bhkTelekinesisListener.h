@@ -20,7 +20,7 @@ namespace RE
 
 		static bhkTelekinesisListener* GetSingleton()
 		{
-			REL::Relocation<bhkTelekinesisListener**> singleton{ RELOCATION_ID(515445, 401584) };
+			static REL::Relocation<bhkTelekinesisListener**> singleton{ RELOCATION_ID(515445, 401584) };
 			return *singleton;
 		}
 	};

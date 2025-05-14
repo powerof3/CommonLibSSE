@@ -438,7 +438,7 @@ namespace RE
 	FIGHT_REACTION Actor::GetFactionReaction(Actor* a_other) const
 	{
 		using func_t = decltype(&Actor::GetFactionReaction);
-		REL::Relocation<func_t> func{ RELOCATION_ID(36658, 37666) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36658, 37666) };
 		return func(this, a_other);
 	}
 
@@ -551,7 +551,7 @@ namespace RE
 	bool Actor::GetPlayerControls() const
 	{
 		if (movementController) {
-			return movementController->IsPlayerControlsEnabled();
+			return movementController->GetControlsDriven();
 		}
 		return false;
 	}
@@ -764,7 +764,7 @@ namespace RE
 	bool Actor::IsAlarmed() const
 	{
 		auto currentPackage = GetCurrentPackage();
-		return currentPackage && currentPackage->packData.packType.get() == PACKAGE_PROCEDURE_TYPE::kAlarm;
+		return currentPackage && currentPackage->packData.packType.get() == PACKAGE_TYPE::kAlarm;
 	}
 
 	bool Actor::IsAMount() const
@@ -800,7 +800,7 @@ namespace RE
 	bool Actor::IsCombatTarget(Actor* a_other) const
 	{
 		using func_t = decltype(&Actor::IsCombatTarget);
-		REL::Relocation<func_t> func{ RELOCATION_ID(37618, 38571) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(37618, 38571) };
 		return func(this, a_other);
 	}
 
@@ -929,6 +929,13 @@ namespace RE
 	bool Actor::IsPlayerTeammate() const
 	{
 		return boolBits.all(BOOL_BITS::kPlayerTeammate);
+	}
+
+	bool Actor::IsPowerAttacking() const
+	{
+		using func_t = decltype(&Actor::IsPowerAttacking);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(37639, 38592) };
+		return func(this);
 	}
 
 	bool Actor::IsProtected() const
@@ -1087,9 +1094,9 @@ namespace RE
 		if (movementController) {
 			EnableAI(!a_enable);
 			if (a_enable) {
-				movementController->EnablePlayerControls();
+				movementController->SetControlsDriven();
 			} else {
-				movementController->DisablePlayerControls();
+				movementController->SetAIDriven();
 			}
 		}
 	}

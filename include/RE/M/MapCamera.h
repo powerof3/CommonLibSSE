@@ -27,11 +27,8 @@ namespace RE
 		virtual void Unk_03(void);  // 03
 
 		// members
-		float                                        unk38;       // 38
-		float                                        unk3C;       // 3C
-		float                                        unk40;       // 40
-		float                                        unk44;       // 44
-		float                                        unk48;       // 48
+		BSTPoint2<float>                             unk38;       // 38
+		BSTPoint3<float>                             unk40;       // 40
 		std::uint32_t                                unk4C;       // 4C
 		TESWorldSpace*                               worldSpace;  // 50
 		IMapCameraCallbacks*                         unk58;       // 58

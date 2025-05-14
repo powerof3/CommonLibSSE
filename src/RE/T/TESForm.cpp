@@ -101,7 +101,7 @@ namespace RE
 
 		for (const auto& keyword : a_keywords) {
 			hasKeyword = keyword && keywordForm->HasKeyword(keyword);
-			if (a_matchAll && !hasKeyword || hasKeyword) {
+			if ((a_matchAll && !hasKeyword) || hasKeyword) {
 				break;
 			}
 		}
@@ -125,7 +125,7 @@ namespace RE
 		a_keywordList->ForEachForm([&](const TESForm* a_form) {
 			const auto keyword = a_form->As<BGSKeyword>();
 			hasKeyword = keyword && keywordForm->HasKeyword(keyword);
-			if (a_matchAll && !hasKeyword || hasKeyword) {
+			if ((a_matchAll && !hasKeyword) || hasKeyword) {
 				return BSContainer::ForEachResult::kStop;
 			}
 			return BSContainer::ForEachResult::kContinue;
@@ -177,6 +177,13 @@ namespace RE
 		default:
 			return false;
 		}
+	}
+
+	void TESForm::SetFile(TESFile* a_file)
+	{
+		using func_t = decltype(&TESForm::SetFile);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(14467, 14623) };
+		return func(this, a_file);
 	}
 
 	void TESForm::SetPlayerKnows(bool a_known)

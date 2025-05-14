@@ -4,8 +4,22 @@ namespace RE
 {
 	BGSSaveLoadManager* BGSSaveLoadManager::GetSingleton()
 	{
-		REL::Relocation<BGSSaveLoadManager**> singleton{ Offset::BGSSaveLoadManager::Singleton };
+		static REL::Relocation<BGSSaveLoadManager**> singleton{ Offset::BGSSaveLoadManager::Singleton };
 		return *singleton;
+	}
+
+	bool BGSSaveLoadFileEntry::PopulateFileEntryData()
+	{
+		using func_t = decltype(&BGSSaveLoadFileEntry::PopulateFileEntryData);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(34627, 35547) };
+		return func(this);
+	}
+
+	void BGSSaveLoadManager::GenerateCharacterID()
+	{
+		using func_t = decltype(&BGSSaveLoadManager::GenerateCharacterID);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(34847, 35757) };
+		return func(this);
 	}
 
 	void BGSSaveLoadManager::Save(const char* a_fileName)
@@ -21,6 +35,13 @@ namespace RE
 	void BGSSaveLoadManager::Load(const char* a_fileName, bool a_checkForMods)
 	{
 		Load_Impl(a_fileName, -1, 0, a_checkForMods);
+	}
+
+	bool BGSSaveLoadManager::PopulateSaveList()
+	{
+		using func_t = decltype(&BGSSaveLoadManager::PopulateSaveList);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(34850, 35760) };
+		return func(this);
 	}
 
 	bool BGSSaveLoadManager::LoadMostRecentSaveGame()

@@ -68,7 +68,7 @@ namespace RE
 
 		static BGSSaveLoadGame* GetSingleton()
 		{
-			REL::Relocation<BGSSaveLoadGame**> singleton{ RELOCATION_ID(516851, 403330) };
+			static REL::Relocation<BGSSaveLoadGame**> singleton{ RELOCATION_ID(516851, 403330) };
 			return *singleton;
 		}
 
@@ -79,22 +79,29 @@ namespace RE
 			return func(this, a_form, a_changes);
 		}
 
+		bool IsFormIDInUse(FormID a_formID)
+		{
+			using func_t = decltype(&BGSSaveLoadGame::IsFormIDInUse);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(34670, 35593) };
+			return func(this, a_formID);
+		}
+
 		// members
-		BSTArray<TESFile*>                     pluginList;           // 000
-		BSTArray<void*>                        unk18;                // 018
-		BGSSaveLoadFormIDMap                   worldspaceFormIDMap;  // 030
-		BSTHashMap<FormID, ActorHandle>        unk98;                // 098
-		BGSSaveLoadReferencesMap               unkC8;                // 0C8
-		BSTHashMap<FormID, FormID>             unk158;               // 158
-		BGSConstructFormsInAllFilesMap         reconstructFormsMap;  // 188
-		BGSSaveLoadQueuedSubBufferMap          queuedSubBuffersMap;  // 208
-		BGSSaveLoadFormIDMap                   formIDMap;            // 298
-		BSTArray<void*>                        saveLoadHistory;      // 300
-		BSTArray<void*>                        unk318;               // 318
-		BGSSaveLoadChangesMap*                 saveLoadChanges;      // 330
-		std::uint64_t                          unk338;               // 338
-		stl::enumeration<Flags, std::uint32_t> flags;                // 340
-		std::uint8_t                           currentMinorVersion;  // 344
+		BSTArray<TESFile*>                 pluginList;           // 000
+		BSTArray<void*>                    unk18;                // 018
+		BGSSaveLoadFormIDMap               worldspaceFormIDMap;  // 030
+		BSTHashMap<FormID, ActorHandle>    unk98;                // 098
+		BGSSaveLoadReferencesMap           unkC8;                // 0C8
+		BSTHashMap<FormID, FormID>         unk158;               // 158
+		BGSConstructFormsInAllFilesMap     reconstructFormsMap;  // 188
+		BGSSaveLoadQueuedSubBufferMap      queuedSubBuffersMap;  // 208
+		BGSSaveLoadFormIDMap               formIDMap;            // 298
+		BSTArray<void*>                    saveLoadHistory;      // 300
+		BSTArray<void*>                    unk318;               // 318
+		BGSSaveLoadChangesMap*             saveLoadChanges;      // 330
+		std::uint64_t                      unk338;               // 338
+		REX::EnumSet<Flags, std::uint32_t> flags;                // 340
+		std::uint8_t                       currentMinorVersion;  // 344
 	};
 	static_assert(sizeof(BGSSaveLoadGame) == 0x348);
 }

@@ -4,7 +4,7 @@ namespace RE
 {
 	RefHandle BarterMenu::GetTargetRefHandle()
 	{
-		REL::Relocation<RefHandle*> handle{ RELOCATION_ID(519283, 403520) };
+		static REL::Relocation<RefHandle*> handle{ RELOCATION_ID(519283, 405823) };
 		return *handle;
 	}
 }

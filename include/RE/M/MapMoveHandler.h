@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSTPoint.h"
 #include "RE/M/MapInputHandler.h"
 
 namespace RE
@@ -17,7 +18,7 @@ namespace RE
 		bool ProcessThumbstick(ThumbstickEvent* a_event) override;  // 03
 
 		// members
-		std::uint64_t unk18;  // 18
+		BSTPoint2<float> unk18;  // 18
 	};
 	static_assert(sizeof(MapMoveHandler) == 0x20);
 }

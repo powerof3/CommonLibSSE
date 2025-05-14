@@ -21,12 +21,12 @@ namespace RE
 		~ConsoleData() override;  // 00
 
 		// members
-		BSString*                                 str;      // 10
-		ObjectRefHandle                           pickRef;  // 18
-		std::uint32_t                             pad1C;    // 1C
-		NiBinaryStream*                           file;     // 20
-		stl::enumeration<DataType, std::uint32_t> type;     // 28
-		std::uint32_t                             pad2C;    // 2C
+		BSString*                             str;      // 10
+		ObjectRefHandle                       pickRef;  // 18
+		std::uint32_t                         pad1C;    // 1C
+		NiBinaryStream*                       file;     // 20
+		REX::EnumSet<DataType, std::uint32_t> type;     // 28
+		std::uint32_t                         pad2C;    // 2C
 	};
 	static_assert(sizeof(ConsoleData) == 0x30);
 }

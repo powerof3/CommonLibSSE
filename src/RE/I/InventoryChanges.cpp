@@ -62,11 +62,18 @@ namespace RE
 		return func(this, a_entry, a_itemList);
 	}
 
-	void InventoryChanges::RemoveAllItems(TESObjectREFR* a_ref, TESObjectREFR* a_moveToRef, bool a_arg4, bool a_keepOwnership, bool a_arg6)
+	ObjectRefHandle InventoryChanges::RemoveItem(TESObjectREFR* a_ref, TESBoundObject* a_item, std::int32_t a_count, ITEM_REMOVE_REASON a_reason, ExtraDataList* a_extraDataList, TESObjectREFR* a_moveToRef, const NiPoint3& a_dropLoc, TESObjectREFR* a_dropRef)
+	{
+		using func_t = decltype(&InventoryChanges::RemoveItem);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(15821, 16059) };
+		return func(this, a_ref, a_item, a_count, a_reason, a_extraDataList, a_moveToRef, a_dropLoc, a_dropRef);
+	}
+
+	void InventoryChanges::RemoveAllItems(TESObjectREFR* a_ref, TESObjectREFR* a_moveToRef, bool a_stealing, bool a_keepOwnership, bool a_arg6)
 	{
 		using func_t = decltype(&InventoryChanges::RemoveAllItems);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(15878, 441567) };
-		return func(this, a_ref, a_moveToRef, a_arg4, a_keepOwnership, a_arg6);
+		return func(this, a_ref, a_moveToRef, a_stealing, a_keepOwnership, a_arg6);
 	}
 
 	void InventoryChanges::SendContainerChangedEvent(ExtraDataList* a_itemExtraList, TESObjectREFR* a_fromRefr, TESForm* a_item, std::int32_t a_count)

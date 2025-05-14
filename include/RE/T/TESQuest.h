@@ -102,10 +102,10 @@ namespace RE
 		};
 
 		// members
-		float                                      questDelayTime;  // 0
-		stl::enumeration<QuestFlag, std::uint16_t> flags;           // 4
-		std::int8_t                                priority;        // 6
-		stl::enumeration<Type, std::uint8_t>       questType;       // 7
+		float                                  questDelayTime;  // 0
+		REX::EnumSet<QuestFlag, std::uint16_t> flags;           // 4
+		std::int8_t                            priority;        // 6
+		REX::EnumSet<Type, std::uint8_t>       questType;       // 7
 	};
 	static_assert(sizeof(QUEST_DATA) == 0x8);
 
@@ -121,10 +121,10 @@ namespace RE
 		};
 
 		// members
-		std::uint16_t                        index;  // 0
-		stl::enumeration<Flag, std::uint8_t> flags;  // 2
-		std::uint8_t                         pad3;   // 3
-		std::uint32_t                        pad4;   // 4
+		std::uint16_t                    index;  // 0
+		REX::EnumSet<Flag, std::uint8_t> flags;  // 2
+		std::uint8_t                     pad3;   // 3
+		std::uint32_t                    pad4;   // 4
 	};
 	static_assert(sizeof(QUEST_STAGE_DATA) == 0x8);
 
@@ -161,15 +161,15 @@ namespace RE
 	{
 	public:
 		// members
-		BSFixedString                                          displayText;  // 00 - NNAM
-		TESQuest*                                              ownerQuest;   // 08
-		TESQuestTarget**                                       targets;      // 10 - QSTA
-		std::uint32_t                                          numTargets;   // 18
-		std::uint16_t                                          index;        // 1C - QOBJ
-		bool                                                   initialized;  // 1E
-		stl::enumeration<QUEST_OBJECTIVE_STATE, std::uint8_t>  state;        // 1E
-		stl::enumeration<QUEST_OBJECTIVE_FLAGS, std::uint32_t> flags;        // 20 - FNAM
-		std::uint32_t                                          pad24;        // 24
+		BSFixedString                                      displayText;  // 00 - NNAM
+		TESQuest*                                          ownerQuest;   // 08
+		TESQuestTarget**                                   targets;      // 10 - QSTA
+		std::uint32_t                                      numTargets;   // 18
+		std::uint16_t                                      index;        // 1C - QOBJ
+		bool                                               initialized;  // 1E
+		REX::EnumSet<QUEST_OBJECTIVE_STATE, std::uint8_t>  state;        // 1E
+		REX::EnumSet<QUEST_OBJECTIVE_FLAGS, std::uint32_t> flags;        // 20 - FNAM
+		std::uint32_t                                      pad24;        // 24
 	};
 	static_assert(sizeof(BGSQuestObjective) == 0x28);
 

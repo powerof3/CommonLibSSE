@@ -62,7 +62,7 @@ namespace RE
 
 	std::uint32_t GetDurationOfApplicationRunTime()
 	{
-		REL::Relocation<std::uint32_t*> runtime{ RELOCATION_ID(523662, 410201) };
+		static REL::Relocation<std::uint32_t*> runtime{ RELOCATION_ID(523662, 410201) };
 		return *runtime;
 	}
 
@@ -81,7 +81,7 @@ namespace RE
 
 	float GetSecondsSinceLastFrame()
 	{
-		REL::Relocation<float*> seconds{ RELOCATION_ID(523660, 410199) };
+		static REL::Relocation<float*> seconds{ RELOCATION_ID(523660, 410199) };
 		return *seconds;
 	}
 

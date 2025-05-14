@@ -36,6 +36,7 @@ namespace RE
 
 		static ProcessLists* GetSingleton();
 
+		bool         AreHostileActorsNear(BSScrapArray<ActorHandle>* a_arrayOut);
 		void         ClearCachedFactionFightReactions() const;
 		void         ForAllActors(std::function<BSContainer::ForEachResult(Actor*)> a_callback);
 		void         ForEachHighActor(std::function<BSContainer::ForEachResult(Actor*)> a_callback);

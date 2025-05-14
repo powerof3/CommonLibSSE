@@ -12,7 +12,7 @@ namespace RE
 		public:
 			[[nodiscard]] static RenderTargetManager* GetSingleton()
 			{
-				REL::Relocation<RenderTargetManager**> singleton{ RELOCATION_ID(524970, 411451) };
+				static REL::Relocation<RenderTargetManager**> singleton{ RELOCATION_ID(524970, 411451) };
 				return *singleton;
 			}
 

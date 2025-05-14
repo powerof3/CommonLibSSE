@@ -7,7 +7,7 @@ namespace RE
 {
 	const NiRTTI* NiObject::GetRTTI() const
 	{
-		REL::Relocation<const NiRTTI*> rtti{ NiObject::Ni_RTTI };
+		static REL::Relocation<const NiRTTI*> rtti{ NiObject::Ni_RTTI };
 		return rtti.get();
 	}
 

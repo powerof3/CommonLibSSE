@@ -39,11 +39,11 @@ namespace RE
 		virtual ExtraDataType GetType() const override;  // 01 - { return kFollowerSwimBreadcrumbs; }
 
 		// members
-		stl::enumeration<BREADCRUMB_STATE, std::uint32_t> leaderState;      // 10
-		NiPoint3                                          leaderLocation;   // 14
-		std::uint32_t                                     leaderNavMeshID;  // 20
-		std::uint32_t                                     pad24;            // 24
-		BSSimpleList<ExtraFollowerSwimBreadcrumb*>        crumbs;           // 28
+		REX::EnumSet<BREADCRUMB_STATE, std::uint32_t> leaderState;      // 10
+		NiPoint3                                      leaderLocation;   // 14
+		std::uint32_t                                 leaderNavMeshID;  // 20
+		std::uint32_t                                 pad24;            // 24
+		BSSimpleList<ExtraFollowerSwimBreadcrumb*>    crumbs;           // 28
 	};
 	static_assert(sizeof(ExtraFollowerSwimBreadcrumbs) == 0x38);
 }

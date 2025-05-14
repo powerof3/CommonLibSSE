@@ -33,8 +33,8 @@ namespace RE
 
 		[[nodiscard]] float GetResetHours() const;
 
-		stl::enumeration<TOPIC_INFO_FLAGS, std::uint16_t> flags;           // 0
-		std::uint16_t                                     timeUntilReset;  // 2 - reset hours as a std::uint16_t
+		REX::EnumSet<TOPIC_INFO_FLAGS, std::uint16_t> flags;           // 0
+		std::uint16_t                                 timeUntilReset;  // 2 - reset hours as a std::uint16_t
 	};
 	static_assert(sizeof(TOPIC_INFO_DATA) == 0x4);
 
@@ -96,22 +96,22 @@ namespace RE
 			TES_HEAP_REDEFINE_NEW();
 
 			// members
-			stl::enumeration<EmotionType, std::uint32_t> emotionType;     // 00
-			std::uint32_t                                emotionValue;    // 04
-			TESTopic*                                    unk08;           // 08
-			std::uint8_t                                 responseNumber;  // 10
-			std::uint8_t                                 pad11;           // 11
-			std::uint16_t                                pad12;           // 12
-			std::uint32_t                                pad14;           // 14
-			BGSSoundDescriptorForm*                      sound;           // 18
-			stl::enumeration<Flag, std::uint8_t>         flags;           // 20
-			std::uint8_t                                 pad21;           // 21
-			std::uint16_t                                pad22;           // 22
-			std::uint32_t                                pad24;           // 24
-			BSFixedString                                responseText;    // 28 - NAM1
-			TESIdleForm*                                 speakerIdle;     // 30
-			TESIdleForm*                                 listenerIdle;    // 38
-			ResponseData*                                next;            // 40
+			REX::EnumSet<EmotionType, std::uint32_t> emotionType;     // 00
+			std::uint32_t                            emotionValue;    // 04
+			TESTopic*                                unk08;           // 08
+			std::uint8_t                             responseNumber;  // 10
+			std::uint8_t                             pad11;           // 11
+			std::uint16_t                            pad12;           // 12
+			std::uint32_t                            pad14;           // 14
+			BGSSoundDescriptorForm*                  sound;           // 18
+			REX::EnumSet<Flag, std::uint8_t>         flags;           // 20
+			std::uint8_t                             pad21;           // 21
+			std::uint16_t                            pad22;           // 22
+			std::uint32_t                            pad24;           // 24
+			BSFixedString                            responseText;    // 28 - NAM1
+			TESIdleForm*                             speakerIdle;     // 30
+			TESIdleForm*                             listenerIdle;    // 38
+			ResponseData*                            next;            // 40
 		};
 		static_assert(sizeof(ResponseData) == 0x48);
 
@@ -132,15 +132,15 @@ namespace RE
 		DialogueItem GetDialogueData(TESObjectREFR* a_speaker);
 
 		// members
-		TESTopic*                                  parentTopic;    // 20
-		TESTopicInfo*                              dataInfo;       // 28 - PNAM
-		TESCondition                               objConditions;  // 30 - CTDA
-		std::uint16_t                              infoIndex;      // 38 - index in infoTopics array of parent topic
-		bool                                       saidOnce;       // 3A
-		stl::enumeration<FavorLevel, std::uint8_t> favorLevel;     // 3B - CNAM
-		TOPIC_INFO_DATA                            data;           // 3C - ENAM
-		std::uint32_t                              fileOffset;     // 40
-		std::uint32_t                              pad44;          // 44
+		TESTopic*                              parentTopic;    // 20
+		TESTopicInfo*                          dataInfo;       // 28 - PNAM
+		TESCondition                           objConditions;  // 30 - CTDA
+		std::uint16_t                          infoIndex;      // 38 - index in infoTopics array of parent topic
+		bool                                   saidOnce;       // 3A
+		REX::EnumSet<FavorLevel, std::uint8_t> favorLevel;     // 3B - CNAM
+		TOPIC_INFO_DATA                        data;           // 3C - ENAM
+		std::uint32_t                          fileOffset;     // 40
+		std::uint32_t                          pad44;          // 44
 	};
 	static_assert(sizeof(TESTopicInfo) == 0x48);
 }

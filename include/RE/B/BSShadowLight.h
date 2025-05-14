@@ -1,7 +1,8 @@
 #pragma once
 
 #include "RE/B/BSLight.h"
-#include "RE/N/NiPlane.h"
+#include "RE/N/NiFrustumPlanes.h"
+#include "RE/N/NiRect.h"
 
 namespace RE
 {
@@ -11,60 +12,54 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_BSShadowLight;
 		inline static constexpr auto VTABLE = VTABLE_BSShadowLight;
 
-		struct Data
+		struct ShadowMapData
 		{
-			std::uint8_t  unk0[64];   // 00
-			std::uint64_t unk40;      // 40
-			std::uint64_t unk48;      // 48
-			std::uint64_t unk50;      // 50
-			std::uint32_t unk58;      // 58
-			NiPlane       planes[6];  // 5C
-			std::uint32_t unkBC;      // BC
-			std::uint32_t unkC0;      // C0
-			std::uint32_t unkC4;      // C4
-			std::uint32_t unkCC;      // CC
-			std::uint64_t unkD0;      // D4
-			std::uint32_t unkDC;      // DC
-			std::uint64_t unkE0;      // E0
-			std::uint16_t unkE8;      // E8
+			REX::W32::XMFLOAT4X4           projection;         // 00
+			NiPointer<NiCamera>            camera;             // 40
+			NiPointer<BSShaderAccumulator> shaderAccumulator;  // 48
+			std::uint32_t                  unk50;              // 50
+			RENDER_TARGET_DEPTHSTENCIL     renderTarget;       // 54
+			std::uint32_t                  shadowMapIndex;     // 58
+			NiFrustumPlanes                clipPlanes;         // 5C
+			std::uint32_t                  unitsPerTexel;      // CC
+			NiRect<std::uint32_t>          shadowMapRect;      // D0
+			BSCullingProcess*              cullingProcess;     // E0
+			bool                           clearRenderTarget;  // E8
 		};
-		static_assert(sizeof(Data) == 0xF0);
+		static_assert(sizeof(ShadowMapData) == 0xF0);
 
 		~BSShadowLight() override;  // 00
 
 		// add
-		virtual void Unk_04();      // 04
-		virtual void Unk_05();      // 05
-		virtual void Unk_06();      // 06
-		virtual void Unk_07();      // 07
-		virtual void Unk_08();      // 08
-		virtual void Unk_09() = 0;  // 09
-		virtual void Unk_0A() = 0;  // 0A
-		virtual void Unk_0B();      // 0B
-		virtual void Unk_0C();      // 0C
-		virtual void Unk_0D();      // 0D
-		virtual void Unk_0E();      // 0E
-		virtual void Unk_0F();      // 0F
-		virtual void Unk_10() = 0;  // 10
+		virtual void Unk_04();                                                                                                                           // 04
+		virtual bool GetIsFrustumLight();                                                                                                                // 05
+		virtual void GetIsDirectionalLight();                                                                                                            // 06
+		virtual bool GetIsParabolicLight();                                                                                                              // 07
+		virtual bool GetIsOmniLight();                                                                                                                   // 08
+		virtual void Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t& a_shadowMaskChannel, NiPointer<NiAVObject> a_cullingScene) = 0;  // 09
+		virtual void Render() = 0;                                                                                                                       // 0A
+		virtual void SetShadowMapCount(std::uint32_t a_count);                                                                                           // 0B
+		virtual void ClearShadowMapData();                                                                                                               // 0C
+		virtual void Unk_0D();                                                                                                                           // 0D
+		virtual void Unk_0E();                                                                                                                           // 0E
+		virtual void Unk_0F();                                                                                                                           // 0F
+		virtual bool UpdateCamera(const NiCamera* a_viewCamera) = 0;                                                                                     // 10
 
 		// members
-		std::uint32_t   unk140;           // 140
-		std::uint32_t   unk144;           // 144
-		BSTArray<void*> unk148;           // 148
-		Data            unk160[4];        // 161
-		std::uint32_t   maskIndex;        // 520
-		std::uint32_t   unk524;           // 524
-		BSTArray<void*> unk528;           // 528
-		float           shadowBiasScale;  // 540
-		std::uint32_t   sceneGraphIndex;  // 544
-		std::uint32_t   unk548;           // 548
-		std::uint32_t   unk54C;           // 54C
-		std::uint32_t   unk550;           // 550
-		std::uint32_t   unk554;           // 554
-		std::uint8_t    unk558;           // 558
-		std::uint8_t    pad559;           // 559
-		std::uint8_t    pad55A;           // 55A
-		std::uint32_t   pad55B;           // 55B
+		std::uint32_t                   shadowMapIndex;        // 140
+		std::uint32_t                   unk144;                // 144
+		BSTArray<ShadowMapData>         shadowMapDataList;     // 148
+		ShadowMapData                   shadowMapData[4];      // 161
+		std::uint32_t                   maskIndex;             // 520
+		std::uint32_t                   accumulatedIndex;      // 524
+		BSTArray<NiPointer<NiAVObject>> sceneAccumArray;       // 528
+		float                           shadowBiasScale;       // 540
+		NiRect<std::uint32_t>           projectedBoundingBox;  // 544
+		std::uint32_t                   sceneGraphIndex;       // 554
+		std::uint8_t                    unk558;                // 558
+		std::uint8_t                    pad559;                // 559
+		std::uint8_t                    pad55A;                // 55A
+		std::uint32_t                   pad55B;                // 55B
 	};
 	static_assert(sizeof(BSShadowLight) == 0x560);
 }

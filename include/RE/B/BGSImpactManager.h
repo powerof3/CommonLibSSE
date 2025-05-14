@@ -49,7 +49,7 @@ namespace RE
 
 		static BGSImpactManager* GetSingleton()
 		{
-			REL::Relocation<BGSImpactManager**> singleton{ RELOCATION_ID(515123, 401262) };
+			static REL::Relocation<BGSImpactManager**> singleton{ RELOCATION_ID(515123, 401262) };
 			return *singleton;
 		}
 

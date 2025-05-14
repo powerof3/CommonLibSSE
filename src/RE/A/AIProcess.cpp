@@ -10,6 +10,13 @@
 
 namespace RE
 {
+	void AIProcess::AddToProcedureIndexRunning(Actor* a_actor, std::uint32_t a_num)
+	{
+		using func_t = decltype(&AIProcess::AddToProcedureIndexRunning);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(38198, 39158) };
+		return func(this, a_actor, a_num);
+	}
+
 	void AIProcess::ClearActionHeadtrackTarget(bool a_defaultHold)
 	{
 		if (high) {
@@ -21,6 +28,13 @@ namespace RE
 	{
 		using func_t = decltype(&AIProcess::ClearMuzzleFlashes);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(38495, 39504) };
+		return func(this);
+	}
+
+	void AIProcess::ComputeLastTimeProcessed()
+	{
+		using func_t = decltype(&AIProcess::ComputeLastTimeProcessed);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(38158, 39116) };
 		return func(this);
 	}
 
@@ -211,6 +225,13 @@ namespace RE
 		return SetupSpecialIdle(a_actor, DEFAULT_OBJECT::kActionIdle, a_idle, true, false, a_target);
 	}
 
+	void AIProcess::RandomlyPlaySpecialIdles(Actor* a_actor)
+	{
+		using func_t = decltype(&AIProcess::RandomlyPlaySpecialIdles);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(38308, 39281) };
+		return func(this, a_actor);
+	}
+
 	void AIProcess::SetActorsDetectionEvent(Actor* a_actor, const NiPoint3& a_location, std::int32_t a_soundLevel, TESObjectREFR* a_ref)
 	{
 		using func_t = decltype(&AIProcess::SetActorsDetectionEvent);
@@ -244,6 +265,13 @@ namespace RE
 		if (middleHigh) {
 			middleHigh->update3DModel.set(a_flags);
 		}
+	}
+
+	void AIProcess::SetRunOncePackage(TESPackage* a_package, Actor* a_actor)
+	{
+		using func_t = decltype(&AIProcess::SetRunOncePackage);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(38819, 39849) };
+		return func(this, a_package, a_actor);
 	}
 
 	bool AIProcess::SetupSpecialIdle(Actor* a_actor, DEFAULT_OBJECT a_action, TESIdleForm* a_idle, bool a_arg5, bool a_arg6, TESObjectREFR* a_target)

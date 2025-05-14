@@ -13,13 +13,13 @@ namespace RE
 
 	PlayerCharacter* PlayerCharacter::GetSingleton()
 	{
-		REL::Relocation<NiPointer<PlayerCharacter>*> singleton{ Offset::PlayerCharacter::Singleton };
+		static REL::Relocation<NiPointer<PlayerCharacter>*> singleton{ Offset::PlayerCharacter::Singleton };
 		return singleton->get();
 	}
 
 	bool PlayerCharacter::IsGodMode()
 	{
-		REL::Relocation<bool*> singleton{ RELOCATION_ID(517711, 404238) };
+		static REL::Relocation<bool*> singleton{ RELOCATION_ID(517711, 404238) };
 		return *singleton;
 	}
 

@@ -26,6 +26,10 @@ namespace RE
 			std::uint32_t minPacketSize;  // 10
 			std::uint32_t pad14;          // 14
 		};
+#ifdef SKYRIM_SUPPORT_AE
+		static_assert(sizeof(AsyncStream) == 0x20);
+#else
 		static_assert(sizeof(AsyncStream) == 0x18);
+#endif
 	}
 }

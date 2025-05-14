@@ -30,14 +30,14 @@ namespace RE
 		{
 		public:
 			// members
-			BSFixedString                           eventID;             // 00
-			std::uint16_t                           inputKey;            // 08
-			std::uint16_t                           modifier;            // 08
-			std::int8_t                             indexInContext;      // 0C
-			bool                                    remappable;          // 0D
-			bool                                    linked;              // 0E
-			stl::enumeration<UEFlag, std::uint32_t> userEventGroupFlag;  // 10
-			std::uint32_t                           pad14;               // 14
+			BSFixedString                       eventID;             // 00
+			std::uint16_t                       inputKey;            // 08
+			std::uint16_t                       modifier;            // 08
+			std::int8_t                         indexInContext;      // 0C
+			bool                                remappable;          // 0D
+			bool                                linked;              // 0E
+			REX::EnumSet<UEFlag, std::uint32_t> userEventGroupFlag;  // 10
+			std::uint32_t                       pad14;               // 14
 		};
 		static_assert(sizeof(UserEventMapping) == 0x18);
 
@@ -85,16 +85,16 @@ namespace RE
 		void                      ToggleControls(UEFlag a_flags, bool a_enable);
 
 		// members
-		InputContext*                                    controlMap[InputContextID::kTotal];  // 060
-		BSTArray<LinkedMapping>                          linkedMappings;                      // 0E8
-		BSTArray<InputContextID>                         contextPriorityStack;                // 100
-		stl::enumeration<UEFlag, std::uint32_t>          enabledControls;                     // 118
-		stl::enumeration<UEFlag, std::uint32_t>          unk11C;                              // 11C
-		std::int8_t                                      textEntryCount;                      // 120
-		bool                                             ignoreKeyboardMouse;                 // 121
-		bool                                             ignoreActivateDisabledEvents;        // 122
-		std::uint8_t                                     pad123;                              // 123
-		stl::enumeration<PC_GAMEPAD_TYPE, std::uint32_t> gamePadMapType;                      // 124
+		InputContext*                                controlMap[InputContextID::kTotal];  // 060
+		BSTArray<LinkedMapping>                      linkedMappings;                      // 0E8
+		BSTArray<InputContextID>                     contextPriorityStack;                // 100
+		REX::EnumSet<UEFlag, std::uint32_t>          enabledControls;                     // 118
+		REX::EnumSet<UEFlag, std::uint32_t>          unk11C;                              // 11C
+		std::int8_t                                  textEntryCount;                      // 120
+		bool                                         ignoreKeyboardMouse;                 // 121
+		bool                                         ignoreActivateDisabledEvents;        // 122
+		std::uint8_t                                 pad123;                              // 123
+		REX::EnumSet<PC_GAMEPAD_TYPE, std::uint32_t> gamePadMapType;                      // 124
 	};
 #ifdef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(ControlMap) == 0x130);

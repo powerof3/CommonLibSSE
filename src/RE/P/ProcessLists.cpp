@@ -10,8 +10,15 @@ namespace RE
 {
 	ProcessLists* ProcessLists::GetSingleton()
 	{
-		REL::Relocation<ProcessLists**> singleton{ RELOCATION_ID(514167, 400315) };
+		static REL::Relocation<ProcessLists**> singleton{ RELOCATION_ID(514167, 400315) };
 		return *singleton;
+	}
+
+	bool ProcessLists::AreHostileActorsNear(BSScrapArray<ActorHandle>* a_arrayOut)
+	{
+		using func_t = decltype(&ProcessLists::AreHostileActorsNear);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(40388, 41402) };
+		return func(this, a_arrayOut);
 	}
 
 	void ProcessLists::ClearCachedFactionFightReactions() const

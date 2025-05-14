@@ -51,11 +51,11 @@ namespace RE
 		{
 		public:
 			// members
-			hkSpuCollisionCallbackUtil*                                     util;         // 00
-			std::uint16_t                                                   capacity;     // 08
-			stl::enumeration<SpuCollisionCallbackEventFilter, std::uint8_t> eventFilter;  // 0A
-			std::uint8_t                                                    userFilter;   // 0B
-			std::uint32_t                                                   pad0C;        // 0C
+			hkSpuCollisionCallbackUtil*                                 util;         // 00
+			std::uint16_t                                               capacity;     // 08
+			REX::EnumSet<SpuCollisionCallbackEventFilter, std::uint8_t> eventFilter;  // 0A
+			std::uint8_t                                                userFilter;   // 0B
+			std::uint32_t                                               pad0C;        // 0C
 		};
 		static_assert(sizeof(SpuCollisionCallback) == 0x10);
 

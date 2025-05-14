@@ -48,11 +48,11 @@ namespace RE
 		bool               Pause();
 
 		// members
-		std::uint32_t                                 soundID;        // 00
-		bool                                          assumeSuccess;  // 04
-		std::uint8_t                                  pad05;          // 05
-		std::uint16_t                                 pad06;          // 06
-		stl::enumeration<AssumedState, std::uint32_t> state;          // 08
+		std::uint32_t                             soundID;        // 00
+		bool                                      assumeSuccess;  // 04
+		std::uint8_t                              pad05;          // 05
+		std::uint16_t                             pad06;          // 06
+		REX::EnumSet<AssumedState, std::uint32_t> state;          // 08
 	};
 	static_assert(sizeof(BSSoundHandle) == 0xC);
 }

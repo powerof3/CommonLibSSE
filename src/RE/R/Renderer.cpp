@@ -8,7 +8,7 @@ namespace RE
 	{
 		Renderer* Renderer::GetSingleton() noexcept
 		{
-			REL::Relocation<Renderer*> singleton{ RELOCATION_ID(524907, 411393) };
+			static REL::Relocation<Renderer*> singleton{ RELOCATION_ID(524907, 411393) };
 			return singleton.get();
 		}
 
@@ -134,7 +134,7 @@ namespace RE
 		[[nodiscard]] RendererData* Renderer::GetRendererData()
 		{
 			// Location is a global pointer to the RendererData in the Renderer singleton
-			REL::Relocation<RendererData**> singleton{ RELOCATION_ID(524728, 411347) };
+			static REL::Relocation<RendererData**> singleton{ RELOCATION_ID(524728, 411347) };
 			return *singleton;
 		}
 
@@ -147,14 +147,14 @@ namespace RE
 		[[nodiscard]] REX::W32::ID3D11Device* Renderer::GetDevice()
 		{
 			// Location is a global pointer to the device in the Renderer Data
-			REL::Relocation<REX::W32::ID3D11Device**> device{ RELOCATION_ID(524729, 411348) };
+			static REL::Relocation<REX::W32::ID3D11Device**> device{ RELOCATION_ID(524729, 411348) };
 			return *device;
 		}
 
 		[[nodiscard]] RendererWindow* Renderer::GetCurrentRenderWindow()
 		{
 			// Location is a global pointer to the current renderWindow (which is not necessarily at index 0 in the renderWindows array)
-			REL::Relocation<RendererWindow**> renderWindow{ RELOCATION_ID(524730, 411349) };
+			static REL::Relocation<RendererWindow**> renderWindow{ RELOCATION_ID(524730, 411349) };
 			return *renderWindow;
 		}
 	}

@@ -138,9 +138,10 @@ namespace SKSE
 		template <std::size_t N>
 		[[nodiscard]] std::uintptr_t write_branch(std::uintptr_t a_src, std::uintptr_t a_dst, std::uint8_t a_data)
 		{
+			const auto isNop = *reinterpret_cast<std::int8_t*>(a_src) == 0x90;
 			const auto disp = reinterpret_cast<std::int32_t*>(a_src + N - 4);
 			const auto nextOp = a_src + N;
-			const auto func = nextOp + *disp;
+			const auto func = isNop ? 0 : nextOp + *disp;
 
 			if constexpr (N == 5) {
 				write_5branch(a_src, a_dst, a_data);

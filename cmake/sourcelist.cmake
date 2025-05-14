@@ -35,6 +35,7 @@ set(SOURCES
 	include/RE/A/AnimationFileManagerSingleton.h
 	include/RE/A/AnimationObjects.h
 	include/RE/A/Archive.h
+	include/RE/A/ArchiveStream.h
 	include/RE/A/ArmorRatingVisitor.h
 	include/RE/A/ArmorRatingVisitorBase.h
 	include/RE/A/Array.h
@@ -50,6 +51,7 @@ set(SOURCES
 	include/RE/A/AutoMoveHandler.h
 	include/RE/A/AutoRegisterCreator.h
 	include/RE/A/AutoRegisterFactory.h
+	include/RE/A/AutoVanityState.h
 	include/RE/A/ahkpCharacterProxy.h
 	include/RE/A/ahkpWorld.h
 	include/RE/B/BGSAbilityPerkEntry.h
@@ -90,6 +92,7 @@ set(SOURCES
 	include/RE/B/BGSDirectionalAmbientLightingColors.h
 	include/RE/B/BGSDistantTreeBlock.h
 	include/RE/B/BGSDualCastData.h
+	include/RE/B/BGSDynamicPersistenceManager.h
 	include/RE/B/BGSEncounterZone.h
 	include/RE/B/BGSEntryPoint.h
 	include/RE/B/BGSEntryPointFunctionData.h
@@ -214,6 +217,7 @@ set(SOURCES
 	include/RE/B/BSBitField.h
 	include/RE/B/BSBloodSplatterShaderProperty.h
 	include/RE/B/BSBound.h
+	include/RE/B/BSCompoundFrustum.h
 	include/RE/B/BSComputeShader.h
 	include/RE/B/BSContainer.h
 	include/RE/B/BSCoreTypes.h
@@ -293,10 +297,14 @@ set(SOURCES
 	include/RE/B/BSNavmeshInfoMap.h
 	include/RE/B/BSNiAllocator.h
 	include/RE/B/BSNiNode.h
+	include/RE/B/BSOcclusionBox.h
+	include/RE/B/BSOcclusionPlane.h
+	include/RE/B/BSOcclusionShape.h
 	include/RE/B/BSOrderedNode.h
 	include/RE/B/BSPCGamepadDeviceDelegate.h
 	include/RE/B/BSPCGamepadDeviceHandler.h
 	include/RE/B/BSPCOrbisGamepadDevice.h
+	include/RE/B/BSParabolicCullingProcess.h
 	include/RE/B/BSParticleShaderCubeEmitter.h
 	include/RE/B/BSParticleShaderEmitter.h
 	include/RE/B/BSParticleShaderObjectEmitter.h
@@ -307,7 +315,10 @@ set(SOURCES
 	include/RE/B/BSPointerHandle.h
 	include/RE/B/BSPointerHandleManager.h
 	include/RE/B/BSPointerHandleSmartPointer.h
+	include/RE/B/BSPortal.h
 	include/RE/B/BSPortalGraph.h
+	include/RE/B/BSPortalGraphEntry.h
+	include/RE/B/BSPortalSharedNode.h
 	include/RE/B/BSPrecomputedNavmeshInfoPathMap.h
 	include/RE/B/BSReloadShaderI.h
 	include/RE/B/BSRenderPass.h
@@ -332,7 +343,9 @@ set(SOURCES
 	include/RE/B/BSShaderPropertyLightData.h
 	include/RE/B/BSShaderRenderTargets.h
 	include/RE/B/BSShaderTextureSet.h
+	include/RE/B/BSShadowFrustumLight.h
 	include/RE/B/BSShadowLight.h
+	include/RE/B/BSShadowParabolicLight.h
 	include/RE/B/BSSimpleScaleController.h
 	include/RE/B/BSSkyShaderProperty.h
 	include/RE/B/BSSmallBlockAllocator.h
@@ -494,6 +507,7 @@ set(SOURCES
 	include/RE/C/CommonTypeTraits.h
 	include/RE/C/CompactingStore.h
 	include/RE/C/CompiledScriptLoader.h
+	include/RE/C/CompressedArchiveStream.h
 	include/RE/C/ConcreteFormFactory.h
 	include/RE/C/ConcreteObjectFormFactory.h
 	include/RE/C/ConcussionEffect.h
@@ -1151,6 +1165,7 @@ set(SOURCES
 	include/RE/I/ItemCrafted.h
 	include/RE/I/ItemHarvested.h
 	include/RE/I/ItemList.h
+	include/RE/I/ItemRemoveReason.h
 	include/RE/I/ItemsPickpocketed.h
 	include/RE/J/JournalMenu.h
 	include/RE/J/JournalTab.h
@@ -1189,6 +1204,8 @@ set(SOURCES
 	include/RE/M/MagicFormulas.h
 	include/RE/M/MagicItem.h
 	include/RE/M/MagicItemDataCollector.h
+	include/RE/M/MagicItemFindFunctor.h
+	include/RE/M/MagicItemFindKeywordFunctor.h
 	include/RE/M/MagicItemTraversalFunctor.h
 	include/RE/M/MagicMenu.h
 	include/RE/M/MagicSystem.h
@@ -1256,6 +1273,7 @@ set(SOURCES
 	include/RE/N/NiControllerManager.h
 	include/RE/N/NiControllerSequence.h
 	include/RE/N/NiCullingProcess.h
+	include/RE/N/NiDirectionalLight.h
 	include/RE/N/NiExtraData.h
 	include/RE/N/NiFile.h
 	include/RE/N/NiFloatData.h
@@ -1306,6 +1324,7 @@ set(SOURCES
 	include/RE/N/NiStream.h
 	include/RE/N/NiStringExtraData.h
 	include/RE/N/NiStringsExtraData.h
+	include/RE/N/NiSwitchNode.h
 	include/RE/N/NiSystem.h
 	include/RE/N/NiTArray.h
 	include/RE/N/NiTCollection.h
@@ -1365,6 +1384,7 @@ set(SOURCES
 	include/RE/Q/QuestEvents.h
 	include/RE/Q/QuestObjectiveStates.h
 	include/RE/Q/QuestStatus.h
+	include/RE/Q/QuickSaveLoadHandler.h
 	include/RE/R/REFREventCallbacks.h
 	include/RE/R/RaceSexCamera.h
 	include/RE/R/RaceSexMenu.h
@@ -1623,6 +1643,7 @@ set(SOURCES
 	include/RE/T/TurnUndeadEffect.h
 	include/RE/T/TutorialMenu.h
 	include/RE/T/TweenMenu.h
+	include/RE/T/TweenMenuCameraState.h
 	include/RE/T/TypeInfo.h
 	include/RE/T/TypeTraits.h
 	include/RE/U/UI.h
@@ -1644,6 +1665,7 @@ set(SOURCES
 	include/RE/V/VirtualMachine.h
 	include/RE/V/VoiceSpellFireHandler.h
 	include/RE/W/WeaponAnimationGraphManagerHolder.h
+	include/RE/W/WeaponEnchantmentController.h
 	include/RE/W/WeatherType.h
 	include/RE/W/WerewolfEffect.h
 	include/RE/W/WerewolfFeedEffect.h
@@ -1658,9 +1680,18 @@ set(SOURCES
 	include/REL/Version.h
 	include/REX/PS4.h
 	include/REX/PS4/SCEPAD.h
+	include/REX/REX.h
+	include/REX/REX/Enum.h
+	include/REX/REX/EnumSet.h
+	include/REX/REX/INI.h
+	include/REX/REX/JSON.h
+	include/REX/REX/Setting.h
+	include/REX/REX/Singleton.h
+	include/REX/REX/TOML.h
 	include/REX/W32.h
 	include/REX/W32/ADVAPI32.h
 	include/REX/W32/BASE.h
+	include/REX/W32/BCRYPT.h
 	include/REX/W32/COM.h
 	include/REX/W32/COMPTR.h
 	include/REX/W32/D3D.h
@@ -1679,6 +1710,7 @@ set(SOURCES
 	include/REX/W32/DXGI_5.h
 	include/REX/W32/DXGI_6.h
 	include/REX/W32/KERNEL32.h
+	include/REX/W32/NT.h
 	include/REX/W32/OLE32.h
 	include/REX/W32/SHELL32.h
 	include/REX/W32/USER32.h
@@ -2031,16 +2063,8 @@ set(SOURCES
 	src/REL/Module.cpp
 	src/REL/Relocation.cpp
 	src/REL/Version.cpp
-	src/REX/W32/ADVAPI32.cpp
-	src/REX/W32/D3D11.cpp
-	src/REX/W32/D3DCOMPILER.cpp
-	src/REX/W32/DBGHELP.cpp
-	src/REX/W32/DXGI.cpp
-	src/REX/W32/KERNEL32.cpp
-	src/REX/W32/OLE32.cpp
-	src/REX/W32/SHELL32.cpp
-	src/REX/W32/USER32.cpp
-	src/REX/W32/VERSION.cpp
+	src/REX/REX.cpp
+	src/REX/W32.cpp
 	src/SKSE/API.cpp
 	src/SKSE/IAT.cpp
 	src/SKSE/Impl/PCH.cpp

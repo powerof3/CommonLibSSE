@@ -43,7 +43,8 @@ namespace RE
 	public:
 		~BipedAnim();
 
-		void RemoveAllParts();
+		void       RemoveAllParts();
+		BIPOBJECT* GetShieldObject();
 
 		std::uint32_t   pad0004;                                 // 0004
 		NiNode*         root;                                    // 0008

@@ -25,16 +25,16 @@ namespace RE
 		}
 
 		// members
-		BSString                             bodyText;    // 10
-		BSTArray<BSString>                   buttonText;  // 20
-		std::uint32_t                        unk38;       // 38
-		std::int32_t                         unk3C;       // 3C
-		BSTSmartPointer<IMessageBoxCallback> callback;    // 40
-		std::uint32_t                        unk48;       // 48
-		std::uint8_t                         unk4C;       // 4C
-		std::uint8_t                         unk4D;       // 4D
-		std::uint8_t                         unk4E;       // 4E
-		std::uint8_t                         unk4F;       // 4F
+		BSString                             bodyText;           // 10
+		BSTArray<BSString>                   buttonText;         // 20
+		std::uint32_t                        type;               // 38 - some sort of identifier ranging from 0-29, being 25 the one with the "highest priority"
+		std::int32_t                         cancelOptionIndex;  // 3C
+		BSTSmartPointer<IMessageBoxCallback> callback;           // 40
+		std::uint32_t                        menuDepth;          // 48
+		std::uint8_t                         optionIndexOffset;  // 4C
+		bool                                 useHtml;            // 4D
+		bool                                 verticalButtons;    // 4E
+		bool                                 isCancellable;      // 4F
 	};
 	static_assert(sizeof(MessageBoxData) == 0x50);
 }

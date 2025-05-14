@@ -47,10 +47,12 @@ namespace RE
 		void          OnVisible(NiCullingProcess& a_process) override;  // 34
 
 		BSLight* AddLight(NiLight* a_light, const LIGHT_CREATE_PARAMS& a_params);
+		void     AddLight(BSLight* a_light);
 		BSLight* GetLight(NiLight* a_light);
 		BSLight* GetPointLight(NiLight* a_light);
 		BSLight* GetShadowLight(NiLight* a_light);
 		void     RemoveLight(NiLight* a_light);
+		void     RemoveLight(const NiPointer<BSLight>& a_light);
 
 		// members
 		std::uint64_t                   unk128;                  // 128

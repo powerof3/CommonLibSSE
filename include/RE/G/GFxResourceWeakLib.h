@@ -39,7 +39,7 @@ namespace RE
 
 			bool operator!=(const GFxResourceKey& a_src) const
 			{
-				return operator!=(a_src);
+				return !operator==(a_src);
 			}
 
 			struct HashOp
@@ -49,6 +49,7 @@ namespace RE
 					assert(a_node.resource);
 					GFxResourceKey key =
 						(a_node.type == NodeType::kResource) ? a_node.resource->GetKey() : a_node.resolver->GetKey();
+					return GFxResourceKey::HashOp()(key);
 				}
 
 				UPInt operator()(const GFxResourceKey& a_key) const

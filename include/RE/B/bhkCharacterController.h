@@ -134,7 +134,7 @@ namespace RE
 		std::uint64_t                                          pad198;                     // 198
 		hkpSurfaceInfo                                         surfaceInfo;                // 1A0
 		hkpCharacterContext                                    context;                    // 1E0
-		stl::enumeration<CHARACTER_FLAGS, std::uint32_t>       flags;                      // 218
+		REX::EnumSet<CHARACTER_FLAGS, std::uint32_t>           flags;                      // 218
 		hkpCharacterStateType                                  wantState;                  // 218
 		float                                                  velocityTime;               // 220
 		float                                                  rotMod;                     // 224

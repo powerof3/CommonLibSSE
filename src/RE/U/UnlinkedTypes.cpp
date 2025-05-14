@@ -1,5 +1,3 @@
-#pragma once
-
 #include "RE/U/UnlinkedTypes.h"
 
 #include "RE/M/MemoryManager.h"

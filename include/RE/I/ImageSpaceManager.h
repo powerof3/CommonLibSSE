@@ -179,7 +179,7 @@ namespace RE
 
 		static ImageSpaceManager* GetSingleton()
 		{
-			REL::Relocation<ImageSpaceManager**> singleton{ RELOCATION_ID(527731, 414660) };
+			static REL::Relocation<ImageSpaceManager**> singleton{ RELOCATION_ID(527731, 414660) };
 			return *singleton;
 		}
 

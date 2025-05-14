@@ -24,7 +24,7 @@ namespace RE
 		static TESActionData* Create()
 		{
 			auto tesActionData = malloc<TESActionData>();
-			std::memset(tesActionData, 0, sizeof(TESActionData));
+			std::memset((void*)tesActionData, 0, sizeof(TESActionData));
 			if (tesActionData) {
 				tesActionData->Ctor();
 			}

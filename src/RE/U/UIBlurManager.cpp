@@ -4,7 +4,7 @@ namespace RE
 {
 	UIBlurManager* UIBlurManager::GetSingleton()
 	{
-		REL::Relocation<UIBlurManager**> singleton{ Offset::UIBlurManager::Singleton };
+		static REL::Relocation<UIBlurManager**> singleton{ Offset::UIBlurManager::Singleton };
 		return *singleton;
 	}
 

@@ -13,9 +13,9 @@ namespace RE
 		{
 		};
 
-		stl::enumeration<DATA_TYPE, std::uint32_t> type;      // 00
-		std::uint32_t                              uniqueID;  // 04
-		BSString                                   name;      // 08
+		REX::EnumSet<DATA_TYPE, std::uint32_t> type;      // 00
+		std::uint32_t                          uniqueID;  // 04
+		BSString                               name;      // 08
 	};
 	static_assert(sizeof(BGSStoryEventMember) == 0x18);
 

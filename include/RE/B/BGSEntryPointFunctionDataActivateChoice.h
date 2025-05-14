@@ -33,12 +33,12 @@ namespace RE
 		[[nodiscard]] bool RunsImmediately() const;
 
 		// members
-		BSFixedString                          label;         // 08
-		BGSPerk*                               perk;          // 10
-		SpellItem*                             appliedSpell;  // 18
-		stl::enumeration<Flag1, std::uint16_t> flags1;        // 20
-		std::uint16_t                          flags2;        // 22
-		std::uint32_t                          pad24;         // 24
+		BSFixedString                      label;         // 08
+		BGSPerk*                           perk;          // 10
+		SpellItem*                         appliedSpell;  // 18
+		REX::EnumSet<Flag1, std::uint16_t> flags1;        // 20
+		std::uint16_t                      flags2;        // 22
+		std::uint32_t                      pad24;         // 24
 	};
 	static_assert(sizeof(BGSEntryPointFunctionDataActivateChoice) == 0x28);
 }

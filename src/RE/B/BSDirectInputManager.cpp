@@ -4,7 +4,7 @@ namespace RE
 {
 	BSDirectInputManager* BSDirectInputManager::GetSingleton()
 	{
-		REL::Relocation<BSDirectInputManager**> singleton{ RELOCATION_ID(517046, 403554) };
+		static REL::Relocation<BSDirectInputManager**> singleton{ RELOCATION_ID(517046, 403554) };
 		return *singleton;
 	}
 

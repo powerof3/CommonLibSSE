@@ -23,6 +23,7 @@ namespace RE
 		void QueueUpdateDestructibleObject(TESObjectREFR* a_refr, float a_damage, bool a_arg3, TESObjectREFR* a_cause);  // 09
 		void QueueAddRipple(float a_scale, const NiPoint3& a_pos);                                                       // 45
 		void QueueForceWeather(TESWeather* a_weather, bool a_forceOverride);                                             // 64
+		void QueueUpdateNiObject(NiAVObject* a_obj);                                                                     // 89
 		void QueueActorDisarm(ActorHandle& a_target, ActorHandle& a_caster);                                             // 91
 		void QueueRemoveSpell(ActorHandle& a_actor, SpellItem* a_spellItem);                                             // 93
 	};

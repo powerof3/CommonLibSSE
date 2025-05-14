@@ -4,7 +4,7 @@ namespace RE
 {
 	BSInputEventQueue* BSInputEventQueue::GetSingleton()
 	{
-		REL::Relocation<BSInputEventQueue**> singleton{ RELOCATION_ID(520856, 407374) };
+		static REL::Relocation<BSInputEventQueue**> singleton{ RELOCATION_ID(520856, 407374) };
 		return *singleton;
 	}
 

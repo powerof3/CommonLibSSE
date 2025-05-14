@@ -37,7 +37,7 @@ namespace RE
 	public:
 		[[nodiscard]] static BSFaceGenManager* GetSingleton()
 		{
-			REL::Relocation<BSFaceGenManager**> singleton{ RELOCATION_ID(514182, 400331) };
+			static REL::Relocation<BSFaceGenManager**> singleton{ RELOCATION_ID(514182, 400331) };
 			return *singleton;
 		}
 

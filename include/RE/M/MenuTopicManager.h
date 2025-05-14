@@ -61,7 +61,7 @@ namespace RE
 
 		static MenuTopicManager* GetSingleton()
 		{
-			REL::Relocation<MenuTopicManager**> singleton{ RELOCATION_ID(514959, 401099) };
+			static REL::Relocation<MenuTopicManager**> singleton{ RELOCATION_ID(514959, 401099) };
 			return *singleton;
 		}
 

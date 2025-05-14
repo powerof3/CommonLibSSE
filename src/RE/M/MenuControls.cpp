@@ -15,8 +15,8 @@ namespace RE
 
 	MenuControls* MenuControls::GetSingleton()
 	{
-		REL::Relocation<MenuControls**> singelton{ Offset::MenuControls::Singleton };
-		return *singelton;
+		static REL::Relocation<MenuControls**> singleton{ Offset::MenuControls::Singleton };
+		return *singleton;
 	}
 
 	void MenuControls::AddHandler(MenuEventHandler* a_handler)

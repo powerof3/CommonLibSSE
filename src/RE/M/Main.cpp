@@ -7,7 +7,7 @@ namespace RE
 {
 	Main* Main::GetSingleton()
 	{
-		REL::Relocation<Main**> singleton{ Offset::Main::Singleton };
+		static REL::Relocation<Main**> singleton{ Offset::Main::Singleton };
 		return *singleton;
 	}
 
@@ -20,7 +20,7 @@ namespace RE
 
 	float Main::QFrameAnimTime()
 	{
-		REL::Relocation<float*> data{ RELOCATION_ID(516940, 403447) };
+		static REL::Relocation<float*> data{ RELOCATION_ID(516940, 403447) };
 		return *data;
 	}
 
@@ -33,7 +33,7 @@ namespace RE
 
 	Scenegraph* Main::WorldRootNode()
 	{
-		REL::Relocation<NiPointer<Scenegraph>*> nodePtr{ RELOCATION_ID(517006, 403513) };
+		static REL::Relocation<NiPointer<Scenegraph>*> nodePtr{ RELOCATION_ID(517006, 403513) };
 		return nodePtr->get();
 	}
 

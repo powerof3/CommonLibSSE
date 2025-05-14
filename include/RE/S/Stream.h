@@ -38,6 +38,10 @@ namespace RE
 			virtual bool      DoGetName(BSFixedString& a_dst) const;                                                       // 0A - { a_dst = ""; return false; }
 			virtual ErrorCode DoCreateAsync(BSTSmartPointer<AsyncStream>& a_streamOut) const;                              // 0B - { return ErrorCode::kUnsupported; }
 		};
+#ifdef SKYRIM_SUPPORT_AE
+		static_assert(sizeof(Stream) == 0x18);
+#else
 		static_assert(sizeof(Stream) == 0x10);
+#endif
 	}
 }

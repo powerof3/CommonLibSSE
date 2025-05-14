@@ -1,7 +1,7 @@
 #pragma once
 
 #include "RE/H/hkpCollisionEvent.h"
-#include "RE/h/hkpRigidBody.h"
+#include "RE/H/hkpRigidBody.h"
 
 namespace RE
 {

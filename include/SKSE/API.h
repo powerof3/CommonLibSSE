@@ -12,8 +12,14 @@
 
 namespace SKSE
 {
-	void Init(const LoadInterface* a_intfc) noexcept;
+	void Init(const LoadInterface* a_intfc, const bool a_log = true) noexcept;
 	void RegisterForAPIInitEvent(std::function<void()> a_fn);
+
+#ifdef SKYRIM_SUPPORT_AE
+	std::string_view GetPluginName() noexcept;
+	std::string_view GetPluginAuthor() noexcept;
+	REL::Version     GetPluginVersion() noexcept;
+#endif
 
 	PluginHandle  GetPluginHandle() noexcept;
 	std::uint32_t GetReleaseIndex() noexcept;

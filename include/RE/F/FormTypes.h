@@ -304,7 +304,7 @@ namespace fmt
 		}
 
 		template <class FormatContext>
-		auto format(const RE::FormType& a_formType, FormatContext& a_ctx)
+		auto format(const RE::FormType& a_formType, FormatContext& a_ctx) const
 		{
 			return fmt::format_to(a_ctx.out(), "{}", RE::FormTypeToString(a_formType));
 		}

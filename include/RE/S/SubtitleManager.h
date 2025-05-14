@@ -23,7 +23,7 @@ namespace RE
 	public:
 		static SubtitleManager* GetSingleton()
 		{
-			REL::Relocation<SubtitleManager**> singleton{ RELOCATION_ID(514283, 400443) };
+			static REL::Relocation<SubtitleManager**> singleton{ RELOCATION_ID(514283, 400443) };
 			return *singleton;
 		}
 

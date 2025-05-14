@@ -100,23 +100,13 @@ namespace SKSE
 
 		bool WriteRecord(std::uint32_t a_type, std::uint32_t a_version, const void* a_buf, std::uint32_t a_length) const;
 
-		template <
-			class T,
-			std::enable_if_t<
-				std::negation_v<
-					std::is_pointer<T>>,
-				int> = 0>
+		template <class T, std::enable_if_t<std::negation_v<std::is_pointer<T>>, int> = 0>
 		inline bool WriteRecord(std::uint32_t a_type, std::uint32_t a_version, const T& a_buf) const
 		{
 			return WriteRecord(a_type, a_version, std::addressof(a_buf), sizeof(T));
 		}
 
-		template <
-			class T,
-			std::size_t N,
-			std::enable_if_t<
-				std::is_array_v<T>,
-				int> = 0>
+		template <class T, std::size_t N, std::enable_if_t<std::is_array_v<T>, int> = 0>
 		inline bool WriteRecord(std::uint32_t a_type, std::uint32_t a_version, const T (&a_buf)[N]) const
 		{
 			return WriteRecord(a_type, a_version, std::addressof(a_buf), sizeof(T) * N);
@@ -125,53 +115,59 @@ namespace SKSE
 		[[nodiscard]] bool OpenRecord(std::uint32_t a_type, std::uint32_t a_version) const;
 
 		bool WriteRecordData(const void* a_buf, std::uint32_t a_length) const;
+		bool WriteRecordDataEx(std::uint32_t& a_diff, const void* a_buf, std::uint32_t a_length) const;
 
-		template <
-			class T,
-			std::enable_if_t<
-				std::negation_v<
-					std::is_pointer<T>>,
-				int> = 0>
-		inline bool WriteRecordData(const T& a_buf) const
+		template <class T, std::enable_if_t<std::negation_v<std::is_pointer<T>>, int> = 0>
+		bool WriteRecordData(const T& a_buf) const
 		{
 			return WriteRecordData(std::addressof(a_buf), sizeof(T));
 		}
 
-		template <
-			class T,
-			std::size_t N,
-			std::enable_if_t<
-				std::is_array_v<T>,
-				int> = 0>
-		inline bool WriteRecordData(const T (&a_buf)[N]) const
+		template <class T, std::enable_if_t<std::negation_v<std::is_pointer<T>>, int> = 0>
+		bool WriteRecordDataEx(std::uint32_t& a_diff, const T& a_buf) const
+		{
+			return WriteRecordDataEx(a_diff, std::addressof(a_buf), sizeof(T));
+		}
+
+		template <class T, std::size_t N, std::enable_if_t<std::is_array_v<T>, int> = 0>
+		bool WriteRecordData(const T (&a_buf)[N]) const
 		{
 			return WriteRecordData(std::addressof(a_buf), sizeof(T) * N);
+		}
+
+		template <class T, std::size_t N, std::enable_if_t<std::is_array_v<T>, int> = 0>
+		bool WriteRecordDataEx(std::uint32_t& a_diff, const T (&a_buf)[N]) const
+		{
+			return WriteRecordDataEx(a_diff, std::addressof(a_buf), sizeof(T) * N);
 		}
 
 		bool GetNextRecordInfo(std::uint32_t& a_type, std::uint32_t& a_version, std::uint32_t& a_length) const;
 
 		std::uint32_t ReadRecordData(void* a_buf, std::uint32_t a_length) const;
+		std::uint32_t ReadRecordDataEx(std::uint32_t& a_diff, void* a_buf, std::uint32_t a_length) const;
 
-		template <
-			class T,
-			std::enable_if_t<
-				std::negation_v<
-					std::is_pointer<T>>,
-				int> = 0>
-		inline std::uint32_t ReadRecordData(T& a_buf) const
+		template <class T, std::enable_if_t<std::negation_v<std::is_pointer<T>>, int> = 0>
+		std::uint32_t ReadRecordData(T& a_buf) const
 		{
 			return ReadRecordData(std::addressof(a_buf), sizeof(T));
 		}
 
-		template <
-			class T,
-			std::size_t N,
-			std::enable_if_t<
-				std::is_array_v<T>,
-				int> = 0>
-		inline std::uint32_t ReadRecordData(T (&a_buf)[N]) const
+		template <class T, std::enable_if_t<std::negation_v<std::is_pointer<T>>, int> = 0>
+		std::uint32_t ReadRecordDataEx(std::uint32_t& a_diff, T& a_buf) const
+		{
+			return ReadRecordDataEx(a_diff, std::addressof(a_buf), sizeof(T));
+		}
+
+		template <class T, std::size_t N, std::enable_if_t<std::is_array_v<T>, int> = 0>
+		std::uint32_t ReadRecordData(T (&a_buf)[N]) const
 		{
 			return ReadRecordData(std::addressof(a_buf), sizeof(T) * N);
+		}
+
+		template <class T, std::size_t N, std::enable_if_t<std::is_array_v<T>, int> = 0>
+		std::uint32_t ReadRecordDataEx(std::uint32_t& a_diff, T (&a_buf)[N]) const
+		{
+			return ReadRecordDataEx(a_diff, std::addressof(a_buf), sizeof(T) * N);
 		}
 
 		bool ResolveFormID(RE::FormID a_oldFormID, RE::FormID& a_newFormID) const;
@@ -360,6 +356,7 @@ namespace SKSE
 		const char*   name;
 		std::uint32_t version;
 	};
+
 #ifdef SKYRIM_SUPPORT_AE
 	struct PluginVersionData
 	{
@@ -381,8 +378,29 @@ namespace SKSE
 			kVersionIndependentEx_NoStructUse = 1 << 0,
 		};
 
-		constexpr void AuthorEmail(std::string_view a_email) noexcept { SetCharBuffer(a_email, std::span{ supportEmail }); }
+		constexpr void PluginVersion(REL::Version a_version) noexcept { pluginVersion = a_version.pack(); }
+
+		[[nodiscard]] constexpr REL::Version GetPluginVersion() const noexcept { return REL::Version::unpack(pluginVersion); }
+
+		constexpr void PluginName(std::string_view a_plugin) noexcept { SetCharBuffer(a_plugin, std::span{ pluginName }); }
+
+		[[nodiscard]] constexpr std::string_view GetPluginName() const noexcept { return std::string_view{ pluginName }; }
+
 		constexpr void AuthorName(std::string_view a_name) noexcept { SetCharBuffer(a_name, std::span{ author }); }
+
+		[[nodiscard]] constexpr std::string_view GetAuthorName() const noexcept { return std::string_view{ author }; }
+
+		constexpr void AuthorEmail(std::string_view a_email) noexcept { SetCharBuffer(a_email, std::span{ supportEmail }); }
+
+		[[nodiscard]] constexpr std::string_view GetAuthorEmail() const noexcept { return std::string_view{ supportEmail }; }
+
+		constexpr void UsesAddressLibrary() noexcept { versionIndependence |= kVersionIndependent_AddressLibraryPostAE; }
+		constexpr void UsesSigScanning() noexcept { versionIndependence |= kVersionIndependent_Signatures; }
+		constexpr void UsesUpdatedStructs() noexcept { versionIndependence |= kVersionIndependent_StructsPost629; }
+
+		constexpr void UsesNoStructs() noexcept { versionIndependenceEx |= kVersionIndependentEx_NoStructUse; }
+
+		constexpr void MinimumRequiredXSEVersion(REL::Version a_version) noexcept { xseMinimum = a_version.pack(); }
 
 		constexpr void CompatibleVersions(std::initializer_list<REL::Version> a_versions) noexcept
 		{
@@ -394,14 +412,7 @@ namespace SKSE
 				[](const REL::Version& a_version) noexcept { return a_version.pack(); });
 		}
 
-		constexpr void MinimumRequiredXSEVersion(REL::Version a_version) noexcept { xseMinimum = a_version.pack(); }
-		constexpr void PluginName(std::string_view a_plugin) noexcept { SetCharBuffer(a_plugin, std::span{ pluginName }); }
-		constexpr void PluginVersion(REL::Version a_version) noexcept { pluginVersion = a_version.pack(); }
-		constexpr void UsesAddressLibrary() noexcept { versionIndependence |= kVersionIndependent_AddressLibraryPostAE; }
-		constexpr void UsesSigScanning() noexcept { versionIndependence |= kVersionIndependent_Signatures; }
-		constexpr void UsesUpdatedStructs() noexcept { versionIndependence |= kVersionIndependent_StructsPost629; }
-
-		constexpr void UsesNoStructs() noexcept { versionIndependenceEx |= kVersionIndependentEx_NoStructUse; }
+		[[nodiscard]] static const PluginVersionData* GetSingleton() noexcept;
 
 		const std::uint32_t dataVersion{ kVersion };
 		std::uint32_t       pluginVersion = 0;
@@ -435,3 +446,6 @@ namespace SKSE
 	static_assert(sizeof(PluginVersionData) == 0x350);
 #endif
 }
+
+#define SKSEPluginLoad(...) extern "C" [[maybe_unused]] __declspec(dllexport) bool SKSEPlugin_Load(__VA_ARGS__)
+#define SKSEPluginVersion extern "C" [[maybe_unused]] __declspec(dllexport) constinit SKSE::PluginVersionData SKSEPlugin_Version

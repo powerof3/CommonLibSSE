@@ -12,12 +12,12 @@
 #include "RE/B/BSXFlags.h"
 #include "RE/B/bhkNiCollisionObject.h"
 #include "RE/B/bhkRigidBody.h"
+#include "RE/H/hkpRigidBody.h"
 #include "RE/N/NiColor.h"
 #include "RE/N/NiNode.h"
 #include "RE/N/NiProperty.h"
 #include "RE/N/NiRTTI.h"
 #include "RE/S/State.h"
-#include "RE/h/hkpRigidBody.h"
 
 namespace RE
 {

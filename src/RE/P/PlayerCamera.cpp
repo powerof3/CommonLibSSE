@@ -4,7 +4,7 @@ namespace RE
 {
 	PlayerCamera* PlayerCamera::GetSingleton()
 	{
-		REL::Relocation<PlayerCamera**> singleton{ Offset::PlayerCamera::Singleton };
+		static REL::Relocation<PlayerCamera**> singleton{ Offset::PlayerCamera::Singleton };
 		return *singleton;
 	}
 
@@ -42,6 +42,13 @@ namespace RE
 		return QCameraEquals(CameraState::kThirdPerson);
 	}
 
+	void PlayerCamera::PushCameraState(CameraState a_state)
+	{
+		using func_t = decltype(&PlayerCamera::PushCameraState);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(49947, 50880) };
+		return func(this, a_state);
+	}
+
 	bool PlayerCamera::QCameraEquals(CameraState a_cameraState) const
 	{
 		return currentState && currentState == cameraStates[a_cameraState];
@@ -52,6 +59,13 @@ namespace RE
 		using func_t = decltype(&PlayerCamera::ToggleFreeCameraMode);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(49876, 50809) };
 		return func(this, a_freezeTime);
+	}
+
+	void PlayerCamera::Update()
+	{
+		using func_t = decltype(&PlayerCamera::Update);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(49852, 50784) };
+		return func(this);
 	}
 
 	void PlayerCamera::UpdateThirdPerson(bool a_weaponDrawn)

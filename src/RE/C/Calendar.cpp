@@ -8,7 +8,7 @@ namespace RE
 {
 	Calendar* Calendar::GetSingleton()
 	{
-		REL::Relocation<Calendar**> singleton{ Offset::Calendar::Singleton };
+		static REL::Relocation<Calendar**> singleton{ Offset::Calendar::Singleton };
 		return *singleton;
 	}
 
@@ -88,7 +88,7 @@ namespace RE
 
 	float Calendar::GetHoursPerDay()
 	{
-		REL::Relocation<float*> hours{ RELOCATION_ID(241610, 195681) };
+		static REL::Relocation<float*> hours{ RELOCATION_ID(241610, 195681) };
 		return *hours;
 	}
 

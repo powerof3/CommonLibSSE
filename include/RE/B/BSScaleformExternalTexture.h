@@ -34,7 +34,7 @@ namespace RE
 		void ReleaseTexture()
 		{
 			using func_t = decltype(&BSScaleformExternalTexture::ReleaseTexture);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(80294, 82317) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(80294, 443440) };
 			return func(this);
 		}
 

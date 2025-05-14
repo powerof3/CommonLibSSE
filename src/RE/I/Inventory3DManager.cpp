@@ -4,7 +4,7 @@ namespace RE
 {
 	Inventory3DManager* Inventory3DManager::GetSingleton()
 	{
-		REL::Relocation<Inventory3DManager**> singleton{ RELOCATION_ID(517051, 403559) };
+		static REL::Relocation<Inventory3DManager**> singleton{ RELOCATION_ID(517051, 403559) };
 		return *singleton;
 	}
 

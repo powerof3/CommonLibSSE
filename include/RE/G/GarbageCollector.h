@@ -52,7 +52,7 @@ namespace RE
 
 		static GarbageCollector* GetSingleton()
 		{
-			REL::Relocation<GarbageCollector**> singleton{ RELOCATION_ID(514180, 400329) };
+			static REL::Relocation<GarbageCollector**> singleton{ RELOCATION_ID(514180, 400329) };
 			return *singleton;
 		}
 

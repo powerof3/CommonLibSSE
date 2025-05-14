@@ -25,7 +25,7 @@ namespace RE
 		static NiPointLight* Create()
 		{
 			auto light = malloc<NiPointLight>();
-			std::memset(light, 0, sizeof(NiPointLight));
+			std::memset((void*)light, 0, sizeof(NiPointLight));
 			if (light) {
 				light->Ctor();
 			}

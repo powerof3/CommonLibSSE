@@ -130,7 +130,8 @@ namespace RE
 
 			template <class V>
 			iterator_base(const iterator_base<V>& a_rhs) noexcept  //
-				requires(std::convertible_to<typename iterator_base<V>::reference, reference>) :
+				requires(std::convertible_to<typename iterator_base<V>::reference, reference>)
+				:
 				_first(a_rhs._first),
 				_last(a_rhs._last)
 			{}
@@ -221,7 +222,8 @@ namespace RE
 		BSTScatterTable(const BSTScatterTable& a_rhs) { insert(a_rhs.begin(), a_rhs.end()); }
 
 		BSTScatterTable(BSTScatterTable&& a_rhs) noexcept  //
-			requires(std::same_as<typename allocator_type::propagate_on_container_move_assignment, std::true_type>) :
+			requires(std::same_as<typename allocator_type::propagate_on_container_move_assignment, std::true_type>)
+			:
 			_capacity(std::exchange(a_rhs._capacity, 0)),
 			_free(std::exchange(a_rhs._free, 0)),
 			_good(std::exchange(a_rhs._good, 0)),

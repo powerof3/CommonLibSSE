@@ -52,8 +52,8 @@ namespace RE
 		};
 
 		// members
-		stl::enumeration<BipedObjectSlot, std::uint32_t> bipedObjectSlots;  // 0
-		stl::enumeration<ArmorType, std::uint32_t>       armorType;         // 4
+		REX::EnumSet<BipedObjectSlot, std::uint32_t> bipedObjectSlots;  // 0
+		REX::EnumSet<ArmorType, std::uint32_t>       armorType;         // 4
 	};
 	static_assert(sizeof(BIPED_MODEL) == 0x8);
 
