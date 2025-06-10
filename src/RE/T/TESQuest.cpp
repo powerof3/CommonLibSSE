@@ -17,25 +17,26 @@ namespace RE
 		return func(this, a_out, a_useExtraList, a_quest);
 	}
 
-	ObjectRefHandle& TESQuest::CreateRefHandleByAliasID(ObjectRefHandle& a_handle, std::uint32_t a_aliasID)
-	{
-		using func_t = decltype(&TESQuest::CreateRefHandleByAliasID);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(24537, 25066) };
-		return func(this, a_handle, a_aliasID);
-	}
-
-	void TESQuest::SetReferenceByAliasID(std::uint32_t a_aliasID, TESObjectREFR* a_ref)
-	{
-		using func_t = decltype(&TESQuest::SetReferenceByAliasID);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(24523, 25052) };
-		return func(this, a_aliasID, a_ref);
-	}
-
 	bool TESQuest::EnsureQuestStarted(bool& a_result, bool a_startNow)
 	{
 		using func_t = decltype(&TESQuest::EnsureQuestStarted);
 		static REL::Relocation<func_t> func{ Offset::TESQuest::EnsureQuestStarted };
 		return func(this, a_result, a_startNow);
+	}
+
+	void TESQuest::ForceRefIntoAlias(std::uint32_t a_aliasID, TESObjectREFR* a_ref)
+	{
+		using func_t = decltype(&TESQuest::ForceRefIntoAlias);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(24523, 25052) };
+		return func(this, a_aliasID, a_ref);
+	}
+
+	ObjectRefHandle TESQuest::GetAliasedRef(std::uint32_t a_aliasID) const
+	{
+		BSReadLockGuard locker(aliasAccessLock);
+
+		auto it = refAliasMap.find(a_aliasID);
+		return it != refAliasMap.end() ? it->second : ObjectRefHandle();
 	}
 
 	std::uint16_t TESQuest::GetCurrentStageID() const

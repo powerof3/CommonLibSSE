@@ -10,9 +10,7 @@ namespace RE
 		TESObjectREFR* ref = nullptr;
 		const auto     owner = owningQuest;
 		if (owner) {
-			ObjectRefHandle handle{};
-			owner->CreateRefHandleByAliasID(handle, aliasID);
-
+			auto       handle = owner->GetAliasedRef(aliasID);
 			const auto refPtr = handle.get();
 			ref = refPtr.get();
 		}
@@ -27,12 +25,13 @@ namespace RE
 
 	void BGSRefAlias::ForceRefTo(TESObjectREFR* a_ref)
 	{
-		if (!a_ref)
+		if (!a_ref) {
 			return;
+		}
 
 		const auto owner = owningQuest;
 		if (owner) {
-			owner->SetReferenceByAliasID(aliasID, a_ref);
+			owner->ForceRefIntoAlias(aliasID, a_ref);
 		}
 	}
 }

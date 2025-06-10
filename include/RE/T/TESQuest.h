@@ -236,9 +236,9 @@ namespace RE
 		TESCondition*                            QConditions() override;                                         // 3D - { return &objConditions; }
 		BGSStoryManagerTreeVisitor::VisitControl AcceptVisitor(BGSStoryManagerTreeVisitor& a_visitor) override;  // 3E
 
-		ObjectRefHandle&                         CreateRefHandleByAliasID(ObjectRefHandle& a_handle, std::uint32_t a_aliasID);
-		void                                     SetReferenceByAliasID(std::uint32_t a_aliasID, TESObjectREFR* a_ref);
 		bool                                     EnsureQuestStarted(bool& a_result, bool a_startNow);
+		void                                     ForceRefIntoAlias(std::uint32_t a_aliasID, TESObjectREFR* a_ref);
+		ObjectRefHandle                          GetAliasedRef(std::uint32_t a_aliasID) const;
 		std::uint16_t                            GetCurrentStageID() const;
 		[[nodiscard]] constexpr QUEST_DATA::Type GetType() const noexcept { return data.questType.get(); }
 		bool                                     IsActive() const;
