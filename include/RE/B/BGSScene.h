@@ -87,7 +87,7 @@ namespace RE
 
 		// members
 		BSTArray<BGSScenePhase*>                                phases;                 // 20
-		BSTArray<std::uint32_t>                                 actors;                 // 00 - ALID (alias ID)
+		BSTArray<FormID>                                        actors;                 // 00 - ALID
 		BSTArray<REX::EnumSet<SCENE_ACTOR_FLAG, std::uint32_t>> actorFlags;             // 18 - LNAM
 		BSTArray<REX::EnumSet<BehaviourFlag, std::uint32_t>>    actorProgressionFlags;  // 30 - DNAM
 		BSTArray<BGSSceneAction*>                               actions;                // 80
