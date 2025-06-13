@@ -302,14 +302,14 @@ namespace RE
 		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetCount };
 		return func(this, a_count);
 	}
-
+#ifdef SKYRIM_AE
 	void ExtraDataList::SetEnchantment(EnchantmentItem* a_enchantment, std::uint16_t a_chargeAmount, bool a_removeOnUnequip)
 	{
 		using func_t = decltype(&ExtraDataList::SetEnchantment);
 		REL::Relocation<func_t> func{ Offset::ExtraDataList::SetEnchantment };
 		return func(this, a_enchantment, a_chargeAmount, a_removeOnUnequip);
 	}
-
+#endif
 	void ExtraDataList::SetEncounterZone(BGSEncounterZone* a_zone)
 	{
 		if (auto xZone = GetByType<ExtraEncounterZone>()) {

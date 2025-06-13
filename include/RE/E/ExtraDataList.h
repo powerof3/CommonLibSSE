@@ -185,7 +185,9 @@ namespace RE
 		ObjectRefHandle       GetTeleportLinkedDoor();
 		bool                  HasQuestObjectAlias();
 		void                  SetCount(std::uint16_t a_count);
+	#ifdef SKYRIM_AE
 		void                  SetEnchantment(EnchantmentItem* a_enchantment, std::uint16_t a_chargeAmount, bool a_removeOnUnequip);
+	#endif
 		void                  SetEncounterZone(BGSEncounterZone* a_zone);
 		void                  SetExtraFlags(ExtraFlags::Flag a_flags, bool a_enable);
 		void                  SetHeadingTargetRefHandle(ObjectRefHandle& a_handle);
