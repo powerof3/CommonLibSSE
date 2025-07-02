@@ -72,6 +72,7 @@ namespace RE
 		constexpr bool            IsActivateControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kActivate); }
 		constexpr bool            IsConsoleControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kConsole); }
 		constexpr bool            IsFightingControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kFighting); }
+		constexpr bool            IsJumpingControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kJumping); }
 		constexpr bool            IsLookingControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kLooking); }
 		constexpr bool            IsMenuControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kMenu); }
 		constexpr bool            IsMainFourControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kMainFour); }

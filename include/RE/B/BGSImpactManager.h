@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RE/B/BSFixedString.h"
+#include "RE/B/BSSoundHandle.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTEvent.h"
 #include "RE/B/BSTSingleton.h"
@@ -13,7 +14,6 @@ namespace RE
 	struct BGSFootstepEvent;
 	struct BGSCombatImpactEvent;
 	struct BGSCollisionSoundEvent;
-	struct BSSoundHandle;
 
 	class BGSImpactManager :
 		public BSTEventSink<BGSFootstepEvent>,        // 00
@@ -22,19 +22,37 @@ namespace RE
 		public BSTSingletonSDM<BGSImpactManager>      // 18
 	{
 	public:
+		struct SoundHandlePool
+		{
+		public:
+			struct HandleEntry
+			{
+			public:
+				// members
+				BSSoundHandle sound;                 // 00
+				std::uint64_t timestamp;             // 10 - tick count
+				float         squaredAudibleFactor;  // 18
+			};
+			static_assert(sizeof(HandleEntry) == 0x20);
+
+			// members
+			BSTArray<HandleEntry> entries;  // 00
+		};
+		static_assert(sizeof(SoundHandlePool) == 0x18);
+
 		struct ImpactSoundData
 		{
 		public:
 			// members
-			BGSImpactData* impactData;      // 00
-			NiPoint3*      position;        // 08
-			NiAVObject*    objectToFollow;  // 10
-			BSSoundHandle* sound1;          // 18
-			BSSoundHandle* sound2;          // 20
-			bool           playSound1;      // 28
-			bool           playSound2;      // 29
-			bool           unk2A;           // 2A
-			void*          unk30;           // 30
+			BGSImpactData*   impactData;      // 00
+			NiPoint3*        position;        // 08
+			NiAVObject*      objectToFollow;  // 10
+			BSSoundHandle*   sound1;          // 18
+			BSSoundHandle*   sound2;          // 20
+			bool             playSound1;      // 28
+			bool             playSound2;      // 29
+			bool             lowPriority;     // 2A
+			SoundHandlePool* pool;            // 30
 		};
 		static_assert(sizeof(ImpactSoundData) == 0x38);
 

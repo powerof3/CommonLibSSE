@@ -23,7 +23,8 @@ namespace RE
 		};
 		static_assert(sizeof(LinkedRef) == 0x10);
 
-		virtual ~ExtraLinkedRef();  // 00
+		ExtraLinkedRef();
+		~ExtraLinkedRef() override = default;  // 00
 
 		// override (BSExtraData)
 		virtual ExtraDataType GetType() const override;                             // 01 - { return kLinkedRef; }

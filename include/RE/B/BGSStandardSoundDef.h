@@ -63,7 +63,7 @@ namespace RE
 		void          InitSound(TESForm* a_src) override;  // 03
 		bool          LoadSound(TESFile* a_mod) override;  // 04
 		std::uint32_t GetType() const override;            // 05 - "BGSStandardSoundDef"
-		void          Unk_06(void) override;               // 06
+		float         GetMaxAudibleDistance() override;    // 06
 
 		// members
 		BSTArray<BSResource::ID>     soundFiles;             // 18 - ANAM

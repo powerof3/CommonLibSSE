@@ -39,6 +39,7 @@ namespace REX
 		constexpr EnumSet& operator=(EnumSet<E, U2> a_rhs) noexcept
 		{
 			_impl = static_cast<U>(a_rhs.get());
+			return *this;
 		}
 
 		constexpr EnumSet& operator=(E a_value) noexcept

@@ -3,6 +3,7 @@
 #include "RE/H/hkArray.h"
 #include "RE/H/hkRefVariant.h"
 #include "RE/H/hkbGenerator.h"
+#include "RE/H/hkbNodeInfo.h"
 
 namespace RE
 {
@@ -48,7 +49,7 @@ namespace RE
 		hkRefPtr<hkbGenerator>                   rootGenerator;                    // 080
 		hkRefPtr<hkbBehaviorGraphData>           data;                             // 088
 		hkRefVariant                             rootGeneratorClone;               // 090
-		hkRefVariant                             activeNodes;                      // 098
+		NodeList*                                activeNodes;                      // 098
 		hkRefVariant                             activeNodeTemplateToIndexMap;     // 0A0
 		hkRefVariant                             activeNodesChildrenIndices;       // 0A8
 		hkRefVariant                             globalTransitionData;             // 0B0

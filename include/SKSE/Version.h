@@ -29,12 +29,14 @@ namespace SKSE
 	inline constexpr REL::Version RUNTIME_1_6_353(1, 6, 353, 0);
 	inline constexpr REL::Version RUNTIME_1_6_629(1, 6, 629, 0);
 	inline constexpr REL::Version RUNTIME_1_6_640(1, 6, 640, 0);
-	inline constexpr REL::Version RUNTIME_1_6_659(1, 6, 659, 0);
-	inline constexpr REL::Version RUNTIME_1_6_678(1, 6, 678, 0);
+	inline constexpr REL::Version RUNTIME_1_6_659(1, 6, 659, 0);  // GOG
+	inline constexpr REL::Version RUNTIME_1_6_678(1, 6, 678, 0);  // Epic
 	inline constexpr REL::Version RUNTIME_1_6_1130(1, 6, 1130, 0);
+	inline constexpr REL::Version RUNTIME_1_6_1170(1, 6, 1170, 0);
+	inline constexpr REL::Version RUNTIME_1_6_1179(1, 6, 1179, 0);  // GOG
 #endif
 #ifdef SKYRIM_SUPPORT_AE
-	inline constexpr auto RUNTIME_LATEST = RUNTIME_1_6_1130;  // latest for steam
+	inline constexpr auto RUNTIME_LATEST = RUNTIME_1_6_1170;  // latest for steam
 #else
 	inline constexpr auto RUNTIME_LATEST = RUNTIME_1_5_97;
 #endif

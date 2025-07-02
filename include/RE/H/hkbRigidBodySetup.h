@@ -2,6 +2,8 @@
 
 #include "RE/H/hkbShapeSetup.h"
 
+#include "RE/C/CFilter.h"
+
 namespace RE
 {
 	struct hkbRigidBodySetup
@@ -15,7 +17,7 @@ namespace RE
 		};
 
 		// members
-		std::uint32_t                   collisionFilterInfo;  // 00
+		CFilter                         collisionFilterInfo;  // 00
 		REX::EnumSet<Type, std::int8_t> type;                 // 04
 		hkbShapeSetup                   shapeSetup;           // 05
 	};

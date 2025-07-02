@@ -195,8 +195,10 @@ namespace RE
 			}
 		}
 
+		[[nodiscard]] bool IsRunning() const noexcept { return static_cast<bool>(actorState1.running); }
 		[[nodiscard]] bool IsSneaking() const noexcept { return static_cast<bool>(actorState1.sneaking); }
 		[[nodiscard]] bool IsSprinting() const noexcept { return static_cast<bool>(actorState1.sprinting); }
+		[[nodiscard]] bool IsStaggered() const noexcept { return static_cast<bool>(actorState2.staggered); }
 		[[nodiscard]] bool IsSwimming() const noexcept { return static_cast<bool>(actorState1.swimming); }
 		[[nodiscard]] bool IsUnconscious() const noexcept { return GetLifeState() == ACTOR_LIFE_STATE::kUnconcious; }
 		[[nodiscard]] bool IsWalking() const noexcept { return actorState1.walking; }

@@ -37,6 +37,7 @@ namespace RE
 	class bhkCharacterMoveFinishEvent;
 	class BipedAnim;
 	class BSTransformDeltaEvent;
+	class CFilter;
 	class CombatController;
 	class CombatGroup;
 	class ExtraDataList;
@@ -59,6 +60,17 @@ namespace RE
 		kGooEnd = 2,
 		kDisintegrateStart = 3,
 		kDisintegrateEnd = 4,
+
+		kTotal
+	};
+
+	enum class ACTOR_LOS_LOCATION
+	{
+		kNone = 0,
+		kEye = 1,
+		kHead = 2,
+		kTorso = 3,
+		kFeet = 4,
 
 		kTotal
 	};
@@ -498,13 +510,14 @@ namespace RE
 		void                         AddWornOutfit(BGSOutfit* a_outfit, bool a_forceUpdate);
 		void                         AllowBleedoutDialogue(bool a_canTalk);
 		void                         AllowPCDialogue(bool a_talk);
-		void                         CastPermanentMagic(bool a_wornItemEnchantments, bool a_baseSpells, bool a_raceSpells, bool a_everyActorAbility);
+		NiPoint3                     CalculateLOSLocation(ACTOR_LOS_LOCATION a_location);
 		bool                         CanAttackActor(Actor* a_actor);
 		bool                         CanFlyHere() const;
 		bool                         CanOfferServices() const;
 		bool                         CanPickpocket() const;
 		bool                         CanTalkToPlayer() const;
 		bool                         CanUseIdle(TESIdleForm* a_idle) const;
+		void                         CastPermanentMagic(bool a_wornItemEnchantments, bool a_baseSpells, bool a_raceSpells, bool a_everyActorAbility);
 		void                         ClearArrested();
 		void                         ClearExpressionOverride();
 		inline void                  ClearExtraArrows() { RemoveExtraArrows3D(); }
@@ -514,6 +527,7 @@ namespace RE
 		void                         DispelAlteredStates(RE::EffectArchetype a_exception);
 		void                         DispelWornItemEnchantments();
 		void                         DoReset3D(bool a_updateWeight);
+		bool                         DoDamage(float a_healthDamage, Actor* a_source, bool a_dontAdjustDifficulty);
 		void                         EnableAI(bool a_enable);
 		void                         EndInterruptPackage(bool a_skipDialogue);
 		void                         EvaluatePackage(bool a_immediate = false, bool a_resetAI = false);
@@ -525,7 +539,7 @@ namespace RE
 		InventoryEntryData*          GetAttackingWeapon();
 		const InventoryEntryData*    GetAttackingWeapon() const;
 		bhkCharacterController*      GetCharController() const;
-		std::uint32_t                GetCollisionFilterInfo(std::uint32_t& a_outCollisionFilterInfo);
+		void                         GetCollisionFilterInfo(CFilter& a_outCollisionFilterInfo);
 		NiPointer<Actor>             GetCommandingActor() const;
 		TESFaction*                  GetCrimeFaction();
 		const TESFaction*            GetCrimeFaction() const;
@@ -606,8 +620,10 @@ namespace RE
 		bool                         IsPlayerTeammate() const;
 		bool                         IsPowerAttacking() const;
 		bool                         IsProtected() const;
+		bool                         IsRotationAllowed() const;
 		bool                         IsRunning() const;
 		bool                         IsSneaking() const;
+		bool                         IsStaggering() const;
 		[[nodiscard]] bool           IsSummoned() const noexcept;
 		bool                         IsTrespassing() const;
 		void                         KillImmediate();

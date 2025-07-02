@@ -27,9 +27,10 @@ namespace RE
 		void          UpdateWorldBound() override;                        // 2F - { return; }
 		void          UpdateWorldData(NiUpdateData* a_data) override;     // 30
 
-		static bool BoundInFrustum(const NiBound& a_bound, NiCamera* a_camera);
-		static bool NodeInFrustum(NiAVObject* a_node, NiCamera* a_camera);
-		static bool PointInFrustum(const NiPoint3& a_point, NiCamera* a_camera, float a_radius);
+		static bool BoundInFrustum(const NiBound& a_bound, RE::NiCamera* a_camera);
+		bool        NodeInFrustum(NiAVObject* a_node);
+		bool        PointInFrustum(const NiPoint3& a_point, float a_radius);
+
 		bool        WindowPointToRay(std::int32_t a_x, std::int32_t a_y, NiPoint3& a_origin, NiPoint3& a_dir, float a_windowWidth, float a_windowHeight);
 		bool        WorldPtToScreenPt3(const NiPoint3& a_point, float& a_xOut, float& a_yOut, float& a_zOut, float a_zeroTolerance);
 		static bool WorldPtToScreenPt3(const float a_matrix[4][4], const NiRect<float>& a_port, const NiPoint3& a_point, float& a_xOut, float& a_yOut, float& a_zOut, float a_zeroTolerance);

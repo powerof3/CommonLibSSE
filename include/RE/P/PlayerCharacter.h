@@ -49,6 +49,7 @@ namespace RE
 	struct PositionPlayerEvent;
 	struct TESQuestStageItem;
 	struct TESTrackedStatsEvent;
+	struct TeleportPath;
 
 	enum class PLAYER_ACTION
 	{
@@ -165,7 +166,8 @@ namespace RE
 		{
 			kNone = 0,
 			kDisableSaving = 1 << 0,
-			kHandsBound = 1 << 2
+			kDisableWaiting = 1 << 1,
+			kShowControlsDisabledMessage = 1 << 2
 		};
 
 		struct PlayerFlags
@@ -229,39 +231,6 @@ namespace RE
 			TESObjectWEAP* leftHandWeapon;   // 08
 		};
 		static_assert(sizeof(QueuedWeapon) == 0x10);
-
-		struct TeleportPath  // TODO: Should not be in Player class. Gets used in Pathing and other non-player areas
-		{
-		public:
-			struct Unk00Data
-			{
-			public:
-				// members
-				bool           unk00;         // 00 - Determines whether to use worldspace or cell?
-				char           pad01[7];      // 01
-				TESWorldSpace* worldspace;    // 08
-				TESObjectCELL* interiorCell;  // 10
-			};
-			static_assert(sizeof(Unk00Data) == 0x18);
-
-			struct Unk18Data
-			{
-			public:
-				// members
-				RE::TESObjectREFR* unk00;  // 00
-				std::uint64_t      unk08;  // 08
-				std::uint64_t      unk10;  // 10
-			};
-			static_assert(sizeof(Unk18Data) == 0x18);
-
-			// members
-			BSTArray<Unk00Data> unk00;  // 00
-			BSTArray<Unk18Data> unk18;  // 18
-			std::uint64_t       unk30;  // 30
-			std::uint64_t       unk38;  // 38
-			std::uint64_t       unk40;  // 40
-		};
-		static_assert(sizeof(TeleportPath) == 0x48);
 
 		struct PreTransformationData
 		{

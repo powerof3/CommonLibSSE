@@ -82,7 +82,7 @@ namespace fmt
 		}
 
 		template <class FormatContext>
-		auto format(const RE::EffectArchetype& a_archetype, FormatContext& a_ctx)
+		auto format(const RE::EffectArchetype& a_archetype, FormatContext& a_ctx) const
 		{
 			return fmt::format_to(a_ctx.out(), "{}", RE::EffectArchetypeToString(a_archetype));
 		}

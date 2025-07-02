@@ -149,6 +149,7 @@ namespace RE
 
 		TESObjectREFR* GetReference() const;
 		Actor*         GetActorReference() const;
+		void           ForceRefTo(TESObjectREFR* a_ref);
 
 		// members
 		GenericFillData fillData;    // 28

@@ -2,6 +2,7 @@
 
 #include "RE/B/BGSDefaultObjectManager.h"
 #include "RE/B/BGSKeyword.h"
+#include "RE/B/BGSWorldLocation.h"
 #include "RE/B/BSFixedString.h"
 #include "RE/E/ExtraCharge.h"
 #include "RE/E/ExtraContainerChanges.h"
@@ -10,6 +11,7 @@
 #include "RE/E/ExtraFlags.h"
 #include "RE/E/ExtraLock.h"
 #include "RE/E/ExtraOwnership.h"
+#include "RE/E/ExtraPersistentCell.h"
 #include "RE/E/ExtraReferenceHandle.h"
 #include "RE/E/ExtraTextDisplayData.h"
 #include "RE/F/FormTraits.h"
@@ -59,7 +61,7 @@ namespace RE
 	bool TESObjectREFR::ActivateRef(TESObjectREFR* a_activator, uint8_t a_arg2, TESBoundObject* a_object, int32_t a_count, bool a_defaultProcessingOnly)
 	{
 		using func_t = decltype(&TESObjectREFR::ActivateRef);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(19369, 20221) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19369, 19796) };
 		return func(this, a_activator, a_arg2, a_object, a_count, a_defaultProcessingOnly);
 	}
 
@@ -350,7 +352,7 @@ namespace RE
 		return ObjectRefHandle(this);
 	}
 
-	float TESObjectREFR::GetHeadingAngle(const NiPoint3& a_pos, bool a_abs)
+	float TESObjectREFR::GetHeadingAngle(const NiPoint3& a_pos, bool a_abs) const
 	{
 		float theta = NiFastATan2(a_pos.x - GetPositionX(), a_pos.y - GetPositionY());
 		float heading = rad_to_deg(theta - GetAngleZ());
@@ -375,6 +377,7 @@ namespace RE
 
 		return height;
 	}
+
 	auto TESObjectREFR::GetInventory()
 		-> InventoryItemMap
 	{
@@ -593,6 +596,27 @@ namespace RE
 		using func_t = decltype(&TESObjectREFR::GetWeightInContainer);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(19277, 19703) };
 		return func(this);
+	}
+
+	BGSWorldLocation TESObjectREFR::GetWorldLocation() const
+	{
+		BGSWorldLocation worldLocation;
+		worldLocation.space = nullptr;
+		worldLocation.pos = GetPosition();
+
+		if (parentCell) {
+			if (parentCell->IsInteriorCell() || !parentCell->worldSpace) {
+				worldLocation.space = parentCell;
+			}
+		} else {
+			if (auto xData = extraList.GetByType<ExtraPersistentCell>()) {
+				if (xData->persistentCell && xData->persistentCell->IsExteriorCell()) {
+					worldLocation.space = xData->persistentCell->worldSpace;
+				}
+			}
+		}
+
+		return worldLocation;
 	}
 
 	TESWorldSpace* TESObjectREFR::GetWorldspace() const

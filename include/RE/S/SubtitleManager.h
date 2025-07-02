@@ -15,6 +15,8 @@ namespace RE
 		BSString        subtitle;        // 08
 		float           targetDistance;  // 18
 		bool            forceDisplay;    // 1C
+		std::uint8_t    pad1D;           // 1D
+		std::uint16_t   pad1E;           // 1E
 	};
 	static_assert(sizeof(SubtitleInfo) == 0x20);
 

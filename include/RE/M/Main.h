@@ -10,7 +10,7 @@ namespace RE
 {
 	class NiNode;
 	class NiCamera;
-	class Scenegraph;
+	class SceneGraph;
 	class ScrapHeap;
 	struct BSGamerProfileEvent;
 	struct BSPackedTask;
@@ -70,7 +70,7 @@ namespace RE
 
 		static float       QFrameAnimTime();
 		static NiCamera*   WorldRootCamera();
-		static Scenegraph* WorldRootNode();
+		static SceneGraph* WorldRootNode();
 
 		bool IsRoomVisible(NiNode* a_room);
 		void SetActive(bool a_active);

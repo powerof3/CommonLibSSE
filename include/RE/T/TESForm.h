@@ -319,6 +319,7 @@ namespace RE
 			return (Is(a_args) || ...);
 		}
 
+		[[nodiscard]] bool IsActor() const noexcept { return Is(FormType::ActorCharacter); }
 		[[nodiscard]] bool IsAmmo() const noexcept { return Is(FormType::Ammo); }
 		[[nodiscard]] bool IsArmor() const noexcept { return Is(FormType::Armor); }
 		[[nodiscard]] bool IsBook() const noexcept { return Is(FormType::Book); }

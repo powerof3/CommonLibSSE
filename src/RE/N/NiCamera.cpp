@@ -2,30 +2,26 @@
 
 namespace RE
 {
-	bool NiCamera::BoundInFrustum(const NiBound& a_bound, NiCamera* a_camera)
+	bool NiCamera::BoundInFrustum(const NiBound& a_bound, RE::NiCamera* a_camera)
 	{
 		using func_t = decltype(&NiCamera::BoundInFrustum);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(15671, 15899) };
 		return func(a_bound, a_camera);
 	}
 
-	bool NiCamera::NodeInFrustum(NiAVObject* a_node, NiCamera* a_camera)
+	bool NiCamera::NodeInFrustum(NiAVObject* a_node)
 	{
 		if (!a_node) {
 			return false;
 		}
 
-		return BoundInFrustum(a_node->worldBound, a_camera);
+		return BoundInFrustum(a_node->worldBound, this);
 	}
 
-	bool NiCamera::PointInFrustum(const NiPoint3& a_point, NiCamera* a_camera, float a_radius)
+	bool NiCamera::PointInFrustum(const NiPoint3& a_point, float a_radius)
 	{
-		if (!a_camera) {
-			return false;
-		}
-
 		const NiBound bound{ a_point, a_radius };
-		return BoundInFrustum(bound, a_camera);
+		return BoundInFrustum(bound, this);
 	}
 
 	bool NiCamera::WindowPointToRay(std::int32_t a_x, std::int32_t a_y, NiPoint3& a_origin, NiPoint3& a_dir, float a_windowWidth, float a_windowHeight)
