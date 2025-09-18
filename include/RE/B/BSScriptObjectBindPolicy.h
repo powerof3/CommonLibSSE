@@ -35,6 +35,7 @@ namespace RE
 			virtual void Unk_0C(void) = 0;               // 0C
 
 			void BindObject(BSTSmartPointer<Object>& a_objectPtr, VMHandle a_handle);
+			void GetInitialPropertyValues(VMHandle a_handle, const BSFixedString& a_className, BSTScrapHashMap<BSFixedString, Variable>& a_propertyValues, std::uint32_t& a_nonConvertedProperties) const;
 
 			// members
 			IVirtualMachine*               vm;                   // 08
