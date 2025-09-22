@@ -98,4 +98,9 @@ namespace RE
 		static REL::Relocation<func_t> func{ RELOCATION_ID(69439, 70816) };
 		return func(this);
 	}
+
+	void NiTimeController::SetNext(NiTimeController* a_next)
+	{
+		next.reset(a_next);
+	}
 }

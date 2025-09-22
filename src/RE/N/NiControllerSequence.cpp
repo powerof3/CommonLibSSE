@@ -15,4 +15,11 @@ namespace RE
 		static REL::Relocation<func_t> func{ RELOCATION_ID(70860, 72439) };
 		return func(this, a_phase, a_arg2);
 	}
+
+	bool NiControllerSequence::ResolveTransformInterpolators(NiAVObject* a_root, NiDefaultAVObjectPalette* a_objectPalette, std::uint32_t a_formal)
+	{
+		using func_t = decltype(&NiControllerSequence::ResolveTransformInterpolators);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(70909, 72497) };
+		return func(this, a_root, a_objectPalette, a_formal);
+	}
 }

@@ -1276,6 +1276,7 @@ set(SOURCES
 	include/RE/N/NavMesh.h
 	include/RE/N/NavMeshInfoMap.h
 	include/RE/N/NiAVObject.h
+	include/RE/N/NiAVObjectPalette.h
 	include/RE/N/NiAccumulator.h
 	include/RE/N/NiAllocator.h
 	include/RE/N/NiAlphaAccumulator.h
@@ -1297,6 +1298,7 @@ set(SOURCES
 	include/RE/N/NiControllerManager.h
 	include/RE/N/NiControllerSequence.h
 	include/RE/N/NiCullingProcess.h
+	include/RE/N/NiDefaultAVObjectPalette.h
 	include/RE/N/NiDirectionalLight.h
 	include/RE/N/NiExtraData.h
 	include/RE/N/NiFile.h

@@ -33,6 +33,7 @@ namespace RE
 		void                            DeleteExtraData(std::uint16_t a_extraDataIndex);
 		[[nodiscard]] NiTimeController* GetControllers() const;
 		NiTimeController*               GetController(const NiRTTI* a_rtti) const;
+		void                            RemoveController(NiTimeController* a_controller);
 
 		template <class T>
 		[[nodiscard]] T* GetController() const;

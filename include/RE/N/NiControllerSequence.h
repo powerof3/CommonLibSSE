@@ -12,6 +12,7 @@ namespace RE
 	class NiAVObject;
 	class NiBlendInterpolator;
 	class NiControllerManager;
+	class NiDefaultAVObjectPalette;
 	class NiInterpController;
 	class NiInterpolator;
 	class NiStringPalette;
@@ -83,6 +84,7 @@ namespace RE
 		[[nodiscard]] constexpr bool Animating() const noexcept { return state == AnimState::kAnimating; }
 		[[nodiscard]] constexpr bool Inactive() const noexcept { return state == AnimState::kInactive; }
 		void                         SetPhase(float a_phase, bool a_arg2);
+		bool                         ResolveTransformInterpolators(NiAVObject* a_root, NiDefaultAVObjectPalette* a_objectPalette, std::uint32_t a_formal);
 
 		// members
 		BSFixedString                                            name;                     // 10
