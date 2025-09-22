@@ -796,6 +796,7 @@ namespace RE
 		{
 			inline constexpr REL::ID Add(static_cast<std::uint64_t>(12176));
 			inline constexpr REL::ID SetCount(static_cast<std::uint64_t>(11471));
+			inline constexpr REL::ID SetEnchantment(static_cast<std::uint64_t>(11921));
 			inline constexpr REL::ID SetExtraFlags(static_cast<std::uint64_t>(11903));
 			inline constexpr REL::ID SetInventoryChanges(static_cast<std::uint64_t>(11483));
 		}
