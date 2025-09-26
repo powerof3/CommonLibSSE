@@ -20,6 +20,25 @@ namespace RE
 		};
 		using InputType = InputTypes::InputType;
 
+		void Init(InputType a_id, float a_xValue, float a_yValue)
+		{
+			Init(a_id, INPUT_DEVICE::kGamepad, a_xValue, a_yValue, ""sv);
+		}
+
+		void Init(InputType a_id, INPUT_DEVICE a_device, float a_xValue, float a_yValue)
+		{
+			Init(a_id, a_device, a_xValue, a_yValue, ""sv);
+		}
+
+		void Init(InputType a_id, INPUT_DEVICE a_device, float a_xValue, float a_yValue, const RE::BSFixedString& a_userEvent)
+		{
+			xValue = a_xValue;
+			yValue = a_yValue;
+			device = a_device;
+			idCode = a_id;
+			userEvent = a_userEvent;
+		}
+
 		[[nodiscard]] bool IsLeft() const;
 		[[nodiscard]] bool IsRight() const;
 

@@ -84,7 +84,6 @@ namespace RE
 			++kinectEventCount;
 		}
 	}
-
 	void BSInputEventQueue::PushOntoInputQueue(InputEvent* a_event)
 	{
 		if (!queueHead) {
