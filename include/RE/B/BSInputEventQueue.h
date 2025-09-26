@@ -22,69 +22,56 @@ namespace RE
 
 		static BSInputEventQueue* GetSingleton();
 
+		template <class T>
+		T* GetCachedEvent();
+
+		template <class T>
+		void AdvanceCount();
+
+		template <class T, class... Args>
+		void AddEvent(Args&&... args)
+		{
+			if (auto cachedEvent = GetCachedEvent<T>()) {
+				cachedEvent->Init(std::forward<Args>(args)...);
+				PushOntoInputQueue(cachedEvent);
+				AdvanceCount<T>();
+			}
+		}
+
 		template <class... Args>
 		void AddButtonEvent(Args&&... args)
 		{
-			if (buttonEventCount < MAX_BUTTON_EVENTS) {
-				auto& cachedEvent = buttonEvents[buttonEventCount];
-				cachedEvent.Init(std::forward<Args>(args)...);
-				PushOntoInputQueue(&cachedEvent);
-				++buttonEventCount;
-			}
+			AddEvent<ButtonEvent>(std::forward<Args>(args)...);
 		}
 
 		template <class... Args>
 		void AddCharEvent(Args&&... args)
 		{
-			if (charEventCount < MAX_CHAR_EVENTS) {
-				auto& cachedEvent = charEvents[charEventCount];
-				cachedEvent.Init(std::forward<Args>(args)...);
-				++charEventCount;
-			}
+			AddEvent<CharEvent>(std::forward<Args>(args)...);
 		}
 
 		template <class... Args>
 		void AddMouseMoveEvent(Args&&... args)
 		{
-			if (mouseEventCount < MAX_MOUSE_EVENTS) {
-				auto& cachedEvent = mouseEvents[mouseEventCount];
-				cachedEvent.Init(std::forward<Args>(args)...);
-				PushOntoInputQueue(&cachedEvent);
-				++mouseEventCount;
-			}
+			AddEvent<MouseMoveEvent>(std::forward<Args>(args)...);
 		}
 
 		template <class... Args>
 		void AddThumbstickEvent(Args&&... args)
 		{
-			if (thumbstickEventCount < MAX_THUMBSTICK_EVENTS) {
-				auto& cachedEvent = thumbstickEvents[thumbstickEventCount];
-				cachedEvent.Init(std::forward<Args>(args)...);
-				PushOntoInputQueue(&cachedEvent);
-				++thumbstickEventCount;
-			}
+			AddEvent<ThumbstickEvent>(std::forward<Args>(args)...);
 		}
 
 		template <class... Args>
 		void AddConnectEvent(Args&&... args)
 		{
-			if (connectEventCount < MAX_CONNECT_EVENTS) {
-				auto& cachedEvent = connectEvents[connectEventCount];
-				cachedEvent.Init(std::forward<Args>(args)...);
-				PushOntoInputQueue(&cachedEvent);
-				++connectEventCount;
-			}
+			AddEvent<DeviceConnectEvent>(std::forward<Args>(args)...);
 		}
 
 		template <class... Args>
 		void AddKinectEvent(Args&&... args)
 		{
-			if (kinectEventCount < MAX_KINECT_EVENTS) {
-				auto& cachedEvent = kinectEvents[kinectEventCount];
-				cachedEvent.Init(std::forward<Args>(args)...);
-				PushOntoInputQueue(&cachedEvent);
-				++kinectEventCount;
-			}
+			AddEvent<KinectEvent>(std::forward<Args>(args)...);
 		}
 		void PushOntoInputQueue(InputEvent* a_event);
 		void ClearInputQueue();
