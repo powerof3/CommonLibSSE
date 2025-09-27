@@ -46,6 +46,24 @@ namespace RE
 			inline constexpr REL::ID Dtor(static_cast<std::uint64_t>(11572));
 		}
 
+		namespace BGSAddToPlayerInventoryEvent
+		{
+			inline constexpr REL::ID GetIndex(static_cast<std::uint64_t>(380074));
+		}
+
+		namespace BGSCreatedObjectManager
+		{
+			inline constexpr REL::ID AddArmorEnchantment(static_cast<std::uint64_t>(36166));
+			inline constexpr REL::ID AddWeaponEnchantment(static_cast<std::uint64_t>(36165));
+			inline constexpr REL::ID DestroyEnchantment(static_cast<std::uint64_t>(36169));
+			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(400320));
+		}
+
+		namespace BGSDefaultObjectManager
+		{
+			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(13894));
+		}
+
 		namespace BGSEntryPoint
 		{
 			inline constexpr REL::ID EntryPoints(static_cast<std::uint64_t>(368994));
