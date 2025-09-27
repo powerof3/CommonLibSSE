@@ -194,6 +194,7 @@ namespace RE
 		void                  SetInventoryChanges(InventoryChanges* a_changes);
 		void                  SetLevCreaModifier(LEV_CREA_MODIFIER a_modifier);
 		void                  SetLinkedRef(TESObjectREFR* a_targetRef, BGSKeyword* a_keyword);
+		void                  SetOverrideName(const char* a_name);
 		void                  SetOwner(TESForm* a_owner);
 
 	private:

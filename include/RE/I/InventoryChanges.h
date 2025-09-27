@@ -44,6 +44,7 @@ namespace RE
 		~InventoryChanges();
 
 		void            AddEntryData(InventoryEntryData* a_entry);
+		RE::ExtraDataList* EnchantObject(RE::TESBoundObject* a_obj, RE::ExtraDataList* a_extraList, RE::EnchantmentItem* a_enchantment, uint16_t a_charge);
 		TESObjectARMO*  GetArmorInSlot(std::int32_t a_slot);
 		float           GetInventoryWeight();
 		std::uint16_t   GetNextUniqueID();

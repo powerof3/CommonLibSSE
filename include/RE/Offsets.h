@@ -17,6 +17,8 @@ namespace RE
 			inline constexpr REL::ID GetLevel(static_cast<std::uint64_t>(37334));
 			inline constexpr REL::ID HasPerk(static_cast<std::uint64_t>(37698));
 			inline constexpr REL::ID IsRunning(static_cast<std::uint64_t>(37234));
+			inline constexpr REL::ID RefreshEquippedActorValueCharge(static_cast<std::uint64_t>(38752));
+			inline constexpr REL::ID RemoveSpell(static_cast<std::uint64_t>(38717));
 			inline constexpr REL::ID RequestDetectionLevel(static_cast<std::uint64_t>(37764));
 			inline constexpr REL::ID SwitchRace(static_cast<std::uint64_t>(37925));
 			inline constexpr REL::ID UpdateArmorAbility(static_cast<std::uint64_t>(38751));

@@ -48,6 +48,13 @@ namespace RE
 		return func(this);
 	}
 
+	RE::ExtraDataList* InventoryChanges::EnchantObject(RE::TESBoundObject* a_obj, RE::ExtraDataList* a_extraList, RE::EnchantmentItem* a_enchantment, uint16_t a_charge)
+	{
+		using func_t = decltype(&InventoryChanges::EnchantObject);
+		static REL::Relocation<func_t> func{ RE::Offset::InventoryChanges::EnchantObject };
+		return func(this, a_obj, a_extraList, a_enchantment, a_charge);
+	}
+
 	std::uint32_t InventoryChanges::GetWornMask()
 	{
 		using func_t = decltype(&InventoryChanges::GetWornMask);

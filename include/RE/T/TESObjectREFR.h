@@ -388,6 +388,8 @@ namespace RE
 		InventoryCountMap                       GetInventoryCounts();
 		InventoryCountMap                       GetInventoryCounts(std::function<bool(TESBoundObject&)> a_filter, bool a_noInit = false);
 		InventoryChanges*                       GetInventoryChanges(bool a_noInit = false);
+		[[nodiscard]] RE::InventoryEntryData*   GetInventoryItemAt(std::int32_t a_index, bool a_isViewingContainer = false) const;
+		[[nodiscard]] std::int32_t              GetInventoryItemCount(bool a_isViewingContainer = false, bool a_playable = true) const;
 		TESObjectREFR*                          GetLinkedRef(BGSKeyword* a_keyword);
 		REFR_LOCK*                              GetLock() const;
 		LOCK_LEVEL                              GetLockLevel() const;
