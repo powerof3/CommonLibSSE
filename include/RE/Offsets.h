@@ -533,6 +533,11 @@ namespace RE
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(403450));
 		}
 
+		namespace IMenu
+		{
+			inline constexpr REL::ID RefreshPlatform(static_cast<std::uint64_t>(82309));
+		}
+
 		namespace TESCamera
 		{
 			inline constexpr REL::ID SetState(static_cast<std::uint64_t>(33026));
