@@ -114,6 +114,9 @@ namespace RE
 
 		struct Skill  // AVSK
 		{
+			TES_HEAP_REDEFINE_NEW();
+
+			// members
 			float useMult;        // 00
 			float offsetMult;     // 04
 			float improveMult;    // 08
