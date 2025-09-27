@@ -1726,7 +1726,6 @@
 #include "RE/W/WeatherType.h"
 #include "RE/W/WerewolfEffect.h"
 #include "RE/W/WerewolfFeedEffect.h"
-#include "RE/W/WorldSpaceMenu.h"
 #include "RE/X/X3DAudio.h"
 #include "RE/X/XAPO.h"
 #include "RE/X/XAudio2.h"

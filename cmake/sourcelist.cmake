@@ -1728,7 +1728,6 @@ set(SOURCES
 	include/RE/W/WeatherType.h
 	include/RE/W/WerewolfEffect.h
 	include/RE/W/WerewolfFeedEffect.h
-	include/RE/W/WorldSpaceMenu.h
 	include/RE/X/X3DAudio.h
 	include/RE/X/XAPO.h
 	include/RE/X/XAudio2.h
@@ -1840,7 +1839,6 @@ set(SOURCES
 	src/RE/B/BSFaceGenAnimationData.cpp
 	src/RE/B/BSFaceGenKeyframeMultiple.cpp
 	src/RE/B/BSFixedString.cpp
-	src/RE/B/BSFurnitureMarkerNode.cpp
 	src/RE/B/BSGamepadDevice.cpp
 	src/RE/B/BSGameSound.cpp
 	src/RE/B/BSHandleRefObject.cpp
@@ -1878,7 +1876,6 @@ set(SOURCES
 	src/RE/B/BSWin32SaveDataSystemUtility.cpp
 	src/RE/B/BSWin32VirtualKeyboardDevice.cpp
 	src/RE/B/BSWindModifier.cpp
-	src/RE/B/BSWin32SystemUtility.cpp
 	src/RE/B/BSXAudio2GameSound.cpp
 	src/RE/B/BSXFlags.cpp
 	src/RE/B/BarterMenu.cpp
