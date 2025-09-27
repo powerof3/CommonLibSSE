@@ -38,6 +38,10 @@ namespace RE
 
 		static Inventory3DManager* GetSingleton();
 
+		static void SetMouseRotation(bool a_active);
+		static void StartMouseRotation() { SetMouseRotation(true); }
+		static void StopMouseRotation() { SetMouseRotation(false); }
+
 		void Begin3D(INTERFACE_LIGHT_SCHEME a_scheme);
 		void End3D();
 		void LoadInventoryItem(InventoryEntryData* a_objDesc);

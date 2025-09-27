@@ -37,6 +37,20 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_BSFurnitureMarkerNode;
 		inline static constexpr auto NiRTTI = NiRTTI_BSFurnitureMarkerNode;
 
+		[[nodiscard]] static BSFurnitureMarkerNode* FindBSFurnitureMarkerNode(NiObjectNET* a_object)
+		{
+			using func_t = decltype(&BSFurnitureMarkerNode::FindBSFurnitureMarkerNode);
+			REL::Relocation<func_t> func{ Offset::BSFurnitureMarkerNode::FindBSFurnitureMarkerNode };
+			return func(a_object);
+		}
+
+		[[nodiscard]] static std::uint32_t GetNumFurnitureMarkers(NiObjectNET* a_object)
+		{
+			const auto markerNode = FindBSFurnitureMarkerNode(a_object);
+			return markerNode ? markerNode->markers.size() : 0;
+		}
+
+		// members
 		BSTArray<BSFurnitureMarker> markers;  // 18
 	};
 }

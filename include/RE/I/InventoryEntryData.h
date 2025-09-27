@@ -34,6 +34,7 @@ namespace RE
 		InventoryEntryData& operator=(InventoryEntryData&& a_rhs);
 
 		void                                          AddExtraList(ExtraDataList* a_extra);
+		InventoryEntryData&                           DeepCopy(const InventoryEntryData& a_other);
 		[[nodiscard]] const char*                     GetDisplayName();
 		[[nodiscard]] EnchantmentItem*                GetEnchantment() const;
 		[[nodiscard]] std::optional<double>           GetEnchantmentCharge() const;

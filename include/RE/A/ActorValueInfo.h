@@ -134,6 +134,13 @@ namespace RE
 		// override (TESIcon)
 		[[nodiscard]] const char* GetDefaultPath() const override;  // 06 - { return "Textures\\"; }
 
+		[[nodiscard]] static const char* GetActorValueName(ActorValue a_actorValue)
+		{
+			using func_t = decltype(&ActorValueInfo::GetActorValueName);
+			REL::Relocation<func_t> func{ Offset::ActorValueInfo::GetActorValueName };
+			return func(a_actorValue);
+		}
+
 		bool IsInverted() const { return flags.all(ActorValueFlag::kInverted); }
 
 		// members

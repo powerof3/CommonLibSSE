@@ -30,6 +30,11 @@ namespace RE
 			inline constexpr REL::ID UnequipObject(static_cast<std::uint64_t>(38901));
 		}
 
+		namespace ActorValueInfo
+		{
+			inline constexpr REL::ID GetActorValueName(static_cast<std::uint64_t>(27192));
+		}
+
 		namespace ActorValueOwner
 		{
 			inline constexpr REL::ID GetClampedActorValue(static_cast<std::uint64_t>(27284));
@@ -37,6 +42,7 @@ namespace RE
 
 		namespace AIProcess
 		{
+			inline constexpr REL::ID ClearFurniture(static_cast<std::uint64_t>(39798));
 			inline constexpr REL::ID SetBaseScale(static_cast<std::uint64_t>(39588));
 			inline constexpr REL::ID Update3DModel(static_cast<std::uint64_t>(39395));
 		}
@@ -133,6 +139,31 @@ namespace RE
 			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(67652));
 			inline constexpr REL::ID BuildSoundDataFromDescriptor(static_cast<std::uint64_t>(67666));
 			inline constexpr REL::ID PrecacheDescriptor(static_cast<std::uint64_t>(67720));
+		}
+
+		namespace BSFaceGenAnimationData
+		{
+			inline constexpr REL::ID Reset(26586);
+			inline constexpr REL::ID SetExpressionOverride(26594);
+		}
+
+		namespace BSFixedString
+		{
+			inline constexpr REL::ID Ctor8(69161);
+			inline constexpr REL::ID Ctor16(69176);
+		}
+
+		namespace BSFurnitureMarkerNode
+		{
+			inline constexpr REL::ID FindBSFurnitureMarkerNode(static_cast<std::uint64_t>(76647));
+		}
+
+		namespace BSGraphics
+		{
+			namespace State
+			{
+				inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(411479));
+			}
 		}
 
 		namespace BSInputDeviceManager
@@ -1268,6 +1299,11 @@ namespace RE
 			inline constexpr REL::ID CreateUIMessageData(static_cast<std::uint64_t>(80061));
 			inline constexpr REL::ID ProcessCommands(static_cast<std::uint64_t>(80059));
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(514285));
+		}
+
+		namespace UIUtils
+		{
+			inline constexpr REL::ID PlayMenuSound(static_cast<std::uint64_t>(52940));
 		}
 
 		namespace UserEvents

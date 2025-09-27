@@ -56,4 +56,10 @@ namespace RE
 		static REL::Relocation<func_t> func{ RELOCATION_ID(50886, 51759) };
 		return func(this);
 	}
+
+	void Inventory3DManager::SetMouseRotation(bool a_active)
+	{
+		REL::Relocation<bool*> bMouseRotation{ Offset::Inventory3DManager::bMouseRotation };
+		*bMouseRotation = a_active;
+	}
 }

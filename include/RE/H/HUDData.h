@@ -14,6 +14,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_HUDData;
 		inline static constexpr auto VTABLE = VTABLE_HUDData;
+		inline static constexpr std::string_view CLASS_NAME = "HUDData";
 
 		enum class Type
 		{

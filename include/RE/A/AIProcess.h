@@ -151,6 +151,7 @@ namespace RE
 
 		void                    AddToProcedureIndexRunning(Actor* a_actor, std::uint32_t a_num);
 		void                    ClearActionHeadtrackTarget(bool a_defaultHold);
+		void                    ClearFurniture();
 		void                    ClearMuzzleFlashes();
 		void                    ComputeLastTimeProcessed();
 		float                   GetCachedHeight() const;

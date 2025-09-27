@@ -26,6 +26,13 @@ namespace RE
 		}
 	}
 
+	void AIProcess::ClearFurniture()
+	{
+		using func_t = decltype(&AIProcess::ClearFurniture);
+		static REL::Relocation<func_t> func{ Offset::AIProcess::ClearFurniture };
+		return func(this);
+	}
+
 	void AIProcess::ClearMuzzleFlashes()
 	{
 		using func_t = decltype(&AIProcess::ClearMuzzleFlashes);
