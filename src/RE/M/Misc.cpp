@@ -41,13 +41,6 @@ namespace RE
 		return func(a_handleOut, a_refTo);
 	}
 
-	void DebugNotification(const char* a_notification, const char* a_soundToPlay, bool a_cancelIfAlreadyQueued)
-	{
-		using func_t = decltype(&DebugNotification);
-		static REL::Relocation<func_t> func{ Offset::DebugNotification };
-		return func(a_notification, a_soundToPlay, a_cancelIfAlreadyQueued);
-	}
-
 	void DebugMessageBox(const char* a_message)
 	{
 		CreateMessage(a_message, nullptr, 0, 4, 10, GameSettingCollection::GetSingleton()->GetSetting("sOk")->GetString(), nullptr);

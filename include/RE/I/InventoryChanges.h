@@ -4,8 +4,11 @@
 #include "RE/B/BSPointerHandle.h"
 #include "RE/B/BSTList.h"
 #include "RE/F/FormTypes.h"
+#include "RE/I/InventoryEntryData.h"
 #include "RE/M/MemoryManager.h"
 #include "RE/T/TESBoundObject.h"
+#include "RE/T/TESContainer.h"
+#include "RE/T/TESObjectREFR.h"
 
 namespace RE
 {
@@ -57,6 +60,30 @@ namespace RE
 		void            SetUniqueID(ExtraDataList* a_itemList, TESForm* a_oldForm, TESForm* a_newForm);
 		void            VisitInventory(IItemChangeVisitor& visitor);
 		void            VisitWornItems(IItemChangeVisitor& visitor);
+
+		[[nodiscard]] std::int32_t GetCount(const TESBoundObject* a_object, std::predicate<const InventoryEntryData*> auto a_itemFilter) const
+		{
+			const auto container = owner ? owner->GetContainer() : nullptr;
+			std::int32_t count = container ? std::abs(container->GetObjectCount(a_object)) : 0;
+
+			if (entryList) {
+				const InventoryEntryData* objEntry = nullptr;
+				for (const auto* const entry : *entryList) {
+					if (entry && entry->object == a_object) {
+						objEntry = entry;
+						break;
+					}
+				}
+
+				if (objEntry) {
+					if (a_itemFilter(objEntry)) {
+						count += objEntry->countDelta;
+					}
+				}
+			}
+
+			return count;
+		}
 
 		TES_HEAP_REDEFINE_NEW();
 

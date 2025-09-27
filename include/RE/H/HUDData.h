@@ -15,6 +15,33 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_HUDData;
 		inline static constexpr auto VTABLE = VTABLE_HUDData;
 
+		enum class Type
+		{
+			kUnk0 = 0,
+			kNotification = 1,
+			kSetBlinking = 11,
+			kSetFadeOut = 12,
+			kSetPct = 13,
+			kQuestStarted = 14,
+			kQuestComplete = 15,
+			kQuestFailed = 16,
+			kSkillIncrease = 20,
+			kWordOfPower1 = 21,
+			kWordOfPower2 = 22,
+			kSetMode = 23
+		};
+
+		enum class Discovery
+		{
+			kCity = 1,
+			kTown = 2,
+			kDungeon4 = 4,
+			kDungeon7 = 7,
+			kDungeon8 = 8,
+			kDungeon12 = 12,
+			kDungeon15 = 15
+		};
+
 		~HUDData() override;  // 00
 
 		// members

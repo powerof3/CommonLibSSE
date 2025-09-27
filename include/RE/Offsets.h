@@ -51,6 +51,11 @@ namespace RE
 			inline constexpr REL::ID GetIndex(static_cast<std::uint64_t>(380074));
 		}
 
+		namespace BGSCraftItemEvent
+		{
+			inline constexpr REL::ID GetIndex(static_cast<std::uint64_t>(380076));
+		}
+
 		namespace BGSCreatedObjectManager
 		{
 			inline constexpr REL::ID AddArmorEnchantment(static_cast<std::uint64_t>(36166));
@@ -127,6 +132,7 @@ namespace RE
 		{
 			inline constexpr REL::ID GetSingleton(static_cast<std::uint64_t>(67652));
 			inline constexpr REL::ID BuildSoundDataFromDescriptor(static_cast<std::uint64_t>(67666));
+			inline constexpr REL::ID PrecacheDescriptor(static_cast<std::uint64_t>(67720));
 		}
 
 		namespace BSInputDeviceManager
@@ -949,6 +955,11 @@ namespace RE
 			inline constexpr std::uint64_t Vtbl(0x17DC448);
 		}
 
+		namespace SendHUDMessage
+		{
+			inline constexpr REL::ID ShowHUDMessage(static_cast<std::uint64_t>(52933));
+		}
+
 		namespace GFxSetBackgroundColor
 		{
 			inline constexpr std::uint64_t Vtbl(0x17DC488);
@@ -1265,11 +1276,9 @@ namespace RE
 		}
 
 		inline constexpr REL::ID CreateRefHandle(static_cast<std::uint64_t>(12193));
-		inline constexpr REL::ID DebugNotification(static_cast<std::uint64_t>(52050));
 		inline constexpr REL::ID LookupReferenceByHandle(static_cast<std::uint64_t>(12204));
 		inline constexpr REL::ID PlaySound(static_cast<std::uint64_t>(52054));
 		inline constexpr REL::ID TlsIndex(static_cast<std::uint64_t>(528600));
 		inline constexpr REL::ID GlobalStateCounter(static_cast<std::uint64_t>(514157));
-#endif
 	}
 }

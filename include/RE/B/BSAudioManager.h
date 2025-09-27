@@ -25,6 +25,7 @@ namespace RE
 		bool BuildSoundDataFromDescriptor(BSSoundHandle& a_soundHandle, BSISoundDescriptor* a_descriptor, std::uint32_t a_flags = 0x1A);
 		void BuildSoundDataFromEditorID(BSSoundHandle& a_soundHandle, const char* a_editorID, std::uint32_t a_flags);
 		void BuildSoundDataFromFile(BSSoundHandle& a_soundHandle, const BSResource::ID& a_file, std::uint32_t a_flags, std::uint32_t a_priority);
+		void PrecacheDescriptor(const BSISoundDescriptor* a_descriptor, std::uint32_t a_flags);
 
 		// members
 		std::uint64_t                                  unk000;  // 000
