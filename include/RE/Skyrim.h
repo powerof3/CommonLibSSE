@@ -1557,6 +1557,7 @@
 #include "RE/T/TESFlora.h"
 #include "RE/T/TESForm.h"
 #include "RE/T/TESFormDeleteEvent.h"
+#include "RE/T/TESFormUIData.h"
 #include "RE/T/TESFullName.h"
 #include "RE/T/TESFurniture.h"
 #include "RE/T/TESFurnitureEvent.h"

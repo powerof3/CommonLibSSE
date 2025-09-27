@@ -1559,6 +1559,7 @@ set(SOURCES
 	include/RE/T/TESFlora.h
 	include/RE/T/TESForm.h
 	include/RE/T/TESFormDeleteEvent.h
+	include/RE/T/TESFormUIData.h
 	include/RE/T/TESFullName.h
 	include/RE/T/TESFurniture.h
 	include/RE/T/TESFurnitureEvent.h
@@ -2096,6 +2097,7 @@ set(SOURCES
 	src/RE/T/TESWorldSpace.cpp
 	src/RE/T/TaskQueueInterface.cpp
 	src/RE/T/ThumbstickEvent.cpp
+	src/RE/T/TutorialMenu.cpp
 	src/RE/T/TypeInfo.cpp
 	src/RE/U/UI.cpp
 	src/RE/U/UI3DSceneManager.cpp

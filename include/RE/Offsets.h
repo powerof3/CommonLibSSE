@@ -1281,6 +1281,11 @@ namespace RE
 			inline constexpr REL::ID ResetQuest(static_cast<std::uint64_t>(24486));
 		}
 
+		namespace TutorialMenu
+		{
+			inline constexpr REL::ID TutorialsShownA(static_cast<std::uint64_t>(406588));
+		}
+
 		namespace UI
 		{
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(514178));
