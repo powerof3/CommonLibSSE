@@ -94,7 +94,7 @@ namespace RE
 		BSTArray<LinkedMapping>                      linkedMappings;                      // 0E8
 		BSTArray<InputContextID>                     contextPriorityStack;                // 100
 		REX::EnumSet<UEFlag, std::uint32_t>          enabledControls;                     // 118
-		stl::enumeration<UEFlag, std::uint32_t>          storedControls;                      // 124
+		REX::EnumSet<UEFlag, std::uint32_t>          storedControls;                      // 124
 		std::int8_t                                  textEntryCount;                      // 120
 		bool                                         ignoreKeyboardMouse;                 // 121
 		bool                                         ignoreActivateDisabledEvents;        // 122

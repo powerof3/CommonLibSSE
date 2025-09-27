@@ -107,7 +107,7 @@ namespace RE
 		return ""sv;
 	}
 
-	void ControlMap::PopInputContext(InputContextID a_context)
+		void ControlMap::PopInputContext(InputContextID a_context)
 	{
 		using func_t = decltype(&ControlMap::PopInputContext);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(67244, 68544) };
@@ -120,8 +120,8 @@ namespace RE
 		static REL::Relocation<func_t> func{ RELOCATION_ID(67243, 68543) };
 		return func(this, a_context);
 	}
-
-	void ControlMap::ToggleControls(UEFlag a_flags, bool a_enable)
+	
+	void ControlMap::StoreControls()
 	{
 		if (storedControls == UEFlag::kInvalid) {
 			storedControls = enabledControls;
@@ -142,13 +142,17 @@ namespace RE
 
 		if (a_enable) {
 			enabledControls.set(a_flags);
-			if (unk11C != UEFlag::kInvalid) {
-				unk11C.set(a_flags);
+			if (a_storeState) {
+				if (storedControls != UEFlag::kInvalid) {
+					storedControls.set(a_flags);
+				}
 			}
 		} else {
 			enabledControls.reset(a_flags);
-			if (unk11C != UEFlag::kInvalid) {
-				unk11C.reset(a_flags);
+			if (a_storeState) {
+				if (storedControls != UEFlag::kInvalid) {
+					storedControls.reset(a_flags);
+				}
 			}
 		}
 
