@@ -17,9 +17,9 @@ namespace RE
 		void Unk_0A(void) override;  // 0A - { return; }
 
 		// add
-		virtual void Unk_0B(void) = 0;  // 0B
-		virtual void Unk_0C(void) = 0;  // 0C
-		virtual void Unk_0D(void) = 0;  // 0D
+		virtual void Start(const kbInfo* a_info) = 0;  // 0B
+		virtual void Stop() = 0;                       // 0C
+		virtual void UserCancelled() = 0;              // 0D
 
 	protected:
 		BSVirtualKeyboardDevice();  // The virtual keyboard device constructor does not set the device type to virtualKeyboard, it remains 'kKeyboard'
