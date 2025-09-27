@@ -241,6 +241,12 @@ namespace RE
 			inline constexpr REL::ID SetInventoryChanges(static_cast<std::uint64_t>(11600));
 		}
 
+		namespace Effect
+		{
+			inline constexpr REL::ID SetDuration(static_cast<std::uint64_t>(11012));
+			inline constexpr REL::ID SetMagnitude(static_cast<std::uint64_t>(11008));
+		}
+
 		namespace GameSettingCollection
 		{
 			inline constexpr REL::ID Singleton(static_cast<std::uint64_t>(400782));

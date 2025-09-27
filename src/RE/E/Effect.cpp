@@ -47,4 +47,18 @@ namespace RE
 	{
 		return baseEffect->IsHostile();
 	}
+
+	void Effect::SetDuration(std::int32_t a_duration)
+	{
+		using func_t = decltype(&Effect::SetDuration);
+		REL::Relocation<func_t> func{ Offset::Effect::SetDuration };
+		return func(this, a_duration);
+	}
+
+	void Effect::SetMagnitude(float a_magnitude)
+	{
+		using func_t = decltype(&Effect::SetMagnitude);
+		REL::Relocation<func_t> func{ Offset::Effect::SetMagnitude };
+		return func(this, a_magnitude);
+	}
 }
