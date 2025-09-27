@@ -190,8 +190,7 @@ namespace RE
 			void UpdateInterface();
 
 			// members
-			stl::enumeration<FilterFlag, std::uint32_t>  filters[5];              // 110
-			REX::EnumSet<FilterFlag, std::uint32_t>      filterDisenchant;        // 100
+			REX::EnumSet<FilterFlag, std::uint32_t>      filters[5];              // 110
 			std::uint32_t                                pad114;                  // 114
 			BSTArray<BSTSmartPointer<CategoryListEntry>> listEntries;             // 118
 			BSString                                     customName;              // 130
