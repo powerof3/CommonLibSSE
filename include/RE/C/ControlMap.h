@@ -67,6 +67,7 @@ namespace RE
 		std::int8_t               AllowTextInput(bool a_allow);
 		constexpr bool            AreControlsEnabled(UEFlag a_flags) const noexcept { return enabledControls.all(a_flags); }
 		std::uint32_t             GetMappedKey(std::string_view a_eventID, INPUT_DEVICE a_device, InputContextID a_context = InputContextID::kGameplay) const;
+		bool             GetMappingFromEventName(const BSFixedString& a_eventID, UserEvents::INPUT_CONTEXT_ID a_context, INPUT_DEVICE a_device, UserEventMapping& a_mapping);
 		std::string_view          GetUserEventName(std::uint32_t a_buttonID, INPUT_DEVICE a_device, InputContextID a_context = InputContextID::kGameplay) const;
 		constexpr PC_GAMEPAD_TYPE GetGamePadType() const noexcept { return gamePadMapType.get(); }
 		constexpr bool            IsActivateControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kActivate); }

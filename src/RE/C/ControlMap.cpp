@@ -43,6 +43,21 @@ namespace RE
 		return kInvalid;
 	}
 
+	bool ControlMap::GetMappingFromEventName(const BSFixedString& a_eventID, UserEvents::INPUT_CONTEXT_ID a_context, INPUT_DEVICE a_device, UserEventMapping& a_mapping)
+	{
+		const auto context = controlMap[a_context];
+		if (context) {
+			for (auto& mapping : context->deviceMappings[a_device]) {
+				if (mapping.eventID == a_eventID) {
+					a_mapping = mapping;
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
 	std::string_view ControlMap::GetUserEventName(std::uint32_t a_buttonID, INPUT_DEVICE a_device, InputContextID a_context) const
 	{
 		assert(a_device < INPUT_DEVICE::kTotal);
