@@ -28,7 +28,9 @@ namespace RE
 			kLeftHand = 0,
 			kRightHand = 1,
 			kOther = 2,
-			kInstant = 3
+			kInstant = 3,
+
+			kNone = 4
 		};
 
 		enum class CastingType
@@ -47,7 +49,7 @@ namespace RE
 			kTargetActor = 3,
 			kTargetLocation = 4,
 
-			kTotal
+			kNone = 5
 		};
 
 		enum class SoundID

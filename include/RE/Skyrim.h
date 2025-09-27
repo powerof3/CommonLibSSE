@@ -511,6 +511,7 @@
 #include "RE/C/CombatObject.h"
 #include "RE/C/CombatSearchLocation.h"
 #include "RE/C/CombatState.h"
+#include "RE/C/CombatUtilities.h"
 #include "RE/C/CommandEffect.h"
 #include "RE/C/CommandSummonedEffect.h"
 #include "RE/C/CommandTable.h"

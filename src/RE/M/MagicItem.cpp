@@ -12,7 +12,7 @@ namespace RE
 		return CalculateCost(a_caster);
 	}
 
-	MagicItemDataCollector MagicItem::CollectData() const
+	Effect* MagicItem::GetCostliestEffectItem(MagicSystem::Delivery a_delivery, bool a_arg2)
 	{
 		MagicItemDataCollector ans(this);
 		Traverse(ans);
@@ -29,8 +29,8 @@ namespace RE
 	Effect* MagicItem::GetCostliestEffectItem(MagicSystem::Delivery a_delivery, bool a_positiveArea) const
 	{
 		using func_t = decltype(&MagicItem::GetCostliestEffectItem);
-		static REL::Relocation<func_t> func{ Offset::MagicItem::GetCostliestEffectItem };
-		return func(this, a_delivery, a_positiveArea);
+		REL::Relocation<func_t> func{ Offset::MagicItem::GetCostliestEffectItem };
+		return func(this, a_delivery, a_arg2);
 	}
 
 	float MagicItem::CalculateCost(Actor* a_caster) const

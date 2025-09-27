@@ -1,5 +1,8 @@
 #pragma once
 
+#include "RE/A/ActorValues.h"
+#include "RE/F/FormTypes.h"
+
 namespace RE
 {
 	struct EffectArchetypes
@@ -55,6 +58,57 @@ namespace RE
 			kGrabActor = 45,
 			kVampireLord = 46
 		};
+
+		enum class Flags : std::uint32_t
+		{
+			kNone = 0,
+			kHiddenInEditor = 1 << 0,
+			kIsActorValueUsed = 1 << 1,
+			kIsFormUsed = 1 << 2,
+			kUnk3 = 1 << 3,
+			kAllowStacking = 1 << 4,
+			kCannotMultiCast = 1 << 5,
+			kCreatesRef = 1 << 6,
+			kCustomSkillUse = 1 << 7,
+			kRewardsSkillUseWithoutTarget = 1 << 8,
+			kAddsEffectToCaster = 1 << 9
+		};
+
+		struct ArchetypeDef
+		{
+			const char*                            name;                // 00
+			stl::enumeration<Flags, std::uint32_t> flags;               // 08
+			ActorValue                             fixedActorValue;     // 0C
+			FormType                               associatedFormType;  // 10
+			std::uint32_t                          pad14;               // 14
+		};
+		static_assert(sizeof(ArchetypeDef) == 0x18);
+
+		static ArchetypeDef& GetArchetypeDef(ArchetypeID a_id)
+		{
+			REL::Relocation<ArchetypeDef*> archetypes{ Offset::EffectArchetypes::Archetypes };
+			return archetypes.get()[stl::to_underlying(a_id)];
+		}
+
+		static const char* GetArchetypeName(ArchetypeID a_id)
+		{
+			return GetArchetypeDef(a_id).name;
+		}
+
+		static FormType GetAssociatedFormType(ArchetypeID a_id)
+		{
+			return GetArchetypeDef(a_id).associatedFormType;
+		}
+
+		static ActorValue GetFixedActorValue(ArchetypeID a_id)
+		{
+			return GetArchetypeDef(a_id).fixedActorValue;
+		}
+
+		static bool IsFlagSet(ArchetypeID a_id, Flags a_flag)
+		{
+			return GetArchetypeDef(a_id).flags.all(a_flag);
+		}
 	};
 	using EffectArchetype = EffectArchetypes::ArchetypeID;
 

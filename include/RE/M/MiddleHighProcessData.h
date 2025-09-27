@@ -1,6 +1,8 @@
 #pragma once
 
 #include "RE/A/ActorPackage.h"
+#include "RE/A/ActorValues.h"
+#include "RE/B/BGSBodyPartDefs.h"
 #include "RE/B/BGSPerkEntry.h"
 #include "RE/B/BSAtomic.h"
 #include "RE/B/BSPointerHandle.h"
@@ -34,6 +36,7 @@ namespace RE
 	class NiNode;
 	class QueuedFile;
 	class TESBoundObject;
+	class VATSCommand;
 	struct AnimationVariableData;
 	struct BSAnimationGraphVariableCache;
 
@@ -93,6 +96,67 @@ namespace RE
 		std::uint32_t         pad44;        // 44
 	};
 	static_assert(sizeof(QueuedItem) == 0x48);
+
+	class HitData
+	{
+	public:
+		enum class Flag
+		{
+			kBlocked = 1 << 0,
+			kBlockWithWeapon = 1 << 1,
+			kBlockCandidate = 1 << 2,
+			kCritical = 1 << 3,
+			kCriticalOnDeath = 1 << 4,
+			kFatal = 1 << 5,
+			kDismemberLimb = 1 << 6,
+			kExplodeLimb = 1 << 7,
+			kCrippleLimb = 1 << 8,
+			kDisarm = 1 << 9,
+			kDisableWeapon = 1 << 10,
+			kSneakAttack = 1 << 11,
+			kIgnoreCritical = 1 << 12,
+			kPredictDamage = 1 << 13,
+			kBash = 1 << 14,
+			kTimedBash = 1 << 15,
+			kPowerAttack = 1 << 16,
+			kLeftHand = 1 << 17,
+			kMeleeAttack = 1 << 18,
+			kRicochet = 1 << 19,
+			kExplosion = 1 << 20
+		};
+
+		void Populate(Actor* a_aggressor, Actor* a_target, InventoryEntryData* a_weapon);
+
+		// members
+		NiPoint3                   position;            // 00
+		NiPoint3                   direction;           // 0C
+		ActorHandle                aggressor;           // 18
+		ActorHandle                target;              // 1C
+		ObjectRefHandle            sourceRef;           // 20
+		std::uint32_t              pad24;               // 24
+		NiPointer<BGSAttackData>   attackData;          // 28
+		TESObjectWEAP*             weapon;              // 30
+		SpellItem*                 criticalEffect;      // 38
+		SpellItem*                 combatSpell;         // 40
+		VATSCommand*               vatsCommand;         // 48
+		float                      totalDamage;         // 50
+		float                      physicalDamage;      // 54
+		float                      targetedLimbDamage;  // 58
+		float                      percentBlocked;      // 5C
+		float                      damageToArmor;       // 60
+		float                      damageToWeapon;      // 64
+		float                      stagger;             // 68
+		float                      weaponCondition;     // 6C
+		float                      sneakAttackBonus;    // 70
+		float                      limbDamageMult;      // 74
+		float                      knockbackDamage;     // 78
+		float                      criticalDamageMult;  // 7C
+		Flag                       flags;               // 80
+		std::uint32_t              equipIndex;          // 84
+		ActorValue                 skill;               // 88
+		BGSBodyPartDefs::LIMB_ENUM damageLimb;          // 8C
+	};
+	static_assert(sizeof(HitData) == 0x90);
 
 	struct DeferredHideLimb
 	{
