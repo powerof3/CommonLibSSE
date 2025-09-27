@@ -28,6 +28,7 @@ namespace RE
 
 		TES_HEAP_REDEFINE_NEW();
 
+		void Copy(const Effect* a_other);
 		float         GetMagnitude() const;
 		std::uint32_t GetArea() const;
 		std::uint32_t GetDuration() const;
