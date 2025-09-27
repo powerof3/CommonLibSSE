@@ -53,7 +53,7 @@ namespace RE
 
 				// add
 				virtual void        ShowInItemCard(EnchantConstructMenu* a_menu);  // 01
-				virtual void        Unk_02(void);                                  // 02
+				virtual void        ShowItem3D(bool a_show);                       // 02
 				virtual const char* GetName();                                     // 03
 				virtual void        SetData(GFxValue* dataContainer);              // 04
 
@@ -190,11 +190,8 @@ namespace RE
 			void UpdateInterface();
 
 			// members
+			stl::enumeration<FilterFlag, std::uint32_t>  filters[5];              // 110
 			REX::EnumSet<FilterFlag, std::uint32_t>      filterDisenchant;        // 100
-			REX::EnumSet<FilterFlag, std::uint32_t>      filterDivider;           // 104
-			REX::EnumSet<FilterFlag, std::uint32_t>      filterItem;              // 108
-			REX::EnumSet<FilterFlag, std::uint32_t>      filterEnchantment;       // 10C
-			REX::EnumSet<FilterFlag, std::uint32_t>      filterSoulGem;           // 110
 			std::uint32_t                                pad114;                  // 114
 			BSTArray<BSTSmartPointer<CategoryListEntry>> listEntries;             // 118
 			BSString                                     customName;              // 130

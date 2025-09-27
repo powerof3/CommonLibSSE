@@ -3,8 +3,10 @@
 #include "RE/A/ActorValues.h"
 #include "RE/B/BSFixedString.h"
 #include "RE/B/BSTEvent.h"
+#include "RE/B/BottomBar.h"
 #include "RE/F/FxDelegateHandler.h"
 #include "RE/G/GFxValue.h"
+#include "RE/G/GPtr.h"
 
 namespace RE
 {
@@ -41,22 +43,22 @@ namespace RE
 			}
 
 			// members
-			GFxMovieView* view;                   // 018
-			TESFurniture* furniture;              // 020
-			ItemCard*     itemCard;               // 028
-			GFxValue*     unk030;                 // 030
-			GFxValue      craftingMenu;           // 038
-			GFxValue      itemList;               // 050
-			GFxValue      entryList;              // 068
-			GFxValue      itemInfo;               // 080
-			GFxValue      bottomBarInfo;          // 098
-			GFxValue      additionalDescription;  // 0B0
-			GFxValue      menuName;               // 0C8
-			GFxValue      buttonText;             // 0E0
-			bool          unk0F8;                 // 0F8
-			std::uint8_t  pad0F9;                 // 0F9
-			std::uint16_t pad0FA;                 // 0FA
-			std::uint32_t pad0FC;                 // 0FC
+			GPtr<GFxMovieView> view;                   // 018
+			TESFurniture*      furniture;              // 020
+			ItemCard*          itemCard;               // 028
+			BottomBar*         bottomBar;              // 030
+			GFxValue           craftingMenu;           // 038
+			GFxValue           itemList;               // 050
+			GFxValue           entryList;              // 068
+			GFxValue           itemInfo;               // 080
+			GFxValue           bottomBarInfo;          // 098
+			GFxValue           additionalDescription;  // 0B0
+			GFxValue           menuName;               // 0C8
+			GFxValue           buttonText;             // 0E0
+			bool               unk0F8;                 // 0F8
+			std::uint8_t       pad0F9;                 // 0F9
+			std::uint16_t      pad0FA;                 // 0FA
+			std::uint32_t      pad0FC;                 // 0FC
 		};
 		static_assert(sizeof(CraftingSubMenu) == 0x100);
 	}
