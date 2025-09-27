@@ -64,6 +64,13 @@ namespace RE
 		}
 	}
 
+	BaseExtraList::~BaseExtraList()
+	{
+		using func_t = void(*)(BaseExtraList*);
+		REL::Relocation<func_t> func{ Offset::BaseExtraList::Dtor };
+		func(this);
+	}
+
 	ExtraDataList::iterator ExtraDataList::begin()
 	{
 		return iterator(_extraData.data);
