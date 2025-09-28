@@ -24,7 +24,6 @@ namespace RE
 	public:
 		static BSInputDeviceManager* GetSingleton();
 
-		bool                          GetButtonNameFromID(INPUT_DEVICE a_device, std::int32_t a_id, BSFixedString& a_buttonName) const;
 		BSPCGamepadDeviceDelegate*    GetGamepad();
 		BSPCGamepadDeviceHandler*     GetGamepadHandler();
 		BSWin32KeyboardDevice*        GetKeyboard();
