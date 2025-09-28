@@ -217,7 +217,7 @@ namespace RE
 
 		namespace BSScaleformTranslator
 		{
-			inline constexpr REL::ID GetCachedString(static_cast<std::uint64_t>(69188));
+			inline constexpr REL::ID GetCachedString(static_cast<std::uint64_t>(443410));
 		}
 
 		namespace BSScript
