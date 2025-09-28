@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/A/ActorValues.h"
 #include "RE/B/BSFixedString.h"
 #include "RE/F/FormTypes.h"
 #include "RE/T/TESDescription.h"
@@ -114,6 +115,9 @@ namespace RE
 
 		struct Skill  // AVSK
 		{
+			TES_HEAP_REDEFINE_NEW();
+
+			// members
 			float useMult;        // 00
 			float offsetMult;     // 04
 			float improveMult;    // 08

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RE/B/BSTSingleton.h"
+#include "RE/F/FormTraits.h"
 #include "RE/F/FormTypes.h"
 #include "RE/T/TESForm.h"
 

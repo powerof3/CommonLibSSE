@@ -67,6 +67,7 @@ namespace RE
 		std::int8_t               AllowTextInput(bool a_allow);
 		constexpr bool            AreControlsEnabled(UEFlag a_flags) const noexcept { return enabledControls.all(a_flags); }
 		std::uint32_t             GetMappedKey(std::string_view a_eventID, INPUT_DEVICE a_device, InputContextID a_context = InputContextID::kGameplay) const;
+		bool             GetMappingFromEventName(const BSFixedString& a_eventID, UserEvents::INPUT_CONTEXT_ID a_context, INPUT_DEVICE a_device, UserEventMapping& a_mapping);
 		std::string_view          GetUserEventName(std::uint32_t a_buttonID, INPUT_DEVICE a_device, InputContextID a_context = InputContextID::kGameplay) const;
 		constexpr PC_GAMEPAD_TYPE GetGamePadType() const noexcept { return gamePadMapType.get(); }
 		constexpr bool            IsActivateControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kActivate); }
@@ -83,14 +84,16 @@ namespace RE
 		constexpr bool            IsWheelZoomControlsEnabled() const noexcept { return enabledControls.all(UEFlag::kWheelZoom); }
 		void                      PopInputContext(InputContextID a_context);
 		void                      PushInputContext(InputContextID a_context);
-		void                      ToggleControls(UEFlag a_flags, bool a_enable);
+		void             StoreControls();
+		void             LoadStoredControls();
+		void             ToggleControls(UEFlag a_flags, bool a_enable, bool a_storeState);
 
 		// members
 		InputContext*                                controlMap[InputContextID::kTotal];  // 060
 		BSTArray<LinkedMapping>                      linkedMappings;                      // 0E8
 		BSTArray<InputContextID>                     contextPriorityStack;                // 100
 		REX::EnumSet<UEFlag, std::uint32_t>          enabledControls;                     // 118
-		REX::EnumSet<UEFlag, std::uint32_t>          unk11C;                              // 11C
+		REX::EnumSet<UEFlag, std::uint32_t>          storedControls;                      // 124
 		std::int8_t                                  textEntryCount;                      // 120
 		bool                                         ignoreKeyboardMouse;                 // 121
 		bool                                         ignoreActivateDisabledEvents;        // 122

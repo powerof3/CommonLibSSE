@@ -43,6 +43,21 @@ namespace RE
 		return kInvalid;
 	}
 
+	bool ControlMap::GetMappingFromEventName(const BSFixedString& a_eventID, UserEvents::INPUT_CONTEXT_ID a_context, INPUT_DEVICE a_device, UserEventMapping& a_mapping)
+	{
+		const auto context = controlMap[a_context];
+		if (context) {
+			for (auto& mapping : context->deviceMappings[a_device]) {
+				if (mapping.eventID == a_eventID) {
+					a_mapping = mapping;
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
 	std::string_view ControlMap::GetUserEventName(std::uint32_t a_buttonID, INPUT_DEVICE a_device, InputContextID a_context) const
 	{
 		assert(a_device < INPUT_DEVICE::kTotal);
@@ -81,20 +96,39 @@ namespace RE
 		static REL::Relocation<func_t> func{ RELOCATION_ID(67243, 68543) };
 		return func(this, a_context);
 	}
+	
+	void ControlMap::StoreControls()
+	{
+		if (storedControls == UEFlag::kInvalid) {
+			storedControls = enabledControls;
+		}
+	}
 
-	void ControlMap::ToggleControls(UEFlag a_flags, bool a_enable)
+	void ControlMap::LoadStoredControls()
+	{
+		if (storedControls != UEFlag::kInvalid) {
+			enabledControls = storedControls;
+			storedControls = UEFlag::kInvalid;
+		}
+	}
+
+	void ControlMap::ToggleControls(UEFlag a_flags, bool a_enable, bool a_storeState)
 	{
 		auto oldState = enabledControls;
 
 		if (a_enable) {
 			enabledControls.set(a_flags);
-			if (unk11C != UEFlag::kInvalid) {
-				unk11C.set(a_flags);
+			if (a_storeState) {
+				if (storedControls != UEFlag::kInvalid) {
+					storedControls.set(a_flags);
+				}
 			}
 		} else {
 			enabledControls.reset(a_flags);
-			if (unk11C != UEFlag::kInvalid) {
-				unk11C.reset(a_flags);
+			if (a_storeState) {
+				if (storedControls != UEFlag::kInvalid) {
+					storedControls.reset(a_flags);
+				}
 			}
 		}
 

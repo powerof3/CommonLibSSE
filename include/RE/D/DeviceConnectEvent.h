@@ -12,6 +12,12 @@ namespace RE
 
 		~DeviceConnectEvent() override;  // 00
 
+		void Init(INPUT_DEVICE a_device, bool a_connected)
+		{
+			device = a_device;
+			connected = a_connected;
+		}
+
 		// members
 		bool          connected;  // 18
 		std::uint8_t  pad19;      // 19

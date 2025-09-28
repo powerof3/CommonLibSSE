@@ -1,6 +1,6 @@
 #pragma once
 
-#include "RE/B/BSTList.h"
+#include "RE/B/BSSimpleList.h"
 #include "RE/E/ExtraDataList.h"
 #include "RE/F/FormTypes.h"
 #include "RE/M/MemoryManager.h"
@@ -34,6 +34,7 @@ namespace RE
 		InventoryEntryData& operator=(InventoryEntryData&& a_rhs);
 
 		void                                          AddExtraList(ExtraDataList* a_extra);
+		InventoryEntryData&                           DeepCopy(const InventoryEntryData& a_other);
 		[[nodiscard]] const char*                     GetDisplayName();
 		[[nodiscard]] EnchantmentItem*                GetEnchantment() const;
 		[[nodiscard]] std::optional<double>           GetEnchantmentCharge() const;
@@ -52,6 +53,13 @@ namespace RE
 		[[nodiscard]] bool                            IsOwnedBy(Actor* a_testOwner, TESForm* a_itemOwner, bool a_defaultTo = true);
 		[[nodiscard]] bool                            IsQuestObject() const;
 		void                                          PoisonObject(AlchemyItem* a_alchItem, std::uint32_t a_count);
+
+		void SetWorn(bool a_worn, bool a_left, bool a_deleteExtraList = true)
+		{
+			using func_t = decltype(&InventoryEntryData::SetWorn);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(16027, 15789) };
+			return func(this, a_worn, a_left, a_deleteExtraList);
+		}
 
 		TES_HEAP_REDEFINE_NEW();
 

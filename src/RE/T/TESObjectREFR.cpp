@@ -482,6 +482,20 @@ namespace RE
 		return xContChanges ? xContChanges->changes : nullptr;
 	}
 
+	RE::InventoryEntryData* TESObjectREFR::GetInventoryItemAt(std::int32_t a_index, bool a_isViewingContainer) const
+	{
+		using func_t = decltype(&TESObjectREFR::GetInventoryItemAt);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19273,19699) };
+		return func(this, a_index, a_isViewingContainer);
+	}
+
+	std::int32_t TESObjectREFR::GetInventoryItemCount(bool a_isViewingContainer, bool a_playable) const
+	{
+		using func_t = decltype(&TESObjectREFR::GetInventoryItemCount);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19274, 19700) };
+		return func(this, a_isViewingContainer, a_playable);
+	}
+
 	TESObjectREFR* TESObjectREFR::GetLinkedRef(BGSKeyword* a_keyword)
 	{
 		return extraList.GetLinkedRef(a_keyword);

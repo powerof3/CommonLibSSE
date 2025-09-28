@@ -48,6 +48,7 @@ set(SOURCES
 	include/RE/A/AttachedScript.h
 	include/RE/A/AttackAnimationArrayMap.h
 	include/RE/A/AttackBlockHandler.h
+	include/RE/A/AudioDefs.h
 	include/RE/A/AutoMoveHandler.h
 	include/RE/A/AutoRegisterCreator.h
 	include/RE/A/AutoRegisterFactory.h
@@ -79,7 +80,9 @@ set(SOURCES
 	include/RE/B/BGSCameraShot.h
 	include/RE/B/BGSCollisionLayer.h
 	include/RE/B/BGSColorForm.h
+	include/RE/B/BGSConstructFormsInAllFilesMap.h
 	include/RE/B/BGSConstructibleObject.h
+	include/RE/B/BGSCraftItemEvent.h
 	include/RE/B/BGSCreatedObjectManager.h
 	include/RE/B/BGSDebris.h
 	include/RE/B/BGSDecalEmitter.h
@@ -95,6 +98,7 @@ set(SOURCES
 	include/RE/B/BGSDynamicPersistenceManager.h
 	include/RE/B/BGSEncounterZone.h
 	include/RE/B/BGSEntryPoint.h
+	include/RE/B/BGSEntryPointFunction.h
 	include/RE/B/BGSEntryPointFunctionData.h
 	include/RE/B/BGSEntryPointFunctionDataActivateChoice.h
 	include/RE/B/BGSEntryPointFunctionDataOneValue.h
@@ -108,6 +112,7 @@ set(SOURCES
 	include/RE/B/BGSFootstepEvent.h
 	include/RE/B/BGSFootstepManager.h
 	include/RE/B/BGSFootstepSet.h
+	include/RE/B/BGSFormChanges.h
 	include/RE/B/BGSGrassManager.h
 	include/RE/B/BGSHazard.h
 	include/RE/B/BGSHeadPart.h
@@ -211,8 +216,12 @@ set(SOURCES
 	include/RE/B/BSArchive.h
 	include/RE/B/BSArchiveHeader.h
 	include/RE/B/BSAtomic.h
+	include/RE/B/BSAudio.h
+	include/RE/B/BSAudioInit.h
+	include/RE/B/BSAudioListener.h
 	include/RE/B/BSAudioManager.h
 	include/RE/B/BSAudioManagerThread.h
+	include/RE/B/BSAudioMonitor.h
 	include/RE/B/BSBatchRenderer.h
 	include/RE/B/BSBitField.h
 	include/RE/B/BSBloodSplatterShaderProperty.h
@@ -324,6 +333,7 @@ set(SOURCES
 	include/RE/B/BSPrecomputedNavmeshInfoPathMap.h
 	include/RE/B/BSReloadShaderI.h
 	include/RE/B/BSRenderPass.h
+	include/RE/B/BSResource.h
 	include/RE/B/BSResourceEntry.h
 	include/RE/B/BSResourceEntryCache.h
 	include/RE/B/BSResourceEntryDB.h
@@ -349,10 +359,13 @@ set(SOURCES
 	include/RE/B/BSShadowFrustumLight.h
 	include/RE/B/BSShadowLight.h
 	include/RE/B/BSShadowParabolicLight.h
+	include/RE/B/BSSimpleList.h
 	include/RE/B/BSSimpleScaleController.h
 	include/RE/B/BSSkyShaderProperty.h
 	include/RE/B/BSSmallBlockAllocator.h
 	include/RE/B/BSSoundHandle.h
+	include/RE/B/BSSoundInfo.h
+	include/RE/B/BSSoundMessage.h
 	include/RE/B/BSStorage.h
 	include/RE/B/BSStream.h
 	include/RE/B/BSString.h
@@ -405,6 +418,9 @@ set(SOURCES
 	include/RE/B/BSWin32SaveDataSystemUtility.h
 	include/RE/B/BSWin32VirtualKeyboardDevice.h
 	include/RE/B/BSWindModifier.h
+	include/RE/B/BSXAudio2Audio.h
+	include/RE/B/BSXAudio2AudioListener.h
+	include/RE/B/BSXAudio2DataSrc.h
 	include/RE/B/BSXAudio2GameSound.h
 	include/RE/B/BSXFlags.h
 	include/RE/B/BShkbAnimationGraph.h
@@ -465,6 +481,7 @@ set(SOURCES
 	include/RE/B/bhkWorldObject.h
 	include/RE/C/CFilter.h
 	include/RE/C/CRC.h
+	include/RE/C/CXAPOBase.h
 	include/RE/C/Calendar.h
 	include/RE/C/CalmEffect.h
 	include/RE/C/CharEvent.h
@@ -507,6 +524,7 @@ set(SOURCES
 	include/RE/C/CombatObject.h
 	include/RE/C/CombatSearchLocation.h
 	include/RE/C/CombatState.h
+	include/RE/C/CombatUtilities.h
 	include/RE/C/CommandEffect.h
 	include/RE/C/CommandSummonedEffect.h
 	include/RE/C/CommandTable.h
@@ -536,6 +554,7 @@ set(SOURCES
 	include/RE/C/CrosshairPickData.h
 	include/RE/C/CureEffect.h
 	include/RE/C/CursorMenu.h
+	include/RE/D/D3DTypes.h
 	include/RE/D/DamageImpactData.h
 	include/RE/D/DarknessEffect.h
 	include/RE/D/DecalData.h
@@ -1148,10 +1167,14 @@ set(SOURCES
 	include/RE/I/IStackCallbackSaveInterface.h
 	include/RE/I/IStore.h
 	include/RE/I/IUIMessageData.h
+	include/RE/I/IUnknown.h
 	include/RE/I/IVMDebugInterface.h
 	include/RE/I/IVMObjectBindInterface.h
 	include/RE/I/IVMSaveLoadInterface.h
 	include/RE/I/IVirtualMachine.h
+	include/RE/I/IXAudio2.h
+	include/RE/I/IXAudio2EngineCallback.h
+	include/RE/I/IXAudio2Voice.h
 	include/RE/I/IXAudio2VoiceCallback.h
 	include/RE/I/ImageSpaceData.h
 	include/RE/I/ImageSpaceEffect.h
@@ -1454,6 +1477,7 @@ set(SOURCES
 	include/RE/S/ScriptFunction.h
 	include/RE/S/ScriptedRefEffect.h
 	include/RE/S/ScrollItem.h
+	include/RE/S/SendHUDMessage.h
 	include/RE/S/SendPlayerToJailFunctor.h
 	include/RE/S/SendUIMessage.h
 	include/RE/S/SetEventData.h
@@ -1487,6 +1511,8 @@ set(SOURCES
 	include/RE/S/SoulTrapEffect.h
 	include/RE/S/SoulsTrapped.h
 	include/RE/S/SoundLevels.h
+	include/RE/S/SoundMessageList.h
+	include/RE/S/SoundMessageStack.h
 	include/RE/S/SourceActionMap.h
 	include/RE/S/SpawnHazardEffect.h
 	include/RE/S/SpecificItemCollector.h
@@ -1553,6 +1579,7 @@ set(SOURCES
 	include/RE/T/TESFlora.h
 	include/RE/T/TESForm.h
 	include/RE/T/TESFormDeleteEvent.h
+	include/RE/T/TESFormUIData.h
 	include/RE/T/TESFullName.h
 	include/RE/T/TESFurniture.h
 	include/RE/T/TESFurnitureEvent.h
@@ -1611,6 +1638,7 @@ set(SOURCES
 	include/RE/T/TESProduceForm.h
 	include/RE/T/TESQualityForm.h
 	include/RE/T/TESQuest.h
+	include/RE/T/TESQuestInitEvent.h
 	include/RE/T/TESQuestStageEvent.h
 	include/RE/T/TESQuestStageItem.h
 	include/RE/T/TESQuestStartStopEvent.h
@@ -1679,8 +1707,10 @@ set(SOURCES
 	include/RE/U/UI3DSceneManager.h
 	include/RE/U/UIBlurManager.h
 	include/RE/U/UIMessage.h
+	include/RE/U/UIMessageDataFactory.h
 	include/RE/U/UIMessageQueue.h
 	include/RE/U/UISaveLoadManager.h
+	include/RE/U/UIUtils.h
 	include/RE/U/UnlinkedTypes.h
 	include/RE/U/UserEventEnabled.h
 	include/RE/U/UserEvents.h
@@ -1699,6 +1729,9 @@ set(SOURCES
 	include/RE/W/WeatherType.h
 	include/RE/W/WerewolfEffect.h
 	include/RE/W/WerewolfFeedEffect.h
+	include/RE/X/X3DAudio.h
+	include/RE/X/XAPO.h
+	include/RE/X/XAudio2.h
 	include/RE/Z/ZeroFunctionArguments.h
 	include/RE/Z/ZeroOverheadHeap.h
 	include/REL/ID.h
@@ -1780,6 +1813,7 @@ set(SOURCES
 	src/RE/B/BGSBaseAlias.cpp
 	src/RE/B/BGSBipedObjectForm.cpp
 	src/RE/B/BGSColorForm.cpp
+	src/RE/B/BGSConstructibleObject.cpp
 	src/RE/B/BGSCreatedObjectManager.cpp
 	src/RE/B/BGSDebris.cpp
 	src/RE/B/BGSEntryPointFunctionDataActivateChoice.cpp
@@ -1807,6 +1841,7 @@ set(SOURCES
 	src/RE/B/BSFaceGenKeyframeMultiple.cpp
 	src/RE/B/BSFixedString.cpp
 	src/RE/B/BSGamepadDevice.cpp
+	src/RE/B/BSGameSound.cpp
 	src/RE/B/BSHandleRefObject.cpp
 	src/RE/B/BSInputDevice.cpp
 	src/RE/B/BSInputDeviceFactory.cpp
@@ -1833,6 +1868,7 @@ set(SOURCES
 	src/RE/B/BSSystemFileStorage.cpp
 	src/RE/B/BSTArray.cpp
 	src/RE/B/BSTCreateFactoryManager.cpp
+	src/RE/B/BSUIMessageData.cpp
 	src/RE/B/BSVirtualKeyboardDevice.cpp
 	src/RE/B/BSVisit.cpp
 	src/RE/B/BSWin32GamepadDevice.cpp
@@ -1841,6 +1877,7 @@ set(SOURCES
 	src/RE/B/BSWin32SaveDataSystemUtility.cpp
 	src/RE/B/BSWin32VirtualKeyboardDevice.cpp
 	src/RE/B/BSWindModifier.cpp
+	src/RE/B/BSXAudio2GameSound.cpp
 	src/RE/B/BSXFlags.cpp
 	src/RE/B/BarterMenu.cpp
 	src/RE/B/BipedAnim.cpp
@@ -2038,6 +2075,7 @@ set(SOURCES
 	src/RE/S/ScrapHeap.cpp
 	src/RE/S/Script.cpp
 	src/RE/S/ScriptEventSourceHolder.cpp
+	src/RE/S/SendHUDMessage.cpp
 	src/RE/S/SendUIMessage.cpp
 	src/RE/S/Setting.cpp
 	src/RE/S/ShadowSceneNode.cpp
@@ -2081,9 +2119,11 @@ set(SOURCES
 	src/RE/T/TESSpellList.cpp
 	src/RE/T/TESTopic.cpp
 	src/RE/T/TESTopicInfo.cpp
+	src/RE/T/TESValueForm.cpp
 	src/RE/T/TESWorldSpace.cpp
 	src/RE/T/TaskQueueInterface.cpp
 	src/RE/T/ThumbstickEvent.cpp
+	src/RE/T/TutorialMenu.cpp
 	src/RE/T/TypeInfo.cpp
 	src/RE/U/UI.cpp
 	src/RE/U/UI3DSceneManager.cpp

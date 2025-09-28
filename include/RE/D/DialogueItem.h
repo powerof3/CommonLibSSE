@@ -2,8 +2,8 @@
 
 #include "RE/B/BSFixedString.h"
 #include "RE/B/BSIntrusiveRefCounted.h"
+#include "RE/B/BSSimpleList.h"
 #include "RE/B/BSString.h"
-#include "RE/B/BSTList.h"
 #include "RE/E/EmotionTypes.h"
 #include "RE/M/MemoryManager.h"
 

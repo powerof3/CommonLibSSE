@@ -33,6 +33,13 @@ namespace RE
 		free(presence);
 		presence = nullptr;
 	}
+#else
+	BaseExtraList::~BaseExtraList()
+	{
+		using func_t = void(*)(BaseExtraList*);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11426) };
+		func(this);
+	}
 #endif
 
 	bool BaseExtraList::PresenceBitfield::HasType(std::uint32_t a_type) const
@@ -143,7 +150,7 @@ namespace RE
 
 		bool removed = false;
 
-		while (_extraData.data->GetType() == a_type) {
+		while (_extraData.data && _extraData.data->GetType() == a_type) {
 			auto tmp = _extraData.data;
 			_extraData.data = _extraData.data->next;
 			delete tmp;
@@ -151,7 +158,7 @@ namespace RE
 		}
 
 		auto prev = _extraData.data;
-		for (auto cur = _extraData.data->next; cur; cur = cur->next) {
+		for (auto cur = _extraData.data ? _extraData.data->next : nullptr; cur; cur = cur->next) {
 			if (cur->GetType() == a_type) {
 				prev->next = cur->next;
 				delete cur;
@@ -168,7 +175,7 @@ namespace RE
 	BSExtraData* ExtraDataList::Add(BSExtraData* a_toAdd)
 	{
 		using func_t = decltype(&ExtraDataList::Add);
-		static REL::Relocation<func_t> func{ Offset::ExtraDataList::Add };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(12176, 12315) };
 		return func(this, a_toAdd);
 	}
 
@@ -292,8 +299,15 @@ namespace RE
 	void ExtraDataList::SetCount(std::uint16_t a_count)
 	{
 		using func_t = decltype(&ExtraDataList::SetCount);
-		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetCount };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11471, 11617) };
 		return func(this, a_count);
+	}
+
+	void ExtraDataList::SetEnchantment(EnchantmentItem* a_enchantment, std::uint16_t a_chargeAmount, bool a_removeOnUnequip)
+	{
+		using func_t = decltype(&ExtraDataList::SetEnchantment);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11921, 12060) };
+		return func(this, a_enchantment, a_chargeAmount, a_removeOnUnequip);
 	}
 
 	void ExtraDataList::SetEncounterZone(BGSEncounterZone* a_zone)
@@ -313,7 +327,7 @@ namespace RE
 	void ExtraDataList::SetExtraFlags(ExtraFlags::Flag a_flags, bool a_enable)
 	{
 		using func_t = decltype(&ExtraDataList::SetExtraFlags);
-		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetExtraFlags };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11903, 12042) };
 		return func(this, a_flags, a_enable);
 	}
 
@@ -327,7 +341,7 @@ namespace RE
 	void ExtraDataList::SetInventoryChanges(InventoryChanges* a_changes)
 	{
 		using func_t = decltype(&ExtraDataList::SetInventoryChanges);
-		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetInventoryChanges };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11483, 11600) };
 		return func(this, a_changes);
 	}
 
@@ -350,6 +364,19 @@ namespace RE
 		using func_t = decltype(&ExtraDataList::SetLinkedRef);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(11633, 11779) };
 		return func(this, a_targetRef, a_keyword);
+	}
+
+	void ExtraDataList::SetOverrideName(const char* a_name)
+	{
+		auto textData = GetByType<RE::ExtraTextDisplayData>();
+		if (!textData) {
+			textData = new RE::ExtraTextDisplayData();
+			Add(textData);
+		}
+
+		if (!textData->displayNameText && !textData->ownerQuest) {
+			textData->SetName(a_name);
+		}
 	}
 
 	void ExtraDataList::SetOwner(TESForm* a_owner)

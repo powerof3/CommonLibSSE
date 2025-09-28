@@ -71,6 +71,13 @@ namespace RE
 		extraLists->push_front(a_extra);
 	}
 
+	InventoryEntryData& InventoryEntryData::DeepCopy(const InventoryEntryData& a_other)
+	{
+		using func_t = decltype(&InventoryEntryData::DeepCopy);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(15745, 15983) };
+		return func(this, a_other);
+	}
+
 	const char* InventoryEntryData::GetDisplayName()
 	{
 		const char* name = nullptr;

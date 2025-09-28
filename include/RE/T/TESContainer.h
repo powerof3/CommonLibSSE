@@ -58,7 +58,7 @@ namespace RE
 		std::optional<std::uint32_t>    GetContainerObjectIndex(TESBoundObject* a_object, std::int32_t a_count) const;
 		bool                            AddObjectToContainer(TESBoundObject* a_object, std::int32_t a_count, TESForm* a_owner);
 		bool                            AddObjectsToContainer(std::map<TESBoundObject*, std::int32_t>& a_objects, TESForm* a_owner);
-		std::int32_t                    CountObjectsInContainer(TESBoundObject* a_object) const;
+		[[nodiscard]] std::int32_t      GetObjectCount(const TESBoundObject* a_object) const;
 		bool                            RemoveObjectFromContainer(TESBoundObject* a_object, std::int32_t a_count);
 
 		// members

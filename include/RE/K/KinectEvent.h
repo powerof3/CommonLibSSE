@@ -13,6 +13,12 @@ namespace RE
 
 		~KinectEvent() override;  // 00
 
+		void Init(const BSFixedString& a_userEvent, const BSFixedString& a_heard)
+		{
+			userEvent = a_userEvent;
+			heard = a_heard;
+		}
+
 		// members
 		BSFixedString heard;  // 28
 	};

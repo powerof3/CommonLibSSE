@@ -14,6 +14,7 @@ namespace RE
 	public:
 		inline static constexpr auto RTTI = RTTI_MessageBoxData;
 		inline static constexpr auto VTABLE = VTABLE_MessageBoxData;
+		inline static constexpr std::string_view CLASS_NAME = "MessageBoxData";
 
 		~MessageBoxData() override;  // 00
 

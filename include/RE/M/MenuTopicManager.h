@@ -2,9 +2,9 @@
 
 #include "RE/B/BSFixedString.h"
 #include "RE/B/BSPointerHandle.h"
+#include "RE/B/BSSimpleList.h"
 #include "RE/B/BSString.h"
 #include "RE/B/BSTEvent.h"
-#include "RE/B/BSTList.h"
 #include "RE/B/BSTSingleton.h"
 
 #include "REX/W32/BASE.h"

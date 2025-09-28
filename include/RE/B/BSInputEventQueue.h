@@ -22,12 +22,57 @@ namespace RE
 
 		static BSInputEventQueue* GetSingleton();
 
-		void AddButtonEvent(INPUT_DEVICE a_device, std::int32_t a_id, float a_value, float a_duration);
-		void AddCharEvent(std::uint32_t a_keyCode);
-		void AddMouseMoveEvent(std::int32_t a_mouseInputX, std::int32_t a_mouseInputY);
-		void AddThumbstickEvent(ThumbstickEvent::InputType a_id, float a_xValue, float a_yValue);
-		void AddConnectEvent(INPUT_DEVICE a_device, bool a_connected);
-		void AddKinectEvent(const BSFixedString& a_userEvent, const BSFixedString& a_heard);
+		template <class T>
+		T* GetCachedEvent();
+
+		template <class T>
+		void AdvanceCount();
+
+		template <class T, class... Args>
+		void AddEvent(Args&&... args)
+		{
+			if (auto cachedEvent = GetCachedEvent<T>()) {
+				cachedEvent->Init(std::forward<Args>(args)...);
+				PushOntoInputQueue(cachedEvent);
+				AdvanceCount<T>();
+			}
+		}
+
+		template <class... Args>
+		void AddButtonEvent(Args&&... args)
+		{
+			AddEvent<ButtonEvent>(std::forward<Args>(args)...);
+		}
+
+		template <class... Args>
+		void AddCharEvent(Args&&... args)
+		{
+			AddEvent<CharEvent>(std::forward<Args>(args)...);
+		}
+
+		template <class... Args>
+		void AddMouseMoveEvent(Args&&... args)
+		{
+			AddEvent<MouseMoveEvent>(std::forward<Args>(args)...);
+		}
+
+		template <class... Args>
+		void AddThumbstickEvent(Args&&... args)
+		{
+			AddEvent<ThumbstickEvent>(std::forward<Args>(args)...);
+		}
+
+		template <class... Args>
+		void AddConnectEvent(Args&&... args)
+		{
+			AddEvent<DeviceConnectEvent>(std::forward<Args>(args)...);
+		}
+
+		template <class... Args>
+		void AddKinectEvent(Args&&... args)
+		{
+			AddEvent<KinectEvent>(std::forward<Args>(args)...);
+		}
 		void PushOntoInputQueue(InputEvent* a_event);
 		void ClearInputQueue();
 

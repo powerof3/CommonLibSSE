@@ -2,11 +2,11 @@
 
 #include "RE/B/BGSDefaultObjectManager.h"
 #include "RE/B/BSPointerHandle.h"
+#include "RE/B/BSSimpleList.h"
 #include "RE/B/BSSoundHandle.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTEvent.h"
 #include "RE/B/BSTHashMap.h"
-#include "RE/B/BSTList.h"
 #include "RE/B/BSTSmartPointer.h"
 #include "RE/B/BSTTuple.h"
 #include "RE/C/Character.h"
@@ -492,7 +492,7 @@ namespace RE
 		std::int32_t                                            difficulty;                                   // AF8
 		ActorHandle                                             assumedIdentity;                              // AFC
 		std::int8_t                                             murder;                                       // B00
-		std::int8_t                                             perkCount;                                    // B01
+		std::uint8_t                                            perkCount;                                    // B01
 		REX::EnumSet<ByCharGenFlag, std::uint8_t>               byCharGenFlag;                                // B02
 		std::uint8_t                                            padB03;                                       // B03
 		std::uint32_t                                           unkB04;                                       // B04

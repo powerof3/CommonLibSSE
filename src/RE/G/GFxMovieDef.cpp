@@ -23,6 +23,6 @@ namespace RE
 	GFxMovieView* GFxMovieDef::CreateInstance(bool a_initFirstFrame, UPInt a_memoryArena)
 	{
 		MemoryParams params(a_memoryArena);
-		return CreateInstance(params, a_initFirstFrame);
+		return CreateInstance2(params, a_initFirstFrame);
 	}
 }

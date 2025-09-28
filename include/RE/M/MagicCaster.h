@@ -41,6 +41,21 @@ namespace RE
 			kUnk09,  // Interrupt/Deselect
 		};
 
+		class PostCreationCallback : public MagicTarget::IPostCreationModification
+		{
+		public:
+			inline static constexpr auto RTTI = RTTI_MagicCaster__PostCreationCallback;
+
+			~PostCreationCallback() override;  // 00
+
+			// override (IPostCreationModification)
+			void ModifyActiveEffect(ActiveEffect* a_effect) override;  // 01
+
+			// members
+			std::uint64_t unk08[8];
+		};
+		static_assert(sizeof(PostCreationCallback) == 0x48);
+
 		virtual ~MagicCaster();  // 00
 
 		// add

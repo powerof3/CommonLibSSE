@@ -15,7 +15,24 @@ namespace RE
 
 		~ButtonEvent() override;  // 00
 
-		[[nodiscard]] constexpr float Value() const noexcept { return value; }
+		void Init(INPUT_DEVICE a_device, std::int32_t a_id, float a_value, float a_duration)
+		{
+			Init(a_device, a_id, a_value, a_duration, ""sv);
+		}
+
+		void Init(INPUT_DEVICE a_device, std::int32_t a_id, float a_value, float a_duration, const BSFixedString& a_userEvent)
+		{
+			value = a_value;
+			heldDownSecs = a_duration;
+			device = a_device;
+			idCode = a_id;
+			userEvent = a_userEvent;
+		}
+
+		[[nodiscard]] constexpr float Value() const noexcept
+		{
+			return value;
+		}
 		[[nodiscard]] constexpr float HeldDuration() const noexcept { return heldDownSecs; }
 		[[nodiscard]] constexpr bool  IsPressed() const noexcept { return Value() > 0.0F; }
 		[[nodiscard]] constexpr bool  IsRepeating() const noexcept { return HeldDuration() > 0.0F; }

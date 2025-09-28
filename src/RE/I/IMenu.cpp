@@ -59,35 +59,8 @@ namespace RE
 
 	void IMenu::RefreshPlatform()
 	{
-		using Message = UI_MESSAGE_TYPE;
-
-		auto inputManager = BSInputDeviceManager::GetSingleton();
-		auto gamepad = inputManager != nullptr && inputManager->IsGamepadEnabled();
-		if (uiMovie && uiMovie->IsAvailable("_root.SetPlatform")) {
-			std::array<GFxValue, 2> args;
-			const double            platform = gamepad ? 1.0 : 0.0;
-			args[0].SetNumber(platform);
-			const bool swapPS3 = false;
-			args[1].SetBoolean(swapPS3);
-			uiMovie->Invoke("_root.SetPlatform", nullptr, args.data(), static_cast<std::uint32_t>(args.size()));
-		}
-
-		if (UpdateUsesCursor()) {
-			Message messageID;
-			auto    uiStr = InterfaceStrings::GetSingleton();
-			if (gamepad) {
-				menuFlags.reset(Flag::kUsesCursor);
-				messageID = Message::kHide;
-			} else {
-				menuFlags.set(Flag::kUsesCursor);
-				auto ui = UI::GetSingleton();
-				messageID = ui && ui->IsMenuOpen(uiStr->cursorMenu) ? Message::kUpdate : Message::kShow;
-			}
-
-			auto messageQueue = UIMessageQueue::GetSingleton();
-			if (messageQueue) {
-				messageQueue->AddMessage(uiStr->cursorMenu, messageID, nullptr);
-			}
-		}
+		using func_t = decltype(&IMenu::RefreshPlatform);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(80287, 82309) };
+		return func(this);
 	}
 }
