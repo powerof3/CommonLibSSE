@@ -40,7 +40,7 @@ namespace RE
 		[[nodiscard]] static BSFurnitureMarkerNode* FindBSFurnitureMarkerNode(NiObjectNET* a_object)
 		{
 			using func_t = decltype(&BSFurnitureMarkerNode::FindBSFurnitureMarkerNode);
-			REL::Relocation<func_t> func{ Offset::BSFurnitureMarkerNode::FindBSFurnitureMarkerNode };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(74889, 76647) };
 			return func(a_object);
 		}
 

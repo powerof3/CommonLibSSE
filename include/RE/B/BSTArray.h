@@ -540,53 +540,6 @@ namespace RE
 			}
 		}
 
-		inline iterator insert(const_iterator a_pos, const T& a_value)
-		{
-			return emplace(a_pos, a_value);
-		}
-
-		inline iterator insert(const_iterator a_pos, T&& a_value)
-		{
-			return emplace(a_pos, std::move(a_value));
-		}
-
-		template <class... Args>
-		inline iterator emplace(const_iterator a_pos, Args&&... a_args)
-		{
-			if (a_pos == end()) {
-				return std::addressof(emplace_back(std::forward<Args>(a_args)...));
-			}
-
-			const auto offset = a_pos - begin();
-			const auto oldSize = size();
-			const auto newSize = oldSize + 1;
-
-			if (oldSize == capacity()) {
-				const auto newCapacity = calculate_growth(newSize);
-				const auto newData = allocate(newCapacity);
-				const auto oldData = data();
-				if (oldData) {
-					if (offset != 0) {
-						const auto bytesToCopy = offset * sizeof(value_type);
-						std::memcpy(newData, oldData, bytesToCopy);
-					}
-					const auto bytesToCopy = (oldSize - offset) * sizeof(value_type);
-					std::memcpy(newData + offset + 1, oldData + offset, bytesToCopy);
-					deallocate(oldData);
-				}
-				set_allocator_traits(newData, newCapacity);
-			} else {
-				const auto bytesToMove = (oldSize - offset) * sizeof(value_type);
-				std::memmove(data() + offset + 1, data() + offset, bytesToMove);
-			}
-
-			set_size(newSize);
-			auto& elem = data()[offset];
-
-			std::construct_at(std::addressof(elem), std::forward<Args>(a_args)...);
-			return std::addressof(elem);
-		}
-
 		inline iterator erase(const_iterator a_pos)
 		{
 			auto                    pos = const_cast<iterator>(a_pos);
@@ -749,13 +702,16 @@ namespace RE
 		/// Capacity grows exponentially: hint * 2^level, where level is the number of times the capacity has grown.
 		inline size_type next_capacity(size_type a_hint) const
 		{
-			const auto cap = calculate_growth(a_hint);
-			change_capacity(cap);
+			auto cap = a_hint;
+			cap = cap > 0 ? static_cast<size_type>(std::ceil(static_cast<float>(cap) * GROWTH_FACTOR)) : DF_CAP;
+			return cap;
 		}
 
-		[[nodiscard]] inline size_type calculate_growth(size_type a_hint)
+		inline void grow_capacity() { grow_capacity(capacity()); }
+
+		inline void grow_capacity(size_type a_hint)
 		{
-			return a_hint > 0 ? static_cast<size_type>(std::ceil(static_cast<float>(a_hint) * GROWTH_FACTOR)) : DF_CAP;
+			change_capacity(next_capacity(a_hint));
 		}
 
 		inline void release()

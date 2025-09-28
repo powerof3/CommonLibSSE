@@ -25,7 +25,7 @@ namespace RE
 	void BGSCreatedObjectManager::DestroyEnchantment(EnchantmentItem* a_enchantment, bool a_isWeapon)
 	{
 		using func_t = decltype(&BGSCreatedObjectManager::DestroyEnchantment);
-		REL::Relocation<func_t> func{ Offset::BGSCreatedObjectManager::DestroyEnchantment };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(35267, 36169) };
 		return func(this, a_enchantment, a_isWeapon);
 	}
 }

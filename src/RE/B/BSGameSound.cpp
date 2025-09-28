@@ -5,7 +5,7 @@ namespace RE
 	void BSGameSound::SetOutputModel(BSISoundOutputModel* a_outputModel)
 	{
 		using func_t = decltype(&BSGameSound::SetOutputModel);
-		REL::Relocation<func_t> func{ STATIC_OFFSET(BSGameSound::SetOutputModel) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(66646, 67892) };
 		return func(this, a_outputModel);
 	}
 

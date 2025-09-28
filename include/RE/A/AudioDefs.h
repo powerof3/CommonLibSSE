@@ -27,7 +27,7 @@ namespace RE
 			std::uint16_t wReserved;            // Zero if neither case above applies.
 		} Samples;
 		std::uint32_t dwChannelMask;  // 14 - Positions of the audio channels
-		WinAPI::GUID  SubFormat;      // 18 - Format identifier GUID
+		REX::W32::GUID  SubFormat;    // 18 - Format identifier GUID
 	};
 
 #pragma pack(pop)

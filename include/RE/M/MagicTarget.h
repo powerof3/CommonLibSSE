@@ -60,36 +60,17 @@ namespace RE
 		};
 		static_assert(sizeof(IPostCreationModification) == 0x8);
 
-		class ResultsCollector
+		struct ResultsCollector
 		{
-		public:
 			MagicTarget*  target;       // 00
 			Actor*        caster;       // 08
-			MagicItem*     magicItem;  // 10
+			MagicItem*    spell;        // 10
 			std::uint16_t immunities;   // 12
 			std::uint16_t nonTrivials;  // 14
 			std::uint32_t pad18;        // 18
 		};
 		static_assert(sizeof(ResultsCollector) == 0x20);
 
-		struct AddTargetData
-		{
-			Actor*                     caster;                // 00
-			MagicItem*                 magicItem;             // 08
-			Effect*                    effect;                // 10
-			TESBoundObject*            object;                // 18
-			IPostCreationModification* postCreationCallback;  // 20
-			ResultsCollector*          resultsCollector;      // 28
-			NiPoint3                   center;                // 30
-			float                      baseMagnitude;         // 3C
-			float                      power;                 // 40
-			MagicSystem::CastingSource castingSource;         // 44
-			bool                       isProjectile;          // 48
-			bool                       isDualCasting;         // 49
-			std::uint16_t              pad4A;                 // 4A
-			std::uint32_t              pad4C;                 // 4C
-		};
-		static_assert(sizeof(AddTargetData) == 0x50);
 		struct SpellDispelData
 		{
 			MagicItem*                    spell;         // 00
@@ -105,20 +86,20 @@ namespace RE
 			bool CheckAddEffect(ActiveEffectFactory::CheckTargetArgs& a_args, float a_resistance);
 
 			// members
-			TESObjectREFR*             caster;            // 00
-			MagicItem*                 magicItem;         // 08
-			Effect*                    effect;            // 10
-			TESBoundObject*            source;            // 18
-			std::uint64_t              unk20;             // 20 - MagicCaster::PostCreationCallback
-			ResultsCollector*          resultsCollector;  // 28
-			NiPoint3                   explosionPoint;    // 30
-			float                      magnitude;         // 3C
-			float                      unk40;             // 40
-			MagicSystem::CastingSource castingSource;     // 44
-			bool                       areaTarget;        // 48
-			bool                       dualCasted;        // 49
-			std::uint16_t              pad4A;             // 4A
-			std::uint32_t              pad4C;             // 4C
+			Actor*                     caster;                // 00
+			MagicItem*                 magicItem;             // 08
+			Effect*                    effect;                // 10
+			TESBoundObject*            object;                // 18
+			IPostCreationModification* postCreationCallback;  // 20
+			ResultsCollector*          resultsCollector;      // 28
+			NiPoint3                   center;                // 30
+			float                      baseMagnitude;         // 3C
+			float                      power;                 // 40
+			MagicSystem::CastingSource castingSource;         // 44
+			bool                       isProjectile;          // 48
+			bool                       isDualCasting;         // 49
+			std::uint16_t              pad4A;                 // 4A
+			std::uint32_t              pad4C;                 // 4C
 		};
 		static_assert(sizeof(AddTargetData) == 0x50);
 

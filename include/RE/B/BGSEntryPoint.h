@@ -143,7 +143,7 @@ namespace RE
 		static EntryPoint* GetEntryPoint(ENTRY_POINT a_entryPoint)
 		{
 			if (a_entryPoint < ENTRY_POINT::kTotal) {
-				REL::Relocation<EntryPoint*> entryPoints{ Offset::BGSEntryPoint::EntryPoints };
+				static REL::Relocation<EntryPoint*> entryPoints{ RELOCATION_ID(675707, 368994) };
 				return &entryPoints.get()[a_entryPoint];
 			}
 

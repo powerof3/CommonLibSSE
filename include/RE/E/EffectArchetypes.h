@@ -86,8 +86,8 @@ namespace RE
 
 		static ArchetypeDef& GetArchetypeDef(ArchetypeID a_id)
 		{
-			REL::Relocation<ArchetypeDef*> archetypes{ Offset::EffectArchetypes::Archetypes };
-			return archetypes.get()[stl::to_underlying(a_id)];
+			static REL::Relocation<ArchetypeDef*> archetypes{ RELOCATION_ID(500623, 358289) };
+			return archetypes.get()[std::to_underlying(a_id)];
 		}
 
 		static const char* GetArchetypeName(ArchetypeID a_id)

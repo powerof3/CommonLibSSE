@@ -29,7 +29,7 @@ namespace RE
 	void AIProcess::ClearFurniture()
 	{
 		using func_t = decltype(&AIProcess::ClearFurniture);
-		static REL::Relocation<func_t> func{ Offset::AIProcess::ClearFurniture };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(38773, 39798) };
 		return func(this);
 	}
 
@@ -326,7 +326,7 @@ namespace RE
 	void AIProcess::Update3DModel_Impl(Actor* a_actor)
 	{
 		using func_t = decltype(&AIProcess::Update3DModel_Impl);
-		static REL::Relocation<func_t> func{ Offset::AIProcess::Update3DModel };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(38404, 39395) };
 		return func(this, a_actor);
 	}
 

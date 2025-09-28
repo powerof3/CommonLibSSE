@@ -33,8 +33,6 @@ namespace RE
 		~BaseExtraList();  // 00
 #else
 		virtual ~BaseExtraList();  // 00
-#else
-		~BaseExtraList();
 #endif
 
 		TES_HEAP_REDEFINE_NEW();

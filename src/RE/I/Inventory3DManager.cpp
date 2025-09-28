@@ -59,7 +59,7 @@ namespace RE
 
 	void Inventory3DManager::SetMouseRotation(bool a_active)
 	{
-		REL::Relocation<bool*> bMouseRotation{ Offset::Inventory3DManager::bMouseRotation };
+		static REL::Relocation<bool*> bMouseRotation{ RELOCATION_ID(519620, 406167) };
 		*bMouseRotation = a_active;
 	}
 }

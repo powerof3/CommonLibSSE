@@ -22,7 +22,7 @@ namespace RE
 		virtual ~BSAudio();  // 00
 
 		// add
-		virtual bool                     Init(WinAPI::HWND* a_wnd);                                                       // 01
+		virtual bool                     Init(REX::W32::HWND* a_wnd);                                                     // 01
 		virtual void                     Shutdown();                                                                      // 02
 		virtual BSGameSound*             GetGameSound(const BSResource::ID& a_resourceID) = 0;                            // 03
 		virtual void                     ReleaseGameSound(BSGameSound* a_gameSound) = 0;                                  // 04

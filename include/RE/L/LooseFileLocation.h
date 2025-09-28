@@ -49,7 +49,7 @@ namespace RE
 				auto memory = malloc<LooseFileLocation>();
 				std::memset(memory, 0, sizeof(LooseFileLocation));
 
-				REL::Relocation<std::uintptr_t> vtbl{ Offset::BSResource::LooseFileLocation::Vtbl };
+				static REL::Relocation<std::uintptr_t> vtbl{ RELOCATION_ID(232012, 188191) };
 				((std::uintptr_t*)memory)[0] = vtbl.address();
 
 				memory->prefix = a_prefix;

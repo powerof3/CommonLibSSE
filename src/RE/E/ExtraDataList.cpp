@@ -37,7 +37,7 @@ namespace RE
 	BaseExtraList::~BaseExtraList()
 	{
 		using func_t = void(*)(BaseExtraList*);
-		REL::Relocation<func_t> func{ Offset::BaseExtraList::Dtor };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11426) };
 		func(this);
 	}
 #endif
@@ -62,13 +62,6 @@ namespace RE
 		} else {
 			flag |= bitMask;
 		}
-	}
-
-	BaseExtraList::~BaseExtraList()
-	{
-		using func_t = void (*)(BaseExtraList*);
-		REL::Relocation<func_t> func{ Offset::BaseExtraList::Dtor };
-		func(this);
 	}
 
 	ExtraDataList::iterator ExtraDataList::begin()
@@ -182,7 +175,7 @@ namespace RE
 	BSExtraData* ExtraDataList::Add(BSExtraData* a_toAdd)
 	{
 		using func_t = decltype(&ExtraDataList::Add);
-		static REL::Relocation<func_t> func{ Offset::ExtraDataList::Add };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(12176, 12315) };
 		return func(this, a_toAdd);
 	}
 
@@ -306,15 +299,17 @@ namespace RE
 	void ExtraDataList::SetCount(std::uint16_t a_count)
 	{
 		using func_t = decltype(&ExtraDataList::SetCount);
-		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetCount };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11471, 11617) };
 		return func(this, a_count);
 	}
+
 	void ExtraDataList::SetEnchantment(EnchantmentItem* a_enchantment, std::uint16_t a_chargeAmount, bool a_removeOnUnequip)
 	{
 		using func_t = decltype(&ExtraDataList::SetEnchantment);
-		REL::Relocation<func_t> func{ Offset::ExtraDataList::SetEnchantment };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11921, 12060) };
 		return func(this, a_enchantment, a_chargeAmount, a_removeOnUnequip);
 	}
+
 	void ExtraDataList::SetEncounterZone(BGSEncounterZone* a_zone)
 	{
 		if (auto xZone = GetByType<ExtraEncounterZone>()) {
@@ -332,7 +327,7 @@ namespace RE
 	void ExtraDataList::SetExtraFlags(ExtraFlags::Flag a_flags, bool a_enable)
 	{
 		using func_t = decltype(&ExtraDataList::SetExtraFlags);
-		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetExtraFlags };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11903, 12042) };
 		return func(this, a_flags, a_enable);
 	}
 
@@ -346,7 +341,7 @@ namespace RE
 	void ExtraDataList::SetInventoryChanges(InventoryChanges* a_changes)
 	{
 		using func_t = decltype(&ExtraDataList::SetInventoryChanges);
-		static REL::Relocation<func_t> func{ Offset::ExtraDataList::SetInventoryChanges };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11483, 11600) };
 		return func(this, a_changes);
 	}
 

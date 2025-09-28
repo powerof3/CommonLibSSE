@@ -22,7 +22,7 @@ namespace RE
 	void Effect::Copy(const Effect* a_other)
 	{
 		using func_t = decltype(&Effect::Copy);
-		REL::Relocation<func_t> func{ Offset::Effect::Copy };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(10909, 10997) };
 		return func(this, a_other);
 	}
 
@@ -58,14 +58,14 @@ namespace RE
 	void Effect::SetDuration(std::int32_t a_duration)
 	{
 		using func_t = decltype(&Effect::SetDuration);
-		REL::Relocation<func_t> func{ Offset::Effect::SetDuration };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(10924, 11012) };
 		return func(this, a_duration);
 	}
 
 	void Effect::SetMagnitude(float a_magnitude)
 	{
 		using func_t = decltype(&Effect::SetMagnitude);
-		REL::Relocation<func_t> func{ Offset::Effect::SetMagnitude };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(10920, 11008) };
 		return func(this, a_magnitude);
 	}
 }

@@ -15,7 +15,7 @@ namespace RE
 
 	BSTArray<DEFAULT_OBJECT>& TutorialMenu::QTutorialsShown()
 	{
-		static REL::Relocation<BSTArray<DEFAULT_OBJECT>*> tutorialsShown{ Offset::TutorialMenu::TutorialsShownA };
+		static REL::Relocation<BSTArray<DEFAULT_OBJECT>*> tutorialsShown{ RELOCATION_ID(520058, 406588) };
 		return *tutorialsShown;
 	}
 

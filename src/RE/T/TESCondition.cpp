@@ -46,7 +46,7 @@ namespace RE
 	void TESConditionItem::Copy(const TESConditionItem* a_other, TESForm* a_arg2)
 	{
 		using func_t = decltype(&TESConditionItem::Copy);
-		REL::Relocation<func_t> func{ Offset::TESConditionItem::Copy };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(29086, 29904) };
 		return func(this, a_other, a_arg2);
 	}
 
@@ -85,7 +85,7 @@ namespace RE
 	void TESCondition::Copy(const TESCondition* a_other, TESForm* a_arg2)
 	{
 		using func_t = decltype(&TESCondition::Copy);
-		REL::Relocation<func_t> func{ Offset::TESCondition::Copy };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(29067, 29879) };
 		return func(this, a_other, a_arg2);
 	}
 

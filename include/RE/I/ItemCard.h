@@ -21,14 +21,14 @@ namespace RE
 		void SetForm(const RE::TESForm* a_form)
 		{
 			using func_t = decltype(&ItemCard::SetForm);
-			static REL::Relocation<func_t> func{ Offset::ItemCard::SetForm };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(51020, 51898) };
 			return func(this, a_form);
 		}
 
 		void SetItem(const RE::InventoryEntryData* a_item, bool a_ignoreStolen)
 		{
 			using func_t = decltype(&ItemCard::SetItem);
-			static REL::Relocation<func_t> func{ Offset::ItemCard::SetItem };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(51019, 51897) };
 			return func(this, a_item, a_ignoreStolen);
 		}
 

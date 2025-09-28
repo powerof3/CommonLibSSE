@@ -31,7 +31,7 @@ namespace RE
 	public:
 		// members
 		BSFixedString                           audioAPI;               // 00
-		WinAPI::HWND                            wnd;                    // 08
+		REX::W32::HWND                          wnd;                    // 08
 		bool                                    disableAudio;           // 10
 		bool                                    enableAudioCache;       // 11
 		std::byte                               pad12[2];               // 12

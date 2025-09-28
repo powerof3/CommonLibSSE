@@ -83,7 +83,7 @@ namespace RE
 		return ""sv;
 	}
 
-		void ControlMap::PopInputContext(InputContextID a_context)
+	void ControlMap::PopInputContext(InputContextID a_context)
 	{
 		using func_t = decltype(&ControlMap::PopInputContext);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(67244, 68544) };
