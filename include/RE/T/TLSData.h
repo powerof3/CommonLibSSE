@@ -25,7 +25,7 @@ namespace RE
 
 	inline static TLSData* GetStaticTLSData()
 	{
-		static REL::Relocation<std::uint32_t*> tlsIndex{ Offset::TlsIndex };
+		static REL::Relocation<std::uint32_t*> tlsIndex{ RELOCATION_ID(528600, 415542) };
 		auto                                   tlsDataArray = reinterpret_cast<TLSData**>(__readgsqword(0x58));
 		return tlsDataArray[*tlsIndex];
 	}

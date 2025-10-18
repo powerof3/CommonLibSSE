@@ -590,7 +590,6 @@ namespace RE
 		inline constexpr REL::ID CreateRefHandle(static_cast<std::uint64_t>(12326));
 		inline constexpr REL::ID LookupReferenceByHandle(static_cast<std::uint64_t>(12332));
 		inline constexpr REL::ID PlaySound(static_cast<std::uint64_t>(52939));
-		inline constexpr REL::ID TlsIndex(static_cast<std::uint64_t>(415542));
 		inline constexpr REL::ID GlobalStateCounter(static_cast<std::uint64_t>(400305));
 #else
 		namespace Actor
@@ -1171,7 +1170,6 @@ namespace RE
 		inline constexpr REL::ID CreateRefHandle(static_cast<std::uint64_t>(12193));
 		inline constexpr REL::ID LookupReferenceByHandle(static_cast<std::uint64_t>(12204));
 		inline constexpr REL::ID PlaySound(static_cast<std::uint64_t>(52054));
-		inline constexpr REL::ID TlsIndex(static_cast<std::uint64_t>(528600));
 		inline constexpr REL::ID GlobalStateCounter(static_cast<std::uint64_t>(514157));
 #endif
 	}
