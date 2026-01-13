@@ -265,6 +265,7 @@ set(SOURCES
 	include/RE/B/BSIInputDevice.h
 	include/RE/B/BSIMusicTrack.h
 	include/RE/B/BSIMusicType.h
+	include/RE/B/BSInvMarker.h
 	include/RE/B/BSIRagdollDriver.h
 	include/RE/B/BSIReverbType.h
 	include/RE/B/BSISoundCategory.h
@@ -1891,6 +1892,7 @@ set(SOURCES
 	src/RE/B/BSInputDeviceFactory.cpp
 	src/RE/B/BSInputDeviceManager.cpp
 	src/RE/B/BSInputEventQueue.cpp
+	src/RE/B/BSInvMarker.cpp
 	src/RE/B/BSKeyboardDevice.cpp
 	src/RE/B/BSLightingShaderMaterialBase.cpp
 	src/RE/B/BSLightingShaderProperty.cpp

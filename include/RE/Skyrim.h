@@ -267,6 +267,7 @@
 #include "RE/B/BSIInputDevice.h"
 #include "RE/B/BSIMusicTrack.h"
 #include "RE/B/BSIMusicType.h"
+#include "RE/B/BSInvMarker.h"
 #include "RE/B/BSIRagdollDriver.h"
 #include "RE/B/BSIReverbType.h"
 #include "RE/B/BSISoundCategory.h"
