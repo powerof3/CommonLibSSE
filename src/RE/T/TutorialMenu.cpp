@@ -3,6 +3,7 @@
 #include "RE/B/BGSMessage.h"
 #include "RE/B/BSTArray.h"
 #include "RE/C/CRC.h"
+#include "RE/F/FormTraits.h"
 #include "RE/I/INISettingCollection.h"
 #include "RE/T/TESFile.h"
 #include "RE/T/TESFormUIData.h"
