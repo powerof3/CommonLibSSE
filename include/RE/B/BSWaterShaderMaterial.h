@@ -52,7 +52,7 @@ namespace RE
 		float                            sunSparkleMagnitude;      // 0E8
 		float                            unk0EC;                   // 0EC
 		WaterShaderData::DepthProperties depthProperties;          // 0F0
-		NiPoint2						 normalScroll1;            // 100
+		NiPoint2                         normalScroll1;            // 100
 		NiPoint2                         normalScroll2;            // 108
 		NiPoint2                         normalScroll3;            // 110
 		std::uint64_t                    unk118;                   // 118
