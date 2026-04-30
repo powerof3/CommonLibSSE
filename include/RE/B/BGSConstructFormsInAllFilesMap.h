@@ -77,7 +77,7 @@ namespace RE
 		// members
 		BSTHashMap<TESFile*, BGSConstructFormsInFileMap> files;             // 00
 		BGSConstructedForms                              constructedForms;  // 30
-		std::uint32_t                                    unk78;             // 78
+		std::uint32_t                                    count;             // 78 - sum size of all three BSTArrays
 		std::uint32_t                                    pad7C;             // 7C
 	};
 	static_assert(sizeof(BGSConstructFormsInAllFilesMap) == 0x80);
