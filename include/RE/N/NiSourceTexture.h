@@ -16,7 +16,11 @@ namespace RE
 			ID3D11Resource*            texture;       // 00 - can be ID3D11Texture1D/ID3D11Texture2D/ID3D11Texture3D
 			ID3D11UnorderedAccessView* UAV;           // 08
 			ID3D11ShaderResourceView*  resourceView;  // 10
-			std::uint64_t              unk18;         // 18
+			uint16_t                   height;        // 18
+			uint16_t                   width;         // 1A
+			uint8_t                    mips;		  // 1C
+			uint8_t                    format;        // 1D
+			uint16_t                   unk1E;         // 1E
 			std::uint32_t              refCount;      // 20
 			std::uint32_t              pad24;         // 24
 		};
