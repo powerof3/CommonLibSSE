@@ -326,6 +326,7 @@ namespace RE
 		[[nodiscard]] bool IsBook() const noexcept { return Is(FormType::Book); }
 		[[nodiscard]] bool IsDeleted() const noexcept { return (GetFormFlags() & RecordFlags::kDeleted) != 0; }
 		[[nodiscard]] bool IsDestroyed() const noexcept { return (GetFormFlags() & RecordFlags::kDestroyed) != 0; }
+		[[nodiscard]] bool IsDisabled() const noexcept { return (GetFormFlags() & RecordFlags::kDisabled) != 0; }
 		[[nodiscard]] bool IsDynamicForm() const noexcept { return GetFormID() >= 0xFF000000; }
 		[[nodiscard]] bool IsGold() const noexcept { return GetFormID() == 0x0000000F; }
 		[[nodiscard]] bool IsIgnored() const noexcept { return (GetFormFlags() & RecordFlags::kIgnored) != 0; }
