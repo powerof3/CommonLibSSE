@@ -59,9 +59,9 @@ namespace RE
 		void          OnVisible(NiCullingProcess& a_process, std::int32_t a_alphaGroupIndex) override;                             // 34
 
 		// add
-		virtual BSMultiIndexTriShape*   AsMultiIndexTriShape();    // 35 - { return 0; }
-		virtual BSSkinnedDecalTriShape* AsSkinnedDecalTriShape();  // 36 - { return 0; }
-		virtual void                    Unk_37(void);              // 37 - { return 0; }
+		virtual BSMultiIndexTriShape*   AsMultiIndexTriShape();           // 35 - { return 0; }
+		virtual BSSkinnedDecalTriShape* AsSkinnedDecalTriShape();         // 36 - { return 0; }
+		virtual std::uint32_t           GetVisibleGroupsTriangleCount();  // 37 - { return 0; }
 
 		// members
 		NiBound                          modelBound;      // 110
