@@ -15,7 +15,7 @@ namespace RE
 		~SpendSoulCallback() override;  // 00
 
 		// override (IMessageBoxCallback)
-		void Run(Message a_msg) override;  //01
+		void Run(std::uint8_t a_button) override;  //01
 
 		// members
 		MagicMenu* magicMenu;  // 10

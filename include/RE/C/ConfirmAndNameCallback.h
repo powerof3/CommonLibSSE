@@ -15,7 +15,7 @@ namespace RE
 		~ConfirmAndNameCallback() override;  // 00
 
 		// override (IMessageBoxCallback)
-		virtual void Run(Message a_msg) override;
+		virtual void Run(std::uint8_t a_button) override;
 
 		// members
 		RaceSexMenu* menu;  // 10

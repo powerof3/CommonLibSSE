@@ -15,14 +15,14 @@ namespace RE
 		virtual ~LegendarySkillResetConfirmCallback();  // 00
 
 		// override (IMessageBoxCallback)
-		void Run(Message a_msg) override;  // 01
+		void Run(std::uint8_t a_button) override;  // 01
 
 		// members
-		StatsMenu*     menu;   // 10
-		std::uint8_t   unk18;  // 18
-		std::uint8_t   pad19;  // 19
-		std::uint16_t  pad1A;  // 1A
-		RE::ActorValue skill;  // 1C
+		StatsMenu*    menu;   // 10
+		std::uint8_t  unk18;  // 18
+		std::uint8_t  pad19;  // 19
+		std::uint16_t pad1A;  // 1A
+		ActorValue    skill;  // 1C
 	};
 	static_assert(sizeof(LegendarySkillResetConfirmCallback) == 0x20);
 }

@@ -20,7 +20,7 @@ namespace RE
 			virtual ~ScriptMessageBoxCallback() override;  // 00
 
 			// override (IMessageBoxCallback)
-			virtual void Run(Message a_msg) override;  // 01
+			virtual void Run(std::uint8_t a_button) override;  // 01
 
 			// members
 			VMStackID                  stackID;  // 10
