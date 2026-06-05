@@ -59,10 +59,10 @@ namespace RE
 		std::uint16_t                                pad0B2;                          // 0B2
 		std::uint32_t                                unk0B4;                          // 0B4
 		bool                                         playerUnderwater;                // 0B8
-		bool                                         unk0B9;                          // 0B9
+		bool                                         partiallyUnderwater;             // 0B9
 		bool                                         unk0BA;                          // 0BA
 		std::uint8_t                                 pad0BB;                          // 0BB
-		std::uint32_t                                unk0BC;                          // 0BC
+		std::uint32_t                                lastUpdateFrame;                 // 0BC
 		float                                        underwaterHeight;                // 0C0
 		bool                                         waterRadiusState;                // 0C4
 		std::uint8_t                                 pad0C5;                          // 0C5
