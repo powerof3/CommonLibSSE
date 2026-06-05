@@ -646,6 +646,7 @@ namespace RE
 		void                         SetLooking(float a_angle);  // SetRotationX
 		void                         SetPlayerControls(bool a_enable);
 		bool                         SetSleepOutfit(BGSOutfit* a_outfit, bool a_update3D);
+		bool                         StartCombat(Actor* a_target, CombatGroup* a_combatGroup = nullptr);
 		void                         StealAlarm(TESObjectREFR* a_ref, TESForm* a_object, std::int32_t a_num, std::int32_t a_total, TESForm* a_owner, bool a_allowWarning);
 		void                         StopAlarmOnActor();
 		void                         StopInteractingQuick(bool a_unk02);
