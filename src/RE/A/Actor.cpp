@@ -120,6 +120,13 @@ namespace RE
 		xTalk->talk = a_talk;
 	}
 
+	NiAVObject* Actor::CalculateLOS(const NiPoint3& a_targetPosition, const NiPoint3& a_rayHitPosition, float a_viewCone)
+	{
+		using func_t = decltype(&Actor::CalculateLOS);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36754, 37770) };
+		return func(this, a_targetPosition, a_rayHitPosition, a_viewCone);
+	}
+
 	NiPoint3 Actor::CalculateLOSLocation(ACTOR_LOS_LOCATION a_location)
 	{
 		NiPoint3 result;
@@ -944,6 +951,13 @@ namespace RE
 		using func_t = decltype(&Actor::IsLimbGone);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(19338, 19765) };
 		return func(this, a_limb);
+	}
+
+	bool Actor::IsMovementAnimationDriven() const
+	{
+		using func_t = decltype(&Actor::IsMovementAnimationDriven);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36487, 37486) };
+		return func(this);
 	}
 
 	bool Actor::IsMoving() const

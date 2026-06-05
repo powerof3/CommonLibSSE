@@ -509,6 +509,7 @@ namespace RE
 		void                         AddWornOutfit(BGSOutfit* a_outfit, bool a_forceUpdate);
 		void                         AllowBleedoutDialogue(bool a_canTalk);
 		void                         AllowPCDialogue(bool a_talk);
+		NiAVObject*                  CalculateLOS(const NiPoint3& a_targetPosition, const NiPoint3& a_rayHitPosition, float a_viewCone);
 		NiPoint3                     CalculateLOSLocation(ACTOR_LOS_LOCATION a_location);
 		bool                         CanAttackActor(Actor* a_actor);
 		bool                         CanFlyHere() const;
@@ -616,6 +617,7 @@ namespace RE
 		bool                         IsInRagdollState() const;
 		bool                         IsLeveled() const;
 		bool                         IsLimbGone(std::uint32_t a_limb);
+		bool                         IsMovementAnimationDriven() const;
 		bool                         IsMoving() const;
 		bool                         IsOnMount() const;
 		bool                         IsOverEncumbered() const;
