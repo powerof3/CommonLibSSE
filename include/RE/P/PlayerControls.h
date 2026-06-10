@@ -8,6 +8,7 @@
 
 namespace RE
 {
+	class HeldStateHandler;
 	class InputEvent;
 	class MenuModeChangeEvent;
 	class MenuOpenCloseEvent;
@@ -51,7 +52,7 @@ namespace RE
 		PlayerControlsData            data;                   // 024
 		std::uint32_t                 pad054;                 // 054
 		BSTArray<PlayerInputHandler*> handlers;               // 058
-		BSTArray<void*>               unk070;                 // 070
+		BSTArray<HeldStateHandler*>   heldStateHandlers;      // 070
 		BSTArray<void*>               unk088;                 // 088
 		std::uint8_t                  unk0A0[8];              // 0A0
 		std::uint64_t                 unk0A8;                 // 0A8

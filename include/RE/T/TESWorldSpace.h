@@ -181,7 +181,7 @@ namespace RE
 		bool        IsFormTypeChild(FormType a_type) override;                                                          // 36
 
 		[[nodiscard]] bool           HasMaxHeightData() const;
-		[[nodiscard]] bool           GetMaxHeightAt(const NiPoint3& xy, float& outHeight);
+		[[nodiscard]] bool           GetMaxHeightAt(const NiPoint3& a_xy, float& a_outHeight);
 		[[nodiscard]] TESObjectCELL* GetSkyCell();
 		[[nodiscard]] float          GetDefaultWaterHeight() const;
 

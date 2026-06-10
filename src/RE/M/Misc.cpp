@@ -1,13 +1,10 @@
 #include "RE/M/Misc.h"
 
 #include "RE/A/ActorValues.h"
-#include "RE/B/BSTCreateFactoryManager.h"
-#include "RE/B/BSTDerivedCreator.h"
 #include "RE/G/GameSettingCollection.h"
 #include "RE/I/INIPrefSettingCollection.h"
 #include "RE/I/INISettingCollection.h"
-#include "RE/I/InterfaceStrings.h"
-#include "RE/M/MessageBoxData.h"
+#include "RE/M/MessageBoxMenu.h"
 #include "RE/N/NiSmartPointer.h"
 #include "RE/S/Setting.h"
 #include "RE/T/TESObjectREFR.h"
@@ -28,13 +25,6 @@ namespace RE
 		return func(a_handle, a_refrOut);
 	}
 
-	void CreateMessage(const char* a_message, IMessageBoxCallback* a_callback, std::uint32_t a_arg3, std::uint32_t a_arg4, std::uint32_t a_arg5, const char* a_buttonText, const char* a_secondaryButtonText)
-	{
-		using func_t = decltype(&CreateMessage);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(51420, 52269) };
-		return func(a_message, a_callback, a_arg3, a_arg4, a_arg5, a_buttonText, a_secondaryButtonText);
-	}
-
 	void CreateRefHandle(RefHandle& a_handleOut, TESObjectREFR* a_refTo)
 	{
 		using func_t = decltype(&CreateRefHandle);
@@ -44,7 +34,7 @@ namespace RE
 
 	void DebugMessageBox(const char* a_message)
 	{
-		CreateMessage(a_message, nullptr, 0, 4, 10, GameSettingCollection::GetSingleton()->GetSetting("sOk")->GetString(), nullptr);
+		MessageBoxMenu::Create(a_message, nullptr, 0, 4, 10, GameSettingCollection::GetSingleton()->GetSetting("sOk")->GetString());
 	}
 
 	float GetArmorFinalRating(RE::InventoryEntryData* a_armorEntryData, float a_armorPerks, float a_skillMultiplier)

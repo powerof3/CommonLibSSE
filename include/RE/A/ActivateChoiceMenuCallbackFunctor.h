@@ -13,11 +13,11 @@ namespace RE
 		~ActivateChoiceMenuCallbackFunctor() override;  // 00
 
 		// override (IMessageBoxCallback)
-		void Run(Message a_msg) override;  //01
+		void Run(std::uint8_t a_button) override;  //01
 
 		// members
-		std::uint32_t unk10;  // 10
-		std::uint32_t unk14;  // 14
+		ObjectRefHandle unk10;  // 10
+		std::uint32_t   unk14;  // 14
 	};
 	static_assert(sizeof(ActivateChoiceMenuCallbackFunctor) == 0x18);
 }

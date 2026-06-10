@@ -17,7 +17,7 @@ namespace RE
 			REX::W32::XMFLOAT4X4           projection;         // 00
 			NiPointer<NiCamera>            camera;             // 40
 			NiPointer<BSShaderAccumulator> shaderAccumulator;  // 48
-			std::uint32_t                  unk50;              // 50
+			std::uint32_t                  cullingMode;        // 50
 			RENDER_TARGET_DEPTHSTENCIL     renderTarget;       // 54
 			std::uint32_t                  shadowMapIndex;     // 58
 			NiFrustumPlanes                clipPlanes;         // 5C
@@ -25,7 +25,7 @@ namespace RE
 			NiRect<std::uint32_t>          shadowMapRect;      // D0
 			BSCullingProcess*              cullingProcess;     // E0
 			bool                           clearRenderTarget;  // E8
-			bool                           unkE9;              // E9
+			bool                           isEnabled;          // E9
 		};
 		static_assert(sizeof(ShadowMapData) == 0xF0);
 
@@ -34,7 +34,7 @@ namespace RE
 		// add
 		virtual bool          GetIsFrustumOrDirectionalLight() = 0;                                                                                     // 04
 		virtual bool          GetIsFrustumLight();                                                                                                      // 05
-		virtual void          GetIsDirectionalLight();                                                                                                  // 06
+		virtual bool          GetIsDirectionalLight();                                                                                                  // 06
 		virtual bool          GetIsParabolicLight();                                                                                                    // 07
 		virtual bool          GetIsOmniLight();                                                                                                         // 08
 		virtual void          Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t& a_shadowMaskChannel, NiAVObject* a_cullingScene) = 0;  // 09
