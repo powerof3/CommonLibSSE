@@ -25,7 +25,7 @@ namespace RE
 		std::int32_t                         cancelButtonIndex;  // 3C
 		BSTSmartPointer<IMessageBoxCallback> callback;           // 40
 		std::int32_t                         menuDepth;          // 48
-		std::uint8_t                         buttonPressOffset;  // 4C - offset that is added to the button that was actually pressed before IMessageBoxCallback is executed
+		std::uint8_t                         buttonPressOffset;  // 4C - offset that is added to the button that was pressed
 		bool                                 useHtml;            // 4D
 		bool                                 verticalButtons;    // 4E
 		bool                                 isCancellable;      // 4F

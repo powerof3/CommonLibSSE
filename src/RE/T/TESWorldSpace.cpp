@@ -7,11 +7,11 @@ namespace RE
 		return maxHeightData != nullptr;
 	}
 
-	bool TESWorldSpace::GetMaxHeightAt(const NiPoint3& xy, float& outHeight)
+	bool TESWorldSpace::GetMaxHeightAt(const NiPoint3& a_xy, float& a_outHeight)
 	{
 		using func_t = decltype(&TESWorldSpace::GetMaxHeightAt);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(20103, 20551) };
-		return func(this, xy, outHeight);
+		return func(this, a_xy, a_outHeight);
 	}
 
 	TESObjectCELL* TESWorldSpace::GetSkyCell()

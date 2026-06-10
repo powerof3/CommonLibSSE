@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSAtomic.h"
 #include "RE/B/BSString.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTSmartPointer.h"
@@ -7,7 +8,6 @@
 
 namespace RE
 {
-	class BSSpinLock;
 	class IMessageBoxCallback;
 	class MessageBoxData;
 

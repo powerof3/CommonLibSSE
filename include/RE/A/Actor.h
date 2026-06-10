@@ -509,6 +509,7 @@ namespace RE
 		void                         AddWornOutfit(BGSOutfit* a_outfit, bool a_forceUpdate);
 		void                         AllowBleedoutDialogue(bool a_canTalk);
 		void                         AllowPCDialogue(bool a_talk);
+		ACTOR_LOS_LOCATION           CalculateLOS(Actor* a_target, float a_viewCone);
 		NiAVObject*                  CalculateLOS(const NiPoint3& a_targetPosition, const NiPoint3& a_rayHitPosition, float a_viewCone);
 		NiPoint3                     CalculateLOSLocation(ACTOR_LOS_LOCATION a_location);
 		bool                         CanAttackActor(Actor* a_actor);

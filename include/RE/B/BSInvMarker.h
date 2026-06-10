@@ -12,6 +12,17 @@ namespace RE
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSInvMarker;
 		inline static constexpr auto VTABLE = VTABLE_BSInvMarker;
 
+		~BSInvMarker() override;  // 00
+
+		// override (NiExtraData)
+		const NiRTTI* GetRTTI() const override;                                                            // 02
+		NiObject*     CreateClone([[maybe_unused]] NiCloningProcess& a_cloning) override { return this; }  // 17
+		void          LoadBinary(NiStream& a_stream) override;                                             // 18
+		void          LinkObject(NiStream& a_stream) override;                                             // 19 - { return; }
+		bool          RegisterStreamables(NiStream& a_stream) override;                                    // 1A
+		void          SaveBinary(NiStream& a_stream) override;                                             // 1B
+		bool          IsEqual(NiObject* a_object) override;                                                // 1C
+
 		RE::NiPoint3 GetRotationEulerAnglesXYZ() const;
 
 		// members
