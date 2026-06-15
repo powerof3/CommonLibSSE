@@ -76,6 +76,7 @@ namespace RE
 		void ForEachReference(std::function<BSContainer::ForEachResult(TESObjectREFR*)> a_callback);
 		void ForEachReferenceInRange(TESObjectREFR* a_origin, float a_radius, std::function<BSContainer::ForEachResult(TESObjectREFR*)> a_callback);
 
+		void            CancelMasterFileLoads();
 		TESObjectCELL*  GetCell(const NiPoint3& a_position) const;
 		MATERIAL_ID     GetLandMaterialType(const NiPoint3& a_position) const;
 		bool            GetLandHeight(const NiPoint3& a_positionIn, float& a_heightOut);
@@ -83,6 +84,7 @@ namespace RE
 		float           GetWaterHeight(const NiPoint3& a_pos, TESObjectCELL* a_cell) const;
 		NiAVObject*     Pick(bhkPickData& a_pickData);
 		void            PurgeBufferedCells();
+		void            ResumeMasterFileLoads();
 
 		// members
 		std::uint64_t                                       unk070;                     // 070
@@ -183,7 +185,7 @@ namespace RE
 		std::uint64_t                                   unk288;           // 288
 		SystemEventAdapter                              unk290;           // 290
 		std::uint64_t                                   unk2A0;           // 2A0
-		NavMeshInfoMap*                                 unk2A8;           // 2A8
+		NavMeshInfoMap*                                 navMeshInfoMap;   // 2A8
 		std::uint64_t                                   unk2B0;           // 2B0
 	};
 #ifdef SKYRIM_SUPPORT_AE

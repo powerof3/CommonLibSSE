@@ -32,9 +32,9 @@ namespace RE
 		std::uint16_t                            unk04;                   // 04
 		std::uint32_t                            unk08;                   // 08
 		std::uint32_t                            unk0C;                   // 0C
-		BSTFixedHashMap<uint64_t, GrassType*>    unk10;                   // 10
-		mutable BSReadWriteLock                  lock;                    // 38
-		volatile mutable std::uint32_t           grassShapeLock;          // 40
+		BSTFixedHashMap<uint64_t, GrassType*>    grassTypeMap;            // 10
+		mutable BSReadWriteLock                  grassTypeLock;           // 38
+		mutable BSNonReentrantSpinLock           grassShapeLock;          // 40
 		std::uint32_t                            pad44;                   // 44
 		BSTArray<BSMultiStreamInstanceTriShape*> grassShapes;             // 48
 		float                                    totalGrassRange;         // 60

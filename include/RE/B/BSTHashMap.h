@@ -22,6 +22,7 @@ namespace RE
 		size_type     _free{ 0 };      // 10 - # of free slots
 		size_type     _good{ 0 };      // 14 - last free index
 	};
+	static_assert(sizeof(BSTScatterTableStandardParent) == 0x18);
 
 	struct BSTScatterTableFixedParent
 	{
@@ -33,6 +34,7 @@ namespace RE
 		size_type     _free{ 0 };      // 08 - # of free slots
 		size_type     _good{ 0 };      // 0C - last free index
 	};
+	static_assert(sizeof(BSTScatterTableFixedParent) == 0x10);
 
 	// scatter table with chaining
 	template <
