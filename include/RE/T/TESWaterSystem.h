@@ -14,6 +14,7 @@
 namespace RE
 {
 	class BSMultiBoundAABB;
+	class BSMultiBoundNode;
 	class NiAVObject;
 	class NiNode;
 	class TESObjectCELL;
@@ -31,8 +32,10 @@ namespace RE
 		static TESWaterSystem* GetSingleton();
 
 		void AddRipple(const NiPoint3& a_pos, float a_scale);
-		void Enable();
+		void AddLODWater(NiAVObject* a_LODWater, TESWorldSpace* a_worldSpace, NiNode* a_waterLODRoot, BSMultiBoundNode* a_bound, bool a_enableLODWaterHeight);
 		void AddWater(NiAVObject* a_waterObj, TESWaterForm* a_waterType, float a_waterHeight, const BSTArray<NiPointer<BSMultiBoundAABB>>* a_multiBoundShape, bool a_noDisplacement, bool a_isProcedural);
+		void Enable();
+		void RemoveLODWater(NiAVObject* a_LODWater, NiNode* a_waterLODRoot);
 		bool RemoveWater(NiAVObject* a_waterObj);
 
 		// members

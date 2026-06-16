@@ -9,23 +9,31 @@ namespace RE
 	public:
 		enum class Flag
 		{
-			kLandHgtAltered = 0x1,
-			kLandClrAltered = 0x2,
-			kLandTexAltered = 0x4,
-			kLandLoaded = 0x8,
-			kShaderLandTextureCount = 0x8,
-			kLandGoodNormals = 0x10,
-			kBlocksize = 0x10,
-			kLandHiresHeightfield = 0x20,
-			kLandSize = 0x21,
-			kLandDataAltered = 0x27,
-			kTilesPerBlock = 0x100,
-			kTrisPerBlock = 0x200,
-			kTriStripIndexCount = 0x3FD,  // TRISTRIPINDEXCOUNT
-			kLandRemapped = 0x400,
-			kLandArea = 0x441,
-			kHalfLand = 0x800,
-			kFullLand = 0x1000,
+			kUnk0 = 0x1,
+			kUnk1 = 0x2,
+			kUnk2 = 0x4,
+			kTerrainIsSplit = 0x8,
+			kUnk3 = 0x10,
+			kUnk4 = 0x20,
+			kUnk5 = 0x40,
+			kUnk6 = 0x80,
+			kUnk7 = 0x100,
+			kUnk8 = 0x400,
+			kUnk9 = 0x800,
+
+			kNeedsUpdate = 0x1000,
+			kNeedsTreeVisUpdate = 0x2000,
+			kUnk10 = 0x4000,
+			kUnk11 = 0x8000,
+
+			kLODLevel4 = 0x800000,
+			kLODLevel8 = 0x1000000,
+			kLODLevel16 = 0x2000000,
+			kLODLevel32 = 0x4000000,
+			kLODLevel64 = 0x8000000,
+			kLODLevel128 = 0x10000000,
+			kLODLevel256 = 0x20000000,
+			kLODLevel512 = 0x40000000
 		};
 
 		std::uint32_t GetLODLevel() const { return (nodeState.underlying() >> 21) & 0x3FC; }
