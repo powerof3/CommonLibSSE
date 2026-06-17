@@ -7,11 +7,6 @@ namespace RE
 		Ctor(a_node, a_LODLevel);
 	}
 
-	BGSDistantTreeBlock::~BGSDistantTreeBlock()
-	{
-		Dtor();
-	}
-
 	NiPointer<NiTexture>& BGSDistantTreeBlock::GetAtlasTexture()
 	{
 		static REL::Relocation<NiPointer<NiTexture>*> tex{ RELOCATION_ID(516086, 402199) };
@@ -49,12 +44,5 @@ namespace RE
 		using func_t = decltype(&BGSDistantTreeBlock::Ctor);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(30826, 31647) };  // AE: not used by the game, inlined somewhere else
 		return func(this, a_node, a_LODLevel);
-	}
-
-	void BGSDistantTreeBlock::Dtor()
-	{
-		using func_t = decltype(&BGSDistantTreeBlock::Dtor);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(30827, 31648) };  // SE, AE: not used by the game, inlined somewhere else
-		func(this);
 	}
 }

@@ -16,7 +16,7 @@ namespace RE
 	{
 	public:
 		BGSDistantTreeBlock(BGSTerrainNode* a_node, std::uint32_t a_LODLevel);
-		~BGSDistantTreeBlock();
+		~BGSDistantTreeBlock() = default;
 
 		struct InstanceData
 		{
@@ -84,7 +84,6 @@ namespace RE
 
 	private:
 		BGSDistantTreeBlock* Ctor(BGSTerrainNode* a_node, std::uint32_t a_LODLevel);
-		void                 Dtor();
 	};
 	static_assert(sizeof(BGSDistantTreeBlock) == 0x88);
 }
