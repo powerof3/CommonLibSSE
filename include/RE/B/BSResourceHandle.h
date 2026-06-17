@@ -5,9 +5,15 @@
 
 namespace RE
 {
+	class BGSTerrainChunk;
 	class NiNode;
 
 	namespace BSModelDB
+	{
+		struct DBTraits;
+	}
+
+	namespace BGSBtrDB
 	{
 		struct DBTraits;
 	}
@@ -48,6 +54,8 @@ namespace RE
 			T_Entry* _entry;  // 00
 		};
 	}
+
+	using ChunkHandle = BSResource::RHandleType<BSResource::Entry<BGSTerrainChunk*, BSResource::EntryDBTraits<BGSBtrDB::DBTraits, BSResource::EntryDB<BGSBtrDB::DBTraits>>::CArgs>, BSResource::EntryDB<BGSBtrDB::DBTraits>>;
 
 	using ModelDBHandle = BSResource::RHandleType<BSResource::Entry<NiPointer<NiNode>, BSResource::EntryDBTraits<BSModelDB::DBTraits, BSResource::EntryDB<BSModelDB::DBTraits>>::CArgs>, BSResource::EntryDB<BSModelDB::DBTraits>>;
 }

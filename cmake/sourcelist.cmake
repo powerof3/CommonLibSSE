@@ -96,6 +96,7 @@ set(SOURCES
 	include/RE/B/BGSDestructibleObjectForm.h
 	include/RE/B/BGSDialogueBranch.h
 	include/RE/B/BGSDirectionalAmbientLightingColors.h
+	include/RE/B/BGSDistantObjectBlock.h
 	include/RE/B/BGSDistantTreeBlock.h
 	include/RE/B/BGSDualCastData.h
 	include/RE/B/BGSDynamicPersistenceManager.h
@@ -1887,6 +1888,8 @@ set(SOURCES
 	src/RE/B/BGSConstructibleObject.cpp
 	src/RE/B/BGSCreatedObjectManager.cpp
 	src/RE/B/BGSDebris.cpp
+	src/RE/B/BGSDistantObjectBlock.cpp
+	src/RE/B/BGSDistantTreeBlock.cpp
 	src/RE/B/BGSEntryPointFunctionDataActivateChoice.cpp
 	src/RE/B/BGSEntryPointPerkEntry.cpp
 	src/RE/B/BGSFootstepManager.cpp

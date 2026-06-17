@@ -16,6 +16,8 @@ namespace RE
 	public:
 		struct CullState
 		{
+		public:
+			// members
 			bool cullRoot;     // 00
 			bool cullLand;     // 01
 			bool cullTrees;    // 02
@@ -39,6 +41,7 @@ namespace RE
 		void UnloadAll(bool a_unloadStaticData, bool a_shutdown);
 		void Update(const NiPoint3& a_viewPos, const std::int32_t& a_updateType);
 
+		// members
 		bool                      mapMode;               // 00
 		std::uint8_t              pad01[7];              // 01
 		TESWorldSpace*            worldSpace;            // 08

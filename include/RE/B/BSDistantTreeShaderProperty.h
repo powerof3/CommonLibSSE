@@ -22,11 +22,12 @@ namespace RE
 		[[nodiscard]] NiSourceTexture* GetBaseTexture() override;                                                                                                         // 37
 
 		// members
-		std::uint64_t unk88;  // 88
-		std::uint64_t unk90;  // 90
-		std::uint64_t unk98;  // 98
-		std::uint64_t unkA0;  // A0
-		std::uint64_t unkA8;  // A8
+		std::uint32_t instanceCount;  // 88 - 75 is max
+		std::uint32_t unk8C;          // 8C
+		std::uint64_t unk90;          // 90
+		std::uint64_t unk98;          // 98
+		std::uint64_t unkA0;          // A0
+		std::uint64_t unkA8;          // A8
 	};
 	static_assert(sizeof(BSDistantTreeShaderProperty) == 0xB0);
 }

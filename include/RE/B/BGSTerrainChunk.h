@@ -21,6 +21,7 @@ namespace RE
 		void Detach();
 		void Prepare();
 
+		// members
 		BGSTerrainNode*             terrainNode;    // 00
 		NiPointer<BSGeometry>       landMesh;       // 08
 		NiPointer<BSMultiBoundNode> waterNode;      // 10

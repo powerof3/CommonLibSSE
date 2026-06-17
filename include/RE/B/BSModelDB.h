@@ -6,6 +6,8 @@
 
 namespace RE
 {
+	class BGSTerrainChunk;
+	class BGSTerrainNode;
 	class NiNode;
 
 	namespace BSModelDB
@@ -47,5 +49,33 @@ namespace RE
 		};
 
 		BSResource::ErrorCode Demand(const char* a_modelPath, NiPointer<NiNode>& a_modelOut, const DBTraits::ArgsType& a_args);
+	}
+
+	namespace BGSBtrDB
+	{
+		struct DBTraits
+		{
+		public:
+			inline static constexpr auto          RTTI = RTTI_BGSBtrDB__DBTraits;
+			inline static constexpr std::uint32_t LOAD_QUEUE_SIZE = 8;
+			inline static constexpr std::uint32_t RELEASE_QUEUE_SIZE = 2;
+
+			using U_Type = BGSTerrainChunk*;
+
+			struct ArgsType
+			{
+			public:
+				// members
+				BGSTerrainNode* node;
+				std::int32_t    cellX;
+				std::int32_t    cellY;
+				void*           diffuse;
+				void*           normal;
+			};
+			static_assert(sizeof(ArgsType) == 0x20);
+		};
+		static_assert(std::is_empty_v<DBTraits>);
+
+		//BSResource::ErrorCode Demand(const char* a_modelPath, NiPointer<NiNode>& a_modelOut, const DBTraits::ArgsType& a_args);
 	}
 }
