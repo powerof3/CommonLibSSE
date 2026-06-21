@@ -149,7 +149,7 @@ namespace std
 	struct formatter<RE::EffectArchetype, CharT> : std::formatter<std::string_view, CharT>
 	{
 		template <class FormatContext>
-		auto format(RE::EffectArchetype a_archetype, FormatContext& a_ctx)
+		auto format(RE::EffectArchetype a_archetype, FormatContext& a_ctx) const
 		{
 			return formatter<std::string_view, CharT>::format(RE::EffectArchetypes::GetArchetypeName(a_archetype), a_ctx);
 		}

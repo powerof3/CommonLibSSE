@@ -319,7 +319,7 @@ namespace std
 	struct formatter<RE::FormType, CharT> : std::formatter<std::string_view, CharT>
 	{
 		template <class FormatContext>
-		auto format(RE::FormType a_formType, FormatContext& a_ctx)
+		auto format(RE::FormType a_formType, FormatContext& a_ctx) const
 		{
 			return formatter<std::string_view, CharT>::format(RE::FormTypeToString(a_formType), a_ctx);
 		}
