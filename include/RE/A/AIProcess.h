@@ -3,8 +3,10 @@
 #include "RE/A/ActorPackage.h"
 #include "RE/A/ActorValues.h"
 #include "RE/B/BGSDefaultObjectManager.h"
+#include "RE/B/BSResourceHandle.h"
 #include "RE/B/BSSimpleList.h"
 #include "RE/B/BSTArray.h"
+#include "RE/B/BSTObjectArena.h"
 #include "RE/B/BSTSmartPointer.h"
 
 namespace RE
@@ -134,21 +136,6 @@ namespace RE
 		};
 		static_assert(sizeof(EquippedObject) == 0x10);
 
-		struct Data0B8
-		{
-		public:
-			// members
-			void*         unk00;  // 00
-			Data0B8*      unk08;  // 08
-			void*         unk10;  // 10
-			void*         unk18;  // 18
-			std::uint64_t unk20;  // 20
-			void*         unk28;  // 28
-			std::uint32_t unk30;  // 30
-			std::uint32_t pad34;  // 34
-		};
-		static_assert(sizeof(Data0B8) == 0x38);
-
 		void                    AddToProcedureIndexRunning(Actor* a_actor, std::uint32_t a_num);
 		void                    ClearActionHeadtrackTarget(bool a_defaultHold);
 		void                    ClearFurniture();
@@ -213,7 +200,7 @@ namespace RE
 		float                                       trackedDamage;                  // 098
 		std::uint32_t                               pad09C;                         // 09C
 		BSTArray<EquippedObject>                    equippedForms;                  // 0A0
-		Data0B8                                     unk0B8;                         // 0B8
+		BSTHeapObjectArena<ModelDBHandle, 16>       unk0B8;                         // 0B8
 		TESForm*                                    equippedObjects[Hand::kTotal];  // 0F0
 		std::uint64_t                               unk100;                         // 100
 		std::uint64_t                               unk108;                         // 108

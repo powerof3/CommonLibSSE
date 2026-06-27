@@ -4,9 +4,11 @@
 #include "RE/B/BSFixedString.h"
 #include "RE/B/BSHandleRefObject.h"
 #include "RE/B/BSPointerHandle.h"
+#include "RE/B/BSResourceHandle.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTEvent.h"
 #include "RE/B/BSTList.h"
+#include "RE/B/BSTObjectArena.h"
 #include "RE/B/BSTSmartPointer.h"
 #include "RE/B/BipedObjects.h"
 #include "RE/E/ExtraDataList.h"
@@ -78,22 +80,16 @@ namespace RE
 	{
 	public:
 		// members
-		BSTSmallArray<void*>  unk00;                // 00 - handleList?
-		TESWaterForm*         currentWaterType;     // 18
-		float                 relevantWaterHeight;  // 20
-		float                 cachedRadius;         // 24
-		std::uint16_t         flags;                // 28
-		std::int16_t          underwaterCount;      // 2A
-		std::uint32_t         pad2C;                // 2C
-		std::uint64_t         unk30;                // 30 - AIProcess::Data0B8
-		std::uint64_t         unk38;                // 38
-		std::uint64_t         unk40;                // 40
-		std::uint64_t         unk48;                // 48
-		std::uint64_t         unk50;                // 50
-		std::uint64_t         unk58;                // 58
-		std::uint64_t         unk60;                // 60
-		NiPointer<NiAVObject> data3D;               // 68
-		void*                 unk70;                // 70 - smart ptr
+		BSTSmallArray<void*>                  unk00;                // 00 - handleList?
+		TESWaterForm*                         currentWaterType;     // 18
+		float                                 relevantWaterHeight;  // 20
+		float                                 cachedRadius;         // 24
+		std::uint16_t                         flags;                // 28
+		std::int16_t                          underwaterCount;      // 2A
+		std::uint32_t                         pad2C;                // 2C
+		BSTHeapObjectArena<ModelDBHandle, 16> handleList;           // 30
+		NiPointer<NiAVObject>                 data3D;               // 68
+		void*                                 unk70;                // 70 - smart ptr
 	};
 	static_assert(sizeof(LOADED_REF_DATA) == 0x78);
 
