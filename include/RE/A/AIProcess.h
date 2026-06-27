@@ -157,6 +157,7 @@ namespace RE
 		float                   GetCachedHeight() const;
 		bhkCharacterController* GetCharController();
 		ActorHandle             GetCommandingActor() const;
+		InventoryEntryData*     GetCurrentAmmo() const;
 		TESShout*               GetCurrentShout();
 		InventoryEntryData*     GetCurrentWeapon(bool a_leftHand);
 		TESForm*                GetEquippedLeftHand();
