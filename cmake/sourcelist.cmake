@@ -79,6 +79,9 @@ set(SOURCES
 	include/RE/B/BGSBlockBashData.h
 	include/RE/B/BGSBodyPartData.h
 	include/RE/B/BGSBodyPartDefs.h
+	include/RE/B/BGSBtoDB.h
+	include/RE/B/BGSBtrDB.h
+	include/RE/B/BGSBttDB.h
 	include/RE/B/BGSCameraPath.h
 	include/RE/B/BGSCameraShot.h
 	include/RE/B/BGSCollisionLayer.h
@@ -415,6 +418,7 @@ set(SOURCES
 	include/RE/B/BSTempEffectSimpleDecal.h
 	include/RE/B/BSTempEffectWeaponBlood.h
 	include/RE/B/BSTerrainEffect.h
+	include/RE/B/BSTextureDB.h
 	include/RE/B/BSTextureSet.h
 	include/RE/B/BSThread.h
 	include/RE/B/BSThreadEvent.h

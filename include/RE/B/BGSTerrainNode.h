@@ -1,5 +1,7 @@
 #pragma once
 
+#include "RE/B/BSResourceHandle.h"
+
 namespace RE
 {
 	class BGSTerrainManager;
@@ -40,10 +42,10 @@ namespace RE
 
 		// members
 		BGSTerrainManager*                manager;         // 00
-		void*                             chunkHandle;     // 08 - BSResource::RHandleType<BSResource::Entry<BGSTerrainChunk*,BSResource::EntryDBTraits<BGSBtrDB::DBTraits,BSResource::EntryDB<BGSBtrDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBtrDB::DBTraits>>
+		void*                             chunkHandle;     // 08
 		void*                             blockHandle;     // 10 - BSResource::RHandleType<BSResource::Entry<BGSDistantObjectBlock *,BSResource::EntryDBTraits<BGSBtoDB::DBTraits,BSResource::EntryDB<BGSBtoDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBtoDB::DBTraits>>
 		void*                             treeHandle;      // 18 - BSResource::RHandleType<BSResource::Entry<BGSDistantTreeBlock *,BSResource::EntryDBTraits<BGSBttDB::DBTraits,BSResource::EntryDB<BGSBttDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBttDB::DBTraits>>
-		void*                             mapChunkHandle;  // 20 - BSResource::RHandleType<BSResource::Entry<BGSTerrainChunk *,BSResource::EntryDBTraits<BGSBtrDB::DBTraits,BSResource::EntryDB<BGSBtrDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBtrDB::DBTraits>>
+		void*                             mapChunkHandle;  // 20
 		void*                             mapBlockHandle;  // 28 - BSResource::RHandleType<BSResource::Entry<BGSDistantObjectBlock *,BSResource::EntryDBTraits<BGSBtoDB::DBTraits,BSResource::EntryDB<BGSBtoDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBtoDB::DBTraits>>
 		BGSTerrainNode*                   children;        // 30
 		BGSTerrainNode*                   parent;          // 38

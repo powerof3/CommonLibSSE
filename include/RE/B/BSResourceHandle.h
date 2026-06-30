@@ -5,7 +5,6 @@
 
 namespace RE
 {
-	class BGSTerrainChunk;
 	class NiNode;
 
 	namespace BSModelDB
@@ -13,15 +12,10 @@ namespace RE
 		struct DBTraits;
 	}
 
-	namespace BGSBtrDB
-	{
-		struct DBTraits;
-	}
-
 	namespace BSResource
 	{
 		template <class T_Entry, class T_EntryDB>
-		class RHandleType
+		class RHandleType  // This doesn't exist in SkyrimSE? I think it's a BSTSmartPointer with a custom RefManager
 		{
 		public:
 			using U_Entry = T_Entry;
@@ -54,8 +48,6 @@ namespace RE
 			T_Entry* _entry;  // 00
 		};
 	}
-
-	using ChunkHandle = BSResource::RHandleType<BSResource::Entry<BGSTerrainChunk*, BSResource::EntryDBTraits<BGSBtrDB::DBTraits, BSResource::EntryDB<BGSBtrDB::DBTraits>>::CArgs>, BSResource::EntryDB<BGSBtrDB::DBTraits>>;
 
 	using ModelDBHandle = BSResource::RHandleType<BSResource::Entry<NiPointer<NiNode>, BSResource::EntryDBTraits<BSModelDB::DBTraits, BSResource::EntryDB<BSModelDB::DBTraits>>::CArgs>, BSResource::EntryDB<BSModelDB::DBTraits>>;
 }
