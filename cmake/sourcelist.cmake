@@ -1488,6 +1488,7 @@ set(SOURCES
 	include/RE/P/PlayerControls.h
 	include/RE/P/PlayerControlsData.h
 	include/RE/P/PlayerInputHandler.h
+	include/RE/P/PlayerRegionState.h
 	include/RE/P/PoisonedWeapon.h
 	include/RE/P/PositionPlayerEvent.h
 	include/RE/P/Precipitation.h
