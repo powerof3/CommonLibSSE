@@ -42,11 +42,11 @@ namespace RE
 
 		// members
 		BGSTerrainManager*                manager;         // 00
-		void*                             chunkHandle;     // 08
-		void*                             blockHandle;     // 10 - BSResource::RHandleType<BSResource::Entry<BGSDistantObjectBlock *,BSResource::EntryDBTraits<BGSBtoDB::DBTraits,BSResource::EntryDB<BGSBtoDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBtoDB::DBTraits>>
-		void*                             treeHandle;      // 18 - BSResource::RHandleType<BSResource::Entry<BGSDistantTreeBlock *,BSResource::EntryDBTraits<BGSBttDB::DBTraits,BSResource::EntryDB<BGSBttDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBttDB::DBTraits>>
-		void*                             mapChunkHandle;  // 20
-		void*                             mapBlockHandle;  // 28 - BSResource::RHandleType<BSResource::Entry<BGSDistantObjectBlock *,BSResource::EntryDBTraits<BGSBtoDB::DBTraits,BSResource::EntryDB<BGSBtoDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBtoDB::DBTraits>>
+		BGSBtrDBHandle                    chunkHandle;     // 08
+		BGSBtoDBHandle                    blockHandle;     // 10
+		BGSBttDBHandle                    treeHandle;      // 18
+		BGSBtrDBHandle                    mapChunkHandle;  // 20
+		BGSBtoDBHandle                    mapBlockHandle;  // 28
 		BGSTerrainNode*                   children;        // 30
 		BGSTerrainNode*                   parent;          // 38
 		REX::EnumSet<Flag, std::uint32_t> nodeState;       // 40

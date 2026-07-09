@@ -21,17 +21,14 @@ namespace RE
 			{
 			public:
 				// members
-				std::uint32_t unk00;      // 00
-				bool          isCubeMap;  // 04
-				bool          unk05;      // 05
-				bool          unk06;      // 06
-				std::uint8_t  pad07;      // 07
+				std::uint32_t texLoadLevel;  // 00
+				bool          isCubeMap;     // 04
+				bool          unk05;         // 05
+				bool          unk06;         // 06
+				std::uint8_t  pad07;         // 07
 			};
-			static_assert(sizeof(ArgsType) == 0x8);  // not verified
+			static_assert(sizeof(ArgsType) == 0x8);
 		};
 		static_assert(std::is_empty_v<DBTraits>);
-
-		// BSTSingletonSDM<BSResource::EntryDB<BSTextureDB::DBTraits>,BSTSingletonSDMOpStaticBuffer>::QInstance(); 142EC54F0
-
 	}
 }

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "RE/B/BSResourceHandle.h"
+
 namespace RE
 {
 	class BGSDistantObjectBlock;
@@ -23,8 +25,8 @@ namespace RE
 				BGSTerrainNode* node;     // 00
 				std::int32_t    cellX;    // 08
 				std::int32_t    cellY;    // 0C
-				void*           diffuse;  // 10
-				void*           normal;   // 18
+				TextureDBHandle diffuse;  // 10
+				TextureDBHandle normal;   // 18
 			};
 			static_assert(sizeof(ArgsType) == 0x20);
 		};
