@@ -9,6 +9,7 @@
 namespace RE
 {
 	class MagicItem;
+	class AlchemyItem;
 	class EnchantmentItem;
 
 	class BGSCreatedObjectManager : public BSTSingletonSDM<BGSCreatedObjectManager>
@@ -24,6 +25,9 @@ namespace RE
 
 		static BGSCreatedObjectManager* GetSingleton();
 
+#ifdef SKYRIM_SUPPORT_AE
+		AlchemyItem*     AddPotion(BSTArray<Effect>& a_effects);
+#endif
 		EnchantmentItem* AddArmorEnchantment(BSTArray<Effect>& a_effects);
 		EnchantmentItem* AddWeaponEnchantment(BSTArray<Effect>& a_effects);
 		void             DestroyEnchantment(EnchantmentItem* a_enchantment, bool a_isWeapon);
