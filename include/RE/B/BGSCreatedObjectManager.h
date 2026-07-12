@@ -58,7 +58,6 @@ namespace RE
 		EnchantmentItem* AddWeaponEnchantment(BSTArray<Effect>& a_effects);
 		void             AddPotion(BSTSmartPointer<AlchemyItem, BSTCreatedObjectSmartPointerPolicy>& a_created, BSTArray<Effect>& a_effects);
 		void             DestroyEnchantment(EnchantmentItem* a_enchantment, bool a_isWeapon);
-		void             AddPotion(AlchemyItem*& a_created, const BSTArray<Effect>& a_effects);
 
 		// members
 		std::uint8_t                                    pad01;               // 01
