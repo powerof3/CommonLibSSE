@@ -257,6 +257,7 @@ set(SOURCES
 	include/RE/B/BSFile.h
 	include/RE/B/BSFixedString.h
 	include/RE/B/BSFlattenedBoneTree.h
+	include/RE/B/BSFogProperty.h
 	include/RE/B/BSFurnitureMarkerNode.h
 	include/RE/B/BSGameSound.h
 	include/RE/B/BSGamepadDevice.h
@@ -1390,6 +1391,7 @@ set(SOURCES
 	include/RE/N/NiFloatInterpolator.h
 	include/RE/N/NiFloatKey.h
 	include/RE/N/NiFloatsExtraData.h
+	include/RE/N/NiFogProperty.h
 	include/RE/N/NiFrustum.h
 	include/RE/N/NiFrustumPlanes.h
 	include/RE/N/NiGeometry.h
@@ -1486,6 +1488,7 @@ set(SOURCES
 	include/RE/P/PlayerControls.h
 	include/RE/P/PlayerControlsData.h
 	include/RE/P/PlayerInputHandler.h
+	include/RE/P/PlayerRegionState.h
 	include/RE/P/PoisonedWeapon.h
 	include/RE/P/PositionPlayerEvent.h
 	include/RE/P/Precipitation.h
