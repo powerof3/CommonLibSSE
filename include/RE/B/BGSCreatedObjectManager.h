@@ -26,7 +26,8 @@ namespace RE
 		static BGSCreatedObjectManager* GetSingleton();
 
 #ifdef SKYRIM_SUPPORT_AE
-		AlchemyItem*     AddPotion(BSTArray<Effect>& a_effects);
+		// this is probably wrong, but getting a BSTSmartPointer crashes.
+		void             AddPotion(AlchemyItem*& a_created, const BSTArray<Effect>& a_effects);
 #endif
 		EnchantmentItem* AddArmorEnchantment(BSTArray<Effect>& a_effects);
 		EnchantmentItem* AddWeaponEnchantment(BSTArray<Effect>& a_effects);
