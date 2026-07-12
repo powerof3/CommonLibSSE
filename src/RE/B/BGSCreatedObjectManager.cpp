@@ -30,9 +30,9 @@ namespace RE
 	}
 
 	void BGSCreatedObjectManager::AddPotion(BSTSmartPointer<
-												AlchemyItem, 
+												AlchemyItem,
 												BSTCreatedObjectSmartPointerPolicy>& a_created,
-											BSTArray<Effect>& a_effects)
+		BSTArray<Effect>&                                                            a_effects)
 	{
 		using func_t = decltype(&BGSCreatedObjectManager::AddPotion);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(35265, 36167) };
