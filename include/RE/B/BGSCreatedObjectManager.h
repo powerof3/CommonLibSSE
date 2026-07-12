@@ -25,13 +25,10 @@ namespace RE
 
 		static BGSCreatedObjectManager* GetSingleton();
 
-#ifdef SKYRIM_SUPPORT_AE
-		// this is probably wrong, but getting a BSTSmartPointer crashes.
-		void             AddPotion(AlchemyItem*& a_created, const BSTArray<Effect>& a_effects);
-#endif
 		EnchantmentItem* AddArmorEnchantment(BSTArray<Effect>& a_effects);
 		EnchantmentItem* AddWeaponEnchantment(BSTArray<Effect>& a_effects);
 		void             DestroyEnchantment(EnchantmentItem* a_enchantment, bool a_isWeapon);
+		void             AddPotion(AlchemyItem*& a_created, const BSTArray<Effect>& a_effects);
 
 		// members
 		std::uint8_t                                    pad01;               // 01
