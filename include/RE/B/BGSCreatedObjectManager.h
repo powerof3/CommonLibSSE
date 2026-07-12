@@ -9,6 +9,7 @@
 namespace RE
 {
 	class MagicItem;
+	class AlchemyItem;
 	class EnchantmentItem;
 
 	class BGSCreatedObjectManager : public BSTSingletonSDM<BGSCreatedObjectManager>
@@ -27,6 +28,7 @@ namespace RE
 		EnchantmentItem* AddArmorEnchantment(BSTArray<Effect>& a_effects);
 		EnchantmentItem* AddWeaponEnchantment(BSTArray<Effect>& a_effects);
 		void             DestroyEnchantment(EnchantmentItem* a_enchantment, bool a_isWeapon);
+		void             AddPotion(AlchemyItem*& a_created, const BSTArray<Effect>& a_effects);
 
 		// members
 		std::uint8_t                                    pad01;               // 01
