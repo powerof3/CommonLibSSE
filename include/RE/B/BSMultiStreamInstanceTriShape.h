@@ -22,8 +22,9 @@ namespace RE
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSMultiStreamInstanceTriShape;
 		inline static constexpr auto VTABLE = VTABLE_BSMultiStreamInstanceTriShape;
 
-		class InstanceGroup : BSMultiBoundAABB
+		class InstanceGroup : public BSMultiBoundAABB
 		{
+			public:
 			BSGraphics::VertexBuffer* vertexBuffer;   // 40
 			std::uint32_t             triCount;       // 48
 			std::uint32_t             instanceCount;  // 4C
@@ -55,7 +56,7 @@ namespace RE
 		const NiRTTI* GetRTTI() const override;                                                                                            // 02
 		NiObject*     CreateClone(NiCloningProcess& a_cloning) override;                                                                   // 17
 		void          OnVisible(NiCullingProcess& a_process, std::int32_t a_alphaGroupIndex) override;                                     // 34
-		std::uint32_t GetVisibleGroupsTriangleCount() override;                                                                            // 37                       // 37
+		std::uint32_t GetVisibleGroupsTriangleCount() override;                                                                            // 37
 		void          BeginAddingInstances(std::uint32_t a_numFloatsPerInstance) override;                                                 // 38
 		void          AddInstances(std::uint32_t a_numFloatsPerInstance, std::uint16_t& a_instanceData) override;                          // 39
 		void          DoneAddingInstances(BSTArray<std::uint32_t>& a_instances) override;                                                  // 3A
@@ -64,15 +65,15 @@ namespace RE
 		void          RemoveGroup(std::uint32_t a_numInstance) override;                                                                   // 3D
 
 		// members
-		BSTArray<InstanceGroup*> isntanceGroups;        // 160
-		std::uint32_t            instanceGroupCount;    // 178
+		BSTArray<InstanceGroup*> instanceGroups;        // 160
+		std::uint32_t            meshTriCount;    		// 178
 		std::uint32_t            maxInstancesPerGroup;  // 17C
 		float                    renderDistance;        // 180
 		std::uint32_t            unk184;                // 184
 		void*                    groupAlloc;            // 188
 		std::uint32_t            instanceCount;         // 190
 		std::uint32_t            instanceSize;          // 194
-		std::uint32_t            unk198;                // 198
+		std::uint32_t            activeGroupCount;      // 198
 	};
 	static_assert(sizeof(BSMultiStreamInstanceTriShape) == 0x1A0);
 }
