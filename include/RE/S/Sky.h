@@ -116,7 +116,8 @@ namespace RE
 		Precipitation*                     precip;                          // 0A0
 		NiColor                            skyColor[17];                    // 0A8
 		std::uint32_t                      unk174;                          // 174
-		std::uint64_t                      unk178;                          // 178
+		std::uint32_t                      unk178;                          // 178
+		std::uint32_t                      unk17C;                          // 17C
 		NiColor                            unk180;                          // 180
 		float                              windSpeed;                       // 18C
 		float                              windAngle;                       // 190
