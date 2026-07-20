@@ -5,8 +5,8 @@
 namespace RE
 {
 	inline constexpr auto DEFAULT_OBJECT_ARENA_PAGE_SIZE = 32;
-	
-	class BSTObjectArenaHeapAlloc	
+
+	class BSTObjectArenaHeapAlloc
 	{
 	public:
 		using size_type = std::uint32_t;
@@ -18,7 +18,7 @@ namespace RE
 
 	class BSTObjectArenaScrapAllocBase
 	{
-	public:	
+	public:
 		// members
 		ScrapHeap* scrapHeap{ MemoryManager::GetSingleton()->GetThreadScrapHeap() };  // 0
 	};
@@ -29,7 +29,7 @@ namespace RE
 	{
 	public:
 		using size_type = std::uint32_t;
-		
+
 		[[nodiscard]] void* allocate_bytes(size_type a_bytes) { return scrapHeap->Allocate(a_bytes, 0x8); }
 		void                deallocate_bytes(void* a_ptr) { scrapHeap->Deallocate(a_ptr); }
 	};
