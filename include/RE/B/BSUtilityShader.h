@@ -59,7 +59,8 @@ namespace RE
 		void RestoreGeometry(BSRenderPass* pass, uint32_t flags) override;  // 07
 
 		// members
-		std::uint64_t unk90;  // 90
+		std::uint32_t currentTechnique;      // 90
+		std::uint32_t currentTechniqueMask;  // 94
 	};
 	static_assert(sizeof(BSUtilityShader) == 0x98);
 }

@@ -43,6 +43,7 @@ namespace RE
 			bool                               readOnlyDepth;                                        // 0022
 			bool                               instantiated;                                         // 0023
 			bool                               requestedWindowSizeChange;                            // 0024
+			bool                               unk25;                                                // 0025
 			std::uint32_t                      newWidth;                                             // 0028
 			std::uint32_t                      newHeight;                                            // 002C
 			std::uint32_t                      presentInterval;                                      // 0030

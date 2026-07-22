@@ -32,15 +32,15 @@ namespace RE
 		void                           SetClampMode(BSGraphics::TextureAddressMode a_mode);  // 40
 
 		// members
-		BSTArray<BSMultiStreamInstanceTriShape*> grassShapes;        // 160
-		std::uint64_t                            unk178;             // 178
-		BSGraphics::TextureAddressMode           clampMode;          // 180
-		float                                    wavePeriod;         // 184
-		std::uint32_t                            unk188;             // 188
-		std::uint32_t                            unk18C;             // 18C
-		BSRenderPass*                            grassDepthPass;     // 190
-		BSShaderPropertyLightData                grassLightData;     // 198
-		RenderPassArray                          grassShadowPasses;  // 1C0
+		BSTArray<float>                fadeAlphas;         // 160
+		std::uint64_t                  unk178;             // 178
+		BSGraphics::TextureAddressMode clampMode;          // 180
+		float                          wavePeriod;         // 184
+		std::uint32_t                  windTimer;  		   // 188
+		std::uint32_t                  unk18C;             // 18C
+		BSRenderPass*                  grassDepthPass;     // 190
+		BSShaderPropertyLightData      grassLightData;     // 198
+		RenderPassArray                grassShadowPasses;  // 1C0
 	};
 	static_assert(sizeof(BSGrassShaderProperty) == 0x1D0);
 }
