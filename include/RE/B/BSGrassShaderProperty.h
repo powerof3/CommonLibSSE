@@ -36,7 +36,7 @@ namespace RE
 		std::uint64_t                  unk178;             // 178
 		BSGraphics::TextureAddressMode clampMode;          // 180
 		float                          wavePeriod;         // 184
-		std::uint32_t                  windTimer;  		   // 188
+		std::uint32_t                  windTimer;          // 188
 		std::uint32_t                  unk18C;             // 18C
 		BSRenderPass*                  grassDepthPass;     // 190
 		BSShaderPropertyLightData      grassLightData;     // 198

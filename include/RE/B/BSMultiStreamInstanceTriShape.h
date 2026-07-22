@@ -24,7 +24,7 @@ namespace RE
 
 		class InstanceGroup : public BSMultiBoundAABB
 		{
-			public:
+		public:
 			BSGraphics::VertexBuffer* vertexBuffer;   // 40
 			std::uint32_t             triCount;       // 48
 			std::uint32_t             instanceCount;  // 4C
@@ -66,7 +66,7 @@ namespace RE
 
 		// members
 		BSTArray<InstanceGroup*> instanceGroups;        // 160
-		std::uint32_t            meshTriCount;    		// 178
+		std::uint32_t            meshTriCount;          // 178
 		std::uint32_t            maxInstancesPerGroup;  // 17C
 		float                    renderDistance;        // 180
 		std::uint32_t            unk184;                // 184
