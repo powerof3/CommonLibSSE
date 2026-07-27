@@ -1285,6 +1285,7 @@ set(SOURCES
 	include/RE/L/LinkerProcessor.h
 	include/RE/L/LoadStorageWrapper.h
 	include/RE/L/LoadWaitSpinner.h
+	include/RE/L/LoadedAreaBound.h
 	include/RE/L/LoadingMenu.h
 	include/RE/L/LoadingMenuData.h
 	include/RE/L/LocalMapCamera.h

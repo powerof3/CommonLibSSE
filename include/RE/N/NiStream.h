@@ -3,7 +3,6 @@
 #include "RE/B/BSFixedString.h"
 #include "RE/B/BSTArray.h"
 #include "RE/N/NiObjectGroup.h"
-#include "RE/N/NiSmartPointer.h"
 #include "RE/N/NiTArray.h"
 #include "RE/N/NiTPointerMap.h"
 
@@ -12,7 +11,6 @@
 namespace RE
 {
 	class NiBinaryStream;
-	class NiObject;
 	class NiObjectGroup;
 
 	struct BSStreamHeader

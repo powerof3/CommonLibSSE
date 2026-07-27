@@ -60,6 +60,7 @@ namespace RE
 
 		static PlayerCamera* GetSingleton();
 
+		bool ApplyCameraCaster(NiPoint3& a_pos, bool a_fadeCharacter);
 		void ForceFirstPerson();
 		void ForceThirdPerson();
 		bool IsInBleedoutMode() const;
