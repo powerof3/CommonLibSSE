@@ -22,30 +22,21 @@ namespace RE
 		bool          IsOcclusionBox() const override;                    // 25
 
 		// members
-		NiPoint3        size;              // 048
-		NiFrustumPlanes frustumPlanes[2];  // 054
-		uint64_t        unk138;            // 138
-		uint64_t        unk140;            // 140
-		uint64_t        unk148;            // 148
-		uint64_t        unk150;            // 150
-		uint64_t        unk158;            // 158
-		uint64_t        unk160;            // 160
-		uint64_t        unk168;            // 168
-		uint64_t        unk170;            // 170
-		uint64_t        unk178;            // 178
-		uint64_t        unk180;            // 180
-		uint64_t        unk188;            // 188
-		uint64_t        unk190;            // 190
-		uint64_t        unk198;            // 198
-		uint64_t        unk1A0;            // 1A0
-		uint64_t        unk1A8;            // 1A8
-		uint64_t        unk1B0;            // 1B0
-		uint64_t        unk1B8;            // 1B8
-		uint64_t        unk1C0;            // 1C0
-		uint64_t        unk1C8;            // 1C8
-		uint64_t        unk1D0;            // 1D0
-		uint64_t        unk1D8;            // 1D8
-		uint64_t        unk1E0;            // 1E0
+		NiPoint3          size;              // 048
+		NiFrustumPlanes   frustumPlanes[2];  // 054
+		NiPlane           faces[6];          // 134
+		float             unk194;            // 194
+		BSMultiBoundAABB* boundShape;        // 198
+		uint64_t          unk1A0;            // 1A0
+		uint32_t          unk1A8;            // 1A8
+		uint32_t          unk1AC;            // 1AC
+		uint64_t          unk1B4;            // 1B4
+		uint64_t          unk1BC;            // 1BC
+		uint64_t          unk1C0;            // 1C0
+		uint64_t          unk1C8;            // 1C8
+		uint64_t          unk1D0;            // 1D0
+		uint64_t          unk1D8;            // 1D8
+		uint32_t          unk1E4;            // 1E4
 	};
 	static_assert(sizeof(BSOcclusionBox) == 0x1E8);
 }

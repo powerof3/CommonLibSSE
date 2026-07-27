@@ -407,6 +407,7 @@
 #include "RE/B/BSTList.h"
 #include "RE/B/BSTLocklessQueue.h"
 #include "RE/B/BSTMessageQueue.h"
+#include "RE/B/BSTObjectArena.h"
 #include "RE/B/BSTObjectDictionary.h"
 #include "RE/B/BSTPoint.h"
 #include "RE/B/BSTPointerAndFlags.h"

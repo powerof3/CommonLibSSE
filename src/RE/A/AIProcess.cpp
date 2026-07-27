@@ -62,6 +62,11 @@ namespace RE
 		return middleHigh ? middleHigh->commandingActor : ActorHandle{};
 	}
 
+	InventoryEntryData* AIProcess::GetCurrentAmmo() const
+	{
+		return middleHigh ? middleHigh->bothHands : nullptr;
+	}
+
 	TESShout* AIProcess::GetCurrentShout()
 	{
 		return high ? high->currentShout : nullptr;
