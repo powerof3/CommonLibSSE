@@ -2071,6 +2071,7 @@ set(SOURCES
 	src/RE/H/hkpProperty.cpp
 	src/RE/H/hkpRigidBody.cpp
 	src/RE/H/hkpShapePhantom.cpp
+	src/RE/H/hkpWorld.cpp
 	src/RE/H/hkpWorldObject.cpp
 	src/RE/I/IAnimationGraphManagerHolder.cpp
 	src/RE/I/IFormFactory.cpp

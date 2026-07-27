@@ -38,7 +38,7 @@ namespace RE
 
 	namespace BSResource
 	{
-		// This doesn't exist in SkyrimSE, it's actually a BSTSmartPointer with a custom RefManager doing some stuff in the Release func
+		// This doesn't exist in SkyrimSE, it's actually a BSTSmartPointer with a custom RefManager doing template specific stuff in the Release func
 		template <class T_Entry, class T_EntryDB>
 		class RHandleType
 		{
