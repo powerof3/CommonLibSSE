@@ -5,7 +5,6 @@
 namespace RE
 {
 	class hkpSolverResults;
-	class hkpConstraintRuntime;
 
 	class hkpConstraintData : public hkReferencedObject
 	{
