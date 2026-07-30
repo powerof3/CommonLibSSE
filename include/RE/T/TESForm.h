@@ -293,12 +293,13 @@ namespace RE
 
 		[[nodiscard]] FormID GetLocalFormID() const
 		{
-			auto file = GetFile(0);
+			if (auto file = GetFile(0)) {
+				RE::FormID fileIndex = file->compileIndex << (3 * 8);
+				fileIndex += file->smallFileCompileIndex << ((1 * 8) + 4);
 
-			RE::FormID fileIndex = file->compileIndex << (3 * 8);
-			fileIndex += file->smallFileCompileIndex << ((1 * 8) + 4);
-
-			return formID & ~fileIndex;
+				return formID & ~fileIndex;
+			}
+			return 0;
 		}
 
 		[[nodiscard]] const char* GetName() const;
