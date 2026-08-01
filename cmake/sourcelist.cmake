@@ -1124,6 +1124,7 @@ set(SOURCES
 	include/RE/H/hkpConvexShape.h
 	include/RE/H/hkpConvexVerticesShape.h
 	include/RE/H/hkpDynamicsContactMgr.h
+	include/RE/H/hkpDynamicsCpIdMgr.h
 	include/RE/H/hkpEaseConstraintsAction.h
 	include/RE/H/hkpEntity.h
 	include/RE/H/hkpEntityListener.h
@@ -1163,6 +1164,7 @@ set(SOURCES
 	include/RE/H/hkpShapeRayCastOutput.h
 	include/RE/H/hkpShapeType.h
 	include/RE/H/hkpSimpleConstraintContactMgr.h
+	include/RE/H/hkpSimpleContactConstraintData.h
 	include/RE/H/hkpSimpleShapePhantom.h
 	include/RE/H/hkpSimpleWorldRayCaster.h
 	include/RE/H/hkpSimplexSolver.h

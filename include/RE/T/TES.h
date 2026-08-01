@@ -135,8 +135,8 @@ namespace RE
 		std::uint8_t  unk139;               // 139
 		std::uint16_t unk13A;               // 13A
 		bool          allowUnusedPurge;     // 13C
-		std::uint8_t  unk139;               // 13D
-		std::uint16_t unk13A;               // 13E
+		std::uint8_t  unk13D;               // 13D
+		std::uint16_t unk13E;               // 13E
 		float         gridBufferDistanceX;  // 140
 		float         gridBufferDistanceY;  // 144
 #else

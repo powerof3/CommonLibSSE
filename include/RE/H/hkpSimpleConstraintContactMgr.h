@@ -2,6 +2,7 @@
 
 #include "RE/H/hkpConstraintInstance.h"
 #include "RE/H/hkpDynamicsContactMgr.h"
+#include "RE/H/hkpSimpleContactConstraintData.h"
 
 namespace RE
 {
@@ -23,7 +24,7 @@ namespace RE
 		void          RemoveContactPointImpl(std::uint16_t a_cpId, hkpConstraintOwner& a_constraintOwner) override;                                                                                                                                                                                                       // 05
 		void          ProcessContactImpl(const hkpCollidable& a_bodyA, const hkpCollidable& a_bodyB, const hkpProcessCollisionInput& a_input, hkpProcessCollisionData& a_collisionData) override;                                                                                                                         // 06
 		ToiAccept     AddToiImpl(const hkpCdBody& a_bodyA, const hkpCdBody& a_bodyB, const hkpProcessCollisionInput& a_input, hkpProcessCollisionOutput& a_output, hkTime a_toi, hkContactPoint& a_cp, const hkpGskCache* a_gskCache, hkReal& a_projectedVelocity, hkpContactPointProperties& a_propertiesOut) override;  // 07
-		void          RemoveToiImpl(class hkpConstraintOwner& a_constraintOwner, hkpContactPointProperties& a_properties) override;                                                                                                                                                                                       // 08
+		void          RemoveToiImpl(hkpConstraintOwner& a_constraintOwner, hkpContactPointProperties& a_properties) override;                                                                                                                                                                                             // 08
 		void          Cleanup() override;                                                                                                                                                                                                                                                                                 // 09 - { delete this; }
 
 		// override (hkpDynamicsContactMgr)
@@ -41,12 +42,12 @@ namespace RE
 		virtual const hkpConstraintInstance* GetConstraintInstance() const;  // 13
 
 		// members
-		std::uint16_t reservedContactPoints;      // 20
-		std::uint16_t contactPointCallbackDelay;  // 22
-		//std::uint32_t         pad24;                        // 24 - verify!!!!!!
-		std::uint8_t          contactConstraintData[0x50];  // 28 - size: 0x50 - hkpSimpleContactConstraintData
-		hkpConstraintInstance constraint;                   // 78
-		std::uint64_t         padE8;                        // E8
+		std::uint16_t                  reservedContactPoints;      // 20
+		std::uint16_t                  contactPointCallbackDelay;  // 22
+		std::uint32_t                  pad24;                      // 24 - verify
+		hkpSimpleContactConstraintData contactConstraintData;      // 28
+		hkpConstraintInstance          constraint;                 // 78
+		std::uint64_t                  padE8;                      // E8
 	};
 	static_assert(sizeof(hkpSimpleConstraintContactMgr) == 0xF0);
 }
