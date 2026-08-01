@@ -73,6 +73,7 @@ set(SOURCES
 	include/RE/B/BGSAttackData.h
 	include/RE/B/BGSAttackDataForm.h
 	include/RE/B/BGSAttackDataMap.h
+	include/RE/B/BGSAutoWater.h
 	include/RE/B/BGSBaseAlias.h
 	include/RE/B/BGSBehaviorGraphModel.h
 	include/RE/B/BGSBipedObjectForm.h

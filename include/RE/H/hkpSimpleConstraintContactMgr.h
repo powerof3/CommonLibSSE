@@ -44,7 +44,7 @@ namespace RE
 		// members
 		std::uint16_t                  reservedContactPoints;      // 20
 		std::uint16_t                  contactPointCallbackDelay;  // 22
-		std::uint32_t                  pad24;                      // 24 - verify
+		std::uint32_t                  pad24;                      // 24
 		hkpSimpleContactConstraintData contactConstraintData;      // 28
 		hkpConstraintInstance          constraint;                 // 78
 		std::uint64_t                  padE8;                      // E8

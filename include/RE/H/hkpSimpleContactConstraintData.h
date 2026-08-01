@@ -18,6 +18,7 @@ namespace RE
 
 		~hkpSimpleContactConstraintData() override;  // 00
 
+		// override (hkpConstraintData)
 		bool              IsValid() const override;                                                   // 0A
 		std::int32_t      GetType() const override;                                                   // 0B
 		void              GetRuntimeInfo(bool a_wantRuntime, RuntimeInfo& a_infoOut) const override;  // 0C
