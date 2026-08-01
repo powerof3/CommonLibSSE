@@ -28,6 +28,7 @@ namespace RE
 		}
 
 		// members
+		std::uint8_t                       pad09;                   // 09
 		BSTArray<void*>                    unk10;                   // 10
 		BSTArray<void*>                    unk28;                   // 28
 		bool                               unk40;                   // 40

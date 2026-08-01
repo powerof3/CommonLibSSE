@@ -1899,6 +1899,7 @@ set(SOURCES
 	src/RE/A/ArmorRatingVisitorBase.cpp
 	src/RE/A/Array.cpp
 	src/RE/B/BGSAttackData.cpp
+	src/RE/B/BGSAutoWater.cpp
 	src/RE/B/BGSBaseAlias.cpp
 	src/RE/B/BGSBipedObjectForm.cpp
 	src/RE/B/BGSColorForm.cpp

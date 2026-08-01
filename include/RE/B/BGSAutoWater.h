@@ -1,24 +1,29 @@
 #pragma once
 
 #include "RE/B/BSTArray.h"
+#include "RE/B/BSTSingleton.h"
 #include "RE/N/NiSmartPointer.h"
 
 namespace RE
 {
 	class BSMultiBoundAABB;
 	class NiAVObject;
+	class TESObjectCELL;
 
 	class BGSAutoWater : public BSTSingletonSDM<BGSAutoWater>
 	{
 	public:
-		BGSAutoWater* GetSingleton()
-		{
-			static REL::Relocation<BGSAutoWater**> singleton{ RELOCATION_ID(514289, 400449) };
-			return *singleton;
-		}
+		static BGSAutoWater* GetSingleton();
+
+		void GenerateMultibounds(TESObjectCELL* a_cell);
+		void GeneratePlaceableWater(TESObjectCELL* a_cell, NiAVObject* a_water);
+		void GeneratePlaceableWaterForCell(TESObjectCELL* a_cell, bool a_loadFlowMap);
 
 		// members
-		std::uint8_t                          unk00[0x2028];                  // 0000 - related to flow map
+		std::uint8_t                          pad001;                         // 0001
+		std::uint16_t                         pad002;                         // 0002
+		std::uint32_t                         pad004;                         // 0004
+		std::uint8_t                          unk08[0x2020];                  // 0008 - related to flow map
 		BSTArray<NiPointer<BSMultiBoundAABB>> multiBounds;                    // 2028
 		NiPointer<NiAVObject>                 defaultCellWaterObject;         // 2040
 		NiPointer<NiAVObject>                 defaultCellWaterRipplesObject;  // 2048
