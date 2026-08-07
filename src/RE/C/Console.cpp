@@ -29,13 +29,13 @@ namespace RE
 
 	ObjectRefHandle Console::GetSelectedRefHandle()
 	{
-		static REL::Relocation<ObjectRefHandle*> selectedRef{ RELOCATION_ID(519394, 504099) };
+		static REL::Relocation<ObjectRefHandle*> selectedRef{ RELOCATION_ID(519394, 405935) };
 		return *selectedRef;
 	}
 
 	TESQuest* Console::GetCommandScriptParentQuest()
 	{
-		static REL::Relocation<TESQuest**> quest{ RELOCATION_ID(519336, 504093) };  // 1.6.640: 405876
+		static REL::Relocation<TESQuest**> quest{ RELOCATION_ID(519336, 405876) };
 		return *quest;
 	}
 

@@ -40,10 +40,6 @@ namespace RE
 			std::uint32_t totalRead;  // 30
 			std::uint32_t unk34;      // 34
 		};
-#ifdef SKYRIM_SUPPORT_AE
-		static_assert(sizeof(CompressedArchiveStream) == 0x40);
-#else
 		static_assert(sizeof(CompressedArchiveStream) == 0x38);
-#endif
 	}
 }

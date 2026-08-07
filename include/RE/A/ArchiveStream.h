@@ -34,10 +34,6 @@ namespace RE
 			std::uint32_t currentOffset;  // 1C
 			BSFixedString name;           // 20
 		};
-#ifdef SKYRIM_SUPPORT_AE
-		static_assert(sizeof(ArchiveStream) == 0x30);
-#else
 		static_assert(sizeof(ArchiveStream) == 0x28);
-#endif
 	}
 }
