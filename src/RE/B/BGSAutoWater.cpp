@@ -22,10 +22,10 @@ namespace RE
 		func(this, a_cell, a_water);
 	}
 
-	void BGSAutoWater::GeneratePlaceableWaterForCell(TESObjectCELL* a_cell, bool a_loadFlowMap)
+	void BGSAutoWater::GeneratePlaceableWaterForCell(TESObjectCELL* a_cell, bool a_unk)
 	{
 		using func_t = decltype(&BGSAutoWater::GeneratePlaceableWaterForCell);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(31230, 32030) };
-		func(this, a_cell, a_loadFlowMap);
+		func(this, a_cell, a_unk);
 	}
 }
