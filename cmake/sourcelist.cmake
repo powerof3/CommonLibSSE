@@ -814,6 +814,7 @@ set(SOURCES
 	include/RE/F/FavoritesMenu.h
 	include/RE/F/FightReactions.h
 	include/RE/F/FileID.h
+	include/RE/F/FindFormTypeHelper.h
 	include/RE/F/FindMaxMagnitudeVisitor.h
 	include/RE/F/FindTriangleForLocationFilterCheckDeltaZ.h
 	include/RE/F/FirstPersonState.h
@@ -1477,6 +1478,7 @@ set(SOURCES
 	include/RE/N/NonActorMagicTarget.h
 	include/RE/O/Object.h
 	include/RE/O/ObjectTypeInfo.h
+	include/RE/O/ObjectTypes.h
 	include/RE/O/ObjectiveState.h
 	include/RE/O/OldMessageBoxCallback.h
 	include/RE/O/OpenEffect.h
@@ -2171,6 +2173,7 @@ set(SOURCES
 	src/RE/N/NiTransform.cpp
 	src/RE/O/Object.cpp
 	src/RE/O/ObjectTypeInfo.cpp
+	src/RE/O/ObjectTypes.cpp
 	src/RE/O/ObjectiveState.cpp
 	src/RE/P/PackUnpack.cpp
 	src/RE/P/PackedInstructionStream.cpp
