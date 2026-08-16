@@ -43,7 +43,7 @@ namespace RE
 			BSTArray<InstanceData>                   instances;               // 08
 			std::uint32_t                            num;                     // 20
 			bool                                     shaderPropertyUpToDate;  // 24
-			std::uint8_t                             treeType;                // 25 - index in treeType array?
+			std::uint8_t                             treeType;                // 25
 			std::uint16_t                            pad26;                   // 26
 		};
 		static_assert(sizeof(TreeGroup) == 0x28);
@@ -52,7 +52,7 @@ namespace RE
 		{
 		public:
 			// members
-			std::uint32_t         number;     // 00 - .lst file
+			std::uint32_t         index;      // 00 - .lst file
 			float                 width;      // 04 - .lst file
 			float                 height;     // 08 - .lst file
 			float                 uvMinX;     // 0C - .lst file
@@ -73,8 +73,8 @@ namespace RE
 
 		// members
 		BSTArray<TreeGroup*>                     treeGroups;   // 00
-		BSTHashMap<std::uint32_t, InstanceData*> instanceMap;  // 18 - key: id
-		BSTHashMap<std::uint32_t, TreeGroup*>    nextGroup;    // 48 - key: treeType
+		BSTHashMap<std::uint32_t, InstanceData*> instanceMap;  // 18
+		BSTHashMap<std::uint32_t, TreeGroup*>    nextGroup;    // 48
 		BGSTerrainNode*                          node;         // 78
 		bool                                     doneLoading;  // 80
 		bool                                     attached;     // 81
