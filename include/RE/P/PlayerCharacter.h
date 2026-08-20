@@ -145,10 +145,10 @@ namespace RE
 		public BSTEventSink<MenuModeChangeEvent>,    // 2B8
 		public BSTEventSink<UserEventEnabledEvent>,  // 2C0
 #ifndef SKYRIM_SUPPORT_AE
-		public BSTEventSink<TESTrackedStatsEvent>    // 2C8
+		public BSTEventSink<TESTrackedStatsEvent>  // 2C8
 #else
-		public BSTEventSink<TESTrackedStatsEvent>,   // 2C8
-		public BSTEventSink<BSSystemEvent>           // 2D0
+		public BSTEventSink<TESTrackedStatsEvent>,  // 2C8
+		public BSTEventSink<BSSystemEvent>          // 2D0
 #endif
 	{
 	public:

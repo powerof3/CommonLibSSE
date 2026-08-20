@@ -36,7 +36,7 @@ namespace RE
 	struct TESActiveEffectApplyRemoveEvent;
 	struct TESActorLocationChangeEvent;
 	struct TESAmiiboTouchEvent;
-    struct TESAmiiboForcedStopDetectionEvent;
+	struct TESAmiiboForcedStopDetectionEvent;
 	struct TESBookReadEvent;
 	struct TESCellAttachDetachEvent;
 	struct TESCellFullyLoadedEvent;
@@ -137,11 +137,11 @@ namespace RE
 		public BSTEventSink<TESAmiiboTouchEvent>,
 		public BSTEventSink<TESAmiiboForcedStopDetectionEvent>,
 #endif
-		public BSTEventSink<TESPlayerBowShotEvent>,            // 0180
-		public BSTEventSink<TESFastTravelEndEvent>,            // 0188
-		public BSTEventSink<PositionPlayerEvent>,              // 0190
-		public BSTEventSink<BSScript::StatsEvent>,             // 0198
-		public BSTEventSource<BSScript::StatsEvent>            // 01A8
+		public BSTEventSink<TESPlayerBowShotEvent>,  // 0180
+		public BSTEventSink<TESFastTravelEndEvent>,  // 0188
+		public BSTEventSink<PositionPlayerEvent>,    // 0190
+		public BSTEventSink<BSScript::StatsEvent>,   // 0198
+		public BSTEventSource<BSScript::StatsEvent>  // 01A8
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_SkyrimVM;
