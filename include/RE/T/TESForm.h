@@ -7,6 +7,7 @@
 #include "RE/B/BSTHashMap.h"
 #include "RE/B/BaseFormComponent.h"
 #include "RE/F/FormTypes.h"
+#include "RE/N/NiTPointerMap.h"
 #include "RE/T/TESFile.h"
 
 namespace RE
@@ -57,7 +58,7 @@ namespace RE
 				kUnlocked = 1 << 0,
 
 				kAltered = 1 << 1,
-				kPlayable = 1 << 2,
+				kNonPlayable = 1 << 2,
 				kInitialized = 1 << 3,
 				kNonOccluder = 1 << 4,
 				kDeleted = 1 << 5,
@@ -82,7 +83,7 @@ namespace RE
 				kResetDestruction = 1 << 13,
 
 				kTemporary = 1 << 14,
-				kMustBeVisibleDistant = 1 << 15,
+				kVisibleWhenDistant = 1 << 15,
 				kRandomAnim = 1 << 16,
 				kDangerous = 1 << 17,
 				kHasCurrents = 1 << 19,
@@ -130,7 +131,7 @@ namespace RE
 		virtual bool                               Load(TESFile* a_mod);                                                                                                                            // 06 - { return true; }
 		virtual bool                               LoadPartial(TESFile* a_mod);                                                                                                                     // 07 - { return true; }
 		virtual bool                               LoadEdit(TESFile* a_mod);                                                                                                                        // 08 - { return Load(a_mod); }
-		virtual TESForm*                           CreateDuplicateForm(bool a_createEditorID, void* a_arg2);                                                                                        // 09
+		virtual TESForm*                           CreateDuplicateForm(bool a_createEditorID, NiTPointerMap<TESForm*, TESForm*>* a_copyMap);                                                        // 09
 		virtual bool                               AddChange(std::uint32_t a_changeFlags);                                                                                                          // 0A
 		virtual void                               RemoveChange(std::uint32_t a_changeFlags);                                                                                                       // 0B
 		virtual bool                               FindInFileFast(TESFile* a_mod);                                                                                                                  // 0C - { return false; }
@@ -292,12 +293,13 @@ namespace RE
 
 		[[nodiscard]] FormID GetLocalFormID() const
 		{
-			auto file = GetFile(0);
+			if (auto file = GetFile(0)) {
+				FormID fileIndex = file->compileIndex << (3 * 8);
+				fileIndex += file->smallFileCompileIndex << ((1 * 8) + 4);
 
-			RE::FormID fileIndex = file->compileIndex << (3 * 8);
-			fileIndex += file->smallFileCompileIndex << ((1 * 8) + 4);
-
-			return formID & ~fileIndex;
+				return formID & ~fileIndex;
+			}
+			return 0;
 		}
 
 		[[nodiscard]] const char* GetName() const;
@@ -324,6 +326,8 @@ namespace RE
 		[[nodiscard]] bool IsArmor() const noexcept { return Is(FormType::Armor); }
 		[[nodiscard]] bool IsBook() const noexcept { return Is(FormType::Book); }
 		[[nodiscard]] bool IsDeleted() const noexcept { return (GetFormFlags() & RecordFlags::kDeleted) != 0; }
+		[[nodiscard]] bool IsDestroyed() const noexcept { return (GetFormFlags() & RecordFlags::kDestroyed) != 0; }
+		[[nodiscard]] bool IsDisabled() const noexcept { return (GetFormFlags() & RecordFlags::kDisabled) != 0; }
 		[[nodiscard]] bool IsDynamicForm() const noexcept { return GetFormID() >= 0xFF000000; }
 		[[nodiscard]] bool IsGold() const noexcept { return GetFormID() == 0x0000000F; }
 		[[nodiscard]] bool IsIgnored() const noexcept { return (GetFormFlags() & RecordFlags::kIgnored) != 0; }

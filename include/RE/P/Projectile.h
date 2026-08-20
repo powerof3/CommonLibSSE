@@ -235,6 +235,8 @@ namespace RE
 		static ProjectileHandle* LaunchArrow(ProjectileHandle* a_result, Actor* a_shooter, TESAmmo* a_ammo, TESObjectWEAP* a_weap, const NiPoint3& a_origin, const ProjectileRot& a_angles) noexcept;
 		static ProjectileHandle* LaunchArrow(ProjectileHandle* a_result, Actor* a_shooter, TESAmmo* a_ammo, TESObjectWEAP* a_weap) noexcept;
 
+		void Kill();
+
 		// members
 		BSSimpleList<ImpactData*>          impacts;              // 098
 		NiTransform                        unk0A8;               // 0A8
@@ -273,7 +275,7 @@ namespace RE
 		TESObjectWEAP*                     weaponSource;         // 1B0
 		TESAmmo*                           ammoSource;           // 1B8
 		float                              distanceMoved;        // 1C0
-		std::uint32_t                      pad_1C4;              // 1C4
+		float                              decidedDecalWidth;    // 1C4
 		float                              scale;                // 1C8 - for double cast model scale
 		REX::EnumSet<Flags, std::uint32_t> flags;                // 1CC
 		bool                               unk1D0;               // 1D0

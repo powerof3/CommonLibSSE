@@ -12,7 +12,7 @@ namespace RE
 	BSAudioManager* BSAudioManager::GetSingleton()
 	{
 		using func_t = decltype(&BSAudioManager::GetSingleton);
-		static REL::Relocation<func_t> func{ Offset::BSAudioManager::GetSingleton };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(66391, 67652) };
 		return func();
 	}
 
@@ -51,6 +51,20 @@ namespace RE
 		return func(this, a_soundHandle, a_descriptor, a_flags);
 	}
 
+	void BSAudioManager::GetSoundHandleByFile(BSSoundHandle& a_soundHandle, const BSResource::ID& a_file, std::uint32_t a_flags, std::uint32_t a_priority)
+	{
+		using func_t = decltype(&BSAudioManager::GetSoundHandleByFile);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(66402, 67664) };
+		return func(this, a_soundHandle, a_file, a_flags, a_priority);
+	}
+
+	void BSAudioManager::GetSoundHandleByName(BSSoundHandle& a_soundHandle, const char* a_editorID, std::uint32_t a_flags)
+	{
+		using func_t = decltype(&BSAudioManager::GetSoundHandleByName);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(66403, 67665) };
+		return func(this, a_soundHandle, a_editorID, a_flags);
+	}
+
 	void BSAudioManager::KillAll(bool a_waitForCompletion, std::uint32_t a_waitTicks)
 	{
 		using func_t = decltype(&BSAudioManager::KillAll);
@@ -68,27 +82,6 @@ namespace RE
 	{
 		BSSoundHandle sound;
 		return GetSoundHandle(sound, a_descriptor) && sound.Play();
-	}
-
-	bool BSAudioManager::BuildSoundDataFromDescriptor(BSSoundHandle& a_soundHandle, BSISoundDescriptor* a_descriptor, std::uint32_t a_flags)
-	{
-		using func_t = decltype(&BSAudioManager::BuildSoundDataFromDescriptor);
-		static REL::Relocation<func_t> func{ Offset::BSAudioManager::BuildSoundDataFromDescriptor };
-		return func(this, a_soundHandle, a_descriptor, a_flags);
-	}
-
-	void BSAudioManager::BuildSoundDataFromEditorID(BSSoundHandle& a_soundHandle, const char* a_editorID, std::uint32_t a_flags)
-	{
-		using func_t = decltype(&BSAudioManager::BuildSoundDataFromEditorID);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(66403, 67665) };
-		return func(this, a_soundHandle, a_editorID, a_flags);
-	}
-
-	void BSAudioManager::BuildSoundDataFromFile(BSSoundHandle& a_soundHandle, const BSResource::ID& a_file, std::uint32_t a_flags, std::uint32_t a_priority)
-	{
-		using func_t = decltype(&BSAudioManager::BuildSoundDataFromFile);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(66402, 67664) };
-		return func(this, a_soundHandle, a_file, a_flags, a_priority);
 	}
 
 	void BSAudioManager::PrecacheDescriptor(const BSISoundDescriptor* a_descriptor, std::uint32_t a_flags)

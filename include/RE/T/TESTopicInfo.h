@@ -70,7 +70,7 @@ namespace RE
 			};
 		};
 
-		struct ResponseData  // TRDT
+		struct TESResponse  // TRDT
 		{
 			enum class EmotionType
 			{
@@ -90,8 +90,8 @@ namespace RE
 				kUseEmotionAnimation = 1 << 0
 			};
 
-			~ResponseData();
-			void PopulateResponseText(TESFile* a_file);
+			~TESResponse();
+			void LoadResponseText(TESFile* a_file);
 
 			TES_HEAP_REDEFINE_NEW();
 
@@ -111,9 +111,17 @@ namespace RE
 			BSFixedString                            responseText;    // 28 - NAM1
 			TESIdleForm*                             speakerIdle;     // 30
 			TESIdleForm*                             listenerIdle;    // 38
-			ResponseData*                            next;            // 40
+			TESResponse*                             next;            // 40
 		};
-		static_assert(sizeof(ResponseData) == 0x48);
+		static_assert(sizeof(TESResponse) == 0x48);
+
+		class TESResponseList
+		{
+		public:
+			// members
+			TESResponse* head;  // 00
+		};
+		static_assert(sizeof(TESResponseList) == 0x8);
 
 		~TESTopicInfo() override;  // 00
 
@@ -129,11 +137,12 @@ namespace RE
 		bool BelongsInGroup(FORM* a_form, bool a_allowParentGroups, bool a_currentOnly) override;  // 30
 		void CreateGroupData(FORM* a_form, FORM_GROUP* a_group) override;                          // 31
 
-		DialogueItem GetDialogueData(TESObjectREFR* a_speaker);
+		DialogueItem     GetDialogueData(TESObjectREFR* a_speaker);
+		TESResponseList* GetResponseList(TESResponseList* a_list = nullptr);
 
 		// members
 		TESTopic*                              parentTopic;    // 20
-		TESTopicInfo*                          dataInfo;       // 28 - PNAM
+		TESTopicInfo*                          dataInfo;       // 28 - DNAM
 		TESCondition                           objConditions;  // 30 - CTDA
 		std::uint16_t                          infoIndex;      // 38 - index in infoTopics array of parent topic
 		bool                                   saidOnce;       // 3A

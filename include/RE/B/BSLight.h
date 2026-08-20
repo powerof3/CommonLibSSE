@@ -54,7 +54,7 @@ namespace RE
 		std::uint8_t                        unk060;             // 060
 		bool                                affectLand;         // 061
 		bool                                affectWater;        // 062
-		bool                                neverFades;         // 063
+		bool                                lodFade;            // 063
 		std::uint32_t                       unk064;             // 064
 		NiTListItem<NiPointer<BSTriShape>>* geomListFence;      // 068
 		std::uint8_t                        unk070[96];         // 070

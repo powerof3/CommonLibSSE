@@ -156,13 +156,6 @@ namespace RE
 		inline static constexpr auto VTABLE = VTABLE_PlayerCharacter;
 		inline static constexpr auto FORMTYPE = FormType::ActorCharacter;
 
-		enum class EventType
-		{
-			kThief = 3,
-			kContainer = 5,
-			kDeadBody = 6
-		};
-
 		enum class GrabbingType
 		{
 			kNone = 0,
@@ -302,6 +295,7 @@ namespace RE
 			};
 			static_assert(sizeof(Data) == 0x128);
 
+			bool CanLevelUp();
 			void AdvanceLevel(bool a_addThreshold);
 
 			// members
@@ -331,11 +325,13 @@ namespace RE
 		bool                     CenterOnCell(const char* a_cellName);
 		bool                     CenterOnCell(TESObjectCELL* a_cell);
 		bool                     CheckCast(MagicItem* a_spell, Effect* a_effect, MagicSystem::CannotCastReason& a_reason);
+		void                     CheckPoisonWeapon(AlchemyItem* a_poison);
 		void                     DestroyMouseSprings();
 		void                     EndGrabObject();
 		NiPointer<Actor>         GetActorDoingPlayerCommand() const;
 		float                    GetArmorValue(InventoryEntryData* a_form);
 		float                    GetDamage(InventoryEntryData* a_form);
+		float                    GetEquippedWeaponsDamage();
 		NiPointer<TESObjectREFR> GetGrabbedRef();
 		std::int32_t             GetItemCount(TESBoundObject* a_object);
 		std::uint32_t            GetNumTints(std::uint32_t a_tintType);
@@ -345,7 +341,6 @@ namespace RE
 		bool                     HasActorDoingCommand() const;
 		bool                     IsGrabbing() const;
 		void                     PlayMagicFailureSound(MagicSystem::SpellType a_spellType);
-		void                     PlayPickupEvent(TESForm* a_item, TESForm* a_containerOwner, TESObjectREFR* a_containerRef, EventType a_eventType);
 		void                     SetAIDriven(bool a_enable);
 		void                     SetEscaping(bool a_flag, bool a_escaped);
 		void                     StartGrabObject();

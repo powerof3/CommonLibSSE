@@ -78,7 +78,7 @@ namespace RE
 		void Renderer::ResizeWindow(std::uint32_t a_windowID, std::uint32_t a_width, std::uint32_t a_height, bool a_fullscreen, bool a_borderless)
 		{
 			using func_t = decltype(&Renderer::ResizeWindow);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(75454, 77239) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(75449, 77234) };
 			return func(this, a_windowID, a_width, a_height, a_fullscreen, a_borderless);
 		}
 

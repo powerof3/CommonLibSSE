@@ -7,6 +7,7 @@
 #include "RE/M/MenuEventHandler.h"
 #include "RE/N/NiMatrix3.h"
 #include "RE/N/NiPoint3.h"
+#include "RE/T/TESObjectREFR.h"
 
 namespace RE
 {
@@ -14,7 +15,6 @@ namespace RE
 	class NiAVObject;
 	class NiControllerManager;
 	class NiControllerSequence;
-	class TESObjectREFR;
 
 	// menuDepth = 3
 	// flags = kPausesGame | kDisablePauseMenu | kRequiresUpdate
@@ -43,7 +43,10 @@ namespace RE
 		// override (BSTEventSink<MenuOpenCloseEvent>)
 		BSEventNotifyControl ProcessEvent(const MenuOpenCloseEvent* a_event, BSTEventSource<MenuOpenCloseEvent>* a_eventSource) override;  // 01
 
-		[[nodiscard]] static TESObjectREFR* GetTargetReference();
+		[[nodiscard]] static TESObjectREFRPtr GetTargetReference();
+		[[nodiscard]] static std::int32_t     GetCurrentLockDifficulty();
+
+		static void OpenMenu(TESObjectREFR* a_target);  // a_ref must be locked and player must have lockpicks
 
 		// members
 		ModelDBHandle         lockModel;            // 048

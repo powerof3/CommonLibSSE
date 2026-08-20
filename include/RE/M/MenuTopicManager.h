@@ -85,15 +85,15 @@ namespace RE
 		BSTArray<BGSDialogueBranch*>   topLevelBranches;      // 98
 		bool                           isGreetingPlayer;      // B0
 		bool                           menuOpen;              // B1
-		bool                           isSayingGoodbye;       // B2
-		bool                           unkB3;                 // B3
-		bool                           unkB4;                 // B4
-		bool                           unkB5;                 // B5
+		bool                           forceGoodbye;          // B2
+		bool                           shutMenu;              // B3
+		bool                           rumorTopicAdded;       // B4
+		bool                           waitingToAdvance;      // B5
 		bool                           unkB6;                 // B6
 		bool                           unkB7;                 // B7
 		bool                           unkB8;                 // B8
 		bool                           unkB9;                 // B9
-		bool                           unkBA;                 // BA
+		bool                           canSkip;               // BA
 		bool                           unkBB;                 // BB
 		std::uint16_t                  padBC;                 // BC
 		BSTArray<TESTopic*>            unkC0;                 // C0

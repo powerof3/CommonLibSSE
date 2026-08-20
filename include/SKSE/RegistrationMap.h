@@ -471,13 +471,11 @@ namespace SKSE
 			RE::VMHandle handle;
 
 			for (std::size_t i = 0; i < numRegs; ++i) {
-				if (!LoadFilter(a_intfc, filter)) {
-					return false;
-				}
+				bool loadedFilter = LoadFilter(a_intfc, filter);
 				a_intfc->ReadRecordData(numHandles);
 				for (std::size_t j = 0; j < numHandles; ++j) {
 					a_intfc->ReadRecordData(handle);
-					if (a_intfc->ResolveHandle(handle, handle)) {
+					if (a_intfc->ResolveHandle(handle, handle) && loadedFilter) {
 						_regs[filter].insert(handle);
 					}
 				}

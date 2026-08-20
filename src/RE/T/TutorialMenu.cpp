@@ -3,6 +3,7 @@
 #include "RE/B/BGSMessage.h"
 #include "RE/B/BSTArray.h"
 #include "RE/C/CRC.h"
+#include "RE/F/FormTraits.h"
 #include "RE/I/INISettingCollection.h"
 #include "RE/T/TESFile.h"
 #include "RE/T/TESFormUIData.h"
@@ -19,16 +20,16 @@ namespace RE
 		return *tutorialsShown;
 	}
 
-	void TutorialMenu::OpenTutorialMenu(DEFAULT_OBJECT a_key)
+	void TutorialMenu::OpenMenu(DEFAULT_OBJECT a_key)
 	{
 		const auto defaultObjectManager = BGSDefaultObjectManager::GetSingleton();
 		const auto message = defaultObjectManager->GetObject<BGSMessage>(a_key);
 		if (message) {
-			OpenTutorialMenu(a_key, message);
+			OpenMenu(a_key, message);
 		}
 	}
 
-	void TutorialMenu::OpenTutorialMenu(BGSMessage* a_message)
+	void TutorialMenu::OpenMenu(BGSMessage* a_message)
 	{
 		if (!a_message) {
 			return;
@@ -50,10 +51,10 @@ namespace RE
 		const std::uint32_t reduced_hash = reduced_min + (__emulu(hash, reduced_range) >> 32);
 
 		const auto key = static_cast<DEFAULT_OBJECT>(reduced_hash);
-		OpenTutorialMenu(key, a_message);
+		OpenMenu(key, a_message);
 	}
 
-	void TutorialMenu::OpenTutorialMenu(DEFAULT_OBJECT a_key, BGSMessage* a_message)
+	void TutorialMenu::OpenMenu(DEFAULT_OBJECT a_key, BGSMessage* a_message)
 	{
 		auto& tutorialsShown = QTutorialsShown();
 

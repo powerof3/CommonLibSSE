@@ -121,7 +121,6 @@ namespace RE
 		virtual void        PostAttachUpdate();                                                                                 // 33
 		virtual void        OnVisible(NiCullingProcess& a_process, std::int32_t a_alphaGroupIndex);                             // 34 - { return; }
 
-		[[nodiscard]] NiAVObject*         Clone();
 		void                              CullGeometry(bool a_cull);
 		void                              CullNode(bool a_cull);
 		[[nodiscard]] bool                GetAppCulled() const;

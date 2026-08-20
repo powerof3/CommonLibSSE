@@ -14,7 +14,14 @@ namespace RE
 	{
 		using func_t = void (*)(ShadowSceneNode*, BSLight*);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(99693, 106327) };
-		return func(this, a_light);
+		func(this, a_light);
+	}
+
+	BSCompoundFrustum* ShadowSceneNode::BuildSharedCompoundFrustum(BSCullingProcess* a_cullingProcess, BSPortal* a_portal)
+	{
+		using func_t = decltype(&ShadowSceneNode::BuildSharedCompoundFrustum);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(99735, 106379) };
+		return func(this, a_cullingProcess, a_portal);
 	}
 
 	BSLight* ShadowSceneNode::GetLight(NiLight* a_light)
@@ -46,24 +53,31 @@ namespace RE
 		return nullptr;
 	}
 
+	void ShadowSceneNode::RemoveAllLights()
+	{
+		using func_t = decltype(&ShadowSceneNode::RemoveAllLights);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(99704, 106338) };
+		func(this);
+	}
+
 	void ShadowSceneNode::RemoveLight(NiLight* a_light)
 	{
 		using func_t = void (*)(ShadowSceneNode*, NiLight*);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(99697, 106331) };
-		return func(this, a_light);
+		func(this, a_light);
 	}
 
 	void ShadowSceneNode::RemoveLight(const NiPointer<BSLight>& a_light)
 	{
 		using func_t = void (*)(ShadowSceneNode*, const NiPointer<BSLight>&);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(99698, 106332) };
-		return func(this, a_light);
+		func(this, a_light);
 	}
 
-	BSCompoundFrustum* ShadowSceneNode::BuildSharedCompoundFrustum(BSCullingProcess* a_cullingProcess, BSPortal* a_portal)
+	void ShadowSceneNode::SetPortalGraph(BSPortalGraph* a_graph)
 	{
-		using func_t = decltype(&ShadowSceneNode::BuildSharedCompoundFrustum);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(99735, 106379) };
-		return func(this, a_cullingProcess, a_portal);
+		using func_t = decltype(&ShadowSceneNode::SetPortalGraph);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(99741, 106385) };
+		func(this, a_graph);
 	}
 }

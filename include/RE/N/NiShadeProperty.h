@@ -26,7 +26,7 @@ namespace RE
 		// add
 		virtual bool SetupGeometry(BSGeometry* a_geometry);        // 27 - { return 1; }
 		virtual bool FinishSetupGeometry(BSGeometry* a_geometry);  // 28 - { return 1; }
-		virtual void Unk_29(void);                                 // 29 - { return; }
+		virtual void SetLightState(std::int32_t lightIndex);       // 29 - { return; }
 	};
 	static_assert(sizeof(NiShadeProperty) == 0x30);
 }

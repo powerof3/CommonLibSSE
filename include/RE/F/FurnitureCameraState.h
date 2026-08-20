@@ -18,8 +18,13 @@ namespace RE
 		void Update(BSTSmartPointer<TESCameraState>& a_nextState) override;  // 03
 		void GetRotation(NiQuaternion& a_rotation) override;                 // 04
 		void GetTranslation(NiPoint3& a_translation) override;               // 05
-		void SaveGame(BGSSaveFormBuffer* a_buf) override;                    // 06
-		void LoadGame(BGSLoadFormBuffer* a_buf) override;                    // 07
-		void Revert(BGSLoadFormBuffer* a_buf) override;                      // 08
+
+		std::uint32_t unk20;  // 20
+		NiPoint3      unk24;  // 24
+		std::uint64_t unk30;  // 30
+		std::uint32_t unk38;  // 38
+		std::uint16_t unk3C;  // 3C
+		std::uint16_t unk3E;  // 3E
 	};
+	static_assert(sizeof(FurnitureCameraState) == 0x40);
 }

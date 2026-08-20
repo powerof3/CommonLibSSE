@@ -34,6 +34,11 @@ namespace RE
 		void      EulerAnglesToAxesZXY(float a_xAngle, float a_yAngle, float a_zAngle);
 		void      SetEulerAnglesXYZ(const NiPoint3& a_point);
 		void      SetEulerAnglesXYZ(float a_x, float a_y, float a_z);
+		void      MakeXRotation(float a_angle);
+		void      MakeYRotation(float a_angle);
+		void      MakeZRotation(float a_angle);
+		void      MakeRotation(float a_angle, float a_x, float a_y, float a_z);
+		void      MakeRotation(float a_angle, const NiPoint3& a_axis);
 		NiMatrix3 Transpose() const;
 
 		bool      operator==(const NiMatrix3& a_rhs) const;

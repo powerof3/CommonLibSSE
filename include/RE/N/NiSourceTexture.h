@@ -4,6 +4,7 @@
 #include "RE/N/NiTexture.h"
 
 struct ID3D11Resource;
+struct ID3D11UnorderedAccessView;
 
 namespace RE
 {
@@ -12,12 +13,16 @@ namespace RE
 		class Texture
 		{
 		public:
-			ID3D11Resource*           texture;       // 00 - can be ID3D11Texture1D/ID3D11Texture2D/ID3D11Texture3D
-			std::uint64_t             unk08;         // 08
-			ID3D11ShaderResourceView* resourceView;  // 10
-			std::uint64_t             unk18;         // 18
-			std::uint32_t             unk20;         // 20
-			std::uint32_t             pad24;         // 24
+			ID3D11Resource*            texture;       // 00 - can be ID3D11Texture1D/ID3D11Texture2D/ID3D11Texture3D
+			ID3D11UnorderedAccessView* UAV;           // 08
+			ID3D11ShaderResourceView*  resourceView;  // 10
+			uint16_t                   height;        // 18
+			uint16_t                   width;         // 1A
+			uint8_t                    mips;          // 1C
+			uint8_t                    format;        // 1D
+			uint16_t                   unk1E;         // 1E
+			std::uint32_t              refCount;      // 20
+			std::uint32_t              pad24;         // 24
 		};
 		static_assert(sizeof(Texture) == 0x28);
 
@@ -79,16 +84,16 @@ namespace RE
 		~NiSourceTexture() override;  // 00
 
 		// override (NiTexture)
-		const NiRTTI* GetRTTI() const override;  // 02
-		void          Unk_25(void) override;     // 25 - { return 0; }
-		void          Unk_26(void) override;     // 26 - { return 0; }
-		void          Unk_27(void) override;     // 27
-		void          Unk_28(void) override;     // 28
-		void          Unk_29(void) override;     // 29 - { return; }
-		void          Unk_2A(void) override;     // 2A - { return; }
+		const NiRTTI* GetRTTI() const override;                                                                                                                  // 02
+		void          Unk_25(void) override;                                                                                                                     // 25 - { return 0; }
+		void          Unk_26(void) override;                                                                                                                     // 26 - { return 0; }
+		char*         GetTextureFormat() override;                                                                                                               // 27
+		void          GetTextureDimensionsAndMipInfo(std::uint32_t* width, std::uint32_t* height, std::uint32_t* mipLevels, std::uint32_t* arraySize) override;  // 28
+		void          Unk_29(void) override;                                                                                                                     // 29 - { return; }
+		void          Unk_2A(void) override;                                                                                                                     // 2A - { return; }
 
 		// members
-		BSResource::Stream*  unk40;            // 40
+		BSResource::Stream*  resourceStream;   // 40
 		BSGraphics::Texture* rendererTexture;  // 48
 		std::uint8_t         flags;            // 50
 		std::uint8_t         pad51;            // 51

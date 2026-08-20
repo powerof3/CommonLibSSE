@@ -18,21 +18,14 @@ namespace RE
 
 		~MessageBoxData() override;  // 00
 
-		void QueueMessage()
-		{
-			using func_t = decltype(&MessageBoxData::QueueMessage);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(51422, 52271) };
-			return func(this);
-		}
-
 		// members
 		BSString                             bodyText;           // 10
 		BSTArray<BSString>                   buttonText;         // 20
-		std::uint32_t                        type;               // 38 - some sort of identifier ranging from 0-29, being 25 the one with the "highest priority"
-		std::int32_t                         cancelOptionIndex;  // 3C
+		std::int32_t                         warningType;        // 38 - some sort of identifier ranging from 0-29, being 25 the one with the "highest priority"
+		std::int32_t                         cancelButtonIndex;  // 3C
 		BSTSmartPointer<IMessageBoxCallback> callback;           // 40
-		std::uint32_t                        menuDepth;          // 48
-		std::uint8_t                         optionIndexOffset;  // 4C
+		std::int32_t                         menuDepth;          // 48
+		std::uint8_t                         buttonPressOffset;  // 4C - offset that is added to the button that was pressed
 		bool                                 useHtml;            // 4D
 		bool                                 verticalButtons;    // 4E
 		bool                                 isCancellable;      // 4F

@@ -34,7 +34,7 @@ namespace RE
 		NiPointer<BSPortalSharedNode>         portalSharedNode;      // 70
 		BSTArray<NiPointer<NiAVObject>>       unk78;                 // 78
 		BSTArray<NiPointer<NiAVObject>>       unk90;                 // 90
-		BSTArray<void*>                       unkA8;                 // A8
+		BSTArray<NiPointer<NiNode>>           unkA8;                 // A8
 		FormID                                cellID;                // C0
 		std::uint32_t                         padC4;                 // C4
 	};

@@ -12,6 +12,7 @@ namespace RE
 		class World;
 	}
 
+	class NiNode;
 	class TESWorldSpace;
 	struct IMapCameraCallbacks;
 
@@ -24,7 +25,7 @@ namespace RE
 		~MapCamera() override;  // 00
 
 		// add
-		virtual void Unk_03(void);  // 03
+		virtual void SetMapCameraRoot(NiNode* a_root, const NiPoint3& a_mapPos);  // 03
 
 		// members
 		BSTPoint2<float>                             unk38;       // 38

@@ -3,10 +3,7 @@
     {
       "binaryDir": "${sourceDir}/build",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": {
-          "type": "STRING",
-          "value": "Debug"
-        }
+        "CMAKE_BUILD_TYPE": "Debug"
       },
       "errors": {
         "deprecated": true
@@ -20,24 +17,15 @@
     },
     {
       "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": {
-          "type": "STRING",
-          "value": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake"
-        }
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_INSTALLATION_ROOT}/scripts/buildsystems/vcpkg.cmake"
       },
       "hidden": true,
       "name": "vcpkg"
     },
     {
       "cacheVariables": {
-        "CMAKE_MSVC_RUNTIME_LIBRARY": {
-          "type": "STRING",
-          "value": "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL"
-        },
-        "VCPKG_TARGET_TRIPLET": {
-          "type": "STRING",
-          "value": "x64-windows-static-md"
-        }
+        "CMAKE_MSVC_RUNTIME_LIBRARY": "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL",
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static-md"
       },
       "hidden": true,
       "name": "windows"
@@ -66,6 +54,20 @@
       ],
       "name": "vs2022-windows-vcpkg",
       "toolset": "v143"
+    },
+    {
+      "generator": "Visual Studio 18 2026",
+      "inherits": "vs2022-windows-vcpkg",
+      "name": "vs2026-windows-vcpkg",
+      "toolset": "v145"
+    },
+    {
+      "cacheVariables": {
+        "SKYRIM_SUPPORT_AE": "ON"
+      },
+      "binaryDir": "${sourceDir}/buildae",
+      "inherits": "vs2026-windows-vcpkg",
+      "name": "vs2026-windows-vcpkg-ae"
     }
   ],
   "version": 2

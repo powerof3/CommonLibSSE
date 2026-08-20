@@ -30,12 +30,20 @@ namespace RE
 
 		constexpr BSTArrayBase() noexcept = default;
 		constexpr BSTArrayBase(const BSTArrayBase&) noexcept = default;
-		constexpr BSTArrayBase(BSTArrayBase&&) noexcept = default;
+		constexpr BSTArrayBase(BSTArrayBase&& a_rhs) noexcept :
+			_size(a_rhs.size())
+		{
+			a_rhs._size = 0;
+		}
 
 		inline ~BSTArrayBase() noexcept { _size = 0; }
 
 		BSTArrayBase& operator=(const BSTArrayBase&) noexcept = default;
-		BSTArrayBase& operator=(BSTArrayBase&&) noexcept = default;
+		BSTArrayBase& operator=(BSTArrayBase&& a_rhs) noexcept
+		{
+			_size = a_rhs.size();
+			a_rhs._size = 0;
+		}
 
 		[[nodiscard]] constexpr bool      empty() const noexcept { return _size == 0; }
 		[[nodiscard]] constexpr size_type size() const noexcept { return _size; }

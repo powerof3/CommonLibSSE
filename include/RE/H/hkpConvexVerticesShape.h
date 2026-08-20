@@ -2,7 +2,7 @@
 
 #include "RE/H/hkpConvexShape.h"
 
-#include "RE/h/hkArray.h"
+#include "RE/H/hkArray.h"
 
 namespace RE
 {

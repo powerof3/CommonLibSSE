@@ -24,9 +24,9 @@ namespace RE
 
 		static BSTArray<DEFAULT_OBJECT>& QTutorialsShown();
 
-		static void OpenTutorialMenu(DEFAULT_OBJECT a_id);
-		static void OpenTutorialMenu(BGSMessage* a_message);
-		static void OpenTutorialMenu(DEFAULT_OBJECT a_id, BGSMessage* a_message);
+		static void OpenMenu(DEFAULT_OBJECT a_id);
+		static void OpenMenu(BGSMessage* a_message);
+		static void OpenMenu(DEFAULT_OBJECT a_id, BGSMessage* a_message);
 
 		// members
 		GFxValue root;  // 30 - "Menu_mc"

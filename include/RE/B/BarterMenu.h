@@ -10,6 +10,8 @@ namespace RE
 	struct ItemCard;
 	struct ItemList;
 
+	class Actor;
+
 	// menuDepth = 0
 	// flags = kPausesGame | kUsesMenuContext | kDisablePauseMenu | kUpdateUsesCursor | kInventoryItemMenu | kCustomRendering
 	// context = kItemMenu
@@ -29,6 +31,8 @@ namespace RE
 
 		[[nodiscard]] static RefHandle GetTargetRefHandle();
 
+		static void OpenMenu(Actor* a_targetActor);
+
 		// members
 		ItemList*       itemList;         // 30
 		ItemCard*       itemCard;         // 38
@@ -42,7 +46,8 @@ namespace RE
 		std::uint16_t   pad7A;            // 7A
 		std::uint32_t   pad7C;            // 7C
 		BSTArray<void*> unk80;            // 80
-		std::uint64_t   unk98;            // 98
+		std::int32_t    playerGold;       // 90
+		std::int32_t    merchantGold;     // 94
 		std::uint32_t   unkA0;            // A0
 		bool            pcControlsReady;  // A4
 		std::uint8_t    padA5;            // A5

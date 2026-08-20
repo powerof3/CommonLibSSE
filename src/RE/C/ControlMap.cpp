@@ -7,7 +7,7 @@ namespace RE
 {
 	ControlMap* ControlMap::GetSingleton()
 	{
-		static REL::Relocation<ControlMap**> singleton{ Offset::ControlMap::Singleton };
+		static REL::Relocation<ControlMap**> singleton{ RELOCATION_ID(514705, 400863) };
 		return *singleton;
 	}
 

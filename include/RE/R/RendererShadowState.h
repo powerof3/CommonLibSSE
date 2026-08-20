@@ -134,8 +134,8 @@ namespace RE
 			std::byte                                       pad374[12];                                                             // 374
 			ViewData                                        cameraData;                                                             // 380
 			std::uint32_t                                   alphaBlendModeExtra;                                                    // 5D0
-			float                                           unk5D4;                                                                 // 5D4
-			float                                           unk5D8;                                                                 // 5D8
+			float                                           viewNear;                                                               // 5D4
+			float                                           viewFar;                                                                // 5D8
 			std::uint32_t                                   unk5DC;                                                                 // 5D0
 		};
 		static_assert(sizeof(RendererShadowState) == 0x5E0);

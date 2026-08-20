@@ -62,6 +62,11 @@ namespace RE
 		return middleHigh ? middleHigh->commandingActor : ActorHandle{};
 	}
 
+	InventoryEntryData* AIProcess::GetCurrentAmmo() const
+	{
+		return middleHigh ? middleHigh->bothHands : nullptr;
+	}
+
 	TESShout* AIProcess::GetCurrentShout()
 	{
 		return high ? high->currentShout : nullptr;
@@ -245,6 +250,13 @@ namespace RE
 		return func(this, a_actor, a_location, a_magnitude);
 	}
 
+	void AIProcess::KnockParalyze(Actor* a_actor)
+	{
+		using func_t = decltype(&AIProcess::KnockParalyze);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(38857, 39894) };
+		return func(this, a_actor);
+	}
+
 	bool AIProcess::PlayIdle(Actor* a_actor, TESIdleForm* a_idle, TESObjectREFR* a_target)
 	{
 		return SetupSpecialIdle(a_actor, DEFAULT_OBJECT::kActionIdle, a_idle, true, false, a_target);
@@ -326,7 +338,7 @@ namespace RE
 	void AIProcess::Update3DModel_Impl(Actor* a_actor)
 	{
 		using func_t = decltype(&AIProcess::Update3DModel_Impl);
-		static REL::Relocation<func_t> func{ Offset::AIProcess::Update3DModel };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(38404, 39395) };
 		return func(this, a_actor);
 	}
 

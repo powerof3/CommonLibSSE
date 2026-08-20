@@ -56,7 +56,7 @@ namespace RE
 		BSTSmartPointer<MapZoomHandler> zoomHandler;           // 00050
 		ObjectRefHandle                 mapMarker;             // 00058
 		LocalMapMenu                    localMapMenu;          // 00060
-		RefHandle                       cameraOpeningCenter;   // 30460 - defaults to player ref
+		ObjectRefHandle                 cameraRootRef;         // 30460 - defaults to player ref
 		NiPoint3                        playerMarkerPosition;  // 30464
 		BSTArray<MapMenuMarker>         mapMarkers;            // 30470
 		BSTArray<GFxValue>              markerData;            // 30488

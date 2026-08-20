@@ -44,7 +44,7 @@ namespace RE
 	std::uint16_t InventoryChanges::GetNextUniqueID()
 	{
 		using func_t = decltype(&InventoryChanges::GetNextUniqueID);
-		static REL::Relocation<func_t> func{ Offset::InventoryChanges::GetNextUniqueID };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(15908, 16148) };
 		return func(this);
 	}
 
@@ -86,7 +86,7 @@ namespace RE
 	void InventoryChanges::SendContainerChangedEvent(ExtraDataList* a_itemExtraList, TESObjectREFR* a_fromRefr, TESForm* a_item, std::int32_t a_count)
 	{
 		using func_t = decltype(&InventoryChanges::SendContainerChangedEvent);
-		static REL::Relocation<func_t> func{ Offset::InventoryChanges::SendContainerChangedEvent };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(15909, 16149) };
 		return func(this, a_itemExtraList, a_fromRefr, a_item, a_count);
 	}
 
@@ -100,7 +100,7 @@ namespace RE
 	void InventoryChanges::SetUniqueID(ExtraDataList* a_itemList, TESForm* a_oldForm, TESForm* a_newForm)
 	{
 		using func_t = decltype(&InventoryChanges::SetUniqueID);
-		static REL::Relocation<func_t> func{ Offset::InventoryChanges::SetUniqueID };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(15907, 16149) };
 		return func(this, a_itemList, a_oldForm, a_newForm);
 	}
 

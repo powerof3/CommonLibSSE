@@ -14,7 +14,7 @@ namespace RE
 		TESObjectREFR* FindCollidableRef(const hkpCollidable& a_linkedCollidable)
 		{
 			using func_t = decltype(&FindCollidableRef);
-			static REL::Relocation<func_t> func{ Offset::TESHavokUtilities::FindCollidableRef };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(25466, 26003) };
 			return func(a_linkedCollidable);
 		}
 

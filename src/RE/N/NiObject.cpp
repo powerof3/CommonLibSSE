@@ -28,6 +28,13 @@ namespace RE
 		return func(this, a_cloning);
 	}
 
+	NiObject* NiObject::Clone()
+	{
+		using func_t = decltype(&NiObject::Clone);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(68835, 70187) };
+		return func(this);
+	}
+
 	void NiObject::CreateDeepCopy(NiPointer<NiObject>& a_object)
 	{
 		using func_t = decltype(&NiObject::CreateDeepCopy);

@@ -7,6 +7,7 @@ namespace RE
 {
 	struct BottomBar;
 	struct ItemCard;
+	struct MagicItemList;
 
 	// menuDepth = 0
 	// flags = kPausesGame | kUsesMenuContext | kDisablePauseMenu | kUpdateUsesCursor | kInventoryItemMenu | kCustomRendering
@@ -26,14 +27,14 @@ namespace RE
 		void               PostDisplay() override;                           // 06
 
 		// members
-		void*         unk30;            // 30 - some variation of the item list
-		ItemCard*     itemCard;         // 38
-		BottomBar*    bottomBar;        // 40
-		GFxValue      root;             // 48 - "Menu_mc"
-		bool          pcControlsReady;  // 60
-		std::uint8_t  pad61;            // 61
-		std::uint16_t pad62;            // 62
-		std::uint32_t pad64;            // 64
+		MagicItemList* itemList;         // 30
+		ItemCard*      itemCard;         // 38
+		BottomBar*     bottomBar;        // 40
+		GFxValue       root;             // 48 - "Menu_mc"
+		bool           pcControlsReady;  // 60
+		std::uint8_t   pad61;            // 61
+		std::uint16_t  pad62;            // 62
+		std::uint32_t  pad64;            // 64
 	};
 	static_assert(sizeof(MagicMenu) == 0x68);
 }

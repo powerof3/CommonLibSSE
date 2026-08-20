@@ -210,7 +210,7 @@ namespace RE
 		float                                      killMoveTimer;               // 2D8
 		float                                      unk2DC;                      // 2DC
 		std::uint32_t                              unk2E0;                      // 2E0
-		std::uint32_t                              unk2E4;                      // 2E4
+		std::uint32_t                              reservationSlot;             // 2E4
 		std::uint32_t                              currentFurnitureMarkerID;    // 2E8
 		std::uint32_t                              unk2EC;                      // 2EC
 		std::uint64_t                              unk2F0;                      // 2F0

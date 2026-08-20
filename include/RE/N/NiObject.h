@@ -79,7 +79,8 @@ namespace RE
 		virtual void                          SetGroup([[maybe_unused]] NiObjectGroup* a_group) { return; }               // 23
 		virtual NiControllerManager*          AsNiControllerManager() { return nullptr; }                                 // 24
 
-		void CreateDeepCopy(NiPointer<NiObject>& a_object);
+		[[nodiscard]] NiObject* Clone();
+		void                    CreateDeepCopy(NiPointer<NiObject>& a_object);
 	};
 	static_assert(sizeof(NiObject) == 0x10);
 }

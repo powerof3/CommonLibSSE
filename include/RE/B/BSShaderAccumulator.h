@@ -1,6 +1,7 @@
 #pragma once
 
 #include "RE/N/NiAlphaAccumulator.h"
+#include "RE/N/NiColor.h"
 
 namespace RE
 {
@@ -38,7 +39,7 @@ namespace RE
 		// add
 		virtual void FinishAccumulatingPreResolveDepth(std::uint32_t flags);   // 2A
 		virtual void FinishAccumulatingPostResolveDepth(std::uint32_t flags);  // 2B
-		virtual void Unk_2C();                                                 // 2C
+		virtual void Unk_2C() = 0;                                             // 2C
 
 		std::uint8_t     unk58[0x4];                // 58
 		bool             unk5C;                     // 5C

@@ -33,10 +33,10 @@ namespace RE
 		void Call(Params& a_params) override;  // 01
 
 		// members
-		std::uint8_t  unk50;  // 50
-		std::uint8_t  pad51;  // 51
-		std::uint16_t pad52;  // 52
-		std::uint32_t pad54;  // 54
+		bool          useTransparentBackground;  // 50
+		std::uint8_t  pad51;                     // 51
+		std::uint16_t pad52;                     // 52
+		std::uint32_t pad54;                     // 54
 	};
 	static_assert(sizeof(ModManagerMenu) == 0x58);
 }

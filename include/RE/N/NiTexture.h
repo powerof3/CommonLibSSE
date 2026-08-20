@@ -92,12 +92,12 @@ namespace RE
 		[[nodiscard]] const NiRTTI* GetRTTI() const override;  // 02
 
 		// add
-		virtual void Unk_25(void);  // 25 - { return 0; }
-		virtual void Unk_26(void);  // 26 - { return 0; }
-		virtual void Unk_27(void);  // 27 - { return "n/a"; }
-		virtual void Unk_28(void);  // 28
-		virtual void Unk_29(void);  // 29 - { return 0; }
-		virtual void Unk_2A(void);  // 2A - { return 0; }
+		virtual void  Unk_25(void);                                                                                                                     // 25 - { return 0; }
+		virtual void  Unk_26(void);                                                                                                                     // 26 - { return 0; }
+		virtual char* GetTextureFormat();                                                                                                               // 27 - { return "n/a"; }
+		virtual void  GetTextureDimensionsAndMipInfo(std::uint32_t* width, std::uint32_t* height, std::uint32_t* mipLevels, std::uint32_t* arraySize);  // 28
+		virtual void  Unk_29(void);                                                                                                                     // 29 - { return 0; }
+		virtual void  Unk_2A(void);                                                                                                                     // 2A - { return 0; }
 
 		// members
 		FormatPrefs   formatPrefs;  // 10

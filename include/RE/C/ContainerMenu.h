@@ -6,6 +6,8 @@
 
 namespace RE
 {
+	class TESObjectREFR;
+
 	struct BottomBar;
 	struct ItemCard;
 	struct ItemList;
@@ -37,6 +39,8 @@ namespace RE
 
 		[[nodiscard]] static ContainerMode GetContainerMode();
 		[[nodiscard]] static RefHandle     GetTargetRefHandle();
+
+		static void OpenMenu(TESObjectREFR* a_target, ContainerMode a_mode);  // If target is owned, kSteal is used instead of kLoot
 
 		// members
 		GFxValue        root;             // 30 - "Menu_mc"

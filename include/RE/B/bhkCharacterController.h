@@ -171,7 +171,7 @@ namespace RE
 		hkRefPtr<hkpRigidBody>                                 bumpedBody;                 // 2C0
 		hkRefPtr<hkpRigidBody>                                 bumpedCharCollisionObject;  // 2C8
 		BSTHashMap<NiPointer<bhkRigidBody>, DamageImpactData*> damageImpacts;              // 2D0
-		std::uint32_t                                          unk300;                     // 300
+		std::uint32_t                                          maxSlope;                   // 300
 		MATERIAL_ID                                            surfaceMaterial;            // 304
 		std::uint64_t                                          unk308;                     // 308
 		std::uint64_t                                          unk310;                     // 310

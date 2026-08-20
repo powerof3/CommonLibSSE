@@ -4,46 +4,74 @@
 
 namespace RE
 {
+	struct PathingCellInfo
+	{
+	public:
+		constexpr PathingCellInfo() :
+			worldSpaceID(0)
+		{}
+
+		union CellFormID
+		{
+			constexpr CellFormID() :
+				formID(0)
+			{}
+
+			bool operator==(const CellFormID& a_rhs) const noexcept
+			{
+				return formID == a_rhs.formID && coordinates == a_rhs.coordinates;
+			}
+
+			FormID formID;
+			CellID coordinates;
+		};
+
+		bool operator==(const PathingCellInfo& a_rhs) const noexcept
+		{
+			return worldSpaceID == a_rhs.worldSpaceID && cellID == a_rhs.cellID;
+		}
+
+		// members
+		FormID     worldSpaceID;
+		CellFormID cellID;
+	};
+	static_assert(sizeof(PathingCellInfo) == 0x8);
+
 	class PathingCell : public BSPathingCell
 	{
 	public:
-		struct PathingCellInfo
-		{
-			union CellFormID
-			{
-				constexpr CellFormID() :
-					formID(0) {}
-
-				FormID formID;
-				CellID coordinates;
-			};
-
-			constexpr PathingCellInfo() :
-				worldSpaceID(0){};
-
-			FormID     worldSpaceID;
-			CellFormID cellID;
-		};
-
 		inline static constexpr auto RTTI = RTTI_PathingCell;
 		inline static constexpr auto VTABLE = VTABLE_PathingCell;
 
-		virtual ~PathingCell();  // 00
+		~PathingCell() override;  // 00
 
 		// override (BSPathingCell)
-		virtual std::uint32_t GetType() const override;                                             // 01 - "PathingCell"
-		virtual void          Unk_02(void) override;                                                // 02
-		virtual void          Unk_03(void) override;                                                // 03
-		virtual void          Unk_04(void) override;                                                // 04
-		virtual void          Unk_05(void) override;                                                // 05
-		virtual void          Unk_06(void) override;                                                // 06
-		virtual void          Unk_07(void) override;                                                // 07
-		virtual void          Unk_08(void) override;                                                // 08
-		virtual void          Unk_09(void) override;                                                // 09
-		virtual bool          IsInSameSpace(BSTSmartPointer<BSPathingCell>* a_otherCell) override;  // 0A
+		std::uint32_t GetType() const override;                                             // 01 - "PathingCell"
+		void          Write(const BSPathingStreamWrite& a_stream) override;                 // 02
+		void          Read(const BSPathingStreamRead& a_stream) override;                   // 03
+		void          FixupNumericID(BSPathingNumericIDVisitor& a_visitor) override;        // 04
+		void          GetSpace(BSTSmartPointer<BSPathingSpace>& a_out) override;            // 05
+		bhkWorld*     GetBhkWorld() override;                                               // 06
+		bool          QValid() const override;                                              // 07
+		bool          QAttached() const override;                                           // 08
+		bool          QLoaded() const override;                                             // 09
+		bool          IsInSameSpace(BSTSmartPointer<BSPathingCell>* a_otherCell) override;  // 0A
 
 		// members
 		PathingCellInfo pathingCellInfo;  // 10
 	};
 	static_assert(sizeof(PathingCell) == 0x18);
+
+	template <>
+	struct BSCRC32_<PathingCellInfo>
+	{
+	public:
+		[[nodiscard]] std::uint32_t operator()(const PathingCellInfo& a_info) const noexcept
+		{
+			return detail::GenerateCRC32(
+				std::span(
+					reinterpret_cast<const std::uint8_t*>(std::addressof(a_info)),
+					sizeof(PathingCellInfo)));
+		}
+	};
 }

@@ -25,11 +25,11 @@ namespace RE
 			~ConfirmLevelUpAttributeCallback() override;  // 00
 
 			// override (IMessageBoxCallback)
-			void Run(Message a_msg) override;  // 01
+			void Run(std::uint8_t a_button) override;  // 01
 
 			// members
-			LevelUpMenu*   menu;        // 10
-			RE::ActorValue actorValue;  // 18
+			LevelUpMenu* menu;        // 10
+			ActorValue   actorValue;  // 18
 		};
 		static_assert(sizeof(ConfirmLevelUpAttributeCallback) == 0x20);
 

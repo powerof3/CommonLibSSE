@@ -23,7 +23,7 @@ namespace RE
 				kAttack = 3,
 				kMurder = 4,
 				kEscape = 5,
-				kUnused = 6,
+				kWerewolf = 6,
 
 				kTotal = 7
 			};

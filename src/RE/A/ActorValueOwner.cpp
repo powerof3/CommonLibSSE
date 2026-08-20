@@ -13,7 +13,7 @@ namespace RE
 	float ActorValueOwner::GetClampedActorValue(ActorValue a_akValue) const
 	{
 		using func_t = decltype(&ActorValueOwner::GetClampedActorValue);
-		static REL::Relocation<func_t> func{ Offset::ActorValueOwner::GetClampedActorValue };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(26616, 27284) };
 		return func(this, a_akValue);
 	}
 

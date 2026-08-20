@@ -43,7 +43,7 @@ namespace RE
 	bool BSSoundHandle::IsValid() const
 	{
 		using func_t = decltype(&BSSoundHandle::IsValid);
-		static REL::Relocation<func_t> func{ Offset::BSSoundHandle::IsValid };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(66360, 67621) };
 		return func(this);
 	}
 
@@ -57,14 +57,14 @@ namespace RE
 	bool BSSoundHandle::SetPosition(NiPoint3 a_pos)
 	{
 		using func_t = decltype(&BSSoundHandle::SetPosition);
-		static REL::Relocation<func_t> func{ Offset::BSSoundHandle::SetPosition };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(66370, 67631) };
 		return func(this, a_pos);
 	}
 
 	void BSSoundHandle::SetObjectToFollow(NiAVObject* a_node)
 	{
 		using func_t = decltype(&BSSoundHandle::SetObjectToFollow);
-		static REL::Relocation<func_t> func{ Offset::BSSoundHandle::SetObjectToFollow };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(66375, 67636) };
 		return func(this, a_node);
 	}
 
@@ -85,21 +85,21 @@ namespace RE
 	bool BSSoundHandle::Stop()
 	{
 		using func_t = decltype(&BSSoundHandle::Stop);
-		static REL::Relocation<func_t> func{ Offset::BSSoundHandle::Stop };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(66358, 67619) };
 		return func(this);
 	}
 
 	bool BSSoundHandle::Play()
 	{
 		using func_t = decltype(&BSSoundHandle::Play);
-		static REL::Relocation<func_t> func{ Offset::BSSoundHandle::Play };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(66355, 67616) };
 		return func(this);
 	}
 
 	bool BSSoundHandle::Pause()
 	{
 		using func_t = decltype(&BSSoundHandle::Pause);
-		static REL::Relocation<func_t> func{ Offset::BSSoundHandle::Pause };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(66357, 67618) };
 		return func(this);
 	}
 }

@@ -55,7 +55,7 @@ namespace std
 	struct formatter<RE::ActorValue, CharT> : formatter<std::string_view, CharT>
 	{
 		template <class FormatContext>
-		auto format(RE::ActorValue a_actorValue, FormatContext& a_ctx)
+		auto format(RE::ActorValue a_actorValue, FormatContext& a_ctx) const
 		{
 			return formatter<std::string_view, CharT>::format(ActorValueToString(a_actorValue), a_ctx);
 		}

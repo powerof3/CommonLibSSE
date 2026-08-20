@@ -6,6 +6,8 @@
 
 namespace RE
 {
+	class NiCamera;
+
 	namespace BSGraphics
 	{
 		class State
@@ -15,6 +17,13 @@ namespace RE
 			{
 				static REL::Relocation<State*> singleton{ RELOCATION_ID(524998, 411479) };
 				return singleton.get();
+			}
+
+			void SetCameraData(const NiCamera* a_camera, std::uint32_t a_flags)
+			{
+				using func_t = decltype(&State::SetCameraData);
+				static REL::Relocation<func_t> func{ RELOCATION_ID(75694, 77503) };
+				return func(this, a_camera, a_flags);
 			}
 
 			// members

@@ -95,7 +95,7 @@ namespace RE
 		bool                              checkingModels;                                 // DA7
 		bool                              loadingFiles;                                   // DA8
 		bool                              dontRemoveIDs;                                  // DA9
-		std::uint8_t                      unkDAA;                                         // DAA
+		std::uint8_t                      gameSettingsLoadState;                          // DAA
 		std::uint8_t                      padDAB;                                         // DAB
 		std::uint32_t                     padDAC;                                         // DAC
 		TESRegionDataManager*             regionDataManager;                              // DB0

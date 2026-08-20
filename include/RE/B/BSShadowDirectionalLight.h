@@ -14,15 +14,15 @@ namespace RE
 		~BSShadowDirectionalLight() override;  // 00
 
 		// override (BSShadowLight)
-		void          Unk_04() override;                                                                                                                       // 04
-		void          GetIsDirectionalLight() override;                                                                                                        // 06
-		void          Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t& a_shadowMaskChannel, NiPointer<NiAVObject> a_cullingScene) override;  // 09
-		void          Render() override;                                                                                                                       // 0A
-		void          ClearShadowMapData() override;                                                                                                           // 0C
-		std::uint32_t GetPassExtraParam(std::uint32_t a_accumFlag) override;                                                                                   // 0D
-		bool          GetNeedsClipPlanes() override;                                                                                                           // 0E
-		void          UpdateClipPlanes(void* a_unk1, void* a_unk2) override;                                                                                   // 0F
-		bool          UpdateCamera(const NiCamera* a_viewCamera) override;                                                                                     // 10
+		bool          GetIsFrustumOrDirectionalLight() override;                                                                                     // 04
+		bool          GetIsDirectionalLight() override;                                                                                              // 06
+		void          Accumulate(std::uint32_t& a_globalShadowLightCount, std::uint32_t& a_shadowMaskChannel, NiAVObject* a_cullingScene) override;  // 09
+		void          Render(std::uint32_t& a_index) override;                                                                                       // 0A
+		void          ReturnShadowmaps() override;                                                                                                   // 0C
+		std::uint32_t GetPassExtraParam(std::uint32_t a_accumFlag) override;                                                                         // 0D
+		bool          GetNeedsClipPlanes() override;                                                                                                 // 0E
+		void          TransformClipSpacePlanes(REX::W32::D3DXMatrix* a_matrix1, REX::W32::D3DXMatrix* a_matrix2) override;                           // 0F
+		bool          UpdateCamera(const NiCamera* a_viewCamera) override;                                                                           // 10
 
 		// members
 		NiPoint3                                sunVector;                       // 560

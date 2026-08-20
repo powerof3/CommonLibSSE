@@ -123,6 +123,86 @@ namespace RE
 		entry[2][2] = cosX * cosY;
 	}
 
+	void NiMatrix3::MakeXRotation(float a_angle)
+	{
+		float sn = std::sin(a_angle);
+		float cs = std::cos(a_angle);
+
+		entry[0][0] = 1.0f;
+		entry[0][1] = 0.0f;
+		entry[0][2] = 0.0f;
+		entry[1][0] = 0.0f;
+		entry[1][1] = cs;
+		entry[1][2] = sn;
+		entry[2][0] = 0.0f;
+		entry[2][1] = -sn;
+		entry[2][2] = cs;
+	}
+
+	void NiMatrix3::MakeYRotation(float a_angle)
+	{
+		float sn = std::sin(a_angle);
+		float cs = std::cos(a_angle);
+
+		entry[0][0] = cs;
+		entry[0][1] = 0.0f;
+		entry[0][2] = -sn;
+		entry[1][0] = 0.0f;
+		entry[1][1] = 1.0f;
+		entry[1][2] = 0.0f;
+		entry[2][0] = sn;
+		entry[2][1] = 0.0f;
+		entry[2][2] = cs;
+	}
+
+	void NiMatrix3::MakeZRotation(float a_angle)
+	{
+		float sn = std::sin(a_angle);
+		float cs = std::cos(a_angle);
+
+		entry[0][0] = cs;
+		entry[0][1] = sn;
+		entry[0][2] = 0.0f;
+		entry[1][0] = -sn;
+		entry[1][1] = cs;
+		entry[1][2] = 0.0f;
+		entry[2][0] = 0.0f;
+		entry[2][1] = 0.0f;
+		entry[2][2] = 1.0f;
+	}
+
+	void NiMatrix3::MakeRotation(float a_angle, float a_x, float a_y, float a_z)
+	{
+		float sn = std::sin(a_angle);
+		float cs = std::cos(a_angle);
+
+		float omcs = 1.0f - cs;
+		float x2 = a_x * a_x;
+		float y2 = a_y * a_y;
+		float z2 = a_z * a_z;
+		float xym = a_x * a_y * omcs;
+		float xzm = a_x * a_z * omcs;
+		float yzm = a_y * a_z * omcs;
+		float xsin = a_x * sn;
+		float ysin = a_y * sn;
+		float zsin = a_z * sn;
+
+		entry[0][0] = x2 * omcs + cs;
+		entry[0][1] = xym + zsin;
+		entry[0][2] = xzm - ysin;
+		entry[1][0] = xym - zsin;
+		entry[1][1] = y2 * omcs + cs;
+		entry[1][2] = yzm + xsin;
+		entry[2][0] = xzm + ysin;
+		entry[2][1] = yzm - xsin;
+		entry[2][2] = z2 * omcs + cs;
+	}
+
+	void NiMatrix3::MakeRotation(float a_angle, const NiPoint3& a_axis)
+	{
+		MakeRotation(a_angle, a_axis.x, a_axis.y, a_axis.z);
+	}
+
 	NiMatrix3 NiMatrix3::Transpose() const
 	{
 		NiMatrix3 result;

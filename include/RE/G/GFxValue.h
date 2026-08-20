@@ -404,6 +404,22 @@ namespace RE
 		bool GotoAndPlay(const char* a_frame);
 		bool GotoAndStop(const char* a_frame);
 
+		/// <summary>
+		/// Applies a color tint to this display object by modifying its color transform.
+		/// The tint is applied by blending the object's colors toward the specified tint color.
+		/// The alpha channel of the color determines the intensity of the tint (0 = no tint, 255 = full tint).
+		/// </summary>
+		/// <param name="a_tint">The color to tint toward. Alpha channel determines intensity (0-255)</param>
+		/// <returns>True if the color transform was successfully applied, false otherwise</returns>
+		bool SetColorTint(const GColor& a_tint);
+
+		/// <summary>
+		/// Removes any color tint from this display object by resetting its color transform to identity.
+		/// This restores the original colors of the display object.
+		/// </summary>
+		/// <returns>True if the color transform was successfully reset, false otherwise</returns>
+		bool RemoveColorTint();
+
 		GFC_MEMORY_REDEFINE_NEW(GFxValue, GStatGroups::kGStatGroup_Default);
 
 	protected:

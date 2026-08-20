@@ -7,14 +7,14 @@ namespace RE
 	bool Script::GetProcessScripts()
 	{
 		using func_t = decltype(&Script::GetProcessScripts);
-		static REL::Relocation<func_t> func{ Offset::Script::GetProcessScripts };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(21436, 21921) };
 		return func();
 	}
 
 	void Script::SetProcessScripts(bool a_ProcessScripts)
 	{
 		using func_t = decltype(&Script::SetProcessScripts);
-		static REL::Relocation<func_t> func{ Offset::Script::SetProcessScripts };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(21435, 21920) };
 		return func(a_ProcessScripts);
 	}
 
@@ -56,7 +56,7 @@ namespace RE
 	void Script::CompileAndRun_Impl(ScriptCompiler* a_compiler, COMPILER_NAME a_name, TESObjectREFR* a_targetRef)
 	{
 		using func_t = decltype(&Script::CompileAndRun_Impl);
-		static REL::Relocation<func_t> func{ Offset::Script::CompileAndRun };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(21416, 441582) };
 		return func(this, a_compiler, a_name, a_targetRef);
 	}
 }

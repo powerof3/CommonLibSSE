@@ -4,14 +4,14 @@ namespace RE
 {
 	ActorEquipManager* ActorEquipManager::GetSingleton()
 	{
-		static REL::Relocation<ActorEquipManager**> singleton{ Offset::ActorEquipManager::Singleton };
+		static REL::Relocation<ActorEquipManager**> singleton{ RELOCATION_ID(514494, 400636) };
 		return *singleton;
 	}
 
 	void ActorEquipManager::EquipObject(Actor* a_actor, TESBoundObject* a_object, ExtraDataList* a_extraData, std::uint32_t a_count, const BGSEquipSlot* a_slot, bool a_queueEquip, bool a_forceEquip, bool a_playSounds, bool a_applyNow)
 	{
 		using func_t = decltype(&ActorEquipManager::EquipObject);
-		static REL::Relocation<func_t> func{ Offset::ActorEquipManager::EquipObject };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(37938, 38894) };
 		return func(this, a_actor, a_object, a_extraData, a_count, a_slot, a_queueEquip, a_forceEquip, a_playSounds, a_applyNow);
 	}
 
@@ -32,7 +32,7 @@ namespace RE
 	bool ActorEquipManager::UnequipObject(Actor* a_actor, TESBoundObject* a_object, ExtraDataList* a_extraData, std::uint32_t a_count, const BGSEquipSlot* a_slot, bool a_queueEquip, bool a_forceEquip, bool a_playSounds, bool a_applyNow, const BGSEquipSlot* a_slotToReplace)
 	{
 		using func_t = decltype(&ActorEquipManager::UnequipObject);
-		static REL::Relocation<func_t> func{ Offset::ActorEquipManager::UnequipObject };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(37945, 38901) };
 		return func(this, a_actor, a_object, a_extraData, a_count, a_slot, a_queueEquip, a_forceEquip, a_playSounds, a_applyNow, a_slotToReplace);
 	}
 }

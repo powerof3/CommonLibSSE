@@ -55,7 +55,7 @@ namespace RE
 		// members
 		BSFaceGenKeyframeMultiple* transitionTargetKeyFrame;  // 018 - used to animate transition between expressions
 		BSFaceGenKeyframeMultiple  expressionKeyFrame;        // 020 - used by console command and SetExpressionOverride
-		BSFaceGenKeyframeMultiple  unk040;                    // 040 - unused?
+		BSFaceGenKeyframeMultiple  expressionKeyFrame2;       // 040 - unused?
 		BSFaceGenKeyframeMultiple  modifierKeyFrame;          // 060 - used by console command
 		BSFaceGenKeyframeMultiple  phenomeKeyFrame;           // 080 - used by console command
 		BSFaceGenKeyframeMultiple  customKeyFrame;            // 0A0 - used by console command

@@ -4,15 +4,13 @@
 
 namespace RE
 {
-	class NiNode;
-
 	class HorseCameraState : public ThirdPersonState
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_HorseCameraState;
 		inline static constexpr auto VTABLE = VTABLE_HorseCameraState;
 
-		virtual ~HorseCameraState();  // 00
+		~HorseCameraState() override;  // 00
 
 		// override (ThirdPersonState)
 		void Begin() override;                                     // 01
@@ -25,6 +23,7 @@ namespace RE
 		void ProcessWeaponDrawnChange(bool a_drawn) override;      // 0B
 		bool GetFreeRotationMode() const override;                 // 0C
 		void SetFreeRotationMode(bool a_weaponSheathed) override;  // 0D
+		void UpdateRotation() override;                            // 0E
 		void HandleLookInput(const NiPoint2& a_input) override;    // 0F
 
 		// members

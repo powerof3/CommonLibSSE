@@ -65,7 +65,7 @@ namespace RE
 		BSScaleformExternalTexture    unk303A0;             // 303A0
 		GFxValue                      localMapMovie;        // 303B8
 		GFxValue                      mapMovie;             // 303D0
-		void*                         unk303E8;             // 303E8
+		GFxMovieView*                 parentMenuView;       // 303E8
 		BSTSmartPointer<InputHandler> unk303F0;             // 303F0
 		std::int32_t                  selectedMarker;       // 303F8
 		bool                          showingMap;           // 303FC

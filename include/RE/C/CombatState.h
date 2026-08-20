@@ -39,7 +39,7 @@ namespace RE
 		NiPoint3                          unk10;                        // 10
 		AITimeStamp                       activeCombatantLastSeenTime;  // 1C
 		AITimeStamp                       unk20;                        // 20
-		AITimeStamp                       unk24;                        // 24
+		AITimeStamp                       lastAttackTimeStamp;          // 24
 		AITimeStamp                       unk28;                        // 28
 		AITimer                           attackDialogueTimer;          // 2C
 		AITimer                           tauntDialogueTimer;           // 34

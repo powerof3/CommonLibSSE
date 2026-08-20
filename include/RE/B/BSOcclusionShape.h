@@ -24,10 +24,10 @@ namespace RE
 		virtual bool IsOcclusionBox() const = 0;    // 25
 
 		// members
-		NiPoint3  translation;  // 10
-		NiMatrix3 rotation;     // 1C
-		float     unk40;        // 40
-		bool      unk44;        // 44
+		NiPoint3  translation;            // 10
+		NiMatrix3 rotation;               // 1C
+		float     unk40;                  // 40
+		bool      updateFacesOrVertices;  // 44
 	};
 	static_assert(sizeof(BSOcclusionShape) == 0x48);
 }

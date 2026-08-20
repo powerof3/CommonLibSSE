@@ -305,7 +305,7 @@ namespace RE
 		bool                    UpdateInDialogue(DialogueResponse* a_response, bool a_unused) override;                                                                                                                                               // 04C
 		BGSDialogueBranch*      GetExclusiveBranch() const override;                                                                                                                                                                                  // 04D - { return exclusiveBranch; }
 		void                    SetExclusiveBranch(BGSDialogueBranch* a_branch) override;                                                                                                                                                             // 04E - { exclusiveBranch = a_arg1; }
-		void                    PauseCurrentDialogue(void) override;                                                                                                                                                                                  // 04F
+		void                    StopCurrentDialogue() override;                                                                                                                                                                                       // 04F
 		NiPoint3                GetStartingAngle() const override;                                                                                                                                                                                    // 052
 		NiPoint3                GetStartingLocation() const override;                                                                                                                                                                                 // 053
 		ObjectRefHandle         RemoveItem(TESBoundObject* a_item, std::int32_t a_count, ITEM_REMOVE_REASON a_reason, ExtraDataList* a_extraList, TESObjectREFR* a_moveToRef, const NiPoint3* a_dropLoc = 0, const NiPoint3* a_rotate = 0) override;  // 056
@@ -509,6 +509,8 @@ namespace RE
 		void                         AddWornOutfit(BGSOutfit* a_outfit, bool a_forceUpdate);
 		void                         AllowBleedoutDialogue(bool a_canTalk);
 		void                         AllowPCDialogue(bool a_talk);
+		ACTOR_LOS_LOCATION           CalculateLOS(Actor* a_target, float a_viewCone);
+		NiAVObject*                  CalculateLOS(const NiPoint3& a_targetPosition, const NiPoint3& a_rayHitPosition, float a_viewCone);
 		NiPoint3                     CalculateLOSLocation(ACTOR_LOS_LOCATION a_location);
 		bool                         CanAttackActor(Actor* a_actor);
 		bool                         CanFlyHere() const;
@@ -537,6 +539,7 @@ namespace RE
 		float                        GetActorValueModifier(ACTOR_VALUE_MODIFIER a_modifier, ActorValue a_value) const;
 		float                        GetAimAngle() const;
 		float                        GetAimHeading() const;
+		float                        GetAttackReach() const;
 		InventoryEntryData*          GetAttackingWeapon();
 		const InventoryEntryData*    GetAttackingWeapon() const;
 		bhkCharacterController*      GetCharController() const;
@@ -548,6 +551,7 @@ namespace RE
 		const TESPackage*            GetCurrentPackage() const;
 		TESShout*                    GetCurrentShout();
 		const TESShout*              GetCurrentShout() const;
+		float                        GetBoundRadius() const;
 		InventoryEntryData*          GetEquippedEntryData(bool a_leftHand) const;
 		TESForm*                     GetEquippedObject(bool a_leftHand) const;
 		TESForm*                     GetEquippedObjectInSlot(const BGSEquipSlot* slot) const;
@@ -569,7 +573,6 @@ namespace RE
 		bool                         GetPlayerControls() const;
 		TESRace*                     GetRace() const;
 		float                        GetRegenDelay(ActorValue a_actorValue) const;
-		bool                         GetRider(NiPointer<Actor>& a_outRider);
 		[[nodiscard]] TESObjectARMO* GetSkin() const;
 		[[nodiscard]] TESObjectARMO* GetSkin(BGSBipedObjectForm::BipedObjectSlot a_slot, bool a_noInit = false);
 		[[nodiscard]] SOUL_LEVEL     GetSoulSize() const;
@@ -615,9 +618,11 @@ namespace RE
 		bool                         IsInRagdollState() const;
 		bool                         IsLeveled() const;
 		bool                         IsLimbGone(std::uint32_t a_limb);
+		bool                         IsMovementAnimationDriven() const;
 		bool                         IsMoving() const;
 		bool                         IsOnMount() const;
 		bool                         IsOverEncumbered() const;
+		bool                         IsPathing() const;
 		bool                         IsPlayerTeammate() const;
 		bool                         IsPowerAttacking() const;
 		bool                         IsProtected() const;
@@ -644,6 +649,7 @@ namespace RE
 		void                         SetLooking(float a_angle);  // SetRotationX
 		void                         SetPlayerControls(bool a_enable);
 		bool                         SetSleepOutfit(BGSOutfit* a_outfit, bool a_update3D);
+		bool                         StartCombat(Actor* a_target, CombatGroup* a_combatGroup = nullptr);
 		void                         StealAlarm(TESObjectREFR* a_ref, TESForm* a_object, std::int32_t a_num, std::int32_t a_total, TESForm* a_owner, bool a_allowWarning);
 		void                         StopAlarmOnActor();
 		void                         StopInteractingQuick(bool a_unk02);
@@ -715,8 +721,8 @@ namespace RE
 		BSTSmartPointer<BipedAnim>                        biped;                              // 260
 		float                                             armorRating;                        // 268
 		float                                             armorBaseFactorSum;                 // 26C
-		std::int8_t                                       soundCallBackSet;                   // 271
-		std::uint8_t                                      unk271;                             // 270
+		std::int8_t                                       soundCallBackSet;                   // 270
+		std::uint8_t                                      unk271;                             // 271
 		std::uint8_t                                      unk272;                             // 272
 		std::uint8_t                                      unk273;                             // 273
 		std::uint32_t                                     unk274;                             // 274

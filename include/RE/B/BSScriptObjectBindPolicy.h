@@ -4,6 +4,7 @@
 #include "RE/B/BSFixedString.h"
 #include "RE/B/BSTHashMap.h"
 #include "RE/B/BSTSmartPointer.h"
+#include "RE/V/Variable.h"
 
 namespace RE
 {
@@ -11,7 +12,6 @@ namespace RE
 	{
 		class IVirtualMachine;
 		class Object;
-		class Variable;
 		struct IVMObjectBindInterface;
 
 		class ObjectBindPolicy

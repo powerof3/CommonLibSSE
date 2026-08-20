@@ -7,7 +7,7 @@ namespace RE
 {
 	TESDataHandler* TESDataHandler::GetSingleton()
 	{
-		static REL::Relocation<TESDataHandler**> singleton{ Offset::TESDataHandler::Singleton };
+		static REL::Relocation<TESDataHandler**> singleton{ RELOCATION_ID(514141, 400269) };
 		return *singleton;
 	}
 
@@ -21,7 +21,7 @@ namespace RE
 	std::uint32_t TESDataHandler::LoadScripts()
 	{
 		using func_t = decltype(&TESDataHandler::LoadScripts);
-		static REL::Relocation<func_t> func{ Offset::TESDataHandler::LoadScripts };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(13657, 13766) };
 		return func(this);
 	}
 

@@ -71,7 +71,7 @@ namespace RE
 	bool MagicTarget::HasMagicEffect(EffectSetting* a_effect)
 	{
 		using func_t = decltype(&MagicTarget::HasMagicEffect);
-		static REL::Relocation<func_t> func{ Offset::MagicTarget::HasMagicEffect };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(33733, 34517) };
 		return func(this, a_effect);
 	}
 

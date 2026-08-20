@@ -5818,7 +5818,7 @@ namespace RE
 	inline constexpr REL::ID RTTI_SkyEffectController{ 393321 };
 	inline constexpr REL::ID RTTI_SkyObject{ 393312 };
 	inline constexpr REL::ID RTTI_SkyStaticFindFunctor{ 393322 };
-	inline constexpr REL::ID RTTI_SkyrimScript__A0x17558f7c____GiftMenuCallbackFunc{ 397044 };
+	inline constexpr REL::ID RTTI_SkyrimScript__GiftMenuCallbackFunc{ 397044 };
 	inline constexpr REL::ID RTTI_SkyrimScript__BaseHandleReaderWriter{ 392603 };
 	inline constexpr REL::ID RTTI_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddItemFunctor_20_{ 397282 };
 	inline constexpr REL::ID RTTI_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddRemoveConstraintFunctor_15_{ 397166 };
@@ -13253,6 +13253,7 @@ namespace RE
 	inline constexpr REL::ID RTTI_NavMeshSearchMaxCost(static_cast<std::uint64_t>(686152));
 	inline constexpr REL::ID RTTI_NavMeshSearchMultipleGoals(static_cast<std::uint64_t>(686154));
 	inline constexpr REL::ID RTTI_NavMeshSearchSLPoint(static_cast<std::uint64_t>(686155));
+	inline constexpr REL::ID RTTI_NeedToUpdateCreationClubCallback{ 688875 };
 	inline constexpr REL::ID RTTI_NewInventoryMenuItemLoadTask(static_cast<std::uint64_t>(688850));
 	inline constexpr REL::ID RTTI_NiAVObject(static_cast<std::uint64_t>(684827));
 	inline constexpr REL::ID RTTI_NiAVObjectPalette(static_cast<std::uint64_t>(690434));
@@ -13778,7 +13779,7 @@ namespace RE
 	inline constexpr REL::ID RTTI_SkyEffectController(static_cast<std::uint64_t>(685536));
 	inline constexpr REL::ID RTTI_SkyObject(static_cast<std::uint64_t>(685527));
 	inline constexpr REL::ID RTTI_SkyStaticFindFunctor(static_cast<std::uint64_t>(685537));
-	inline constexpr REL::ID RTTI_SkyrimScript__A0xc250f300____GiftMenuCallbackFunc(static_cast<std::uint64_t>(689189));
+	inline constexpr REL::ID RTTI_SkyrimScript__GiftMenuCallbackFunc(static_cast<std::uint64_t>(689189));
 	inline constexpr REL::ID RTTI_SkyrimScript__BaseHandleReaderWriter(static_cast<std::uint64_t>(684873));
 	inline constexpr REL::ID RTTI_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddItemFunctor_20_(static_cast<std::uint64_t>(689427));
 	inline constexpr REL::ID RTTI_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddRemoveConstraintFunctor_15_(static_cast<std::uint64_t>(689311));

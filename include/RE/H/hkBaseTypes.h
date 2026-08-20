@@ -3,7 +3,9 @@
 namespace RE
 {
 	using hkObjectIndex = std::uint16_t;
-	using hkTime = float;
+	using hkReal = float;
+	using hkTime = hkReal;
+	using hkpConstraintRuntime = void;
 
 	enum class hkResult
 	{

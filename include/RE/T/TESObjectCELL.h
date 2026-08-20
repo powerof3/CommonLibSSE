@@ -175,22 +175,22 @@ namespace RE
 		~TESObjectCELL() override;  // 00
 
 		// override (TESForm)
-		void        ClearData() override;                                                                 // 05
-		bool        Load(TESFile* a_mod) override;                                                        // 06
-		TESForm*    CreateDuplicateForm(bool a_createEditorID, void* a_arg2) override;                    // 09 - { return 0; }
-		bool        FindInFileFast(TESFile* a_mod) override;                                              // 0C
-		void        SaveGame(BGSSaveFormBuffer* a_buf) override;                                          // 0E
-		void        LoadGame(BGSLoadFormBuffer* a_buf) override;                                          // 0F
-		void        Revert(BGSLoadFormBuffer* a_buf) override;                                            // 12
-		void        InitItemImpl() override;                                                              // 13
-		void        GetFormDetailedString(char* a_buf, std::uint32_t a_bufLen) override;                  // 16
-		void        SetAltered(bool a_set) override;                                                      // 24
-		bool        BelongsInGroup(FORM* a_form, bool a_allowParentGroups, bool a_currentOnly) override;  // 30
-		void        CreateGroupData(FORM* a_form, FORM_GROUP* a_group) override;                          // 31
-		const char* GetFormEditorID() const override;                                                     // 32
-		bool        SetFormEditorID(const char* a_str) override;                                          // 33
-		bool        IsParentForm() override;                                                              // 34 - { return true; }
-		bool        IsFormTypeChild(FormType a_type) override;                                            // 36
+		void        ClearData() override;                                                                               // 05
+		bool        Load(TESFile* a_mod) override;                                                                      // 06
+		TESForm*    CreateDuplicateForm(bool a_createEditorID, NiTPointerMap<TESForm*, TESForm*>* a_copyMap) override;  // 09 - { return 0; }
+		bool        FindInFileFast(TESFile* a_mod) override;                                                            // 0C
+		void        SaveGame(BGSSaveFormBuffer* a_buf) override;                                                        // 0E
+		void        LoadGame(BGSLoadFormBuffer* a_buf) override;                                                        // 0F
+		void        Revert(BGSLoadFormBuffer* a_buf) override;                                                          // 12
+		void        InitItemImpl() override;                                                                            // 13
+		void        GetFormDetailedString(char* a_buf, std::uint32_t a_bufLen) override;                                // 16
+		void        SetAltered(bool a_set) override;                                                                    // 24
+		bool        BelongsInGroup(FORM* a_form, bool a_allowParentGroups, bool a_currentOnly) override;                // 30
+		void        CreateGroupData(FORM* a_form, FORM_GROUP* a_group) override;                                        // 31
+		const char* GetFormEditorID() const override;                                                                   // 32
+		bool        SetFormEditorID(const char* a_str) override;                                                        // 33
+		bool        IsParentForm() override;                                                                            // 34 - { return true; }
+		bool        IsFormTypeChild(FormType a_type) override;                                                          // 36
 
 		TESNPC*        GetActorOwner();
 		bhkWorld*      GetbhkWorld() const;

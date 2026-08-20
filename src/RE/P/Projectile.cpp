@@ -156,4 +156,13 @@ namespace RE
 
 		return LaunchArrow(a_result, a_shooter, a_ammo, a_weap, origin, angles);
 	}
+
+	void Projectile::Kill()
+	{
+		using func_t = decltype(&Projectile::Kill);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(42930, 44110) };
+
+		return func(this);
+	}
+
 }

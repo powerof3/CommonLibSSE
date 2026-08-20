@@ -43,12 +43,13 @@ namespace RE
 
 	BSLightingShaderMaterialBase* BSLightingShaderMaterialBase::CreateMaterial(Feature a_feature)
 	{
+		auto scrapHeap = MemoryManager::GetSingleton()->GetThreadScrapHeap();
 		switch (a_feature) {
 		case Feature::kDefault:
 			{
-				auto material = malloc<BSLightingShaderMaterial>();
-				std::memset((void*)material, 0, sizeof(BSLightingShaderMaterial));
+				auto material = static_cast<BSLightingShaderMaterial*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterial), 8));
 				if (material) {
+					std::memset((void*)material, 0, sizeof(BSLightingShaderMaterial));
 					material->Ctor();
 					stl::emplace_vtable<BSLightingShaderMaterial>(material);
 				}
@@ -56,7 +57,7 @@ namespace RE
 			}
 		case Feature::kEnvironmentMap:
 			{
-				auto material = malloc<BSLightingShaderMaterialEnvmap>();
+				auto material = static_cast<BSLightingShaderMaterialEnvmap*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialEnvmap), 8));
 				if (material) {
 					material->Ctor();
 				}
@@ -64,7 +65,7 @@ namespace RE
 			}
 		case Feature::kGlowMap:
 			{
-				auto material = malloc<BSLightingShaderMaterialGlowmap>();
+				auto material = static_cast<BSLightingShaderMaterialGlowmap*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialGlowmap), 8));
 				if (material) {
 					material->Ctor();
 				}
@@ -72,7 +73,7 @@ namespace RE
 			}
 		case Feature::kParallax:
 			{
-				auto material = malloc<BSLightingShaderMaterialParallax>();
+				auto material = static_cast<BSLightingShaderMaterialParallax*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialParallax), 8));
 				if (material) {
 					material->Ctor();
 				}
@@ -80,7 +81,7 @@ namespace RE
 			}
 		case Feature::kFaceGen:
 			{
-				auto material = malloc<BSLightingShaderMaterialFacegen>();
+				auto material = static_cast<BSLightingShaderMaterialFacegen*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialFacegen), 8));
 				if (material) {
 					material->Ctor();
 				}
@@ -88,7 +89,7 @@ namespace RE
 			}
 		case Feature::kFaceGenRGBTint:
 			{
-				auto material = malloc<BSLightingShaderMaterialFacegenTint>();
+				auto material = static_cast<BSLightingShaderMaterialFacegenTint*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialFacegenTint), 8));
 				if (material) {
 					material->Ctor();
 				}
@@ -96,7 +97,7 @@ namespace RE
 			}
 		case Feature::kHairTint:
 			{
-				auto material = malloc<BSLightingShaderMaterialHairTint>();
+				auto material = static_cast<BSLightingShaderMaterialHairTint*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialHairTint), 8));
 				if (material) {
 					material->Ctor();
 				}
@@ -104,7 +105,7 @@ namespace RE
 			}
 		case Feature::kParallaxOcc:
 			{
-				auto material = malloc<BSLightingShaderMaterialParallaxOcc>();
+				auto material = static_cast<BSLightingShaderMaterialParallaxOcc*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialParallaxOcc), 8));
 				if (material) {
 					material->Ctor();
 				}
@@ -113,7 +114,7 @@ namespace RE
 		case Feature::kMultiTexLand:
 		case Feature::kMultiTexLandLODBlend:
 			{
-				auto material = malloc<BSLightingShaderMaterialLandscape>();
+				auto material = static_cast<BSLightingShaderMaterialLandscape*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialLandscape), 8));
 				if (material) {
 					material->Ctor();
 				}
@@ -122,7 +123,7 @@ namespace RE
 		case Feature::kLODLand:
 		case Feature::kLODLandNoise:
 			{
-				auto material = malloc<BSLightingShaderMaterialLODLandscape>();
+				auto material = static_cast<BSLightingShaderMaterialLODLandscape*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialLODLandscape), 8));
 				if (material) {
 					material->Ctor();
 				}
@@ -131,7 +132,7 @@ namespace RE
 		case Feature::kUnknown:
 		case Feature::kMultiIndexTriShapeSnow:
 			{
-				auto material = malloc<BSLightingShaderMaterialSnow>();
+				auto material = static_cast<BSLightingShaderMaterialSnow*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialSnow), 8));
 				if (material) {
 					material->Ctor();
 				}
@@ -139,7 +140,7 @@ namespace RE
 			}
 		case Feature::kMultilayerParallax:
 			{
-				auto material = malloc<BSLightingShaderMaterialMultiLayerParallax>();
+				auto material = static_cast<BSLightingShaderMaterialMultiLayerParallax*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialMultiLayerParallax), 8));
 				if (material) {
 					material->Ctor();
 				}
@@ -147,7 +148,7 @@ namespace RE
 			}
 		case Feature::kEye:
 			{
-				auto material = malloc<BSLightingShaderMaterialEye>();
+				auto material = static_cast<BSLightingShaderMaterialEye*>(scrapHeap->Allocate(sizeof(BSLightingShaderMaterialEye), 8));
 				if (material) {
 					material->Ctor();
 				}

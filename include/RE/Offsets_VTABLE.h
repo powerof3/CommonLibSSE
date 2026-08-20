@@ -5315,7 +5315,7 @@ namespace RE
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyEffectController{ REL::ID(196496) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyObject{ REL::ID(196515) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyStaticFindFunctor{ REL::ID(196502) };
-	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__A0x17558f7c____GiftMenuCallbackFunc{ REL::ID(217429) };
+	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__GiftMenuCallbackFunc{ REL::ID(217429) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__BaseHandleReaderWriter{ REL::ID(187903) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddItemFunctor_20_{ REL::ID(218374) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddRemoveConstraintFunctor_15_{ REL::ID(217880) };
@@ -12137,6 +12137,7 @@ namespace RE
 	inline constexpr std::array<REL::ID, 1>  VTABLE_NavMeshSearchMaxCost{ REL::ID(255051) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_NavMeshSearchMultipleGoals{ REL::ID(255057) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_NavMeshSearchSLPoint{ REL::ID(255061) };
+	inline constexpr std::array<REL::ID, 1>  VTABLE_NeedToUpdateCreationClubCallback{ REL::ID(269454) };
 	inline constexpr std::array<REL::ID, 2>  VTABLE_NewInventoryMenuItemLoadTask{ REL::ID(268992), REL::ID(268993) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_NiAVObject{ REL::ID(285968) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_NiAVObjectPalette{ REL::ID(560172) };
@@ -12649,7 +12650,7 @@ namespace RE
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyEffectController{ REL::ID(242957) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyObject{ REL::ID(243001) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyStaticFindFunctor{ REL::ID(242989) };
-	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__A0xc250f300____GiftMenuCallbackFunc{ REL::ID(272512) };
+	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__GiftMenuCallbackFunc{ REL::ID(272512) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__BaseHandleReaderWriter{ REL::ID(542965) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddItemFunctor_20_{ REL::ID(273956) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript__ConcreteDelayFunctorFactory_SkyrimScript____AddRemoveConstraintFunctor_15_{ REL::ID(273121) };

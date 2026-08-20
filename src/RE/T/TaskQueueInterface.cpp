@@ -36,6 +36,13 @@ namespace RE
 		return func(this, a_refr, a_damage, a_arg3, a_cause);
 	}
 
+	void TaskQueueInterface::QueueActorKnockParalyze(Actor* a_actor)
+	{
+		using func_t = decltype(&TaskQueueInterface::QueueActorKnockParalyze);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(35941, 36916) };
+		return func(this, a_actor);
+	}
+
 	void TaskQueueInterface::QueueAddRipple(float a_scale, const NiPoint3& a_pos)
 	{
 		using func_t = decltype(&TaskQueueInterface::QueueAddRipple);

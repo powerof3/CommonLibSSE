@@ -5,15 +5,40 @@
 
 namespace RE
 {
+	class BGSDistantObjectBlock;
+	class BGSDistantTreeBlock;
+	class BGSTerrainChunk;
 	class NiNode;
+	class NiTexture;
+
+	namespace BGSBtoDB
+	{
+		struct DBTraits;
+	}
+
+	namespace BGSBtrDB
+	{
+		struct DBTraits;
+	}
+
+	namespace BGSBttDB
+	{
+		struct DBTraits;
+	}
 
 	namespace BSModelDB
 	{
 		struct DBTraits;
 	}
 
+	namespace BSTextureDB
+	{
+		struct DBTraits;
+	}
+
 	namespace BSResource
 	{
+		// This doesn't exist in SkyrimSE, it's actually a BSTSmartPointer with a custom RefManager doing template specific stuff in the Release func
 		template <class T_Entry, class T_EntryDB>
 		class RHandleType
 		{
@@ -49,5 +74,10 @@ namespace RE
 		};
 	}
 
+	using BGSBtoDBHandle = BSResource::RHandleType<BSResource::Entry<BGSDistantObjectBlock*, BSResource::EntryDBTraits<BGSBtoDB::DBTraits, BSResource::EntryDB<BGSBtoDB::DBTraits>>::CArgs>, BSResource::EntryDB<BGSBtoDB::DBTraits>>;
+	using BGSBtrDBHandle = BSResource::RHandleType<BSResource::Entry<BGSTerrainChunk*, BSResource::EntryDBTraits<BGSBtrDB::DBTraits, BSResource::EntryDB<BGSBtrDB::DBTraits>>::CArgs>, BSResource::EntryDB<BGSBtrDB::DBTraits>>;
+	using BGSBttDBHandle = BSResource::RHandleType<BSResource::Entry<BGSDistantTreeBlock*, BSResource::EntryDBTraits<BGSBttDB::DBTraits, BSResource::EntryDB<BGSBttDB::DBTraits>>::CArgs>, BSResource::EntryDB<BGSBttDB::DBTraits>>;
+
 	using ModelDBHandle = BSResource::RHandleType<BSResource::Entry<NiPointer<NiNode>, BSResource::EntryDBTraits<BSModelDB::DBTraits, BSResource::EntryDB<BSModelDB::DBTraits>>::CArgs>, BSResource::EntryDB<BSModelDB::DBTraits>>;
+	using TextureDBHandle = BSResource::RHandleType<BSResource::Entry<NiPointer<NiTexture>, BSResource::EntryDBTraits<BSTextureDB::DBTraits, BSResource::EntryDB<BSTextureDB::DBTraits>>::CArgs>, BSResource::EntryDB<BSTextureDB::DBTraits>>;
 }
