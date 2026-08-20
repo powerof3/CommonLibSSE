@@ -45,6 +45,9 @@ namespace RE
 	class UserEventEnabledEvent;
 	struct BGSActorCellEvent;
 	struct BGSActorDeathEvent;
+#ifdef SKYRIM_SUPPORT_AE
+	class BSSystemEvent;
+#endif
 	struct PerkRankData;
 	struct PositionPlayerEvent;
 	struct TESQuestStageItem;
@@ -141,7 +144,12 @@ namespace RE
 		public BSTEventSink<MenuOpenCloseEvent>,     // 2B0
 		public BSTEventSink<MenuModeChangeEvent>,    // 2B8
 		public BSTEventSink<UserEventEnabledEvent>,  // 2C0
-		public BSTEventSink<TESTrackedStatsEvent>    // 2C8
+#ifndef SKYRIM_SUPPORT_AE
+		public BSTEventSink<TESTrackedStatsEvent>  // 2C8
+#else
+		public BSTEventSink<TESTrackedStatsEvent>,  // 2C8
+		public BSTEventSink<BSSystemEvent>          // 2D0
+#endif
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_PlayerCharacter;
@@ -518,6 +526,6 @@ namespace RE
 #ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(PlayerCharacter) == 0xBE0);
 #else
-	static_assert(sizeof(PlayerCharacter) == 0xBE8);
+	static_assert(sizeof(PlayerCharacter) == 0xBF0);
 #endif
 }

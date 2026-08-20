@@ -35,6 +35,8 @@ namespace RE
 	struct TESActivateEvent;
 	struct TESActiveEffectApplyRemoveEvent;
 	struct TESActorLocationChangeEvent;
+	struct TESAmiiboTouchEvent;
+	struct TESAmiiboForcedStopDetectionEvent;
 	struct TESBookReadEvent;
 	struct TESCellAttachDetachEvent;
 	struct TESCellFullyLoadedEvent;
@@ -131,11 +133,15 @@ namespace RE
 		public BSTEventSink<TESTriggerLeaveEvent>,             // 0168
 		public BSTEventSink<TESUniqueIDChangeEvent>,           // 0170
 		public BSTEventSink<TESSwitchRaceCompleteEvent>,       // 0178
-		public BSTEventSink<TESPlayerBowShotEvent>,            // 0180
-		public BSTEventSink<TESFastTravelEndEvent>,            // 0188
-		public BSTEventSink<PositionPlayerEvent>,              // 0190
-		public BSTEventSink<BSScript::StatsEvent>,             // 0198
-		public BSTEventSource<BSScript::StatsEvent>            // 01A8
+#ifdef SKYRIM_SUPPORT_AE
+		public BSTEventSink<TESAmiiboTouchEvent>,
+		public BSTEventSink<TESAmiiboForcedStopDetectionEvent>,
+#endif
+		public BSTEventSink<TESPlayerBowShotEvent>,  // 0180
+		public BSTEventSink<TESFastTravelEndEvent>,  // 0188
+		public BSTEventSink<PositionPlayerEvent>,    // 0190
+		public BSTEventSink<BSScript::StatsEvent>,   // 0198
+		public BSTEventSource<BSScript::StatsEvent>  // 01A8
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_SkyrimVM;
@@ -276,5 +282,9 @@ namespace RE
 		mutable BSSpinLock                                                    InventoryEventFilterMapLock;  // 8940
 		BSTHashMap<VMHandle, InventoryEventFilterLists*>                      InventoryEventFilterMap;      // 8948 - AddInventoryEventFilter()
 	};
+#ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(SkyrimVM) == 0x8978);
+#else
+	static_assert(sizeof(SkyrimVM) == 0x8988);
+#endif
 }
