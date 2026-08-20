@@ -376,6 +376,7 @@ set(SOURCES
 	include/RE/B/BSStream.h
 	include/RE/B/BSString.h
 	include/RE/B/BSStringPool.h
+	include/RE/B/BSSystemEvent.h
 	include/RE/B/BSSystemFile.h
 	include/RE/B/BSSystemFileStorage.h
 	include/RE/B/BSSystemUtility.h
