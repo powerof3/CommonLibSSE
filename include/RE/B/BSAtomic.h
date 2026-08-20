@@ -64,6 +64,11 @@ namespace RE
 	class BSNonReentrantSpinLock
 	{
 	public:
+		BSNonReentrantSpinLock();
+
+		void Lock();
+		void Unlock();
+
 		// members
 		volatile std::uint32_t lock;  // 0
 	};

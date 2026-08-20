@@ -17,12 +17,14 @@ namespace RE
 	class hkpBroadPhaseBorder;
 	class hkpBroadPhaseBorderListener;
 	class hkpCdPointCollector;
+	class hkpCollidable;
 	class hkpCollisionDispatcher;
 	class hkpCollisionFilter;
 	class hkpConstraintListener;
 	class hkpContactImpulseLimitBreachedListener;
 	class hkpContactListener;
 	class hkpConvexListFilter;
+	class hkpEntity;
 	class hkpEntityEntityBroadPhaseListener;
 	class hkpEntityListener;
 	class hkpIslandActivationListener;
@@ -31,6 +33,7 @@ namespace RE
 	class hkpPhantom;
 	class hkpPhantomBroadPhaseListener;
 	class hkpPhantomListener;
+	class hkpRigidBody;
 	class hkpSimulation;
 	class hkpSimulationIsland;
 	class hkpTreeWorldManager;
@@ -71,33 +74,11 @@ namespace RE
 		// override (hkReferencedObject)
 		void CalcContentStatistics(hkStatisticsCollector* a_collector, const hkClass* a_class) const override;  // 02
 
-		inline hkpPhantom* AddPhantom(hkpPhantom* a_phantom)
-		{
-			using func_t = decltype(&hkpWorld::AddPhantom);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(60502, 61314) };
-			return func(this, a_phantom);
-		}
-
-		inline void RemovePhantom(hkpPhantom* a_phantom)
-		{
-			using func_t = decltype(&hkpWorld::RemovePhantom);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(60504, 61316) };
-			return func(this, a_phantom);
-		}
-
-		inline void CastRay(const hkpWorldRayCastInput& a_input, hkpWorldRayCastOutput& a_output) const
-		{
-			using func_t = decltype(&hkpWorld::CastRay);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(60551, 61399) };
-			return func(this, a_input, a_output);
-		}
-
-		inline void LinearCast(const hkpCollidable* a_colA, const hkpLinearCastInput& a_input, hkpCdPointCollector& a_castCollector, hkpCdPointCollector* a_startCollector = nullptr) const
-		{
-			using func_t = decltype(&hkpWorld::LinearCast);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(60554, 61402) };
-			return func(this, a_colA, a_input, a_castCollector, a_startCollector);
-		}
+		hkpPhantom* AddPhantom(hkpPhantom* a_phantom);
+		void        CastRay(const hkpWorldRayCastInput& a_input, hkpWorldRayCastOutput& a_output) const;
+		void        RemoveEntity(hkpEntity* a_entity);
+		void        RemovePhantom(hkpPhantom* a_phantom);
+		void        LinearCast(const hkpCollidable* a_colA, const hkpLinearCastInput& a_input, hkpCdPointCollector& a_castCollector, hkpCdPointCollector* a_startCollector = nullptr) const;
 
 		// members
 		hkpSimulation*                                                    simulation;                                                 // 010

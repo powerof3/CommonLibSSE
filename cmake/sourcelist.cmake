@@ -73,12 +73,16 @@ set(SOURCES
 	include/RE/B/BGSAttackData.h
 	include/RE/B/BGSAttackDataForm.h
 	include/RE/B/BGSAttackDataMap.h
+	include/RE/B/BGSAutoWater.h
 	include/RE/B/BGSBaseAlias.h
 	include/RE/B/BGSBehaviorGraphModel.h
 	include/RE/B/BGSBipedObjectForm.h
 	include/RE/B/BGSBlockBashData.h
 	include/RE/B/BGSBodyPartData.h
 	include/RE/B/BGSBodyPartDefs.h
+	include/RE/B/BGSBtoDB.h
+	include/RE/B/BGSBtrDB.h
+	include/RE/B/BGSBttDB.h
 	include/RE/B/BGSCameraPath.h
 	include/RE/B/BGSCameraShot.h
 	include/RE/B/BGSCollisionLayer.h
@@ -96,6 +100,7 @@ set(SOURCES
 	include/RE/B/BGSDestructibleObjectForm.h
 	include/RE/B/BGSDialogueBranch.h
 	include/RE/B/BGSDirectionalAmbientLightingColors.h
+	include/RE/B/BGSDistantObjectBlock.h
 	include/RE/B/BGSDistantTreeBlock.h
 	include/RE/B/BGSDualCastData.h
 	include/RE/B/BGSDynamicPersistenceManager.h
@@ -416,6 +421,7 @@ set(SOURCES
 	include/RE/B/BSTempEffectSimpleDecal.h
 	include/RE/B/BSTempEffectWeaponBlood.h
 	include/RE/B/BSTerrainEffect.h
+	include/RE/B/BSTextureDB.h
 	include/RE/B/BSTextureSet.h
 	include/RE/B/BSThread.h
 	include/RE/B/BSThreadEvent.h
@@ -1075,6 +1081,7 @@ set(SOURCES
 	include/RE/H/hkp3AxisSweep.h
 	include/RE/H/hkpAabbPhantom.h
 	include/RE/H/hkpAction.h
+	include/RE/H/hkpAddModifierUtil.h
 	include/RE/H/hkpAgentNnTrack.h
 	include/RE/H/hkpAllCdPointCollector.h
 	include/RE/H/hkpAllRayHitCollector.h
@@ -1112,11 +1119,14 @@ set(SOURCES
 	include/RE/H/hkpConstraintMotor.h
 	include/RE/H/hkpConstraintOwner.h
 	include/RE/H/hkpContactListener.h
+	include/RE/H/hkpContactMgr.h
 	include/RE/H/hkpContactPointEvent.h
 	include/RE/H/hkpContactPointProperties.h
 	include/RE/H/hkpConvexListFilter.h
 	include/RE/H/hkpConvexShape.h
 	include/RE/H/hkpConvexVerticesShape.h
+	include/RE/H/hkpDynamicsContactMgr.h
+	include/RE/H/hkpDynamicsCpIdMgr.h
 	include/RE/H/hkpEaseConstraintsAction.h
 	include/RE/H/hkpEntity.h
 	include/RE/H/hkpEntityListener.h
@@ -1142,6 +1152,7 @@ set(SOURCES
 	include/RE/H/hkpRayCollidableFilter.h
 	include/RE/H/hkpRayHitCollector.h
 	include/RE/H/hkpRayShapeCollectionFilter.h
+	include/RE/H/hkpResponseModifier.h
 	include/RE/H/hkpRigidBody.h
 	include/RE/H/hkpRootCdPoint.h
 	include/RE/H/hkpShape.h
@@ -1154,6 +1165,8 @@ set(SOURCES
 	include/RE/H/hkpShapeRayCastInput.h
 	include/RE/H/hkpShapeRayCastOutput.h
 	include/RE/H/hkpShapeType.h
+	include/RE/H/hkpSimpleConstraintContactMgr.h
+	include/RE/H/hkpSimpleContactConstraintData.h
 	include/RE/H/hkpSimpleShapePhantom.h
 	include/RE/H/hkpSimpleWorldRayCaster.h
 	include/RE/H/hkpSimplexSolver.h
@@ -1281,6 +1294,7 @@ set(SOURCES
 	include/RE/L/LinkerProcessor.h
 	include/RE/L/LoadStorageWrapper.h
 	include/RE/L/LoadWaitSpinner.h
+	include/RE/L/LoadedAreaBound.h
 	include/RE/L/LoadingMenu.h
 	include/RE/L/LoadingMenuData.h
 	include/RE/L/LocalMapCamera.h
@@ -1887,12 +1901,15 @@ set(SOURCES
 	src/RE/A/ArmorRatingVisitorBase.cpp
 	src/RE/A/Array.cpp
 	src/RE/B/BGSAttackData.cpp
+	src/RE/B/BGSAutoWater.cpp
 	src/RE/B/BGSBaseAlias.cpp
 	src/RE/B/BGSBipedObjectForm.cpp
 	src/RE/B/BGSColorForm.cpp
 	src/RE/B/BGSConstructibleObject.cpp
 	src/RE/B/BGSCreatedObjectManager.cpp
 	src/RE/B/BGSDebris.cpp
+	src/RE/B/BGSDistantObjectBlock.cpp
+	src/RE/B/BGSDistantTreeBlock.cpp
 	src/RE/B/BGSEntryPointFunctionDataActivateChoice.cpp
 	src/RE/B/BGSEntryPointPerkEntry.cpp
 	src/RE/B/BGSFootstepManager.cpp
@@ -1909,6 +1926,8 @@ set(SOURCES
 	src/RE/B/BGSSkillPerkTreeNode.cpp
 	src/RE/B/BGSSoundCategory.cpp
 	src/RE/B/BGSStoryTeller.cpp
+	src/RE/B/BGSTerrainChunk.cpp
+	src/RE/B/BGSTerrainManager.cpp
 	src/RE/B/BSAtomic.cpp
 	src/RE/B/BSAudioManager.cpp
 	src/RE/B/BSCompoundFrustum.cpp
@@ -2056,13 +2075,16 @@ set(SOURCES
 	src/RE/H/hkStringPtr.cpp
 	src/RE/H/hkVector4.cpp
 	src/RE/H/hkpAabbPhantom.cpp
+	src/RE/H/hkpAddModifierUtil.cpp
 	src/RE/H/hkpBroadPhase.cpp
 	src/RE/H/hkpCdBody.cpp
 	src/RE/H/hkpCharacterProxyListener.cpp
 	src/RE/H/hkpMaterial.cpp
 	src/RE/H/hkpProperty.cpp
+	src/RE/H/hkpResponseModifier.cpp
 	src/RE/H/hkpRigidBody.cpp
 	src/RE/H/hkpShapePhantom.cpp
+	src/RE/H/hkpWorld.cpp
 	src/RE/H/hkpWorldObject.cpp
 	src/RE/I/IAnimationGraphManagerHolder.cpp
 	src/RE/I/IFormFactory.cpp

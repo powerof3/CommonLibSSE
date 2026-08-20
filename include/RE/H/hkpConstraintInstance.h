@@ -4,9 +4,11 @@
 
 namespace RE
 {
-	struct hkConstraintInternal;
 	class hkpConstraintData;
+	class hkpConstraintListener;
 	class hkpConstraintOwner;
+	struct hkConstraintInternal;
+	struct hkpConstraintAtom;
 	struct hkpModifierConstraintAtom;
 
 	class hkpConstraintInstance : public hkReferencedObject

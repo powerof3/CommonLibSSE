@@ -44,7 +44,7 @@ namespace RE
 
 		virtual ~TESWaterReflections() override { Dtor(); };  // 00
 
-		void Update();
+		bool Update();
 
 		// members
 		REX::EnumSet<Flags, std::uint16_t> flags;                  // 10

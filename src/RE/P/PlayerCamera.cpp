@@ -8,18 +8,25 @@ namespace RE
 		return *singleton;
 	}
 
+	bool PlayerCamera::ApplyCameraCaster(NiPoint3& a_pos, bool a_fadeCharacter)
+	{
+		using func_t = decltype(&PlayerCamera::ApplyCameraCaster);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(49899, 50832) };
+		return func(this, a_pos, a_fadeCharacter);
+	}
+
 	void PlayerCamera::ForceFirstPerson()
 	{
 		using func_t = decltype(&PlayerCamera::ForceFirstPerson);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(49858, 50790) };
-		return func(this);
+		func(this);
 	}
 
 	void PlayerCamera::ForceThirdPerson()
 	{
 		using func_t = decltype(&PlayerCamera::ForceThirdPerson);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(49863, 50796) };
-		return func(this);
+		func(this);
 	}
 
 	bool PlayerCamera::IsInBleedoutMode() const
@@ -46,7 +53,7 @@ namespace RE
 	{
 		using func_t = decltype(&PlayerCamera::PushCameraState);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(49947, 50880) };
-		return func(this, a_state);
+		func(this, a_state);
 	}
 
 	bool PlayerCamera::QCameraEquals(CameraState a_cameraState) const
@@ -58,20 +65,20 @@ namespace RE
 	{
 		using func_t = decltype(&PlayerCamera::ToggleFreeCameraMode);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(49876, 50809) };
-		return func(this, a_freezeTime);
+		func(this, a_freezeTime);
 	}
 
 	void PlayerCamera::Update()
 	{
 		using func_t = decltype(&PlayerCamera::Update);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(49852, 50784) };
-		return func(this);
+		func(this);
 	}
 
 	void PlayerCamera::UpdateThirdPerson(bool a_weaponDrawn)
 	{
 		using func_t = decltype(&PlayerCamera::UpdateThirdPerson);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(49908, 50841) };
-		return func(this, a_weaponDrawn);
+		func(this, a_weaponDrawn);
 	}
 }

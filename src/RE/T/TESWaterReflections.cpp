@@ -2,7 +2,7 @@
 
 namespace RE
 {
-	void TESWaterReflections::Update()
+	bool TESWaterReflections::Update()
 	{
 		using func_t = decltype(&TESWaterReflections::Update);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(31373, 32160) };
@@ -13,6 +13,6 @@ namespace RE
 	{
 		using func_t = decltype(&TESWaterReflections::Dtor);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(31451, 32256) };
-		return func(this);
+		func(this);
 	}
 }

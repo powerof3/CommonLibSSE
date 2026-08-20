@@ -26,7 +26,7 @@ namespace RE
 	{
 		using func_t = decltype(&BGSCreatedObjectManager::DestroyEnchantment);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(35267, 36169) };
-		return func(this, a_enchantment, a_isWeapon);
+		func(this, a_enchantment, a_isWeapon);
 	}
 
 	void BGSCreatedObjectManager::AddPotion(BSTSmartPointer<
@@ -42,14 +42,14 @@ namespace RE
 	void BGSCreatedObjectManager::DecrementRef(AlchemyItem* a_alchItem)
 	{
 		using func_t = decltype(&BGSCreatedObjectManager::DecrementRef);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 36171) };
-		return func(this, a_alchItem);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(35269, 36171) };
+		func(this, a_alchItem);
 	}
 
 	void BGSCreatedObjectManager::IncrementRef(AlchemyItem* a_alchItem)
 	{
 		using func_t = decltype(&BGSCreatedObjectManager::IncrementRef);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 36170) };
-		return func(this, a_alchItem);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(35268, 36170) };
+		func(this, a_alchItem);
 	}
 }

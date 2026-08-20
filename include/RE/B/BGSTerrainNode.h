@@ -1,5 +1,7 @@
 #pragma once
 
+#include "RE/B/BSResourceHandle.h"
+
 namespace RE
 {
 	class BGSTerrainManager;
@@ -9,34 +11,42 @@ namespace RE
 	public:
 		enum class Flag
 		{
-			kLandHgtAltered = 0x1,
-			kLandClrAltered = 0x2,
-			kLandTexAltered = 0x4,
-			kLandLoaded = 0x8,
-			kShaderLandTextureCount = 0x8,
-			kLandGoodNormals = 0x10,
-			kBlocksize = 0x10,
-			kLandHiresHeightfield = 0x20,
-			kLandSize = 0x21,
-			kLandDataAltered = 0x27,
-			kTilesPerBlock = 0x100,
-			kTrisPerBlock = 0x200,
-			kTriStripIndexCount = 0x3FD,  // TRISTRIPINDEXCOUNT
-			kLandRemapped = 0x400,
-			kLandArea = 0x441,
-			kHalfLand = 0x800,
-			kFullLand = 0x1000,
+			kUnk0 = 0x1,
+			kUnk1 = 0x2,
+			kUnk2 = 0x4,
+			kTerrainIsSplit = 0x8,
+			kUnk3 = 0x10,
+			kUnk4 = 0x20,
+			kUnk5 = 0x40,
+			kUnk6 = 0x80,
+			kUnk7 = 0x100,
+			kUnk8 = 0x400,
+			kUnk9 = 0x800,
+
+			kNeedsUpdate = 0x1000,
+			kNeedsTreeVisUpdate = 0x2000,
+			kUnk10 = 0x4000,
+			kUnk11 = 0x8000,
+
+			kLODLevel4 = 0x800000,
+			kLODLevel8 = 0x1000000,
+			kLODLevel16 = 0x2000000,
+			kLODLevel32 = 0x4000000,
+			kLODLevel64 = 0x8000000,
+			kLODLevel128 = 0x10000000,
+			kLODLevel256 = 0x20000000,
+			kLODLevel512 = 0x40000000
 		};
 
 		std::uint32_t GetLODLevel() const { return (nodeState.underlying() >> 21) & 0x3FC; }
 
 		// members
 		BGSTerrainManager*                manager;         // 00
-		void*                             chunkHandle;     // 08 - BSResource::RHandleType<BSResource::Entry<BGSTerrainChunk*,BSResource::EntryDBTraits<BGSBtrDB::DBTraits,BSResource::EntryDB<BGSBtrDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBtrDB::DBTraits>>
-		void*                             blockHandle;     // 10 - BSResource::RHandleType<BSResource::Entry<BGSDistantObjectBlock *,BSResource::EntryDBTraits<BGSBtoDB::DBTraits,BSResource::EntryDB<BGSBtoDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBtoDB::DBTraits>>
-		void*                             treeHandle;      // 18 - BSResource::RHandleType<BSResource::Entry<BGSDistantTreeBlock *,BSResource::EntryDBTraits<BGSBttDB::DBTraits,BSResource::EntryDB<BGSBttDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBttDB::DBTraits>>
-		void*                             mapChunkHandle;  // 20 - BSResource::RHandleType<BSResource::Entry<BGSTerrainChunk *,BSResource::EntryDBTraits<BGSBtrDB::DBTraits,BSResource::EntryDB<BGSBtrDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBtrDB::DBTraits>>
-		void*                             mapBlockHandle;  // 28 - BSResource::RHandleType<BSResource::Entry<BGSDistantObjectBlock *,BSResource::EntryDBTraits<BGSBtoDB::DBTraits,BSResource::EntryDB<BGSBtoDB::DBTraits> >::CArgs>,BSResource::EntryDB<BGSBtoDB::DBTraits>>
+		BGSBtrDBHandle                    chunkHandle;     // 08
+		BGSBtoDBHandle                    blockHandle;     // 10
+		BGSBttDBHandle                    treeHandle;      // 18
+		BGSBtrDBHandle                    mapChunkHandle;  // 20
+		BGSBtoDBHandle                    mapBlockHandle;  // 28
 		BGSTerrainNode*                   children;        // 30
 		BGSTerrainNode*                   parent;          // 38
 		REX::EnumSet<Flag, std::uint32_t> nodeState;       // 40
