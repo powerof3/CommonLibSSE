@@ -2,6 +2,18 @@
 
 namespace RE
 {
+#ifdef SKYRIM_SUPPORT_AE
+	bool MenuEventHandler::ProcessMotionGesture(MotionGestureEvent*)
+	{
+		return false;
+	}
+
+	bool MenuEventHandler::ProcessSixaxis(SixaxisEvent*)
+	{
+		return false;
+	}
+#endif
+
 	bool MenuEventHandler::ProcessKinect(KinectEvent*)
 	{
 		return false;

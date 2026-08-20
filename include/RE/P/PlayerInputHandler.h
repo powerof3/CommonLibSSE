@@ -5,7 +5,9 @@ namespace RE
 	class ButtonEvent;
 	class InputEvent;
 	class MouseMoveEvent;
+	class MotionGestureEvent;
 	class PlayerControlsData;
+	class SixaxisEvent;
 	class ThumbstickEvent;
 
 	class PlayerInputHandler
@@ -16,7 +18,11 @@ namespace RE
 
 		virtual ~PlayerInputHandler() = default;  // 00
 
-		virtual bool CanProcess(InputEvent* a_event) = 0;                                                                          // 01
+		virtual bool CanProcess(InputEvent* a_event) = 0;  // 01
+#ifdef SKYRIM_SUPPORT_AE
+		virtual void ProcessMotionGesture([[maybe_unused]] MotionGestureEvent* a_event, [[maybe_unused]] PlayerControlsData* a_data) {}  // 02
+		virtual void ProcessSixaxis([[maybe_unused]] SixaxisEvent* a_event, [[maybe_unused]] PlayerControlsData* a_data) {}              // 03
+#endif
 		virtual void ProcessThumbstick([[maybe_unused]] ThumbstickEvent* a_event, [[maybe_unused]] PlayerControlsData* a_data) {}  // 02
 		virtual void ProcessMouseMove([[maybe_unused]] MouseMoveEvent* a_event, [[maybe_unused]] PlayerControlsData* a_data) {}    // 03
 		virtual void ProcessButton([[maybe_unused]] ButtonEvent* a_event, [[maybe_unused]] PlayerControlsData* a_data) {}          // 04

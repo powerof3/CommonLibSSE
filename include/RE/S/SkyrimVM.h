@@ -134,8 +134,8 @@ namespace RE
 		public BSTEventSink<TESUniqueIDChangeEvent>,           // 0170
 		public BSTEventSink<TESSwitchRaceCompleteEvent>,       // 0178
 #ifdef SKYRIM_SUPPORT_AE
-		public BSTEventSink<TESAmiiboTouchEvent>,
-		public BSTEventSink<TESAmiiboForcedStopDetectionEvent>,
+		public BSTEventSink<TESAmiiboTouchEvent>,                // 0180
+		public BSTEventSink<TESAmiiboForcedStopDetectionEvent>,  // 0188
 #endif
 		public BSTEventSink<TESPlayerBowShotEvent>,  // 0180
 		public BSTEventSink<TESFastTravelEndEvent>,  // 0188

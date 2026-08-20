@@ -18,6 +18,9 @@ namespace RE
 		BSEventNotifyControl ProcessEvent(const BSGamepadEvent* a_event, BSTEventSource<BSGamepadEvent>* a_eventSource) override;  // 01
 
 		// add
+#ifdef SKYRIM_SUPPORT_AE
+		virtual void Unk_02(void* a_result);  // 02
+#endif
 		virtual void GetAuthenticationInfo(char*& a_userAuthID, std::uint64_t& a_size);  // 02
 		virtual void Unk_03(void);                                                       // 03
 		virtual void DoInitialize();                                                     // 04

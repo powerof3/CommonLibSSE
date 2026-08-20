@@ -12,13 +12,23 @@ namespace RE
 		kChar,
 		kThumbstick,
 		kDeviceConnect,
-		kKinect
+		kKinect,
+#ifdef SKYRIM_SUPPORT_AE
+		kSixaxis,
+		kMotionGesture,
+		kAmiibo
+#endif
 	};
 
 	class ButtonEvent;
 	class CharEvent;
 	class IDEvent;
 	class MouseMoveEvent;
+#ifdef SKYRIM_SUPPORT_AE
+	class AmiiboEvent;
+	class MotionGestureEvent;
+	class SixaxisEvent;
+#endif
 	class ThumbstickEvent;
 
 	class InputEvent
@@ -46,6 +56,17 @@ namespace RE
 
 		[[nodiscard]] MouseMoveEvent*       AsMouseMoveEvent();
 		[[nodiscard]] const MouseMoveEvent* AsMouseMoveEvent() const;
+
+#ifdef SKYRIM_SUPPORT_AE
+		[[nodiscard]] AmiiboEvent*       AsAmiiboEvent();
+		[[nodiscard]] const AmiiboEvent* AsAmiiboEvent() const;
+
+		[[nodiscard]] MotionGestureEvent*       AsMotionGestureEvent();
+		[[nodiscard]] const MotionGestureEvent* AsMotionGestureEvent() const;
+
+		[[nodiscard]] SixaxisEvent*       AsSixaxisEvent();
+		[[nodiscard]] const SixaxisEvent* AsSixaxisEvent() const;
+#endif
 
 		[[nodiscard]] ThumbstickEvent*       AsThumbstickEvent();
 		[[nodiscard]] const ThumbstickEvent* AsThumbstickEvent() const;

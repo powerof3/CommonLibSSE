@@ -68,6 +68,7 @@ namespace RE
 	inline constexpr REL::ID RTTI_AlarmPackage{ 394714 };
 	inline constexpr REL::ID RTTI_AlchemyItem{ 392218 };
 	inline constexpr REL::ID RTTI_AllowRotationHandler{ 394999 };
+	inline constexpr REL::ID RTTI_AmiiboEvent{ 564083 };
 	inline constexpr REL::ID RTTI_AnimatedCameraDeltaStartHandler{ 395019 };
 	inline constexpr REL::ID RTTI_AnimatedCameraEndHandler{ 395020 };
 	inline constexpr REL::ID RTTI_AnimatedCameraStartHandler{ 395018 };
@@ -5186,6 +5187,7 @@ namespace RE
 	inline constexpr REL::ID RTTI_ModelReferenceEffect{ 394371 };
 	inline constexpr REL::ID RTTI_Moon{ 393314 };
 	inline constexpr REL::ID RTTI_MotionDrivenHandler{ 394997 };
+	inline constexpr REL::ID RTTI_MotionGestureEvent{ 564082 };
 	inline constexpr REL::ID RTTI_MountDismountEndHandler{ 395004 };
 	inline constexpr REL::ID RTTI_MountInteraction{ 394738 };
 	inline constexpr REL::ID RTTI_MouseMoveEvent{ 398155 };
@@ -5813,6 +5815,7 @@ namespace RE
 	inline constexpr REL::ID RTTI_ShoutHandler{ 394908 };
 	inline constexpr REL::ID RTTI_ShoutMeter{ 396691 };
 	inline constexpr REL::ID RTTI_SimpleAnimationGraphManagerHolder{ 394190 };
+	inline constexpr REL::ID RTTI_SixaxisEvent{ 564068 };
 	inline constexpr REL::ID RTTI_SimpleAnimationGraphManagerLoadingTask{ 394189 };
 	inline constexpr REL::ID RTTI_Sky{ 393319 };
 	inline constexpr REL::ID RTTI_SkyEffectController{ 393321 };

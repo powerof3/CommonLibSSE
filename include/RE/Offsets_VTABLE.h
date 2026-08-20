@@ -52,6 +52,7 @@ namespace RE
 	inline constexpr std::array<REL::ID, 1>  VTABLE_AlarmPackage{ REL::ID(208747) };
 	inline constexpr std::array<REL::ID, 10> VTABLE_AlchemyItem{ REL::ID(186204), REL::ID(186206), REL::ID(186208), REL::ID(186210), REL::ID(186212), REL::ID(186214), REL::ID(186216), REL::ID(186218), REL::ID(186220), REL::ID(186222) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_AllowRotationHandler{ REL::ID(208941) };
+	inline constexpr std::array<REL::ID, 1>  VTABLE_AmiiboEvent{ REL::ID(536708) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_AnimatedCameraDeltaStartHandler{ REL::ID(208981) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_AnimatedCameraEndHandler{ REL::ID(208983) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_AnimatedCameraStartHandler{ REL::ID(208979) };
@@ -4698,6 +4699,7 @@ namespace RE
 	inline constexpr std::array<REL::ID, 3>  VTABLE_ModelReferenceEffect{ REL::ID(205960), REL::ID(205962), REL::ID(205964) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_Moon{ REL::ID(196437) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_MotionDrivenHandler{ REL::ID(208937) };
+	inline constexpr std::array<REL::ID, 1>  VTABLE_MotionGestureEvent{ REL::ID(536706) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_MountDismountEndHandler{ REL::ID(208951) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_MountInteraction{ REL::ID(207929) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_MouseMoveEvent{ REL::ID(236703) };
@@ -5310,6 +5312,7 @@ namespace RE
 	inline constexpr std::array<REL::ID, 1>  VTABLE_ShoutHandler{ REL::ID(208735) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_ShoutMeter{ REL::ID(215376) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SimpleAnimationGraphManagerHolder{ REL::ID(205182) };
+	inline constexpr std::array<REL::ID, 1>  VTABLE_SixaxisEvent{ REL::ID(536598) };
 	inline constexpr std::array<REL::ID, 2>  VTABLE_SimpleAnimationGraphManagerLoadingTask{ REL::ID(205184), REL::ID(205186) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_Sky{ REL::ID(196498) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyEffectController{ REL::ID(196496) };
@@ -5417,7 +5420,7 @@ namespace RE
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript____StoryEventArguments_SkyrimScript____UIntStoryEventArgConverter_SkyrimScript__A0x6e349a3c__EmptyStoryEventArgConverter_SkyrimScript__A0x6e349a3c__EmptyStoryEventArgConverter_SkyrimScript__A0x6e349a3c__EmptyStoryEventArgConverter_SkyrimScript__A0x6e349a3c__EmptyStoryEventArgConverter_SkyrimScript__A0x6e349a3c__EmptyStoryEventArgConverter_{ REL::ID(216843) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimScript____TetherFunctor{ REL::ID(218355) };
 	inline constexpr std::array<REL::ID, 5>  VTABLE_SkyrimSpeechRecognition{ REL::ID(218872), REL::ID(218874), REL::ID(218876), REL::ID(218878), REL::ID(218880) };
-	inline constexpr std::array<REL::ID, 52> VTABLE_SkyrimVM{ REL::ID(217055), REL::ID(217057), REL::ID(217059), REL::ID(217061), REL::ID(217063), REL::ID(217065), REL::ID(217067), REL::ID(217069), REL::ID(217071), REL::ID(217073), REL::ID(217075), REL::ID(217077), REL::ID(217079), REL::ID(217081), REL::ID(217083), REL::ID(217085), REL::ID(217087), REL::ID(217089), REL::ID(217091), REL::ID(217093), REL::ID(217095), REL::ID(217097), REL::ID(217099), REL::ID(217101), REL::ID(217103), REL::ID(217105), REL::ID(217107), REL::ID(217109), REL::ID(217111), REL::ID(217113), REL::ID(217115), REL::ID(217117), REL::ID(217119), REL::ID(217121), REL::ID(217123), REL::ID(217125), REL::ID(217127), REL::ID(217129), REL::ID(217131), REL::ID(217133), REL::ID(217135), REL::ID(217137), REL::ID(217139), REL::ID(217141), REL::ID(217143), REL::ID(217145), REL::ID(217147), REL::ID(217149), REL::ID(217151), REL::ID(217153), REL::ID(217155), REL::ID(217157) };
+	inline constexpr std::array<REL::ID, 54> VTABLE_SkyrimVM{ REL::ID(217055), REL::ID(217057), REL::ID(217059), REL::ID(217061), REL::ID(217063), REL::ID(217065), REL::ID(217067), REL::ID(217069), REL::ID(217071), REL::ID(217073), REL::ID(217075), REL::ID(217077), REL::ID(217079), REL::ID(217081), REL::ID(217083), REL::ID(217085), REL::ID(217087), REL::ID(217089), REL::ID(217091), REL::ID(217093), REL::ID(217095), REL::ID(217097), REL::ID(217099), REL::ID(217101), REL::ID(217103), REL::ID(217105), REL::ID(217107), REL::ID(217109), REL::ID(217111), REL::ID(217113), REL::ID(217115), REL::ID(217117), REL::ID(217119), REL::ID(217121), REL::ID(217123), REL::ID(217125), REL::ID(217127), REL::ID(217129), REL::ID(217131), REL::ID(217133), REL::ID(217135), REL::ID(217137), REL::ID(217139), REL::ID(217141), REL::ID(217143), REL::ID(217145), REL::ID(217147), REL::ID(217149), REL::ID(536674), REL::ID(536676), REL::ID(217151), REL::ID(217153), REL::ID(217155), REL::ID(217157) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimVM__EffectEventRelayFunctor{ REL::ID(217031) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimVM__EventRelayFunctor{ REL::ID(217029) };
 	inline constexpr std::array<REL::ID, 1>  VTABLE_SkyrimVM__ISendEventFilter{ REL::ID(217027) };

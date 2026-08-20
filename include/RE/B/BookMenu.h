@@ -7,6 +7,7 @@
 #include "RE/I/IMenu.h"
 #include "RE/N/NiMatrix3.h"
 #include "RE/N/NiPoint3.h"
+#include "RE/N/NiRect.h"
 #include "RE/N/NiSmartPointer.h"
 #include "RE/S/SimpleAnimationGraphManagerHolder.h"
 #include "RE/T/TESObjectREFR.h"
@@ -74,9 +75,16 @@ namespace RE
 		bool                                 isNote;            // 95
 		bool                                 bookInitialized;   // 96
 		std::uint8_t                         pad97;             // 97
+#ifdef SKYRIM_SUPPORT_AE
+		NiRect<float> unk98;  // 98
+#endif
 
 	private:
 		static void OpenMenu_Impl(const BSString& a_description, const ExtraDataList* a_extraList, TESObjectREFR* a_targetReference, TESObjectBOOK* a_targetBook, const NiPoint3& a_pos, const NiMatrix3& a_rot, float a_scale, bool a_useDefaultPos);
 	};
+#ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(BookMenu) == 0x98);
+#else
+	static_assert(sizeof(BookMenu) == 0xA8);
+#endif
 }

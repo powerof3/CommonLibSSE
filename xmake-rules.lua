@@ -11,6 +11,7 @@ constinit auto SKSEPlugin_Version = []() {
     v.UsesAddressLibrary();
     v.UsesUpdatedStructs();
     v.CompatibleVersions({ SKSE::RUNTIME_SSE_LATEST });
+    v.MinimumRequiredXSEVersion({ 2, 3, 0, 0 });
     return v;
 }();
 #else

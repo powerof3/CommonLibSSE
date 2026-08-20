@@ -8,6 +8,8 @@ namespace RE
 	class InputEvent;
 	class KinectEvent;
 	class MouseMoveEvent;
+	class MotionGestureEvent;
+	class SixaxisEvent;
 	class ThumbstickEvent;
 
 	class MenuEventHandler : public BSIntrusiveRefCounted
@@ -19,7 +21,11 @@ namespace RE
 		MenuEventHandler() = default;
 		virtual ~MenuEventHandler() = default;  // 00
 
-		virtual bool CanProcess(InputEvent* a_event) = 0;          // 01
+		virtual bool CanProcess(InputEvent* a_event) = 0;  // 01
+#ifdef SKYRIM_SUPPORT_AE
+		virtual bool ProcessMotionGesture(MotionGestureEvent* a_event);  // 02 - { return false; }
+		virtual bool ProcessSixaxis(SixaxisEvent* a_event);              // 03 - { return false; }
+#endif
 		virtual bool ProcessKinect(KinectEvent* a_event);          // 02 - { return false; }
 		virtual bool ProcessThumbstick(ThumbstickEvent* a_event);  // 03 - { return false; }
 		virtual bool ProcessMouseMove(MouseMoveEvent* a_event);    // 04 - { return false; }
