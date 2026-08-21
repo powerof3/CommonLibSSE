@@ -121,7 +121,9 @@ namespace SKSE
 					spdlog::set_default_logger(std::move(logger));
 					spdlog::set_pattern(info.logPattern ? info.logPattern : "[%T.%e] [%=5t] [%L] %v");
 
+#ifdef SKYRIM_SUPPORT_AE
 					REX::INFO("{} v{}", GetPluginName(), GetPluginVersion());
+#endif
 				});
 			}
 		}
