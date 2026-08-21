@@ -124,6 +124,20 @@ namespace RE
 			return func(this, a_unk1, a_unk2, a_unk3);
 		}
 
+		void Renderer::ApplyState(bool a_arg2)
+		{
+			using func_t = decltype(&Renderer::ApplyState);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(77247, 77247) };
+			return func(this, a_arg2);
+		}
+
+		void Renderer::SubmitAccumulator(NiCamera* a_camera, BSShaderAccumulator* a_accumulator, std::uint32_t a_renderFlags)
+		{
+			using func_t = decltype(&Renderer::SubmitAccumulator);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(99789, 106436) };
+			return func(a_camera, a_accumulator, a_renderFlags);
+		}
+
 		void Renderer::Shutdown()
 		{
 			using func_t = decltype(&Renderer::Shutdown);

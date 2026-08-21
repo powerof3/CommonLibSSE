@@ -4,8 +4,14 @@
 #include "RE/B/BSTHashMap.h"
 #include "RE/B/BSTLocklessQueue.h"
 #include "RE/B/BSTObjectArena.h"
+#include "RE/N/NiAccumulator.h"
+#include "RE/N/NiAVObject.h"
+#include "RE/N/NiCamera.h"
 #include "RE/N/NiCullingProcess.h"
+#include "RE/N/NiFrustumPlanes.h"
+#include "RE/N/NiRefObject.h"
 #include "RE/N/NiSmartPointer.h"
+#include "RE/N/NiVisibleArray.h"
 
 namespace RE
 {
@@ -42,6 +48,34 @@ namespace RE
 		};
 		static_assert(sizeof(Data) == 0x10);
 
+		struct CullingContext
+		{
+			CullingContext();
+
+			NiPointer<NiAccumulator>  accumulator;          // 00
+			NiPointer<NiRefObject>    unk08;                // 08
+			NiPointer<NiCamera>       camera;               // 10
+			BSCompoundFrustum*        compoundFrustum;      // 18
+			const NiFrustum*           frustum;              // 20
+			BSPortalGraphEntry*        portalGraphEntry;     // 28
+			NiCullingProcess*          cullingProcess;       // 30
+			const NiFrustumPlanes*     customCullPlanes;     // 38
+			NiPointer<NiAVObject>      scene;                // 40
+			NiVisibleArray*            visibleSet;           // 48
+			REX::Enum<BSCPCullingType> cullMode;             // 50
+			float                      unk54;                // 54
+			std::uint32_t              unk58;                // 58
+			bool                       useParabolicCulling;  // 5C
+			std::uint8_t               unk5D;                // 5D
+			bool                       ignorePreprocess;     // 5E
+			bool                       doCustomCullPlanes;   // 5F
+			bool                       cameraRelatedUpdates; // 60
+			bool                       unk61;                // 61
+			bool                       updateAccumulateFlag; // 62
+			std::uint8_t               pad63[0x5];           // 63
+		};
+		static_assert(sizeof(CullingContext) == 0x68);
+
 		// override (NiCullingProcess)
 		const NiRTTI* GetRTTI() const override;  // 00
 
@@ -58,6 +92,7 @@ namespace RE
 		[[nodiscard]] virtual bool TestBaseVisibility3(const NiBound& a_bound);                           // 1C
 
 		bool AddShared(NiAVObject* a_object);
+		static void Process(CullingContext& a_context);
 
 		BSTArray<NiPointer<NiAVObject>>                                          objectArray;          // 00128
 		BSTLocklessQueue::ObjMultiProdCons<Data, 4096, 0>                        cullQueue;            // 00140

@@ -80,7 +80,9 @@ namespace RE
 
 		enum RasterStateCullMode
 		{
+			RASTER_STATE_CULL_MODE_NONE = 0,
 			RASTER_STATE_CULL_MODE_BACK = 1,
+			RASTER_STATE_CULL_MODE_FRONT = 2,
 
 			RASTER_STATE_CULL_MODE_DEFAULT = RASTER_STATE_CULL_MODE_BACK,  // Used for BSShader::RestoreX
 		};
@@ -88,6 +90,12 @@ namespace RE
 		class RendererShadowState
 		{
 		public:
+			[[nodiscard]] static RendererShadowState* GetSingleton()
+			{
+				static REL::Relocation<RendererShadowState*> singleton{ RELOCATION_ID(524773, 388819) };
+				return singleton.get();
+			}
+
 			// members
 			REX::EnumSet<ShaderFlags, uint32_t>             stateUpdateFlags;                                                       // 00
 			std::uint32_t                                   PSResourceModifiedBits;                                                 // 04

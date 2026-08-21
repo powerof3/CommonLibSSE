@@ -38,6 +38,13 @@ namespace RE
 		return nodePtr->get();
 	}
 
+	void Main::RenderWorld(bool a_unk)
+	{
+		using func_t = decltype(&Main::RenderWorld);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(100424, 107142) };
+		return func(a_unk);
+	}
+
 	void Main::SetActive(bool a_active)
 	{
 		using func_t = decltype(&Main::SetActive);

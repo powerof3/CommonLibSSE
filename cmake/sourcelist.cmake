@@ -1965,6 +1965,7 @@ set(SOURCES
 	src/RE/B/BSScaleformManager.cpp
 	src/RE/B/BSScaleformTranslator.cpp
 	src/RE/B/BSScriptObjectBindPolicy.cpp
+	src/RE/B/BSShaderAccumulator.cpp
 	src/RE/B/BSShaderProperty.cpp
 	src/RE/B/BSShaderTextureSet.cpp
 	src/RE/B/BSSoundHandle.cpp
@@ -2189,6 +2190,7 @@ set(SOURCES
 	src/RE/R/ReferenceEffectController.cpp
 	src/RE/R/RemoveCallbackVisitor.cpp
 	src/RE/R/Renderer.cpp
+	src/RE/R/RenderTargetManager.cpp
 	src/RE/R/Rumble.cpp
 	src/RE/S/ScrapHeap.cpp
 	src/RE/S/Script.cpp

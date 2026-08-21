@@ -2,6 +2,25 @@
 
 namespace RE
 {
+	BSCubeMapCamera::BSCubeMapCamera()
+	{
+		Ctor();
+	}
+
+	BSCubeMapCamera* BSCubeMapCamera::Ctor()
+	{
+		using func_t = decltype(&BSCubeMapCamera::Ctor);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(100776, 107560) };
+		return func(this);
+	}
+
+	void BSCubeMapCamera::SetFace(Face a_face)
+	{
+		using func_t = decltype(&BSCubeMapCamera::SetFace);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(100779, 107563) };
+		return func(this, a_face);
+	}
+
 	void BSCubeMapCamera::Dtor()
 	{
 		using func_t = decltype(&BSCubeMapCamera::Dtor);

@@ -1,7 +1,10 @@
 #pragma once
 
+#include <cstdint>
+
 #include "RE/B/BSShaderRenderTargets.h"
 #include "RE/R/RenderTargetProperties.h"
+#include "RE/R/RendererShadowState.h"
 
 namespace RE
 {
@@ -15,6 +18,9 @@ namespace RE
 				static REL::Relocation<RenderTargetManager**> singleton{ RELOCATION_ID(524970, 411451) };
 				return *singleton;
 			}
+
+			void SetCurrentCubeMapRenderTarget(RENDER_TARGET_CUBEMAP a_renderTarget, SetRenderTargetMode a_mode, std::uint32_t a_faceIndex, bool a_updateViewport);
+			void SetCurrentDepthStencilTarget(RENDER_TARGET_DEPTHSTENCIL a_renderTarget, SetRenderTargetMode a_mode, std::uint32_t a_slice);
 
 			// members
 			RenderTargetProperties        renderTargetData[RENDER_TARGET::kTOTAL];                      // 0x000

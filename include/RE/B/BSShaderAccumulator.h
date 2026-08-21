@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSShaderManager.h"
 #include "RE/N/NiAlphaAccumulator.h"
 #include "RE/N/NiColor.h"
 
@@ -24,6 +25,9 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_BSShaderAccumulator;
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSShaderAccumulator;
 		inline static constexpr auto VTABLE = VTABLE_BSShaderAccumulator;
+
+		[[nodiscard]] static BSShaderAccumulator* GetCurrentAccumulator();
+		static void                               SetCurrentAccumulator(BSShaderAccumulator* a_accumulator);
 
 		~BSShaderAccumulator() override = default;  // 00
 
@@ -72,7 +76,11 @@ namespace RE
 		std::uint32_t    currentBucket;             // 13C
 		bool             currentActive;             // 140
 		std::uint8_t     pad141[0x7];               // 141
-		ShadowSceneNode* activeShadowSceneNode;     // 148
+		union
+		{
+			BSShaderManager::State* shaderManagerState;     // 148
+			ShadowSceneNode*        activeShadowSceneNode;  // 148
+		};
 		std::uint32_t    renderMode;                // 150
 		std::uint8_t     pad154[0x4];               // 154
 		void*            unk158;                    // 158
