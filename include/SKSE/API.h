@@ -17,7 +17,7 @@ namespace SKSE
 #ifdef SKYRIM_SUPPORT_AE
 		bool log{ true };
 #else
-		bool log{ false };
+		bool           log{ false };
 #endif
 
 #ifndef NDEBUG
