@@ -37,7 +37,7 @@ namespace RE
 		float                                                      baseColorScale;        // 6C
 		BSFixedString                                              sourceTexturePath;     // 70
 		BSFixedString                                              greyscaleTexturePath;  // 78
-		REX::EnumSet<BSGraphics::TextureAddressMode, std::uint8_t> effectClampMode;       // 80
+		REX::TEnumSet<BSGraphics::TextureAddressMode, std::uint8_t> effectClampMode;       // 80
 		std::uint8_t                                               unk81;                 // 81
 	};
 	static_assert(sizeof(BSEffectShaderMaterial) == 0x88);

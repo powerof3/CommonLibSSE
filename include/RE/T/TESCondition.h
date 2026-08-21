@@ -888,7 +888,7 @@ namespace RE
 		~FUNCTION_DATA() = default;
 
 		// members
-		REX::EnumSet<FunctionID, std::uint16_t> function;   // 00
+		REX::TEnumSet<FunctionID, std::uint16_t> function;   // 00
 		std::uint16_t                           pad02;      // 02
 		std::uint32_t                           pad04;      // 04
 		void*                                   params[2];  // 08
@@ -943,7 +943,7 @@ namespace RE
 		std::uint32_t                                   dataID;           // 14
 		FUNCTION_DATA                                   functionData;     // 18
 		Flags                                           flags;            // 30
-		REX::EnumSet<CONDITIONITEMOBJECT, std::uint8_t> object;           // 31
+		REX::TEnumSet<CONDITIONITEMOBJECT, std::uint8_t> object;           // 31
 		std::uint16_t                                   pad32;            // 32
 		std::uint32_t                                   pad34;            // 34
 	};

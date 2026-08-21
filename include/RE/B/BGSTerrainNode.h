@@ -49,7 +49,7 @@ namespace RE
 		BGSBtoDBHandle                    mapBlockHandle;  // 28
 		BGSTerrainNode*                   children;        // 30
 		BGSTerrainNode*                   parent;          // 38
-		REX::EnumSet<Flag, std::uint32_t> nodeState;       // 40
+		REX::TEnumSet<Flag, std::uint32_t> nodeState;       // 40
 		std::uint32_t                     nodeNumber;      // 44
 		std::int16_t                      baseCellX;       // 48
 		std::int16_t                      baseCellY;       // 4A

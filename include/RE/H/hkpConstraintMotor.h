@@ -23,7 +23,7 @@ namespace RE
 		inline static constexpr auto VTABLE = VTABLE_hkpConstraintMotor;
 
 		// members
-		REX::EnumSet<MotorType, uint8_t> type;  // 10
+		REX::TEnumSet<MotorType, uint8_t> type;  // 10
 	};
 	static_assert(sizeof(hkpConstraintMotor) == 0x18);
 
@@ -99,7 +99,7 @@ namespace RE
 
 		// members
 		CallbackFunction*                         func;          // 20
-		REX::EnumSet<CallbackType, std::uint32_t> callbackType;  // 28
+		REX::TEnumSet<CallbackType, std::uint32_t> callbackType;  // 28
 		std::uint64_t                             userData0;     // 30
 		std::uint64_t                             userData1;     // 38
 		std::uint64_t                             userData2;     // 40

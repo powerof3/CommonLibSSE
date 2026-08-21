@@ -30,7 +30,7 @@ namespace RE
 
 		// members
 		BSSimpleList<GROUP_REACTION*>        reactions;      // 08 - XNAM
-		REX::EnumSet<FormType, std::uint8_t> groupFormType;  // 18
+		REX::TEnumSet<FormType, std::uint8_t> groupFormType;  // 18
 		std::uint8_t                         pad19;          // 19
 		std::uint16_t                        pad1A;          // 1A
 		std::uint32_t                        pad1C;          // 1C

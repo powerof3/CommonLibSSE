@@ -29,13 +29,13 @@ namespace RE
 
 	void GFxResource::AddRef()
 	{
-		stl::atomic_ref myRefCount{ _refCount.value };
+		REX::TAtomicRef myRefCount{ _refCount.value };
 		++myRefCount;
 	}
 
 	bool GFxResource::AddRef_NotZero()
 	{
-		stl::atomic_ref myRefCount{ _refCount.value };
+		REX::TAtomicRef myRefCount{ _refCount.value };
 		if (myRefCount != 0) {
 			++myRefCount;
 			return true;
@@ -46,7 +46,7 @@ namespace RE
 
 	void GFxResource::Release()
 	{
-		stl::atomic_ref myRefCount{ _refCount.value };
+		REX::TAtomicRef myRefCount{ _refCount.value };
 		if (--myRefCount == 0) {
 			if (_lib) {
 				_lib->RemoveResourceOnRelease(this);

@@ -105,8 +105,8 @@ namespace RE
 		std::int32_t                                               currentStateID;                           // 080
 		bool                                                       wrapAroundStateID;                        // 084
 		std::int8_t                                                maxSimultaneousTransitions;               // 085
-		REX::EnumSet<StartStateMode, std::uint8_t>                 startStateMode;                           // 086
-		REX::EnumSet<StateMachineSelfTransitionMode, std::uint8_t> selfTransitionMode;                       // 087
+		REX::TEnumSet<StartStateMode, std::uint8_t>                 startStateMode;                           // 086
+		REX::TEnumSet<StateMachineSelfTransitionMode, std::uint8_t> selfTransitionMode;                       // 087
 		bool                                                       isActive;                                 // 088
 		std::uint8_t                                               pad41;                                    // 089
 		std::uint16_t                                              pad42;                                    // 08A

@@ -66,7 +66,7 @@ namespace RE
 			};
 
 			// members
-			REX::EnumSet<Flag, std::uint32_t> flags;                  // 00
+			REX::TEnumSet<Flag, std::uint32_t> flags;                  // 00
 			float                             baseCost;               // 04
 			TESForm*                          associatedForm;         // 08
 			ActorValue                        associatedSkill;        // 10

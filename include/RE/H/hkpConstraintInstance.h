@@ -53,9 +53,9 @@ namespace RE
 		hkpConstraintData*                                 data;                  // 18
 		hkpModifierConstraintAtom*                         constraintModifiers;   // 20
 		hkpEntity*                                         entities[2];           // 28
-		REX::EnumSet<ConstraintPriority, std::uint8_t>     priority;              // 38
+		REX::TEnumSet<ConstraintPriority, std::uint8_t>     priority;              // 38
 		bool                                               wantRuntime;           // 39
-		REX::EnumSet<OnDestructionRemapInfo, std::uint8_t> destructionRemapInfo;  // 3A
+		REX::TEnumSet<OnDestructionRemapInfo, std::uint8_t> destructionRemapInfo;  // 3A
 		hkSmallArray<hkpConstraintListener*>               listeners;             // 40
 		hkStringPtr                                        name;                  // 50
 		uint64_t                                           userData;              // 58
@@ -71,7 +71,7 @@ namespace RE
 		hkpConstraintAtom*                                                    atoms;               // 18
 		uint16_t                                                              atomsSize;           // 20
 		uint8_t                                                               callbackRequest;     // 22
-		REX::EnumSet<hkpConstraintInstance::ConstraintPriority, std::uint8_t> priority;            // 23
+		REX::TEnumSet<hkpConstraintInstance::ConstraintPriority, std::uint8_t> priority;            // 23
 		uint16_t                                                              sizeOfSchemas;       // 24
 		uint16_t                                                              numSolverResults;    // 26
 		uint16_t                                                              numSolverElemTemps;  // 28

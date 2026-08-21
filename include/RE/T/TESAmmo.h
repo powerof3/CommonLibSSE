@@ -28,7 +28,7 @@ namespace RE
 
 		// members
 		BGSProjectile*                   projectile;  // 00
-		REX::EnumSet<Flag, std::uint8_t> flags;       // 08
+		REX::TEnumSet<Flag, std::uint8_t> flags;       // 08
 		std::uint8_t                     pa09;        // 09
 		std::uint16_t                    pa0A;        // 0A
 		float                            damage;      // 0C

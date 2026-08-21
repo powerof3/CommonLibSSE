@@ -133,7 +133,7 @@ namespace RE
 	public:
 		// members
 		const char*                                    paramName;   // 00
-		REX::EnumSet<SCRIPT_PARAM_TYPE, std::uint32_t> paramType;   // 08
+		REX::TEnumSet<SCRIPT_PARAM_TYPE, std::uint32_t> paramType;   // 08
 		bool                                           optional;    // 0C
 		std::uint8_t                                   pad0D{ 0 };  // 0D
 		std::uint16_t                                  pad0E{ 0 };  // 0E
@@ -219,9 +219,9 @@ namespace RE
 		std::uint32_t                              offset;          // 208
 		char                                       output[512];     // 20C
 		std::uint32_t                              outputSize;      // 40C
-		REX::EnumSet<SCRIPT_OUTPUT, std::uint32_t> expression;      // 410
+		REX::TEnumSet<SCRIPT_OUTPUT, std::uint32_t> expression;      // 410
 		std::uint32_t                              refObjectIndex;  // 414
-		REX::EnumSet<SCRIPT_ERROR, std::uint32_t>  scriptError;     // 418
+		REX::TEnumSet<SCRIPT_ERROR, std::uint32_t>  scriptError;     // 418
 	};
 	static_assert(sizeof(SCRIPT_LINE) == 0x41C);
 

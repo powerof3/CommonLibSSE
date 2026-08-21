@@ -39,7 +39,7 @@ namespace RE
 		float                                fogClamp;                          // 4C
 		float                                lightFadeStart;                    // 50
 		float                                lightFadeEnd;                      // 54
-		REX::EnumSet<Inherit, std::uint32_t> lightingTemplateInheritanceFlags;  // 58
+		REX::TEnumSet<Inherit, std::uint32_t> lightingTemplateInheritanceFlags;  // 58
 		std::uint32_t                        unk5C;                             // 5C - interiorOffset?
 	};
 	static_assert(sizeof(INTERIOR_DATA) == 0x60);

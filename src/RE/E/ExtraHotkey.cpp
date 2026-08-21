@@ -13,7 +13,7 @@ namespace RE
 		unk12(0),
 		unk14(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraHotkey::GetType() const

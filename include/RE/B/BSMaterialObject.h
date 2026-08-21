@@ -33,7 +33,7 @@ namespace RE
 			float                             normalDampener;   // 1C
 			NiColor                           singlePassColor;  // 20
 			std::int32_t                      singlePass;       // 2C
-			REX::EnumSet<Flag, std::uint32_t> flags;            // 30
+			REX::TEnumSet<Flag, std::uint32_t> flags;            // 30
 			std::uint32_t                     unk2C;            // 34
 		};
 		static_assert(sizeof(DIRECTIONAL_DATA) == 0x38);

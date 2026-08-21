@@ -113,7 +113,7 @@ namespace RE
 		NiPoint3                    point2;         // 0C
 		float                       radius;         // 18
 		float                       cost;           // 1C
-		REX::EnumSet<AvoidNodeType> avoidNodeType;  // 20
+		REX::TEnumSet<AvoidNodeType> avoidNodeType;  // 20
 	};
 	static_assert(sizeof(BSPathingAvoidNode) == 0x24);
 

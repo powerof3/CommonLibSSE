@@ -34,7 +34,7 @@ namespace RE
 		bool          IsNotEqual(const BSExtraData* a_rhs) const override;  // 02 - { hotkey != a_rhs->hotkey; }
 
 		// members
-		REX::EnumSet<Hotkey, std::uint8_t> hotkey;  // 10
+		REX::TEnumSet<Hotkey, std::uint8_t> hotkey;  // 10
 		std::uint8_t                       unk11;   // 11
 		std::uint16_t                      unk12;   // 12
 		std::uint32_t                      unk14;   // 14

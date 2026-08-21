@@ -55,9 +55,9 @@ namespace RE
 		CombatBehaviorStack::ObjectPtr                                            currentContextPtr;  // 128
 		const CombatBehaviorTreeNode*                                             currentNode;        // 138
 		const CombatBehaviorTreeNode*                                             previousNode;       // 140
-		REX::EnumSet<Status, std::int32_t>                                        status;             // 148
-		REX::EnumSet<State, std::int32_t>                                         state;              // 14C
-		REX::EnumSet<Flag, std::int32_t>                                          flags;              // 150
+		REX::TEnumSet<Status, std::int32_t>                                        status;             // 148
+		REX::TEnumSet<State, std::int32_t>                                         state;              // 14C
+		REX::TEnumSet<Flag, std::int32_t>                                          flags;              // 150
 		std::uint32_t                                                             threadID;           // 154
 		CombatBehaviorController*                                                 controller;         // 158
 		CombatBehaviorThread*                                                     parent;             // 160

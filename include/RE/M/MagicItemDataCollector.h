@@ -36,7 +36,7 @@ namespace RE
 		std::uint32_t                      pad34;                      // 34
 		Effect*                            largestAreaEffect;          // 38
 		float                              highestArea;                // 40
-		REX::EnumSet<Flags, std::uint32_t> flags;                      // 44
+		REX::TEnumSet<Flags, std::uint32_t> flags;                      // 44
 		bool                               summonsExtraLargeCreature;  // 48
 		std::uint8_t                       pad49;                      // 49
 		std::uint16_t                      pad4A;                      // 4A

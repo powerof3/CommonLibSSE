@@ -52,7 +52,7 @@ namespace RE
 
 		// members
 		BSFixedString                      name;    // 10
-		REX::EnumSet<ORDER, std::uint32_t> order;   // 18
+		REX::TEnumSet<ORDER, std::uint32_t> order;   // 18
 		std::uint32_t                      pad1C;   // 1C
 		NiParticleSystem*                  target;  // 20
 		bool                               active;  // 28

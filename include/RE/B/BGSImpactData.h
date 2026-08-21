@@ -44,12 +44,12 @@ namespace RE
 			};
 
 			float                                    effectDuration;   // 00
-			REX::EnumSet<ORIENTATION, std::uint32_t> orient;           // 04
+			REX::TEnumSet<ORIENTATION, std::uint32_t> orient;           // 04
 			float                                    angleThreshold;   // 08
 			float                                    placementRadius;  // 0C
 			SOUND_LEVEL                              soundLevel;       // 10
-			REX::EnumSet<Flag, std::uint8_t>         flags;            // 14
-			REX::EnumSet<ImpactResult, std::uint8_t> resultOverride;   // 15
+			REX::TEnumSet<Flag, std::uint8_t>         flags;            // 14
+			REX::TEnumSet<ImpactResult, std::uint8_t> resultOverride;   // 15
 			std::uint16_t                            unk16;            // 16
 		};
 		static_assert(sizeof(IMPACT_DATA_DATA) == 0x18);

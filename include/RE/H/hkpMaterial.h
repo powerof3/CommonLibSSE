@@ -21,7 +21,7 @@ namespace RE
 		void                       SetResponseType(ResponseType a_type);
 
 		// members
-		REX::EnumSet<ResponseType, std::uint8_t> responseType;               // 00
+		REX::TEnumSet<ResponseType, std::uint8_t> responseType;               // 00
 		std::uint8_t                             pad01;                      // 01
 		hkHalf                                   rollingFrictionMultiplier;  // 02
 		float                                    friction;                   // 04

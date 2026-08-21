@@ -36,7 +36,7 @@ namespace RE
 			std::int8_t                         indexInContext;      // 0C
 			bool                                remappable;          // 0D
 			bool                                linked;              // 0E
-			REX::EnumSet<UEFlag, std::uint32_t> userEventGroupFlag;  // 10
+			REX::TEnumSet<UEFlag, std::uint32_t> userEventGroupFlag;  // 10
 			std::uint32_t                       pad14;               // 14
 		};
 		static_assert(sizeof(UserEventMapping) == 0x18);
@@ -93,13 +93,13 @@ namespace RE
 		InputContext*                                controlMap[InputContextID::kTotal];  // 060
 		BSTArray<LinkedMapping>                      linkedMappings;                      // 0E8
 		BSTArray<InputContextID>                     contextPriorityStack;                // 100
-		REX::EnumSet<UEFlag, std::uint32_t>          enabledControls;                     // 118
-		REX::EnumSet<UEFlag, std::uint32_t>          storedControls;                      // 124
+		REX::TEnumSet<UEFlag, std::uint32_t>          enabledControls;                     // 118
+		REX::TEnumSet<UEFlag, std::uint32_t>          storedControls;                      // 124
 		std::int8_t                                  textEntryCount;                      // 120
 		bool                                         ignoreKeyboardMouse;                 // 121
 		bool                                         ignoreActivateDisabledEvents;        // 122
 		std::uint8_t                                 pad123;                              // 123
-		REX::EnumSet<PC_GAMEPAD_TYPE, std::uint32_t> gamePadMapType;                      // 124
+		REX::TEnumSet<PC_GAMEPAD_TYPE, std::uint32_t> gamePadMapType;                      // 124
 	};
 #ifdef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(ControlMap) == 0x130);

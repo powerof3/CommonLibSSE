@@ -30,7 +30,7 @@ namespace RE
 		bool          IsNotEqual(const BSExtraData* a_rhs) const override;  // 02 - { return unk10 != a_rhs->unk10; }
 
 		// members
-		REX::EnumSet<OBJECT_ACTION, std::int8_t> action;     // 10
+		REX::TEnumSet<OBJECT_ACTION, std::int8_t> action;     // 10
 		std::uint8_t                             pad11;      // 11
 		std::uint16_t                            pad12;      // 12
 		std::uint32_t                            pad14;      // 14

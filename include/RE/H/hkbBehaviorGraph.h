@@ -38,7 +38,7 @@ namespace RE
 		void     UpdateSync(const hkbContext& a_context) override;                                                  // 19
 
 		// members
-		REX::EnumSet<VariableMode, std::uint8_t> variableMode;                     // 048
+		REX::TEnumSet<VariableMode, std::uint8_t> variableMode;                     // 048
 		std::uint8_t                             pad49;                            // 049
 		std::uint16_t                            pad4A;                            // 04A
 		std::uint32_t                            pad4C;                            // 04C

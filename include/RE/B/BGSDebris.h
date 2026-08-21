@@ -27,7 +27,7 @@ namespace RE
 
 		// members
 		std::int8_t                                    percentage;  // 00 - DATA~
-		REX::EnumSet<BGSDebrisDataFlags, std::uint8_t> flags;       // 01 - ~DATA
+		REX::TEnumSet<BGSDebrisDataFlags, std::uint8_t> flags;       // 01 - ~DATA
 		std::uint16_t                                  pad02;       // 02
 		std::uint32_t                                  pad04;       // 04
 		const char*                                    fileName;    // 08

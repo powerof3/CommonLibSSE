@@ -75,8 +75,8 @@ namespace RE
 		// members
 		std::uint16_t                              vertices[3];     // 00
 		std::uint16_t                              triangles[3];    // 06 - 0xFF == NONE
-		REX::EnumSet<TriangleFlag, std::uint16_t>  triangleFlags;   // 0C
-		REX::EnumSet<TraversalFlag, std::uint16_t> traversalFlags;  // 0E
+		REX::TEnumSet<TriangleFlag, std::uint16_t>  triangleFlags;   // 0C
+		REX::TEnumSet<TraversalFlag, std::uint16_t> traversalFlags;  // 0E
 	};
 	static_assert(sizeof(BSNavmeshTriangle) == 0x10);
 
@@ -95,7 +95,7 @@ namespace RE
 	{
 	public:
 		// members
-		REX::EnumSet<EDGE_EXTRA_INFO_TYPE, std::uint32_t> type;    // 0
+		REX::TEnumSet<EDGE_EXTRA_INFO_TYPE, std::uint32_t> type;    // 0
 		BSNavmeshTriangleEdgePortal                       portal;  // 4
 	};
 	static_assert(sizeof(BSNavmeshEdgeExtraInfo) == 0xC);

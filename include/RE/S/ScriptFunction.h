@@ -51,7 +51,7 @@ namespace RE
 				std::uint32_t                             userFlags;        // 40
 				std::uint32_t                             pad44;            // 44
 				ByteCode::PackedInstructionStream         instructions;     // 48
-				REX::EnumSet<FunctionType, std::uint16_t> functionType;     // 58
+				REX::TEnumSet<FunctionType, std::uint16_t> functionType;     // 58
 				bool                                      isStatic;         // 5A
 				std::uint8_t                              pad5B;            // 5B
 				std::uint32_t                             pad5C;            // 5C

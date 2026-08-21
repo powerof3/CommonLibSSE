@@ -229,7 +229,7 @@ namespace RE
 		// members
 		float                                            alpha;                      // 30
 		std::int32_t                                     lastRenderPassState;        // 34
-		REX::EnumSet<EShaderPropertyFlag, std::uint64_t> flags;                      // 38
+		REX::TEnumSet<EShaderPropertyFlag, std::uint64_t> flags;                      // 38
 		RenderPassArray                                  renderPassList;             // 40
 		RenderPassArray                                  debugRenderPassList;        // 50
 		BSFadeNode*                                      fadeNode;                   // 60

@@ -18,7 +18,7 @@ namespace RE
 
 		// members
 		CFilter                         collisionFilterInfo;  // 00
-		REX::EnumSet<Type, std::int8_t> type;                 // 04
+		REX::TEnumSet<Type, std::int8_t> type;                 // 04
 		hkbShapeSetup                   shapeSetup;           // 05
 	};
 	static_assert(sizeof(hkbRigidBodySetup) == 0x20);

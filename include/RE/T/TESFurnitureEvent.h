@@ -18,7 +18,7 @@ namespace RE
 		// members
 		NiPointer<TESObjectREFR>                        actor;            // 00
 		NiPointer<TESObjectREFR>                        targetFurniture;  // 08
-		REX::EnumSet<FurnitureEventType, std::uint32_t> type;             // 10
+		REX::TEnumSet<FurnitureEventType, std::uint32_t> type;             // 10
 	};
 	static_assert(sizeof(TESFurnitureEvent) == 0x18);
 }

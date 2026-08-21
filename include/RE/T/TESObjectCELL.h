@@ -60,7 +60,7 @@ namespace RE
 		BGSTerrainVisibilityData*                lodVisData;     // 10
 		float                                    worldX;         // 18
 		float                                    worldY;         // 1C
-		REX::EnumSet<LandHideFlag, std::uint8_t> landHideFlags;  // 20
+		REX::TEnumSet<LandHideFlag, std::uint8_t> landHideFlags;  // 20
 		std::uint8_t                             pad21;          // 21
 		std::uint16_t                            pad22;          // 22
 		std::uint32_t                            pad24;          // 24
@@ -221,9 +221,9 @@ namespace RE
 		// members
 		mutable BSSpinLock                                   grassCreateLock;   // 030
 		mutable BSSpinLock                                   grassTaskLock;     // 038
-		REX::EnumSet<Flag, std::uint16_t>                    cellFlags;         // 040
+		REX::TEnumSet<Flag, std::uint16_t>                    cellFlags;         // 040
 		std::uint16_t                                        cellGameFlags;     // 042
-		REX::EnumSet<CellState, std::uint8_t>                cellState;         // 044
+		REX::TEnumSet<CellState, std::uint8_t>                cellState;         // 044
 		bool                                                 autoWaterLoaded;   // 045
 		bool                                                 cellDetached;      // 046
 		std::uint8_t                                         pad047;            // 047

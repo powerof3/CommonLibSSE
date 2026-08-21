@@ -51,7 +51,7 @@ namespace RE
 		{
 		public:
 			std::int32_t                             costOverride;      // 00
-			REX::EnumSet<AlchemyFlag, std::uint32_t> flags;             // 04
+			REX::TEnumSet<AlchemyFlag, std::uint32_t> flags;             // 04
 			SpellItem*                               addictionItem;     // 08
 			float                                    addictionChance;   // 10
 			std::uint32_t                            pad14;             // 14

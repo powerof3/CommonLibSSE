@@ -95,10 +95,10 @@ namespace RE
 		SoundMessageList                          soundMessageList;      // 30
 		BSResource::ID                            resourceID;            // 40
 		std::uint32_t                             unk4C;                 // 4C
-		REX::EnumSet<SoundType, std::uint32_t>    soundType;             // 50
+		REX::TEnumSet<SoundType, std::uint32_t>    soundType;             // 50
 		std::uint32_t                             unk54;                 // 54
 		std::uint32_t                             unk58;                 // 58
-		REX::EnumSet<Flags, std::uint32_t>        flags;                 // 5C
+		REX::TEnumSet<Flags, std::uint32_t>        flags;                 // 5C
 		std::uint32_t                             durationMilliseconds;  // 60
 		std::uint16_t                             staticAttenuation;     // 64
 		std::uint16_t                             unk66;                 // 66

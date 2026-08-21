@@ -31,7 +31,7 @@ namespace RE
 		virtual std::uint32_t QueryAabbImpl(const hkAabb& a_aabb, hkpShapeKey* a_hits, std::int32_t a_maxNumKeys) const = 0;  // 0C
 
 		// members
-		REX::EnumSet<BvTreeType, std::uint8_t> bvTreeType;  // 20
+		REX::TEnumSet<BvTreeType, std::uint8_t> bvTreeType;  // 20
 		std::uint8_t                           pad21;       // 21
 		std::uint16_t                          pad22;       // 22
 		std::uint32_t                          pad24;       // 24

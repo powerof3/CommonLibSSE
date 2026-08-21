@@ -61,7 +61,7 @@ namespace RE
 
 		// members
 		BSParticleShaderProperty*                 property;          // 10
-		REX::EnumSet<EMITTER_TYPE, std::uint16_t> emitterType;       // 18
+		REX::TEnumSet<EMITTER_TYPE, std::uint16_t> emitterType;       // 18
 		std::uint16_t                             particleCount;     // 1A
 		float                                     alpha;             // 1C
 		float                                     generateReminder;  // 20

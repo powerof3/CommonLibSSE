@@ -40,7 +40,7 @@ namespace RE
 		AITimeStamp                        unk9C;               // 9C - unk70
 		ActorHandle                        attackedMember;      // A0
 		std::uint16_t                      attackerCount;       // A4
-		REX::EnumSet<Flags, std::uint16_t> flags;               // A6
+		REX::TEnumSet<Flags, std::uint16_t> flags;               // A6
 	};
 	static_assert(sizeof(CombatTarget) == 0xA8);
 

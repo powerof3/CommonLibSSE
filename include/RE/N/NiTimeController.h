@@ -73,7 +73,7 @@ namespace RE
 		void                                      SetNext(NiTimeController* a_next);
 
 		// members
-		REX::EnumSet<Flag, std::uint16_t> flags;             // 10
+		REX::TEnumSet<Flag, std::uint16_t> flags;             // 10
 		std::uint16_t                     pad12;             // 12
 		float                             frequency;         // 14
 		float                             phase;             // 18

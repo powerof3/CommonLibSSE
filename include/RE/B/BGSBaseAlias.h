@@ -76,8 +76,8 @@ namespace RE
 		BSFixedString                          aliasName;    // 08 - ALID
 		TESQuest*                              owningQuest;  // 10
 		std::uint32_t                          aliasID;      // 18 - ALST/ALLS
-		REX::EnumSet<FLAGS, std::uint32_t>     flags;        // 1C - FNAM
-		REX::EnumSet<FILL_TYPE, std::uint16_t> fillType;     // 20
+		REX::TEnumSet<FLAGS, std::uint32_t>     flags;        // 1C - FNAM
+		REX::TEnumSet<FILL_TYPE, std::uint16_t> fillType;     // 20
 		std::uint16_t                          pad22;        // 22
 		std::uint32_t                          pad24;        // 24
 	};

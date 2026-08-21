@@ -201,7 +201,7 @@ namespace RE
 				std::uint32_t                                               pad938C;                     // 938C
 				BSScript::Stack*                                            frozenStacks;                // 9390
 				std::uint32_t                                               frozenStacksCount;           // 9398
-				REX::EnumSet<FreezeState, std::uint32_t>                    freezeState;                 // 939C
+				REX::TEnumSet<FreezeState, std::uint32_t>                    freezeState;                 // 939C
 				mutable BSSpinLock                                          attachedScriptsLock;         // 93A0
 				BSTHashMap<VMHandle, BSTSmallSharedArray<AttachedScript>>   attachedScripts;             // 93A8
 				std::uint32_t                                               unk93D8;                     // 93D8

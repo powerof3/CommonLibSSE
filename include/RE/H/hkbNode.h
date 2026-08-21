@@ -54,7 +54,7 @@ namespace RE
 		std::uint64_t                          userData;    // 30
 		hkStringPtr                            name;        // 38
 		std::uint16_t                          id;          // 40
-		REX::EnumSet<CloneState, std::uint8_t> cloneState;  // 42
+		REX::TEnumSet<CloneState, std::uint8_t> cloneState;  // 42
 		std::uint8_t                           pad43;       // 43
 		std::uint32_t                          pad44;       // 44
 	};

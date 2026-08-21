@@ -26,7 +26,7 @@ namespace RE
 		float                                         packageStartTime;       // 20
 		std::uint32_t                                 modifiedPackageFlag;    // 24
 		std::uint16_t                                 modifiedInterruptFlag;  // 28
-		REX::EnumSet<ACTOR_PACKAGE_FLAG, std::int8_t> actorPackageFlags;      // 2A
+		REX::TEnumSet<ACTOR_PACKAGE_FLAG, std::int8_t> actorPackageFlags;      // 2A
 		std::int8_t                                   preferredSpeed;         // 2B
 		std::uint32_t                                 pad2C;                  // 2C
 	};

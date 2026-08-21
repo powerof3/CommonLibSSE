@@ -77,7 +77,7 @@ namespace RE
 			float                                      distance;       // 04
 			float                                      range;          // 08
 			std::uint16_t                              flags;          // 0C
-			REX::EnumSet<SkyBlurRadius, std::uint16_t> skyBlurRadius;  // 0E
+			REX::TEnumSet<SkyBlurRadius, std::uint16_t> skyBlurRadius;  // 0E
 		};
 		static_assert(sizeof(DepthOfField) == 0x10);
 

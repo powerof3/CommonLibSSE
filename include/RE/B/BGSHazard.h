@@ -27,7 +27,7 @@ namespace RE
 		float                                       lifetime;          // 08
 		float                                       imageSpaceRadius;  // 0C
 		float                                       targetInterval;    // 10
-		REX::EnumSet<BGSHazardFlags, std::uint32_t> flags;             // 14
+		REX::TEnumSet<BGSHazardFlags, std::uint32_t> flags;             // 14
 		SpellItem*                                  spell;             // 18
 		TESObjectLIGH*                              light;             // 20
 		BGSImpactDataSet*                           impactDataSet;     // 28

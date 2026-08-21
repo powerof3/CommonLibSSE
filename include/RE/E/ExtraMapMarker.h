@@ -99,9 +99,9 @@ namespace RE
 
 		// members
 		TESFullName                              locationName;  // 00
-		REX::EnumSet<Flag, std::uint8_t>         flags;         // 10
+		REX::TEnumSet<Flag, std::uint8_t>         flags;         // 10
 		std::uint8_t                             pad11;         // 11
-		REX::EnumSet<MARKER_TYPE, std::uint16_t> type;          // 12
+		REX::TEnumSet<MARKER_TYPE, std::uint16_t> type;          // 12
 		std::uint32_t                            pad14;         // 14
 	};
 	static_assert(sizeof(MapMarkerData) == 0x18);

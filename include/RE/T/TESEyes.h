@@ -42,7 +42,7 @@ namespace RE
 		bool Load(TESFile* a_mod) override;  // 06 - { return true; }
 
 		// members
-		REX::EnumSet<Flag, std::uint8_t> flags;  // 40 - DATA
+		REX::TEnumSet<Flag, std::uint8_t> flags;  // 40 - DATA
 		std::uint8_t                     pad41;  // 41
 		std::uint16_t                    pad42;  // 42
 		std::uint32_t                    pad44;  // 44

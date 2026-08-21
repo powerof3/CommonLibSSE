@@ -44,7 +44,7 @@ namespace RE
 		// members
 		std::uint32_t                              pad30;  // 30
 		std::uint32_t                              pad34;  // 34
-		REX::EnumSet<hkpFilterType, std::uint32_t> type;   // 38
+		REX::TEnumSet<hkpFilterType, std::uint32_t> type;   // 38
 		std::uint32_t                              pad3C;  // 3C
 		std::uint32_t                              pad40;  // 40
 		std::uint32_t                              pad44;  // 44

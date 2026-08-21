@@ -21,7 +21,7 @@ namespace RE
 		NiFrustumPlanes*                             frustumPlanes;               // 38
 		NiPointer<NiAVObject>                        scene;                       // 40
 		BSTArray<NiAVObject*>*                       accumulatedObjectArray;      // 48
-		REX::Enum<BSCullingProcess::BSCPCullingType> cullMode;                    // 50
+		REX::TEnum<BSCullingProcess::BSCPCullingType> cullMode;                    // 50
 		std::uint32_t                                unk54;                       // 54
 		std::uint32_t                                jobIndex;                    // 58
 		bool                                         unk5C;                       // 5C

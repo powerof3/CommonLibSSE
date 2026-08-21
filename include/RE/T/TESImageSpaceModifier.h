@@ -76,7 +76,7 @@ namespace RE
 			std::uint32_t                    distance;   // 04
 			std::uint32_t                    range;      // 08
 			bool                             useTarget;  // 0C
-			REX::EnumSet<Mode, std::uint8_t> flags;      // 0D
+			REX::TEnumSet<Mode, std::uint8_t> flags;      // 0D
 			std::uint16_t                    pad0E;      // 0E
 		};
 		static_assert(sizeof(DOF) == 0x10);

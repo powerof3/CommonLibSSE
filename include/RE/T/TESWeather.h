@@ -119,7 +119,7 @@ namespace RE
 			std::int8_t                                 thunderLightningBeginFadeIn;  // 08
 			std::int8_t                                 thunderLightningEndFadeOut;   // 09
 			std::int8_t                                 thunderLightningFrequency;    // 0A
-			REX::EnumSet<WeatherDataFlag, std::uint8_t> flags;                        // 0B
+			REX::TEnumSet<WeatherDataFlag, std::uint8_t> flags;                        // 0B
 			Color3                                      lightningColor;               // 0C
 			std::int8_t                                 visualEffectBegin;            // 0F
 			std::int8_t                                 visualEffectEnd;              // 10
@@ -149,7 +149,7 @@ namespace RE
 		public:
 			// members
 			FormID                                 soundFormID;  // 00
-			REX::EnumSet<SoundType, std::uint32_t> type;         // 04
+			REX::TEnumSet<SoundType, std::uint32_t> type;         // 04
 		};
 		static_assert(sizeof(WeatherSound) == 0x8);
 

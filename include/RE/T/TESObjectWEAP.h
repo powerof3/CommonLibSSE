@@ -174,15 +174,15 @@ namespace RE
 			float                                          animationAttackMult;  // 18
 			float                                          damageToWeaponMult;   // 1C - used in (unused?) condition calculations if Flag2::kOverridesConditionDamage is set
 			float                                          staggerValue;         // 20
-			REX::EnumSet<WEAPONHITBEHAVIOR, std::uint32_t> hitBehavior;          // 24
-			REX::EnumSet<ActorValue, std::uint32_t>        skill;                // 28
-			REX::EnumSet<ActorValue, std::uint32_t>        resistance;           // 2C
-			REX::EnumSet<Flag2, std::uint16_t>             flags2;               // 30
+			REX::TEnumSet<WEAPONHITBEHAVIOR, std::uint32_t> hitBehavior;          // 24
+			REX::TEnumSet<ActorValue, std::uint32_t>        skill;                // 28
+			REX::TEnumSet<ActorValue, std::uint32_t>        resistance;           // 2C
+			REX::TEnumSet<Flag2, std::uint16_t>             flags2;               // 30
 			std::uint8_t                                   baseVATSToHitChance;  // 32
-			REX::EnumSet<AttackAnimation, std::uint8_t>    attackAnimation;      // 33
-			REX::EnumSet<ActorValue, std::uint8_t>         embeddedWeaponAV;     // 34 - unused
-			REX::EnumSet<WEAPON_TYPE, std::uint8_t>        animationType;        // 35
-			REX::EnumSet<Flag, std::uint8_t>               flags;                // 36
+			REX::TEnumSet<AttackAnimation, std::uint8_t>    attackAnimation;      // 33
+			REX::TEnumSet<ActorValue, std::uint8_t>         embeddedWeaponAV;     // 34 - unused
+			REX::TEnumSet<WEAPON_TYPE, std::uint8_t>        animationType;        // 35
+			REX::TEnumSet<Flag, std::uint8_t>               flags;                // 36
 			std::uint8_t                                   unk37;                // 37
 		};
 		static_assert(sizeof(Data) == 0x38);
@@ -201,7 +201,7 @@ namespace RE
 			std::uint32_t                    pad04;      // 04
 			SpellItem*                       effect;     // 08
 			std::uint16_t                    damage;     // 10
-			REX::EnumSet<Flag, std::uint8_t> flags;      // 12
+			REX::TEnumSet<Flag, std::uint8_t> flags;      // 12
 			std::uint8_t                     pad13;      // 13
 			std::uint32_t                    pad14;      // 14
 		};
@@ -270,7 +270,7 @@ namespace RE
 		TESObjectSTAT*                           firstPersonModelObject;  // 200 - WNAM
 		TESObjectWEAP*                           templateWeapon;          // 208 - CNAM
 		BSFixedString                            embeddedNode;            // 210
-		REX::EnumSet<SOUND_LEVEL, std::uint32_t> soundLevel;              // 218 - VNAM
+		REX::TEnumSet<SOUND_LEVEL, std::uint32_t> soundLevel;              // 218 - VNAM
 		std::uint32_t                            pad21C;                  // 21C
 	};
 	static_assert(sizeof(TESObjectWEAP) == 0x220);

@@ -45,7 +45,7 @@ namespace RE
 		std::int32_t                                 time;                       // 00
 		std::uint32_t                                radius;                     // 04
 		Color                                        color;                      // 08
-		REX::EnumSet<TES_LIGHT_FLAGS, std::uint32_t> flags;                      // 0C
+		REX::TEnumSet<TES_LIGHT_FLAGS, std::uint32_t> flags;                      // 0C
 		float                                        fallofExponent;             // 10
 		float                                        fov;                        // 14
 		float                                        nearDistance;               // 18

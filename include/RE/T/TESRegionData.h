@@ -31,7 +31,7 @@ namespace RE
 			};
 
 			// members
-			REX::EnumSet<Flag, std::uint8_t> flags;     // 0
+			REX::TEnumSet<Flag, std::uint8_t> flags;     // 0
 			std::uint8_t                     unk09;     // 1
 			std::uint8_t                     priority;  // 2
 			std::uint8_t                     unk0B;     // 3

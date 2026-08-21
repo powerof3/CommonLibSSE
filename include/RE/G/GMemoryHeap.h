@@ -71,7 +71,7 @@ namespace RE
 			void Clear();
 
 			// members
-			REX::EnumSet<HeapFlags, std::uint32_t> flags;        // 00
+			REX::TEnumSet<HeapFlags, std::uint32_t> flags;        // 00
 			std::uint32_t                          pad04;        // 04
 			UPInt                                  minAlign;     // 08
 			UPInt                                  granularity;  // 10

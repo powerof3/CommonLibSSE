@@ -130,7 +130,7 @@ namespace RE
 	bool TESQuest::Start()
 	{
 		if (eventID != QuestEvent::kNone) {
-			SKSE::log::debug("Attempting to start event scoped quest outside of story manager");
+			REX::DEBUG("Attempting to start event scoped quest outside of story manager");
 			return false;
 		}
 

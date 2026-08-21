@@ -14,7 +14,7 @@ namespace RE
 		{
 		public:
 			// members
-			REX::EnumSet<BSAnimNote::AnimNoteType, std::uint32_t> noteType;  // 00
+			REX::TEnumSet<BSAnimNote::AnimNoteType, std::uint32_t> noteType;  // 00
 			std::uint32_t                                         pad04;     // 04
 			IBSAnimNoteReceiver*                                  receiver;  // 08
 		};

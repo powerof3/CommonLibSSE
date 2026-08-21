@@ -42,7 +42,7 @@ namespace RE
 
 		// memebrs
 		Color                             color;  // 30 - CNAM
-		REX::EnumSet<Flag, std::uint32_t> flags;  // 34 - FNAM
+		REX::TEnumSet<Flag, std::uint32_t> flags;  // 34 - FNAM
 	};
 	static_assert(sizeof(BGSColorForm) == 0x38);
 }

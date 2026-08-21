@@ -110,8 +110,8 @@ namespace RE
 		float                                        elapsedSeconds;       // 70
 		float                                        duration;             // 74
 		float                                        magnitude;            // 78
-		REX::EnumSet<Flag, std::uint32_t>            flags;                // 7C
-		REX::EnumSet<ConditionStatus, std::uint32_t> conditionStatus;      // 80
+		REX::TEnumSet<Flag, std::uint32_t>            flags;                // 7C
+		REX::TEnumSet<ConditionStatus, std::uint32_t> conditionStatus;      // 80
 		std::uint16_t                                usUniqueID;           // 84
 		std::uint16_t                                pad86;                // 86
 		MagicSystem::CastingSource                   castingSource;        // 88

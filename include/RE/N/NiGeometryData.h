@@ -82,8 +82,8 @@ namespace RE
 		// members
 		std::uint16_t                            vertices;            // 10
 		std::uint16_t                            id;                  // 12
-		REX::EnumSet<DirtyFlag, std::uint16_t>   dirtyFlags;          // 14
-		REX::EnumSet<DataFlag, std::uint16_t>    dataFlags;           // 16
+		REX::TEnumSet<DirtyFlag, std::uint16_t>   dirtyFlags;          // 14
+		REX::TEnumSet<DataFlag, std::uint16_t>    dataFlags;           // 16
 		NiBound                                  bound;               // 18
 		NiPoint3*                                vertex;              // 28
 		NiPoint3*                                normal;              // 30
@@ -94,8 +94,8 @@ namespace RE
 		std::uint32_t                            unk50;               // 50
 		std::uint32_t                            unk54;               // 54
 		NiPointer<NiAdditionalGeometryData>      additionalGeomData;  // 58
-		REX::EnumSet<KeepFlag, std::uint8_t>     keepFlags;           // 60
-		REX::EnumSet<CompressFlag, std::uint8_t> compressFlags;       // 61
+		REX::TEnumSet<KeepFlag, std::uint8_t>     keepFlags;           // 60
+		REX::TEnumSet<CompressFlag, std::uint8_t> compressFlags;       // 61
 		std::uint8_t                             unk62;               // 62
 		std::uint8_t                             unk63;               // 63
 		std::uint8_t                             unk64;               // 64

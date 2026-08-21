@@ -52,7 +52,7 @@ namespace RE
 		bool                                      assumeSuccess;  // 04
 		std::uint8_t                              pad05;          // 05
 		std::uint16_t                             pad06;          // 06
-		REX::EnumSet<AssumedState, std::uint32_t> state;          // 08
+		REX::TEnumSet<AssumedState, std::uint32_t> state;          // 08
 	};
 	static_assert(sizeof(BSSoundHandle) == 0xC);
 }

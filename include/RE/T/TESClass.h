@@ -70,7 +70,7 @@ namespace RE
 
 		// members
 		std::uint32_t                     unk00;                 // 00
-		REX::EnumSet<Skill, std::uint8_t> teaches;               // 04
+		REX::TEnumSet<Skill, std::uint8_t> teaches;               // 04
 		std::uint8_t                      maximumTrainingLevel;  // 05
 		SkillWeights                      skillWeights;          // 06
 		float                             bleedoutDefault;       // 18

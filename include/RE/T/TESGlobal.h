@@ -39,7 +39,7 @@ namespace RE
 
 		// members
 		BSString                         formEditorID;  // 20 - EDID
-		REX::EnumSet<Type, std::uint8_t> type;          // 30 - ENAM
+		REX::TEnumSet<Type, std::uint8_t> type;          // 30 - ENAM
 		std::uint8_t                     pad31;         // 31
 		std::uint16_t                    pad32;         // 32
 		float                            value;         // 34 - FLTV

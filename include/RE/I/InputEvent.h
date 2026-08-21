@@ -51,8 +51,8 @@ namespace RE
 		[[nodiscard]] const ThumbstickEvent* AsThumbstickEvent() const;
 
 		// members
-		REX::EnumSet<INPUT_DEVICE, std::uint32_t>     device;     // 08
-		REX::EnumSet<INPUT_EVENT_TYPE, std::uint32_t> eventType;  // 0C
+		REX::TEnumSet<INPUT_DEVICE, std::uint32_t>     device;     // 08
+		REX::TEnumSet<INPUT_EVENT_TYPE, std::uint32_t> eventType;  // 0C
 		InputEvent*                                   next;       // 10
 	};
 	static_assert(sizeof(InputEvent) == 0x18);

@@ -71,7 +71,7 @@ namespace RE
 		BSGraphics::TriShape*            rendererData;    // 138
 		void*                            unk140;          // 140 - smart ptr
 		BSGraphics::VertexDesc           vertexDesc;      // 148
-		REX::EnumSet<Type, std::uint8_t> type;            // 150
+		REX::TEnumSet<Type, std::uint8_t> type;            // 150
 		std::uint8_t                     pad151;          // 151
 		std::uint16_t                    pad152;          // 152
 		std::uint32_t                    pad154;          // 154

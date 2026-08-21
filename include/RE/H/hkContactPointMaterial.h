@@ -20,7 +20,7 @@ namespace RE
 		hkUFloat8                        friction;     // 08
 		std::uint8_t                     restitution;  // 09
 		hkUFloat8                        maxImpulse;   // 0A
-		REX::EnumSet<Flag, std::uint8_t> flags;        // 0B
+		REX::TEnumSet<Flag, std::uint8_t> flags;        // 0B
 	};
 	static_assert(sizeof(hkContactPointMaterial) == 0x10);
 }

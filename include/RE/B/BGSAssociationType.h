@@ -58,7 +58,7 @@ namespace RE
 
 		// members
 		BSFixedString                      associationLabels[Members::kTotal][Sexes::kTotal];  // 20 - MPRT - FCHT
-		REX::EnumSet<FLAGS, std::uint32_t> flags;                                              // 40 - DATA
+		REX::TEnumSet<FLAGS, std::uint32_t> flags;                                              // 40 - DATA
 		std::uint32_t                      pad44;                                              // 44
 	};
 	static_assert(sizeof(BGSAssociationType) == 0x48);

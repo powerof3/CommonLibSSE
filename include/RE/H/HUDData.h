@@ -20,7 +20,7 @@ namespace RE
 		~HUDData() override;  // 00
 
 		// members
-		REX::EnumSet<HUD_MESSAGE_TYPE, std::uint32_t> type;          // 10
+		REX::TEnumSet<HUD_MESSAGE_TYPE, std::uint32_t> type;          // 10
 		std::uint32_t                                 pad14;         // 14
 		BSString                                      text;          // 18
 		ObjectRefHandle                               crosshairRef;  // 28

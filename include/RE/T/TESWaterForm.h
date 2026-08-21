@@ -120,7 +120,7 @@ namespace RE
 		std::uint32_t                    pad074;                   // 074
 		TESTexture                       noiseTextures[4];         // 078 - NAM2 - NAM5
 		std::int8_t                      alpha;                    // 0B8 - ANAM
-		REX::EnumSet<Flag, std::uint8_t> flags;                    // 0B9 - FNAM
+		REX::TEnumSet<Flag, std::uint8_t> flags;                    // 0B9 - FNAM
 		std::uint16_t                    pad0BA;                   // 0BA
 		std::uint32_t                    pad0BC;                   // 0BC
 		BGSMaterialType*                 materialType;             // 0C0 - TNAM

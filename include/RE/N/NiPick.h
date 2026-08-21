@@ -76,10 +76,10 @@ namespace RE
 		static_assert(sizeof(Results) == 0x20);
 
 		// members
-		REX::EnumSet<PickType, std::uint32_t>       pickType;            // 00
-		REX::EnumSet<SortType, std::uint32_t>       sortType;            // 04
-		REX::EnumSet<IntersectType, std::uint32_t>  intersectType;       // 08
-		REX::EnumSet<CoordinateType, std::uint32_t> coordinateType;      // 0C
+		REX::TEnumSet<PickType, std::uint32_t>       pickType;            // 00
+		REX::TEnumSet<SortType, std::uint32_t>       sortType;            // 04
+		REX::TEnumSet<IntersectType, std::uint32_t>  intersectType;       // 08
+		REX::TEnumSet<CoordinateType, std::uint32_t> coordinateType;      // 0C
 		bool                                        frontOnly;           // 10 - If true, the triangle logic performs a dot product between the triangle's normal and the ray's direction. If the triangle is facing away from the ray, it discards the hit
 		bool                                        observeAppCullFlag;  // 11 - If true, the raycast will ignore objects that are marked as invisible/hidden
 		bool                                        returnNormal;        // 12 - If true, it calculates the crossproduct of the triangle's edges and writes it to Record::normal. If false, it leaves the normal field as 0

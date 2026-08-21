@@ -27,7 +27,7 @@ namespace RE
 		void CopyComponent(BaseFormComponent* a_rhs) override;  // 03
 
 		// members
-		REX::EnumSet<Quality, std::uint32_t> quality;  // 08 - QUAL
+		REX::TEnumSet<Quality, std::uint32_t> quality;  // 08 - QUAL
 		std::uint32_t                        pad0C;    // 0C
 	};
 	static_assert(sizeof(TESQualityForm) == 0x10);

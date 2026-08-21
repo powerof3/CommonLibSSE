@@ -36,7 +36,7 @@ namespace RE
 		NiPoint3                               gravityAxis;   // 38
 		float                                  decay;         // 44
 		float                                  strength;      // 48
-		REX::EnumSet<ForceType, std::uint32_t> forceType;     // 4C
+		REX::TEnumSet<ForceType, std::uint32_t> forceType;     // 4C
 		float                                  turbulence;    // 50
 		float                                  scale;         // 54
 		bool                                   worldAligned;  // 58

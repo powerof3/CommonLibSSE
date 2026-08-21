@@ -57,7 +57,7 @@ namespace RE
 		BGSMenuIcon*                             icon;         // 40 - INAM
 		TESQuest*                                ownerQuest;   // 48 - QNAM
 		BSSimpleList<MESSAGEBOX_BUTTON*>         menuButtons;  // 50
-		REX::EnumSet<MessageFlag, std::uint32_t> flags;        // 60 - DNAM
+		REX::TEnumSet<MessageFlag, std::uint32_t> flags;        // 60 - DNAM
 		std::uint32_t                            displayTime;  // 64 - TNAM
 	};
 	static_assert(sizeof(BGSMessage) == 0x68);

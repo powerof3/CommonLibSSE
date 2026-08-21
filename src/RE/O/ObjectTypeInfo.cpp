@@ -44,7 +44,7 @@ namespace RE
 
 		TypeInfo::RawType ObjectTypeInfo::GetRawType() const
 		{
-			return stl::unrestricted_cast<TypeInfo::RawType>(this);
+			return REX::UNRESTRICTED_CAST<TypeInfo::RawType>(this);
 		}
 
 		auto ObjectTypeInfo::GetUnlinkedFunctionIter()

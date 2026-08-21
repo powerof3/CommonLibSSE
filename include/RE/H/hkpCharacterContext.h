@@ -51,7 +51,7 @@ namespace RE
 
 		~hkpCharacterContext() override;  // 00
 
-		REX::EnumSet<CharacterType, std::uint32_t> characterType;          // 10
+		REX::TEnumSet<CharacterType, std::uint32_t> characterType;          // 10
 		std::uint32_t                              pad14;                  // 14
 		const hkpCharacterStateManager*            stateManager;           // 18
 		hkpCharacterStateType                      currentState;           // 20

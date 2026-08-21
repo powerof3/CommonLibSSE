@@ -29,10 +29,10 @@ namespace RE
 
 		// members
 		float                                                  damageMult;                   // 00
-		REX::EnumSet<Flag, std::uint8_t>                       flags;                        // 04
-		REX::EnumSet<BGSBodyPartDefs::LIMB_ENUM, std::uint8_t> type;                         // 05
+		REX::TEnumSet<Flag, std::uint8_t>                       flags;                        // 04
+		REX::TEnumSet<BGSBodyPartDefs::LIMB_ENUM, std::uint8_t> type;                         // 05
 		std::int8_t                                            healthPercent;                // 06
-		REX::EnumSet<ActorValue, std::uint8_t>                 actorValue;                   // 07
+		REX::TEnumSet<ActorValue, std::uint8_t>                 actorValue;                   // 07
 		std::int8_t                                            toHitChance;                  // 08
 		std::int8_t                                            explosionChance;              // 09
 		std::int8_t                                            explosionGenericDebrisCount;  // 0A

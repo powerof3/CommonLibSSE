@@ -37,8 +37,8 @@ namespace RE
 		float                                    radius;              // 38
 		float                                    imageSpaceRadius;    // 3C
 		float                                    verticalOffsetMult;  // 40
-		REX::EnumSet<Flag, std::uint32_t>        flags;               // 44
-		REX::EnumSet<SOUND_LEVEL, std::uint32_t> eSoundLevel;         // 48
+		REX::TEnumSet<Flag, std::uint32_t>        flags;               // 44
+		REX::TEnumSet<SOUND_LEVEL, std::uint32_t> eSoundLevel;         // 48
 		std::uint32_t                            pad4C;               // 4C
 	};
 	static_assert(sizeof(BGSExplosionData) == 0x50);

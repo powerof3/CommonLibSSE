@@ -4,13 +4,13 @@ namespace RE
 {
 	NiRefObject::NiRefObject()
 	{
-		stl::atomic_ref objectCount{ *GetTotalObjectCount() };
+		REX::TAtomicRef objectCount{ *GetTotalObjectCount() };
 		++objectCount;
 	}
 
 	NiRefObject::~NiRefObject()
 	{
-		stl::atomic_ref objectCount{ *GetTotalObjectCount() };
+		REX::TAtomicRef objectCount{ *GetTotalObjectCount() };
 		--objectCount;
 	}
 
@@ -21,13 +21,13 @@ namespace RE
 
 	void NiRefObject::IncRefCount()
 	{
-		stl::atomic_ref myRefCount{ _refCount };
+		REX::TAtomicRef myRefCount{ _refCount };
 		++myRefCount;
 	}
 
 	void NiRefObject::DecRefCount()
 	{
-		stl::atomic_ref myRefCount{ _refCount };
+		REX::TAtomicRef myRefCount{ _refCount };
 		if (--myRefCount == 0) {
 			DeleteThis();
 		}

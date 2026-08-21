@@ -35,7 +35,7 @@ namespace RE
 		public:
 			// members
 			std::int32_t                                 costOverride;      // 00
-			REX::EnumSet<EnchantmentFlag, std::uint32_t> flags;             // 04
+			REX::TEnumSet<EnchantmentFlag, std::uint32_t> flags;             // 04
 			MagicSystem::CastingType                     castingType;       // 08
 			std::int32_t                                 chargeOverride;    // 0C
 			MagicSystem::Delivery                        delivery;          // 10

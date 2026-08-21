@@ -14,7 +14,6 @@ namespace RE
 	InventoryChanges::~InventoryChanges()
 	{
 		Dtor();
-		stl::memzero(this);
 	}
 
 	void InventoryChanges::AddEntryData(InventoryEntryData* a_entry)

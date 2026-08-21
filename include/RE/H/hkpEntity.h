@@ -53,7 +53,7 @@ namespace RE
 			// members
 			hkSpuCollisionCallbackUtil*                                 util;         // 00
 			std::uint16_t                                               capacity;     // 08
-			REX::EnumSet<SpuCollisionCallbackEventFilter, std::uint8_t> eventFilter;  // 0A
+			REX::TEnumSet<SpuCollisionCallbackEventFilter, std::uint8_t> eventFilter;  // 0A
 			std::uint8_t                                                userFilter;   // 0B
 			std::uint32_t                                               pad0C;        // 0C
 		};

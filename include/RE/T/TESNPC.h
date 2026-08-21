@@ -289,7 +289,7 @@ namespace RE
 		std::uint8_t                            unk242;           // 242
 		std::uint8_t                            unk243;           // 243
 		std::uint8_t                            unk244;           // 244
-		REX::EnumSet<SOUND_LEVEL, std::uint8_t> soundLevel;       // 245 - NAM8
+		REX::TEnumSet<SOUND_LEVEL, std::uint8_t> soundLevel;       // 245 - NAM8
 		Color                                   bodyTintColor;    // 246 - QNAM
 		std::uint16_t                           pad24A;           // 24A
 		std::uint32_t                           pad24C;           // 24C

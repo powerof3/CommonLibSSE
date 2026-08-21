@@ -56,7 +56,7 @@ namespace RE
 		void                SetStaticVolumeMultiplier(float a_val);
 
 		// members
-		REX::EnumSet<Flag, std::uint32_t> flags;             // 38 - FNAM
+		REX::TEnumSet<Flag, std::uint32_t> flags;             // 38 - FNAM
 		std::uint32_t                     unk3C;             // 3C
 		BGSSoundCategory*                 parentCategory;    // 40 - SNCT
 		std::uint16_t                     unk48;             // 48

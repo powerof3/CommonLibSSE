@@ -73,13 +73,13 @@ namespace RE
 		// Returns the previous ButtonState of the gamepad
 		ButtonState GetPreviousButtonState() const
 		{
-			return stl::unrestricted_cast<ButtonState>(previousState.gamepad.buttons & REX::W32::XINPUT_GAMEPAD_BUTTON_MASK);
+			return REX::UNRESTRICTED_CAST<ButtonState>(previousState.gamepad.buttons & REX::W32::XINPUT_GAMEPAD_BUTTON_MASK);
 		}
 
 		// Returns the current ButtonState of the gamepad
 		ButtonState GetCurrentButtonState() const
 		{
-			return stl::unrestricted_cast<ButtonState>(currentState.gamepad.buttons & REX::W32::XINPUT_GAMEPAD_BUTTON_MASK);
+			return REX::UNRESTRICTED_CAST<ButtonState>(currentState.gamepad.buttons & REX::W32::XINPUT_GAMEPAD_BUTTON_MASK);
 		}
 
 		// members

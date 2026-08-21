@@ -33,7 +33,7 @@ namespace RE
 		};
 
 		float                             time;   // 0
-		REX::EnumSet<Flag, std::uint32_t> flags;  // 4
+		REX::TEnumSet<Flag, std::uint32_t> flags;  // 4
 	};
 	static_assert(sizeof(NiUpdateData) == 0x8);
 
@@ -155,7 +155,7 @@ namespace RE
 		NiTransform                       world;                    // 07C
 		NiTransform                       previousWorld;            // 0B0
 		NiBound                           worldBound;               // 0E4
-		REX::EnumSet<Flag, std::uint32_t> flags;                    // 0F4
+		REX::TEnumSet<Flag, std::uint32_t> flags;                    // 0F4
 		TESObjectREFR*                    userData;                 // 0F8
 		float                             fadeAmount;               // 100
 		std::uint32_t                     lastUpdatedFrameCounter;  // 104

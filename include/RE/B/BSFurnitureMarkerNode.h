@@ -27,8 +27,8 @@ namespace RE
 
 		NiPoint3                                     offset;           // 00
 		float                                        heading;          // 0C
-		REX::EnumSet<AnimationType, std::uint16_t>   animationType;    // 10
-		REX::EnumSet<EntryProperties, std::uint16_t> entryProperties;  // 12
+		REX::TEnumSet<AnimationType, std::uint16_t>   animationType;    // 10
+		REX::TEnumSet<EntryProperties, std::uint16_t> entryProperties;  // 12
 	};
 
 	class BSFurnitureMarkerNode : public NiExtraData

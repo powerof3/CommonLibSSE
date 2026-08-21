@@ -25,7 +25,7 @@ namespace RE
 		// members
 		std::int8_t                                                 modelDamageStage;     // 00 - DSTD~
 		std::int8_t                                                 healthPercentage;     // 01
-		REX::EnumSet<DESTRUCTIBLE_OBJECT_STAGE_FLAGS, std::uint8_t> flags;                // 02
+		REX::TEnumSet<DESTRUCTIBLE_OBJECT_STAGE_FLAGS, std::uint8_t> flags;                // 02
 		std::uint8_t                                                pad03;                // 03
 		std::uint32_t                                               selfDamagePerSecond;  // 04
 		BGSExplosion*                                               explosion;            // 08
@@ -48,7 +48,7 @@ namespace RE
 		// members
 		std::uint32_t                    health;                      // 00 - DEST~
 		std::int8_t                      numStages;                   // 04
-		REX::EnumSet<Flag, std::uint8_t> flags;                       // 05 - ~DEST
+		REX::TEnumSet<Flag, std::uint8_t> flags;                       // 05 - ~DEST
 		std::uint16_t                    pad06;                       // 06
 		DestructibleObjectStage**        stages;                      // 08
 		volatile std::int32_t            replacementModelRefCount;    // 10

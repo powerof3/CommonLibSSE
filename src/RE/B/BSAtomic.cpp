@@ -25,14 +25,12 @@ namespace RE
 	BSSemaphoreBase::BSSemaphoreBase() :
 		semaphore()
 	{
-		stl::memzero(&semaphore);
 		semaphore = REX::W32::CreateSemaphoreA(nullptr, 0, 40, nullptr);
 	}
 
 	BSSemaphoreBase::~BSSemaphoreBase()
 	{
 		REX::W32::CloseHandle(semaphore);
-		stl::memzero(&semaphore);
 	}
 
 	BSSpinLock::BSSpinLock() :

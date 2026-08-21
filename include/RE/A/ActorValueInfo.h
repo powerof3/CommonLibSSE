@@ -139,7 +139,7 @@ namespace RE
 		// members
 		const char*                                 enumName;                   // 050
 		BSFixedString                               abbreviation;               // 058 - ANAM
-		REX::EnumSet<ActorValueFlag, std::uint32_t> flags;                      // 060
+		REX::TEnumSet<ActorValueFlag, std::uint32_t> flags;                      // 060
 		ActorValueType                              type;                       // 064
 		DynamicBaseValueFunctor                     computeBaseFunc;            // 068 - used if appropriate flags are set
 		std::uint32_t                               unk070;                     // 070

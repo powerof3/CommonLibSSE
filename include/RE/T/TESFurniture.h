@@ -81,8 +81,8 @@ namespace RE
 			};
 
 			// members
-			REX::EnumSet<BenchType, std::uint8_t>  benchType;  // 0
-			REX::EnumSet<ActorValue, std::uint8_t> usesSkill;  // 1
+			REX::TEnumSet<BenchType, std::uint8_t>  benchType;  // 0
+			REX::TEnumSet<ActorValue, std::uint8_t> usesSkill;  // 1
 		};
 		static_assert(sizeof(WorkBenchData) == 0x2);
 
@@ -104,7 +104,7 @@ namespace RE
 
 				// members
 				std::uint16_t                              unk0;            // 0
-				REX::EnumSet<DisabledPoint, std::uint16_t> disabledPoints;  // 2
+				REX::TEnumSet<DisabledPoint, std::uint16_t> disabledPoints;  // 2
 			};
 			static_assert(sizeof(DisabledEntryPoint) == 0x4);
 
@@ -131,7 +131,7 @@ namespace RE
 		BSTArray<EntryPointData>                  entryPointDataArray;  // C8
 		WorkBenchData                             workBenchData;        // E0 - WBDT
 		std::uint16_t                             padE2;                // E2
-		REX::EnumSet<ActiveMarker, std::uint32_t> furnFlags;            // E4
+		REX::TEnumSet<ActiveMarker, std::uint32_t> furnFlags;            // E4
 		SpellItem*                                associatedForm;       // E8
 	};
 	static_assert(sizeof(TESFurniture) == 0xF0);

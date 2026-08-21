@@ -79,7 +79,7 @@ namespace RE
 				Stack*                                    stack;                    // 10
 				VirtualMachine*                           vm;                       // 18
 				ErrorLogger*                              errorLogger;              // 20
-				REX::EnumSet<ResumeReason, std::uint32_t> resumeReason;             // 28
+				REX::TEnumSet<ResumeReason, std::uint32_t> resumeReason;             // 28
 				std::uint32_t                             pad2C;                    // 2C
 				StackFrame*                               topFrame;                 // 30
 				std::uint32_t                             frameMemoryPage;          // 38

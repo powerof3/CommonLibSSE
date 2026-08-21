@@ -1825,54 +1825,8 @@ set(SOURCES
 	include/RE/X/XAudio2.h
 	include/RE/Z/ZeroFunctionArguments.h
 	include/RE/Z/ZeroOverheadHeap.h
-	include/REL/ID.h
-	include/REL/Module.h
-	include/REL/Offset.h
-	include/REL/Pattern.h
-	include/REL/REL.h
-	include/REL/Relocation.h
-	include/REL/Version.h
-	include/REX/PS4.h
-	include/REX/PS4/SCEPAD.h
-	include/REX/REX.h
-	include/REX/REX/Enum.h
-	include/REX/REX/EnumSet.h
-	include/REX/REX/INI.h
-	include/REX/REX/JSON.h
-	include/REX/REX/Setting.h
-	include/REX/REX/Singleton.h
-	include/REX/REX/TOML.h
-	include/REX/W32.h
-	include/REX/W32/ADVAPI32.h
-	include/REX/W32/BASE.h
-	include/REX/W32/BCRYPT.h
-	include/REX/W32/COM.h
-	include/REX/W32/COMPTR.h
-	include/REX/W32/D3D.h
-	include/REX/W32/D3D11.h
-	include/REX/W32/D3D11_1.h
-	include/REX/W32/D3D11_2.h
-	include/REX/W32/D3D11_3.h
-	include/REX/W32/D3D11_4.h
-	include/REX/W32/D3DCOMPILER.h
-	include/REX/W32/DBGHELP.h
-	include/REX/W32/DINPUT.h
-	include/REX/W32/DXGI.h
-	include/REX/W32/DXGI_2.h
-	include/REX/W32/DXGI_3.h
-	include/REX/W32/DXGI_4.h
-	include/REX/W32/DXGI_5.h
-	include/REX/W32/DXGI_6.h
-	include/REX/W32/KERNEL32.h
-	include/REX/W32/NT.h
-	include/REX/W32/OLE32.h
-	include/REX/W32/SHELL32.h
-	include/REX/W32/USER32.h
-	include/REX/W32/VERSION.h
-	include/REX/W32/XINPUT.h
 	include/SKSE/API.h
 	include/SKSE/Events.h
-	include/SKSE/IAT.h
 	include/SKSE/Impl/PCH.h
 	include/SKSE/Impl/RegistrationTraits.h
 	include/SKSE/Impl/Stubs.h
@@ -1884,7 +1838,6 @@ set(SOURCES
 	include/SKSE/RegistrationSet.h
 	include/SKSE/RegistrationSetUnique.h
 	include/SKSE/SKSE.h
-	include/SKSE/Trampoline.h
 	include/SKSE/Translation.h
 	include/SKSE/Version.h
 	src/RE/A/AIFormulas.cpp
@@ -2254,20 +2207,12 @@ set(SOURCES
 	src/RE/V/Variable.cpp
 	src/RE/V/VirtualMachine.cpp
 	src/RE/Z/ZeroFunctionArguments.cpp
-	src/REL/ID.cpp
-	src/REL/Module.cpp
-	src/REL/Relocation.cpp
-	src/REL/Version.cpp
-	src/REX/REX.cpp
-	src/REX/W32.cpp
 	src/SKSE/API.cpp
-	src/SKSE/IAT.cpp
 	src/SKSE/Impl/PCH.cpp
 	src/SKSE/InputMap.cpp
 	src/SKSE/Interfaces.cpp
 	src/SKSE/Logger.cpp
 	src/SKSE/RegistrationSet.cpp
 	src/SKSE/RegistrationSetUnique.cpp
-	src/SKSE/Trampoline.cpp
 	src/SKSE/Translation.cpp
 )

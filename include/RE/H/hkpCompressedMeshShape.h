@@ -86,8 +86,8 @@ namespace RE
 		std::int32_t                                               wIndexMask;                  // 03C
 		std::int32_t                                               indexMask;                   // 038
 		float                                                      radius;                      // 040
-		REX::EnumSet<hkpWeldingUtility::WeldingType, std::uint8_t> weldingType;                 // 044
-		REX::EnumSet<MaterialType, std::uint8_t>                   materialType;                // 045
+		REX::TEnumSet<hkpWeldingUtility::WeldingType, std::uint8_t> weldingType;                 // 044
+		REX::TEnumSet<MaterialType, std::uint8_t>                   materialType;                // 045
 		std::uint16_t                                              pad46;                       // 046
 		hkArray<std::uint32_t>                                     materials;                   // 048
 		hkArray<std::uint16_t>                                     materials16;                 // 058

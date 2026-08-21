@@ -260,7 +260,9 @@ namespace SKSE
 		auto         length = REX::W32::GetKeyNameTextW(lParam, buffer, REX::W32::MAX_PATH);
 		std::wstring keyNameW{ buffer, static_cast<std::size_t>(length) };
 
-		return stl::utf16_to_utf8(keyNameW).value_or(""s);
+		std::string result{};
+		REX::UTF16_TO_UTF8(keyNameW, result);
+		return result;
 	}
 
 	std::string InputMap::GetMouseButtonName(std::uint32_t a_keyCode)

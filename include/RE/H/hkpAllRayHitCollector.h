@@ -14,7 +14,7 @@ namespace RE
 
 		hkpAllRayHitCollector()
 		{
-			stl::emplace_vtable(this);
+			REX::EMPLACE_VTABLE(this);
 		}
 
 		// override (hkpRayHitCollector)

@@ -108,8 +108,8 @@ namespace RE
 		std::int8_t                                depthPriority{ 3 };              // 18
 		std::uint8_t                               pad19{ 0 };                      // 19
 		std::uint16_t                              pad20{ 0 };                      // 1A
-		REX::EnumSet<UI_MENU_FLAGS, std::uint32_t> menuFlags{ Flag::kNone };        // 1C
-		REX::EnumSet<Context, std::uint32_t>       inputContext{ Context::kNone };  // 20
+		REX::TEnumSet<UI_MENU_FLAGS, std::uint32_t> menuFlags{ Flag::kNone };        // 1C
+		REX::TEnumSet<Context, std::uint32_t>       inputContext{ Context::kNone };  // 20
 		std::uint32_t                              pad24{ 0 };                      // 24
 		GPtr<FxDelegate>                           fxDelegate{ nullptr };           // 28
 	};

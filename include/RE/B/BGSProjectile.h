@@ -41,8 +41,8 @@ namespace RE
 		};
 
 		// members
-		REX::EnumSet<BGSProjectileFlags, std::uint16_t> flags;                // 00
-		REX::EnumSet<Type, std::uint16_t>               types;                // 02
+		REX::TEnumSet<BGSProjectileFlags, std::uint16_t> flags;                // 00
+		REX::TEnumSet<Type, std::uint16_t>               types;                // 02
 		float                                           gravity;              // 04
 		float                                           speed;                // 08
 		float                                           range;                // 0C

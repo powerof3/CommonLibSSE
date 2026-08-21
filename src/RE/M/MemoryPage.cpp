@@ -11,7 +11,7 @@ namespace RE
 
 		void* MemoryPage::GetTail()
 		{
-			return stl::adjust_pointer<void>(GetHead(), pageSize);
+			return REX::ADJUST_POINTER<void>(GetHead(), pageSize);
 		}
 
 		bool MemoryPage::IsInRange(const void* a_ptr)

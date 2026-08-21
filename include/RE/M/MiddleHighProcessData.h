@@ -221,7 +221,7 @@ namespace RE
 		std::uint16_t                              unk306;                      // 306
 		std::uint64_t                              unk308;                      // 308
 		std::uint8_t                               unk310;                      // 310
-		REX::EnumSet<RESET_3D_FLAGS, std::uint8_t> update3DModel;               // 311
+		REX::TEnumSet<RESET_3D_FLAGS, std::uint8_t> update3DModel;               // 311
 		std::uint16_t                              unk312;                      // 312
 		std::uint16_t                              unk314;                      // 314
 		bool                                       unk316;                      // 316

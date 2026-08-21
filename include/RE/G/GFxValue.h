@@ -204,7 +204,7 @@ namespace RE
 			double                            _fov = 0.0;            // 58
 			GMatrix3D                         _viewMatrix3D;         // 60
 			GMatrix3D                         _perspMatrix3D;        // A0
-			REX::EnumSet<Flag, std::uint16_t> _flags = Flag::kNone;  // E0
+			REX::TEnumSet<Flag, std::uint16_t> _flags = Flag::kNone;  // E0
 			std::uint16_t                     _padD2 = 0;            // E2
 			std::uint32_t                     _padD4 = 0;            // E4
 		};
@@ -446,7 +446,7 @@ namespace RE
 
 		// members
 		ObjectInterface*                       _objectInterface;  // 00
-		REX::EnumSet<ValueType, std::uint32_t> _type;             // 08
+		REX::TEnumSet<ValueType, std::uint32_t> _type;             // 08
 		std::uint32_t                          _pad0C;            // 0C
 		ValueUnion                             _value;            // 10
 	};

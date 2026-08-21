@@ -58,9 +58,9 @@ namespace RE
 			FormatPrefs();
 
 			// members
-			REX::EnumSet<PixelLayout, std::uint32_t> pixelLayout;  // 00
-			REX::EnumSet<AlphaFormat, std::uint32_t> alphaFormat;  // 04
-			REX::EnumSet<MipFlag, std::uint32_t>     mipMapped;    // 08
+			REX::TEnumSet<PixelLayout, std::uint32_t> pixelLayout;  // 00
+			REX::TEnumSet<AlphaFormat, std::uint32_t> alphaFormat;  // 04
+			REX::TEnumSet<MipFlag, std::uint32_t>     mipMapped;    // 08
 			std::uint32_t                            pad0C;        // 0C
 		};
 		static_assert(sizeof(FormatPrefs) == 0x10);

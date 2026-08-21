@@ -85,8 +85,8 @@ namespace RE
 		float                                     cachedRunSpeed;       // 1C
 		float                                     cachedJogSpeed;       // 20
 		float                                     cachedFastWalkSpeed;  // 24
-		REX::EnumSet<BooleanValue, std::uint32_t> booleanValues;        // 28
-		REX::EnumSet<Flags, std::uint32_t>        flags;                // 2C
+		REX::TEnumSet<BooleanValue, std::uint32_t> booleanValues;        // 28
+		REX::TEnumSet<Flags, std::uint32_t>        flags;                // 2C
 		BSTArray<CachedValueData>                 actorValueCache;      // 30
 		BSTArray<CachedValueData>                 maxActorValueCache;   // 48
 	};
@@ -211,8 +211,8 @@ namespace RE
 		std::uint64_t                               unk128;                         // 128
 		std::uint32_t                               unk130;                         // 130
 		std::uint16_t                               unk134;                         // 134
-		REX::EnumSet<LowProcessFlags, std::uint8_t> lowProcessFlags;                // 136
-		REX::EnumSet<PROCESS_TYPE, std::uint8_t>    processLevel;                   // 137
+		REX::TEnumSet<LowProcessFlags, std::uint8_t> lowProcessFlags;                // 136
+		REX::TEnumSet<PROCESS_TYPE, std::uint8_t>    processLevel;                   // 137
 		bool                                        skippedTimeStampForPathing;     // 138
 		bool                                        ignoringCombat;                 // 139
 		bool                                        endAlarmOnActor;                // 13A

@@ -23,7 +23,7 @@ namespace RE
 	public:
 		// members
 		BSString                                 text;              // 00
-		REX::EnumSet<EmotionType, std::uint32_t> animFaceArchType;  // 10
+		REX::TEnumSet<EmotionType, std::uint32_t> animFaceArchType;  // 10
 		std::uint16_t                            percent;           // 14
 		std::uint16_t                            pad16;             // 16
 		BSFixedString                            voice;             // 18

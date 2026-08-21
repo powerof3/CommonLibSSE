@@ -30,7 +30,7 @@ namespace RE
 		virtual bool          IsNotEqual(const BSExtraData* a_rhs) const override;  // 02 - { return modifier != a_rhs->modifier; }
 
 		// members
-		REX::EnumSet<LEV_CREA_MODIFIER, std::uint32_t> modifier;  // 10
+		REX::TEnumSet<LEV_CREA_MODIFIER, std::uint32_t> modifier;  // 10
 		std::uint32_t                                  pad14;     // 14
 	};
 	static_assert(sizeof(ExtraLevCreaModifier) == 0x18);

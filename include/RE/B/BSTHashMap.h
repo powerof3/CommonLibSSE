@@ -363,12 +363,12 @@ namespace RE
 				const auto cap = std::max(std::bit_ceil<std::uint64_t>(a_count), min);
 				assert(cap >= min);
 				if (cap > 1u << 31) {
-					stl::report_and_fail("a buffer grew too large"sv);
+					REX::FAIL("a buffer grew too large"sv);
 				}
 
 				const auto entries = allocate(static_cast<size_type>(cap));
 				if (!entries) {
-					stl::report_and_fail("failed to handle an allocation"sv);
+					REX::FAIL("failed to handle an allocation"sv);
 				}
 
 				return std::make_pair(static_cast<size_type>(cap), entries);
@@ -485,7 +485,7 @@ namespace RE
 				assert(Parent::_free > 0);
 			}
 
-			const stl::scope_exit decrement{ [&]() noexcept { --Parent::_free; } };
+			const REX::TScopeExit decrement{ [&]() noexcept { --Parent::_free; } };
 			const auto            entry = &get_entry_for(unwrap_key(a_value));
 			if (entry->has_value()) {  // slot is taken, resolve conflict
 				const auto free = &get_free_entry();

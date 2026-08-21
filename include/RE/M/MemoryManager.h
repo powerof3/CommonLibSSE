@@ -205,21 +205,19 @@ namespace RE
 	[[nodiscard]] inline void* operator new(std::size_t a_count)                                                        \
 	{                                                                                                                   \
 		const auto mem = RE::malloc(a_count);                                                                           \
-		if (mem) {                                                                                                      \
-			return mem;                                                                                                 \
-		} else {                                                                                                        \
-			stl::report_and_fail("out of memory"sv);                                                                    \
-		}                                                                                                               \
+		if (!mem)                                                                                                       \
+			REX::FAIL("out of memory");                                                                                 \
+                                                                                                                        \
+		return mem;                                                                                                     \
 	}                                                                                                                   \
                                                                                                                         \
 	[[nodiscard]] inline void* operator new[](std::size_t a_count)                                                      \
 	{                                                                                                                   \
 		const auto mem = RE::malloc(a_count);                                                                           \
-		if (mem) {                                                                                                      \
-			return mem;                                                                                                 \
-		} else {                                                                                                        \
-			stl::report_and_fail("out of memory"sv);                                                                    \
-		}                                                                                                               \
+		if (!mem)                                                                                                       \
+			REX::FAIL("out of memory");                                                                                 \
+                                                                                                                        \
+		return mem;                                                                                                     \
 	}                                                                                                                   \
                                                                                                                         \
 	[[nodiscard]] constexpr void* operator new(std::size_t, void* a_ptr) noexcept { return a_ptr; }                     \

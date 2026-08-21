@@ -67,7 +67,7 @@ namespace RE
 			using func_t = decltype(&BSImagespaceShader::Ctor);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(100943, 107725) };
 			BSImagespaceShader*            isShader = func(this);
-			stl::emplace_vtable<BSImagespaceShader>(isShader);
+			REX::EMPLACE_VTABLE<BSImagespaceShader>(isShader);
 			return isShader;
 		}
 	};

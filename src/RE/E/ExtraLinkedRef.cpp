@@ -6,7 +6,7 @@ namespace RE
 		BSExtraData(),
 		linkedRefs()
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraLinkedRef::GetType() const

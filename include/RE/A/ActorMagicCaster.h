@@ -88,7 +88,7 @@ namespace RE
 		ReferenceEffectController*         weaponEnchantmentController;  // E8
 		float                              costCharged;                  // F0
 		MagicSystem::CastingSource         castingSource;                // F4
-		REX::EnumSet<Flags, std::uint32_t> flags;                        // F8
+		REX::TEnumSet<Flags, std::uint32_t> flags;                        // F8
 	};
 	static_assert(sizeof(ActorMagicCaster) == 0x100);
 }

@@ -47,7 +47,7 @@ namespace RE
 		float                                  fBlendValue;         // 0B8
 		std::uint16_t                          usCloudLayer;        // 0BC
 		bool                                   bFadeSecondTexture;  // 0BE
-		REX::EnumSet<SkyObject, std::uint32_t> uiSkyObjectType;     // 0BF
+		REX::TEnumSet<SkyObject, std::uint32_t> uiSkyObjectType;     // 0BF
 	};
 	static_assert(sizeof(BSSkyShaderProperty) == 0xC8);
 }

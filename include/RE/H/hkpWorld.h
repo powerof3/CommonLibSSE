@@ -150,7 +150,7 @@ namespace RE
 		std::int32_t                                                      maxEntriesPerToiMidphaseCollideTask;                        // 16C
 		std::int32_t                                                      maxEntriesPerToiNarrowphaseCollideTask;                     // 170
 		std::int32_t                                                      maxNumToiCollisionPairsSinglethreaded;                      // 174
-		REX::EnumSet<hkpWorldCinfo::SimulationType, std::uint8_t>         simulationType;                                             // 178
+		REX::TEnumSet<hkpWorldCinfo::SimulationType, std::uint8_t>         simulationType;                                             // 178
 		std::uint8_t                                                      pad179;                                                     // 179
 		std::uint16_t                                                     pad17A;                                                     // 17A
 		float                                                             numToisTillAllowedPenetrationSimplifiedToi;                 // 17C
@@ -186,7 +186,7 @@ namespace RE
 		std::int32_t                                                      sizeOfToiEventQueue;                                        // 414
 		std::int32_t                                                      broadPhaseQuerySize;                                        // 418
 		std::int32_t                                                      broadPhaseUpdateSize;                                       // 41C
-		REX::EnumSet<hkpWorldCinfo::ContactPointGeneration, std::uint8_t> contactPointGeneration;                                     // 420
+		REX::TEnumSet<hkpWorldCinfo::ContactPointGeneration, std::uint8_t> contactPointGeneration;                                     // 420
 		std::uint8_t                                                      pad421;                                                     // 421
 		std::uint16_t                                                     pad422;                                                     // 422
 		std::uint32_t                                                     pad424;                                                     // 424

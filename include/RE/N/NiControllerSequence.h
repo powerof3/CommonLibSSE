@@ -95,7 +95,7 @@ namespace RE
 		float                                                    seqWeight;                // 30
 		std::uint32_t                                            pad34;                    // 30
 		NiPointer<NiTextKeyExtraData>                            textKeys;                 // 38
-		REX::EnumSet<NiTimeController::CycleType, std::uint32_t> cycleType;                // 40
+		REX::TEnumSet<NiTimeController::CycleType, std::uint32_t> cycleType;                // 40
 		float                                                    frequency;                // 44
 		float                                                    beginKeyTime;             // 48
 		float                                                    endKeyTime;               // 4C
@@ -104,7 +104,7 @@ namespace RE
 		float                                                    lastScaledTime;           // 58
 		std::uint32_t                                            pad5C;                    // 5C
 		NiControllerManager*                                     owner;                    // 60
-		REX::EnumSet<AnimState, std::uint32_t>                   state;                    // 68
+		REX::TEnumSet<AnimState, std::uint32_t>                   state;                    // 68
 		float                                                    offset;                   // 6C
 		float                                                    startTime;                // 70
 		float                                                    endTime;                  // 74

@@ -49,7 +49,7 @@ namespace RE
 				auto memory = malloc<LooseFileLocation>();
 				if (memory) {
 					std::memset(memory, 0, sizeof(LooseFileLocation));
-					stl::emplace_vtable<BSResource::LooseFileLocation>(memory);
+					REX::EMPLACE_VTABLE<BSResource::LooseFileLocation>(memory);
 					memory->prefix = a_prefix;
 					memory->minimumAsyncPacketSize = a_minimumAsyncPacketSize;
 					memory->asyncSupported = a_asyncSupported;

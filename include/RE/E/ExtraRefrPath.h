@@ -32,7 +32,7 @@ namespace RE
 		float                                  speed;             // 58
 		float                                  maxRotSpeed;       // 5C
 		float                                  currentParameter;  // 60
-		REX::EnumSet<PATH_TYPE, std::uint32_t> type;              // 64
+		REX::TEnumSet<PATH_TYPE, std::uint32_t> type;              // 64
 	};
 	static_assert(sizeof(ExtraRefrPath) == 0x68);
 }

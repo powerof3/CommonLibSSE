@@ -94,7 +94,7 @@ namespace RE
 		float                             addonAlpha;              // 124 - 1.0f
 		float                             addonScale;              // 128 - 1.0f
 		float                             effectShaderAge;         // 12C
-		REX::EnumSet<Flag, std::uint32_t> flags;                   // 130
+		REX::TEnumSet<Flag, std::uint32_t> flags;                   // 130
 		std::uint32_t                     pushCount;               // 134
 	};
 	static_assert(sizeof(ShaderReferenceEffect) == 0x138);

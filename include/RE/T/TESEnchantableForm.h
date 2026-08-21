@@ -25,7 +25,7 @@ namespace RE
 
 		// members
 		EnchantmentItem*                                      formEnchanting;       // 08 - EITM
-		REX::EnumSet<MagicSystem::CastingType, std::uint16_t> castingType;          // 10
+		REX::TEnumSet<MagicSystem::CastingType, std::uint16_t> castingType;          // 10
 		std::uint16_t                                         amountofEnchantment;  // 12 - EAMT
 		std::uint32_t                                         pad14;                // 14
 	};

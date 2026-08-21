@@ -44,7 +44,7 @@ namespace RE
 		std::uint64_t                    unk188;     // 188
 		std::uint32_t                    unk190;     // 190
 		std::uint32_t                    unk194;     // 194
-		REX::EnumSet<SEX, std::uint32_t> sex;        // 198
+		REX::TEnumSet<SEX, std::uint32_t> sex;        // 198
 		std::uint16_t                    unk19C;     // 19C
 		std::uint8_t                     unk19E;     // 19E
 		std::uint8_t                     pad19F;     // 19F

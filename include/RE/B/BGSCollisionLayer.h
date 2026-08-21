@@ -46,7 +46,7 @@ namespace RE
 		// members
 		std::uint32_t                     collisionIdx;  // 30 - BNAM
 		Color                             debugColor;    // 34 - FNAM
-		REX::EnumSet<FLAG, std::uint32_t> flags;         // 38 - GNAM
+		REX::TEnumSet<FLAG, std::uint32_t> flags;         // 38 - GNAM
 		std::uint32_t                     pad3C;         // 3C
 		BSFixedString                     name;          // 40 - MNAM
 		BSTArray<BGSCollisionLayer*>      collidesWith;  // 48 - CNAM

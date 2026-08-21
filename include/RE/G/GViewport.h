@@ -37,7 +37,7 @@ namespace RE
 		std::int32_t                      scissorHeight;  // 24
 		float                             scale;          // 28
 		float                             aspectRatio;    // 2C
-		REX::EnumSet<Flag, std::uint32_t> flags;          // 30
+		REX::TEnumSet<Flag, std::uint32_t> flags;          // 30
 		std::uint32_t                     pad34;          // 34
 	};
 	static_assert(sizeof(GViewport) == 0x38);

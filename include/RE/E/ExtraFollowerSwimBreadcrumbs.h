@@ -39,7 +39,7 @@ namespace RE
 		virtual ExtraDataType GetType() const override;  // 01 - { return kFollowerSwimBreadcrumbs; }
 
 		// members
-		REX::EnumSet<BREADCRUMB_STATE, std::uint32_t> leaderState;      // 10
+		REX::TEnumSet<BREADCRUMB_STATE, std::uint32_t> leaderState;      // 10
 		NiPoint3                                      leaderLocation;   // 14
 		std::uint32_t                                 leaderNavMeshID;  // 20
 		std::uint32_t                                 pad24;            // 24

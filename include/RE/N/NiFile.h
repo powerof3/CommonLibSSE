@@ -36,7 +36,7 @@ namespace RE
 		std::uint32_t                         pad2C;            // 2C
 		char*                                 buffer;           // 30
 		std::FILE*                            file;             // 38
-		REX::EnumSet<OpenMode, std::uint32_t> mode;             // 40
+		REX::TEnumSet<OpenMode, std::uint32_t> mode;             // 40
 		bool                                  isGood;           // 44
 		std::uint8_t                          pad45;            // 45
 		std::uint16_t                         pad46;            // 46

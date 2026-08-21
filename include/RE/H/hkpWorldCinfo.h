@@ -68,14 +68,14 @@ namespace RE
 		hkVector4                                            gravity;                                                    // 010
 		std::int32_t                                         broadPhaseQuerySize;                                        // 020
 		float                                                contactRestingVelocity;                                     // 024
-		REX::EnumSet<BroadPhaseBorderBehaviour, std::int8_t> broadPhaseBorderBehaviour;                                  // 028
+		REX::TEnumSet<BroadPhaseBorderBehaviour, std::int8_t> broadPhaseBorderBehaviour;                                  // 028
 		bool                                                 mtPostponeAndSortBroadPhaseBorderCallbacks;                 // 029
 		std::uint16_t                                        pad02A;                                                     // 02A
 		std::uint32_t                                        pad02C;                                                     // 02C
 		hkAabb                                               broadPhaseWorldAabb;                                        // 030
 		bool                                                 useKdTree;                                                  // 050
 		bool                                                 useMultipleTree;                                            // 051
-		REX::EnumSet<TreeUpdateType, std::int8_t>            treeUpdateType;                                             // 052
+		REX::TEnumSet<TreeUpdateType, std::int8_t>            treeUpdateType;                                             // 052
 		bool                                                 autoUpdateKdTree;                                           // 053
 		float                                                collisionTolerance;                                         // 054
 		hkRefPtr<hkpCollisionFilter>                         collisionFilter;                                            // 058
@@ -85,7 +85,7 @@ namespace RE
 		float                                                expectedMinPsiDeltaTime;                                    // 06C
 		hkRefPtr<hkWorldMemoryAvailableWatchDog>             memoryWatchDog;                                             // 070
 		std::int32_t                                         broadPhaseNumMarkers;                                       // 080
-		REX::EnumSet<ContactPointGeneration, std::int8_t>    contactPointGeneration;                                     // 084
+		REX::TEnumSet<ContactPointGeneration, std::int8_t>    contactPointGeneration;                                     // 084
 		bool                                                 allowToSkipConfirmedCallbacks;                              // 085
 		bool                                                 useHybridBroadphase;                                        // 086
 		std::uint8_t                                         pad087;                                                     // 087
@@ -123,7 +123,7 @@ namespace RE
 		float                                                numToisTillAllowedPenetrationToiHigher;                     // 0E0
 		float                                                numToisTillAllowedPenetrationToiForced;                     // 0E4
 		bool                                                 enableDeactivation;                                         // 0E8
-		REX::EnumSet<SimulationType, std::int8_t>            simulationType;                                             // 0E9
+		REX::TEnumSet<SimulationType, std::int8_t>            simulationType;                                             // 0E9
 		bool                                                 enableSimulationIslands;                                    // 0EA
 		std::uint8_t                                         pad0EB;                                                     // 0EB
 		std::uint32_t                                        minDesiredIslandSize;                                       // 0EC

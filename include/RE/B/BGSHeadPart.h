@@ -79,10 +79,10 @@ namespace RE
 		bool IsExtraPart();
 
 		// members
-		REX::EnumSet<Flag, std::uint8_t>          flags;                         // 068 - DATA
+		REX::TEnumSet<Flag, std::uint8_t>          flags;                         // 068 - DATA
 		std::uint8_t                              pad069;                        // 069
 		std::uint16_t                             pad06A;                        // 06A
-		REX::EnumSet<HeadPartType, std::uint32_t> type;                          // 06C - PNAM
+		REX::TEnumSet<HeadPartType, std::uint32_t> type;                          // 06C - PNAM
 		BSTArray<BGSHeadPart*>                    extraParts;                    // 070
 		BGSTextureSet*                            textureSet;                    // 088 - TNAM
 		TESModelTri                               morphs[MorphIndices::kTotal];  // 090

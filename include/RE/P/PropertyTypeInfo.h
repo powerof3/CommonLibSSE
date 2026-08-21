@@ -21,7 +21,7 @@ namespace RE
 			BSFixedString                            parentObjName;  // 00
 			BSFixedString                            propertyName;   // 08
 			TypeInfo                                 type;           // 10
-			REX::EnumSet<Permissions, std::uint32_t> permissions;    // 18
+			REX::TEnumSet<Permissions, std::uint32_t> permissions;    // 18
 			std::uint32_t                            pad1C;          // 1C
 			BSTSmartPointer<IFunction>               getFunction;    // 20
 			BSTSmartPointer<IFunction>               setFunction;    // 28

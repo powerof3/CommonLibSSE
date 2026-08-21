@@ -28,7 +28,7 @@ namespace RE
 			};
 
 			// members
-			REX::EnumSet<Error, std::uint32_t> lastError;  // 00
+			REX::TEnumSet<Error, std::uint32_t> lastError;  // 00
 			std::uint32_t                      pad24;      // 04
 			void*                              handle;     // 08
 		};

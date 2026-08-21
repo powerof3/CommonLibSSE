@@ -120,7 +120,7 @@ namespace RE
 			NiPointer<bhkCollisionObject>         colObj;              // 20
 			BGSMaterialType*                      material;            // 28
 			std::int32_t                          damageRootNodeType;  // 30
-			REX::EnumSet<COL_LAYER, std::int32_t> collidedLayer;       // 34
+			REX::TEnumSet<COL_LAYER, std::int32_t> collidedLayer;       // 34
 			NiNode*                               damageRootNode;      // 38
 			ImpactResult                          impactResult;        // 40
 			std::uint16_t                         unk44;               // 44
@@ -277,7 +277,7 @@ namespace RE
 		float                              distanceMoved;        // 1C0
 		float                              decidedDecalWidth;    // 1C4
 		float                              scale;                // 1C8 - for double cast model scale
-		REX::EnumSet<Flags, std::uint32_t> flags;                // 1CC
+		REX::TEnumSet<Flags, std::uint32_t> flags;                // 1CC
 		bool                               unk1D0;               // 1D0
 		bool                               unk1D1;               // 1D0
 		char                               unk1D2[6];            // 1D2

@@ -94,7 +94,7 @@ namespace RE
 		{
 		public:
 			// members
-			REX::EnumSet<ActorValue, std::uint8_t> skill;  // 0
+			REX::TEnumSet<ActorValue, std::uint8_t> skill;  // 0
 			std::uint8_t                           bonus;  // 1
 		};
 		static_assert(sizeof(SkillBoost) == 0x2);
@@ -104,7 +104,7 @@ namespace RE
 		std::uint16_t                             pad0E;                         // 0E
 		float                                     height[SEXES::kTotal];         // 10
 		float                                     weight[SEXES::kTotal];         // 18
-		REX::EnumSet<Flag, std::uint32_t>         flags;                         // 20
+		REX::TEnumSet<Flag, std::uint32_t>         flags;                         // 20
 		float                                     startingHealth;                // 24
 		float                                     startingMagicka;               // 28
 		float                                     startingStamina;               // 2C
@@ -112,22 +112,22 @@ namespace RE
 		float                                     baseMass;                      // 34
 		float                                     accelerate;                    // 38
 		float                                     decelerate;                    // 3C
-		REX::EnumSet<RACE_SIZE, std::uint32_t>    raceSize;                      // 40
-		REX::EnumSet<BIPED_OBJECT, std::uint32_t> headObject;                    // 44
-		REX::EnumSet<BIPED_OBJECT, std::uint32_t> hairObject;                    // 48
+		REX::TEnumSet<RACE_SIZE, std::uint32_t>    raceSize;                      // 40
+		REX::TEnumSet<BIPED_OBJECT, std::uint32_t> headObject;                    // 44
+		REX::TEnumSet<BIPED_OBJECT, std::uint32_t> hairObject;                    // 48
 		float                                     injuredHealthPercent;          // 4C
-		REX::EnumSet<BIPED_OBJECT, std::uint32_t> shieldObject;                  // 50
+		REX::TEnumSet<BIPED_OBJECT, std::uint32_t> shieldObject;                  // 50
 		float                                     healthRegen;                   // 54
 		float                                     magickaRegen;                  // 58
 		float                                     staminaRegen;                  // 5C
 		float                                     unarmedDamage;                 // 60
 		float                                     unarmedReach;                  // 64
-		REX::EnumSet<BIPED_OBJECT, std::uint32_t> bodyObject;                    // 68
+		REX::TEnumSet<BIPED_OBJECT, std::uint32_t> bodyObject;                    // 68
 		float                                     aimAngleTolerance;             // 6C
 		float                                     flightRadius;                  // 70
 		float                                     angleAccelerate;               // 74
 		float                                     angleTolerance;                // 78
-		REX::EnumSet<Flag2, std::uint32_t>        flags2;                        // 7C
+		REX::TEnumSet<Flag2, std::uint32_t>        flags2;                        // 7C
 		NiPoint3                                  mountOffset;                   // 80
 		NiPoint3                                  dismountOffset;                // 8C
 		NiPoint3                                  mountCameraOffset;             // 98
@@ -245,7 +245,7 @@ namespace RE
 
 					// members
 					std::uint16_t                        index;          // 00 - TINI
-					REX::EnumSet<SkinTone, std::uint8_t> skinTone;       // 02 - TINP
+					REX::TEnumSet<SkinTone, std::uint8_t> skinTone;       // 02 - TINP
 					std::uint8_t                         pad03;          // 03
 					std::uint32_t                        pad04;          // 04
 					TESTexture                           file;           // 08 - TINT
@@ -337,7 +337,7 @@ namespace RE
 		BGSSoundDescriptorForm*                    corpseCloseSound;                               // 308 - LNAM
 		BSFixedString                              bipedObjectNameA[BIPED_OBJECTS::kEditorTotal];  // 310 - NAME
 		BSTArray<BGSEquipSlot*>                    equipSlots;                                     // 410 - QNAM
-		REX::EnumSet<EquipmentFlag, std::uint32_t> validEquipTypes;                                // 428 - VNAM - bits 13+ are always set
+		REX::TEnumSet<EquipmentFlag, std::uint32_t> validEquipTypes;                                // 428 - VNAM - bits 13+ are always set
 		std::uint32_t                              unk42C;                                         // 42C - TESModel::unk24
 		BGSEquipSlot*                              unarmedEquipSlot;                               // 430 - UNES
 		TESRace*                                   morphRace;                                      // 438 - NAM8

@@ -43,8 +43,8 @@ namespace RE
 		[[nodiscard]] Flag GetSanitizedType() const;
 
 		// members
-		REX::EnumSet<Flag, std::uint8_t> flags;    // 00
-		REX::EnumSet<Type, std::uint8_t> type;     // 01
+		REX::TEnumSet<Flag, std::uint8_t> flags;    // 00
+		REX::TEnumSet<Type, std::uint8_t> type;     // 01
 		std::uint16_t                    pad02;    // 02
 		std::uint32_t                    pad04;    // 04
 		Teaches                          teaches;  // 08

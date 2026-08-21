@@ -48,7 +48,7 @@ namespace RE
 			const wchar_t*                   key;           // 00
 			GFxWStringBuffer*                result;        // 08
 			const char*                      instanceName;  // 10
-			REX::EnumSet<Flag, std::uint8_t> flags;         // 18
+			REX::TEnumSet<Flag, std::uint8_t> flags;         // 18
 			std::uint8_t                     pad19;         // 19
 			std::uint16_t                    pad1A;         // 1A
 			std::uint32_t                    pad1C;         // 1C
@@ -77,7 +77,7 @@ namespace RE
 			float                                 currentLineWidth;         // 2C - [in] Current line width, in pixels
 			float                                 lineWidthBeforeWordWrap;  // 30 - [in] Line width before the proposedWordWrapPoint, in pixels. For example, if line is ABC DEF and proposedWordWrapPoint = 3 (space) then lineWidthBeforeWordWrap will contain the width of ABC (w/o space) part of the line
 			float                                 dashSymbolWidth;          // 34 - [in] Supplementary member, width of the hyphen symbol, in pixels. It might be used to calculate hyphenation
-			REX::EnumSet<Alignment, std::uint8_t> alignment;                // 38 - [in] Alignment of the line
+			REX::TEnumSet<Alignment, std::uint8_t> alignment;                // 38 - [in] Alignment of the line
 			std::uint8_t                          pad39;                    // 39
 			std::uint16_t                         pad3A;                    // 3A
 			std::uint32_t                         pad3C;                    // 3C
@@ -103,7 +103,7 @@ namespace RE
 		[[nodiscard]] bool HandlesCustomWordWrapping() const;
 
 		// members
-		REX::EnumSet<WordWrappingType, std::uint32_t> wwMode;  // 18
+		REX::TEnumSet<WordWrappingType, std::uint32_t> wwMode;  // 18
 		std::uint32_t                                 pad1C;   // 1C
 	};
 	static_assert(sizeof(GFxTranslator) == 0x20);

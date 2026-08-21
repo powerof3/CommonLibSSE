@@ -36,7 +36,7 @@ namespace RE
 		std::uint16_t                    pad02;      // 02
 		std::uint32_t                    pad04;      // 04
 		TESKey*                          key;        // 08
-		REX::EnumSet<Flag, std::uint8_t> flags;      // 10
+		REX::TEnumSet<Flag, std::uint8_t> flags;      // 10
 		std::uint8_t                     pad11;      // 11
 		std::uint16_t                    pad12;      // 12
 		std::uint32_t                    numTries;   // 14

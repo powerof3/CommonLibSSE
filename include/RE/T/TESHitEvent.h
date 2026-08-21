@@ -27,7 +27,7 @@ namespace RE
 		NiPointer<TESObjectREFR>         cause;       // 08
 		FormID                           source;      // 10
 		FormID                           projectile;  // 14
-		REX::EnumSet<Flag, std::uint8_t> flags;       // 18
+		REX::TEnumSet<Flag, std::uint8_t> flags;       // 18
 		std::uint8_t                     pad19;       // 19
 		std::uint16_t                    pad1A;       // 1A
 		std::uint32_t                    pad1C;       // 1C

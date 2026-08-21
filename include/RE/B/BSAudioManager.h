@@ -73,7 +73,7 @@ namespace RE
 		std::uint32_t                                             maxCacheSize;                // 160
 		std::uint32_t                                             maxAudioCacheSize;           // 164
 		std::uint32_t                                             maxSizeForCachedSound;       // 168
-		REX::EnumSet<Flags, std::uint32_t>                        flags;                       // 16C
+		REX::TEnumSet<Flags, std::uint32_t>                        flags;                       // 16C
 		float                                                     masterVolume;                // 170
 		std::uint32_t                                             asyncReadPriorityThreshold;  // 174
 		BSAudioCallbacks                                          audioCallbacks;              // 178

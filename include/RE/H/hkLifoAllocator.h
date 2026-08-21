@@ -12,7 +12,7 @@ namespace RE
 
 		class Implementation;
 
-		hkLifoAllocator() { stl::emplace_vtable(this); }
+		hkLifoAllocator() { REX::EMPLACE_VTABLE(this); }
 
 		// override (hkMemoryAllocator)
 		void* BlockAlloc(std::int32_t a_numBytesIn) override  // 01

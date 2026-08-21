@@ -131,14 +131,14 @@ namespace RE
 		float                              currentGameHour;                 // 1B0
 		float                              lastWeatherUpdate;               // 1B4
 		float                              currentWeatherPct;               // 1B8
-		REX::EnumSet<Mode, std::uint32_t>  mode;                            // 1BC
+		REX::TEnumSet<Mode, std::uint32_t>  mode;                            // 1BC
 		BSSimpleList<SkySound*>*           skySoundList;                    // 1C0
 		float                              flash;                           // 1C8
 		std::uint32_t                      pad1CC;                          // 1CC
 		std::uint32_t                      flashTime;                       // 1D0
 		float                              windowReflectionTimer;           // 1D4
 		std::uint32_t                      lastMoonPhaseUpdate;             // 1D8
-		REX::EnumSet<Flags, std::uint32_t> flags;                           // 1DC
+		REX::TEnumSet<Flags, std::uint32_t> flags;                           // 1DC
 		ImageSpaceModifierInstanceForm*    currentWeatherImageSpaceMod;     // 1E0
 		ImageSpaceModifierInstanceForm*    currentWeatherImageSpaceMod2;    // 1E8
 		ImageSpaceModifierInstanceForm*    lastWeatherImageSpaceMod;        // 1F0

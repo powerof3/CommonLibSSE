@@ -32,7 +32,7 @@ namespace RE
 		ObjectRefHandle                          containerRef;                       // 0x04
 		BGSLocation*                             location{ nullptr };                // 0x08
 		TESForm*                                 itemBase{ nullptr };                // 0x10
-		REX::EnumSet<AQUIRE_TYPE, std::uint32_t> acquireType{ AQUIRE_TYPE::kNone };  // 0x18
+		REX::TEnumSet<AQUIRE_TYPE, std::uint32_t> acquireType{ AQUIRE_TYPE::kNone };  // 0x18
 	};
 	static_assert(sizeof(BGSAddToPlayerInventoryEvent) == 0x20);
 }

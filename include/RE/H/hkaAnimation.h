@@ -56,7 +56,7 @@ namespace RE
 		virtual std::uint32_t GetAnnotations(float a_startTime, float a_deltaTime, TrackAnnotation* a_annotationsOut, std::uint32_t a_maxAnnotations) const;                                                                            // 0F
 
 		// members
-		REX::EnumSet<AnimationType, std::uint32_t> type;                     // 10
+		REX::TEnumSet<AnimationType, std::uint32_t> type;                     // 10
 		float                                      duration;                 // 14
 		std::int32_t                               numberOfTransformTracks;  // 18
 		std::int32_t                               numberOfFloatTracks;      // 1C

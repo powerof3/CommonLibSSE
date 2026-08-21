@@ -11,7 +11,7 @@ namespace RE
 		rank(a_rank),
 		pad14(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraRank::GetType() const

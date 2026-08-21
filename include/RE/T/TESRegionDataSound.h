@@ -28,7 +28,7 @@ namespace RE
 			};
 
 			BGSSoundDescriptorForm*           sound;   // 00
-			REX::EnumSet<Flag, std::uint32_t> flags;   // 08
+			REX::TEnumSet<Flag, std::uint32_t> flags;   // 08
 			float                             chance;  // 0C
 		};
 		static_assert(sizeof(Sound) == 0x10);

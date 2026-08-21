@@ -169,7 +169,7 @@ namespace RE
 		float particleShaderAnimatedFrameCount;          // 188
 		float particleShaderAnimatedFrameCountVariance;  // 18C
 
-		REX::EnumSet<Flags, std::uint32_t> flags;  // 190
+		REX::TEnumSet<Flags, std::uint32_t> flags;  // 190
 
 		float fillTextureEffectTextureScaleU;  // 194
 		float fillTextureEffectTextureScaleV;  // 198

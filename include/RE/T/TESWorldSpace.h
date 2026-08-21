@@ -190,9 +190,9 @@ namespace RE
 		TESObjectCELL*                                                persistentCell;           // 088
 		BGSTerrainManager*                                            terrainManager;           // 090
 		TESClimate*                                                   climate;                  // 098 - CNAM
-		REX::EnumSet<Flag, std::uint8_t>                              flags;                    // 0A0 - DATA
+		REX::TEnumSet<Flag, std::uint8_t>                              flags;                    // 0A0 - DATA
 		std::uint8_t                                                  unk0A1;                   // 0A1 - more flags
-		REX::EnumSet<ParentUseFlag, std::uint16_t>                    parentUseFlags;           // 0A2 - PNAM
+		REX::TEnumSet<ParentUseFlag, std::uint16_t>                    parentUseFlags;           // 0A2 - PNAM
 		ShortPoint                                                    fixedCenter;              // 0A4 - WCTR
 		BSTHashMap<std::uint32_t, BSTArray<NiPointer<TESObjectREFR>>> fixedPersistentRefMap;    // 0A8
 		BSTArray<NiPointer<TESObjectREFR>>                            mobilePersistentRefs;     // 0D8

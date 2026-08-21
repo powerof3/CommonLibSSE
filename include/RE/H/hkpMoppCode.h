@@ -32,7 +32,7 @@ namespace RE
 		// members
 		CodeInfo                             info;       // 10
 		hkArray<std::uint8_t>                data;       // 20
-		REX::EnumSet<BuildType, std::int8_t> buildType;  // 30
+		REX::TEnumSet<BuildType, std::int8_t> buildType;  // 30
 		std::uint8_t                         pad31;      // 31
 		std::uint16_t                        pad32;      // 32
 		std::uint32_t                        pad34;      // 34

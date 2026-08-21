@@ -79,7 +79,7 @@ namespace RE
 		BGSSoundDescriptorForm*          openSound;        // 98 - SNAM
 		BGSSoundDescriptorForm*          closeSound;       // A0 - ANAM
 		BGSSoundDescriptorForm*          loopSound;        // A8 - BNAM
-		REX::EnumSet<Flag, std::uint8_t> flags;            // B0 - FNAM
+		REX::TEnumSet<Flag, std::uint8_t> flags;            // B0 - FNAM
 		std::uint8_t                     padB1;            // B1
 		std::uint16_t                    padB2;            // B2
 		std::uint32_t                    padB4;            // B4

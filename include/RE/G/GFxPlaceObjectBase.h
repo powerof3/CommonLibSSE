@@ -43,7 +43,7 @@ namespace RE
 
 		struct Filter
 		{
-			REX::EnumSet<FilterType, std::uint8_t> filterType;        // 00
+			REX::TEnumSet<FilterType, std::uint8_t> filterType;        // 00
 			std::uint8_t                           pad01;             // 01
 			std::uint16_t                          angle;             // 02
 			std::uint16_t                          distance;          // 04
@@ -60,8 +60,8 @@ namespace RE
 		std::int32_t                              depth;           // 54
 		GFxResourceID                             characterId;     // 58
 		std::uint16_t                             clipDepth;       // 5C
-		REX::EnumSet<BlendType, std::uint8_t>     blendMode;       // 5E
-		REX::EnumSet<GFxPlaceFlags, std::uint8_t> placeFlags;      // 5F
+		REX::TEnumSet<BlendType, std::uint8_t>     blendMode;       // 5E
+		REX::TEnumSet<GFxPlaceFlags, std::uint8_t> placeFlags;      // 5F
 	};
 	static_assert(sizeof(GFxPlaceObjectUnpackedData) == 0x60);
 
@@ -76,7 +76,7 @@ namespace RE
 
 		void*                                  clipActions;  // 60
 		const char*                            name;         // 68
-		REX::EnumSet<ChangeType, std::int32_t> changeType;   // 70
+		REX::TEnumSet<ChangeType, std::int32_t> changeType;   // 70
 		std::uint32_t                          pad74;        // 74
 	};
 

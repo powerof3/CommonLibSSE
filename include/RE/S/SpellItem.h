@@ -47,7 +47,7 @@ namespace RE
 		public:
 			// members
 			std::int32_t                           costOverride;  // 00
-			REX::EnumSet<SpellFlag, std::uint32_t> flags;         // 04
+			REX::TEnumSet<SpellFlag, std::uint32_t> flags;         // 04
 			MagicSystem::SpellType                 spellType;     // 08
 			float                                  chargeTime;    // 0C
 			MagicSystem::CastingType               castingType;   // 10

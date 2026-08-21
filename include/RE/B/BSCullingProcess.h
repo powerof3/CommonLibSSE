@@ -63,9 +63,9 @@ namespace RE
 		BSTLocklessQueue::ObjMultiProdCons<Data, 4096, 0>                        cullQueue;            // 00140
 		BSTHashMap<NiAVObject*, bool>                                            roomSharedMap;        // 30160
 		BSPortalGraphEntry*                                                      portalGraphEntry;     // 30190
-		REX::Enum<BSCPCullingType>                                               cullMode;             // 30198
+		REX::TEnum<BSCPCullingType>                                               cullMode;             // 30198
 		BSCompoundFrustum*                                                       compoundFrustum;      // 301A0
-		REX::Enum<BSCPCullingType>                                               cullModeStack[10];    // 301A8
+		REX::TEnum<BSCPCullingType>                                               cullModeStack[10];    // 301A8
 		std::uint32_t                                                            cullModeStackIndex;   // 301D0
 		bool                                                                     recurseToGeometry;    // 301D4
 		bool                                                                     isGroupingAlphas;     // 301D5

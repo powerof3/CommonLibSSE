@@ -57,7 +57,7 @@ namespace RE
 		float                                     speed;                         // BC
 		float                                     zOffset;                       // C0
 		std::uint32_t                             size;                          // C4
-		REX::EnumSet<UpdateStatus, std::uint32_t> updateMoonTexture;             // C8
+		REX::TEnumSet<UpdateStatus, std::uint32_t> updateMoonTexture;             // C8
 		float                                     unkCC;                         // CC
 		float                                     unkD0;                         // D0
 		std::uint32_t                             padD4;                         // D4

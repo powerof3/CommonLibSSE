@@ -25,7 +25,7 @@ namespace RE
 			kYUVA_8228 = 201,
 		};
 
-		REX::EnumSet<ImageFormat, std::uint32_t> format;       // 00
+		REX::TEnumSet<ImageFormat, std::uint32_t> format;       // 00
 		std::uint32_t                            width;        // 04
 		std::uint32_t                            height;       // 08
 		std::uint32_t                            pitch;        // 0C

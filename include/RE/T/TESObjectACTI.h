@@ -76,7 +76,7 @@ namespace RE
 		BGSSoundDescriptorForm*                soundLoop;      // A8 - SNAM
 		BGSSoundDescriptorForm*                soundActivate;  // B0 - VNAM
 		TESWaterForm*                          waterForm;      // B8 - WNAM
-		REX::EnumSet<ActiFlags, std::uint16_t> flags;          // C0 - FNAM
+		REX::TEnumSet<ActiFlags, std::uint16_t> flags;          // C0 - FNAM
 		std::uint16_t                          padC2;          // C2
 		std::uint32_t                          padC4;          // C4
 	};

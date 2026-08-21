@@ -28,7 +28,7 @@ namespace RE
 			EffectSetting*                       effectSetting;  // 18
 			MagicItem*                           spell;          // 20
 			bool                                 dualCast;       // 28
-			REX::Enum<FailReason, std::uint32_t> failReason;     // 2C
+			REX::TEnum<FailReason, std::uint32_t> failReason;     // 2C
 		};
 		static_assert(sizeof(CheckTargetArgs) == 0x30);
 

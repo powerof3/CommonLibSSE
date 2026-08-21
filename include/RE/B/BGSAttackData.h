@@ -26,7 +26,7 @@ namespace RE
 		float                                   damageMult;     // 00
 		float                                   attackChance;   // 04
 		SpellItem*                              attackSpell;    // 08
-		REX::EnumSet<AttackFlag, std::uint32_t> flags;          // 10
+		REX::TEnumSet<AttackFlag, std::uint32_t> flags;          // 10
 		float                                   attackAngle;    // 14
 		float                                   strikeAngle;    // 18
 		float                                   staggerOffset;  // 1C

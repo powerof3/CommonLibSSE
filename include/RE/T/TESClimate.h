@@ -70,7 +70,7 @@ namespace RE
 			Interval                                    sunrise;          // 0
 			Interval                                    sunset;           // 2
 			std::uint8_t                                volatility;       // 4
-			REX::EnumSet<MoonPhaseLength, std::uint8_t> moonPhaseLength;  // 5
+			REX::TEnumSet<MoonPhaseLength, std::uint8_t> moonPhaseLength;  // 5
 			std::uint8_t                                unk6;             // 6
 			std::uint8_t                                unk7;             // 7
 		};

@@ -88,11 +88,11 @@ namespace RE
 		// members
 		BSTArray<BGSScenePhase*>                                phases;                 // 20
 		BSTArray<std::uint32_t>                                 actors;                 // 00 - ALID (alias ID)
-		BSTArray<REX::EnumSet<SCENE_ACTOR_FLAG, std::uint32_t>> actorFlags;             // 18 - LNAM
-		BSTArray<REX::EnumSet<BehaviourFlag, std::uint32_t>>    actorProgressionFlags;  // 30 - DNAM
+		BSTArray<REX::TEnumSet<SCENE_ACTOR_FLAG, std::uint32_t>> actorFlags;             // 18 - LNAM
+		BSTArray<REX::TEnumSet<BehaviourFlag, std::uint32_t>>    actorProgressionFlags;  // 30 - DNAM
 		BSTArray<BGSSceneAction*>                               actions;                // 80
 		TESQuest*                                               parentQuest;            // 98 - PNAM
-		REX::EnumSet<Flag, std::uint32_t>                       flags;                  // A0 - FNAM
+		REX::TEnumSet<Flag, std::uint32_t>                       flags;                  // A0 - FNAM
 		std::uint32_t                                           padA4;                  // A4
 		TESCondition                                            conditions;             // A8 - CTDA
 		bool                                                    isPlaying;              // B0

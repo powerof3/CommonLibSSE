@@ -103,7 +103,7 @@ namespace RE
 		ObjectRefHandle                    desiredTarget;      // 20
 		std::uint32_t                      pad24;              // 24
 		MagicItem*                         currentSpell;       // 28
-		REX::EnumSet<State, std::uint32_t> state;              // 30
+		REX::TEnumSet<State, std::uint32_t> state;              // 30
 		float                              castingTimer;       // 34
 		float                              currentSpellCost;   // 38
 		float                              magnitudeOverride;  // 3C

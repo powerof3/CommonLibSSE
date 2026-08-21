@@ -274,7 +274,7 @@ namespace RE
 		{
 		public:
 			// members
-			REX::EnumSet<RenderCapBits, std::uint32_t> capBits;         // 00
+			REX::TEnumSet<RenderCapBits, std::uint32_t> capBits;         // 00
 			std::uint32_t                              vertexFormats;   // 04
 			std::uint32_t                              blendModes;      // 08
 			std::uint32_t                              maxTextureSize;  // 0C
@@ -291,7 +291,7 @@ namespace RE
 			float*                                           flt;         // 08
 			float*                                           matrix;      // 10
 			std::uint32_t                                    matrixSize;  // 18
-			REX::EnumSet<UserDataPropertyFlag, std::uint8_t> propFlags;   // 1C
+			REX::TEnumSet<UserDataPropertyFlag, std::uint8_t> propFlags;   // 1C
 			std::uint8_t                                     pad1D;       // 1D
 			std::uint16_t                                    pad1E;       // 1E
 		};
@@ -303,8 +303,8 @@ namespace RE
 			// members
 			GTexture*                                     texture;        // 00
 			Matrix                                        textureMatrix;  // 08
-			REX::EnumSet<BitmapWrapMode, std::uint32_t>   wrapMode;       // 20
-			REX::EnumSet<BitmapSampleMode, std::uint32_t> sampleMode;     // 24
+			REX::TEnumSet<BitmapWrapMode, std::uint32_t>   wrapMode;       // 20
+			REX::TEnumSet<BitmapSampleMode, std::uint32_t> sampleMode;     // 24
 		};
 		static_assert(sizeof(FillTexture) == 0x28);
 
@@ -446,7 +446,7 @@ namespace RE
 		// members
 		GList<GRendererEventHandler>               handlers;    // 10
 		StereoParams                               s3DParams;   // 20
-		REX::EnumSet<StereoDisplay, std::uint32_t> s3DDisplay;  // 34
+		REX::TEnumSet<StereoDisplay, std::uint32_t> s3DDisplay;  // 34
 	};
 	static_assert(sizeof(GRenderer) == 0x38);
 }

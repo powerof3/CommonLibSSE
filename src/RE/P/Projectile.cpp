@@ -43,7 +43,7 @@ namespace RE
 		deferInitialization(false),
 		forceConeOfFire(false)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	Projectile::LaunchData::LaunchData(Actor* a_shooter, const NiPoint3& a_origin, const ProjectileRot& a_angles, MagicItem* a_spell) :

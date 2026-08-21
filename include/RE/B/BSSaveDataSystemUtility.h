@@ -55,7 +55,7 @@ namespace RE
 			std::uint8_t                          pad18B;           // 18B
 			std::uint32_t                         pad18C;           // 18C
 			BSFixedString                         saveTypeName;     // 190
-			REX::EnumSet<SaveType, std::uint32_t> saveType;         // 198
+			REX::TEnumSet<SaveType, std::uint32_t> saveType;         // 198
 			std::uint32_t                         pad19C;           // 19C
 		};
 		static_assert(sizeof(Entry) == 0x1A0);

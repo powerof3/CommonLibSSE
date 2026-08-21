@@ -30,8 +30,8 @@ namespace RE
 			};
 
 			// members
-			REX::EnumSet<NodeFlag, std::uint16_t>  nodeFlags;  // 0
-			REX::EnumSet<QuestFlag, std::uint16_t> questFags;  // 2
+			REX::TEnumSet<NodeFlag, std::uint16_t>  nodeFlags;  // 0
+			REX::TEnumSet<QuestFlag, std::uint16_t> questFags;  // 2
 		};
 		static_assert(sizeof(Flags) == 0x4);
 

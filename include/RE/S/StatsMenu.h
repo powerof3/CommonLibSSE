@@ -69,7 +69,7 @@ namespace RE
 
 			// members
 			BSEffectShaderProperty*            unk00;  // 00
-			REX::EnumSet<State, std::uint32_t> state;  // 08
+			REX::TEnumSet<State, std::uint32_t> state;  // 08
 			std::uint32_t                      unk0C;  // 0C
 		};
 		static_assert(sizeof(UnkData) == 0x10);
@@ -97,7 +97,7 @@ namespace RE
 		BSFadeNode*                            starsNode;                    // 088
 		BSFadeNode*                            linesNode;                    // 090
 		UnkData                                unk098[kTotalTrees];          // 098
-		REX::EnumSet<MenuState, std::uint32_t> menuState;                    // 1B8
+		REX::TEnumSet<MenuState, std::uint32_t> menuState;                    // 1B8
 		bool                                   scrolling;                    // 1BC
 		std::uint8_t                           unk1BD;                       // 1BD
 		std::uint16_t                          unk1BE;                       // 1BE

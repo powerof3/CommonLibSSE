@@ -13,7 +13,7 @@ namespace RE
 	struct DismemberedLimb
 	{
 		BSTArray<TESForm*>                                     objects;  // 00
-		REX::EnumSet<BGSBodyPartDefs::LIMB_ENUM, std::uint8_t> limb;     // 18
+		REX::TEnumSet<BGSBodyPartDefs::LIMB_ENUM, std::uint8_t> limb;     // 18
 		bool                                                   unk19;    // 19
 		bool                                                   unk1A;    // 1A
 		std::uint8_t                                           pad1B;    // 1B
@@ -40,7 +40,7 @@ namespace RE
 		std::uint32_t                                           unk14;             // 14
 		TESForm*                                                deathObject;       // 18
 		BSTArray<DismemberedLimb*>                              dismemberedLimbs;  // 20
-		REX::EnumSet<BGSBodyPartDefs::LIMB_ENUM, std::uint32_t> lastHitLimb;       // 38
+		REX::TEnumSet<BGSBodyPartDefs::LIMB_ENUM, std::uint32_t> lastHitLimb;       // 38
 		std::uint32_t                                           pad3C;             // 3C
 	};
 	static_assert(sizeof(ExtraDismemberedLimbs) == 0x40);

@@ -10,7 +10,7 @@ namespace RE
 		{
 			std::uint32_t                       width;                   // 00
 			std::uint32_t                       height;                  // 04
-			REX::EnumSet<Format, std::uint32_t> format;                  // 08
+			REX::TEnumSet<Format, std::uint32_t> format;                  // 08
 			bool                                copyable;                // 0C
 			bool                                supportUnorderedAccess;  // 0D
 			bool                                allowMipGeneration;      // 0E
@@ -36,7 +36,7 @@ namespace RE
 		{
 			std::uint32_t                       width;   // 00
 			std::uint32_t                       height;  // 04
-			REX::EnumSet<Format, std::uint32_t> format;  // 08
+			REX::TEnumSet<Format, std::uint32_t> format;  // 08
 		};
 		static_assert(sizeof(CubeMapRenderTargetProperties) == 0xC);
 	}

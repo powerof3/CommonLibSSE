@@ -43,8 +43,8 @@ namespace RE
 		hkArray<hkVector4>                                               bigVertices;     // C0
 		hkArray<hkpCompressedMeshShape::Chunk>                           chunks;          // D0
 		hkArray<hkpCompressedMeshShape::ConvexPiece>                     convexPieces;    // E0
-		REX::EnumSet<hkpWeldingUtility::WeldingType, std::uint8_t>       weldingType;     // F0
-		REX::EnumSet<hkpCompressedMeshShape::MaterialType, std::uint8_t> materialType;    // F1
+		REX::TEnumSet<hkpWeldingUtility::WeldingType, std::uint8_t>       weldingType;     // F0
+		REX::TEnumSet<hkpCompressedMeshShape::MaterialType, std::uint8_t> materialType;    // F1
 		std::uint16_t                                                    padF2;           // F2
 		std::uint32_t                                                    padF4;           // F4
 		std::uint64_t                                                    padF8;           // F8

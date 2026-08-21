@@ -74,11 +74,11 @@ namespace RE
 			std::uint32_t                            frames;         // 58
 			std::uint32_t                            pad5C;          // 5C
 			StackFrame*                              top;            // 60
-			REX::EnumSet<State, std::uint32_t>       state;          // 68
-			REX::EnumSet<FreezeState, std::uint32_t> freezeState;    // 6C
+			REX::TEnumSet<State, std::uint32_t>       state;          // 68
+			REX::TEnumSet<FreezeState, std::uint32_t> freezeState;    // 6C
 			Variable                                 returnValue;    // 70
 			VMStackID                                stackID;        // 80
-			REX::EnumSet<StackType, std::uint32_t>   stackType;      // 84
+			REX::TEnumSet<StackType, std::uint32_t>   stackType;      // 84
 			BSTSmartPointer<Internal::CodeTasklet>   owningTasklet;  // 88
 			BSTSmartPointer<IStackCallbackFunctor>   callback;       // 90
 			BSTSmartPointer<Stack>                   nextStack;      // 98

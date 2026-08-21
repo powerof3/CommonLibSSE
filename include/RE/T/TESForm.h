@@ -358,8 +358,8 @@ namespace RE
 		TESFileContainer                            sourceFiles;      // 08
 		std::uint32_t                               formFlags;        // 10
 		FormID                                      formID;           // 14
-		REX::EnumSet<InGameFormFlag, std::uint16_t> inGameFormFlags;  // 18
-		REX::EnumSet<FormType, std::uint8_t>        formType;         // 1A
+		REX::TEnumSet<InGameFormFlag, std::uint16_t> inGameFormFlags;  // 18
+		REX::TEnumSet<FormType, std::uint8_t>        formType;         // 1A
 		std::uint8_t                                pad1B;            // 1B
 		std::uint32_t                               pad1C;            // 1C
 	};

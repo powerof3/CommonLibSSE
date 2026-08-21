@@ -56,7 +56,7 @@ namespace RE
 		bool                                  modded;              // 69
 		std::uint16_t                         pad6A;               // 6A
 		std::uint32_t                         characterID;         // 6C
-		REX::EnumSet<SaveType, std::uint32_t> saveType;            // 70
+		REX::TEnumSet<SaveType, std::uint32_t> saveType;            // 70
 		std::uint32_t                         pad74;               // 74
 	};
 	static_assert(sizeof(BGSSaveLoadFileEntry) == 0x78);

@@ -46,7 +46,7 @@ namespace RE
 		bool                    IsRefAtLocation(AIWorldLocationContext* a_context, TESObjectREFR* a_ref) override;  // 03
 
 		// members
-		REX::EnumSet<Type, std::uint8_t> locType;  // 08
+		REX::TEnumSet<Type, std::uint8_t> locType;  // 08
 		std::uint8_t                     pad09;    // 09
 		std::uint16_t                    pad0A;    // 0A
 		std::uint32_t                    rad;      // 0C

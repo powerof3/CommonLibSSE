@@ -19,7 +19,7 @@ namespace RE
 		float                             materialThresholdAngle;  // 00 - (30 - 120)
 		std::uint32_t                     pad04;                   // 04
 		BGSMaterialObject*                materialObj;             // 08
-		REX::EnumSet<Flag, std::uint32_t> flags;                   // 10
+		REX::TEnumSet<Flag, std::uint32_t> flags;                   // 10
 		std::uint32_t                     pad14;                   // 14
 	};
 	static_assert(sizeof(TESObjectSTATData) == 0x18);

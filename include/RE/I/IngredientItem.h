@@ -58,7 +58,7 @@ namespace RE
 		public:
 			// members
 			std::int32_t                                costOverride;  // 00
-			REX::EnumSet<IngredientFlag, std::uint32_t> flags;         // 04
+			REX::TEnumSet<IngredientFlag, std::uint32_t> flags;         // 04
 		};
 		static_assert(sizeof(Data) == 0x8);
 

@@ -28,7 +28,7 @@ namespace RE
 	{
 	public:
 		BSFixedString                                menu;      // 00
-		REX::EnumSet<UI_MESSAGE_TYPE, std::uint32_t> type;      // 08
+		REX::TEnumSet<UI_MESSAGE_TYPE, std::uint32_t> type;      // 08
 		std::uint32_t                                pad0C;     // 0C
 		IUIMessageData*                              data;      // 10
 		bool                                         isPooled;  // 18

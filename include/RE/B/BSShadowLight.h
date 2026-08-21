@@ -43,7 +43,7 @@ namespace RE
 		virtual void          ReturnShadowmaps();                                                                                                       // 0C
 		virtual std::uint32_t GetPassExtraParam(std::uint32_t a_accumFlag);                                                                             // 0D
 		virtual bool          GetNeedsClipPlanes();                                                                                                     // 0E
-		virtual void          TransformClipSpacePlanes(REX::W32::D3DXMatrix* a_matrix1, REX::W32::D3DXMatrix* a_matrix2);                               // 0F
+		virtual void          TransformClipSpacePlanes(REX::W32::D3DMATRIX* a_matrix1, REX::W32::D3DMATRIX* a_matrix2);                               // 0F
 		virtual bool          UpdateCamera(const NiCamera* a_viewCamera) = 0;                                                                           // 10
 
 		// members

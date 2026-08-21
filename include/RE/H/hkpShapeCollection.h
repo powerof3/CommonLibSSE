@@ -46,7 +46,7 @@ namespace RE
 
 		// members
 		bool                                       disableWelding;  // 28
-		REX::EnumSet<CollectionType, std::uint8_t> collectionType;  // 29
+		REX::TEnumSet<CollectionType, std::uint8_t> collectionType;  // 29
 		std::uint16_t                              pad2A;           // 2A
 		std::uint32_t                              pad2C;           // 2C
 	};

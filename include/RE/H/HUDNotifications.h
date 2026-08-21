@@ -26,7 +26,7 @@ namespace RE
 			BSString                                      status;                           // 10
 			BSFixedString                                 sound;                            // 20
 			BSTArray<BSFixedString>                       objectives;                       // 28
-			REX::EnumSet<HUD_MESSAGE_TYPE, std::uint32_t> type{ HUD_MESSAGE_TYPE::kNone };  // 40
+			REX::TEnumSet<HUD_MESSAGE_TYPE, std::uint32_t> type{ HUD_MESSAGE_TYPE::kNone };  // 40
 			std::uint32_t                                 pad44{ 0 };                       // 44
 			TESQuest*                                     quest{ nullptr };                 // 48
 			TESWordOfPower*                               word{ nullptr };                  // 50

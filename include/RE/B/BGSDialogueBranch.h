@@ -39,7 +39,7 @@ namespace RE
 		void InitItemImpl() override;        // 13
 
 		// members
-		REX::EnumSet<Flag, std::uint32_t> flags;          // 20 - DNAM
+		REX::TEnumSet<Flag, std::uint32_t> flags;          // 20 - DNAM
 		std::uint32_t                     pad24;          // 24
 		TESQuest*                         quest;          // 28 - QNAM
 		TESTopic*                         startingTopic;  // 30 - SNAM

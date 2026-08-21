@@ -51,7 +51,7 @@ namespace RE
 		MATERIAL_ID                       materialID;          // 30
 		NiColor                           materialColor;       // 34 - CNAM
 		float                             buoyancy;            // 40 - BNAM
-		REX::EnumSet<FLAG, std::uint32_t> flags;               // 44 - FNAM
+		REX::TEnumSet<FLAG, std::uint32_t> flags;               // 44 - FNAM
 		BGSImpactDataSet*                 havokImpactDataSet;  // 48 - HNAM
 	};
 	static_assert(sizeof(BGSMaterialType) == 0x50);

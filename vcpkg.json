@@ -1,12 +1,64 @@
 {
   "name": "commonlibsse",
   "version-string": "1",
-  "description": "A reverse engineered resource for developing F4SE plugins for Skyrim Special Edition",
-  "homepage": "https://github.com/Ryan-rsm-McKenzie/CommonLibSSE",
-  "license": "MIT",
+  "description": "A reverse engineered resource for developing SKSE plugins for Skyrim Special Edition",
+  "homepage": "https://github.com/powerof3/CommonLibSSE",
+  "license": "GPL-3.0-or-later",
   "supports": "windows & x64",
   "dependencies": [
-    "rsm-binary-io",
-    "spdlog"
-  ]
+    "commonlib-shared",
+    {
+      "name": "spdlog",
+      "default-features": false,
+      "features": [
+        "wchar"
+      ]
+    }
+  ],
+  "features": {
+    "ini": {
+      "description": "enable REX::INI settings support",
+      "dependencies": [
+        {
+          "name": "commonlib-shared",
+          "features": [
+            "ini"
+          ]
+        }
+      ]
+    },
+    "json": {
+      "description": "enable REX::JSON settings support",
+      "dependencies": [
+        {
+          "name": "commonlib-shared",
+          "features": [
+            "json"
+          ]
+        }
+      ]
+    },
+    "toml": {
+      "description": "enable REX::TOML settings support",
+      "dependencies": [
+        {
+          "name": "commonlib-shared",
+          "features": [
+            "toml"
+          ]
+        }
+      ]
+    },
+    "xbyak": {
+      "description": "enable xbyak support for Trampoline",
+      "dependencies": [
+        {
+          "name": "commonlib-shared",
+          "features": [
+            "xbyak"
+          ]
+        }
+      ]
+    }
+  }
 }

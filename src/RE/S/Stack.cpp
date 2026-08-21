@@ -10,7 +10,6 @@ namespace RE
 		Stack::~Stack()
 		{
 			Dtor();
-			stl::memzero(this);
 		}
 
 		std::uint32_t Stack::GetPageForFrame(const StackFrame* a_frame) const

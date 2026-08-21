@@ -16,7 +16,7 @@ namespace RE
 
 		T*                                            data;              // 00
 		std::uint16_t                                 size;              // 08
-		REX::EnumSet<CapacityAndFlags, std::uint16_t> capacityAndFlags;  // 0A
+		REX::TEnumSet<CapacityAndFlags, std::uint16_t> capacityAndFlags;  // 0A
 		std::uint32_t                                 pad0C;             // 0C
 	};
 	static_assert(sizeof(hkSmallArray<void*>) == 0x10);

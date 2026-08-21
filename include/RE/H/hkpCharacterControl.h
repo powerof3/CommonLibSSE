@@ -13,7 +13,7 @@ namespace RE
 			kSupported = 2
 		};
 
-		REX::EnumSet<SupportedState, std::uint32_t> supportedState;         // 00
+		REX::TEnumSet<SupportedState, std::uint32_t> supportedState;         // 00
 		std::uint32_t                               pad04;                  // 04
 		std::uint64_t                               pad08;                  // 08
 		hkVector4                                   surfaceNormal;          // 10

@@ -27,7 +27,7 @@ namespace RE
 		TESForm*                           form;              // 10
 		std::uint32_t                      changeFlags;       // 18
 		std::uint32_t                      oldChangeFlags;    // 1C
-		REX::EnumSet<Flags, std::uint32_t> flags;             // 20
+		REX::TEnumSet<Flags, std::uint32_t> flags;             // 20
 		std::uint8_t                       pad22;             // 22
 		std::uint8_t                       version;           // 23
 	};

@@ -71,7 +71,7 @@ namespace RE
 		}
 
 		// members
-		REX::EnumSet<MotionType, std::uint8_t> type;                              // 010
+		REX::TEnumSet<MotionType, std::uint8_t> type;                              // 010
 		std::uint8_t                           deactivationIntegrateCounter;      // 011
 		std::uint16_t                          deactivationNumInactiveFrames[2];  // 012
 		std::uint16_t                          pad016;                            // 016

@@ -36,7 +36,7 @@ namespace RE
 		BSFixedString                     label;         // 08
 		BGSPerk*                          perk;          // 10
 		SpellItem*                        appliedSpell;  // 18
-		REX::EnumSet<Flag, std::uint16_t> flags;         // 20
+		REX::TEnumSet<Flag, std::uint16_t> flags;         // 20
 		std::uint16_t                     id;            // 22
 		std::uint32_t                     pad24;         // 24
 	};
