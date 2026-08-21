@@ -14,7 +14,12 @@ namespace SKSE
 {
 	struct InitInfo
 	{
+#ifdef SKYRIM_SUPPORT_AE
 		bool log{ true };
+#else
+		bool log{ false };
+#endif
+
 #ifndef NDEBUG
 		REX::ELogLevel logLevel{ REX::ELogLevel::Debug };
 #else

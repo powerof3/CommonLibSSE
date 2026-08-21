@@ -144,8 +144,10 @@ namespace SKSE
 		return GetProxy().AllocateFromLocalPool(GetPluginHandle(), a_size);
 	}
 
+#ifdef SKYRIM_SUPPORT_AE
 	const PluginVersionData* PluginVersionData::GetSingleton() noexcept
 	{
 		return reinterpret_cast<const PluginVersionData*>(REX::W32::GetProcAddress(REX::W32::GetCurrentModule(), "SKSEPlugin_Version"));
 	}
+#endif
 }
