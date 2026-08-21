@@ -4,6 +4,7 @@
 #include "RE/L/LogEvent.h"
 #include "RE/V/VirtualMachine.h"
 
+#include "REX/TSingleton.h"
 #include "REX/W32/OLE32.h"
 #include "REX/W32/SHELL32.h"
 
@@ -13,16 +14,12 @@ namespace SKSE
 {
 	namespace Impl
 	{
-		class LogEventHandler : public RE::BSTEventSink<RE::BSScript::LogEvent>
+		class LogEventHandler :
+			public REX::TSingleton<LogEventHandler>,
+			public RE::BSTEventSink<RE::BSScript::LogEvent>
 		{
 		public:
 			using EventResult = RE::BSEventNotifyControl;
-
-			[[nodiscard]] static inline LogEventHandler* GetSingleton()
-			{
-				static LogEventHandler singleton;
-				return std::addressof(singleton);
-			}
 
 			inline void SetFilter(std::regex a_filter) { _filter = std::move(a_filter); }
 
@@ -51,14 +48,6 @@ namespace SKSE
 			}
 
 		private:
-			LogEventHandler() = default;
-			LogEventHandler(const LogEventHandler&) = delete;
-			LogEventHandler(LogEventHandler&&) = delete;
-			~LogEventHandler() override = default;
-
-			LogEventHandler& operator=(const LogEventHandler&) = delete;
-			LogEventHandler& operator=(LogEventHandler&&) = delete;
-
 			std::regex _filter;
 		};
 	}
