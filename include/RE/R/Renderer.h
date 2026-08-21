@@ -1,8 +1,11 @@
 #pragma once
 
+#include <cstddef>
+
 #include "RE/B/BSShaderRenderTargets.h"
 #include "RE/N/NiTexture.h"
 #include "RE/R/RenderTargetData.h"
+#include "RE/R/RenderTargetProperties.h"
 #include "RE/T/TextureFileFormat.h"
 
 #include "REX/W32/D3D11_3.h"
@@ -54,16 +57,23 @@ namespace RE
 			REX::W32::ID3D11DeviceContext*     context;                                              // 0040
 			RendererWindow                     renderWindows[32];                                    // 0048
 			RenderTargetData                   renderTargets[RENDER_TARGET::kTOTAL];                 // 0A48
-			DepthStencilData                   depthStencils[RENDER_TARGET_DEPTHSTENCIL::kTOTAL];    // 1FA8
-			CubemapRenderTargetData            cubemapRenderTargets[RENDER_TARGET_CUBEMAP::kTOTAL];  // 26C8
-			Texture3DTargetData                texture3DRenderTargets[RENDER_TARGET_3D::kTOTAL];     // 2708
-			float                              clearColor[4];                                        // 2768
-			std::uint8_t                       clearStencil;                                         // 2778
-			REX::W32::CRITICAL_SECTION         lock;                                                 // 2780
-			const char*                        className;                                            // 27A8
-			REX::W32::HINSTANCE                hInstance;                                            // 27B0
+#ifdef SKYRIM_SUPPORT_AE
+			std::byte                          pad1FA8[0x60];                                         // 1FA8
+#endif
+			DepthStencilData                   depthStencils[RENDER_TARGET_DEPTHSTENCIL::kTOTAL];    // 1FA8, 2008
+			CubemapRenderTargetData            cubemapRenderTargets[RENDER_TARGET_CUBEMAP::kTOTAL];  // 26C8, 2728
+			Texture3DTargetData                texture3DRenderTargets[RENDER_TARGET_3D::kTOTAL];     // 2708, 2768
+			float                              clearColor[4];                                        // 2768, 27C8
+			std::uint8_t                       clearStencil;                                         // 2778, 27D8
+			REX::W32::CRITICAL_SECTION         lock;                                                 // 2780, 27E0
+			const char*                        className;                                            // 27A8, 2808
+			REX::W32::HINSTANCE                hInstance;                                            // 27B0, 2810
 		};
+#ifdef SKYRIM_SUPPORT_AE
+		static_assert(offsetof(RendererData, lock) == 0x27E0);
+#else
 		static_assert(offsetof(RendererData, lock) == 0x2780);
+#endif
 
 		struct RendererInitOSData
 		{
@@ -112,6 +122,7 @@ namespace RE
 			void        SetWindowActiveState(bool a_show);
 			void        WindowSizeChanged(std::uint32_t a_windowID);
 			void        ResetWindow(std::uint32_t a_windowID);
+			void        SetRenderTarget(std::uint32_t a_renderTargetSlot, RENDER_TARGET a_renderTarget, SetRenderTargetMode a_mode, bool a_updateViewport);
 			void        UpdateViewPort(std::uint32_t a_unk1, std::uint32_t a_unk2, bool a_unk3);
 			void        ApplyState(bool a_arg2);
 			static void SubmitAccumulator(NiCamera* a_camera, BSShaderAccumulator* a_accumulator, std::uint32_t a_renderFlags);

@@ -26,6 +26,7 @@ namespace RE
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSShaderAccumulator;
 		inline static constexpr auto VTABLE = VTABLE_BSShaderAccumulator;
 
+		[[nodiscard]] static BSShaderAccumulator* Create(std::uint32_t a_unk);
 		[[nodiscard]] static BSShaderAccumulator* GetCurrentAccumulator();
 		static void                               SetCurrentAccumulator(BSShaderAccumulator* a_accumulator);
 
@@ -88,6 +89,9 @@ namespace RE
 		std::uint32_t unk168;       // 168
 		NiPoint3      eyePosition;  // 16C
 		std::uint8_t  unk178[0x8];  // 178
+
+	protected:
+		BSShaderAccumulator* Ctor(std::uint32_t a_unk);
 	};
 	static_assert(sizeof(BSShaderAccumulator) == 0x180);
 }

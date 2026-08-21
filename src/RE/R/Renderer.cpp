@@ -117,6 +117,13 @@ namespace RE
 			return func(this, a_windowID);
 		}
 
+		void Renderer::SetRenderTarget(std::uint32_t a_renderTargetSlot, RENDER_TARGET a_renderTarget, SetRenderTargetMode a_mode, bool a_updateViewport)
+		{
+			using func_t = decltype(&Renderer::SetRenderTarget);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(75654, 77453) };
+			return func(this, a_renderTargetSlot, a_renderTarget, a_mode, a_updateViewport);
+		}
+
 		void Renderer::UpdateViewPort(std::uint32_t a_unk1, std::uint32_t a_unk2, bool a_unk3)
 		{
 			using func_t = decltype(&Renderer::UpdateViewPort);
