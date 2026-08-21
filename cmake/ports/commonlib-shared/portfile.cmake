@@ -2,10 +2,10 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
-    REPO powerof3/commonlib-shared
-    REF 6b564e791d74498299981f0822fb283a927ff936
-    SHA512 357cb60fef80fb5f6403ef694fd9bc8eff689ea02747e2d4ec300fd2fc7ded7db01af5727b4655427be16d7166c852f9fcb847128052807f641569f3426e0c9c
-    HEAD_REF cmake-tests
+    REPO libxse/commonlib-shared
+    REF efa73736b8c89a3b9297f20d2b86415353357a7b
+    SHA512 4ff8e260db3f14c11b2e77aa24f94797ba462b11b8ca30c7c27bf5a8fb52f635c42839d2e23a11b4afdf419070e8a2f5b3a274aa07a937f79d8d8f43dccce7d7
+    HEAD_REF support/cmake
 )
 
 vcpkg_check_features(OUT_FEATURE_OPTIONS FEATURE_OPTIONS
