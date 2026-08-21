@@ -127,7 +127,7 @@ namespace RE
 		void Renderer::ApplyState(bool a_arg2)
 		{
 			using func_t = decltype(&Renderer::ApplyState);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(77247, 77247) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(75462, 77247) };
 			return func(this, a_arg2);
 		}
 
