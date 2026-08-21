@@ -507,6 +507,7 @@ namespace SKSE
 		[[nodiscard]] void*         AllocateFromLocalPool(std::size_t a_size) const;
 	};
 
+#ifdef SKYRIM_SUPPORT_AE
 	struct PluginVersionData
 	{
 	public:
@@ -593,12 +594,16 @@ namespace SKSE
 	static_assert(offsetof(PluginVersionData, compatibleVersions) == 0x30C);
 	static_assert(offsetof(PluginVersionData, xseMinimum) == 0x34C);
 	static_assert(sizeof(PluginVersionData) == 0x350);
+#endif
 }
 
 #define SKSE_EXPORT extern "C" [[maybe_unused]] __declspec(dllexport)
 #define SKSE_PLUGIN_LOAD(...) SKSE_EXPORT bool SKSEPlugin_Load(__VA_ARGS__)
 #define SKSE_PLUGIN_QUERY(...) SKSE_EXPORT bool SKSEPlugin_Query(__VA_ARGS__)
-#define SKSE_PLUGIN_VERSION SKSE_EXPORT constinit SKSE::PluginVersionData SKSEPlugin_Version
 #define SKSEPluginLoad SKSE_PLUGIN_LOAD
 #define SKSEPluginQuery SKSE_PLUGIN_QUERY
-#define SKSEPluginVersion SKSE_PLUGIN_VERSION
+
+#ifdef SKYRIM_SUPPORT_AE
+#	define SKSE_PLUGIN_VERSION SKSE_EXPORT constinit SKSE::PluginVersionData SKSEPlugin_Version
+#	define SKSEPluginVersion SKSE_PLUGIN_VERSION
+#endif
