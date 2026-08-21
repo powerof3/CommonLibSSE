@@ -51,6 +51,9 @@ namespace RE
 		void PrecacheDescriptor(const BSISoundDescriptor* a_descriptor, std::uint32_t a_flags);
 		void SetCacheEnabled(bool a_enabled);
 
+		void ReleaseAllSounds();
+		void StopAllSounds();
+
 		[[nodiscard]] constexpr bool GetCacheEnabled() const noexcept { return flags.all(Flags::CacheEnabled); }
 
 		// members
