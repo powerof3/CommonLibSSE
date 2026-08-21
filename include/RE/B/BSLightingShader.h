@@ -1,6 +1,9 @@
 #pragma once
 
 #include "RE/B/BSShader.h"
+#include "RE/B/BSTHashMap.h"
+#include "RE/N/NiColor.h"
+#include "RE/N/NiPoint3.h"
 
 #include "REX/W32/D3D.h"
 
@@ -66,20 +69,16 @@ namespace RE
 			static_cast<std::uint32_t>(TechniqueFlag::kLightCount1) |
 			static_cast<std::uint32_t>(TechniqueFlag::kLightCount3);
 
-		std::uint32_t unk90;                // 90
-		std::uint32_t currentRawTechnique;  // 94
-		std::uint64_t unk98;                // 98
-		std::uint64_t unkA0;                // A0
-		std::uint64_t unkA8;                // A8
-		std::uint64_t unkB0;                // B0
-		std::uint64_t unkB8;                // B8
-		std::uint64_t unkC0;                // C0
-		std::uint64_t unkC8;                // C8
-		std::uint64_t unkD0;                // D0
-		std::uint64_t unkD8;                // D8
-		std::uint64_t unkE0;                // E0
-		std::uint64_t unkE8;                // E8
-		std::uint64_t unkF0;                // F0
+		std::uint32_t unk90;                            // 90
+		std::uint32_t currentRawTechnique;              // 94
+		std::uint64_t unk98;                            // 98
+		BSTFixedHashMap<std::uint32_t, std::uint32_t> techniqueRefCounts;  // A0 - Technique ID -> reference count
+		std::uint64_t unkC8;                            // C8
+		NiColorA      skyColor0;                        // D0 - Sky::skyColor[0]
+		NiPoint3      cloudLightRadius;                 // E0 - Sun::cloudLight->radius
+		float         cloudLightRadiusFade;             // EC
+		std::uint8_t  iblUp;                            // F0 - Console 'IBL up' flag
+		std::uint8_t  padF1[7];                         // F1
 	};
 	static_assert(sizeof(BSLightingShader) == 0xF8);
 

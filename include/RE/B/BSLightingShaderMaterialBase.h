@@ -61,7 +61,8 @@ namespace RE
 		float                      specularColorScale;              // 8C
 		float                      subSurfaceLightRolloff;          // 90
 		float                      rimLightPower;                   // 94
-		std::uint64_t              unk98;                           // 98
+		volatile mutable std::uint32_t textureSetLock;  // 98 - spin lock used in OnLoadTextureSet
+		std::uint32_t                  pad9C;            // 9C
 	};
 	static_assert(sizeof(BSLightingShaderMaterialBase) == 0xA0);
 
