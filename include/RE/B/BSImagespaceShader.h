@@ -1,5 +1,6 @@
 #pragma once
 
+#include "RE/B/BSShaderRenderTargets.h"
 #include "RE/B/BSShader.h"
 #include "RE/I/ImageSpaceEffect.h"
 
@@ -38,6 +39,10 @@ namespace RE
 		virtual void DispatchComputeShader(uint32_t a_threadGroupCountX, uint32_t a_threadGroupCountY, uint32_t a_threadGroupCountZ);  // 0C
 		virtual void GetShaderMacros(ShaderMacro* a_macros);                                                                           // 0D
 		virtual void LoadShaders();                                                                                                    // 0E
+
+		void          DispatchCopySubRegion();
+		RENDER_TARGET RenderSSAO(RENDER_TARGET a_inputRenderTarget, RENDER_TARGET a_outputRenderTarget);
+		RENDER_TARGET RenderSnowSSS(RENDER_TARGET a_inputRenderTarget, RENDER_TARGET a_outputRenderTarget);
 
 		static BSImagespaceShader* Create()
 		{

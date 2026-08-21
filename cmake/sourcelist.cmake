@@ -280,6 +280,7 @@ set(SOURCES
 	include/RE/B/BSISoundOutputModel.h
 	include/RE/B/BSImagespaceShader.h
 	include/RE/B/BSImagespaceShaderBlur3.h
+	include/RE/B/BSImagespaceShaderISTemporalAA.h
 	include/RE/B/BSInputDevice.h
 	include/RE/B/BSInputDeviceFactory.h
 	include/RE/B/BSInputDeviceManager.h
@@ -1948,6 +1949,7 @@ set(SOURCES
 	src/RE/B/BSInputDeviceManager.cpp
 	src/RE/B/BSInputEventQueue.cpp
 	src/RE/B/BSInvMarker.cpp
+	src/RE/B/BSImagespaceShader.cpp
 	src/RE/B/BSKeyboardDevice.cpp
 	src/RE/B/BSLightingShaderMaterialBase.cpp
 	src/RE/B/BSLightingShaderProperty.cpp
@@ -2139,6 +2141,7 @@ set(SOURCES
 	src/RE/N/NiAlphaProperty.cpp
 	src/RE/N/NiAnimationKey.cpp
 	src/RE/N/NiBinaryStream.cpp
+	src/RE/N/NiBackToFrontAccumulator.cpp
 	src/RE/N/NiBooleanExtraData.cpp
 	src/RE/N/NiCamera.cpp
 	src/RE/N/NiColor.cpp
@@ -2210,6 +2213,7 @@ set(SOURCES
 	src/RE/S/StackFrame.cpp
 	src/RE/S/Stream.cpp
 	src/RE/S/StreamBase.cpp
+	src/RE/S/Sun.cpp
 	src/RE/Skyrim.cpp
 	src/RE/T/TES.cpp
 	src/RE/T/TESAIForm.cpp

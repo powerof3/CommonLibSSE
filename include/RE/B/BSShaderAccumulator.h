@@ -29,6 +29,7 @@ namespace RE
 		[[nodiscard]] static BSShaderAccumulator* Create(std::uint32_t a_unk);
 		[[nodiscard]] static BSShaderAccumulator* GetCurrentAccumulator();
 		static void                               SetCurrentAccumulator(BSShaderAccumulator* a_accumulator);
+		void                                      RenderFirstPersonView_End(bool a_force);
 
 		~BSShaderAccumulator() override = default;  // 00
 

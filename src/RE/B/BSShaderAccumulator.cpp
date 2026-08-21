@@ -33,4 +33,11 @@ namespace RE
 		static REL::Relocation<func_t> func{ RELOCATION_ID(98998, 105652) };
 		return func(a_accumulator);
 	}
+
+	void BSShaderAccumulator::RenderFirstPersonView_End(bool a_force)
+	{
+		using func_t = decltype(&BSShaderAccumulator::RenderFirstPersonView_End);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(99964, 106610) };
+		return func(this, a_force);
+	}
 }

@@ -145,6 +145,20 @@ namespace RE
 			return func(a_camera, a_accumulator, a_renderFlags);
 		}
 
+		void Renderer::StartAccumulating(NiCamera* a_camera, BSShaderAccumulator* a_accumulator, std::uint32_t a_renderFlags)
+		{
+			using func_t = decltype(&Renderer::StartAccumulating);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(99790, 106437) };
+			return func(a_camera, a_accumulator, a_renderFlags);
+		}
+
+		void Renderer::FinishAccumulatingPostResolveDepth(NiCamera* a_unusedCamera, BSShaderAccumulator* a_accumulator, std::uint32_t a_renderFlags)
+		{
+			using func_t = decltype(&Renderer::FinishAccumulatingPostResolveDepth);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(99791, 106438) };
+			return func(a_unusedCamera, a_accumulator, a_renderFlags);
+		}
+
 		void Renderer::Shutdown()
 		{
 			using func_t = decltype(&Renderer::Shutdown);
