@@ -102,18 +102,18 @@ namespace RE
 		public:
 			[[nodiscard]] static Renderer* GetSingleton() noexcept;
 
-			void CreateSwapChain(REX::W32::HWND* a_window, bool a_setCurrent);
-			void KillWindow(std::uint32_t a_windowID);
-			void Lock();
-			void Unlock();
-			void ResizeWindow(std::uint32_t a_windowID, std::uint32_t a_width, std::uint32_t a_height, bool a_fullscreen, bool a_borderless);
-			void RequestWindowResize(std::uint32_t a_width, std::uint32_t a_height);
-			void SetWindowPosition(std::uint32_t a_windowID, std::int32_t a_x, std::int32_t a_y);
-			void SetWindowActiveState(bool a_show);
-			void WindowSizeChanged(std::uint32_t a_windowID);
-			void ResetWindow(std::uint32_t a_windowID);
-			void UpdateViewPort(std::uint32_t a_unk1, std::uint32_t a_unk2, bool a_unk3);
-			void ApplyState(bool a_arg2);
+			void        CreateSwapChain(REX::W32::HWND* a_window, bool a_setCurrent);
+			void        KillWindow(std::uint32_t a_windowID);
+			void        Lock();
+			void        Unlock();
+			void        ResizeWindow(std::uint32_t a_windowID, std::uint32_t a_width, std::uint32_t a_height, bool a_fullscreen, bool a_borderless);
+			void        RequestWindowResize(std::uint32_t a_width, std::uint32_t a_height);
+			void        SetWindowPosition(std::uint32_t a_windowID, std::int32_t a_x, std::int32_t a_y);
+			void        SetWindowActiveState(bool a_show);
+			void        WindowSizeChanged(std::uint32_t a_windowID);
+			void        ResetWindow(std::uint32_t a_windowID);
+			void        UpdateViewPort(std::uint32_t a_unk1, std::uint32_t a_unk2, bool a_unk3);
+			void        ApplyState(bool a_arg2);
 			static void SubmitAccumulator(NiCamera* a_camera, BSShaderAccumulator* a_accumulator, std::uint32_t a_renderFlags);
 
 			[[nodiscard]] NiTexture::RendererData* CreateRenderTexture(std::uint32_t a_width, std::uint32_t a_height);

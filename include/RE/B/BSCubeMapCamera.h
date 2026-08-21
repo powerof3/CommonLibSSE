@@ -51,11 +51,11 @@ namespace RE
 		virtual void RenderCubemap(FaceEnableFlags a_faceMask, bool a_arg2, bool a_clearScenes, bool a_arg4);  // 35
 
 		// members
-		BSTArray<NiPointer<NiAVObject>> scenes;            // 188
-		NiPointer<BSShaderAccumulator>  accumulator;       // 1A0
-		NiPointer<BSShaderAccumulator>  secondAccumulator; // 1A8
-		NiPointer<NiCamera>             unk1B0;            // 1B0
-		NiColorA                        silhouetteColor;   // 1B8
+		BSTArray<NiPointer<NiAVObject>> scenes;             // 188
+		NiPointer<BSShaderAccumulator>  accumulator;        // 1A0
+		NiPointer<BSShaderAccumulator>  secondAccumulator;  // 1A8
+		NiPointer<NiCamera>             unk1B0;             // 1B0
+		NiColorA                        silhouetteColor;    // 1B8
 
 	protected:
 		BSCubeMapCamera* Ctor();

@@ -4,8 +4,8 @@
 #include "RE/B/BSTHashMap.h"
 #include "RE/B/BSTLocklessQueue.h"
 #include "RE/B/BSTObjectArena.h"
-#include "RE/N/NiAccumulator.h"
 #include "RE/N/NiAVObject.h"
+#include "RE/N/NiAccumulator.h"
 #include "RE/N/NiCamera.h"
 #include "RE/N/NiCullingProcess.h"
 #include "RE/N/NiFrustumPlanes.h"
@@ -52,27 +52,27 @@ namespace RE
 		{
 			CullingContext();
 
-			NiPointer<NiAccumulator>  accumulator;          // 00
-			NiPointer<NiRefObject>    unk08;                // 08
-			NiPointer<NiCamera>       camera;               // 10
-			BSCompoundFrustum*        compoundFrustum;      // 18
-			const NiFrustum*           frustum;              // 20
-			BSPortalGraphEntry*        portalGraphEntry;     // 28
-			NiCullingProcess*          cullingProcess;       // 30
-			const NiFrustumPlanes*     customCullPlanes;     // 38
-			NiPointer<NiAVObject>      scene;                // 40
-			NiVisibleArray*            visibleSet;           // 48
-			REX::Enum<BSCPCullingType> cullMode;             // 50
-			float                      unk54;                // 54
-			std::uint32_t              unk58;                // 58
-			bool                       useParabolicCulling;  // 5C
-			std::uint8_t               unk5D;                // 5D
-			bool                       ignorePreprocess;     // 5E
-			bool                       doCustomCullPlanes;   // 5F
-			bool                       cameraRelatedUpdates; // 60
-			bool                       unk61;                // 61
-			bool                       updateAccumulateFlag; // 62
-			std::uint8_t               pad63[0x5];           // 63
+			NiPointer<NiAccumulator>   accumulator;           // 00
+			NiPointer<NiRefObject>     unk08;                 // 08
+			NiPointer<NiCamera>        camera;                // 10
+			BSCompoundFrustum*         compoundFrustum;       // 18
+			const NiFrustum*           frustum;               // 20
+			BSPortalGraphEntry*        portalGraphEntry;      // 28
+			NiCullingProcess*          cullingProcess;        // 30
+			const NiFrustumPlanes*     customCullPlanes;      // 38
+			NiPointer<NiAVObject>      scene;                 // 40
+			NiVisibleArray*            visibleSet;            // 48
+			REX::Enum<BSCPCullingType> cullMode;              // 50
+			float                      unk54;                 // 54
+			std::uint32_t              unk58;                 // 58
+			bool                       useParabolicCulling;   // 5C
+			std::uint8_t               unk5D;                 // 5D
+			bool                       ignorePreprocess;      // 5E
+			bool                       doCustomCullPlanes;    // 5F
+			bool                       cameraRelatedUpdates;  // 60
+			bool                       unk61;                 // 61
+			bool                       updateAccumulateFlag;  // 62
+			std::uint8_t               pad63[0x5];            // 63
 		};
 		static_assert(sizeof(CullingContext) == 0x68);
 
@@ -91,7 +91,7 @@ namespace RE
 		virtual bool               TestBaseVisibility2(BSOcclusionPlane& a_bound);                        // 1B
 		[[nodiscard]] virtual bool TestBaseVisibility3(const NiBound& a_bound);                           // 1C
 
-		bool AddShared(NiAVObject* a_object);
+		bool        AddShared(NiAVObject* a_object);
 		static void Process(CullingContext& a_context);
 
 		BSTArray<NiPointer<NiAVObject>>                                          objectArray;          // 00128
