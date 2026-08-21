@@ -33,11 +33,11 @@ namespace RE
 		};
 
 		// members
-		NiPlane                                  cullingPlanes[Planes::kTotal];  // 00
+		NiPlane                                   cullingPlanes[Planes::kTotal];  // 00
 		REX::TEnumSet<ActivePlane, std::uint32_t> activePlanes;                   // 60
-		std::uint32_t                            basePlaneStates;                // 64
-		std::uint32_t                            unk68;                          // 68
-		std::uint32_t                            unk6C;                          // 6C
+		std::uint32_t                             basePlaneStates;                // 64
+		std::uint32_t                             unk68;                          // 68
+		std::uint32_t                             unk6C;                          // 6C
 	};
 	static_assert(sizeof(NiFrustumPlanes) == 0x70);
 }

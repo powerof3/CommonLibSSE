@@ -47,10 +47,10 @@ namespace RE
 
 		// members
 		REX::TEnumSet<Type, std::uint8_t> locType;  // 08
-		std::uint8_t                     pad09;    // 09
-		std::uint16_t                    pad0A;    // 0A
-		std::uint32_t                    rad;      // 0C
-		Data                             data;     // 10
+		std::uint8_t                      pad09;    // 09
+		std::uint16_t                     pad0A;    // 0A
+		std::uint32_t                     rad;      // 0C
+		Data                              data;     // 10
 	};
 	static_assert(sizeof(PackageLocation) == 0x18);
 }

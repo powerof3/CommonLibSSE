@@ -30,9 +30,9 @@ namespace RE
 		virtual BGSAnimationSequencer* GetSourceSequencer() const;   // 03 - { return nullptr; }
 
 		// members
-		NiPointer<TESObjectREFR>              source;    // 08
-		NiPointer<TESObjectREFR>              target;    // 10
-		BGSAction*                            action;    // 18
+		NiPointer<TESObjectREFR>               source;    // 08
+		NiPointer<TESObjectREFR>               target;    // 10
+		BGSAction*                             action;    // 18
 		REX::TEnumSet<Priority, std::uint32_t> priority;  // 20
 	};
 	static_assert(sizeof(ActionInput) == 0x28);

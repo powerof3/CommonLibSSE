@@ -35,9 +35,9 @@ namespace RE
 
 		// members
 		REX::TEnumSet<Hotkey, std::uint8_t> hotkey;  // 10
-		std::uint8_t                       unk11;   // 11
-		std::uint16_t                      unk12;   // 12
-		std::uint32_t                      unk14;   // 14
+		std::uint8_t                        unk11;   // 11
+		std::uint16_t                       unk12;   // 12
+		std::uint32_t                       unk14;   // 14
 	};
 	static_assert(sizeof(ExtraHotkey) == 0x18);
 }

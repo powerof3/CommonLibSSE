@@ -72,7 +72,7 @@ namespace RE
 		float                                 enforcedDuration;                    // 068
 		float                                 userControlledTimeFraction;          // 06C
 		std::uint16_t                         animationBindingIndex;               // 070
-		REX::TEnumSet<PlaybackMode, uint8_t>   mode;                                // 072
+		REX::TEnumSet<PlaybackMode, uint8_t>  mode;                                // 072
 		std::uint8_t                          flags;                               // 073
 		std::uint32_t                         unk74;                               // 074
 		hkArray<hkRefVariant>                 animDatas;                           // 078

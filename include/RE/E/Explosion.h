@@ -60,31 +60,31 @@ namespace RE
 		virtual void FindTargets();          // A4
 
 		// members
-		ModelDBHandle                      explosionDBHandle;  // 098
-		float                              age;                // 0A0
-		float                              lifetime;           // 0A4
-		float                              hitTime;            // 0A8
-		float                              radius;             // 0AC
-		float                              imodRadius;         // 0B0
-		float                              unkB4;              // 0B4
-		bhkSimpleShapePhantom*             unkB8;              // 0B8
-		std::uint64_t                      unkC0;              // 0C0
-		std::uint64_t                      unkC8;              // 0C8
-		BSSoundHandle                      sound01;            // 0D0
-		BSSoundHandle                      sound02;            // 0DC
-		NiPointer<NiPointLight>            light;              // 0E8
-		ActorHandle                        actorOwner;         // 0F0
-		ActorHandle                        unkF4;              // 0F4
-		std::uint32_t                      unkF8;              // 0F8
-		std::uint32_t                      padFC;              // 0FC
-		NiPointer<ActorCause>              actorCause;         // 100
-		NonActorMagicCaster*               magicCaster;        // 108
-		TESObjectWEAP*                     weaponSource;       // 110
-		std::uint32_t                      frameCount;         // 118
-		NiPoint3                           unk11C;             // 11C
-		NiPoint3                           negativeVelocity;   // 128
-		float                              damage;             // 134
-		float                              unk138;             // 138
+		ModelDBHandle                       explosionDBHandle;  // 098
+		float                               age;                // 0A0
+		float                               lifetime;           // 0A4
+		float                               hitTime;            // 0A8
+		float                               radius;             // 0AC
+		float                               imodRadius;         // 0B0
+		float                               unkB4;              // 0B4
+		bhkSimpleShapePhantom*              unkB8;              // 0B8
+		std::uint64_t                       unkC0;              // 0C0
+		std::uint64_t                       unkC8;              // 0C8
+		BSSoundHandle                       sound01;            // 0D0
+		BSSoundHandle                       sound02;            // 0DC
+		NiPointer<NiPointLight>             light;              // 0E8
+		ActorHandle                         actorOwner;         // 0F0
+		ActorHandle                         unkF4;              // 0F4
+		std::uint32_t                       unkF8;              // 0F8
+		std::uint32_t                       padFC;              // 0FC
+		NiPointer<ActorCause>               actorCause;         // 100
+		NonActorMagicCaster*                magicCaster;        // 108
+		TESObjectWEAP*                      weaponSource;       // 110
+		std::uint32_t                       frameCount;         // 118
+		NiPoint3                            unk11C;             // 11C
+		NiPoint3                            negativeVelocity;   // 128
+		float                               damage;             // 134
+		float                               unk138;             // 138
 		REX::TEnumSet<Flags, std::uint32_t> flags;              // 13C
 	};
 #ifndef SKYRIM_SUPPORT_AE

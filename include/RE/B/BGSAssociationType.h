@@ -57,9 +57,9 @@ namespace RE
 		bool Load(TESFile* a_mod) override;  // 06
 
 		// members
-		BSFixedString                      associationLabels[Members::kTotal][Sexes::kTotal];  // 20 - MPRT - FCHT
+		BSFixedString                       associationLabels[Members::kTotal][Sexes::kTotal];  // 20 - MPRT - FCHT
 		REX::TEnumSet<FLAGS, std::uint32_t> flags;                                              // 40 - DATA
-		std::uint32_t                      pad44;                                              // 44
+		std::uint32_t                       pad44;                                              // 44
 	};
 	static_assert(sizeof(BGSAssociationType) == 0x48);
 }

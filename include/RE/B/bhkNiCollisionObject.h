@@ -53,8 +53,8 @@ namespace RE
 
 		// members
 		REX::TEnumSet<Flag, std::uint32_t> flags;  // 18
-		std::uint32_t                     pad1C;  // 1C
-		NiPointer<bhkWorldObject>         body;   // 20
+		std::uint32_t                      pad1C;  // 1C
+		NiPointer<bhkWorldObject>          body;   // 20
 	};
 	static_assert(sizeof(bhkNiCollisionObject) == 0x28);
 }

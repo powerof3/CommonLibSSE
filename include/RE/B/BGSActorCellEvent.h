@@ -12,7 +12,7 @@ namespace RE
 			kLeave = 1
 		};
 
-		FormID                                cellID;
+		FormID                                 cellID;
 		REX::TEnumSet<CellFlag, std::uint32_t> flags;
 	};
 	static_assert(sizeof(BGSActorCellEvent) == 0xC);

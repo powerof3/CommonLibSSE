@@ -27,9 +27,9 @@ namespace RE
 				kSnowy = 1 << 3
 			};
 
-			BGSSoundDescriptorForm*           sound;   // 00
+			BGSSoundDescriptorForm*            sound;   // 00
 			REX::TEnumSet<Flag, std::uint32_t> flags;   // 08
-			float                             chance;  // 0C
+			float                              chance;  // 0C
 		};
 		static_assert(sizeof(Sound) == 0x10);
 

@@ -60,14 +60,14 @@ namespace RE
 		virtual bool        Generate(bool a_arg1, NiPoint3& a_arg2, NiPoint3& a_arg3) = 0;  // 03
 
 		// members
-		BSParticleShaderProperty*                 property;          // 10
+		BSParticleShaderProperty*                  property;          // 10
 		REX::TEnumSet<EMITTER_TYPE, std::uint16_t> emitterType;       // 18
-		std::uint16_t                             particleCount;     // 1A
-		float                                     alpha;             // 1C
-		float                                     generateReminder;  // 20
-		float                                     maxParticleRatio;  // 24
-		TextureAnimInfo*                          textureAnims;      // 28
-		ParticleData                              instanceData[78];  // 30
+		std::uint16_t                              particleCount;     // 1A
+		float                                      alpha;             // 1C
+		float                                      generateReminder;  // 20
+		float                                      maxParticleRatio;  // 24
+		TextureAnimInfo*                           textureAnims;      // 28
+		ParticleData                               instanceData[78];  // 30
 	};
 	static_assert(sizeof(BSParticleShaderEmitter) == 0xED0);
 }

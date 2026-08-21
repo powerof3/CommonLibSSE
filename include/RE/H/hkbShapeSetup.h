@@ -13,9 +13,9 @@ namespace RE
 		};
 
 		// members
-		float                           capsuleHeight;  // 00
-		float                           capsuleRadius;  // 04
-		hkStringPtr                     fileName;       // 08
+		float                            capsuleHeight;  // 00
+		float                            capsuleRadius;  // 04
+		hkStringPtr                      fileName;       // 08
 		REX::TEnumSet<Type, std::int8_t> type;           // 10
 	};
 	static_assert(sizeof(hkbShapeSetup) == 0x18);

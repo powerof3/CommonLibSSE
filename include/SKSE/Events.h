@@ -61,8 +61,8 @@ namespace SKSE
 
 		// members
 		REX::TEnumSet<Type, std::uint32_t> type;
-		RE::Actor*                        actor;
-		RE::TESForm*                      sourceForm;
+		RE::Actor*                         actor;
+		RE::TESForm*                       sourceForm;
 		REX::TEnumSet<Slot, std::uint32_t> slot;
 	};
 

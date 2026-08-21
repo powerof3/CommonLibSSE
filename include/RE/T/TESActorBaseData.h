@@ -64,16 +64,16 @@ namespace RE
 
 		// members
 		REX::TEnumSet<Flag, std::uint32_t>              actorBaseFlags;    // 00
-		std::int16_t                                   magickaOffset;     // 04
-		std::int16_t                                   staminaOffset;     // 06
-		std::uint16_t                                  level;             // 08
-		std::uint16_t                                  calcLevelMin;      // 0A
-		std::uint16_t                                  calcLevelMax;      // 0C
-		std::uint16_t                                  speedMult;         // 0E
-		std::uint16_t                                  baseDisposition;   // 10 - unused
+		std::int16_t                                    magickaOffset;     // 04
+		std::int16_t                                    staminaOffset;     // 06
+		std::uint16_t                                   level;             // 08
+		std::uint16_t                                   calcLevelMin;      // 0A
+		std::uint16_t                                   calcLevelMax;      // 0C
+		std::uint16_t                                   speedMult;         // 0E
+		std::uint16_t                                   baseDisposition;   // 10 - unused
 		REX::TEnumSet<TEMPLATE_USE_FLAG, std::uint16_t> templateUseFlags;  // 12
-		std::int16_t                                   healthOffset;      // 14
-		std::int16_t                                   bleedoutOverride;  // 16
+		std::int16_t                                    healthOffset;      // 14
+		std::int16_t                                    bleedoutOverride;  // 16
 	};
 	static_assert(sizeof(ACTOR_BASE_DATA) == 0x18);
 

@@ -23,23 +23,23 @@ namespace RE
 		};
 
 		// members
-		ActorHandle                        targetHandle;        // 00
-		std::int32_t                       detectLevel;         // 04
-		float                              stealthPoints;       // 08
-		float                              unk0C;               // 0C
-		BGSWorldLocation                   lastKnownLoc;        // 10
-		BGSWorldLocation                   unk28;               // 28
-		BGSWorldLocation                   unk40;               // 40
-		BGSWorldLocation                   searchLoc;           // 58
-		BGSWorldLocation                   unk70;               // 70
-		AITimeStamp                        unk88;               // 88 - unk40
-		AITimeStamp                        unk8C;               // 8C - unk28
-		AITimeStamp                        lastKnownTimeStamp;  // 90 - lastKnownLoc
-		AITimeStamp                        unk94;               // 94 - ??
-		AITimeStamp                        unk98;               // 98 - unk58
-		AITimeStamp                        unk9C;               // 9C - unk70
-		ActorHandle                        attackedMember;      // A0
-		std::uint16_t                      attackerCount;       // A4
+		ActorHandle                         targetHandle;        // 00
+		std::int32_t                        detectLevel;         // 04
+		float                               stealthPoints;       // 08
+		float                               unk0C;               // 0C
+		BGSWorldLocation                    lastKnownLoc;        // 10
+		BGSWorldLocation                    unk28;               // 28
+		BGSWorldLocation                    unk40;               // 40
+		BGSWorldLocation                    searchLoc;           // 58
+		BGSWorldLocation                    unk70;               // 70
+		AITimeStamp                         unk88;               // 88 - unk40
+		AITimeStamp                         unk8C;               // 8C - unk28
+		AITimeStamp                         lastKnownTimeStamp;  // 90 - lastKnownLoc
+		AITimeStamp                         unk94;               // 94 - ??
+		AITimeStamp                         unk98;               // 98 - unk58
+		AITimeStamp                         unk9C;               // 9C - unk70
+		ActorHandle                         attackedMember;      // A0
+		std::uint16_t                       attackerCount;       // A4
 		REX::TEnumSet<Flags, std::uint16_t> flags;               // A6
 	};
 	static_assert(sizeof(CombatTarget) == 0xA8);

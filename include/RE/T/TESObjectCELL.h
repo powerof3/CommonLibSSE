@@ -54,16 +54,16 @@ namespace RE
 		};
 
 		// members
-		std::int32_t                             cellX;          // 00
-		std::int32_t                             cellY;          // 04
-		char*                                    maxHeightData;  // 08
-		BGSTerrainVisibilityData*                lodVisData;     // 10
-		float                                    worldX;         // 18
-		float                                    worldY;         // 1C
+		std::int32_t                              cellX;          // 00
+		std::int32_t                              cellY;          // 04
+		char*                                     maxHeightData;  // 08
+		BGSTerrainVisibilityData*                 lodVisData;     // 10
+		float                                     worldX;         // 18
+		float                                     worldY;         // 1C
 		REX::TEnumSet<LandHideFlag, std::uint8_t> landHideFlags;  // 20
-		std::uint8_t                             pad21;          // 21
-		std::uint16_t                            pad22;          // 22
-		std::uint32_t                            pad24;          // 24
+		std::uint8_t                              pad21;          // 21
+		std::uint16_t                             pad22;          // 22
+		std::uint32_t                             pad24;          // 24
 	};
 	static_assert(sizeof(EXTERIOR_DATA) == 0x28);
 
@@ -221,9 +221,9 @@ namespace RE
 		// members
 		mutable BSSpinLock                                   grassCreateLock;   // 030
 		mutable BSSpinLock                                   grassTaskLock;     // 038
-		REX::TEnumSet<Flag, std::uint16_t>                    cellFlags;         // 040
+		REX::TEnumSet<Flag, std::uint16_t>                   cellFlags;         // 040
 		std::uint16_t                                        cellGameFlags;     // 042
-		REX::TEnumSet<CellState, std::uint8_t>                cellState;         // 044
+		REX::TEnumSet<CellState, std::uint8_t>               cellState;         // 044
 		bool                                                 autoWaterLoaded;   // 045
 		bool                                                 cellDetached;      // 046
 		std::uint8_t                                         pad047;            // 047

@@ -46,7 +46,7 @@ namespace RE
 		// members
 		TESActionData                                     actionData;  // 00
 		BSScrapArray<AnimationSystemUtils::UtilsClipData> clipData;    // 60
-		REX::TEnumSet<STATE, std::int32_t>                 state;       // 80
+		REX::TEnumSet<STATE, std::int32_t>                state;       // 80
 		std::uint32_t                                     pad84;       // 84
 
 	private:

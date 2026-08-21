@@ -46,7 +46,7 @@ namespace RE
 
 		// members
 		REX::TEnumSet<ActionControlFlags, std::uint32_t> actionFlags;  // 18
-		std::uint32_t                                   pad1C;        // 1C
+		std::uint32_t                                    pad1C;        // 1C
 	};
 	static_assert(sizeof(GFxActionControl) == 0x20);
 }

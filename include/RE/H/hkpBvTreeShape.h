@@ -32,9 +32,9 @@ namespace RE
 
 		// members
 		REX::TEnumSet<BvTreeType, std::uint8_t> bvTreeType;  // 20
-		std::uint8_t                           pad21;       // 21
-		std::uint16_t                          pad22;       // 22
-		std::uint32_t                          pad24;       // 24
+		std::uint8_t                            pad21;       // 21
+		std::uint16_t                           pad22;       // 22
+		std::uint32_t                           pad24;       // 24
 	};
 	static_assert(sizeof(hkpBvTreeShape) == 0x28);
 }

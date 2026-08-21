@@ -74,18 +74,18 @@ namespace RE
 
 		// members
 		REX::TEnumSet<Flag, std::uint16_t> flags;             // 10
-		std::uint16_t                     pad12;             // 12
-		float                             frequency;         // 14
-		float                             phase;             // 18
-		float                             loKeyTime;         // 1C
-		float                             hiKeyTime;         // 20
-		float                             startTime;         // 24
-		float                             lastTime;          // 28
-		float                             weightedLastTime;  // 2C
-		float                             scaledTime;        // 30
-		std::uint32_t                     pad34;             // 34
-		NiObjectNET*                      target;            // 38
-		NiPointer<NiTimeController>       next;              // 40 - singly-linked list
+		std::uint16_t                      pad12;             // 12
+		float                              frequency;         // 14
+		float                              phase;             // 18
+		float                              loKeyTime;         // 1C
+		float                              hiKeyTime;         // 20
+		float                              startTime;         // 24
+		float                              lastTime;          // 28
+		float                              weightedLastTime;  // 2C
+		float                              scaledTime;        // 30
+		std::uint32_t                      pad34;             // 34
+		NiObjectNET*                       target;            // 38
+		NiPointer<NiTimeController>        next;              // 40 - singly-linked list
 
 	private:
 		NiTimeController* ctor();

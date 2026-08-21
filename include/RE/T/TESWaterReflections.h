@@ -48,20 +48,20 @@ namespace RE
 
 		// members
 		REX::TEnumSet<Flags, std::uint16_t> flags;                  // 10
-		std::uint16_t                      pad12;                  // 12
-		NiPlane                            reflectPlane;           // 14
-		std::uint32_t                      pad24;                  // 24
-		NiPointer<BSCubeMapCamera>         cubeMapCamera;          // 28
-		NiPointer<BSShaderAccumulator>     sorter;                 // 30
-		BSCullingProcess*                  cullingProcess;         // 38
-		BSWaterShaderMaterial*             waterMaterial;          // 40
-		float                              reflectionUpdateTimer;  // 48
-		std::uint32_t                      currentCubeMapFace;     // 4C
-		CubeMapSide                        cubeMapSides[6];        // 50
-		bool                               activeThisFrame;        // 80
-		std::uint8_t                       pad81;                  // 81
-		std::uint16_t                      pad82;                  // 82
-		std::uint32_t                      pad84;                  // 84
+		std::uint16_t                       pad12;                  // 12
+		NiPlane                             reflectPlane;           // 14
+		std::uint32_t                       pad24;                  // 24
+		NiPointer<BSCubeMapCamera>          cubeMapCamera;          // 28
+		NiPointer<BSShaderAccumulator>      sorter;                 // 30
+		BSCullingProcess*                   cullingProcess;         // 38
+		BSWaterShaderMaterial*              waterMaterial;          // 40
+		float                               reflectionUpdateTimer;  // 48
+		std::uint32_t                       currentCubeMapFace;     // 4C
+		CubeMapSide                         cubeMapSides[6];        // 50
+		bool                                activeThisFrame;        // 80
+		std::uint8_t                        pad81;                  // 81
+		std::uint16_t                       pad82;                  // 82
+		std::uint32_t                       pad84;                  // 84
 	private:
 		void Dtor();
 	};

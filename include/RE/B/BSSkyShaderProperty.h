@@ -40,13 +40,13 @@ namespace RE
 		};
 
 		// members
-		RE::NiColorA                           kBlendColor;         // 088
-		RE::NiSourceTexture*                   pBaseTexture;        // 098
-		RE::NiSourceTexture*                   pBlendTexture;       // 0A0
-		std::uint8_t                           unk0A8[0x10];        // 0A8
-		float                                  fBlendValue;         // 0B8
-		std::uint16_t                          usCloudLayer;        // 0BC
-		bool                                   bFadeSecondTexture;  // 0BE
+		RE::NiColorA                            kBlendColor;         // 088
+		RE::NiSourceTexture*                    pBaseTexture;        // 098
+		RE::NiSourceTexture*                    pBlendTexture;       // 0A0
+		std::uint8_t                            unk0A8[0x10];        // 0A8
+		float                                   fBlendValue;         // 0B8
+		std::uint16_t                           usCloudLayer;        // 0BC
+		bool                                    bFadeSecondTexture;  // 0BE
 		REX::TEnumSet<SkyObject, std::uint32_t> uiSkyObjectType;     // 0BF
 	};
 	static_assert(sizeof(BSSkyShaderProperty) == 0xC8);

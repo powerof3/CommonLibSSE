@@ -52,15 +52,15 @@ namespace RE
 		virtual void                        Unk_13(void);                                        // 13 - { return; }
 
 		// members
-		std::uint32_t                     actorID;     // 08 - ALID
-		std::uint16_t                     startPhase;  // 0C - SNAM
-		std::uint16_t                     endPhase;    // 0E - ENAM
+		std::uint32_t                      actorID;     // 08 - ALID
+		std::uint16_t                      startPhase;  // 0C - SNAM
+		std::uint16_t                      endPhase;    // 0E - ENAM
 		REX::TEnumSet<Flag, std::uint32_t> flags;       // 10
-		std::uint8_t                      unk14;       // 14
-		std::uint8_t                      unk15;       // 15
-		std::uint16_t                     unk16;       // 16
-		std::uint32_t                     index;       // 18 - INAM
-		std::uint32_t                     unk1C;       // 1C
+		std::uint8_t                       unk14;       // 14
+		std::uint8_t                       unk15;       // 15
+		std::uint16_t                      unk16;       // 16
+		std::uint32_t                      index;       // 18 - INAM
+		std::uint32_t                      unk1C;       // 1C
 	};
 	static_assert(sizeof(BGSSceneAction) == 0x20);
 }

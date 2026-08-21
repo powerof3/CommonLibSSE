@@ -16,10 +16,10 @@ namespace RE
 		};
 
 		// members
-		std::uint64_t                    userData;     // 00
-		hkUFloat8                        friction;     // 08
-		std::uint8_t                     restitution;  // 09
-		hkUFloat8                        maxImpulse;   // 0A
+		std::uint64_t                     userData;     // 00
+		hkUFloat8                         friction;     // 08
+		std::uint8_t                      restitution;  // 09
+		hkUFloat8                         maxImpulse;   // 0A
 		REX::TEnumSet<Flag, std::uint8_t> flags;        // 0B
 	};
 	static_assert(sizeof(hkContactPointMaterial) == 0x10);

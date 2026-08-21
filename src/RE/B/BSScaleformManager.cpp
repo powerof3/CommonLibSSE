@@ -60,7 +60,7 @@ namespace RE
 		}
 
 		const REX::TEnumSet loadFlags{ LoadConstants::kLoadKeepBindData, LoadConstants::kLoadWaitFrame1 };
-		const auto         def = loader->CreateMovie(filePath->c_str(), *loadFlags);
+		const auto          def = loader->CreateMovie(filePath->c_str(), *loadFlags);
 		if (!def) {
 			return false;
 		}
@@ -120,7 +120,7 @@ namespace RE
 		}
 
 		const REX::TEnumSet loadFlags{ LoadConstants::kLoadKeepBindData, LoadConstants::kLoadWaitFrame1 };
-		const auto         def = loader->CreateMovie(filePath->c_str(), *loadFlags);
+		const auto          def = loader->CreateMovie(filePath->c_str(), *loadFlags);
 		if (!def) {
 			return false;
 		}

@@ -22,10 +22,10 @@ namespace RE
 
 		// members
 		REX::TEnumSet<ResponseType, std::uint8_t> responseType;               // 00
-		std::uint8_t                             pad01;                      // 01
-		hkHalf                                   rollingFrictionMultiplier;  // 02
-		float                                    friction;                   // 04
-		float                                    restitution;                // 08
+		std::uint8_t                              pad01;                      // 01
+		hkHalf                                    rollingFrictionMultiplier;  // 02
+		float                                     friction;                   // 04
+		float                                     restitution;                // 08
 	};
 	static_assert(sizeof(hkpMaterial) == 0xC);
 }

@@ -31,10 +31,10 @@ namespace RE
 
 		// members
 		REX::TEnumSet<OBJECT_ACTION, std::int8_t> action;     // 10
-		std::uint8_t                             pad11;      // 11
-		std::uint16_t                            pad12;      // 12
-		std::uint32_t                            pad14;      // 14
-		TESObjectREFR*                           actionRef;  // 18
+		std::uint8_t                              pad11;      // 11
+		std::uint16_t                             pad12;      // 12
+		std::uint32_t                             pad14;      // 14
+		TESObjectREFR*                            actionRef;  // 18
 	};
 	static_assert(sizeof(ExtraAction) == 0x20);
 }

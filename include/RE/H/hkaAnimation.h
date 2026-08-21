@@ -57,11 +57,11 @@ namespace RE
 
 		// members
 		REX::TEnumSet<AnimationType, std::uint32_t> type;                     // 10
-		float                                      duration;                 // 14
-		std::int32_t                               numberOfTransformTracks;  // 18
-		std::int32_t                               numberOfFloatTracks;      // 1C
-		hkRefPtr<hkaAnimatedReferenceFrame>        extractedMotion;          // 20
-		hkArray<hkaAnnotationTrack>                annotationTracks;         // 28
+		float                                       duration;                 // 14
+		std::int32_t                                numberOfTransformTracks;  // 18
+		std::int32_t                                numberOfFloatTracks;      // 1C
+		hkRefPtr<hkaAnimatedReferenceFrame>         extractedMotion;          // 20
+		hkArray<hkaAnnotationTrack>                 annotationTracks;         // 28
 	};
 	static_assert(sizeof(hkaAnimation) == 0x38);
 }

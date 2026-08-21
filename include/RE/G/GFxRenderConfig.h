@@ -44,13 +44,13 @@ namespace RE
 		void                        SetStrokerAAWidth(float a_aawidth);
 
 		// members
-		GPtr<GRenderer>                            renderer;            // 18
-		float                                      maxCurvePixelError;  // 20
+		GPtr<GRenderer>                             renderer;            // 18
+		float                                       maxCurvePixelError;  // 20
 		REX::TEnumSet<RenderFlag, std::uint32_t>    renderFlags;         // 24
-		float                                      strokerAAWidth;      // 28
+		float                                       strokerAAWidth;      // 28
 		REX::TEnumSet<RenderCapBits, std::uint32_t> rendererCapBits;     // 2C
 		REX::TEnumSet<VertexFormat, std::uint32_t>  rendererVtxFmts;     // 30
-		std::uint32_t                              pad34;               // 34
+		std::uint32_t                               pad34;               // 34
 	};
 	static_assert(sizeof(GFxRenderConfig) == 0x38);
 }

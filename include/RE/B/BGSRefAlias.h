@@ -67,16 +67,16 @@ namespace RE
 				};
 
 				// members
-				std::uint16_t                       alias;   // 0
+				std::uint16_t                        alias;   // 0
 				REX::TEnumSet<Create, std::uint16_t> create;  // 2
 			};
 			static_assert(sizeof(Alias) == 0x4);
 
 			// members
-			TESBoundObject*                    object;  // 00 - ALCO
-			Alias                              alias;   // 08 - ALCA
+			TESBoundObject*                     object;  // 00 - ALCO
+			Alias                               alias;   // 08 - ALCA
 			REX::TEnumSet<Level, std::uint16_t> level;   // 0C - ALCL
-			std::uint16_t                      pad0E;   // 0E
+			std::uint16_t                       pad0E;   // 0E
 		};
 		static_assert(sizeof(CreatedFillData) == 0x10);
 
@@ -108,7 +108,7 @@ namespace RE
 			};
 
 			// members
-			std::uint32_t                             nearAlias;     // 0 - ALNA
+			std::uint32_t                              nearAlias;     // 0 - ALNA
 			REX::TEnumSet<NEARFILLTYPE, std::uint32_t> nearFillType;  // 4 - ALNT
 		};
 		static_assert(sizeof(NearAliasFillData) == 0x8);

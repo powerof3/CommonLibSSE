@@ -46,15 +46,15 @@ namespace RE
 		{
 		public:
 			// members
-			std::int32_t                           costOverride;  // 00
+			std::int32_t                            costOverride;  // 00
 			REX::TEnumSet<SpellFlag, std::uint32_t> flags;         // 04
-			MagicSystem::SpellType                 spellType;     // 08
-			float                                  chargeTime;    // 0C
-			MagicSystem::CastingType               castingType;   // 10
-			MagicSystem::Delivery                  delivery;      // 14
-			float                                  castDuration;  // 18
-			float                                  range;         // 1C
-			BGSPerk*                               castingPerk;   // 20
+			MagicSystem::SpellType                  spellType;     // 08
+			float                                   chargeTime;    // 0C
+			MagicSystem::CastingType                castingType;   // 10
+			MagicSystem::Delivery                   delivery;      // 14
+			float                                   castDuration;  // 18
+			float                                   range;         // 1C
+			BGSPerk*                                castingPerk;   // 20
 		};
 		static_assert(sizeof(Data) == 0x28);
 

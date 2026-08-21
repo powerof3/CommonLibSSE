@@ -18,17 +18,17 @@ namespace RE
 		};
 
 		// members
-		mutable BSSpinLock                            packageLock;            // 00
-		TESPackage*                                   package;                // 08
-		ActorPackageData*                             data;                   // 10
-		ObjectRefHandle                               target;                 // 18
-		std::int32_t                                  currentProcedureIndex;  // 1C
-		float                                         packageStartTime;       // 20
-		std::uint32_t                                 modifiedPackageFlag;    // 24
-		std::uint16_t                                 modifiedInterruptFlag;  // 28
+		mutable BSSpinLock                             packageLock;            // 00
+		TESPackage*                                    package;                // 08
+		ActorPackageData*                              data;                   // 10
+		ObjectRefHandle                                target;                 // 18
+		std::int32_t                                   currentProcedureIndex;  // 1C
+		float                                          packageStartTime;       // 20
+		std::uint32_t                                  modifiedPackageFlag;    // 24
+		std::uint16_t                                  modifiedInterruptFlag;  // 28
 		REX::TEnumSet<ACTOR_PACKAGE_FLAG, std::int8_t> actorPackageFlags;      // 2A
-		std::int8_t                                   preferredSpeed;         // 2B
-		std::uint32_t                                 pad2C;                  // 2C
+		std::int8_t                                    preferredSpeed;         // 2B
+		std::uint32_t                                  pad2C;                  // 2C
 	};
 	static_assert(sizeof(ActorPackage) == 0x30);
 }

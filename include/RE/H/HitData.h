@@ -49,32 +49,32 @@ namespace RE
 		}
 
 		// members
-		NiPoint3                              hitPosition;             // 00
-		NiPoint3                              hitDirection;            // 0C
-		ActorHandle                           aggressor;               // 18
-		ActorHandle                           target;                  // 1C
-		ObjectRefHandle                       sourceRef;               // 20
-		std::uint32_t                         pad24;                   // 24
-		NiPointer<BGSAttackData>              attackData;              // 28
-		TESObjectWEAP*                        weapon;                  // 30
-		MagicItem*                            criticalEffect;          // 38
-		SpellItem*                            attackDataSpell;         // 40
-		VATSCommand*                          VATSCommand;             // 48
-		float                                 totalDamage;             // 50
-		float                                 physicalDamage;          // 54
-		float                                 targetedLimbDamage;      // 58
-		float                                 percentBlocked;          // 5C
-		float                                 resistedPhysicalDamage;  // 60
-		float                                 resistedTypedDamage;     // 64
-		float                                 stagger;                 // 68
-		float                                 sneakAttackBonus;        // 6C
-		float                                 bonusHealthDamageMult;   // 70
-		float                                 pushBack;                // 74
-		float                                 reflectedDamage;         // 78
-		float                                 criticalDamageMult;      // 7C
+		NiPoint3                               hitPosition;             // 00
+		NiPoint3                               hitDirection;            // 0C
+		ActorHandle                            aggressor;               // 18
+		ActorHandle                            target;                  // 1C
+		ObjectRefHandle                        sourceRef;               // 20
+		std::uint32_t                          pad24;                   // 24
+		NiPointer<BGSAttackData>               attackData;              // 28
+		TESObjectWEAP*                         weapon;                  // 30
+		MagicItem*                             criticalEffect;          // 38
+		SpellItem*                             attackDataSpell;         // 40
+		VATSCommand*                           VATSCommand;             // 48
+		float                                  totalDamage;             // 50
+		float                                  physicalDamage;          // 54
+		float                                  targetedLimbDamage;      // 58
+		float                                  percentBlocked;          // 5C
+		float                                  resistedPhysicalDamage;  // 60
+		float                                  resistedTypedDamage;     // 64
+		float                                  stagger;                 // 68
+		float                                  sneakAttackBonus;        // 6C
+		float                                  bonusHealthDamageMult;   // 70
+		float                                  pushBack;                // 74
+		float                                  reflectedDamage;         // 78
+		float                                  criticalDamageMult;      // 7C
 		REX::TEnumSet<Flag, std::uint32_t>     flags;                   // 80
-		std::uint32_t                         equipIndex;              // 84
-		ActorValue                            skill;                   // 88
+		std::uint32_t                          equipIndex;              // 84
+		ActorValue                             skill;                   // 88
 		REX::TEnum<BGSBodyPartDefs::LIMB_ENUM> damageLimb;              // 8C
 	};
 	static_assert(sizeof(HitData) == 0x90);

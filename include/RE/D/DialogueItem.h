@@ -22,18 +22,18 @@ namespace RE
 	{
 	public:
 		// members
-		BSString                                 text;              // 00
+		BSString                                  text;              // 00
 		REX::TEnumSet<EmotionType, std::uint32_t> animFaceArchType;  // 10
-		std::uint16_t                            percent;           // 14
-		std::uint16_t                            pad16;             // 16
-		BSFixedString                            voice;             // 18
-		TESIdleForm*                             speakerIdle;       // 20
-		TESIdleForm*                             listenIdle;        // 28
-		BGSSoundDescriptorForm*                  voiceSound;        // 30
-		bool                                     useEmotion;        // 38
-		bool                                     soundLip;          // 39
-		std::uint16_t                            pad3A;             // 3A
-		std::uint32_t                            pad3C;             // 3C
+		std::uint16_t                             percent;           // 14
+		std::uint16_t                             pad16;             // 16
+		BSFixedString                             voice;             // 18
+		TESIdleForm*                              speakerIdle;       // 20
+		TESIdleForm*                              listenIdle;        // 28
+		BGSSoundDescriptorForm*                   voiceSound;        // 30
+		bool                                      useEmotion;        // 38
+		bool                                      soundLip;          // 39
+		std::uint16_t                             pad3A;             // 3A
+		std::uint32_t                             pad3C;             // 3C
 	};
 	static_assert(sizeof(DialogueResponse) == 0x40);
 

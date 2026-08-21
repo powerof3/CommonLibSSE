@@ -40,7 +40,7 @@ namespace RE
 
 		// members
 		REX::TEnumSet<MUSIC_STATUS, std::uint32_t> trackStatus;  // 08
-		std::uint32_t                             pad0C;        // 0C
+		std::uint32_t                              pad0C;        // 0C
 	};
 	static_assert(sizeof(BSIMusicTrack) == 0x10);
 }

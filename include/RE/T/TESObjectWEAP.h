@@ -166,24 +166,24 @@ namespace RE
 			};
 
 			// members
-			RangedData*                                    rangedData;           // 00
-			float                                          speed;                // 08
-			float                                          reach;                // 0C
-			float                                          minRange;             // 10
-			float                                          maxRange;             // 14
-			float                                          animationAttackMult;  // 18
-			float                                          damageToWeaponMult;   // 1C - used in (unused?) condition calculations if Flag2::kOverridesConditionDamage is set
-			float                                          staggerValue;         // 20
+			RangedData*                                     rangedData;           // 00
+			float                                           speed;                // 08
+			float                                           reach;                // 0C
+			float                                           minRange;             // 10
+			float                                           maxRange;             // 14
+			float                                           animationAttackMult;  // 18
+			float                                           damageToWeaponMult;   // 1C - used in (unused?) condition calculations if Flag2::kOverridesConditionDamage is set
+			float                                           staggerValue;         // 20
 			REX::TEnumSet<WEAPONHITBEHAVIOR, std::uint32_t> hitBehavior;          // 24
 			REX::TEnumSet<ActorValue, std::uint32_t>        skill;                // 28
 			REX::TEnumSet<ActorValue, std::uint32_t>        resistance;           // 2C
 			REX::TEnumSet<Flag2, std::uint16_t>             flags2;               // 30
-			std::uint8_t                                   baseVATSToHitChance;  // 32
+			std::uint8_t                                    baseVATSToHitChance;  // 32
 			REX::TEnumSet<AttackAnimation, std::uint8_t>    attackAnimation;      // 33
 			REX::TEnumSet<ActorValue, std::uint8_t>         embeddedWeaponAV;     // 34 - unused
 			REX::TEnumSet<WEAPON_TYPE, std::uint8_t>        animationType;        // 35
 			REX::TEnumSet<Flag, std::uint8_t>               flags;                // 36
-			std::uint8_t                                   unk37;                // 37
+			std::uint8_t                                    unk37;                // 37
 		};
 		static_assert(sizeof(Data) == 0x38);
 
@@ -197,13 +197,13 @@ namespace RE
 			};
 
 			// members
-			float                            prcntMult;  // 00
-			std::uint32_t                    pad04;      // 04
-			SpellItem*                       effect;     // 08
-			std::uint16_t                    damage;     // 10
+			float                             prcntMult;  // 00
+			std::uint32_t                     pad04;      // 04
+			SpellItem*                        effect;     // 08
+			std::uint16_t                     damage;     // 10
 			REX::TEnumSet<Flag, std::uint8_t> flags;      // 12
-			std::uint8_t                     pad13;      // 13
-			std::uint32_t                    pad14;      // 14
+			std::uint8_t                      pad13;      // 13
+			std::uint32_t                     pad14;      // 14
 		};
 		static_assert(sizeof(CriticalData) == 0x18);
 
@@ -256,22 +256,22 @@ namespace RE
 		[[nodiscard]] bool          IsCrossbow() const;
 
 		// members
-		Data                                     weaponData;              // 168 - DNAM
-		CriticalData                             criticalData;            // 1A0 - CRDT
-		ScopeArt*                                scopeArt;                // 1B8
-		BGSSoundDescriptorForm*                  attackSound;             // 1C0 - SNAM
-		BGSSoundDescriptorForm*                  attackSound2D;           // 1C8 - XNAM
-		BGSSoundDescriptorForm*                  attackLoopSound;         // 1D0 - NAM7
-		BGSSoundDescriptorForm*                  attackFailSound;         // 1D8 - TNAM
-		BGSSoundDescriptorForm*                  idleSound;               // 1E0 - UNAM
-		BGSSoundDescriptorForm*                  equipSound;              // 1E8 - NAM9
-		BGSSoundDescriptorForm*                  unequipSound;            // 1F0 - NAM8
-		BGSImpactDataSet*                        impactDataSet;           // 1F8
-		TESObjectSTAT*                           firstPersonModelObject;  // 200 - WNAM
-		TESObjectWEAP*                           templateWeapon;          // 208 - CNAM
-		BSFixedString                            embeddedNode;            // 210
+		Data                                      weaponData;              // 168 - DNAM
+		CriticalData                              criticalData;            // 1A0 - CRDT
+		ScopeArt*                                 scopeArt;                // 1B8
+		BGSSoundDescriptorForm*                   attackSound;             // 1C0 - SNAM
+		BGSSoundDescriptorForm*                   attackSound2D;           // 1C8 - XNAM
+		BGSSoundDescriptorForm*                   attackLoopSound;         // 1D0 - NAM7
+		BGSSoundDescriptorForm*                   attackFailSound;         // 1D8 - TNAM
+		BGSSoundDescriptorForm*                   idleSound;               // 1E0 - UNAM
+		BGSSoundDescriptorForm*                   equipSound;              // 1E8 - NAM9
+		BGSSoundDescriptorForm*                   unequipSound;            // 1F0 - NAM8
+		BGSImpactDataSet*                         impactDataSet;           // 1F8
+		TESObjectSTAT*                            firstPersonModelObject;  // 200 - WNAM
+		TESObjectWEAP*                            templateWeapon;          // 208 - CNAM
+		BSFixedString                             embeddedNode;            // 210
 		REX::TEnumSet<SOUND_LEVEL, std::uint32_t> soundLevel;              // 218 - VNAM
-		std::uint32_t                            pad21C;                  // 21C
+		std::uint32_t                             pad21C;                  // 21C
 	};
 	static_assert(sizeof(TESObjectWEAP) == 0x220);
 }

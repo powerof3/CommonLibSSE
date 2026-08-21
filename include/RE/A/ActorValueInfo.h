@@ -137,35 +137,35 @@ namespace RE
 		bool IsInverted() const { return flags.all(ActorValueFlag::kInverted); }
 
 		// members
-		const char*                                 enumName;                   // 050
-		BSFixedString                               abbreviation;               // 058 - ANAM
+		const char*                                  enumName;                   // 050
+		BSFixedString                                abbreviation;               // 058 - ANAM
 		REX::TEnumSet<ActorValueFlag, std::uint32_t> flags;                      // 060
-		ActorValueType                              type;                       // 064
-		DynamicBaseValueFunctor                     computeBaseFunc;            // 068 - used if appropriate flags are set
-		std::uint32_t                               unk070;                     // 070
-		std::uint32_t                               unk074;                     // 074
-		std::uint32_t                               unk078;                     // 078
-		std::uint32_t                               unk07C;                     // 07C
-		std::uint32_t                               unk080;                     // 080
-		std::uint32_t                               unk084;                     // 084
-		std::uint32_t                               unk088;                     // 088
-		std::uint32_t                               unk08C;                     // 08C
-		std::uint32_t                               unk090;                     // 090
-		std::uint32_t                               unk094;                     // 094
-		std::uint32_t                               unk098;                     // 098
-		std::uint32_t                               unk09C;                     // 09C
-		std::uint32_t                               unk0A0;                     // 0A0
-		std::uint32_t                               unk0A4;                     // 0A4
-		std::uint32_t                               unk0A8;                     // 0A8
-		std::uint32_t                               unk0AC;                     // 0AC
-		std::uint64_t                               enumValueCount;             // 0B0
-		const char*                                 enumValues[0xA];            // 0B8
-		Skill*                                      skill;                      // 108 - AVSK
-		std::uint32_t                               isNthAICachedCurrentValue;  // 110 - if appropriate AV flag is set, RE::CachedValues::actorValueCache[n] is this AV
-		std::uint32_t                               isNthAICachedMaxValue;      // 114 - if appropriate AV flag is set, RE::CachedValues::maxActorValueCache[n] is this AV
-		BGSSkillPerkTreeNode*                       perkTree;                   // 118
-		std::uint32_t                               perkTreeWidth;              // 120
-		std::uint32_t                               unk124;                     // 124 - CNAM
+		ActorValueType                               type;                       // 064
+		DynamicBaseValueFunctor                      computeBaseFunc;            // 068 - used if appropriate flags are set
+		std::uint32_t                                unk070;                     // 070
+		std::uint32_t                                unk074;                     // 074
+		std::uint32_t                                unk078;                     // 078
+		std::uint32_t                                unk07C;                     // 07C
+		std::uint32_t                                unk080;                     // 080
+		std::uint32_t                                unk084;                     // 084
+		std::uint32_t                                unk088;                     // 088
+		std::uint32_t                                unk08C;                     // 08C
+		std::uint32_t                                unk090;                     // 090
+		std::uint32_t                                unk094;                     // 094
+		std::uint32_t                                unk098;                     // 098
+		std::uint32_t                                unk09C;                     // 09C
+		std::uint32_t                                unk0A0;                     // 0A0
+		std::uint32_t                                unk0A4;                     // 0A4
+		std::uint32_t                                unk0A8;                     // 0A8
+		std::uint32_t                                unk0AC;                     // 0AC
+		std::uint64_t                                enumValueCount;             // 0B0
+		const char*                                  enumValues[0xA];            // 0B8
+		Skill*                                       skill;                      // 108 - AVSK
+		std::uint32_t                                isNthAICachedCurrentValue;  // 110 - if appropriate AV flag is set, RE::CachedValues::actorValueCache[n] is this AV
+		std::uint32_t                                isNthAICachedMaxValue;      // 114 - if appropriate AV flag is set, RE::CachedValues::maxActorValueCache[n] is this AV
+		BGSSkillPerkTreeNode*                        perkTree;                   // 118
+		std::uint32_t                                perkTreeWidth;              // 120
+		std::uint32_t                                unk124;                     // 124 - CNAM
 	};
 	static_assert(sizeof(ActorValueInfo) == 0x128);
 }

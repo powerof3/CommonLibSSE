@@ -54,11 +54,11 @@ namespace RE
 		void InitItemImpl() override;        // 13
 
 		// members
-		BGSMenuIcon*                             icon;         // 40 - INAM
-		TESQuest*                                ownerQuest;   // 48 - QNAM
-		BSSimpleList<MESSAGEBOX_BUTTON*>         menuButtons;  // 50
+		BGSMenuIcon*                              icon;         // 40 - INAM
+		TESQuest*                                 ownerQuest;   // 48 - QNAM
+		BSSimpleList<MESSAGEBOX_BUTTON*>          menuButtons;  // 50
 		REX::TEnumSet<MessageFlag, std::uint32_t> flags;        // 60 - DNAM
-		std::uint32_t                            displayTime;  // 64 - TNAM
+		std::uint32_t                             displayTime;  // 64 - TNAM
 	};
 	static_assert(sizeof(BGSMessage) == 0x68);
 }

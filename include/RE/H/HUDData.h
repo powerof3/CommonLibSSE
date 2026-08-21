@@ -21,16 +21,16 @@ namespace RE
 
 		// members
 		REX::TEnumSet<HUD_MESSAGE_TYPE, std::uint32_t> type;          // 10
-		std::uint32_t                                 pad14;         // 14
-		BSString                                      text;          // 18
-		ObjectRefHandle                               crosshairRef;  // 28
-		std::uint32_t                                 pad2C;         // 2C
-		TESQuest*                                     quest;         // 30
-		TESWordOfPower*                               wordOfPower;   // 38
-		bool                                          show;          // 40
-		std::uint8_t                                  pad41;         // 41
-		std::uint16_t                                 pad42;         // 42
-		std::uint32_t                                 typeData;      // 44 - varies by type
+		std::uint32_t                                  pad14;         // 14
+		BSString                                       text;          // 18
+		ObjectRefHandle                                crosshairRef;  // 28
+		std::uint32_t                                  pad2C;         // 2C
+		TESQuest*                                      quest;         // 30
+		TESWordOfPower*                                wordOfPower;   // 38
+		bool                                           show;          // 40
+		std::uint8_t                                   pad41;         // 41
+		std::uint16_t                                  pad42;         // 42
+		std::uint32_t                                  typeData;      // 44 - varies by type
 	};
 	static_assert(sizeof(HUDData) == 0x48);
 }

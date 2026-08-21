@@ -76,11 +76,11 @@ namespace RE
 
 		struct ArchetypeDef
 		{
-			const char*                        name;                // 00
+			const char*                         name;                // 00
 			REX::TEnumSet<Flags, std::uint32_t> flags;               // 08
-			ActorValue                         fixedActorValue;     // 0C
-			FormType                           associatedFormType;  // 10
-			std::uint32_t                      pad14;               // 14
+			ActorValue                          fixedActorValue;     // 0C
+			FormType                            associatedFormType;  // 10
+			std::uint32_t                       pad14;               // 14
 		};
 		static_assert(sizeof(ArchetypeDef) == 0x18);
 

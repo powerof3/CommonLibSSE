@@ -32,31 +32,31 @@ namespace RE
 			};
 
 			// members
-			const char                            fileName[0x104];  // 008
-			std::uint32_t                         pad0C;            // 00C
-			BSString                              fileNamePtr;      // 110
-			std::uint64_t                         unk120;           // 120
-			std::uint32_t                         unk128;           // 128
-			std::uint32_t                         pad12C;           // 12C
-			BSString                              locationName;     // 130
-			BSString                              unk140;           // 140
-			BSString                              characterName;    // 150
-			std::uint64_t                         unk160;           // 160
-			std::uint32_t                         unk168;           // 168
-			std::uint32_t                         pad16C;           // 16C
-			std::uint64_t                         unk170;           // 170
-			std::uint32_t                         unk178;           // 178
-			std::uint32_t                         saveNumber;       // 17C
-			std::uint32_t                         characterID;      // 180
-			std::uint32_t                         unk184;           // 184
-			bool                                  fileNameValid;    // 188
-			bool                                  modded;           // 189
-			std::uint8_t                          unk18A;           // 18A
-			std::uint8_t                          pad18B;           // 18B
-			std::uint32_t                         pad18C;           // 18C
-			BSFixedString                         saveTypeName;     // 190
+			const char                             fileName[0x104];  // 008
+			std::uint32_t                          pad0C;            // 00C
+			BSString                               fileNamePtr;      // 110
+			std::uint64_t                          unk120;           // 120
+			std::uint32_t                          unk128;           // 128
+			std::uint32_t                          pad12C;           // 12C
+			BSString                               locationName;     // 130
+			BSString                               unk140;           // 140
+			BSString                               characterName;    // 150
+			std::uint64_t                          unk160;           // 160
+			std::uint32_t                          unk168;           // 168
+			std::uint32_t                          pad16C;           // 16C
+			std::uint64_t                          unk170;           // 170
+			std::uint32_t                          unk178;           // 178
+			std::uint32_t                          saveNumber;       // 17C
+			std::uint32_t                          characterID;      // 180
+			std::uint32_t                          unk184;           // 184
+			bool                                   fileNameValid;    // 188
+			bool                                   modded;           // 189
+			std::uint8_t                           unk18A;           // 18A
+			std::uint8_t                           pad18B;           // 18B
+			std::uint32_t                          pad18C;           // 18C
+			BSFixedString                          saveTypeName;     // 190
 			REX::TEnumSet<SaveType, std::uint32_t> saveType;         // 198
-			std::uint32_t                         pad19C;           // 19C
+			std::uint32_t                          pad19C;           // 19C
 		};
 		static_assert(sizeof(Entry) == 0x1A0);
 

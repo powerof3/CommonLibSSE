@@ -29,11 +29,11 @@ namespace RE
 		void CopyComponent(BaseFormComponent* a_rhs) override;  // 03
 
 		// members
-		BSSimpleList<GROUP_REACTION*>        reactions;      // 08 - XNAM
+		BSSimpleList<GROUP_REACTION*>         reactions;      // 08 - XNAM
 		REX::TEnumSet<FormType, std::uint8_t> groupFormType;  // 18
-		std::uint8_t                         pad19;          // 19
-		std::uint16_t                        pad1A;          // 1A
-		std::uint32_t                        pad1C;          // 1C
+		std::uint8_t                          pad19;          // 19
+		std::uint16_t                         pad1A;          // 1A
+		std::uint32_t                         pad1C;          // 1C
 	};
 	static_assert(sizeof(TESReactionForm) == 0x20);
 }

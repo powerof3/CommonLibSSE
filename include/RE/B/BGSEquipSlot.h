@@ -39,9 +39,9 @@ namespace RE
 		void InitItemImpl() override;        // 13
 
 		// members
-		BSTArray<BGSEquipSlot*>           parentSlots;  // 20 - PNAM
+		BSTArray<BGSEquipSlot*>            parentSlots;  // 20 - PNAM
 		REX::TEnumSet<Flag, std::uint32_t> flags;        // 38 - DATA
-		std::uint32_t                     pad3C;        // 3C
+		std::uint32_t                      pad3C;        // 3C
 	};
 	static_assert(sizeof(BGSEquipSlot) == 0x40);
 }

@@ -62,13 +62,13 @@ namespace RE
 			REX::TEnumSet<CAM_OBJECT, std::uint32_t> location;                    // 04
 			REX::TEnumSet<CAM_OBJECT, std::uint32_t> target;                      // 08
 			REX::TEnumSet<Flag, std::uint32_t>       flags;                       // 0C
-			float                                   playerTimeMult;              // 10
-			float                                   targetTimeMult;              // 14
-			float                                   globalTimeMult;              // 18
-			float                                   maxTime;                     // 1C
-			float                                   minTime;                     // 20
-			float                                   targetPercentBetweenActors;  // 24
-			float                                   nearTargetDistance;          // 28
+			float                                    playerTimeMult;              // 10
+			float                                    targetTimeMult;              // 14
+			float                                    globalTimeMult;              // 18
+			float                                    maxTime;                     // 1C
+			float                                    minTime;                     // 20
+			float                                    targetPercentBetweenActors;  // 24
+			float                                    nearTargetDistance;          // 28
 		};
 		static_assert(sizeof(CAMERA_SHOT_DATA) == 0x2C);
 

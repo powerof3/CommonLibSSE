@@ -99,16 +99,16 @@ namespace RE
 		void         UpdateImpl(float a_delta);
 
 		// members
-		BSTArray<BSSoundHandle>            sounds;             // 08
-		ObjectRefHandle                    desiredTarget;      // 20
-		std::uint32_t                      pad24;              // 24
-		MagicItem*                         currentSpell;       // 28
+		BSTArray<BSSoundHandle>             sounds;             // 08
+		ObjectRefHandle                     desiredTarget;      // 20
+		std::uint32_t                       pad24;              // 24
+		MagicItem*                          currentSpell;       // 28
 		REX::TEnumSet<State, std::uint32_t> state;              // 30
-		float                              castingTimer;       // 34
-		float                              currentSpellCost;   // 38
-		float                              magnitudeOverride;  // 3C
-		float                              nextTargetUpdate;   // 40
-		float                              projectileTimer;    // 44
+		float                               castingTimer;       // 34
+		float                               currentSpellCost;   // 38
+		float                               magnitudeOverride;  // 3C
+		float                               nextTargetUpdate;   // 40
+		float                               projectileTimer;    // 44
 	};
 	static_assert(sizeof(MagicCaster) == 0x48);
 }

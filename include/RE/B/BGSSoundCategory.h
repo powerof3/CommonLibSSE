@@ -57,14 +57,14 @@ namespace RE
 
 		// members
 		REX::TEnumSet<Flag, std::uint32_t> flags;             // 38 - FNAM
-		std::uint32_t                     unk3C;             // 3C
-		BGSSoundCategory*                 parentCategory;    // 40 - SNCT
-		std::uint16_t                     unk48;             // 48
-		std::uint16_t                     attenuation;       // 4A
-		std::uint16_t                     staticMult;        // 4C - VNAM
-		std::uint16_t                     defaultMenuValue;  // 4E - UNAM
-		float                             volumeMult;        // 50
-		float                             frequencyMult;     // 54
+		std::uint32_t                      unk3C;             // 3C
+		BGSSoundCategory*                  parentCategory;    // 40 - SNCT
+		std::uint16_t                      unk48;             // 48
+		std::uint16_t                      attenuation;       // 4A
+		std::uint16_t                      staticMult;        // 4C - VNAM
+		std::uint16_t                      defaultMenuValue;  // 4E - UNAM
+		float                              volumeMult;        // 50
+		float                              frequencyMult;     // 54
 	};
 	static_assert(sizeof(BGSSoundCategory) == 0x58);
 }

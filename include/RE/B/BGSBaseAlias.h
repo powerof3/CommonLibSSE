@@ -73,13 +73,13 @@ namespace RE
 		void                               SetProtected(bool a_set);
 
 		// members
-		BSFixedString                          aliasName;    // 08 - ALID
-		TESQuest*                              owningQuest;  // 10
-		std::uint32_t                          aliasID;      // 18 - ALST/ALLS
+		BSFixedString                           aliasName;    // 08 - ALID
+		TESQuest*                               owningQuest;  // 10
+		std::uint32_t                           aliasID;      // 18 - ALST/ALLS
 		REX::TEnumSet<FLAGS, std::uint32_t>     flags;        // 1C - FNAM
 		REX::TEnumSet<FILL_TYPE, std::uint16_t> fillType;     // 20
-		std::uint16_t                          pad22;        // 22
-		std::uint32_t                          pad24;        // 24
+		std::uint16_t                           pad22;        // 22
+		std::uint32_t                           pad24;        // 24
 	};
 	static_assert(sizeof(BGSBaseAlias) == 0x28);
 }

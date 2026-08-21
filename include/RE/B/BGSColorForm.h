@@ -41,7 +41,7 @@ namespace RE
 		[[nodiscard]] bool IsPlayable() const;
 
 		// memebrs
-		Color                             color;  // 30 - CNAM
+		Color                              color;  // 30 - CNAM
 		REX::TEnumSet<Flag, std::uint32_t> flags;  // 34 - FNAM
 	};
 	static_assert(sizeof(BGSColorForm) == 0x38);

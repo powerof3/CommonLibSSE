@@ -132,11 +132,11 @@ namespace RE
 	{
 	public:
 		// members
-		const char*                                    paramName;   // 00
+		const char*                                     paramName;   // 00
 		REX::TEnumSet<SCRIPT_PARAM_TYPE, std::uint32_t> paramType;   // 08
-		bool                                           optional;    // 0C
-		std::uint8_t                                   pad0D{ 0 };  // 0D
-		std::uint16_t                                  pad0E{ 0 };  // 0E
+		bool                                            optional;    // 0C
+		std::uint8_t                                    pad0D{ 0 };  // 0D
+		std::uint16_t                                   pad0E{ 0 };  // 0E
 	};
 	static_assert(sizeof(SCRIPT_PARAMETER) == 0x10);
 
@@ -213,14 +213,14 @@ namespace RE
 	{
 	public:
 		// members
-		std::uint32_t                              lineNumber;      // 000
-		char                                       line[512];       // 004
-		std::uint32_t                              size;            // 204
-		std::uint32_t                              offset;          // 208
-		char                                       output[512];     // 20C
-		std::uint32_t                              outputSize;      // 40C
+		std::uint32_t                               lineNumber;      // 000
+		char                                        line[512];       // 004
+		std::uint32_t                               size;            // 204
+		std::uint32_t                               offset;          // 208
+		char                                        output[512];     // 20C
+		std::uint32_t                               outputSize;      // 40C
 		REX::TEnumSet<SCRIPT_OUTPUT, std::uint32_t> expression;      // 410
-		std::uint32_t                              refObjectIndex;  // 414
+		std::uint32_t                               refObjectIndex;  // 414
 		REX::TEnumSet<SCRIPT_ERROR, std::uint32_t>  scriptError;     // 418
 	};
 	static_assert(sizeof(SCRIPT_LINE) == 0x41C);

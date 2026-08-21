@@ -14,7 +14,7 @@ namespace RE
 			kDisplayed = 1
 		};
 
-		BSFixedString                    menu;  // 00
+		BSFixedString                     menu;  // 00
 		REX::TEnumSet<Mode, std::uint8_t> mode;  // 08
 	};
 }

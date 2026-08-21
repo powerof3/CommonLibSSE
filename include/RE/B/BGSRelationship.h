@@ -67,14 +67,14 @@ namespace RE
 		}
 
 		// members
-		TESNPC*                                        npc1;       // 20 - DATA~
-		TESNPC*                                        npc2;       // 28
-		BGSAssociationType*                            assocType;  // 30
+		TESNPC*                                         npc1;       // 20 - DATA~
+		TESNPC*                                         npc2;       // 28
+		BGSAssociationType*                             assocType;  // 30
 		REX::TEnumSet<RELATIONSHIP_LEVEL, std::uint8_t> level;      // 38
-		std::uint8_t                                   unk39;      // 39
-		std::uint8_t                                   unk3A;      // 3A
+		std::uint8_t                                    unk39;      // 39
+		std::uint8_t                                    unk3A;      // 3A
 		REX::TEnumSet<Flag, std::uint8_t>               flags;      // 3B
-		std::uint32_t                                  pad3C;      // 3C - ~DATA
+		std::uint32_t                                   pad3C;      // 3C - ~DATA
 	};
 	static_assert(sizeof(BGSRelationship) == 0x40);
 }

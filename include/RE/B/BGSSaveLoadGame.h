@@ -111,20 +111,20 @@ namespace RE
 		[[nodiscard]] bool GetPositioningPlayerCharacter() const noexcept { return globalFlags.all(GlobalFlags::kPositioningPlayerCharacter); }
 
 		// members
-		TESFileCollection                        savedFiles;                  // 000
-		BGSSaveLoadFormIDMap                     worldspaceFormIDMap;         // 030
-		BSTHashMap<std::uint32_t, ActorHandle>   queuedInitPackageLocations;  // 098
-		BGSSaveLoadReferencesMap                 references;                  // 0C8
-		BSTHashMap<FormID, FormID>               changedFormIDs;              // 158
-		BGSConstructFormsInAllFilesMap           reconstructFormsMap;         // 188
-		BGSSaveLoadQueuedSubBufferMap            queuedSubBuffersMap;         // 208
-		BGSSaveLoadFormIDMap                     formIDMap;                   // 298
-		BGSSaveLoadHistory                       history;                     // 300
-		BSTArray<BGSLoadFormData*>               loadFormData;                // 318
-		BGSSaveLoadChangesMap*                   changesMap;                  // 330
-		BGSSaveLoadChangesMap*                   oldChangesMap;               // 338
+		TESFileCollection                         savedFiles;                  // 000
+		BGSSaveLoadFormIDMap                      worldspaceFormIDMap;         // 030
+		BSTHashMap<std::uint32_t, ActorHandle>    queuedInitPackageLocations;  // 098
+		BGSSaveLoadReferencesMap                  references;                  // 0C8
+		BSTHashMap<FormID, FormID>                changedFormIDs;              // 158
+		BGSConstructFormsInAllFilesMap            reconstructFormsMap;         // 188
+		BGSSaveLoadQueuedSubBufferMap             queuedSubBuffersMap;         // 208
+		BGSSaveLoadFormIDMap                      formIDMap;                   // 298
+		BGSSaveLoadHistory                        history;                     // 300
+		BSTArray<BGSLoadFormData*>                loadFormData;                // 318
+		BGSSaveLoadChangesMap*                    changesMap;                  // 330
+		BGSSaveLoadChangesMap*                    oldChangesMap;               // 338
 		REX::TEnumSet<GlobalFlags, std::uint32_t> globalFlags;                 // 340
-		std::uint8_t                             currentMinorVersion;         // 344
+		std::uint8_t                              currentMinorVersion;         // 344
 	};
 	static_assert(sizeof(BGSSaveLoadGame) == 0x348);
 }

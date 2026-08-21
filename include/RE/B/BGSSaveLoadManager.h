@@ -31,33 +31,33 @@ namespace RE
 		bool PopulateFileEntryData();
 
 		// members
-		BSFixedString                         fileName;            // 00
-		BSFixedString                         characterName;       // 08
-		BSFixedString                         characterTitle;      // 10
-		BSFixedString                         currentLocation;     // 18
-		BSFixedString                         playTime;            // 20
-		BSFixedString                         characterRace;       // 28
-		std::int32_t                          saveVersion;         // 30
-		std::uint32_t                         saveNumber;          // 34
-		std::uint32_t                         characterLevel;      // 38
-		float                                 currentExperience;   // 3C
-		float                                 requiredExperience;  // 40
-		std::uint32_t                         screenshotWidth;     // 44
-		std::uint32_t                         screenshotHeight;    // 48
-		std::uint32_t                         unk4C;               // 4C
-		REX::W32::FILETIME                    fileTime;            // 50
-		REX::W32::FILETIME                    saveTime;            // 58
-		std::int32_t                          unk60;               // 60
-		bool                                  loaded;              // 64
-		bool                                  unk65;               // 65
-		bool                                  unk66;               // 66
-		std::uint8_t                          unk67;               // 67
-		std::uint8_t                          unk68;               // 68
-		bool                                  modded;              // 69
-		std::uint16_t                         pad6A;               // 6A
-		std::uint32_t                         characterID;         // 6C
+		BSFixedString                          fileName;            // 00
+		BSFixedString                          characterName;       // 08
+		BSFixedString                          characterTitle;      // 10
+		BSFixedString                          currentLocation;     // 18
+		BSFixedString                          playTime;            // 20
+		BSFixedString                          characterRace;       // 28
+		std::int32_t                           saveVersion;         // 30
+		std::uint32_t                          saveNumber;          // 34
+		std::uint32_t                          characterLevel;      // 38
+		float                                  currentExperience;   // 3C
+		float                                  requiredExperience;  // 40
+		std::uint32_t                          screenshotWidth;     // 44
+		std::uint32_t                          screenshotHeight;    // 48
+		std::uint32_t                          unk4C;               // 4C
+		REX::W32::FILETIME                     fileTime;            // 50
+		REX::W32::FILETIME                     saveTime;            // 58
+		std::int32_t                           unk60;               // 60
+		bool                                   loaded;              // 64
+		bool                                   unk65;               // 65
+		bool                                   unk66;               // 66
+		std::uint8_t                           unk67;               // 67
+		std::uint8_t                           unk68;               // 68
+		bool                                   modded;              // 69
+		std::uint16_t                          pad6A;               // 6A
+		std::uint32_t                          characterID;         // 6C
 		REX::TEnumSet<SaveType, std::uint32_t> saveType;            // 70
-		std::uint32_t                         pad74;               // 74
+		std::uint32_t                          pad74;               // 74
 	};
 	static_assert(sizeof(BGSSaveLoadFileEntry) == 0x78);
 

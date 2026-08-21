@@ -74,10 +74,10 @@ namespace RE
 
 				// members
 				REX::TEnumSet<FilterFlag, std::uint32_t> filterFlag;  // 0C
-				bool                                    selected;    // 10
-				bool                                    enabled;     // 11
-				std::uint16_t                           pad12;       // 12
-				std::uint32_t                           pad14;       // 14
+				bool                                     selected;    // 10
+				bool                                     enabled;     // 11
+				std::uint16_t                            pad12;       // 12
+				std::uint32_t                            pad14;       // 14
 			};
 			static_assert(sizeof(CategoryListEntry) == 0x18);
 
@@ -205,7 +205,7 @@ namespace RE
 			void UpdateInterface();
 
 			// members
-			REX::TEnumSet<FilterFlag, std::uint32_t>      filters[FilterType::kTotal];  // 100
+			REX::TEnumSet<FilterFlag, std::uint32_t>     filters[FilterType::kTotal];  // 100
 			std::uint32_t                                pad114;                       // 114
 			BSTArray<BSTSmartPointer<CategoryListEntry>> listEntries;                  // 118
 			BSString                                     customName;                   // 130
@@ -217,8 +217,8 @@ namespace RE
 			std::int32_t                                 sliderEnchantmentIndex;       // 200
 			float                                        sliderMaxMagnitude;           // 204
 			std::uint32_t                                highlightIndex;               // 208
-			REX::TEnumSet<Category, std::uint32_t>        currentCategory;              // 20C
-			REX::TEnumSet<FilterFlag, std::uint32_t>      enabledFilters;               // 210
+			REX::TEnumSet<Category, std::uint32_t>       currentCategory;              // 20C
+			REX::TEnumSet<FilterFlag, std::uint32_t>     enabledFilters;               // 210
 			float                                        enchantmentCost;              // 214
 			float                                        chargeAmount;                 // 218
 			bool                                         exiting;                      // 21C

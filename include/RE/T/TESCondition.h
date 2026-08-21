@@ -889,9 +889,9 @@ namespace RE
 
 		// members
 		REX::TEnumSet<FunctionID, std::uint16_t> function;   // 00
-		std::uint16_t                           pad02;      // 02
-		std::uint32_t                           pad04;      // 04
-		void*                                   params[2];  // 08
+		std::uint16_t                            pad02;      // 02
+		std::uint32_t                            pad04;      // 04
+		void*                                    params[2];  // 08
 	};
 	static_assert(sizeof(FUNCTION_DATA) == 0x18);
 
@@ -938,14 +938,14 @@ namespace RE
 		~CONDITION_ITEM_DATA() = default;
 
 		// members
-		GlobalOrFloat                                   comparisonValue;  // 08
-		ObjectRefHandle                                 runOnRef;         // 10 - kReference
-		std::uint32_t                                   dataID;           // 14
-		FUNCTION_DATA                                   functionData;     // 18
-		Flags                                           flags;            // 30
+		GlobalOrFloat                                    comparisonValue;  // 08
+		ObjectRefHandle                                  runOnRef;         // 10 - kReference
+		std::uint32_t                                    dataID;           // 14
+		FUNCTION_DATA                                    functionData;     // 18
+		Flags                                            flags;            // 30
 		REX::TEnumSet<CONDITIONITEMOBJECT, std::uint8_t> object;           // 31
-		std::uint16_t                                   pad32;            // 32
-		std::uint32_t                                   pad34;            // 34
+		std::uint16_t                                    pad32;            // 32
+		std::uint32_t                                    pad34;            // 34
 	};
 	static_assert(sizeof(CONDITION_ITEM_DATA) == 0x30);
 

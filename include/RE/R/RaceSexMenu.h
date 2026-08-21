@@ -37,21 +37,21 @@ namespace RE
 		void ChangeName(const char* a_name);
 
 		// members
-		BSTArray<void*>                  unk040[7];  // 040
-		RaceSexCamera                    camera;     // 0E8
-		BSTArray<void*>                  unk140[2];  // 140
-		BSTArray<void*>                  unk170;     // 170
-		std::uint64_t                    unk188;     // 188
-		std::uint32_t                    unk190;     // 190
-		std::uint32_t                    unk194;     // 194
+		BSTArray<void*>                   unk040[7];  // 040
+		RaceSexCamera                     camera;     // 0E8
+		BSTArray<void*>                   unk140[2];  // 140
+		BSTArray<void*>                   unk170;     // 170
+		std::uint64_t                     unk188;     // 188
+		std::uint32_t                     unk190;     // 190
+		std::uint32_t                     unk194;     // 194
 		REX::TEnumSet<SEX, std::uint32_t> sex;        // 198
-		std::uint16_t                    unk19C;     // 19C
-		std::uint8_t                     unk19E;     // 19E
-		std::uint8_t                     pad19F;     // 19F
-		std::uint8_t                     unk1A0;     // 1A0
-		std::uint8_t                     unk1A1;     // 1A1
-		std::uint16_t                    unk1A2;     // 1A2
-		std::uint32_t                    unk1A4;     // 1A4
+		std::uint16_t                     unk19C;     // 19C
+		std::uint8_t                      unk19E;     // 19E
+		std::uint8_t                      pad19F;     // 19F
+		std::uint8_t                      unk1A0;     // 1A0
+		std::uint8_t                      unk1A1;     // 1A1
+		std::uint16_t                     unk1A2;     // 1A2
+		std::uint32_t                     unk1A4;     // 1A4
 	};
 	static_assert(sizeof(RaceSexMenu) == 0x1A8);
 }

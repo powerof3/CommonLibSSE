@@ -275,9 +275,9 @@ namespace RE
 		public:
 			// members
 			REX::TEnumSet<RenderCapBits, std::uint32_t> capBits;         // 00
-			std::uint32_t                              vertexFormats;   // 04
-			std::uint32_t                              blendModes;      // 08
-			std::uint32_t                              maxTextureSize;  // 0C
+			std::uint32_t                               vertexFormats;   // 04
+			std::uint32_t                               blendModes;      // 08
+			std::uint32_t                               maxTextureSize;  // 0C
 		};
 		static_assert(sizeof(RenderCaps) == 0x10);
 
@@ -287,13 +287,13 @@ namespace RE
 			UserData();
 
 			// members
-			const char*                                      string;      // 00
-			float*                                           flt;         // 08
-			float*                                           matrix;      // 10
-			std::uint32_t                                    matrixSize;  // 18
+			const char*                                       string;      // 00
+			float*                                            flt;         // 08
+			float*                                            matrix;      // 10
+			std::uint32_t                                     matrixSize;  // 18
 			REX::TEnumSet<UserDataPropertyFlag, std::uint8_t> propFlags;   // 1C
-			std::uint8_t                                     pad1D;       // 1D
-			std::uint16_t                                    pad1E;       // 1E
+			std::uint8_t                                      pad1D;       // 1D
+			std::uint16_t                                     pad1E;       // 1E
 		};
 		static_assert(sizeof(UserData) == 0x20);
 
@@ -301,8 +301,8 @@ namespace RE
 		{
 		public:
 			// members
-			GTexture*                                     texture;        // 00
-			Matrix                                        textureMatrix;  // 08
+			GTexture*                                      texture;        // 00
+			Matrix                                         textureMatrix;  // 08
 			REX::TEnumSet<BitmapWrapMode, std::uint32_t>   wrapMode;       // 20
 			REX::TEnumSet<BitmapSampleMode, std::uint32_t> sampleMode;     // 24
 		};
@@ -444,8 +444,8 @@ namespace RE
 		void FillStyleBitmap(GTexture* a_texture, const Matrix& a_matrix, BitmapWrapMode a_wrapMode, BitmapSampleMode a_sampleMode);
 
 		// members
-		GList<GRendererEventHandler>               handlers;    // 10
-		StereoParams                               s3DParams;   // 20
+		GList<GRendererEventHandler>                handlers;    // 10
+		StereoParams                                s3DParams;   // 20
 		REX::TEnumSet<StereoDisplay, std::uint32_t> s3DDisplay;  // 34
 	};
 	static_assert(sizeof(GRenderer) == 0x38);

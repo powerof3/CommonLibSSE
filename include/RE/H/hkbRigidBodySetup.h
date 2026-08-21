@@ -17,9 +17,9 @@ namespace RE
 		};
 
 		// members
-		CFilter                         collisionFilterInfo;  // 00
+		CFilter                          collisionFilterInfo;  // 00
 		REX::TEnumSet<Type, std::int8_t> type;                 // 04
-		hkbShapeSetup                   shapeSetup;           // 05
+		hkbShapeSetup                    shapeSetup;           // 05
 	};
 	static_assert(sizeof(hkbRigidBodySetup) == 0x20);
 }

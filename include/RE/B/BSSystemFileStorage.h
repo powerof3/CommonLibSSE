@@ -29,8 +29,8 @@ namespace RE
 
 			// members
 			REX::TEnumSet<Error, std::uint32_t> lastError;  // 00
-			std::uint32_t                      pad24;      // 04
-			void*                              handle;     // 08
+			std::uint32_t                       pad24;      // 04
+			void*                               handle;     // 08
 		};
 		static_assert(sizeof(Attributes) == 0x10);
 

@@ -265,37 +265,37 @@ namespace RE
 		void                         UpdateNeck(BSFaceGenNiNode* a_faceNode);
 
 		// members
-		Skills                                  playerSkills;     // 190 - DNAM
-		TESClass*                               npcClass;         // 1C0 - CNAM
-		HeadRelatedData*                        headRelatedData;  // 1C8
-		BGSListForm*                            giftFilter;       // 1D0 - GNAM
-		TESCombatStyle*                         combatStyle;      // 1D8 - ZNAM
-		std::uint32_t                           fileOffset;       // 1E0
-		std::uint32_t                           pad1E4;           // 1E4
-		TESRace*                                originalRace;     // 1E8
-		TESNPC*                                 faceNPC;          // 1F0
-		float                                   height;           // 1F8 - NAM6
-		float                                   weight;           // 1FC - NAM7
-		Sounds                                  sounds;           // 200 - CSCR
-		BSFixedString                           shortName;        // 208 - SHRT
-		TESObjectARMO*                          farSkin;          // 210 - ANAM
-		BGSOutfit*                              defaultOutfit;    // 218 - DOFT
-		BGSOutfit*                              sleepOutfit;      // 220 - SOFT
-		BGSListForm*                            defaultPackList;  // 228 - DPLT
-		TESFaction*                             crimeFaction;     // 230 - CRIF
-		BGSHeadPart**                           headParts;        // 238 - PNAM
-		std::int8_t                             numHeadParts;     // 240
-		std::uint8_t                            unk241;           // 241
-		std::uint8_t                            unk242;           // 242
-		std::uint8_t                            unk243;           // 243
-		std::uint8_t                            unk244;           // 244
+		Skills                                   playerSkills;     // 190 - DNAM
+		TESClass*                                npcClass;         // 1C0 - CNAM
+		HeadRelatedData*                         headRelatedData;  // 1C8
+		BGSListForm*                             giftFilter;       // 1D0 - GNAM
+		TESCombatStyle*                          combatStyle;      // 1D8 - ZNAM
+		std::uint32_t                            fileOffset;       // 1E0
+		std::uint32_t                            pad1E4;           // 1E4
+		TESRace*                                 originalRace;     // 1E8
+		TESNPC*                                  faceNPC;          // 1F0
+		float                                    height;           // 1F8 - NAM6
+		float                                    weight;           // 1FC - NAM7
+		Sounds                                   sounds;           // 200 - CSCR
+		BSFixedString                            shortName;        // 208 - SHRT
+		TESObjectARMO*                           farSkin;          // 210 - ANAM
+		BGSOutfit*                               defaultOutfit;    // 218 - DOFT
+		BGSOutfit*                               sleepOutfit;      // 220 - SOFT
+		BGSListForm*                             defaultPackList;  // 228 - DPLT
+		TESFaction*                              crimeFaction;     // 230 - CRIF
+		BGSHeadPart**                            headParts;        // 238 - PNAM
+		std::int8_t                              numHeadParts;     // 240
+		std::uint8_t                             unk241;           // 241
+		std::uint8_t                             unk242;           // 242
+		std::uint8_t                             unk243;           // 243
+		std::uint8_t                             unk244;           // 244
 		REX::TEnumSet<SOUND_LEVEL, std::uint8_t> soundLevel;       // 245 - NAM8
-		Color                                   bodyTintColor;    // 246 - QNAM
-		std::uint16_t                           pad24A;           // 24A
-		std::uint32_t                           pad24C;           // 24C
-		BSTArray<BGSRelationship*>*             relationships;    // 250
-		FaceData*                               faceData;         // 258
-		BSTArray<Layer*>*                       tintLayers;       // 260
+		Color                                    bodyTintColor;    // 246 - QNAM
+		std::uint16_t                            pad24A;           // 24A
+		std::uint32_t                            pad24C;           // 24C
+		BSTArray<BGSRelationship*>*              relationships;    // 250
+		FaceData*                                faceData;         // 258
+		BSTArray<Layer*>*                        tintLayers;       // 260
 
 	private:
 		void CopyPerkRankArray(const std::vector<PerkRankData>& a_copiedData);

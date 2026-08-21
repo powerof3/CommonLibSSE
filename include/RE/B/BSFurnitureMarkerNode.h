@@ -25,8 +25,8 @@ namespace RE
 			kUp = 1 << 4
 		};
 
-		NiPoint3                                     offset;           // 00
-		float                                        heading;          // 0C
+		NiPoint3                                      offset;           // 00
+		float                                         heading;          // 0C
 		REX::TEnumSet<AnimationType, std::uint16_t>   animationType;    // 10
 		REX::TEnumSet<EntryProperties, std::uint16_t> entryProperties;  // 12
 	};

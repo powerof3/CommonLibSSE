@@ -51,14 +51,14 @@ namespace RE
 		virtual void SetSystemPointer(NiParticleSystem* a_target);                                                                         // 29
 
 		// members
-		BSFixedString                      name;    // 10
+		BSFixedString                       name;    // 10
 		REX::TEnumSet<ORDER, std::uint32_t> order;   // 18
-		std::uint32_t                      pad1C;   // 1C
-		NiParticleSystem*                  target;  // 20
-		bool                               active;  // 28
-		std::uint8_t                       pad29;   // 29
-		std::uint16_t                      pad2A;   // 29
-		std::uint32_t                      pad2C;   // 29
+		std::uint32_t                       pad1C;   // 1C
+		NiParticleSystem*                   target;  // 20
+		bool                                active;  // 28
+		std::uint8_t                        pad29;   // 29
+		std::uint16_t                       pad2A;   // 29
+		std::uint32_t                       pad2C;   // 29
 	};
 	static_assert(sizeof(NiPSysModifier) == 0x30);
 }

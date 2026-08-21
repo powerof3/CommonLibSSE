@@ -49,7 +49,7 @@ namespace RE
 
 		// members
 		REX::TEnumSet<Type, std::uint32_t> type;   // 10
-		std::uint32_t                     pad14;  // 14
+		std::uint32_t                      pad14;  // 14
 	};
 	static_assert(sizeof(hkpContactMgr) == 0x18);
 }

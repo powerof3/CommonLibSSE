@@ -46,13 +46,13 @@ namespace RE
 		}
 
 		// members
-		BGSMaterialType*                  parentType;          // 20 - PNAM
-		BSFixedString                     materialName;        // 28 - MNAM
-		MATERIAL_ID                       materialID;          // 30
-		NiColor                           materialColor;       // 34 - CNAM
-		float                             buoyancy;            // 40 - BNAM
+		BGSMaterialType*                   parentType;          // 20 - PNAM
+		BSFixedString                      materialName;        // 28 - MNAM
+		MATERIAL_ID                        materialID;          // 30
+		NiColor                            materialColor;       // 34 - CNAM
+		float                              buoyancy;            // 40 - BNAM
 		REX::TEnumSet<FLAG, std::uint32_t> flags;               // 44 - FNAM
-		BGSImpactDataSet*                 havokImpactDataSet;  // 48 - HNAM
+		BGSImpactDataSet*                  havokImpactDataSet;  // 48 - HNAM
 	};
 	static_assert(sizeof(BGSMaterialType) == 0x50);
 }

@@ -130,8 +130,8 @@ namespace RE
 	{
 	public:
 		// members
-		float                                      timer;   // 0
-		RefHandle                                  refObj;  // 4
+		float                                       timer;   // 0
+		RefHandle                                   refObj;  // 4
 		REX::TEnumSet<PLAYER_ACTION, std::uint32_t> next;    // 8
 	};
 	static_assert(sizeof(PlayerActionObject) == 0xC);
@@ -490,13 +490,13 @@ namespace RE
 		TESImageSpaceModifier*                                  sunGazeImageSpaceModifier;                    // AE0
 		ActorValue                                              advanceSkill;                                 // AE8 - advance values set, then cleared in PlayerSkills::ModSkillPoints surronding ApplyPerkEntry
 		std::uint32_t                                           advanceAction;                                // AEC - Part of AE8 and 9F0
-		REX::TEnumSet<DEFAULT_OBJECT, std::int32_t>              animationObjectAction;                        // AF0
-		REX::TEnumSet<GrabbingType, std::uint32_t>               grabType;                                     // AF4
+		REX::TEnumSet<DEFAULT_OBJECT, std::int32_t>             animationObjectAction;                        // AF0
+		REX::TEnumSet<GrabbingType, std::uint32_t>              grabType;                                     // AF4
 		std::int32_t                                            difficulty;                                   // AF8
 		ActorHandle                                             assumedIdentity;                              // AFC
 		std::int8_t                                             murder;                                       // B00
 		std::uint8_t                                            perkCount;                                    // B01
-		REX::TEnumSet<ByCharGenFlag, std::uint8_t>               byCharGenFlag;                                // B02
+		REX::TEnumSet<ByCharGenFlag, std::uint8_t>              byCharGenFlag;                                // B02
 		std::uint8_t                                            padB03;                                       // B03
 		std::uint32_t                                           unkB04;                                       // B04
 		Crime*                                                  resistArrestCrime;                            // B08

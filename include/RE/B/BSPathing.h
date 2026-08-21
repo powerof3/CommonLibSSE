@@ -109,10 +109,10 @@ namespace RE
 			AVOID_NODE_SPHERE_OBSTACLE
 		};
 
-		NiPoint3                    point1;         // 00
-		NiPoint3                    point2;         // 0C
-		float                       radius;         // 18
-		float                       cost;           // 1C
+		NiPoint3                     point1;         // 00
+		NiPoint3                     point2;         // 0C
+		float                        radius;         // 18
+		float                        cost;           // 1C
 		REX::TEnumSet<AvoidNodeType> avoidNodeType;  // 20
 	};
 	static_assert(sizeof(BSPathingAvoidNode) == 0x24);

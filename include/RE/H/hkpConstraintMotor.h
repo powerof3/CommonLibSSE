@@ -98,11 +98,11 @@ namespace RE
 		using CallbackFunction = void(const hkpCallbackConstraintMotor& motor, const void* unk0, void* unk1);
 
 		// members
-		CallbackFunction*                         func;          // 20
+		CallbackFunction*                          func;          // 20
 		REX::TEnumSet<CallbackType, std::uint32_t> callbackType;  // 28
-		std::uint64_t                             userData0;     // 30
-		std::uint64_t                             userData1;     // 38
-		std::uint64_t                             userData2;     // 40
+		std::uint64_t                              userData0;     // 30
+		std::uint64_t                              userData1;     // 38
+		std::uint64_t                              userData2;     // 40
 	};
 	static_assert(sizeof(hkpCallbackConstraintMotor) == 0x48);
 }

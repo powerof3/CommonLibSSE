@@ -32,9 +32,9 @@ namespace RE
 
 		struct CharBreakInfo
 		{
-			wchar_t                                    ch;     // 0
+			wchar_t                                     ch;     // 0
 			REX::TEnumSet<BreakInfoFlags, std::uint8_t> flags;  // 2
-			std::uint8_t                               pad3;   // 3
+			std::uint8_t                                pad3;   // 3
 		};
 		static_assert(sizeof(CharBreakInfo) == 0x4);
 

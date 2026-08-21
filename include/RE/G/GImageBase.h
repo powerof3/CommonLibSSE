@@ -26,13 +26,13 @@ namespace RE
 		};
 
 		REX::TEnumSet<ImageFormat, std::uint32_t> format;       // 00
-		std::uint32_t                            width;        // 04
-		std::uint32_t                            height;       // 08
-		std::uint32_t                            pitch;        // 0C
-		std::uint8_t*                            data;         // 10
-		std::uint32_t                            dataSize;     // 18
-		std::uint32_t                            mipMapCount;  // 1C
-		GArray<GColor>                           colorMap;     // 20
+		std::uint32_t                             width;        // 04
+		std::uint32_t                             height;       // 08
+		std::uint32_t                             pitch;        // 0C
+		std::uint8_t*                             data;         // 10
+		std::uint32_t                             dataSize;     // 18
+		std::uint32_t                             mipMapCount;  // 1C
+		GArray<GColor>                            colorMap;     // 20
 	};
 	static_assert(sizeof(GImageBase) == 0x38);
 }

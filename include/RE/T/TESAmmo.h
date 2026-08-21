@@ -27,11 +27,11 @@ namespace RE
 		};
 
 		// members
-		BGSProjectile*                   projectile;  // 00
+		BGSProjectile*                    projectile;  // 00
 		REX::TEnumSet<Flag, std::uint8_t> flags;       // 08
-		std::uint8_t                     pa09;        // 09
-		std::uint16_t                    pa0A;        // 0A
-		float                            damage;      // 0C
+		std::uint8_t                      pa09;        // 09
+		std::uint16_t                     pa0A;        // 0A
+		float                             damage;      // 0C
 	};
 	static_assert(sizeof(AMMO_DATA) == 0x10);
 

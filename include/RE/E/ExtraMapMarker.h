@@ -98,11 +98,11 @@ namespace RE
 		constexpr void SetVisible(bool a_value) noexcept { a_value ? flags.set(Flag::kVisible) : flags.reset(Flag::kVisible); }
 
 		// members
-		TESFullName                              locationName;  // 00
+		TESFullName                               locationName;  // 00
 		REX::TEnumSet<Flag, std::uint8_t>         flags;         // 10
-		std::uint8_t                             pad11;         // 11
+		std::uint8_t                              pad11;         // 11
 		REX::TEnumSet<MARKER_TYPE, std::uint16_t> type;          // 12
-		std::uint32_t                            pad14;         // 14
+		std::uint32_t                             pad14;         // 14
 	};
 	static_assert(sizeof(MapMarkerData) == 0x18);
 

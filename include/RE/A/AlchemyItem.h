@@ -50,12 +50,12 @@ namespace RE
 		class Data  // ENIT
 		{
 		public:
-			std::int32_t                             costOverride;      // 00
+			std::int32_t                              costOverride;      // 00
 			REX::TEnumSet<AlchemyFlag, std::uint32_t> flags;             // 04
-			SpellItem*                               addictionItem;     // 08
-			float                                    addictionChance;   // 10
-			std::uint32_t                            pad14;             // 14
-			BGSSoundDescriptorForm*                  consumptionSound;  // 18
+			SpellItem*                                addictionItem;     // 08
+			float                                     addictionChance;   // 10
+			std::uint32_t                             pad14;             // 14
+			BGSSoundDescriptorForm*                   consumptionSound;  // 18
 		};
 		static_assert(sizeof(Data) == 0x20);
 
