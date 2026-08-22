@@ -62,24 +62,6 @@ namespace SKSE
 			bool                               apiInit{ false };
 		};
 
-#ifdef SKYRIM_SUPPORT_AE
-		void Init(const PreLoadInterface* a_intfc, InitInfo a_info) noexcept
-
-		{
-			static std::once_flag once;
-			std::call_once(once, [&]() {
-				auto api = Impl::API::GetSingleton();
-				api->Init(a_info, a_intfc);
-				api->InitLog();
-
-				api->trampolineInterface = a_intfc->QueryInterface<TrampolineInterface>(PreLoadInterface::kTrampoline);
-
-				api->InitTrampoline();
-				api->InitHook(REL::EHookStep::PreLoad);
-			});
-		}
-#endif
-
 		void API::Init(InitInfo a_info, const SKSE::QueryInterface* a_intfc)
 		{
 			info = a_info;
@@ -176,6 +158,23 @@ namespace SKSE
 			}
 		}
 	}
+
+#ifdef SKYRIM_SUPPORT_AE
+	void Init(const PreLoadInterface* a_intfc, InitInfo a_info) noexcept
+	{
+		static std::once_flag once;
+		std::call_once(once, [&]() {
+			auto api = Impl::API::GetSingleton();
+			api->Init(a_info, a_intfc);
+			api->InitLog();
+
+			api->trampolineInterface = a_intfc->QueryInterface<TrampolineInterface>(PreLoadInterface::kTrampoline);
+
+			api->InitTrampoline();
+			api->InitHook(REL::EHookStep::PreLoad);
+		});
+	}
+#endif
 
 	void Init(const LoadInterface* a_intfc, InitInfo a_info) noexcept
 	{
