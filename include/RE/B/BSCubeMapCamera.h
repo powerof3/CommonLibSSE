@@ -3,6 +3,7 @@
 #include <cstdint>
 
 #include "RE/B/BSTArray.h"
+#include "RE/B/BSShaderAccumulator.h"
 #include "RE/N/NiCamera.h"
 #include "RE/N/NiColor.h"
 #include "RE/N/NiRTTI.h"
@@ -10,8 +11,6 @@
 
 namespace RE
 {
-	class BSShaderAccumulator;
-
 	class BSCubeMapCamera : public NiCamera
 	{
 	public:
