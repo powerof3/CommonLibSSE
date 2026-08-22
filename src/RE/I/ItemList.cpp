@@ -6,7 +6,7 @@ namespace RE
 {
 	ItemList::Item* ItemList::GetSelectedItem()
 	{
-		if (unk50) {
+		if (updatePending) {
 			return nullptr;
 		}
 
