@@ -18,6 +18,8 @@ namespace RE
 
 	namespace BSGraphics
 	{
+		enum SetRenderTargetMode : std::uint32_t;
+
 		struct RendererWindow
 		{
 			REX::W32::HWND                       hWnd;                   // 00
