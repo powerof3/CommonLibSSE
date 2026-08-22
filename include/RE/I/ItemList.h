@@ -29,10 +29,10 @@ namespace RE
 		void  Update(TESObjectREFR* a_owner);
 
 		// members
-		GPtr<GFxMovieView> view;       // 00
-		GFxValue           root;       // 08 - kDisplayObject - "_level0.Menu_mc.inventoryLists.panelContainer.itemList"
-		GFxValue           entryList;  // 20 - kArray - root.GetMember("entryList", &entryList);
-		BSTArray<Item*>    items;      // 38
+		GPtr<GFxMovieView> view;           // 00
+		GFxValue           root;           // 08 - kDisplayObject - "_level0.Menu_mc.inventoryLists.panelContainer.itemList"
+		GFxValue           entryList;      // 20 - kArray - root.GetMember("entryList", &entryList);
+		BSTArray<Item*>    items;          // 38
 		bool               updatePending;  // 50
 		std::uint8_t       pad51;          // 51
 		std::uint16_t      pad52;          // 52

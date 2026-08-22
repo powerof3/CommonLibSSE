@@ -48,10 +48,10 @@ namespace RE
 		}
 
 		// members
-		GFxValue        root;             // 30 - kDisplayObject - "_level0.Menu_mc"
-		ItemList*       itemList;         // 48
-		ItemCard*       itemCard;         // 50
-		BottomBar*      bottomBar;        // 58
+		GFxValue                  root;                  // 30 - kDisplayObject - "_level0.Menu_mc"
+		ItemList*                 itemList;              // 48
+		ItemCard*                 itemCard;              // 50
+		BottomBar*                bottomBar;             // 58
 		BSTArray<TESBoundObject*> pendingUpdateObjects;  // 60
 		std::uint8_t              unk78;                 // 78
 		std::uint8_t              pad79;                 // 79
