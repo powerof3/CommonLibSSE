@@ -3,8 +3,8 @@ vcpkg_check_linkage(ONLY_STATIC_LIBRARY)
 vcpkg_from_github(
     OUT_SOURCE_PATH SOURCE_PATH
     REPO libxse/commonlib-shared
-    REF 55f86cbd5a88ccb21076a63726eaf75408cdebf7
-    SHA512 59f97d0b91447e4f230f347f50bfe2b4854ad0bd472ccdfbca7e65019ff9b99c352ffbcea2d95de6170f588d165d53ffb14e8b11ae31a44e4c7d498300bfe17f
+    REF 64bdd33c243f8deb7eb45d2fbcb52a80787c69e6
+    SHA512 62968e323b78c6a0719a2daef8e3c8ce1e4d381fd0f12c86a9b20ecabe25bbe7cd520aa701a03861f4c8e274e2664e3a428ef1a338b1bbc1d48c5cf7bf805f0f
     HEAD_REF support/cmake
 )
 
