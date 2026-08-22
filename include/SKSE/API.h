@@ -39,7 +39,9 @@ namespace SKSE
 		bool        hook{ true };
 	};
 
+#ifdef SKYRIM_SUPPORT_AE
 	void Init(const PreLoadInterface* a_intfc, InitInfo a_info = {}) noexcept;
+#endif
 	void Init(const LoadInterface* a_intfc, InitInfo a_info = {}) noexcept;
 
 	void RegisterForAPIInitEvent(std::function<void()> a_fn);

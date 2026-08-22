@@ -63,7 +63,8 @@ namespace SKSE
 		};
 
 #ifdef SKYRIM_SUPPORT_AE
-		void API::Init(const PreLoadInterface* a_intfc, InitInfo a_info) noexcept
+		void Init(const PreLoadInterface* a_intfc, InitInfo a_info) noexcept
+
 		{
 			static std::once_flag once;
 			std::call_once(once, [&]() {
