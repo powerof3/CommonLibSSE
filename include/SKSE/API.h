@@ -8,10 +8,21 @@
 #include "SKSE/Interfaces.h"
 #include "SKSE/Version.h"
 
-#define SKSEAPI __cdecl
-
 namespace SKSE
 {
+	class PreLoadInterface;
+	class LoadInterface;
+
+	class MessagingInterface;
+	class ScaleformInterface;
+	class PapyrusInterface;
+	class SerializationInterface;
+	class TaskInterface;
+	class ObjectInterface;
+	class TrampolineInterface;
+
+	struct PluginInfo;
+
 	struct InitInfo
 	{
 		bool log{ true };
@@ -28,7 +39,9 @@ namespace SKSE
 		bool        hook{ true };
 	};
 
+	void Init(const PreLoadInterface* a_intfc, InitInfo a_info = {}) noexcept;
 	void Init(const LoadInterface* a_intfc, InitInfo a_info = {}) noexcept;
+
 	void RegisterForAPIInitEvent(std::function<void()> a_fn);
 
 	[[nodiscard]] std::string_view GetPluginName() noexcept;
