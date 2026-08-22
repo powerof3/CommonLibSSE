@@ -54,9 +54,9 @@ namespace RE
 		[[nodiscard]] bool                            IsOwnedBy(Actor* a_testOwner, bool a_defaultTo = true);
 		[[nodiscard]] bool                            IsOwnedBy(Actor* a_testOwner, TESForm* a_itemOwner, bool a_defaultTo = true);
 		[[nodiscard]] bool                            IsQuestObject() const;
-		[[nodiscard]] std::int32_t NormalizeAndCountNonStackableExtraLists();
-		void                       PoisonObject(AlchemyItem* a_alchItem, std::uint32_t a_count);
-		void                       SetWorn(bool a_worn, bool a_left, bool a_deleteExtraList = true);
+		[[nodiscard]] std::int32_t                    NormalizeAndCountNonStackableExtraLists();
+		void                                          PoisonObject(AlchemyItem* a_alchItem, std::uint32_t a_count);
+		void                                          SetWorn(bool a_worn, bool a_left, bool a_deleteExtraList = true);
 
 		TES_HEAP_REDEFINE_NEW();
 
