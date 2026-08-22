@@ -107,16 +107,16 @@ namespace RE
 	{
 		const bool currentIsRainy = currentWeather && currentWeather->data.flags.any(TESWeather::WeatherDataFlag::kRainy);
 		// precipitationBeginFadeIn is negative
-		const float currentFadeInPct = currentIsRainy ? 
-										(1.0f + static_cast<float>(currentWeather->data.precipitationBeginFadeIn) / 255.0f) : 
-										0.0f;
-		const bool currentlyRaining = currentIsRainy && currentFadeInPct < currentWeatherPct;
+		const float currentFadeInPct = currentIsRainy ?
+		                                   (1.0f + static_cast<float>(currentWeather->data.precipitationBeginFadeIn) / 255.0f) :
+		                                   0.0f;
+		const bool  currentlyRaining = currentIsRainy && currentFadeInPct < currentWeatherPct;
 
-		const bool lastWasRainy = lastWeather && lastWeather->data.flags.any(TESWeather::WeatherDataFlag::kRainy);
-		const float endFadeOutPtc = lastWasRainy ? 
-									static_cast<float>(lastWeather->data.precipitationEndFadeOut) / 255.0f : 
-									0.0f;
-		const bool isStillRaining = lastWasRainy && endFadeOutPtc > currentWeatherPct;
+		const bool  lastWasRainy = lastWeather && lastWeather->data.flags.any(TESWeather::WeatherDataFlag::kRainy);
+		const float endFadeOutPtc = lastWasRainy ?
+		                                static_cast<float>(lastWeather->data.precipitationEndFadeOut) / 255.0f :
+		                                0.0f;
+		const bool  isStillRaining = lastWasRainy && endFadeOutPtc > currentWeatherPct;
 
 		return currentlyRaining || isStillRaining;
 	}
@@ -125,16 +125,16 @@ namespace RE
 	{
 		const bool currentIsSnowy = currentWeather && currentWeather->data.flags.any(TESWeather::WeatherDataFlag::kSnow);
 		// precipitationBeginFadeIn is negative
-		const float currentFadeInPct = currentIsSnowy ? 
-										(1.0f + static_cast<float>(currentWeather->data.precipitationBeginFadeIn) / 255.0f) : 
-										0.0f;
-		const bool currentlyRaining = currentIsSnowy && currentFadeInPct < currentWeatherPct;
+		const float currentFadeInPct = currentIsSnowy ?
+		                                   (1.0f + static_cast<float>(currentWeather->data.precipitationBeginFadeIn) / 255.0f) :
+		                                   0.0f;
+		const bool  currentlyRaining = currentIsSnowy && currentFadeInPct < currentWeatherPct;
 
-		const bool lastWasSnowy = lastWeather && lastWeather->data.flags.any(TESWeather::WeatherDataFlag::kSnow);
-		const float endFadeOutPtc = lastWasSnowy ? 
-									static_cast<float>(lastWeather->data.precipitationEndFadeOut) / 255.0f : 
-									0.0f;
-		const bool isStillRaining = lastWasSnowy && endFadeOutPtc > currentWeatherPct;
+		const bool  lastWasSnowy = lastWeather && lastWeather->data.flags.any(TESWeather::WeatherDataFlag::kSnow);
+		const float endFadeOutPtc = lastWasSnowy ?
+		                                static_cast<float>(lastWeather->data.precipitationEndFadeOut) / 255.0f :
+		                                0.0f;
+		const bool  isStillRaining = lastWasSnowy && endFadeOutPtc > currentWeatherPct;
 
 		return currentlyRaining || isStillRaining;
 	}
