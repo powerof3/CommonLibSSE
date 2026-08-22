@@ -7,8 +7,11 @@
 
 namespace RE
 {
+	class BSGeometry;
+	class BSLight;
 	class BSRenderPass;
 	class BSShaderMaterial;
+	class BSShaderProperty;
 
 	struct ID3D11Buffer;
 	struct ID3D11PixelShader;

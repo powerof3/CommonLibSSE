@@ -4,6 +4,7 @@
 
 namespace RE
 {
+	class BSTriShape;
 	class ImageSpaceManager;
 	class ImageSpaceEffectParam;
 	class ImageSpaceTexture;

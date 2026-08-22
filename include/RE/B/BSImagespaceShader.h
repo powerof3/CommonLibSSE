@@ -1,7 +1,9 @@
 #pragma once
 
-#include "RE/B/BSShaderRenderTargets.h"
+#include "RE/B/BSFixedString.h"
 #include "RE/B/BSShader.h"
+#include "RE/B/BSShaderRenderTargets.h"
+#include "RE/B/BSTArray.h"
 #include "RE/I/ImageSpaceEffect.h"
 
 namespace RE
