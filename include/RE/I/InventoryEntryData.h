@@ -38,6 +38,7 @@ namespace RE
 		[[nodiscard]] const char*                     GetDisplayName();
 		[[nodiscard]] EnchantmentItem*                GetEnchantment() const;
 		[[nodiscard]] std::optional<double>           GetEnchantmentCharge() const;
+		[[nodiscard]] ExtraDataList*                  GetFavoriteExtraList() const;
 		[[nodiscard]] constexpr TESBoundObject*       GetObject() noexcept { return object; }
 		[[nodiscard]] constexpr const TESBoundObject* GetObject() const noexcept { return object; }
 		[[nodiscard]] TESForm*                        GetOwner();
@@ -53,6 +54,8 @@ namespace RE
 		[[nodiscard]] bool                            IsOwnedBy(Actor* a_testOwner, bool a_defaultTo = true);
 		[[nodiscard]] bool                            IsOwnedBy(Actor* a_testOwner, TESForm* a_itemOwner, bool a_defaultTo = true);
 		[[nodiscard]] bool                            IsQuestObject() const;
+		// Removes redundant count-only lists before counting non-stackable lists.
+		[[nodiscard]] std::int32_t                     NormalizeAndCountNonStackableExtraLists();
 		void                                          PoisonObject(AlchemyItem* a_alchItem, std::uint32_t a_count);
 		void                                          SetWorn(bool a_worn, bool a_left, bool a_deleteExtraList = true);
 
