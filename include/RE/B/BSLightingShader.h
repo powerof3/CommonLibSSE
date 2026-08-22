@@ -69,16 +69,16 @@ namespace RE
 			static_cast<std::uint32_t>(TechniqueFlag::kLightCount1) |
 			static_cast<std::uint32_t>(TechniqueFlag::kLightCount3);
 
-		std::uint32_t unk90;                            // 90
-		std::uint32_t currentRawTechnique;              // 94
-		std::uint64_t unk98;                            // 98
-		BSTFixedHashMap<std::uint32_t, std::uint32_t> techniqueRefCounts;  // A0 - Technique ID -> reference count
-		std::uint64_t unkC8;                            // C8
-		NiColorA      skyColor0;                        // D0 - Sky::skyColor[0]
-		NiPoint3      cloudLightRadius;                 // E0 - Sun::cloudLight->radius
-		float         cloudLightRadiusFade;             // EC
-		std::uint8_t  iblUp;                            // F0 - Console 'IBL up' flag
-		std::uint8_t  padF1[7];                         // F1
+		std::uint32_t                                 unk90;                 // 90
+		std::uint32_t                                 currentRawTechnique;   // 94
+		std::uint64_t                                 unk98;                 // 98
+		BSTFixedHashMap<std::uint32_t, std::uint32_t> techniqueRefCounts;    // A0 - Technique ID -> reference count
+		std::uint64_t                                 unkC8;                 // C8
+		NiColorA                                      skyColor0;             // D0 - Sky::skyColor[0]
+		NiPoint3                                      cloudLightRadius;      // E0 - Sun::cloudLight->radius
+		float                                         cloudLightRadiusFade;  // EC
+		std::uint8_t                                  iblUp;                 // F0 - Console 'IBL up' flag
+		std::uint8_t                                  padF1[7];              // F1
 	};
 	static_assert(sizeof(BSLightingShader) == 0xF8);
 

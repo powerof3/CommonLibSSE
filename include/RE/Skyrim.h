@@ -282,6 +282,7 @@
 #include "RE/B/BSISoundOutputModel.h"
 #include "RE/B/BSImagespaceShader.h"
 #include "RE/B/BSImagespaceShaderBlur3.h"
+#include "RE/B/BSImagespaceShaderISTemporalAA.h"
 #include "RE/B/BSInputDevice.h"
 #include "RE/B/BSInputDeviceFactory.h"
 #include "RE/B/BSInputDeviceManager.h"

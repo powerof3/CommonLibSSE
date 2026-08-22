@@ -292,6 +292,7 @@ set(SOURCES
 	include/RE/B/BSKeyboardDevice.h
 	include/RE/B/BSLensFlareRenderData.h
 	include/RE/B/BSLight.h
+	include/RE/B/BSLightingShader.h
 	include/RE/B/BSLightingShaderMaterial.h
 	include/RE/B/BSLightingShaderMaterialBase.h
 	include/RE/B/BSLightingShaderMaterialEnvmap.h
@@ -1944,12 +1945,12 @@ set(SOURCES
 	src/RE/B/BSGameSound.cpp
 	src/RE/B/BSGamepadDevice.cpp
 	src/RE/B/BSHandleRefObject.cpp
+	src/RE/B/BSImagespaceShader.cpp
 	src/RE/B/BSInputDevice.cpp
 	src/RE/B/BSInputDeviceFactory.cpp
 	src/RE/B/BSInputDeviceManager.cpp
 	src/RE/B/BSInputEventQueue.cpp
 	src/RE/B/BSInvMarker.cpp
-	src/RE/B/BSImagespaceShader.cpp
 	src/RE/B/BSKeyboardDevice.cpp
 	src/RE/B/BSLightingShaderMaterialBase.cpp
 	src/RE/B/BSLightingShaderProperty.cpp
@@ -2140,8 +2141,8 @@ set(SOURCES
 	src/RE/N/NiAVObject.cpp
 	src/RE/N/NiAlphaProperty.cpp
 	src/RE/N/NiAnimationKey.cpp
-	src/RE/N/NiBinaryStream.cpp
 	src/RE/N/NiBackToFrontAccumulator.cpp
+	src/RE/N/NiBinaryStream.cpp
 	src/RE/N/NiBooleanExtraData.cpp
 	src/RE/N/NiCamera.cpp
 	src/RE/N/NiColor.cpp
