@@ -1,10 +1,24 @@
 #include "RE/B/BSCubeMapCamera.h"
 
+#include "RE/B/BSShaderAccumulator.h"
+
+#include "RE/M/MemoryManager.h"
+
 namespace RE
 {
-	BSCubeMapCamera::BSCubeMapCamera()
+	BSCubeMapCamera* BSCubeMapCamera::Create()
 	{
-		Ctor();
+		auto camera = malloc<BSCubeMapCamera>();
+		if (camera) {
+			std::memset(camera, 0, sizeof(BSCubeMapCamera));
+			camera->Ctor();
+		}
+		return camera;
+	}
+
+	BSCubeMapCamera::~BSCubeMapCamera()
+	{
+		Dtor();
 	}
 
 	BSCubeMapCamera* BSCubeMapCamera::Ctor()

@@ -3,7 +3,6 @@
 #include <cstdint>
 
 #include "RE/B/BSTArray.h"
-#include "RE/B/BSShaderAccumulator.h"
 #include "RE/N/NiCamera.h"
 #include "RE/N/NiColor.h"
 #include "RE/N/NiRTTI.h"
@@ -11,6 +10,8 @@
 
 namespace RE
 {
+	class BSShaderAccumulator;
+
 	class BSCubeMapCamera : public NiCamera
 	{
 	public:
@@ -39,8 +40,9 @@ namespace RE
 		inline static constexpr auto Ni_RTTI = NiRTTI_BSCubeMapCamera;
 		inline static constexpr auto VTABLE = VTABLE_BSCubeMapCamera;
 
-		BSCubeMapCamera();
-		virtual ~BSCubeMapCamera() override { Dtor(); };  // 00
+		static BSCubeMapCamera* Create();
+
+		~BSCubeMapCamera() override;  // 00
 
 		// override (NiCamera)
 		const NiRTTI* GetRTTI() const override;  // 02
