@@ -11,6 +11,11 @@ namespace RE
 	{
 		enum class DATA_TYPE
 		{
+			Reference,
+			Form,
+			Location,
+			Integer,
+			Keyword,
 		};
 
 		REX::EnumSet<DATA_TYPE, std::uint32_t> type;      // 00
