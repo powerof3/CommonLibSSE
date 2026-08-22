@@ -34,6 +34,13 @@ namespace RE
 		return func(this, a_slot);
 	}
 
+	InventoryEntryData* InventoryChanges::GetInventoryItemAt(std::int32_t a_index)
+	{
+		using func_t = decltype(&InventoryChanges::GetInventoryItemAt);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(15866, 16106) };
+		return func(this, a_index);
+	}
+
 	float InventoryChanges::GetInventoryWeight()
 	{
 		using func_t = decltype(&InventoryChanges::GetInventoryWeight);

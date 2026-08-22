@@ -29,6 +29,23 @@ namespace RE
 		UI_MESSAGE_RESULTS ProcessMessage(UIMessage& a_message) override;    // 04
 		void               PostDisplay() override;                           // 06
 
+		// Rebuilds the Scaleform item list from the player's inventory and invalidates
+		// the list data. Call only from the game/UI thread while this menu is open.
+		void RefreshItemList()
+		{
+			using func_t = decltype(&InventoryMenu::RefreshItemList);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(50987, 51866) };
+			return func(this);
+		}
+
+		// Updates the inventory menu's bottom-bar state and its Scaleform bindings.
+		void RefreshBottomBar()
+		{
+			using func_t = decltype(&InventoryMenu::RefreshBottomBar);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(50986, 51865) };
+			return func(this);
+		}
+
 		// members
 		GFxValue        root;             // 30 - kDisplayObject - "_level0.Menu_mc"
 		ItemList*       itemList;         // 48
