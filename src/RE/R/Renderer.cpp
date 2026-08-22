@@ -117,11 +117,46 @@ namespace RE
 			return func(this, a_windowID);
 		}
 
+		void Renderer::SetRenderTarget(std::uint32_t a_renderTargetSlot, RENDER_TARGET a_renderTarget, SetRenderTargetMode a_mode, bool a_updateViewport)
+		{
+			using func_t = decltype(&Renderer::SetRenderTarget);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(75654, 77453) };
+			return func(this, a_renderTargetSlot, a_renderTarget, a_mode, a_updateViewport);
+		}
+
 		void Renderer::UpdateViewPort(std::uint32_t a_unk1, std::uint32_t a_unk2, bool a_unk3)
 		{
 			using func_t = decltype(&Renderer::UpdateViewPort);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(75455, 77240) };
 			return func(this, a_unk1, a_unk2, a_unk3);
+		}
+
+		void Renderer::ApplyState(bool a_arg2)
+		{
+			using func_t = decltype(&Renderer::ApplyState);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(75462, 77247) };
+			return func(this, a_arg2);
+		}
+
+		void Renderer::SubmitAccumulator(NiCamera* a_camera, BSShaderAccumulator* a_accumulator, std::uint32_t a_renderFlags)
+		{
+			using func_t = decltype(&Renderer::SubmitAccumulator);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(99789, 106436) };
+			return func(a_camera, a_accumulator, a_renderFlags);
+		}
+
+		void Renderer::StartAccumulating(NiCamera* a_camera, BSShaderAccumulator* a_accumulator, std::uint32_t a_renderFlags)
+		{
+			using func_t = decltype(&Renderer::StartAccumulating);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(99790, 106437) };
+			return func(a_camera, a_accumulator, a_renderFlags);
+		}
+
+		void Renderer::FinishAccumulatingPostResolveDepth(NiCamera* a_unusedCamera, BSShaderAccumulator* a_accumulator, std::uint32_t a_renderFlags)
+		{
+			using func_t = decltype(&Renderer::FinishAccumulatingPostResolveDepth);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(99791, 106438) };
+			return func(a_unusedCamera, a_accumulator, a_renderFlags);
 		}
 
 		void Renderer::Shutdown()

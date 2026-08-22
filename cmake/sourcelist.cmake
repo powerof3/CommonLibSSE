@@ -280,6 +280,7 @@ set(SOURCES
 	include/RE/B/BSISoundOutputModel.h
 	include/RE/B/BSImagespaceShader.h
 	include/RE/B/BSImagespaceShaderBlur3.h
+	include/RE/B/BSImagespaceShaderISTemporalAA.h
 	include/RE/B/BSInputDevice.h
 	include/RE/B/BSInputDeviceFactory.h
 	include/RE/B/BSInputDeviceManager.h
@@ -291,6 +292,7 @@ set(SOURCES
 	include/RE/B/BSKeyboardDevice.h
 	include/RE/B/BSLensFlareRenderData.h
 	include/RE/B/BSLight.h
+	include/RE/B/BSLightingShader.h
 	include/RE/B/BSLightingShaderMaterial.h
 	include/RE/B/BSLightingShaderMaterialBase.h
 	include/RE/B/BSLightingShaderMaterialEnvmap.h
@@ -1896,6 +1898,7 @@ set(SOURCES
 	src/RE/B/BSGameSound.cpp
 	src/RE/B/BSGamepadDevice.cpp
 	src/RE/B/BSHandleRefObject.cpp
+	src/RE/B/BSImagespaceShader.cpp
 	src/RE/B/BSInputDevice.cpp
 	src/RE/B/BSInputDeviceFactory.cpp
 	src/RE/B/BSInputDeviceManager.cpp
@@ -1918,6 +1921,7 @@ set(SOURCES
 	src/RE/B/BSScaleformManager.cpp
 	src/RE/B/BSScaleformTranslator.cpp
 	src/RE/B/BSScriptObjectBindPolicy.cpp
+	src/RE/B/BSShaderAccumulator.cpp
 	src/RE/B/BSShaderProperty.cpp
 	src/RE/B/BSShaderTextureSet.cpp
 	src/RE/B/BSSoundHandle.cpp
@@ -2090,6 +2094,7 @@ set(SOURCES
 	src/RE/N/NiAVObject.cpp
 	src/RE/N/NiAlphaProperty.cpp
 	src/RE/N/NiAnimationKey.cpp
+	src/RE/N/NiBackToFrontAccumulator.cpp
 	src/RE/N/NiBinaryStream.cpp
 	src/RE/N/NiBooleanExtraData.cpp
 	src/RE/N/NiCamera.cpp
@@ -2141,6 +2146,7 @@ set(SOURCES
 	src/RE/R/RaceSexMenu.cpp
 	src/RE/R/ReferenceEffectController.cpp
 	src/RE/R/RemoveCallbackVisitor.cpp
+	src/RE/R/RenderTargetManager.cpp
 	src/RE/R/Renderer.cpp
 	src/RE/R/Rumble.cpp
 	src/RE/S/ScrapHeap.cpp
@@ -2161,6 +2167,7 @@ set(SOURCES
 	src/RE/S/StackFrame.cpp
 	src/RE/S/Stream.cpp
 	src/RE/S/StreamBase.cpp
+	src/RE/S/Sun.cpp
 	src/RE/Skyrim.cpp
 	src/RE/T/TES.cpp
 	src/RE/T/TESAIForm.cpp

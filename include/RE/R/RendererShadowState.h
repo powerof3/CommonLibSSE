@@ -1,5 +1,20 @@
 #pragma once
 
+#include "RE/B/BSShader.h"
+#include "RE/B/BSShaderRenderTargets.h"
+#include "RE/D/DepthStencilDepthModes.h"
+#include "RE/N/NiPoint2.h"
+#include "RE/N/NiPoint3.h"
+#include "RE/N/NiRect.h"
+#include "RE/T/TextureAddressModes.h"
+#include "RE/T/TextureFilterModes.h"
+
+#include "REX/REX/EnumSet.h"
+#include "REX/W32/D3D11.h"
+
+struct ID3D11ShaderResourceView;
+struct ID3D11UnorderedAccessView;
+
 namespace RE
 {
 	namespace BSGraphics
@@ -80,7 +95,9 @@ namespace RE
 
 		enum RasterStateCullMode
 		{
+			RASTER_STATE_CULL_MODE_NONE = 0,
 			RASTER_STATE_CULL_MODE_BACK = 1,
+			RASTER_STATE_CULL_MODE_FRONT = 2,
 
 			RASTER_STATE_CULL_MODE_DEFAULT = RASTER_STATE_CULL_MODE_BACK,  // Used for BSShader::RestoreX
 		};
@@ -88,6 +105,12 @@ namespace RE
 		class RendererShadowState
 		{
 		public:
+			[[nodiscard]] static RendererShadowState* GetSingleton()
+			{
+				static REL::Relocation<RendererShadowState*> singleton{ RELOCATION_ID(524773, 388819) };
+				return singleton.get();
+			}
+
 			// members
 			REX::TEnumSet<ShaderFlags, uint32_t>             stateUpdateFlags;                                                       // 00
 			std::uint32_t                                    PSResourceModifiedBits;                                                 // 04

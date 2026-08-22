@@ -9,6 +9,8 @@
 
 namespace RE
 {
+	class BSImagespaceShader;
+	class BSImagespaceShaderISTemporalAA;
 	class BSShader;
 	class BSTriShape;
 	class ImageSpaceEffect;
@@ -16,6 +18,14 @@ namespace RE
 	class ImageSpaceManager
 	{
 	public:
+		struct UNK_BSImagespaceShaderISTemporalAA
+		{
+			BSImagespaceShaderISTemporalAA* shader;                                // 00
+			BSImagespaceShader*             BSImagespaceShaderISTemporalAA_UI;     // 08
+			BSImagespaceShader*             BSImagespaceShaderISTemporalAA_Water;  // 10
+			bool                            taaEnabled;                            // 18
+		};
+
 		enum ImageSpaceEffectEnum
 		{
 			WorldMap = 0,                                  // ImageSpaceEffectWorldMap
@@ -185,54 +195,54 @@ namespace RE
 		}
 
 		// members
-		std::uint64_t                        unk00;                   // 000
-		std::uint64_t                        unk08;                   // 008
-		NiRect<std::int32_t>                 rect;                    // 010
-		NiTPrimitiveArray<ImageSpaceEffect*> effects;                 // 020
-		bool                                 initEffects;             // 038
-		std::uint32_t                        unk3C;                   // 03C
-		std::int32_t                         unk40;                   // 040
-		NiPointer<BSTriShape>                unk48;                   // 048
-		NiPointer<BSTriShape>                unk50;                   // 050
-		std::uint8_t                         unk58;                   // 058
-		std::uint32_t                        unk5C;                   // 05C
-		std::uint32_t                        unk60;                   // 060
-		RENDER_TARGET                        unk64;                   // 064
-		std::uint32_t                        unk68;                   // 068
-		std::uint32_t                        unk6C;                   // 06C
-		std::uint32_t                        unk70;                   // 070
-		float                                unk74;                   // 074
-		ImageSpaceTexture                    unk78;                   // 078
-		NiColorA                             refractionTint;          // 098
-		ImageSpaceBaseData*                  currentBaseData;         // 0A8
-		ImageSpaceBaseData*                  overrideBaseData;        // 0B0
-		ImageSpaceBaseData*                  underwaterBaseData;      // 0B8
-		ImageSpaceBaseData*                  consoleBaseData;         // 0C0
-		ImageSpaceData                       data;                    // 0C8
-		std::uint64_t                        unk168;                  // 168
-		std::uint64_t                        unk170;                  // 170
-		std::uint64_t                        unk178;                  // 178
-		std::uint64_t                        unk180;                  // 180
-		std::uint64_t                        unk188;                  // 188
-		std::uint64_t                        unk190;                  // 190
-		std::uint64_t                        unk198;                  // 198
-		std::uint64_t                        unk1A0;                  // 1A0
-		std::uint64_t                        unk1A8;                  // 1A8
-		std::uint64_t                        unk1B0;                  // 1B0
-		std::uint64_t                        unk1B8;                  // 1B8
-		std::uint64_t                        unk1C0;                  // 1C0
-		std::uint64_t                        unk1C8;                  // 1C8
-		std::uint64_t                        unk1D0;                  // 1D0
-		std::uint64_t                        unk1D8;                  // 1D8
-		std::uint64_t                        unk1E0;                  // 1E0
-		std::uint64_t                        unk1E8;                  // 1E8
-		std::uint64_t                        unk1F0;                  // 1F0
-		std::uint64_t                        unk1F8;                  // 1F8
-		std::uint64_t                        unk200;                  // 200
-		std::uint64_t                        unk208;                  // 208
-		bool                                 usesLDR;                 // 210
-		bool                                 unk211;                  // 211
-		NiPointer<NiAVObject>                underwaterSplitterGeom;  // 218
+		std::uint64_t                        unk00;                                            // 000
+		std::uint64_t                        unk08;                                            // 008
+		NiRect<std::int32_t>                 rect;                                             // 010
+		NiTPrimitiveArray<ImageSpaceEffect*> effects;                                          // 020
+		bool                                 initEffects;                                      // 038
+		std::uint32_t                        unk3C;                                            // 03C
+		std::int32_t                         unk40;                                            // 040
+		NiPointer<BSTriShape>                unk48;                                            // 048
+		NiPointer<BSTriShape>                unk50;                                            // 050
+		std::uint8_t                         unk58;                                            // 058
+		std::uint32_t                        unk5C;                                            // 05C
+		std::uint32_t                        unk60;                                            // 060
+		RENDER_TARGET                        unk64;                                            // 064
+		std::uint32_t                        unk68;                                            // 068
+		std::uint32_t                        unk6C;                                            // 06C
+		std::uint32_t                        unk70;                                            // 070
+		float                                unk74;                                            // 074
+		ImageSpaceTexture                    unk78;                                            // 078
+		NiColorA                             refractionTint;                                   // 098
+		ImageSpaceBaseData*                  currentBaseData;                                  // 0A8
+		ImageSpaceBaseData*                  overrideBaseData;                                 // 0B0
+		ImageSpaceBaseData*                  underwaterBaseData;                               // 0B8
+		ImageSpaceBaseData*                  consoleBaseData;                                  // 0C0
+		ImageSpaceData                       data;                                             // 0C8
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderApplyReflections;               // 168
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISApplyVolumetricLighting;      // 170
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISBasicCopy;                    // 178
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISBlur;                         // 180
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISVolumetricLightingBlurHCS;    // 188
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISCompositeVolumetricLighting;  // 190
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISCopySubRegionCS;              // 198
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISDebugSnow;                    // 1A0
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISExp;                          // 1A8
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISLightingComposite;            // 1B0
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISPerlinNoiseCS;                // 1B8
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderReflectionsRayTracing;          // 1C0
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISSAOBlurH;                     // 1C8
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISSAOBlurHCS;                   // 1D0
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISSILComposite;                 // 1D8
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISSimpleColor;                  // 1E0
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISSnowSSS;                      // 1E8
+		UNK_BSImagespaceShaderISTemporalAA*  BSImagespaceShaderISTemporalAA;                   // 1F0
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISUpsampleDynamicResolution;    // 1F8
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISWaterBlend;                   // 200
+		NiPointer<BSImagespaceShader>        BSImagespaceShaderISUnderwaterMask;               // 208
+		bool                                 usesLDR;                                          // 210
+		bool                                 unk211;                                           // 211
+		NiPointer<NiAVObject>                underwaterSplitterGeom;                           // 218
 	};
 	static_assert(sizeof(ImageSpaceManager) == 0x220);
 }
