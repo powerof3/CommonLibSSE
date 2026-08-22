@@ -624,7 +624,7 @@ namespace SKSE
 
 #define SKSE_EXPORT extern "C" [[maybe_unused]] __declspec(dllexport)
 #ifdef SKYRIM_SUPPORT_AE
-#   define SKSE_PLUGIN_PRELOAD(...) SKSE_EXPORT bool SKSEPlugin_Preload(__VA_ARGS__)
+#	define SKSE_PLUGIN_PRELOAD(...) SKSE_EXPORT bool SKSEPlugin_Preload(__VA_ARGS__)
 #endif
 #define SKSE_PLUGIN_LOAD(...) SKSE_EXPORT bool SKSEPlugin_Load(__VA_ARGS__)
 #define SKSE_PLUGIN_QUERY(...) SKSE_EXPORT bool SKSEPlugin_Query(__VA_ARGS__)
