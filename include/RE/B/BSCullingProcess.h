@@ -62,7 +62,7 @@ namespace RE
 			const NiFrustumPlanes*     customCullPlanes;      // 38
 			NiPointer<NiAVObject>      scene;                 // 40
 			NiVisibleArray*            visibleSet;            // 48
-			REX::Enum<BSCPCullingType> cullMode;              // 50
+			REX::TEnum<BSCPCullingType> cullMode;              // 50
 			float                      unk54;                 // 54
 			std::uint32_t              unk58;                 // 58
 			bool                       useParabolicCulling;   // 5C
