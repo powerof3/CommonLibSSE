@@ -9,7 +9,6 @@
 #include "RE/T/TextureAddressModes.h"
 #include "RE/T/TextureFilterModes.h"
 
-#include "REX/REX/EnumSet.h"
 #include "REX/W32/D3D11.h"
 
 struct ID3D11ShaderResourceView;
