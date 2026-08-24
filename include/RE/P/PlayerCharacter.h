@@ -147,8 +147,8 @@ namespace RE
 #ifndef SKYRIM_SUPPORT_AE
 		public BSTEventSink<TESTrackedStatsEvent>  // 2C8
 #else
-		public BSTEventSink<TESTrackedStatsEvent>,  // 2C8
-		public BSTEventSink<BSSystemEvent>          // 2D0
+		public BSTEventSink<TESTrackedStatsEvent>,  // 2D0
+		public BSTEventSink<BSSystemEvent>          // 2D8
 #endif
 	{
 	public:

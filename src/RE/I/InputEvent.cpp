@@ -5,6 +5,11 @@
 #include "RE/I/IDEvent.h"
 #include "RE/M/MouseMoveEvent.h"
 #include "RE/T/ThumbstickEvent.h"
+#ifdef SKYRIM_SUPPORT_AE
+#	include "RE/A/AmiiboEvent.h"
+#	include "RE/M/MotionGestureEvent.h"
+#	include "RE/S/SixaxisEvent.h"
+#endif
 
 namespace RE
 {
@@ -47,6 +52,38 @@ namespace RE
 	{
 		return GetEventType() == INPUT_EVENT_TYPE::kMouseMove ? static_cast<const MouseMoveEvent*>(this) : nullptr;
 	}
+
+#ifdef SKYRIM_SUPPORT_AE
+	AmiiboEvent* InputEvent::AsAmiiboEvent()
+	{
+		return GetEventType() == INPUT_EVENT_TYPE::kAmiibo ? static_cast<AmiiboEvent*>(this) : nullptr;
+	}
+
+	const AmiiboEvent* InputEvent::AsAmiiboEvent() const
+	{
+		return GetEventType() == INPUT_EVENT_TYPE::kAmiibo ? static_cast<const AmiiboEvent*>(this) : nullptr;
+	}
+
+	MotionGestureEvent* InputEvent::AsMotionGestureEvent()
+	{
+		return GetEventType() == INPUT_EVENT_TYPE::kMotionGesture ? static_cast<MotionGestureEvent*>(this) : nullptr;
+	}
+
+	const MotionGestureEvent* InputEvent::AsMotionGestureEvent() const
+	{
+		return GetEventType() == INPUT_EVENT_TYPE::kMotionGesture ? static_cast<const MotionGestureEvent*>(this) : nullptr;
+	}
+
+	SixaxisEvent* InputEvent::AsSixaxisEvent()
+	{
+		return GetEventType() == INPUT_EVENT_TYPE::kSixaxis ? static_cast<SixaxisEvent*>(this) : nullptr;
+	}
+
+	const SixaxisEvent* InputEvent::AsSixaxisEvent() const
+	{
+		return GetEventType() == INPUT_EVENT_TYPE::kSixaxis ? static_cast<const SixaxisEvent*>(this) : nullptr;
+	}
+#endif
 
 	ThumbstickEvent* InputEvent::AsThumbstickEvent()
 	{

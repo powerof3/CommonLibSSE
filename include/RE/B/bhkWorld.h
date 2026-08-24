@@ -2,6 +2,7 @@
 
 #include "RE/B/BSAtomic.h"
 #include "RE/B/bhkSerializable.h"
+#include "RE/B/bhkWorldCinfo.h"
 
 namespace RE
 {
@@ -75,19 +76,40 @@ namespace RE
 		std::uint64_t                 unkC5C0;                    // C5C0
 		BGSAcousticSpaceListener*     acousticSpaceListener;      // C5C8
 		hkpSuspendInactiveAgentsUtil* suspendInactiveAgentsUtil;  // C5D0
-		std::uint32_t                 unkC5D8;                    // C5D8 - incremented per frame
-		std::uint32_t                 unkC5DC;                    // C5DC
-		std::uint32_t                 unkC5E0;                    // C5E0
-		std::uint32_t                 unkC5E4;                    // C5E4
-		std::uint32_t                 unkC5E8;                    // C5E8
-		std::uint32_t                 unkC5EC;                    // C5EC
-		float                         tau;                        // C5F0
-		float                         damping;                    // C5F4
-		std::uint8_t                  unkC5F8;                    // C5F8
-		bool                          toggleCollision;            // C5F9
-		std::uint16_t                 unkC5FA;                    // C5FA
-		std::uint16_t                 unkC5FC;                    // C5FC
-		std::uint16_t                 unkC5FE;                    // C5FE
+#ifndef SKYRIM_SUPPORT_AE
+		std::uint32_t unkC5D8;          // C5D8 - incremented per frame
+		std::uint32_t unkC5DC;          // C5DC
+		std::uint32_t unkC5E0;          // C5E0
+		std::uint32_t unkC5E4;          // C5E4
+		std::uint32_t unkC5E8;          // C5E8
+		std::uint32_t unkC5EC;          // C5EC
+		float         tau;              // C5F0
+		float         damping;          // C5F4
+		std::uint8_t  unkC5F8;          // C5F8
+		bool          toggleCollision;  // C5F9
+		std::uint16_t unkC5FA;          // C5FA
+		std::uint16_t unkC5FC;          // C5FC
+		std::uint16_t unkC5FE;          // C5FE
+#else
+		bhkWorldCinfo worldCinfo;       // C5E0
+		std::uint32_t unkC6E0;          // C6E0 - incremented per frame
+		std::uint32_t unkC6E4;          // C6E4
+		std::uint32_t unkC6E8;          // C6E8
+		std::uint32_t unkC6EC;          // C6EC
+		std::uint32_t unkC6F0;          // C6F0
+		std::uint32_t unkC6F4;          // C6F4
+		float         tau;              // C6F8
+		float         damping;          // C6FC
+		std::uint8_t  unkC700;          // C700
+		bool          toggleCollision;  // C701
+		std::uint16_t unkC702;          // C702
+		std::uint16_t unkC704;          // C704
+		std::uint16_t unkC706;          // C706
+#endif
 	};
+#ifndef SKYRIM_SUPPORT_AE
 	static_assert(sizeof(bhkWorld) == 0xC600);
+#else
+	static_assert(sizeof(bhkWorld) == 0xC710);
+#endif
 }
