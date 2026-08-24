@@ -28,6 +28,10 @@
       "description": "REX::JSON settings support",
       "dependencies": [ "glaze" ]
     },
+    "random": {
+      "description": "enable REX::TRandom support",
+      "dependencies": [ "xoshiro-cpp" ]
+    },
     "toml": {
       "description": "REX::TOML settings support",
       "dependencies": [ "toml11" ]

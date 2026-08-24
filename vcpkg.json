@@ -38,6 +38,17 @@
         }
       ]
     },
+    "random": {
+      "description": "enable REX::TRandom support",
+      "dependencies": [
+        {
+          "name": "commonlib-shared",
+          "features": [
+            "random"
+          ]
+        }
+      ]
+    },
     "toml": {
       "description": "enable REX::TOML settings support",
       "dependencies": [
