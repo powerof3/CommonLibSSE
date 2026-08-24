@@ -141,14 +141,14 @@ namespace RE
 		TESResponseList* GetResponseList(TESResponseList* a_list = nullptr);
 
 		// members
-		TESTopic*                              parentTopic;    // 20
-		TESTopicInfo*                          dataInfo;       // 28 - DNAM
-		TESCondition                           objConditions;  // 30 - CTDA
-		std::uint16_t                          infoIndex;      // 38 - index in infoTopics array of parent topic
-		bool                                   saidOnce;       // 3A
+		TESTopic*                               parentTopic;    // 20
+		TESTopicInfo*                           dataInfo;       // 28 - DNAM
+		TESCondition                            objConditions;  // 30 - CTDA
+		std::uint16_t                           infoIndex;      // 38 - index in infoTopics array of parent topic
+		bool                                    saidOnce;       // 3A
 		REX::TEnumSet<FavorLevel, std::uint8_t> favorLevel;     // 3B - CNAM
-		TOPIC_INFO_DATA                        data;           // 3C - ENAM
-		std::uint32_t                          fileOffset;     // 40
+		TOPIC_INFO_DATA                         data;           // 3C - ENAM
+		std::uint32_t                           fileOffset;     // 40
 #ifndef SKYRIM_SUPPORT_AE
 		std::uint32_t pad44;  // 44
 #else
