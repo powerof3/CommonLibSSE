@@ -2,45 +2,81 @@
 
 #include "RE/B/BSTEvent.h"
 
-#include "SKSE/Events.h"
-#include "SKSE/Impl/Stubs.h"
-#include "SKSE/Interfaces.h"
-#include "SKSE/Trampoline.h"
-#include "SKSE/Version.h"
+#include "REX/LOG.h"
 
-#define SKSEAPI __cdecl
+#include "SKSE/Events.h"
+#include "SKSE/Interfaces.h"
+#include "SKSE/Version.h"
 
 namespace SKSE
 {
-	void Init(const LoadInterface* a_intfc, const bool a_log = true) noexcept;
-	void RegisterForAPIInitEvent(std::function<void()> a_fn);
+	class PreLoadInterface;
+	class LoadInterface;
+
+	class MessagingInterface;
+	class ScaleformInterface;
+	class PapyrusInterface;
+	class SerializationInterface;
+	class TaskInterface;
+	class ObjectInterface;
+	class TrampolineInterface;
+
+	struct PluginInfo;
+
+	struct InitInfo
+	{
+		bool log{ true };
+#ifndef NDEBUG
+		REX::ELogLevel logLevel{ REX::ELogLevel::Debug };
+#else
+		REX::ELogLevel logLevel{ REX::ELogLevel::Info };
+#endif
+		const char* logName{ nullptr };
+		const char* logPattern{ nullptr };
+		std::size_t logRotate{ 0 };
+		bool        trampoline{ false };
+		std::size_t trampolineSize{ 0 };
+		bool        hook{ true };
+	};
 
 #ifdef SKYRIM_SUPPORT_AE
-	std::string_view GetPluginName() noexcept;
-	std::string_view GetPluginAuthor() noexcept;
-	REL::Version     GetPluginVersion() noexcept;
+	void Init(const PreLoadInterface* a_intfc, InitInfo a_info = {}) noexcept;
 #endif
+	void Init(const LoadInterface* a_intfc, InitInfo a_info = {}) noexcept;
 
-	PluginHandle  GetPluginHandle() noexcept;
-	std::uint32_t GetReleaseIndex() noexcept;
+	void RegisterForAPIInitEvent(std::function<void()> a_fn);
 
-	const ScaleformInterface*     GetScaleformInterface() noexcept;
-	const PapyrusInterface*       GetPapyrusInterface() noexcept;
-	const SerializationInterface* GetSerializationInterface() noexcept;
-	const TaskInterface*          GetTaskInterface() noexcept;
-	const TrampolineInterface*    GetTrampolineInterface() noexcept;
+	[[nodiscard]] std::string_view GetPluginName() noexcept;
+	[[nodiscard]] std::string_view GetPluginAuthor() noexcept;
+	[[nodiscard]] REL::Version     GetPluginVersion() noexcept;
 
-	const MessagingInterface*              GetMessagingInterface() noexcept;
-	RE::BSTEventSource<ModCallbackEvent>*  GetModCallbackEventSource() noexcept;
-	RE::BSTEventSource<CameraEvent>*       GetCameraEventSource() noexcept;
-	RE::BSTEventSource<CrosshairRefEvent>* GetCrosshairRefEventSource() noexcept;
-	RE::BSTEventSource<ActionEvent>*       GetActionEventSource() noexcept;
-	RE::BSTEventSource<NiNodeUpdateEvent>* GetNiNodeUpdateEventSource() noexcept;
+	[[nodiscard]] PluginHandle      GetPluginHandle() noexcept;
+	[[nodiscard]] const PluginInfo* GetPluginInfo(std::string_view a_plugin) noexcept;
+	[[nodiscard]] std::uint32_t     GetReleaseIndex() noexcept;
+	[[nodiscard]] std::uint32_t     GetSKSEVersion() noexcept;
 
-	const ObjectInterface*             GetObjectInterface() noexcept;
-	const SKSEDelayFunctorManager*     GetDelayFunctorManager() noexcept;
-	const SKSEObjectRegistry*          GetObjectRegistry() noexcept;
-	const SKSEPersistentObjectStorage* GetPersistentObjectStorage() noexcept;
+	[[nodiscard]] const ScaleformInterface*          GetScaleformInterface() noexcept;
+	[[nodiscard]] const PapyrusInterface*            GetPapyrusInterface() noexcept;
+	[[nodiscard]] const SerializationInterface*      GetSerializationInterface() noexcept;
+	[[nodiscard]] const TaskInterface*               GetTaskInterface() noexcept;
+	[[nodiscard]] const MessagingInterface*          GetMessagingInterface() noexcept;
+	[[nodiscard]] const ObjectInterface*             GetObjectInterface() noexcept;
+	[[nodiscard]] const TrampolineInterface*         GetTrampolineInterface() noexcept;
+	[[nodiscard]] const SKSEDelayFunctorManager*     GetDelayFunctorManager() noexcept;
+	[[nodiscard]] const SKSEObjectRegistry*          GetObjectRegistry() noexcept;
+	[[nodiscard]] const SKSEPersistentObjectStorage* GetPersistentObjectStorage() noexcept;
 
-	void AllocTrampoline(std::size_t a_size, bool a_trySKSEReserve = true);
+	[[nodiscard]] RE::BSTEventSource<ModCallbackEvent>*  GetModCallbackEventSource() noexcept;
+	[[nodiscard]] RE::BSTEventSource<CameraEvent>*       GetCameraEventSource() noexcept;
+	[[nodiscard]] RE::BSTEventSource<CrosshairRefEvent>* GetCrosshairRefEventSource() noexcept;
+	[[nodiscard]] RE::BSTEventSource<ActionEvent>*       GetActionEventSource() noexcept;
+	[[nodiscard]] RE::BSTEventSource<NiNodeUpdateEvent>* GetNiNodeUpdateEventSource() noexcept;
+}
+
+namespace SKSE
+{
+	// DEPRECATED
+	[[deprecated("Use SKSE::Init(..., {}) instead")]] void Init(const LoadInterface* a_intfc, bool a_log) noexcept;
+	// DEPRECATED
+	[[deprecated("Use SKSE::Init(..., {}) instead")]] void AllocTrampoline(std::size_t a_size, bool a_trySKSEReserve = true) noexcept;
 }

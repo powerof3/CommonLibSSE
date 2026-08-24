@@ -7,7 +7,7 @@ namespace RE
 		northRot(0.0F),
 		pad14(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraNorthRotation::GetType() const

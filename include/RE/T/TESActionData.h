@@ -37,7 +37,7 @@ namespace RE
 			using func_t = decltype(&TESActionData::Ctor);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(15916, 41558) };
 			TESActionData*                 tesActionData = func(this);
-			stl::emplace_vtable<TESActionData>(tesActionData);
+			REX::EMPLACE_VTABLE<TESActionData>(tesActionData);
 			return tesActionData;
 		}
 	};

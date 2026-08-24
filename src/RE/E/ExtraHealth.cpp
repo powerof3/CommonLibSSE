@@ -11,7 +11,7 @@ namespace RE
 		health(a_health),
 		pad14(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraHealth::GetType() const

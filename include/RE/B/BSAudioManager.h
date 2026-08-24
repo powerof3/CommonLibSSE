@@ -51,6 +51,9 @@ namespace RE
 		void PrecacheDescriptor(const BSISoundDescriptor* a_descriptor, std::uint32_t a_flags);
 		void SetCacheEnabled(bool a_enabled);
 
+		void ReleaseAllSounds();
+		void StopAllSounds();
+
 		[[nodiscard]] constexpr bool GetCacheEnabled() const noexcept { return flags.all(Flags::CacheEnabled); }
 
 		// members
@@ -73,7 +76,7 @@ namespace RE
 		std::uint32_t                                             maxCacheSize;                // 160
 		std::uint32_t                                             maxAudioCacheSize;           // 164
 		std::uint32_t                                             maxSizeForCachedSound;       // 168
-		REX::EnumSet<Flags, std::uint32_t>                        flags;                       // 16C
+		REX::TEnumSet<Flags, std::uint32_t>                       flags;                       // 16C
 		float                                                     masterVolume;                // 170
 		std::uint32_t                                             asyncReadPriorityThreshold;  // 174
 		BSAudioCallbacks                                          audioCallbacks;              // 178

@@ -12,7 +12,7 @@ namespace RE
 		BSExtraData(),
 		changes(a_changes)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraContainerChanges::~ExtraContainerChanges()

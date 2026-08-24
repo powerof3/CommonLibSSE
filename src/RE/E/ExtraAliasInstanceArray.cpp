@@ -9,7 +9,7 @@ namespace RE
 		aliases(),
 		lock()
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraAliasInstanceArray::~ExtraAliasInstanceArray()

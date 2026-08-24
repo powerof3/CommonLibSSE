@@ -19,7 +19,7 @@ namespace RE
 		virtual void Operate(Actor* a_actor);  // 01
 
 		// members
-		REX::EnumSet<PROCESS_TYPE, std::uint8_t> processType;  // 00
+		REX::TEnumSet<PROCESS_TYPE, std::uint8_t> processType;  // 00
 	};
 	static_assert(sizeof(MobIterOperator) == 0x10);
 }

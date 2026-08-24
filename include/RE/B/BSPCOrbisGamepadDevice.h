@@ -172,11 +172,11 @@ namespace RE
 
 		ButtonState GetPreviousButtonState() const
 		{
-			return stl::unrestricted_cast<ButtonState>(previousPadState.buttonState);
+			return REX::UNRESTRICTED_CAST<ButtonState>(previousPadState.buttonState);
 		}
 		ButtonState GetCurrentButtonState() const
 		{
-			return stl::unrestricted_cast<ButtonState>(currentPadState.buttonState);
+			return REX::UNRESTRICTED_CAST<ButtonState>(currentPadState.buttonState);
 		}
 
 		// members

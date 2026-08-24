@@ -5,13 +5,13 @@ namespace RE
 	BSHandleRefObject::~BSHandleRefObject()
 	{
 		_refCount = _refCount & kRefCountMask;
-		stl::atomic_ref totalObjects{ *GetTotalObjectCount() };
+		REX::TAtomicRef totalObjects{ *GetTotalObjectCount() };
 		--totalObjects;
 	}
 
 	void BSHandleRefObject::DecRefCount()
 	{
-		stl::atomic_ref myRefCount{ _refCount };
+		REX::TAtomicRef myRefCount{ _refCount };
 		if (((--myRefCount) & kRefCountMask) == 0) {
 			DeleteThis();
 		}
@@ -19,7 +19,7 @@ namespace RE
 
 	void BSHandleRefObject::IncRefCount()
 	{
-		stl::atomic_ref myRefCount{ _refCount };
+		REX::TAtomicRef myRefCount{ _refCount };
 		++myRefCount;
 	}
 

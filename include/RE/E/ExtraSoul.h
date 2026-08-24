@@ -24,10 +24,10 @@ namespace RE
 		[[nodiscard]] SOUL_LEVEL GetContainedSoul() const;
 
 		// members
-		REX::EnumSet<SOUL_LEVEL, std::uint8_t> soul;   // 10
-		std::uint8_t                           pad11;  // 11
-		std::uint16_t                          pad12;  // 12
-		std::uint32_t                          pad14;  // 14
+		REX::TEnumSet<SOUL_LEVEL, std::uint8_t> soul;   // 10
+		std::uint8_t                            pad11;  // 11
+		std::uint16_t                           pad12;  // 12
+		std::uint32_t                           pad14;  // 14
 	};
 	static_assert(sizeof(ExtraSoul) == 0x18);
 }

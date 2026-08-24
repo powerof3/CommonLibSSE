@@ -303,6 +303,13 @@ namespace RE
 		return func(this);
 	}
 
+	bool ExtraDataList::IsInventoryStackable(bool a_ignoreWorn) const
+	{
+		using func_t = decltype(&ExtraDataList::IsInventoryStackable);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(11452, 11598) };
+		return func(this, a_ignoreWorn);
+	}
+
 	void ExtraDataList::SetActivateParent(TESObjectREFR* a_parentRef, float a_delay)
 	{
 		using func_t = decltype(&ExtraDataList::SetActivateParent);

@@ -1,8 +1,11 @@
 #pragma once
 
+#include <cstddef>
+
 #include "RE/B/BSShaderRenderTargets.h"
 #include "RE/N/NiTexture.h"
 #include "RE/R/RenderTargetData.h"
+#include "RE/R/RenderTargetProperties.h"
 #include "RE/T/TextureFileFormat.h"
 
 #include "REX/W32/D3D11_3.h"
@@ -10,8 +13,13 @@
 
 namespace RE
 {
+	class BSShaderAccumulator;
+	class NiCamera;
+
 	namespace BSGraphics
 	{
+		enum SetRenderTargetMode : std::uint32_t;
+
 		struct RendererWindow
 		{
 			REX::W32::HWND                       hWnd;                   // 00
@@ -32,35 +40,42 @@ namespace RE
 
 		struct RendererData
 		{
-			std::uint32_t                      adapter;                                              // 0000
-			REX::W32::DXGI_RATIONAL            desiredRefreshRate;                                   // 0004
-			REX::W32::DXGI_RATIONAL            actualRefreshRate;                                    // 000C
-			REX::W32::DXGI_MODE_SCALING        scaleMode;                                            // 0014
-			REX::W32::DXGI_MODE_SCANLINE_ORDER scanlineOrdering;                                     // 0018
-			std::uint32_t                      isNotWindowed;                                        // 001C
-			bool                               fullScreen;                                           // 0020
-			bool                               borderlessDisplay;                                    // 0021
-			bool                               readOnlyDepth;                                        // 0022
-			bool                               instantiated;                                         // 0023
-			bool                               requestedWindowSizeChange;                            // 0024
-			bool                               unk25;                                                // 0025
-			std::uint32_t                      newWidth;                                             // 0028
-			std::uint32_t                      newHeight;                                            // 002C
-			std::uint32_t                      presentInterval;                                      // 0030
-			REX::W32::ID3D11Device*            forwarder;                                            // 0038
-			REX::W32::ID3D11DeviceContext*     context;                                              // 0040
-			RendererWindow                     renderWindows[32];                                    // 0048
-			RenderTargetData                   renderTargets[RENDER_TARGET::kTOTAL];                 // 0A48
-			DepthStencilData                   depthStencils[RENDER_TARGET_DEPTHSTENCIL::kTOTAL];    // 1FA8
-			CubemapRenderTargetData            cubemapRenderTargets[RENDER_TARGET_CUBEMAP::kTOTAL];  // 26C8
-			Texture3DTargetData                texture3DRenderTargets[RENDER_TARGET_3D::kTOTAL];     // 2708
-			float                              clearColor[4];                                        // 2768
-			std::uint8_t                       clearStencil;                                         // 2778
-			REX::W32::CRITICAL_SECTION         lock;                                                 // 2780
-			const char*                        className;                                            // 27A8
-			REX::W32::HINSTANCE                hInstance;                                            // 27B0
+			std::uint32_t                      adapter;                               // 0000
+			REX::W32::DXGI_RATIONAL            desiredRefreshRate;                    // 0004
+			REX::W32::DXGI_RATIONAL            actualRefreshRate;                     // 000C
+			REX::W32::DXGI_MODE_SCALING        scaleMode;                             // 0014
+			REX::W32::DXGI_MODE_SCANLINE_ORDER scanlineOrdering;                      // 0018
+			std::uint32_t                      isNotWindowed;                         // 001C
+			bool                               fullScreen;                            // 0020
+			bool                               borderlessDisplay;                     // 0021
+			bool                               readOnlyDepth;                         // 0022
+			bool                               instantiated;                          // 0023
+			bool                               requestedWindowSizeChange;             // 0024
+			bool                               unk25;                                 // 0025
+			std::uint32_t                      newWidth;                              // 0028
+			std::uint32_t                      newHeight;                             // 002C
+			std::uint32_t                      presentInterval;                       // 0030
+			REX::W32::ID3D11Device*            forwarder;                             // 0038
+			REX::W32::ID3D11DeviceContext*     context;                               // 0040
+			RendererWindow                     renderWindows[32];                     // 0048
+			RenderTargetData                   renderTargets[RENDER_TARGET::kTOTAL];  // 0A48
+#ifdef SKYRIM_SUPPORT_AE
+			std::byte pad1FA8[0x60];  // 1FA8
+#endif
+			DepthStencilData           depthStencils[RENDER_TARGET_DEPTHSTENCIL::kTOTAL];    // 1FA8, 2008
+			CubemapRenderTargetData    cubemapRenderTargets[RENDER_TARGET_CUBEMAP::kTOTAL];  // 26C8, 2728
+			Texture3DTargetData        texture3DRenderTargets[RENDER_TARGET_3D::kTOTAL];     // 2708, 2768
+			float                      clearColor[4];                                        // 2768, 27C8
+			std::uint8_t               clearStencil;                                         // 2778, 27D8
+			REX::W32::CRITICAL_SECTION lock;                                                 // 2780, 27E0
+			const char*                className;                                            // 27A8, 2808
+			REX::W32::HINSTANCE        hInstance;                                            // 27B0, 2810
 		};
+#ifdef SKYRIM_SUPPORT_AE
+		static_assert(offsetof(RendererData, lock) == 0x27E0);
+#else
 		static_assert(offsetof(RendererData, lock) == 0x2780);
+#endif
 
 		struct RendererInitOSData
 		{
@@ -99,17 +114,22 @@ namespace RE
 		public:
 			[[nodiscard]] static Renderer* GetSingleton() noexcept;
 
-			void CreateSwapChain(REX::W32::HWND* a_window, bool a_setCurrent);
-			void KillWindow(std::uint32_t a_windowID);
-			void Lock();
-			void Unlock();
-			void ResizeWindow(std::uint32_t a_windowID, std::uint32_t a_width, std::uint32_t a_height, bool a_fullscreen, bool a_borderless);
-			void RequestWindowResize(std::uint32_t a_width, std::uint32_t a_height);
-			void SetWindowPosition(std::uint32_t a_windowID, std::int32_t a_x, std::int32_t a_y);
-			void SetWindowActiveState(bool a_show);
-			void WindowSizeChanged(std::uint32_t a_windowID);
-			void ResetWindow(std::uint32_t a_windowID);
-			void UpdateViewPort(std::uint32_t a_unk1, std::uint32_t a_unk2, bool a_unk3);
+			void        CreateSwapChain(REX::W32::HWND* a_window, bool a_setCurrent);
+			void        KillWindow(std::uint32_t a_windowID);
+			void        Lock();
+			void        Unlock();
+			void        ResizeWindow(std::uint32_t a_windowID, std::uint32_t a_width, std::uint32_t a_height, bool a_fullscreen, bool a_borderless);
+			void        RequestWindowResize(std::uint32_t a_width, std::uint32_t a_height);
+			void        SetWindowPosition(std::uint32_t a_windowID, std::int32_t a_x, std::int32_t a_y);
+			void        SetWindowActiveState(bool a_show);
+			void        WindowSizeChanged(std::uint32_t a_windowID);
+			void        ResetWindow(std::uint32_t a_windowID);
+			void        SetRenderTarget(std::uint32_t a_renderTargetSlot, RENDER_TARGET a_renderTarget, SetRenderTargetMode a_mode, bool a_updateViewport);
+			void        UpdateViewPort(std::uint32_t a_unk1, std::uint32_t a_unk2, bool a_unk3);
+			void        ApplyState(bool a_arg2);
+			static void SubmitAccumulator(NiCamera* a_camera, BSShaderAccumulator* a_accumulator, std::uint32_t a_renderFlags);
+			static void StartAccumulating(NiCamera* a_camera, BSShaderAccumulator* a_accumulator, std::uint32_t a_renderFlags);
+			static void FinishAccumulatingPostResolveDepth(NiCamera* a_unusedCamera, BSShaderAccumulator* a_accumulator, std::uint32_t a_renderFlags);
 
 			[[nodiscard]] NiTexture::RendererData* CreateRenderTexture(std::uint32_t a_width, std::uint32_t a_height);
 			void                                   SaveRenderTargetToFile(RENDER_TARGET a_renderTarget, const char* a_filePath, TextureFileFormat a_textureFileFormat);

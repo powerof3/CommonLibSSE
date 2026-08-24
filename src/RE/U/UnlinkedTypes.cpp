@@ -11,7 +11,6 @@ namespace RE
 			Object::~Object()
 			{
 				Dtor();
-				stl::memzero(this);
 			}
 
 			void Object::Dtor()

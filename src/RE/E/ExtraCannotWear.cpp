@@ -5,7 +5,7 @@ namespace RE
 	ExtraCannotWear::ExtraCannotWear() :
 		BSExtraData()
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraCannotWear::GetType() const

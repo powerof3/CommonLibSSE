@@ -7,7 +7,6 @@ namespace RE
 	BipedAnim::~BipedAnim()
 	{
 		Dtor();
-		stl::memzero(this);
 	}
 
 	void BipedAnim::RemoveAllParts()

@@ -71,6 +71,7 @@ namespace RE
 		static float       QFrameAnimTime();
 		static NiCamera*   WorldRootCamera();
 		static SceneGraph* WorldRootNode();
+		static void        RenderWorld(bool a_unk);
 
 		bool IsRoomVisible(NiNode* a_room);
 		void SetActive(bool a_active);

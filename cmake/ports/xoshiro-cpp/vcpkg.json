@@ -1,0 +1,7 @@
+{
+  "name": "xoshiro-cpp",
+  "version-date": "2021-08-05",
+  "description": "Header-only Xoshiro/Xoroshiro PRNG wrapper library for C++17 / C++20",
+  "homepage": "https://github.com/Reputeless/Xoshiro-cpp",
+  "license": "MIT"
+}

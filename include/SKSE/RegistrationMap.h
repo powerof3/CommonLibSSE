@@ -344,7 +344,7 @@ namespace SKSE
 			auto vm = RE::BSScript::Internal::VirtualMachine::GetSingleton();
 			auto policy = vm ? vm->GetObjectHandlePolicy() : nullptr;
 			if (!policy) {
-				log::error("Failed to get handle policy!");
+				REX::ERROR("Failed to get handle policy!");
 				return;
 			}
 
@@ -377,7 +377,7 @@ namespace SKSE
 		{
 			assert(a_intfc);
 			if (!a_intfc->OpenRecord(a_type, a_version)) {
-				log::error("Failed to open record!");
+				REX::ERROR("Failed to open record!");
 				return false;
 			}
 
@@ -407,7 +407,7 @@ namespace SKSE
 			// Reg count
 			const std::size_t numRegs = _regs.size();
 			if (!a_intfc->WriteRecordData(numRegs)) {
-				log::error("Failed to save reg count ({})!", numRegs);
+				REX::ERROR("Failed to save reg count ({})!", numRegs);
 				return false;
 			}
 
@@ -419,13 +419,13 @@ namespace SKSE
 				// Handle count
 				std::size_t numHandles = reg.second.size();
 				if (!a_intfc->WriteRecordData(numHandles)) {
-					log::error("Failed to save handle count ({})!", numHandles);
+					REX::ERROR("Failed to save handle count ({})!", numHandles);
 					return false;
 				}
 				// Handle
 				for (auto& handle : reg.second) {
 					if (!a_intfc->WriteRecordData(handle)) {
-						log::error("Failed to save handle ({})", handle);
+						REX::ERROR("Failed to save handle ({})", handle);
 						return false;
 					}
 				}
@@ -497,14 +497,14 @@ namespace SKSE
 			auto vm = RE::BSScript::Internal::VirtualMachine::GetSingleton();
 			auto policy = vm ? vm->GetObjectHandlePolicy() : nullptr;
 			if (!policy) {
-				log::error("Failed to get handle policy!");
+				REX::ERROR("Failed to get handle policy!");
 				return false;
 			}
 
 			const auto invalidHandle = policy->EmptyHandle();
 			auto       handle = policy->GetHandleForObject(a_typeID, a_object);
 			if (handle == invalidHandle) {
-				log::error("Failed to create handle!");
+				REX::ERROR("Failed to create handle!");
 				return false;
 			}
 
@@ -526,14 +526,14 @@ namespace SKSE
 			auto vm = RE::BSScript::Internal::VirtualMachine::GetSingleton();
 			auto policy = vm ? vm->GetObjectHandlePolicy() : nullptr;
 			if (!policy) {
-				log::error("Failed to get handle policy!");
+				REX::ERROR("Failed to get handle policy!");
 				return false;
 			}
 
 			const auto invalidHandle = policy->EmptyHandle();
 			const auto handle = policy->GetHandleForObject(a_typeID, a_object);
 			if (handle == invalidHandle) {
-				log::error("Failed to create handle!");
+				REX::ERROR("Failed to create handle!");
 				return false;
 			}
 
@@ -555,14 +555,14 @@ namespace SKSE
 			auto vm = RE::BSScript::Internal::VirtualMachine::GetSingleton();
 			auto policy = vm ? vm->GetObjectHandlePolicy() : nullptr;
 			if (!policy) {
-				log::error("Failed to get handle policy!");
+				REX::ERROR("Failed to get handle policy!");
 				return;
 			}
 
 			const auto invalidHandle = policy->EmptyHandle();
 			const auto handle = policy->GetHandleForObject(a_typeID, a_object);
 			if (handle == invalidHandle) {
-				log::error("Failed to create handle!");
+				REX::ERROR("Failed to create handle!");
 				return;
 			}
 
