@@ -17,7 +17,7 @@ namespace RE
 		};
 
 		// members
-		REX::EnumSet<Flag, std::uint8_t> flags;  // 0
+		REX::TEnumSet<Flag, std::uint8_t> flags;  // 0
 	};
 	static_assert(sizeof(VOICE_TYPE_DATA) == 0x1);
 

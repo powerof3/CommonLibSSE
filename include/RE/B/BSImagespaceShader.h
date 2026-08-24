@@ -1,6 +1,9 @@
 #pragma once
 
+#include "RE/B/BSFixedString.h"
 #include "RE/B/BSShader.h"
+#include "RE/B/BSShaderRenderTargets.h"
+#include "RE/B/BSTArray.h"
 #include "RE/I/ImageSpaceEffect.h"
 
 namespace RE
@@ -39,6 +42,10 @@ namespace RE
 		virtual void GetShaderMacros(ShaderMacro* a_macros);                                                                           // 0D
 		virtual void LoadShaders();                                                                                                    // 0E
 
+		void          DispatchCopySubRegion();
+		RENDER_TARGET RenderSSAO(RENDER_TARGET a_inputRenderTarget, RENDER_TARGET a_outputRenderTarget);
+		RENDER_TARGET RenderSnowSSS(RENDER_TARGET a_inputRenderTarget, RENDER_TARGET a_outputRenderTarget);
+
 		static BSImagespaceShader* Create()
 		{
 			auto isShader = malloc<BSImagespaceShader>();
@@ -67,7 +74,7 @@ namespace RE
 			using func_t = decltype(&BSImagespaceShader::Ctor);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(100943, 107725) };
 			BSImagespaceShader*            isShader = func(this);
-			stl::emplace_vtable<BSImagespaceShader>(isShader);
+			REX::EMPLACE_VTABLE<BSImagespaceShader>(isShader);
 			return isShader;
 		}
 	};

@@ -48,7 +48,7 @@ namespace SKSE
 		const auto scaleformTranslator = skyrim_cast<RE::BSScaleformTranslator*>(translator);
 
 		if (!scaleformTranslator) {
-			log::warn("Failed to import translation for {}"sv, a_name);
+			REX::WARN("Failed to import translation for {}"sv, a_name);
 			return;
 		}
 
@@ -64,7 +64,7 @@ namespace SKSE
 		if (!fileStream.good()) {
 			return;
 		} else {
-			log::info("Reading translations from {}..."sv, path);
+			REX::INFO("Reading translations from {}..."sv, path);
 		}
 
 		// Check if file is empty, if not check if the BOM is UTF-16
@@ -72,11 +72,11 @@ namespace SKSE
 		std::uint64_t read;
 		fileStream.stream->DoRead(&bom, sizeof(std::uint16_t), read);
 		if (read == 0) {
-			log::warn("Empty translation file."sv);
+			REX::WARN("Empty translation file."sv);
 			return;
 		}
 		if (bom != 0xFEFF) {
-			log::error("BOM Error, file must be encoded in UCS-2 LE."sv);
+			REX::ERROR("BOM Error, file must be encoded in UCS-2 LE."sv);
 			return;
 		}
 
@@ -129,7 +129,7 @@ namespace SKSE
 		const auto translator = loader ? loader->GetStateAddRef<RE::GFxTranslator>(RE::GFxState::StateType::kTranslator) : nullptr;
 
 		if (!translator) {
-			log::warn("Failed to get Scaleform translator"sv);
+			REX::WARN("Failed to get Scaleform translator"sv);
 			return false;
 		}
 
@@ -163,9 +163,10 @@ namespace SKSE
 		}
 
 		// Lookup translation
-		std::wstring         key_utf16 = stl::utf8_to_utf16(key).value_or(L""s);
-		RE::GFxWStringBuffer result;
+		std::wstring key_utf16{};
+		REX::UTF8_TO_UTF16(key, key_utf16);
 
+		RE::GFxWStringBuffer             result;
 		RE::GFxTranslator::TranslateInfo translateInfo;
 		translateInfo.key = key_utf16.c_str();
 		translateInfo.result = std::addressof(result);
@@ -175,7 +176,8 @@ namespace SKSE
 			return false;
 		}
 
-		std::string result_utf8 = stl::utf16_to_utf8(result.c_str()).value_or(""s);
+		std::string result_utf8{};
+		REX::UTF16_TO_UTF8(result.c_str(), result_utf8);
 
 		// Replace tokens with nested translations from right to left
 		auto pos = result_utf8.rfind("{}"s);

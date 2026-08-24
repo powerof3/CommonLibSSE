@@ -10,7 +10,7 @@ namespace RE
 		BSExtraData(),
 		owner(a_owner)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraOwnership::GetType() const

@@ -12,7 +12,7 @@ namespace RE
 		uniqueID(a_uniqueID),
 		pad16(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraUniqueID::GetType() const

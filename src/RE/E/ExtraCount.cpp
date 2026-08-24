@@ -12,7 +12,7 @@ namespace RE
 		pad12(0),
 		pad14(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraCount::GetType() const

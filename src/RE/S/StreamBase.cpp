@@ -36,7 +36,7 @@ namespace RE
 
 		std::uint32_t StreamBase::DecRef()
 		{
-			stl::atomic_ref myFlags{ flags };
+			REX::TAtomicRef myFlags{ flags };
 			std::uint32_t   expected;
 			do {
 				expected = myFlags;
@@ -46,7 +46,7 @@ namespace RE
 
 		std::uint32_t StreamBase::IncRef()
 		{
-			stl::atomic_ref myFlags{ flags };
+			REX::TAtomicRef myFlags{ flags };
 			std::uint32_t   expected;
 			do {
 				expected = myFlags;

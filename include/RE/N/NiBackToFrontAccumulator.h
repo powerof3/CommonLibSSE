@@ -28,6 +28,8 @@ namespace RE
 		void FinishAccumulating() override;                                 // 26
 		void RegisterObjectArray(NiVisibleArray& a_visibleArray) override;  // 27
 
+		void ClearItemsList();
+
 		// members
 		NiTPointerList<BSGeometry*> itemsList;  // 18
 		int32_t                     numItems;   // 30

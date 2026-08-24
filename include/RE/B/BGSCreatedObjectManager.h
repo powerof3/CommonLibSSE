@@ -23,7 +23,7 @@ namespace RE
 		struct BSTCreatedObjectSmartPointerPolicy
 		{
 		public:
-			static void Acquire(stl::not_null<T*> a_ptr)
+			static void Acquire(T* a_ptr)
 			{
 				const auto manager = BGSCreatedObjectManager::GetSingleton();
 				if (manager &&
@@ -33,7 +33,7 @@ namespace RE
 				}
 			}
 
-			static void Release(stl::not_null<T*> a_ptr)
+			static void Release(T* a_ptr)
 			{
 				const auto manager = BGSCreatedObjectManager::GetSingleton();
 				if (manager &&

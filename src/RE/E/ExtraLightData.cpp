@@ -17,7 +17,7 @@ namespace RE
 		data(),
 		pad24(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraLightData::GetType() const

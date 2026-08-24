@@ -1,10 +1,18 @@
 #pragma once
 
+#include <cstddef>
+
 namespace RE
 {
 	class BSVolumetricLightingRenderData
 	{
 	public:
+		[[nodiscard]] static BSVolumetricLightingRenderData& GetCurrentRenderData()
+		{
+			static REL::Relocation<float*> red{ RELOCATION_ID(527719, 414629) };
+			return *reinterpret_cast<BSVolumetricLightingRenderData*>(reinterpret_cast<std::byte*>(red.get()) - offsetof(BSVolumetricLightingRenderData, red));
+		}
+
 		struct CustomColor
 		{
 		public:

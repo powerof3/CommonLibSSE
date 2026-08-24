@@ -64,17 +64,17 @@ namespace RE
 		virtual std::uint32_t           GetVisibleGroupsTriangleCount();  // 37 - { return 0; }
 
 		// members
-		NiBound                          modelBound;      // 110
-		NiPointer<NiAlphaProperty>       alphaProperty;   // 120
-		NiPointer<BSShaderProperty>      shaderProperty;  // 128
-		NiPointer<NiSkinInstance>        skinInstance;    // 130
-		BSGraphics::TriShape*            rendererData;    // 138
-		void*                            unk140;          // 140 - smart ptr
-		BSGraphics::VertexDesc           vertexDesc;      // 148
-		REX::EnumSet<Type, std::uint8_t> type;            // 150
-		std::uint8_t                     pad151;          // 151
-		std::uint16_t                    pad152;          // 152
-		std::uint32_t                    pad154;          // 154
+		NiBound                           modelBound;      // 110
+		NiPointer<NiAlphaProperty>        alphaProperty;   // 120
+		NiPointer<BSShaderProperty>       shaderProperty;  // 128
+		NiPointer<NiSkinInstance>         skinInstance;    // 130
+		BSGraphics::TriShape*             rendererData;    // 138
+		void*                             unk140;          // 140 - smart ptr
+		BSGraphics::VertexDesc            vertexDesc;      // 148
+		REX::TEnumSet<Type, std::uint8_t> type;            // 150
+		std::uint8_t                      pad151;          // 151
+		std::uint16_t                     pad152;          // 152
+		std::uint32_t                     pad154;          // 154
 	};
 	static_assert(sizeof(BSGeometry) == 0x158);
 }

@@ -10,7 +10,7 @@ namespace RE
 		BSExtraData(),
 		zone(a_zone)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraEncounterZone::GetType() const

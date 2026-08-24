@@ -22,13 +22,13 @@ namespace RE
 				kLevelTooHigh = 2
 			};
 
-			MagicTarget*                         target;         // 00
-			Actor*                               caster;         // 08
-			float                                magnitude;      // 10
-			EffectSetting*                       effectSetting;  // 18
-			MagicItem*                           spell;          // 20
-			bool                                 dualCast;       // 28
-			REX::Enum<FailReason, std::uint32_t> failReason;     // 2C
+			MagicTarget*                          target;         // 00
+			Actor*                                caster;         // 08
+			float                                 magnitude;      // 10
+			EffectSetting*                        effectSetting;  // 18
+			MagicItem*                            spell;          // 20
+			bool                                  dualCast;       // 28
+			REX::TEnum<FailReason, std::uint32_t> failReason;     // 2C
 		};
 		static_assert(sizeof(CheckTargetArgs) == 0x30);
 

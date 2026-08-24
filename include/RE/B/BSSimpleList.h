@@ -74,8 +74,8 @@ namespace RE
 			TES_HEAP_REDEFINE_NEW();
 
 			// members
-			value_type           item;  // 00
-			stl::observer<Node*> next;  // ??
+			value_type item;  // 00
+			Node*      next;  // ??
 		};
 
 		template <class U>
@@ -164,7 +164,7 @@ namespace RE
 			}
 
 		private:
-			stl::observer<Node*> _cur;
+			Node* _cur;
 		};
 
 		using iterator = iterator_base<value_type>;

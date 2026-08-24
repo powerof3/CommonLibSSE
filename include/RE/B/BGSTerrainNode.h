@@ -41,19 +41,19 @@ namespace RE
 		std::uint32_t GetLODLevel() const { return (nodeState.underlying() >> 21) & 0x3FC; }
 
 		// members
-		BGSTerrainManager*                manager;         // 00
-		BGSBtrDBHandle                    chunkHandle;     // 08
-		BGSBtoDBHandle                    blockHandle;     // 10
-		BGSBttDBHandle                    treeHandle;      // 18
-		BGSBtrDBHandle                    mapChunkHandle;  // 20
-		BGSBtoDBHandle                    mapBlockHandle;  // 28
-		BGSTerrainNode*                   children;        // 30
-		BGSTerrainNode*                   parent;          // 38
-		REX::EnumSet<Flag, std::uint32_t> nodeState;       // 40
-		std::uint32_t                     nodeNumber;      // 44
-		std::int16_t                      baseCellX;       // 48
-		std::int16_t                      baseCellY;       // 4A
-		std::uint32_t                     pad4C;           // 4C
+		BGSTerrainManager*                 manager;         // 00
+		BGSBtrDBHandle                     chunkHandle;     // 08
+		BGSBtoDBHandle                     blockHandle;     // 10
+		BGSBttDBHandle                     treeHandle;      // 18
+		BGSBtrDBHandle                     mapChunkHandle;  // 20
+		BGSBtoDBHandle                     mapBlockHandle;  // 28
+		BGSTerrainNode*                    children;        // 30
+		BGSTerrainNode*                    parent;          // 38
+		REX::TEnumSet<Flag, std::uint32_t> nodeState;       // 40
+		std::uint32_t                      nodeNumber;      // 44
+		std::int16_t                       baseCellX;       // 48
+		std::int16_t                       baseCellY;       // 4A
+		std::uint32_t                      pad4C;           // 4C
 	};
 	static_assert(sizeof(BGSTerrainNode) == 0x50);
 }

@@ -124,7 +124,7 @@ namespace RE
 			}
 
 		protected:
-			stl::observer<BSTListNode<T>*> _cur;
+			BSTListNode<T>* _cur;
 		};
 
 		struct iterator : public const_iterator

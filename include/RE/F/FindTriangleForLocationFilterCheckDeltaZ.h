@@ -25,7 +25,7 @@ namespace RE
 			maxDistAbove(std::numeric_limits<float>::max()),
 			maxDistBelow(std::numeric_limits<float>::max())
 		{
-			stl::emplace_vtable(this);
+			REX::EMPLACE_VTABLE(this);
 		}
 
 		~FindTriangleForLocationFilterCheckDeltaZ() override = default;  // 00

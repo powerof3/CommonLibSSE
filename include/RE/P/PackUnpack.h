@@ -67,11 +67,11 @@ namespace RE
 		{
 			using value_type = typename T::value_type;
 			if constexpr (is_builtin_convertible_v<value_type>) {
-				return *(REX::EnumSet{ vm_type_v<T> } + TypeInfo::RawType::kNoneArray);
+				return *(REX::TEnumSet{ vm_type_v<T> } + TypeInfo::RawType::kNoneArray);
 			} else if constexpr (is_form_pointer_v<value_type>) {
-				return *(REX::EnumSet{ GetRawTypeFromVMType(static_cast<VMTypeID>(unwrapped_type_t<T>::FORMTYPE)) } + TypeInfo::RawType::kObject);
+				return *(REX::TEnumSet{ GetRawTypeFromVMType(static_cast<VMTypeID>(unwrapped_type_t<T>::FORMTYPE)) } + TypeInfo::RawType::kObject);
 			} else if constexpr (is_alias_pointer_v<value_type> || is_active_effect_pointer_v<value_type>) {
-				return *(REX::EnumSet{ GetRawTypeFromVMType(static_cast<VMTypeID>(unwrapped_type_t<T>::VMTYPEID)) } + TypeInfo::RawType::kObject);
+				return *(REX::TEnumSet{ GetRawTypeFromVMType(static_cast<VMTypeID>(unwrapped_type_t<T>::VMTYPEID)) } + TypeInfo::RawType::kObject);
 			} else {
 				static_assert(sizeof(T) && false);
 			}

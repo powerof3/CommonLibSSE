@@ -48,8 +48,8 @@ namespace RE
 		virtual void          Cleanup();                                                                                                                                                                                                                                                                                     // 09 - { return; }
 
 		// members
-		REX::EnumSet<Type, std::uint32_t> type;   // 10
-		std::uint32_t                     pad14;  // 14
+		REX::TEnumSet<Type, std::uint32_t> type;   // 10
+		std::uint32_t                      pad14;  // 14
 	};
 	static_assert(sizeof(hkpContactMgr) == 0x18);
 }

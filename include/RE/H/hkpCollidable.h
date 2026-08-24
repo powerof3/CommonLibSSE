@@ -56,7 +56,7 @@ namespace RE
 
 		[[nodiscard]] void* GetOwner() const
 		{
-			return const_cast<void*>(stl::adjust_pointer<const void>(this, ownerOffset));
+			return const_cast<void*>(REX::ADJUST_POINTER<const void>(this, ownerOffset));
 		}
 
 		template <class T>

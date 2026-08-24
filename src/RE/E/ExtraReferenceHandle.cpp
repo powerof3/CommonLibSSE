@@ -13,7 +13,7 @@ namespace RE
 		containerRef(a_containerRef),
 		pad14(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraReferenceHandle::GetType() const

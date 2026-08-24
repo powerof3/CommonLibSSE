@@ -81,6 +81,13 @@ namespace RE
 		return true;
 	}
 
+	void TESContainer::CollectUniqueInventoryObjects(BSScrapArray<ContainerObject*>& a_objects) const
+	{
+		using func_t = decltype(&TESContainer::CollectUniqueInventoryObjects);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(14390, 14543) };
+		func(this, a_objects);
+	}
+
 	auto TESContainer::GetContainerObjectAt(std::uint32_t a_idx) const
 		-> std::optional<ContainerObject*>
 	{

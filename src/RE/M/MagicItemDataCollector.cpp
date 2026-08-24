@@ -17,7 +17,7 @@ namespace RE
 		pad4A(0),
 		pad4C(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	BSContainer::ForEachResult MagicItemDataCollector::operator()(Effect* a_effect)

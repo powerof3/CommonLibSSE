@@ -14,7 +14,7 @@ namespace RE
 		pad1B(0),
 		pad1C(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraEnchantment::GetType() const

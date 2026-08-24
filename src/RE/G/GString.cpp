@@ -17,13 +17,13 @@ namespace RE
 
 	void GString::DataDesc::AddRef()
 	{
-		stl::atomic_ref myRefCount{ refCount };
+		REX::TAtomicRef myRefCount{ refCount };
 		++myRefCount;
 	}
 
 	void GString::DataDesc::Release()
 	{
-		stl::atomic_ref myRefCount{ refCount };
+		REX::TAtomicRef myRefCount{ refCount };
 		if (--myRefCount == 0) {
 			GFREE(this);
 		}

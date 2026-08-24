@@ -39,6 +39,12 @@ namespace RE
 			return *precipDirection;
 		}
 
+		[[nodiscard]] static float& GetCubeSize()
+		{
+			static REL::Relocation<float*> cubeSize{ RELOCATION_ID(515451, 401590) };
+			return *cubeSize;
+		}
+
 		void SetupMask()
 		{
 			using func_t = decltype(&Precipitation::SetupMask);
@@ -51,6 +57,13 @@ namespace RE
 			using func_t = decltype(&Precipitation::RenderMask);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(25642, 26184) };
 			func(this, a_emitter);
+		}
+
+		void UpdateProjection(NiPointer<NiCamera> a_camera)
+		{
+			using func_t = decltype(&Precipitation::UpdateProjection);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(25643, 26185) };
+			func(this, a_camera);
 		}
 
 		// members

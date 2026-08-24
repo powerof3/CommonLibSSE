@@ -11,7 +11,7 @@ namespace RE
 		modifier(a_modifier),
 		pad14(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraDataType ExtraLevCreaModifier::GetType() const

@@ -162,7 +162,7 @@ namespace RE
 
 		[[nodiscard]] TypeInfo::RawType Array::type() const
 		{
-			const REX::EnumSet typeID = _elementType.GetRawType();
+			const REX::TEnumSet typeID = _elementType.GetRawType();
 			switch (*typeID) {
 			case TypeInfo::RawType::kNone:
 			case TypeInfo::RawType::kObject:

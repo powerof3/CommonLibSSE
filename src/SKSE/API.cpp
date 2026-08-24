@@ -3,47 +3,46 @@
 #include "SKSE/Interfaces.h"
 #include "SKSE/Logger.h"
 
+#include <spdlog/sinks/basic_file_sink.h>
+#include <spdlog/sinks/msvc_sink.h>
+#include <spdlog/sinks/rotating_file_sink.h>
+#include <spdlog/spdlog.h>
+
 namespace SKSE
 {
-	namespace detail
+	namespace Impl
 	{
-		struct APIStorage
+		class API :
+			public REX::TSingleton<API>
 		{
 		public:
-			[[nodiscard]] static APIStorage& get() noexcept
-			{
-				static APIStorage singleton;
-				return singleton;
-			}
+			void Init(InitInfo, const SKSE::QueryInterface* a_intfc);
+			void InitLog();
+			void InitTrampoline();
+			void InitHook(REL::EHookStep a_step);
 
-			std::string_view pluginName{};
-			std::string_view pluginAuthor{};
-			REL::Version     pluginVersion{};
+			InitInfo info;
 
-			PluginHandle  pluginHandle{ static_cast<PluginHandle>(-1) };
-			std::uint32_t releaseIndex{ 0 };
+			std::string  pluginName{};
+			std::string  pluginAuthor{};
+			REL::Version pluginVersion{};
+
+			std::uint32_t                           skseVersion{};
+			PluginHandle                            pluginHandle{ static_cast<PluginHandle>(-1) };
+			std::uint32_t                           releaseIndex{ 0 };
+			std::function<const void*(const char*)> pluginInfoAccessor;
 
 			ScaleformInterface*     scaleformInterface{ nullptr };
 			PapyrusInterface*       papyrusInterface{ nullptr };
 			SerializationInterface* serializationInterface{ nullptr };
 			TaskInterface*          taskInterface{ nullptr };
+			MessagingInterface*     messagingInterface{ nullptr };
+			ObjectInterface*        objectInterface{ nullptr };
 			TrampolineInterface*    trampolineInterface{ nullptr };
 
-			MessagingInterface*                    messagingInterface{ nullptr };
-			RE::BSTEventSource<ModCallbackEvent>*  modCallbackEventSource{ nullptr };
-			RE::BSTEventSource<CameraEvent>*       cameraEventSource{ nullptr };
-			RE::BSTEventSource<CrosshairRefEvent>* crosshairRefEventSource{ nullptr };
-			RE::BSTEventSource<ActionEvent>*       actionEventSource{ nullptr };
-			RE::BSTEventSource<NiNodeUpdateEvent>* niNodeUpdateEventSource{ nullptr };
-
-			ObjectInterface*             objectInterface{ nullptr };
 			SKSEDelayFunctorManager*     delayFunctorManager{ nullptr };
 			SKSEObjectRegistry*          objectRegistry{ nullptr };
 			SKSEPersistentObjectStorage* persistentObjectStorage{ nullptr };
-
-			std::mutex                         apiLock;
-			std::vector<std::function<void()>> apiInitRegs;
-			bool                               apiInit{ false };
 
 			template <class T>
 			[[nodiscard]] RE::BSTEventSource<T>* GetEventDispatcher(MessagingInterface::Dispatcher a_id) const
@@ -52,219 +51,319 @@ namespace SKSE
 				return static_cast<RE::BSTEventSource<T>*>(messagingInterface->GetEventDispatcher(a_id));
 			}
 
-		private:
-			APIStorage() noexcept = default;
-			APIStorage(const APIStorage&) = delete;
-			APIStorage(APIStorage&&) = delete;
+			RE::BSTEventSource<ModCallbackEvent>*  modCallbackEventSource{ nullptr };
+			RE::BSTEventSource<CameraEvent>*       cameraEventSource{ nullptr };
+			RE::BSTEventSource<CrosshairRefEvent>* crosshairRefEventSource{ nullptr };
+			RE::BSTEventSource<ActionEvent>*       actionEventSource{ nullptr };
+			RE::BSTEventSource<NiNodeUpdateEvent>* niNodeUpdateEventSource{ nullptr };
 
-			~APIStorage() noexcept = default;
-
-			APIStorage& operator=(const APIStorage&) = delete;
-			APIStorage& operator=(APIStorage&&) = delete;
+			std::mutex                         apiLock;
+			std::vector<std::function<void()>> apiInitRegs;
+			bool                               apiInit{ false };
 		};
 
-		template <class T>
-		T* QueryInterface(const LoadInterface* a_intfc, std::uint32_t a_id)
+		void API::Init(InitInfo a_info, const SKSE::QueryInterface* a_intfc)
 		{
-			auto result = static_cast<T*>(a_intfc->QueryInterface(a_id));
-			if (result && result->Version() > T::kVersion) {
-				log::warn("interface definition is out of date"sv);
+			info = a_info;
+
+			static std::once_flag once;
+			std::call_once(once, [&]() {
+#ifdef SKYRIM_SUPPORT_AE
+				if (const auto data = PluginVersionData::GetSingleton()) {
+					pluginName = data->GetPluginName();
+					pluginAuthor = data->GetAuthorName();
+					pluginVersion = data->GetPluginVersion();
+				} else {
+#endif
+					std::vector<char> buf(REX::W32::MAX_PATH, '\0');
+					const auto        size = REX::W32::GetModuleFileNameA(REX::W32::GetCurrentModule(), buf.data(), REX::W32::MAX_PATH);
+					if (size) {
+						std::filesystem::path p(buf.begin(), buf.begin() + size);
+						pluginName = p.stem().string();
+					}
+#ifdef SKYRIM_SUPPORT_AE
+				}
+#endif
+
+				skseVersion = a_intfc->SKSEVersion();
+				pluginHandle = a_intfc->GetPluginHandle();
+				releaseIndex = a_intfc->GetReleaseIndex();
+				pluginInfoAccessor = reinterpret_cast<const Impl::SKSEInterface*>(a_intfc)->GetPluginInfo;
+			});
+		}
+
+		void API::InitLog()
+		{
+			if (info.log) {
+				static std::once_flag once;
+				std::call_once(once, [&]() {
+					auto path = log::log_directory();
+					if (!path)
+						return;
+
+					*path /= std::format("{}.log", info.logName ? info.logName : SKSE::GetPluginName());
+
+					std::vector<spdlog::sink_ptr> sinks{
+						std::make_shared<spdlog::sinks::msvc_sink_mt>()
+					};
+
+					if (info.logRotate > 0) {
+						constexpr auto maxSize = std::numeric_limits<std::size_t>::max();
+						sinks.push_back(std::make_shared<spdlog::sinks::rotating_file_sink_mt>(path->string(), maxSize, info.logRotate, true));
+					} else {
+						sinks.push_back(std::make_shared<spdlog::sinks::basic_file_sink_mt>(path->string(), true));
+					}
+
+					auto logger = std::make_shared<spdlog::logger>("global", sinks.begin(), sinks.end());
+					logger->set_level(static_cast<spdlog::level::level_enum>(info.logLevel));
+					logger->flush_on(static_cast<spdlog::level::level_enum>(info.logLevel));
+
+					spdlog::set_default_logger(std::move(logger));
+					spdlog::set_pattern(info.logPattern ? info.logPattern : "[%T.%e] [%=5t] [%L] %v");
+
+#ifdef SKYRIM_SUPPORT_AE
+					REX::INFO("{} v{}", GetPluginName(), GetPluginVersion());
+#endif
+				});
 			}
-			return result;
+		}
+
+		void API::InitTrampoline()
+		{
+			if (info.trampoline) {
+				static std::once_flag once;
+				std::call_once(once, [&]() {
+					if (!info.trampolineSize) {
+						const auto hookStore = REL::FHookStore::GetSingleton();
+						info.trampolineSize += hookStore->GetSizeTrampoline();
+					}
+
+					auto& trampoline = REL::GetTrampoline();
+					if (const auto intfc = GetTrampolineInterface()) {
+						if (const auto mem = intfc->AllocateFromBranchPool(info.trampolineSize))
+							trampoline.set_trampoline(mem, info.trampolineSize);
+						else
+							trampoline.create(info.trampolineSize);
+					}
+				});
+			}
+		}
+
+		void API::InitHook(REL::EHookStep a_step)
+		{
+			if (info.hook) {
+				const auto hookStore = REL::FHookStore::GetSingleton();
+				hookStore->Init();
+				hookStore->Enable(a_step);
+			}
 		}
 	}
 
-	void Init(const LoadInterface* a_intfc, [[maybe_unused]] const bool a_log) noexcept
-	{
-		if (!a_intfc) {
-			stl::report_and_fail("interface is null"sv);
-		}
-
-		(void)REL::Module::get();
-		(void)REL::IDDatabase::get();
-
-		auto&       storage = detail::APIStorage::get();
-		const auto& intfc = *a_intfc;
-
-		const std::scoped_lock l(storage.apiLock);
 #ifdef SKYRIM_SUPPORT_AE
-		if (const auto pluginVersionData = PluginVersionData::GetSingleton()) {
-			storage.pluginName = pluginVersionData->GetPluginName();
-			storage.pluginAuthor = pluginVersionData->GetAuthorName();
-			storage.pluginVersion = pluginVersionData->GetPluginVersion();
-		}
+	void Init(const PreLoadInterface* a_intfc, InitInfo a_info) noexcept
+	{
+		static std::once_flag once;
+		std::call_once(once, [&]() {
+			auto api = Impl::API::GetSingleton();
+			api->Init(a_info, a_intfc);
+			api->InitLog();
 
-		if (a_log) {
-			log::init();
-			log::info("{} v{}", GetPluginName(), GetPluginVersion());
-		}
+			api->trampolineInterface = a_intfc->QueryInterface<TrampolineInterface>(PreLoadInterface::kTrampoline);
+
+			api->InitTrampoline();
+			api->InitHook(REL::EHookStep::PreLoad);
+		});
+	}
 #endif
 
-		if (!storage.apiInit) {
-			storage.pluginHandle = intfc.GetPluginHandle();
-			storage.releaseIndex = intfc.GetReleaseIndex();
+	void Init(const LoadInterface* a_intfc, InitInfo a_info) noexcept
+	{
+		static std::once_flag once;
+		std::call_once(once, [&]() {
+			auto api = Impl::API::GetSingleton();
+			api->Init(a_info, a_intfc);
+			api->InitLog();
 
-			storage.scaleformInterface = detail::QueryInterface<ScaleformInterface>(a_intfc, LoadInterface::kScaleform);
-			storage.papyrusInterface = detail::QueryInterface<PapyrusInterface>(a_intfc, LoadInterface::kPapyrus);
-			storage.serializationInterface = detail::QueryInterface<SerializationInterface>(a_intfc, LoadInterface::kSerialization);
-			storage.taskInterface = detail::QueryInterface<TaskInterface>(a_intfc, LoadInterface::kTask);
-			storage.trampolineInterface = detail::QueryInterface<TrampolineInterface>(a_intfc, LoadInterface::kTrampoline);
+			api->scaleformInterface = a_intfc->QueryInterface<ScaleformInterface>(LoadInterface::kScaleform);
+			api->papyrusInterface = a_intfc->QueryInterface<PapyrusInterface>(LoadInterface::kPapyrus);
+			api->serializationInterface = a_intfc->QueryInterface<SerializationInterface>(LoadInterface::kSerialization);
+			api->taskInterface = a_intfc->QueryInterface<TaskInterface>(LoadInterface::kTask);
+			api->trampolineInterface = a_intfc->QueryInterface<TrampolineInterface>(LoadInterface::kTrampoline);
 
-			storage.messagingInterface = detail::QueryInterface<MessagingInterface>(a_intfc, LoadInterface::kMessaging);
-			if (storage.messagingInterface) {
-				storage.modCallbackEventSource = storage.GetEventDispatcher<ModCallbackEvent>(MessagingInterface::Dispatcher::kModEvent);
-				storage.cameraEventSource = storage.GetEventDispatcher<CameraEvent>(MessagingInterface::Dispatcher::kCameraEvent);
-				storage.crosshairRefEventSource = storage.GetEventDispatcher<CrosshairRefEvent>(MessagingInterface::Dispatcher::kCrosshairEvent);
-				storage.actionEventSource = storage.GetEventDispatcher<ActionEvent>(MessagingInterface::Dispatcher::kActionEvent);
-				storage.niNodeUpdateEventSource = storage.GetEventDispatcher<NiNodeUpdateEvent>(MessagingInterface::Dispatcher::kNiNodeUpdateEvent);
+			api->messagingInterface = a_intfc->QueryInterface<MessagingInterface>(LoadInterface::kMessaging);
+			if (api->messagingInterface) {
+				api->modCallbackEventSource = api->GetEventDispatcher<ModCallbackEvent>(MessagingInterface::Dispatcher::kModEvent);
+				api->cameraEventSource = api->GetEventDispatcher<CameraEvent>(MessagingInterface::Dispatcher::kCameraEvent);
+				api->crosshairRefEventSource = api->GetEventDispatcher<CrosshairRefEvent>(MessagingInterface::Dispatcher::kCrosshairEvent);
+				api->actionEventSource = api->GetEventDispatcher<ActionEvent>(MessagingInterface::Dispatcher::kActionEvent);
+				api->niNodeUpdateEventSource = api->GetEventDispatcher<NiNodeUpdateEvent>(MessagingInterface::Dispatcher::kNiNodeUpdateEvent);
 			}
 
-			storage.objectInterface = detail::QueryInterface<ObjectInterface>(a_intfc, LoadInterface::kObject);
-			if (storage.objectInterface) {
-				const auto& objectInterface = *storage.objectInterface;
-				storage.delayFunctorManager = std::addressof(objectInterface.GetDelayFunctorManager());
-				storage.objectRegistry = std::addressof(objectInterface.GetObjectRegistry());
-				storage.persistentObjectStorage = std::addressof(objectInterface.GetPersistentObjectStorage());
+			api->objectInterface = a_intfc->QueryInterface<ObjectInterface>(LoadInterface::kObject);
+			if (api->objectInterface) {
+				api->delayFunctorManager = std::addressof(api->objectInterface->GetDelayFunctorManager());
+				api->objectRegistry = std::addressof(api->objectInterface->GetObjectRegistry());
+				api->persistentObjectStorage = std::addressof(api->objectInterface->GetPersistentObjectStorage());
 			}
 
-			storage.apiInit = true;
-			auto& regs = storage.apiInitRegs;
-			for (const auto& reg : regs) {
-				reg();
+			const std::scoped_lock lock{ api->apiLock };
+			if (!api->apiInit) {
+				api->apiInit = true;
+				auto& regs = api->apiInitRegs;
+				for (const auto& reg : regs) {
+					reg();
+				}
+				regs.clear();
+				regs.shrink_to_fit();
 			}
-			regs.clear();
-			regs.shrink_to_fit();
-		}
+
+			api->InitTrampoline();
+			api->InitHook(REL::EHookStep::Load);
+		});
 	}
 
 	void RegisterForAPIInitEvent(std::function<void()> a_fn)
 	{
-		{
-			auto&                  storage = detail::APIStorage::get();
-			const std::scoped_lock l(storage.apiLock);
-			if (!storage.apiInit) {
-				storage.apiInitRegs.push_back(a_fn);
-				return;
-			}
+		auto                   api = Impl::API::GetSingleton();
+		const std::scoped_lock lock{ api->apiLock };
+		if (!api->apiInit) {
+			api->apiInitRegs.push_back(a_fn);
+			return;
 		}
 
 		a_fn();
 	}
 
-#ifdef SKYRIM_SUPPORT_AE
+	std::uint32_t GetSKSEVersion() noexcept
+	{
+		return Impl::API::GetSingleton()->skseVersion;
+	}
+
 	std::string_view GetPluginName() noexcept
 	{
-		return detail::APIStorage::get().pluginName;
+		return Impl::API::GetSingleton()->pluginName;
 	}
 
 	std::string_view GetPluginAuthor() noexcept
 	{
-		return detail::APIStorage::get().pluginAuthor;
+		return Impl::API::GetSingleton()->pluginAuthor;
 	}
 
 	REL::Version GetPluginVersion() noexcept
 	{
-		return detail::APIStorage::get().pluginVersion;
+		return Impl::API::GetSingleton()->pluginVersion;
 	}
-#endif
 
 	PluginHandle GetPluginHandle() noexcept
 	{
-		return detail::APIStorage::get().pluginHandle;
+		return Impl::API::GetSingleton()->pluginHandle;
+	}
+
+	const PluginInfo* GetPluginInfo(std::string_view a_plugin) noexcept
+	{
+		if (const auto& accessor = Impl::API::GetSingleton()->pluginInfoAccessor) {
+			if (const auto result = accessor(a_plugin.data())) {
+				return static_cast<const PluginInfo*>(result);
+			}
+		}
+
+		REX::ERROR("failed to get plugin info for {}", a_plugin);
+		return nullptr;
 	}
 
 	std::uint32_t GetReleaseIndex() noexcept
 	{
-		return detail::APIStorage::get().releaseIndex;
-	}
-
-	const ScaleformInterface* GetScaleformInterface() noexcept
-	{
-		return detail::APIStorage::get().scaleformInterface;
-	}
-
-	const PapyrusInterface* GetPapyrusInterface() noexcept
-	{
-		return detail::APIStorage::get().papyrusInterface;
-	}
-
-	const SerializationInterface* GetSerializationInterface() noexcept
-	{
-		return detail::APIStorage::get().serializationInterface;
-	}
-
-	const TaskInterface* GetTaskInterface() noexcept
-	{
-		return detail::APIStorage::get().taskInterface;
-	}
-
-	const TrampolineInterface* GetTrampolineInterface() noexcept
-	{
-		return detail::APIStorage::get().trampolineInterface;
+		return Impl::API::GetSingleton()->releaseIndex;
 	}
 
 	const MessagingInterface* GetMessagingInterface() noexcept
 	{
-		return detail::APIStorage::get().messagingInterface;
+		return Impl::API::GetSingleton()->messagingInterface;
 	}
 
-	RE::BSTEventSource<ModCallbackEvent>* GetModCallbackEventSource() noexcept
+	const ScaleformInterface* GetScaleformInterface() noexcept
 	{
-		return detail::APIStorage::get().modCallbackEventSource;
+		return Impl::API::GetSingleton()->scaleformInterface;
 	}
 
-	RE::BSTEventSource<CameraEvent>* GetCameraEventSource() noexcept
+	const PapyrusInterface* GetPapyrusInterface() noexcept
 	{
-		return detail::APIStorage::get().cameraEventSource;
+		return Impl::API::GetSingleton()->papyrusInterface;
 	}
 
-	RE::BSTEventSource<CrosshairRefEvent>* GetCrosshairRefEventSource() noexcept
+	const SerializationInterface* GetSerializationInterface() noexcept
 	{
-		return detail::APIStorage::get().crosshairRefEventSource;
+		return Impl::API::GetSingleton()->serializationInterface;
 	}
 
-	RE::BSTEventSource<ActionEvent>* GetActionEventSource() noexcept
+	const TaskInterface* GetTaskInterface() noexcept
 	{
-		return detail::APIStorage::get().actionEventSource;
-	}
-
-	RE::BSTEventSource<NiNodeUpdateEvent>* GetNiNodeUpdateEventSource() noexcept
-	{
-		return detail::APIStorage::get().niNodeUpdateEventSource;
+		return Impl::API::GetSingleton()->taskInterface;
 	}
 
 	const ObjectInterface* GetObjectInterface() noexcept
 	{
-		return detail::APIStorage::get().objectInterface;
+		return Impl::API::GetSingleton()->objectInterface;
+	}
+
+	const TrampolineInterface* GetTrampolineInterface() noexcept
+	{
+		return Impl::API::GetSingleton()->trampolineInterface;
 	}
 
 	const SKSEDelayFunctorManager* GetDelayFunctorManager() noexcept
 	{
-		return detail::APIStorage::get().delayFunctorManager;
+		return Impl::API::GetSingleton()->delayFunctorManager;
 	}
 
 	const SKSEObjectRegistry* GetObjectRegistry() noexcept
 	{
-		return detail::APIStorage::get().objectRegistry;
+		return Impl::API::GetSingleton()->objectRegistry;
 	}
 
 	const SKSEPersistentObjectStorage* GetPersistentObjectStorage() noexcept
 	{
-		return detail::APIStorage::get().persistentObjectStorage;
+		return Impl::API::GetSingleton()->persistentObjectStorage;
 	}
 
-	void AllocTrampoline(std::size_t a_size, bool a_trySKSEReserve)
+	RE::BSTEventSource<ModCallbackEvent>* GetModCallbackEventSource() noexcept
 	{
-		auto& trampoline = GetTrampoline();
-		if (auto intfc = GetTrampolineInterface();
-			intfc && a_trySKSEReserve) {
-			auto memory = intfc->AllocateFromBranchPool(a_size);
-			if (memory) {
-				trampoline.set_trampoline(memory, a_size);
-				return;
-			}
-		}
+		return Impl::API::GetSingleton()->modCallbackEventSource;
+	}
 
-		trampoline.create(a_size);
+	RE::BSTEventSource<CameraEvent>* GetCameraEventSource() noexcept
+	{
+		return Impl::API::GetSingleton()->cameraEventSource;
+	}
+
+	RE::BSTEventSource<CrosshairRefEvent>* GetCrosshairRefEventSource() noexcept
+	{
+		return Impl::API::GetSingleton()->crosshairRefEventSource;
+	}
+
+	RE::BSTEventSource<ActionEvent>* GetActionEventSource() noexcept
+	{
+		return Impl::API::GetSingleton()->actionEventSource;
+	}
+
+	RE::BSTEventSource<NiNodeUpdateEvent>* GetNiNodeUpdateEventSource() noexcept
+	{
+		return Impl::API::GetSingleton()->niNodeUpdateEventSource;
+	}
+}
+
+namespace SKSE
+{
+	void Init(const LoadInterface* a_intfc, const bool a_log) noexcept
+	{
+		Init(a_intfc, { .log = a_log });
+	}
+
+	void AllocTrampoline(std::size_t a_size, bool) noexcept
+	{
+		auto api = Impl::API::GetSingleton();
+		api->info.trampoline = true;
+		api->info.trampolineSize = a_size;
+		api->InitTrampoline();
 	}
 }

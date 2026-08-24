@@ -227,16 +227,16 @@ namespace RE
 		void SetFlags(EShaderPropertyFlag8 a_flag, bool a_set);
 
 		// members
-		float                                            alpha;                      // 30
-		std::int32_t                                     lastRenderPassState;        // 34
-		REX::EnumSet<EShaderPropertyFlag, std::uint64_t> flags;                      // 38
-		RenderPassArray                                  renderPassList;             // 40
-		RenderPassArray                                  debugRenderPassList;        // 50
-		BSFadeNode*                                      fadeNode;                   // 60
-		BSTSmartPointer<BSEffectShaderData>              effectData;                 // 68
-		BSShaderPropertyLightData*                       lightData;                  // 70
-		BSShaderMaterial*                                material;                   // 78
-		std::uint32_t                                    lastAccumulatedFrameCount;  // 80
+		float                                             alpha;                      // 30
+		std::int32_t                                      lastRenderPassState;        // 34
+		REX::TEnumSet<EShaderPropertyFlag, std::uint64_t> flags;                      // 38
+		RenderPassArray                                   renderPassList;             // 40
+		RenderPassArray                                   debugRenderPassList;        // 50
+		BSFadeNode*                                       fadeNode;                   // 60
+		BSTSmartPointer<BSEffectShaderData>               effectData;                 // 68
+		BSShaderPropertyLightData*                        lightData;                  // 70
+		BSShaderMaterial*                                 material;                   // 78
+		std::uint32_t                                     lastAccumulatedFrameCount;  // 80
 	};
 	static_assert(sizeof(BSShaderProperty) == 0x88);
 }

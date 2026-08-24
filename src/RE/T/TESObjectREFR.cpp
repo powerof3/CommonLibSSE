@@ -540,7 +540,7 @@ namespace RE
 		return func(this);
 	}
 
-	NiControllerSequence* TESObjectREFR::GetSequence(stl::zstring a_name) const
+	NiControllerSequence* TESObjectREFR::GetSequence(std::string_view a_name) const
 	{
 		auto node = Get3D();
 		if (!node) {
@@ -856,13 +856,13 @@ namespace RE
 		assert(a_target);
 		auto node = a_target->Get3D();
 		if (!node) {
-			SKSE::log::debug("Cannot move the target because it does not have 3D");
+			REX::DEBUG("Cannot move the target because it does not have 3D");
 			return false;
 		}
 
 		auto object = node->GetObjectByName(a_nodeName);
 		if (!object) {
-			SKSE::log::debug("Target does not have a node named {}", a_nodeName.c_str());
+			REX::DEBUG("Target does not have a node named {}", a_nodeName.c_str());
 			return false;
 		}
 
@@ -892,7 +892,7 @@ namespace RE
 		return handle.get();
 	}
 
-	void TESObjectREFR::PlayAnimation(stl::zstring a_from, stl::zstring a_to)
+	void TESObjectREFR::PlayAnimation(std::string_view a_from, std::string_view a_to)
 	{
 		auto node = Get3D();
 		if (!node) {
@@ -976,7 +976,7 @@ namespace RE
 	{
 		auto node = Get3D();
 		if (!node) {
-			SKSE::log::debug("Target does not have 3D");
+			REX::DEBUG("Target does not have 3D");
 			return false;
 		}
 

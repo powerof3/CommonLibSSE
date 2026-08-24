@@ -10,13 +10,13 @@ namespace RE
 	public:
 		std::int32_t DecRefCount() const
 		{
-			stl::atomic_ref myRefCount{ refCount };
+			REX::TAtomicRef myRefCount{ refCount };
 			return --myRefCount;
 		}
 
 		std::int32_t IncRefCount() const
 		{
-			stl::atomic_ref myRefCount{ refCount };
+			REX::TAtomicRef myRefCount{ refCount };
 			return ++myRefCount;
 		}
 

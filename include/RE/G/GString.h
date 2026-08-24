@@ -74,8 +74,8 @@ namespace RE
 		{
 			DataDescUnion();
 
-			DataDesc*                     data;
-			REX::EnumSet<HeapType, UPInt> heapType;
+			DataDesc*                      data;
+			REX::TEnumSet<HeapType, UPInt> heapType;
 		};
 		static_assert(sizeof(DataDescUnion) == 0x8);
 

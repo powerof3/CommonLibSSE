@@ -13,7 +13,7 @@ namespace RE
 		pad32(0),
 		pad34(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 	}
 
 	ExtraTextDisplayData::ExtraTextDisplayData(const char* a_name) :
@@ -27,7 +27,7 @@ namespace RE
 		pad32(0),
 		pad34(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 		SetName(a_name);
 	}
 
@@ -42,7 +42,7 @@ namespace RE
 		pad32(0),
 		pad34(0)
 	{
-		stl::emplace_vtable(this);
+		REX::EMPLACE_VTABLE(this);
 		GetDisplayName(a_baseObject, a_temperFactor);
 	}
 

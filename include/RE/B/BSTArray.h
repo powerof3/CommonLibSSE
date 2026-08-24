@@ -128,12 +128,11 @@ namespace RE
 		inline void* allocate(std::size_t a_size)
 		{
 			const auto mem = malloc(a_size);
-			if (!mem) {
-				stl::report_and_fail("out of memory"sv);
-			} else {
-				std::memset(mem, 0, a_size);
-				return mem;
-			}
+			if (!mem)
+				REX::FAIL("out of memory");
+
+			std::memset(mem, 0, a_size);
+			return mem;
 		}
 
 		inline void deallocate(void* a_ptr) { free(a_ptr); }
@@ -206,12 +205,11 @@ namespace RE
 		{
 			if (a_size > N) {
 				const auto mem = malloc(a_size);
-				if (!mem) {
-					stl::report_and_fail("out of memory"sv);
-				} else {
-					std::memset(mem, 0, a_size);
-					return mem;
-				}
+				if (!mem)
+					REX::FAIL("out of memory");
+
+				std::memset(mem, 0, a_size);
+				return mem;
 			} else {
 				return _data.local;
 			}
@@ -250,7 +248,7 @@ namespace RE
 			if (!local()) {
 				const auto mem = malloc(capacity());
 				if (!mem) {
-					stl::report_and_fail("out of memory"sv);
+					REX::FAIL("out of memory"sv);
 				} else {
 					_data.heap = mem;
 				}
