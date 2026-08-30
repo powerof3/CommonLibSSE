@@ -72,6 +72,13 @@ namespace RE
 		return func(this);
 	}
 
+	void TESObjectREFR::AddLockChange()
+	{
+		using func_t = decltype(&TESObjectREFR::AddLockChange);
+		static REL::Relocation<func_t> func{ REL::ID(19512) };
+		return func(this);
+	}
+
 	DoorTeleportData* TESObjectREFR::AddTeleport()
 	{
 		using func_t = decltype(&TESObjectREFR::AddTeleport);
