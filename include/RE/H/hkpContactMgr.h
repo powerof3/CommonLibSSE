@@ -20,7 +20,7 @@ namespace RE
 		inline static constexpr auto RTTI = RTTI_hkpContactMgr;
 		inline static constexpr auto VTABLE = VTABLE_hkpContactMgr;
 
-		enum class Type
+		enum class Type : std::uint32_t
 		{
 			kSimpleConstraintContact = 0,
 			kReportContact = 1,
@@ -48,8 +48,8 @@ namespace RE
 		virtual void          Cleanup();                                                                                                                                                                                                                                                                                     // 09 - { return; }
 
 		// members
-		REX::TEnumSet<Type, std::uint32_t> type;   // 10
-		std::uint32_t                      pad14;  // 14
+		Type          type;   // 10
+		std::uint32_t pad14;  // 14
 	};
 	static_assert(sizeof(hkpContactMgr) == 0x18);
 }
