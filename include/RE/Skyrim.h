@@ -1311,6 +1311,7 @@
 #include "RE/L/LocationTree.h"
 #include "RE/L/LockEffect.h"
 #include "RE/L/LockpickingMenu.h"
+#include "RE/L/LocksPicked.h"
 #include "RE/L/LogEvent.h"
 #include "RE/L/Logger.h"
 #include "RE/L/LoggingDisabler.h"
