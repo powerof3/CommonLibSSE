@@ -19,6 +19,13 @@ namespace RE
 
 		~HUDData() override;  // 00
 
+		static void GenerateHUDMessage(const char* a_mode, bool a_enable)
+		{
+			using func_t = decltype(&HUDData::GenerateHUDMessage);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(50747, 51642) };
+			return func(a_mode, a_enable);
+		}
+
 		// members
 		REX::TEnumSet<HUD_MESSAGE_TYPE, std::uint32_t> type;          // 10
 		std::uint32_t                                  pad14;         // 14
