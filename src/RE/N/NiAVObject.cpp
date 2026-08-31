@@ -219,11 +219,11 @@ namespace RE
 		return result;
 	}
 
-	void NiAVObject::SetRefraction(bool a_set, float a_power)
+	void NiAVObject::SetRefraction(bool a_set, float a_power, bool a_recurse)
 	{
 		using func_t = decltype(&NiAVObject::SetRefraction);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(99868, 106513) };
-		return func(this, a_power, a_power);
+		return func(this, a_power, a_power, a_recurse);
 	}
 
 	void NiAVObject::TintScenegraph(const NiColorA& a_color)
