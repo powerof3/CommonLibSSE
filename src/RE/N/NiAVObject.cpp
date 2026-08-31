@@ -223,7 +223,7 @@ namespace RE
 	{
 		using func_t = decltype(&NiAVObject::SetRefraction);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(99868, 106513) };
-		return func(this, a_power, a_power, a_recurse);
+		return func(this, a_set, a_power, a_recurse);
 	}
 
 	void NiAVObject::TintScenegraph(const NiColorA& a_color)
