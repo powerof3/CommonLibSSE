@@ -137,7 +137,7 @@ namespace RE
 		void                              SetCollisionLayerAndGroup(COL_LAYER a_collisionLayer, std::uint32_t a_group);
 		bool                              SetMotionType(hkpMotion::MotionType a_motionType, bool a_recurse = true, bool a_force = false, bool a_allowActivate = true);
 		bool                              SetProjectedUVData(const NiColorA& a_projectedUVParams, const NiColor& a_projectedUVColor, bool a_isSnow);
-		void                              SetRefraction(bool a_set, float a_power);
+		void                              SetRefraction(bool a_set, float a_power, bool a_recurse);
 		void                              TintScenegraph(const NiColorA& a_color);
 		void                              Update(NiUpdateData& a_data);
 		void                              UpdateBodyTint(const NiColor& a_color);
