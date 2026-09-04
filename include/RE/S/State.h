@@ -112,3 +112,4 @@ namespace RE
 		static_assert(offsetof(State, dynamicResolutionLock) == 0x110);
 #endif
 	}
+}
