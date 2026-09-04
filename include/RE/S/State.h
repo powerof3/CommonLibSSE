@@ -39,20 +39,24 @@ namespace RE
 			std::uint32_t              unk038;                             // 038
 			std::uint32_t              unk03C;                             // 03C
 			std::uint32_t              unk040;                             // 040
-			float                      unk044;                             // 044
-			float                      unk048;                             // 048
+			float                      projectionPosScaleX;                // 044
+			float                      projectionPosScaleY;                // 048
 			std::uint32_t              frameCount;                         // 04C
-			bool                       unk50;                              // 050 - previously misnamed insideFrame
-			bool                       letterbox;                          // 051
-			bool                       unk052;                             // 052
-			bool                       compiledShaderThisFrame;            // 053
-			bool                       insideFrame;                        // 054 - previously misnamed useEarlyZ
-			bool                       unk055;                             // 055
 #ifdef SKYRIM_SUPPORT_AE
-			bool unk56;                                       // 056
-			bool doubleDynamicResolutionAdjustmentFrequency;  // 057
-			bool unk58;                                       // 058
-			bool unk59;                                       // 059
+			std::uint32_t unk050;                   // 050
+			bool          insideFrame;              // 054
+			bool          letterbox;                // 055
+			bool          unk056;                   // 056
+			bool          unk057;                   // 057
+			bool          compiledShaderThisFrame;  // 058
+			bool          useEarlyZ;                // 059
+#else
+			bool insideFrame;              // 050
+			bool letterbox;                // 051
+			bool unk052;                   // 052
+			bool unk053;                   // 053
+			bool compiledShaderThisFrame;  // 054
+			bool useEarlyZ;                // 055
 #endif
 			NiPointer<NiSourceTexture> defaultTextureBlack;                   // 060
 			NiPointer<NiSourceTexture> defaultTextureWhite;                   // 068
@@ -78,8 +82,26 @@ namespace RE
 		};
 #ifdef SKYRIM_SUPPORT_AE
 		static_assert(sizeof(State) == 0x120);
+		static_assert(offsetof(State, insideFrame) == 0x54);
+		static_assert(offsetof(State, letterbox) == 0x55);
+		static_assert(offsetof(State, compiledShaderThisFrame) == 0x58);
+		static_assert(offsetof(State, useEarlyZ) == 0x59);
+		static_assert(offsetof(State, defaultTextureBlack) == 0x60);
+		static_assert(offsetof(State, defaultTextureWhite) == 0x68);
+		static_assert(offsetof(State, cameraDataCache) == 0xA8);
+		static_assert(offsetof(State, dynamicResolutionWidthRatio) == 0x104);
+		static_assert(offsetof(State, dynamicResolutionLock) == 0x118);
 #else
 		static_assert(sizeof(State) == 0x118);
+		static_assert(offsetof(State, insideFrame) == 0x50);
+		static_assert(offsetof(State, letterbox) == 0x51);
+		static_assert(offsetof(State, compiledShaderThisFrame) == 0x54);
+		static_assert(offsetof(State, useEarlyZ) == 0x55);
+		static_assert(offsetof(State, defaultTextureBlack) == 0x58);
+		static_assert(offsetof(State, defaultTextureWhite) == 0x60);
+		static_assert(offsetof(State, cameraDataCache) == 0xA0);
+		static_assert(offsetof(State, dynamicResolutionWidthRatio) == 0xFC);
+		static_assert(offsetof(State, dynamicResolutionLock) == 0x110);
 #endif
 	}
 }
