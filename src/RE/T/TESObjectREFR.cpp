@@ -75,7 +75,7 @@ namespace RE
 	void TESObjectREFR::AddLockChange()
 	{
 		using func_t = decltype(&TESObjectREFR::AddLockChange);
-		static REL::Relocation<func_t> func{ REL::ID(19512) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19110, 19512) };
 		return func(this);
 	}
 

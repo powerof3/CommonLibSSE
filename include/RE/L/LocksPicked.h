@@ -15,7 +15,7 @@ namespace RE
 		[[nodiscard]] static BSTEventSource<LocksPicked::Event>* QEventSource()
 		{
 			using func_t = decltype(&LocksPicked::QEventSource);
-			static REL::Relocation<func_t> func{ REL::ID(51997) };
+			static REL::Relocation<func_t> func{ RELOCATION_ID(51115, 51997) };
 			return func();
 		}
 	};
