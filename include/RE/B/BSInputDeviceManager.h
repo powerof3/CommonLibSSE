@@ -59,5 +59,9 @@ namespace RE
 		std::uint32_t                        unkE4;                           // E4
 		std::uint64_t                        unkE8;                           // E8
 	};
+#ifdef SKYRIM_SUPPORT_AE
+	static_assert(sizeof(BSInputDeviceManager) == 0x100);
+#else
 	static_assert(sizeof(BSInputDeviceManager) == 0xF0);
+#endif
 }
