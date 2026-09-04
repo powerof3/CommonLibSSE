@@ -545,6 +545,7 @@ namespace RE
 		bhkCharacterController*      GetCharController() const;
 		void                         GetCollisionFilterInfo(CFilter& a_outCollisionFilterInfo);
 		NiPointer<Actor>             GetCommandingActor() const;
+		bool                         GetControllingActor(NiPointer<Actor>& a_out);
 		TESFaction*                  GetCrimeFaction();
 		const TESFaction*            GetCrimeFaction() const;
 		TESPackage*                  GetCurrentPackage();
