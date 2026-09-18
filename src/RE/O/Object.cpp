@@ -10,7 +10,21 @@ namespace RE
 	{
 		Object::~Object()
 		{
-			Dtor();
+			if (IsConstructed()) {
+				const std::uint32_t size = type ? type->GetVariableCount() : 0;
+				for (std::uint32_t i = 0; i < size; ++i) {
+					variables[i].SetNone();
+				}
+
+				constructed = false;
+				initialized = false;
+			}
+
+			auto lock = reinterpret_cast<std::uintptr_t>(lockStructure) & ~static_cast<std::uintptr_t>(1);
+			if (lock) {
+				REX::TAtomicRef l{ lock };
+				--l;
+			}
 		}
 
 		VMHandle Object::GetHandle() const
@@ -108,13 +122,6 @@ namespace RE
 			}
 
 			return std::addressof(variables[offset + idx]);
-		}
-
-		void Object::Dtor()
-		{
-			using func_t = decltype(&Object::Dtor);
-			static REL::Relocation<func_t> func{ RELOCATION_ID(97462, 104246) };
-			return func(this);
 		}
 	}
 }
