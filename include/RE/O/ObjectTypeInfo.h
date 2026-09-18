@@ -24,6 +24,17 @@ namespace RE
 				kLinkedValid
 			};
 
+			[[nodiscard]] std::uint32_t GetVariableCount() const noexcept
+			{
+				std::uint32_t count = 0;
+				for (BSTSmartPointer iter{ this }; iter && iter->Valid(); iter = iter->parentTypeInfo) {
+					count += iter->variableCount;
+				}
+				return count;
+			}
+
+			[[nodiscard]] bool Valid() const noexcept { return linkedValid == LinkValidState::kLinkedValid; }
+
 			struct UnlinkedNativeFunction
 			{
 			public:
