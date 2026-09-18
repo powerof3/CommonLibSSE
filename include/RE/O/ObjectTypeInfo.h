@@ -24,17 +24,6 @@ namespace RE
 				kLinkedValid
 			};
 
-			[[nodiscard]] std::uint32_t GetVariableCount() const noexcept
-			{
-				std::uint32_t count = 0;
-				for (BSTSmartPointer iter{ this }; iter && iter->Valid(); iter = iter->parentTypeInfo) {
-					count += iter->variableCount;
-				}
-				return count;
-			}
-
-			[[nodiscard]] bool Valid() const noexcept { return linkedValid == LinkValidState::kLinkedValid; }
-
 			struct UnlinkedNativeFunction
 			{
 			public:
@@ -148,6 +137,20 @@ namespace RE
 				default:
 					return false;
 				}
+			}
+
+			[[nodiscard]] constexpr bool IsLinkedValid() const noexcept
+			{
+				return linkedValid == LinkValidState::kLinkedValid;
+			}
+
+			[[nodiscard]] std::uint32_t GetVariableCount() const noexcept
+			{
+				std::uint32_t count = 0;
+				for (BSTSmartPointer iter{ this }; iter && iter->IsLinkedValid(); iter = iter->parentTypeInfo) {
+					count += iter->variableCount;
+				}
+				return count;
 			}
 
 			UnlinkedNativeFunction*       GetUnlinkedFunctionIter();
