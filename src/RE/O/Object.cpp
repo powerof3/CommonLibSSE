@@ -20,7 +20,8 @@ namespace RE
 				initialized = false;
 			}
 
-			auto lock = reinterpret_cast<std::uintptr_t>(lockStructure) & ~static_cast<std::uintptr_t>(1);
+			auto* lock = reinterpret_cast<std::uint32_t*>(
+				reinterpret_cast<std::uintptr_t>(lockStructure) & ~static_cast<std::uintptr_t>(1));
 			if (lock) {
 				REX::TAtomicRef l{ lock };
 				--l;
