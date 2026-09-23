@@ -445,4 +445,9 @@ namespace RE
 	{
 		MarkType(static_cast<std::uint32_t>(a_type), a_cleared);
 	}
+
+	bool ExtraDataList::IsEmpty() const noexcept
+	{
+		return _extraData.data;
+	}
 }
