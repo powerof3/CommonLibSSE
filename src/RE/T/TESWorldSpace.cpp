@@ -29,4 +29,11 @@ namespace RE
 		}
 		return world->defaultWaterHeight;
 	}
+
+	TESObjectCELL* TESWorldSpace::LoadCell(std::int16_t a_x, std::int16_t a_y)
+	{
+		using func_t = decltype(&TESWorldSpace::LoadCell);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(20026, 20460) };
+		return func(this, a_x, a_y);
+	}
 }

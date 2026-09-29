@@ -12,7 +12,7 @@ namespace RE
 
 		~BSProceduralLightningTasklet() override;  // 00
 
-		// overwrite (BSTaskletData)
+		// override (BSTaskletData)
 		void Process() override;     // 02
 		void OnComplete() override;  // 03
 

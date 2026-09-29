@@ -528,6 +528,7 @@ set(SOURCES
 	include/RE/C/CXAPOBase.h
 	include/RE/C/Calendar.h
 	include/RE/C/CalmEffect.h
+	include/RE/C/CellLoaderTask.h
 	include/RE/C/ChainExplosion.h
 	include/RE/C/CharEvent.h
 	include/RE/C/Character.h
@@ -653,6 +654,7 @@ set(SOURCES
 	include/RE/E/ErrorLogger.h
 	include/RE/E/EtherealizationEffect.h
 	include/RE/E/Explosion.h
+	include/RE/E/ExteriorCellLoader.h
 	include/RE/E/ExtraAction.h
 	include/RE/E/ExtraActivateLoopSound.h
 	include/RE/E/ExtraActivateRef.h
