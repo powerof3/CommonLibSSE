@@ -28,7 +28,7 @@ namespace RE
 		void          ProcessClone(NiCloningProcess& a_cloning) override;  // 1D
 
 		// override (NiTimeController)
-		void Update(float a_time) override;          // 27
+		void Update(NiUpdateData& a_data) override;  // 27
 		bool TargetIsRequiredType() const override;  // 2E
 
 		// override (NiInterpController)

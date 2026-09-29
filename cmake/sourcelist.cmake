@@ -1494,6 +1494,7 @@ set(SOURCES
 	include/RE/N/NiTransform.h
 	include/RE/N/NiTriBasedGeometry.h
 	include/RE/N/NiTriShape.h
+	include/RE/N/NiUpdateData.h
 	include/RE/N/NiVisibleArray.h
 	include/RE/N/NightEyeEffect.h
 	include/RE/N/NonActorMagicCaster.h
