@@ -61,11 +61,11 @@ namespace RE
 			return *singleton;
 		}
 
-		void AddCellGrass(TESObjectCELL* a_cell, volatile bool* cancel)
+		void AddCellGrass(TESObjectCELL* a_cell, volatile bool* a_cancel)
 		{
 			using func_t = decltype(&BGSGrassManager::AddCellGrass);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(15204, 15372) };
-			func(this, a_cell, cancel);
+			func(this, a_cell, a_cancel);
 		}
 
 		bool AddCellGrassFromBuffer(TESObjectCELL* a_cell)
