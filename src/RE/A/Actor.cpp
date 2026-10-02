@@ -393,6 +393,13 @@ namespace RE
 		return currentProcess ? currentProcess->GetCommandingActor().get() : NiPointer<Actor>{};
 	}
 
+	bool Actor::GetControllingActor(NiPointer<Actor>& a_out)
+	{
+		using func_t = decltype(&Actor::GetControllingActor);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(37762, 38707) };
+		return func(this, a_out);
+	}
+
 	TESFaction* Actor::GetCrimeFaction()
 	{
 		return GetCrimeFactionImpl();

@@ -10,6 +10,10 @@ namespace RE
 			kKeyboard = 0,
 			kMouse,
 			kGamepad,
+#ifdef SKYRIM_SUPPORT_AE
+			kUnk3,
+			kUnk4,
+#endif
 			kVirtualKeyboard,
 
 			kTotal

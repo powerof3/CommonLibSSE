@@ -47,7 +47,11 @@ namespace RE
 			// members
 			BSTArray<UserEventMapping> deviceMappings[INPUT_DEVICES::kTotal];  // 00
 		};
+#ifdef SKYRIM_SUPPORT_AE
+		static_assert(sizeof(InputContext) == 0x90);
+#else
 		static_assert(sizeof(InputContext) == 0x60);
+#endif
 
 		struct LinkedMapping
 		{
