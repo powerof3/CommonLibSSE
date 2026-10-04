@@ -257,6 +257,7 @@ namespace RE
 		void                                     Reset();
 		void                                     ResetAndUpdate();
 		void                                     SetEnabled(bool a_set);
+		bool                                     SetStage(std::uint16_t a_index);
 		bool                                     Start();
 		bool                                     StartsEnabled() const;
 		void                                     Stop();

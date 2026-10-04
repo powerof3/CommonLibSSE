@@ -134,6 +134,13 @@ namespace RE
 		AddChange(ChangeFlags::kQuestFlags);
 	}
 
+	bool TESQuest::SetStage(std::uint16_t a_index)
+	{
+		using func_t = decltype(&TESQuest::SetStage);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 25004) };
+		return func(this, a_index);
+	}
+
 	bool TESQuest::Start()
 	{
 		if (eventID != QuestEvent::kNone) {
