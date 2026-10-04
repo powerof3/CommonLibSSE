@@ -10,6 +10,13 @@ namespace RE
 		return *reinterpret_cast<const std::uintptr_t*>(this) != 0;
 	}
 
+	TESQuestStageItem* TESQuestStage::GetStageItem(std::uint8_t a_index)
+	{
+		using func_t = decltype(&TESQuestStage::GetStageItem);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(0, 25246) };
+		return func(this, a_index);
+	}
+
 	ObjectRefHandle& TESQuestTarget::GetTargetRef(ObjectRefHandle& a_out, bool a_allowPickUpActor, const TESQuest* a_quest)
 	{
 		using func_t = decltype(&TESQuestTarget::GetTargetRef);
