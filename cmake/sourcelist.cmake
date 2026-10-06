@@ -539,6 +539,10 @@ set(SOURCES
 	include/RE/C/Color.h
 	include/RE/C/ColorUtil.h
 	include/RE/C/CombatAnimation.h
+	include/RE/C/CombatBehavior.h
+	include/RE/C/CombatBehaviorAccessors.h
+	include/RE/C/CombatBehaviorAction.h
+	include/RE/C/CombatBehaviorAdvance.h
 	include/RE/C/CombatBehaviorController.h
 	include/RE/C/CombatBehaviorStack.h
 	include/RE/C/CombatBehaviorThread.h
@@ -546,6 +550,8 @@ set(SOURCES
 	include/RE/C/CombatBehaviorTreeLinkNode.h
 	include/RE/C/CombatBehaviorTreeManager.h
 	include/RE/C/CombatBehaviorTreeNode.h
+	include/RE/C/CombatBehaviorTreeNodeObject.h
+	include/RE/C/CombatBehaviorTreeNodeObjectBase.h
 	include/RE/C/CombatController.h
 	include/RE/C/CombatGroup.h
 	include/RE/C/CombatGroupDetectionListener.h
@@ -574,6 +580,7 @@ set(SOURCES
 	include/RE/C/CombatMagicCasterWard.h
 	include/RE/C/CombatManager.h
 	include/RE/C/CombatObject.h
+	include/RE/C/CombatPath.h
 	include/RE/C/CombatSearchLocation.h
 	include/RE/C/CombatState.h
 	include/RE/C/CombatUtilities.h
