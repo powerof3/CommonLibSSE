@@ -184,6 +184,7 @@ namespace RE
 		[[nodiscard]] bool           GetMaxHeightAt(const NiPoint3& a_xy, float& a_outHeight);
 		[[nodiscard]] TESObjectCELL* GetSkyCell();
 		[[nodiscard]] float          GetDefaultWaterHeight() const;
+		[[nodiscard]] TESObjectCELL* LoadCell(std::int16_t a_x, std::int16_t a_y);
 
 		// members
 		BSTHashMap<CellID, TESObjectCELL*>                            cellMap;                  // 058

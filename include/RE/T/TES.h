@@ -199,7 +199,8 @@ namespace RE
 		std::uint32_t                                         unk284;               // 284
 		ParticleObjectCache*                                  particleCacheHead;    // 288
 		SystemEventAdapter                                    unk290;               // 290
-		std::uint64_t                                         placeableWaterCount;  // 2A0
+		std::uint32_t                                         placeableWaterCount;  // 2A0
+		std::uint32_t                                         pad2A4;               // 2A4
 		NavMeshInfoMap*                                       navMeshInfoMap;       // 2A8
 		NiPointer<LoadedAreaBound>                            loadedAreaBound;      // 2B0
 	};

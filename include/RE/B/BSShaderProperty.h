@@ -214,7 +214,7 @@ namespace RE
 		virtual std::int32_t                   QShader();                                                                                                                // 35 - { return 0; }
 		virtual void                           ClarifyShader(BSGeometry* a_geometry, bool, bool);                                                                        // 36 - { return 0; }
 		[[nodiscard]] virtual NiSourceTexture* GetBaseTexture();                                                                                                         // 37 - { return 0; }
-		virtual void                           GetWaterFogPassList(BSGeometry* a_geometry);                                                                              // 38 - { return 0; }
+		virtual RenderPassArray*               GetWaterFogPassList(BSGeometry* a_geometry);                                                                              // 38 - { return 0; }
 		[[nodiscard]] virtual bool             AcceptsEffectData() const;                                                                                                // 39 - { return false; }
 		virtual void                           PrecacheTextures(void);                                                                                                   // 3A - { return; }
 		virtual void                           Unk_3B(void);                                                                                                             // 3B - { return; }

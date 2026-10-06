@@ -55,6 +55,13 @@ namespace RE
 		return owner && owner->Is(FormType::Faction) ? static_cast<TESFaction*>(owner) : nullptr;
 	}
 
+	TESObjectLAND* TESObjectCELL::GetLand() const
+	{
+		using func_t = decltype(&TESObjectCELL::GetLand);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(18513, 18970) };
+		return func(this);
+	}
+
 	INTERIOR_DATA* TESObjectCELL::GetLighting()
 	{
 		return IsInteriorCell() ? cellData.interior : nullptr;
