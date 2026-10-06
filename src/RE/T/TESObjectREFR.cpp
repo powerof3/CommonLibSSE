@@ -818,6 +818,13 @@ namespace RE
 		return GetWaterHeight() > GetPositionZ();
 	}
 
+	bool TESObjectREFR::IsLeveledCreature() const
+	{
+		using func_t = decltype(&TESObjectREFR::IsLeveledCreature);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(19824, 20229) };
+		return func(this);
+	}
+
 	bool TESObjectREFR::IsLocked() const
 	{
 		return GetLockLevel() != LOCK_LEVEL::kUnlocked;

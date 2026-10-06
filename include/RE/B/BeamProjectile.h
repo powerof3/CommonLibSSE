@@ -1,14 +1,13 @@
 #pragma once
 
+#include "RE/B/BSProceduralGeomEvent.h"
 #include "RE/B/BSTEvent.h"
+#include "RE/B/BeamProjectileImpactEvent.h"
 #include "RE/F/FormTypes.h"
 #include "RE/P/Projectile.h"
 
 namespace RE
 {
-	class BSProceduralGeomEvent;
-	struct BeamProjectileImpactEvent;
-
 	class BeamProjectile :
 		public Projectile,                                 // 000
 		public BSTEventSource<BeamProjectileImpactEvent>,  // 1E0

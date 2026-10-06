@@ -433,6 +433,7 @@ namespace RE
 		bool                                    IsInitiallyDisabled() const;
 		bool                                    IsInWater() const;
 		bool                                    IsJewelry() const;
+		bool                                    IsLeveledCreature() const;
 		bool                                    IsLocked() const;
 		bool                                    IsMarkedForDeletion() const;
 		bool                                    IsOffLimits();

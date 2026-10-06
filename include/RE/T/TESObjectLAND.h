@@ -93,6 +93,13 @@ namespace RE
 		// override (TESChildCell)
 		TESObjectCELL* GetSaveParentCell() override;  // 01 - { return parentCell; }
 
+		bool LoadVertices(bool a_load3D, bool a_createHavokData)
+		{
+			using func_t = decltype(&TESObjectLAND::LoadVertices);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(18331, 18747) };
+			return func(this, a_load3D, a_createHavokData);
+		}
+
 		// members
 		OBJ_LAND              data;            // 28 - DATA
 		std::uint32_t         pad2C;           // 2C

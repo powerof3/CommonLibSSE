@@ -32,6 +32,7 @@ set(SOURCES
 	include/RE/A/ActorValueOwner.h
 	include/RE/A/ActorValues.h
 	include/RE/A/AddCallbackVisitor.h
+	include/RE/A/AddCellGrassTask.h
 	include/RE/A/AlchemyItem.h
 	include/RE/A/AlchemyMenu.h
 	include/RE/A/AmiiboEvent.h
@@ -61,6 +62,7 @@ set(SOURCES
 	include/RE/A/ahkpWorld.h
 	include/RE/B/BGSAbilityPerkEntry.h
 	include/RE/B/BGSAcousticSpace.h
+	include/RE/B/BGSAcousticSpaceListener.h
 	include/RE/B/BGSAction.h
 	include/RE/B/BGSActionData.h
 	include/RE/B/BGSActorCellEvent.h
@@ -352,6 +354,9 @@ set(SOURCES
 	include/RE/B/BSPortalGraphEntry.h
 	include/RE/B/BSPortalSharedNode.h
 	include/RE/B/BSPrecomputedNavmeshInfoPathMap.h
+	include/RE/B/BSProceduralGeomEvent.h
+	include/RE/B/BSProceduralLightningController.h
+	include/RE/B/BSProceduralLightningTasklet.h
 	include/RE/B/BSReloadShaderI.h
 	include/RE/B/BSRenderPass.h
 	include/RE/B/BSResource.h
@@ -417,6 +422,8 @@ set(SOURCES
 	include/RE/B/BSTSingleton.h
 	include/RE/B/BSTSmartPointer.h
 	include/RE/B/BSTTuple.h
+	include/RE/B/BSTask.h
+	include/RE/B/BSTaskletData.h
 	include/RE/B/BSTempEffect.h
 	include/RE/B/BSTempEffectDebris.h
 	include/RE/B/BSTempEffectGeometryDecal.h
@@ -447,6 +454,7 @@ set(SOURCES
 	include/RE/B/BSWin32MouseDevice.h
 	include/RE/B/BSWin32SaveDataSystemUtility.h
 	include/RE/B/BSWin32SystemUtility.h
+	include/RE/B/BSWin32TaskletData.h
 	include/RE/B/BSWin32VirtualKeyboardDevice.h
 	include/RE/B/BSWindModifier.h
 	include/RE/B/BSXAudio2Audio.h
@@ -461,6 +469,7 @@ set(SOURCES
 	include/RE/B/BaseFormComponent.h
 	include/RE/B/BaseHandleReaderWriter.h
 	include/RE/B/BeamProjectile.h
+	include/RE/B/BeamProjectileImpactEvent.h
 	include/RE/B/BipedAnim.h
 	include/RE/B/BipedObjects.h
 	include/RE/B/BleedoutCameraState.h
@@ -491,6 +500,7 @@ set(SOURCES
 	include/RE/B/bhkCompressedMeshShapeData.h
 	include/RE/B/bhkContactListener.h
 	include/RE/B/bhkEntity.h
+	include/RE/B/bhkEntityListener.h
 	include/RE/B/bhkListShape.h
 	include/RE/B/bhkMeshMaterial.h
 	include/RE/B/bhkMouseSpringAction.h
@@ -518,6 +528,8 @@ set(SOURCES
 	include/RE/C/CXAPOBase.h
 	include/RE/C/Calendar.h
 	include/RE/C/CalmEffect.h
+	include/RE/C/CellLoaderTask.h
+	include/RE/C/ChainExplosion.h
 	include/RE/C/CharEvent.h
 	include/RE/C/Character.h
 	include/RE/C/ChestsLooted.h
@@ -642,6 +654,7 @@ set(SOURCES
 	include/RE/E/ErrorLogger.h
 	include/RE/E/EtherealizationEffect.h
 	include/RE/E/Explosion.h
+	include/RE/E/ExteriorCellLoader.h
 	include/RE/E/ExtraAction.h
 	include/RE/E/ExtraActivateLoopSound.h
 	include/RE/E/ExtraActivateRef.h
@@ -1200,6 +1213,7 @@ set(SOURCES
 	include/RE/I/ICellAttachDetachEventSource.h
 	include/RE/I/ID.h
 	include/RE/I/IDEvent.h
+	include/RE/I/IExplosionFactory.h
 	include/RE/I/IFormFactory.h
 	include/RE/I/IFreezeQuery.h
 	include/RE/I/IFuncCallQuery.h
@@ -1226,6 +1240,7 @@ set(SOURCES
 	include/RE/I/IMovementState.h
 	include/RE/I/INIPrefSettingCollection.h
 	include/RE/I/INISettingCollection.h
+	include/RE/I/IOTask.h
 	include/RE/I/IObjectHandlePolicy.h
 	include/RE/I/IObjectProcessor.h
 	include/RE/I/IPackageData.h
@@ -1479,6 +1494,7 @@ set(SOURCES
 	include/RE/N/NiTransform.h
 	include/RE/N/NiTriBasedGeometry.h
 	include/RE/N/NiTriShape.h
+	include/RE/N/NiUpdateData.h
 	include/RE/N/NiVisibleArray.h
 	include/RE/N/NightEyeEffect.h
 	include/RE/N/NonActorMagicCaster.h
@@ -1525,6 +1541,7 @@ set(SOURCES
 	include/RE/Q/QuestEvents.h
 	include/RE/Q/QuestObjectiveStates.h
 	include/RE/Q/QuestStatus.h
+	include/RE/Q/QueuedFile.h
 	include/RE/Q/QuickSaveLoadHandler.h
 	include/RE/R/REFREventCallbacks.h
 	include/RE/R/RaceSexCamera.h
@@ -1644,6 +1661,7 @@ set(SOURCES
 	include/RE/T/TESActorLocationChangeEvent.h
 	include/RE/T/TESAmmo.h
 	include/RE/T/TESAttackDamageForm.h
+	include/RE/T/TESAudio.h
 	include/RE/T/TESBipedModelForm.h
 	include/RE/T/TESBookReadEvent.h
 	include/RE/T/TESBoundAnimObject.h
@@ -2177,6 +2195,7 @@ set(SOURCES
 	src/RE/T/TES.cpp
 	src/RE/T/TESAIForm.cpp
 	src/RE/T/TESAmmo.cpp
+	src/RE/T/TESAudio.cpp
 	src/RE/T/TESCamera.cpp
 	src/RE/T/TESClimate.cpp
 	src/RE/T/TESCondition.cpp
