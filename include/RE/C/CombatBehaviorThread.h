@@ -47,6 +47,13 @@ namespace RE
 			return currentContextPtr.GetObject<T>();
 		}
 
+		void Ascend()
+		{
+			using func_t = decltype(&CombatBehaviorThread::Ascend);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(46229, 47484) };
+			func(this);
+		}
+
 		// members
 		CombatBehaviorStack                                                       stack;              // 000
 		BSTSmallArray<BSTTuple<const CombatBehaviorTreeNode*, std::uint32_t>, 16> stackFrame;         // 010

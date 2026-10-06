@@ -2,6 +2,7 @@
 
 #include "RE/B/BSFixedString.h"
 #include "RE/B/BSTArray.h"
+#include "RE/C/CombatBehaviorTreeNodeObject.h"
 
 namespace RE
 {
@@ -31,6 +32,12 @@ namespace RE
 		static TreeBuilder* AddNode(TreeBuilder* a_out, const char* a_name, CombatBehaviorTreeNode* a_node);
 		static Actor*       GetAttacker();
 		static Actor*       GetTarget();
+
+		template <class T>
+		static CombatBehaviorTreeNodeObject<T>* CreateObject()
+		{
+			return CombatBehaviorTreeNodeObject<T>::CreateObject();
+		}
 
 		// members
 		BSFixedString           name;  // 08
