@@ -9,7 +9,7 @@ namespace RE
 	class Projectile;
 	class TESObjectREFR;
 
-	template <std::uint32_t = 21, std::uint32_t = 5>
+	template <std::uint32_t = 20, std::uint32_t = 6>
 	class BSUntypedPointerHandle;
 
 	template <class, class = BSUntypedPointerHandle<>>
