@@ -24,6 +24,11 @@ namespace RE
 				return handleEntryBits.any(EntryBitfieldConstants::kInUseBit);
 			}
 
+			[[nodiscard]] std::uint32_t QNextFreeEntry() const
+			{
+				return (handleEntryBits & EntryBitfieldConstants::kFreeListMask).underlying();
+			}
+
 			// members
 			REX::TEnumSet<EntryBitfieldConstants, std::uint32_t> handleEntryBits;  // 00
 			std::uint32_t                                        pad04;            // 04
@@ -36,6 +41,18 @@ namespace RE
 			using func_t = decltype(&BSPointerHandleManager<TESObjectREFR>::IsValid);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(75454, 77239) };
 			return func(a_handle);
+		}
+
+		[[nodiscard]] static std::uint32_t GetFreeListHead()
+		{
+			static REL::Relocation<std::uint32_t*> head{ RELOCATION_ID(514475, 400619) }; 
+			return *head;
+		}
+
+		[[nodiscard]] static std::uint32_t GetFreeListTail()
+		{
+			static REL::Relocation<std::uint32_t*> tail{ RELOCATION_ID(514476, 400620) };
+			return *tail;
 		}
 
 		[[nodiscard]] static auto GetHandleEntries()
