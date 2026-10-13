@@ -45,7 +45,7 @@ namespace RE
 
 		[[nodiscard]] static std::uint32_t GetFreeListHead()
 		{
-			static REL::Relocation<std::uint32_t*> head{ RELOCATION_ID(514475, 400619) }; 
+			static REL::Relocation<std::uint32_t*> head{ RELOCATION_ID(514475, 400619) };
 			return *head;
 		}
 
