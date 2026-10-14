@@ -6,6 +6,9 @@
 namespace RE
 {
 	class BSCompressedNavmeshBounds;
+	class BSNavmesh;
+	class BSPathingCell;
+	class BSPathingDoor;
 
 	struct BSNavmeshInfo
 	{
