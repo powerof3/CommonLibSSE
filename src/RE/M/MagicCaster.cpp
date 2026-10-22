@@ -48,7 +48,7 @@ namespace RE
 		return func(this, a_item);
 	}
 
-	bool MagicCaster::ProcessQuickRelease(MagicItem* a_spell, Actor* a_target, TESBoundObject* a_source, bool a_loadCast)
+	bool MagicCaster::ProcessQuickRelease(MagicItem* a_spell, TESObjectREFR* a_target, TESBoundObject* a_source, bool a_loadCast)
 	{
 		using func_t = decltype(&MagicCaster::ProcessQuickRelease);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(33631, 34409) };
