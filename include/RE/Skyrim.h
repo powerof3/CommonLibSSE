@@ -1748,6 +1748,7 @@
 #include "RE/T/TESOpenCloseEvent.h"
 #include "RE/T/TESPackage.h"
 #include "RE/T/TESPackageData.h"
+#include "RE/T/TESPerkEntryRunEvent.h"
 #include "RE/T/TESPlayerBowShotEvent.h"
 #include "RE/T/TESProcessor.h"
 #include "RE/T/TESProduceForm.h"
