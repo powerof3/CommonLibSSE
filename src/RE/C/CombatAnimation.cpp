@@ -17,24 +17,38 @@ namespace RE
 		Ctor2(a_actor, a_action);
 	}
 
-	bool CombatAnimation::ConstructAndExecute(Actor* a_actor, ANIM a_anim)
+	bool CombatAnimation::Execute(Actor* a_actor, ANIM a_anim)
 	{
 		using func_t = bool(Actor*, ANIM);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(43245, 44446) };
 		return func(a_actor, a_anim);
 	}
 
-	bool CombatAnimation::ConstructAndExecute(Actor* a_actor, TESObjectREFR* a_target, ANIM a_anim)
+	bool CombatAnimation::Execute(Actor* a_actor, TESObjectREFR* a_target, ANIM a_anim)
 	{
 		using func_t = bool(Actor*, TESObjectREFR*, ANIM);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(43246, 44447) };
 		return func(a_actor, a_target, a_anim);
 	}
 
+	bool CombatAnimation::Execute()
+	{
+		using func_t = bool(CombatAnimation*);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(43239, 44440) };
+		return func(this);
+	}
+
 	bool CombatAnimation::LoadClipData()
 	{
 		using func_t = decltype(&CombatAnimation::LoadClipData);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(43247, 44448) };
+		return func(this);
+	}
+
+	float CombatAnimation::GetLength()
+	{
+		using func_t = decltype(&CombatAnimation::GetLength);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(43244, 44445) };
 		return func(this);
 	}
 

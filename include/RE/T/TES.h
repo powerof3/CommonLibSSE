@@ -33,6 +33,7 @@ namespace RE
 	class TESObjectCELL;
 	class TESObjectREFR;
 	class TESWorldSpace;
+	class QueuedFile;
 
 	struct bhkPickData;
 	struct PositionPlayerEvent;
@@ -157,10 +158,10 @@ namespace RE
 #endif
 		TESWorldSpace*                                        worldSpace;           // 140
 		BSSimpleList<BSTTuple<TESActorBase*, std::uint16_t>*> deadCount;            // 148
-		void*                                                 unk158;               // 158 - smart ptr
+		NiPointer<QueuedFile>                                 unk158;               // 158
 		void*                                                 unk160;               // 160 - smart ptr
-		void*                                                 unk168;               // 168 - smart ptr
-		void*                                                 unk170;               // 170 - smart ptr
+		NiPointer<QueuedFile>                                 unk168;               // 168
+		NiPointer<QueuedFile>                                 unk170;               // 170
 		std::uint64_t                                         unk178;               // 178
 		std::uint64_t                                         unk180;               // 180
 		std::uint64_t                                         unk188;               // 188
