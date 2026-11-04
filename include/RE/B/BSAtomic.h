@@ -77,18 +77,44 @@ namespace RE
 	class BSSemaphoreBase
 	{
 	public:
-		BSSemaphoreBase();
+		BSSemaphoreBase(std::int32_t a_initCount, std::int32_t a_maxCount);
 		~BSSemaphoreBase();
+
+		BSSemaphoreBase(const BSSemaphoreBase&) = delete;
+		BSSemaphoreBase& operator=(const BSSemaphoreBase&) = delete;
+
+		bool          Signal();
+		std::uint32_t Wait();
 
 		// members
 		void* semaphore;  // 0
 	};
 	static_assert(sizeof(BSSemaphoreBase) == 0x8);
 
+	class BSCountedSemaphore : public BSSemaphoreBase
+	{
+	public:
+		BSCountedSemaphore(std::int32_t a_initCount, std::int32_t a_maxCount);
+		~BSCountedSemaphore() = default;
+
+		bool          Signal();
+		std::uint32_t Wait();
+
+		// members
+		volatile std::int32_t count;     // 08
+		std::int32_t          maxCount;  // 0C
+
+	private:
+		void DecCount();
+		void IncCount();
+	};
+	static_assert(sizeof(BSCountedSemaphore) == 0x10);
+
 	class BSSemaphore : public BSSemaphoreBase
 	{
 	public:
-		BSSemaphore() = default;
+		BSSemaphore();
+		BSSemaphore(std::int32_t a_initCount, std::int32_t a_maxCount);
 		~BSSemaphore() = default;
 	};
 	static_assert(sizeof(BSSemaphore) == 0x8);

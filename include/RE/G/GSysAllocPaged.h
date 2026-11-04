@@ -10,7 +10,8 @@ namespace RE
 	class GSysAllocPaged : public GSysAllocBase
 	{
 	public:
-		static constexpr auto RTTI{ RTTI_GSysAllocPaged };
+		inline static constexpr auto RTTI = RTTI_GSysAllocPaged;
+		inline static constexpr auto VTABLE = VTABLE_GSysAllocPaged;
 
 		struct Info
 		{
@@ -45,10 +46,10 @@ namespace RE
 		virtual void* Alloc(std::size_t a_size, std::size_t a_align) = 0;              // 04
 		virtual bool  Free(void* a_ptr, std::size_t a_size, std::size_t a_align) = 0;  // 05
 		virtual bool  ReallocInPlace(
-			 [[maybe_unused]] void*       a_oldPtr,
-			 [[maybe_unused]] std::size_t a_oldSize,
-			 [[maybe_unused]] std::size_t a_newSize,
-			 [[maybe_unused]] std::size_t a_align) { return false; }  // 06
+			[[maybe_unused]] void*       a_oldPtr,
+			[[maybe_unused]] std::size_t a_oldSize,
+			[[maybe_unused]] std::size_t a_newSize,
+			[[maybe_unused]] std::size_t a_align) { return false; }  // 06
 		virtual void* AllocSysDirect(
 			[[maybe_unused]] std::size_t  a_size,
 			[[maybe_unused]] std::size_t  a_alignment,
@@ -64,9 +65,9 @@ namespace RE
 		[[nodiscard]] virtual std::size_t GetUsedSpace() const { return 0; }                                       // 0C
 		virtual void                      VisitMem([[maybe_unused]] GHeapMemVisitor* a_visitor) const { return; }  // 0D
 		virtual void                      VisitSegments(
-								 [[maybe_unused]] GHeapSegVisitor* a_visitor,
-								 [[maybe_unused]] std::size_t      a_catSeg,
-								 [[maybe_unused]] std::size_t      a_catUnused) const { return; }  // 0E
+			[[maybe_unused]] GHeapSegVisitor* a_visitor,
+			[[maybe_unused]] std::size_t      a_catSeg,
+			[[maybe_unused]] std::size_t      a_catUnused) const { return; }  // 0E
 	};
 	static_assert(sizeof(GSysAllocPaged) == 0x8);
 }

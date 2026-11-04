@@ -19,6 +19,9 @@ namespace RE
 		class Entry : public NiRefObject
 		{
 		public:
+			inline static constexpr auto RTTI = RTTI_BSFaceGenModelMap__Entry;
+			inline static constexpr auto VTABLE = VTABLE_BSFaceGenModelMap__Entry;
+
 			// members
 			NiPointer<BSFaceGenModel> model;  // 10
 			std::uint64_t             time;   // 18

@@ -22,16 +22,70 @@ namespace RE
 		_mm_mfence();
 	}
 
-	BSSemaphoreBase::BSSemaphoreBase() :
-		semaphore()
-	{
-		semaphore = REX::W32::CreateSemaphoreA(nullptr, 0, 40, nullptr);
-	}
+	BSSemaphoreBase::BSSemaphoreBase(std::int32_t a_initCount, std::int32_t a_maxCount) :
+		semaphore(REX::W32::CreateSemaphoreA(nullptr, a_initCount, a_maxCount, nullptr))
+	{}
 
 	BSSemaphoreBase::~BSSemaphoreBase()
 	{
 		REX::W32::CloseHandle(semaphore);
 	}
+
+	bool BSSemaphoreBase::Signal()
+	{
+		//return REX::W32::ReleaseSemaphore(semaphore, 1, nullptr);
+		// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		return false;
+	}
+
+	std::uint32_t BSSemaphoreBase::Wait()
+	{
+		return REX::W32::WaitForSingleObject(semaphore, 0xFFFFFFFF);
+	}
+
+	BSCountedSemaphore::BSCountedSemaphore(std::int32_t a_initCount, std::int32_t a_maxCount) :
+		BSSemaphoreBase(a_initCount, a_maxCount),
+		count(a_initCount),
+		maxCount(a_maxCount)
+	{}
+
+	bool BSCountedSemaphore::Signal()
+	{
+		const auto result = BSSemaphoreBase::Signal();
+		if (result) {
+			IncCount();
+		}
+		return result;
+	}
+
+	std::uint32_t BSCountedSemaphore::Wait()
+	{
+		const auto result = BSSemaphoreBase::Wait();
+		if (result == 0) {
+			DecCount();
+		}
+		return result;
+	}
+
+	void BSCountedSemaphore::DecCount()
+	{
+		REX::TAtomicRef myCount{ count };
+		--myCount;
+	}
+
+	void BSCountedSemaphore::IncCount()
+	{
+		REX::TAtomicRef myCount{ count };
+		++myCount;
+	}
+
+	BSSemaphore::BSSemaphore() :
+		BSSemaphoreBase(0, 1)
+	{}
+
+	BSSemaphore::BSSemaphore(std::int32_t a_initCount, std::int32_t a_maxCount) :
+		BSSemaphoreBase(a_initCount, a_maxCount)
+	{}
 
 	BSSpinLock::BSSpinLock() :
 		_owningThread(0),

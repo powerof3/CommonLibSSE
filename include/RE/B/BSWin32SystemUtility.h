@@ -18,6 +18,9 @@ namespace RE
 	class BSWin32SystemUtility : public BSSystemUtility
 	{
 	public:
+		inline static constexpr auto RTTI = RTTI_BSWin32SystemUtility;
+		inline static constexpr auto VTABLE = VTABLE_BSWin32SystemUtility;
+
 		template <class P>
 		using SteamCallback = CCallback<BSWin32SystemUtility, P, false>;
 		template <class P>
