@@ -94,6 +94,7 @@ namespace RE
 		bool            GetLandHeight(const NiPoint3& a_positionIn, float& a_heightOut);
 		TESLandTexture* GetLandTexture(const NiPoint3& a_position) const;
 		float           GetWaterHeight(const NiPoint3& a_pos, TESObjectCELL* a_cell) const;
+		void            LoadInterior(TESObjectCELL* a_cell, const NiPoint3& a_position);
 		NiAVObject*     Pick(bhkPickData& a_pickData);
 		void            PurgeBufferedCells();
 		void            ResumeMasterFileLoads();

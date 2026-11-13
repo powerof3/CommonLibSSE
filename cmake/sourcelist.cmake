@@ -423,6 +423,8 @@ set(SOURCES
 	include/RE/B/BSTSmartPointer.h
 	include/RE/B/BSTTuple.h
 	include/RE/B/BSTask.h
+	include/RE/B/BSTaskManager.h
+	include/RE/B/BSTaskManagerWaitAction.h
 	include/RE/B/BSTaskletData.h
 	include/RE/B/BSTaskletGroup.h
 	include/RE/B/BSTaskletGroupData.h
@@ -1255,6 +1257,7 @@ set(SOURCES
 	include/RE/I/IMovementState.h
 	include/RE/I/INIPrefSettingCollection.h
 	include/RE/I/INISettingCollection.h
+	include/RE/I/IOManager.h
 	include/RE/I/IOTask.h
 	include/RE/I/IObjectHandlePolicy.h
 	include/RE/I/IObjectProcessor.h
@@ -1296,6 +1299,7 @@ set(SOURCES
 	include/RE/I/InputEvent.h
 	include/RE/I/InterfaceLightSchemes.h
 	include/RE/I/InterfaceStrings.h
+	include/RE/I/InterfacedClass.h
 	include/RE/I/InteriorData.h
 	include/RE/I/Inventory.h
 	include/RE/I/Inventory3DManager.h

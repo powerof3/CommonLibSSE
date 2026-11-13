@@ -15,10 +15,10 @@ namespace RE
 	{
 		using func_t = decltype(&SendHUDMessage::ShowHUDMessage);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(52050, 52933) };
-		return func(a_notification, a_soundToPlay, a_cancelIfAlreadyQueued);
+		func(a_notification, a_soundToPlay, a_cancelIfAlreadyQueued);
 	}
 
-	void SendHUDMessage::ShowInventoryChangeMessage(TESBoundObject* a_object, std::int32_t a_count, bool a_added, bool a_playSound, const char* a_objectName)
+	void SendHUDMessage::ShowInventoryChangeMessage(TESBoundObject* a_object, std::uint32_t a_count, bool a_added, bool a_playSound, const char* a_objectName)
 	{
 		if (!a_object || !a_count) {
 			return;
@@ -26,7 +26,7 @@ namespace RE
 
 		const auto        objectName = (a_objectName && a_objectName[0]) ? a_objectName : a_object->GetName();
 		const auto        phrase = a_added ? *"sAddItemtoInventory"_gs : *"sRemoveItemfromInventory"_gs;
-		const std::string message = a_count >= 1 ? std::format("{} {}", objectName, phrase) : std::format("{} ({}) {}", objectName, a_count, phrase);
+		const std::string message = a_count == 1 ? std::format("{} {}", objectName, phrase) : std::format("{} ({}) {}", objectName, a_count, phrase);
 
 		ShowHUDMessage(message.c_str());
 

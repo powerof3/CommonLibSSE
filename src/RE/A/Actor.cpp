@@ -1205,6 +1205,13 @@ namespace RE
 		return true;
 	}
 
+	void Actor::Stagger(float a_staggerMult, Actor* a_aggressor)
+	{
+		using func_t = decltype(&Actor::Stagger);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36700, 37710) };
+		func(this, a_staggerMult, a_aggressor);
+	}
+
 	bool Actor::StartCombat(Actor* a_target, CombatGroup* a_combatGroup)
 	{
 		using func_t = decltype(&Actor::StartCombat);
