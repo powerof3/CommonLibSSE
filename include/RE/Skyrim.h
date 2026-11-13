@@ -392,6 +392,7 @@
 #include "RE/B/BSSimpleScaleController.h"
 #include "RE/B/BSSkyShaderProperty.h"
 #include "RE/B/BSSmallBlockAllocator.h"
+#include "RE/B/BSSoundCategoryHandle.h"
 #include "RE/B/BSSoundHandle.h"
 #include "RE/B/BSSoundInfo.h"
 #include "RE/B/BSSoundMessage.h"
