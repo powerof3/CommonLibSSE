@@ -1,59 +1,44 @@
 #pragma once
 
 #include "RE/B/BSTEvent.h"
+#include "RE/B/BSTask.h"
 #include "RE/B/BSTaskManagerWaitAction.h"
-#include "RE/I/InterfacedClass.h"
+#include "RE/N/NiSmartPointer.h"
+#include "RE/S/SynchronizedMap.h"
 
 namespace RE
 {
-	//template <class key, class T>
-	class SynchronizedMap :
-		public InterfacedClass
-	{
-	public:
-		~SynchronizedMap() override;  // 00
-
-		// override (InterfacedClass)
-		void* AllocateInterface(std::uint32_t a_num) override;  // 01
-
-		// add
-		virtual void          Unk02(void);                                      // 02 - GetAt?
-		virtual void          Unk03(void);                                      // 03 - SetAt?
-		virtual void          Unk04(void);                                      // 04 - SetAt?
-		virtual void          Unk05(void);                                      // 05 - RemoveAt?
-		virtual void          Unk06(void);                                      // 06 - Remove?
-		virtual void          Unk07(void);                                      // 07 - Remove?
-		virtual std::uint32_t GetBucketForKey(std::int64_t);                    // 08
-		virtual void          Unk08(void);                                      // 09
-		virtual void          CopyKey(std::int64_t);                            // 0A - template specific
-		virtual void          CopyKeyDirect(std::int64_t, std::int64_t& out);   // 0B - template specific
-		virtual bool          IsKeyGreaterOrEqual(std::int64_t, std::int64_t);  // 0C - template specific
-		virtual bool          IsKeyEqual(std::int64_t, std::int64_t);           // 0D - template specific
-		virtual void          IncrementCount();                                 // 0F
-		virtual void          DecrementCount();                                 // 10
-		virtual std::uint32_t GetCount();                                       // 11
-
-		// members
-		void*                  nodes;            // 08
-		std::uint32_t          numBuckets;       // 10 - confirmed
-		std::uint32_t          pad14;            // 14
-		void*                  buckets;          // 18
-		std::uint32_t          deleteBatchSize;  // 20
-		std::uint32_t          pad24;            // 24
-		void*                  unk28;            // 28
-		volatile std::uint32_t count;            // 30 - confirmed
-		std::uint32_t          pad34;            // 34
-		std::uint64_t          pad38;            // 38 - smth wrong here?
-	};
-	static_assert(sizeof(SynchronizedMap) == 0x40);
+	class BSTaskThread;
+	class BSTaskManagerThread;
 
 	class BSTaskManager :
-		public SynchronizedMap,
+		public SynchronizedMap<std::int64_t, NiPointer<BSTask>>,
 		public BSTEventSource<BSTaskManagerWaitAction>
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSTaskManager;
 		inline static constexpr auto VTABLE = VTABLE_BSTaskManager;
+
+		~BSTaskManager() override;  // 00
+
+		// add
+		virtual bool AddTask(BSTask* a_task);                   // 11
+		virtual void RunTask(BSTask* a_task);                   // 12
+		virtual void FinishTask(BSTask* a_task);                // 13
+		virtual void CancelAllTasks();                          // 14
+		virtual void DoOnPreRunTask(BSTaskThread* a_thread);    // 15 - { return; }
+		virtual void DoOnThreadPause(BSTaskThread* a_thread);   // 16 - { return; }
+		virtual void DoOnThreadResume(BSTaskThread* a_thread);  // 17 - { return; }
+
+		// members
+		BSTaskManagerThread**   threads;           // 98
+		volatile std::uint32_t  numPausedThreads;  // A0
+		volatile std::uint32_t  pauseCount;        // A4
+		std::uint32_t           numThreads;        // A8
+		std::uint32_t           padAC;             // AC
+		volatile std::uint32_t* bucketTaskCounts;  // B0
+		volatile std::uint32_t  numQueuedTasks;    // B8
+		std::uint32_t           padBC;             // BC
 	};
 	static_assert(sizeof(BSTaskManager) == 0xC0);
 }

@@ -1668,6 +1668,7 @@
 #include "RE/S/Sun.h"
 #include "RE/S/SuspendedStack.h"
 #include "RE/S/SyncQueueObj.h"
+#include "RE/S/SynchronizedMap.h"
 #include "RE/T/TES.h"
 #include "RE/T/TESAIForm.h"
 #include "RE/T/TESActionData.h"
