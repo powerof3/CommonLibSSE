@@ -313,24 +313,24 @@ namespace RE
 		void Revert(BGSLoadFormBuffer* a_buf) override;          // 12
 
 		// override (TESObjectREFR)
-		bool                              QCanUpdateSync() const override;                                                               // 46 - { return true; }
-		bool                              GetAllowPromoteToPersistent() const override;                                                  // 47 - { return true; }
+		bool                              QCanUpdateSync() const override;                                                               // 46
+		bool                              GetAllowPromoteToPersistent() const override;                                                  // 47 - { return false; }
 		void                              UpdateRefLight() override;                                                                     // 55
 		NiPoint3                          GetLookingAtLocation() const override;                                                         // 5B
 		NiAVObject*                       Load3D(bool a_backgroundLoading) override;                                                     // 6A
 		void                              Set3D(NiAVObject* a_object, bool a_queue3DTasks = true) override;                              // 6C
-		NiAVObject*                       Get3D1(bool a_firstPerson) const override;                                                     // 6F - { return Get3D2(); }
+		NiAVObject*                       Get3D1(bool a_firstPerson) const override;                                                     // 6F - { return a_firstPerson ? firstPerson3D : TESObjectREFR::Get3D2(); }
 		NiAVObject*                       Get3D2() const override;                                                                       // 70
-		bool                              Is3rdPersonVisible() const override;                                                           // 71 - { return true; }
+		bool                              Is3rdPersonVisible() const override;                                                           // 71 - { return playerFlags.isInThirdPersonMode; }
 		bool                              PopulateGraphProjectsToLoad(void) const override;                                              // 72
-		void                              ModifyAnimationUpdateData(BSAnimationUpdateData& a_data) override;                             // 79 - { return; }
+		void                              ModifyAnimationUpdateData(BSAnimationUpdateData& a_data) override;                             // 79
 		void                              UpdateAnimation(float a_delta) override;                                                       // 7D
-		const BSTSmartPointer<BipedAnim>& GetBiped1(bool a_firstPerson) const override;                                                  // 7E - { return GetBiped2(); }
+		const BSTSmartPointer<BipedAnim>& GetBiped1(bool a_firstPerson) const override;                                                  // 7E - { return a_firstPerson ? largeBiped : Character::GetBiped2(); }
 		const BSTSmartPointer<BipedAnim>& GetBiped2() const override;                                                                    // 7F
-		const BSTSmartPointer<BipedAnim>& GetCurrentBiped() const override;                                                              // 80 - { return GetBiped2(); }
+		const BSTSmartPointer<BipedAnim>& GetCurrentBiped() const override;                                                              // 80 - { return GetBiped1(!Is3rdPersonVisible()); }
 		void                              RemoveWeapon(BIPED_OBJECT equipIndex) override;                                                // 082
 		void                              GetLinearVelocity(NiPoint3& a_velocity) const override;                                        // 86
-		NiAVObject*                       GetCurrent3D() const override;                                                                 // 8D - { return Get3D2(); }
+		NiAVObject*                       GetCurrent3D() const override;                                                                 // 8D - { return Is3rdPersonVisible() ? TESObjectREFR::Get3D2() : firstPerson3D; }
 		void                              SetParentCell(TESObjectCELL* a_cell) override;                                                 // 98
 		bool                              ProcessInWater(hkpCollidable* a_collidable, float a_waterHeight, float a_deltaTime) override;  // 9C
 		bool                              Unk_A0(NiAVObject* a_node, float& a_angleX, float& a_angleZ, NiPoint3& a_pos) const override;  // A0
@@ -342,20 +342,24 @@ namespace RE
 		void                 DrawWeaponMagicHands(bool a_draw) override;                                                                                                                          // 0A6
 		void                 Resurrect(bool a_resetInventory, bool a_attach3D) override;                                                                                                          // 0AB
 		void                 Update(float a_delta) override;                                                                                                                                      // 0AD
+		void                 UpdateCharacterControllerSimulationSettings(bhkCharacterController& a_controller) override;                                                                          // 0AF - { return; }
+		void                 PotentiallyFixRagdollState() override;                                                                                                                               // 0B0 - { return; }
 		void                 OnItemEquipped(bool a_playAnim) override;                                                                                                                            // 0B2
-		void                 Unk_B3(void) override;                                                                                                                                               // 0B3 - { return 1; }
+		void                 Unk_B3(void) override;                                                                                                                                               // 0B3
 		void                 Unk_B4(void) override;                                                                                                                                               // 0B4
 		void                 SetCrimeGoldValue(TESFaction* a_faction, bool a_violent, std::uint32_t a_amount) override;                                                                           // 0B5
 		void                 ModCrimeGoldValue(TESFaction* a_faction, bool a_violent, std::int32_t a_amount) override;                                                                            // 0B6
 		void                 RemoveCrimeGoldValue(TESFaction* a_faction, bool a_violent, std::int32_t a_amount) override;                                                                         // 0B7
 		std::uint32_t        GetCrimeGoldValue(const TESFaction* a_faction) const override;                                                                                                       // 0B8
-		void                 GoToPrison(TESFaction* a_faction, bool a_removeInventory, bool a_realJail) override;                                                                                 // 0B9 - { return; }
-		void                 ServePrisonTime() override;                                                                                                                                          // 0BA - { return; }
-		void                 PayFine(TESFaction* a_faction, bool a_goToJail, bool a_removeStolenItems) override;                                                                                  // 0BB - { return; }
-		bool                 GetCannibal() override;                                                                                                                                              // 0BC - { return false; }
-		bool                 GetVampireFeed() override;                                                                                                                                           // 0BE - { return false; }
-		void                 InitiateVampireFeedPackage(Actor* a_target, TESObjectREFR* a_furniture) override;                                                                                    // 0C0 - { return; }
-		void                 InitiateCannibalPackage(Actor* a_target) override;                                                                                                                   // 0C1 - { return; }
+		void                 GoToPrison(TESFaction* a_faction, bool a_removeInventory, bool a_realJail) override;                                                                                 // 0B9
+		void                 ServePrisonTime() override;                                                                                                                                          // 0BA
+		void                 PayFine(TESFaction* a_faction, bool a_goToJail, bool a_removeStolenItems) override;                                                                                  // 0BB
+		bool                 GetCannibal() override;                                                                                                                                              // 0BC
+		void                 SetCannibal(bool a_set) override;                                                                                                                                    // 0BD - { return; }
+		bool                 GetVampireFeed() override;                                                                                                                                           // 0BE
+		void                 SetVampireFeed(bool a_set) override;                                                                                                                                 // 0BF - { return; }
+		void                 InitiateVampireFeedPackage(Actor* a_target, TESObjectREFR* a_furniture) override;                                                                                    // 0C0
+		void                 InitiateCannibalPackage(Actor* a_target) override;                                                                                                                   // 0C1
 		void                 GetEyeVector(NiPoint3& a_origin, NiPoint3& a_direction, bool a_includeCameraOffset) override;                                                                        // 0C2
 		void                 SetRefraction(bool a_enable, float a_refraction) override;                                                                                                           // 0C3
 		void                 Unk_C6(void) override;                                                                                                                                               // 0C6
@@ -365,41 +369,48 @@ namespace RE
 		void                 AttachArrow(const BSTSmartPointer<BipedAnim>& a_biped) override;                                                                                                     // 0CD
 		void                 DetachArrow(const BSTSmartPointer<BipedAnim>& a_biped) override;                                                                                                     // 0CE
 		bool                 AddShout(TESShout* a_shout) override;                                                                                                                                // 0CF
+		void                 UnlockWord(TESWordOfPower* a_power) override;                                                                                                                        // 0D0
 		void                 Unk_D1(void) override;                                                                                                                                               // 0D1
 		std::uint32_t        UseAmmo(std::uint32_t a_shotCount) override;                                                                                                                         // 0D2
 		CombatGroup*         GetCombatGroup() const override;                                                                                                                                     // 0D4
 		void                 SetCombatGroup(CombatGroup* a_group) override;                                                                                                                       // 0D5
 		bool                 CheckValidTarget(TESObjectREFR& a_target) override;                                                                                                                  // 0D6
 		void                 InitiateDialogue(Actor* a_target, PackageLocation* a_loc1, PackageLocation* a_loc2) override;                                                                        // 0D8
+		void                 EndDialogue() override;                                                                                                                                              // 0DA - { return; }
+		void                 InitiateSpectator(Actor* a_target) override;                                                                                                                         // 0DC - { return; }
 		void                 InitiateGetUpPackage() override;                                                                                                                                     // 0DE
 		void                 UpdateAlpha() override;                                                                                                                                              // 0E0
 		bool                 IsInCombat() const override;                                                                                                                                         // 0E3
+		void                 UpdateCombat() override;                                                                                                                                             // 0E4 - { return; }
 		void                 StopCombat() override;                                                                                                                                               // 0E5
 		void                 WeaponSwingCallBack() override;                                                                                                                                      // 0EF
+		void                 SetActorStartingPosition() override;                                                                                                                                 // 0F0 - { return; }
 		bool                 HasBeenAttacked() const override;                                                                                                                                    // 0F5
 		void                 SetBeenAttacked(bool a_set) override;                                                                                                                                // 0F6
-		void                 UseSkill(ActorValue a_av, float a_points, TESForm* a_advanceObject = nullptr, SKILL_ACTION a_advanceAction = SKILL_ACTION::kNormalUse) override;                     // 0F7 - { return; }
+		void                 UseSkill(ActorValue a_av, float a_points, TESForm* a_advanceObject = nullptr, SKILL_ACTION a_advanceAction = SKILL_ACTION::kNormalUse) override;                     // 0F7
 		bool                 IsInFaction(const TESFaction* faction) const override;                                                                                                               // 0F9
 		void                 ForEachPerk(PerkEntryVisitor& a_visitor) const override;                                                                                                             // 0FA
-		void                 AddPerk(BGSPerk* a_perk, std::uint32_t a_rank = 0) override;                                                                                                         // 0FB - { return; }
-		void                 RemovePerk(BGSPerk* a_perk) override;                                                                                                                                // 0FC - { return; }
-		void                 ApplyTemporaryPerk(BGSPerk* a_perk) override;                                                                                                                        // 0FD - { return; }
-		void                 RemoveTemporaryPerk(BGSPerk* a_perk) override;                                                                                                                       // 0FE - { return; }
+		void                 AddPerk(BGSPerk* a_perk, std::uint32_t a_rank = 0) override;                                                                                                         // 0FB
+		void                 RemovePerk(BGSPerk* a_perk) override;                                                                                                                                // 0FC
+		void                 ApplyTemporaryPerk(BGSPerk* a_perk) override;                                                                                                                        // 0FD
+		void                 RemoveTemporaryPerk(BGSPerk* a_perk) override;                                                                                                                       // 0FE
 		void                 ApplyPerksFromBase() override;                                                                                                                                       // 101
-		void                 StartPowerAttackCoolDown() override;                                                                                                                                 // 102 - { return; }
-		bool                 IsPowerAttackCoolingDown() const override;                                                                                                                           // 103 - { return false; }
+		void                 StartPowerAttackCoolDown() override;                                                                                                                                 // 102
+		bool                 IsPowerAttackCoolingDown() const override;                                                                                                                           // 103
 		void                 Unk_105(void) override;                                                                                                                                              // 105
 		void                 CreateMovementController() override;                                                                                                                                 // 109
 		void                 KillImpl(Actor* a_attacker, float a_damage, bool a_sendEvent, bool a_ragdollInstant) override;                                                                       // 10E
 		bool                 DrinkPotion(AlchemyItem* a_potion, ExtraDataList* a_extralist) override;                                                                                             // 10F
 		bool                 CheckCast(MagicItem* a_spell, bool a_dualCast, MagicSystem::CannotCastReason* a_reason) override;                                                                    // 110
 		std::int32_t         GetCurrentShoutLevel() override;                                                                                                                                     // 112 - return -1 on error
-		void                 SetLastRiddenMount(ActorHandle a_mount) override;                                                                                                                    // 113 - { return; }
-		ActorHandle          QLastRiddenMount() const override;                                                                                                                                   // 114 - { return {}; }
-		void                 Unk_117(NiPoint3& a_origin) override;                                                                                                                                // 117 - { return; }
+		void                 SetLastRiddenMount(ActorHandle a_mount) override;                                                                                                                    // 113 - { lastRiddenMount = a_mount; }
+		ActorHandle          QLastRiddenMount() const override;                                                                                                                                   // 114 - { return lastRiddenMount; }
+		void                 Unk_117(NiPoint3& a_origin) override;                                                                                                                                // 117
 		void                 InitValues() override;                                                                                                                                               // 118
-		const BSFixedString& GetResponseString() const override;                                                                                                                                  // 119 - { return "ActorResponse"; }
+		const BSFixedString& GetResponseString() const override;                                                                                                                                  // 119
 		void                 ModifyMovementData(float a_delta, NiPoint3& a_arg3, NiPoint3& a_arg4) override;                                                                                      // 11A
+		void                 UpdateCombatControllerSettings() override;                                                                                                                           // 11B - { return; }
+		void                 UpdateFadeSettings(bhkCharacterController* a_controller) override;                                                                                                   // 11C - { return; }
 		bool                 ComputeMotionFeedbackSpeedAndDirection(const ActorMotionFeedbackData& a_data, float a_delta, ActorMotionFeedbackOutput& a_output) override;                          // 11D
 		void                 UpdateActor3DPosition() override;                                                                                                                                    // 11F
 		void                 WornArmorChanged(void) override;                                                                                                                                     // 121
@@ -407,7 +418,42 @@ namespace RE
 		float                CheckClampDamageModifier(ActorValue a_av, float a_delta) override;                                                                                                   // 127
 
 		// override (Character)
-		void Unk_129(void) override;  // 129 - { return 1; }
+		void Unk_129(void) override;  // 129 - { return Is3rdPersonVisible(); }
+
+		// override (IAnimationGraphManagerHolder)
+		bool PopulateGraphNodesToTarget(BSScrapArray<NiAVObject*>& a_nodes) override;                             // 04
+		bool ConstructAnimationGraph(BSTSmartPointer<BShkbAnimationGraph>& a_out) override;                       // 05
+		void Unk_07(void) override;                                                                               // 07
+		void PostCreateAnimationGraphManager(BSTSmartPointer<BSAnimationGraphManager>& a_animGraphMgr) override;  // 0B
+
+		// override (MagicTarget)
+		bool IsInvulnerable() override;                     // 04
+		void EffectAdded(ActiveEffect* a_effect) override;  // 08
+
+		// override (ActorValueOwner)
+		bool GetIsPlayerOwner() const override;  // 08 - { return true; }
+
+		// override (ActorState)
+		void DoGetEulerAngles(NiPoint3& a_retAngles) override;    // 04
+		bool SetSitSleepState(SIT_SLEEP_STATE a_state) override;  // 14
+		bool SetWeaponMagicDrawn(bool a_drawn) override;          // 15
+
+		// override (BSTEventSink<MenuOpenCloseEvent>)
+		BSEventNotifyControl ProcessEvent(const MenuOpenCloseEvent* a_event, BSTEventSource<MenuOpenCloseEvent>* a_eventSource) override;  // 01
+
+		// override (BSTEventSink<MenuModeChangeEvent>)
+		BSEventNotifyControl ProcessEvent(const MenuModeChangeEvent* a_event, BSTEventSource<MenuModeChangeEvent>* a_eventSource) override;  // 01
+
+		// override (BSTEventSink<UserEventEnabledEvent>)
+		BSEventNotifyControl ProcessEvent(const UserEventEnabledEvent* a_event, BSTEventSource<UserEventEnabledEvent>* a_eventSource) override;  // 01
+
+		// override (BSTEventSink<TESTrackedStatsEvent>)
+		BSEventNotifyControl ProcessEvent(const TESTrackedStatsEvent* a_event, BSTEventSource<TESTrackedStatsEvent>* a_eventSource) override;  // 01
+
+#ifdef SKYRIM_SUPPORT_AE
+		// override (BSTEventSink<BSSystemEvent>)
+		BSEventNotifyControl ProcessEvent(const BSSystemEvent* a_event, BSTEventSource<BSSystemEvent>* a_eventSource) override;  // 01
+#endif
 
 		// add
 		virtual void          Unk_12A(void);                                                   // 12A
