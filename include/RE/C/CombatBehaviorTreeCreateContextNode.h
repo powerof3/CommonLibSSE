@@ -26,6 +26,7 @@ namespace RE
 	REGISTER_CBTCCN(CombatBehaviorContextHide)
 	REGISTER_CBTCCN(CombatBehaviorContextRangedMovement)
 	REGISTER_CBTCCN(CombatBehaviorContextSearch)
+#undef REGISTER_CBTCCN
 
 	template <class T>
 	class CombatBehaviorTreeCreateContextNode : public CombatBehaviorTreeCreateContextNodeBase<T>

@@ -46,9 +46,9 @@ namespace RE
 		void                              OnArmorActorValueChanged() override;                                        // 0CA
 		bool                              InitiateTresPassPackage(TrespassPackage* a_trespassPackage) override;       // 0D7
 		void                              InitiateSpectator(Actor* a_target) override;                                // 0DC
-		float                             CalcArmorRating() override;                                                 // 0E6 - calculate armor rating?
-		float                             GetArmorBaseFactorSum() override;                                           // 0E7 - something about armor rating
-		float                             CalcUnarmedDamage() override;                                               // 0E8 - get unarmed damage?
+		float                             CalcArmorRating() override;                                                 // 0E6
+		float                             GetArmorBaseFactorSum() override;                                           // 0E7
+		float                             CalcUnarmedDamage() override;                                               // 0E8
 		void                              PrecacheData(void) override;                                                // 120
 
 		// add

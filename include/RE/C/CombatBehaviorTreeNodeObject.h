@@ -81,6 +81,7 @@ namespace RE
 	REGISTER_CBTNO(CombatBehaviorTakeoff)
 	REGISTER_CBTNO(CombatBehaviorTrackTarget)
 	REGISTER_CBTNO(CombatBehaviorWaitBehindCover)
+#undef REGISTER_CBTNO
 
 	template <class T>
 	class CombatBehaviorTreeNodeObject : public CombatBehaviorTreeNodeObjectBase<T>
