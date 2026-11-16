@@ -33,9 +33,7 @@ namespace RE
 
 	bool BSSemaphoreBase::Signal()
 	{
-		//return REX::W32::ReleaseSemaphore(semaphore, 1, nullptr);
-		// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		return false;
+		return REX::W32::ReleaseSemaphore(semaphore, 1, nullptr);
 	}
 
 	std::uint32_t BSSemaphoreBase::Wait()
