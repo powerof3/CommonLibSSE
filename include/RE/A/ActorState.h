@@ -140,18 +140,18 @@ namespace RE
 		~ActorState() override;  // 00
 
 		// override (IMovementState)
-		void  Unk_01(void) override;          // 01 - { return 0; }
-		void  Unk_02(void) override;          // 02 - { return; }
-		void  Unk_03(void) override;          // 03 - { return; }
-		void  Unk_04(void) override;          // 04 - { return; }
-		float DoGetMovementSpeed() override;  // 05 - { return 0.0; }
-		float DoGetRotationSpeed() override;  // 06 - { return 0.0; }
-		void  Unk_07(void) override;          // 07 - { return; }
-		void  Unk_08(void) override;          // 08 - { return 0; }
+		std::uint32_t DoGetNumericID() override;                                            // 01 - { return 0; }
+		void          DoGetPathingLocation(BSPathingLocation& a_retLocation) override;      // 02 - { return; }
+		void          DoGetLocation(NiPoint3& a_retLocation) override;                      // 03 - { return; }
+		void          DoGetEulerAngles(NiPoint3& a_retAngles) override;                     // 04 - { return; }
+		float         DoGetMovementSpeed() override;                                        // 05 - { return 0.0; }
+		float         DoGetRotationSpeed() override;                                        // 06 - { return 0.0; }
+		float         DoGetMovementRotation(NiPoint3& a_retMovementRotation) override;      // 07 - { return; }
+		bool          DoGetCurrentMaxSpeeds(Movement::MaxSpeeds& a_retMaxSpeeds) override;  // 08 - { return 0; }
 
 		// add
-		virtual bool DoSetSitSleepState(SIT_SLEEP_STATE a_state);  // 14
-		virtual void Unk_15(void);                                 // 15
+		virtual bool SetSitSleepState(SIT_SLEEP_STATE a_state);  // 14
+		virtual bool SetWeaponMagicDrawn(bool a_drawn);          // 15
 
 		[[nodiscard]] ATTACK_STATE_ENUM GetAttackState() const noexcept { return actorState1.meleeAttackState; }
 		[[nodiscard]] FLY_STATE         GetFlyState() const noexcept { return actorState1.flyState; }

@@ -19,6 +19,7 @@ namespace RE
 {
 	class BGSBaseAlias;
 	class QueuedPromoteQuestTask;
+	struct TESQuestStageItem;
 
 	enum class QuestFlag
 	{
@@ -133,6 +134,8 @@ namespace RE
 	{
 	public:
 		explicit operator bool() const;
+
+		TESQuestStageItem* GetStageItem(std::uint8_t a_index);
 
 		// members
 		QUEST_STAGE_DATA data;  // 0
@@ -254,6 +257,7 @@ namespace RE
 		void                                     Reset();
 		void                                     ResetAndUpdate();
 		void                                     SetEnabled(bool a_set);
+		bool                                     SetStage(std::uint16_t a_index);
 		bool                                     Start();
 		bool                                     StartsEnabled() const;
 		void                                     Stop();

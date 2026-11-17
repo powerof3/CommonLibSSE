@@ -51,6 +51,9 @@ namespace RE
 		struct DynamicAttenuationCharacteristics : public BSIAttenuationCharacteristics
 		{
 		public:
+			inline static constexpr auto RTTI = RTTI_BGSSoundOutput__DynamicAttenuationCharacteristics;
+			inline static constexpr auto VTABLE = VTABLE_BGSSoundOutput__DynamicAttenuationCharacteristics;
+
 			struct DataType
 			{
 			public:

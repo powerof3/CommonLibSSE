@@ -90,6 +90,13 @@ namespace RE
 			return func(this, a_weather);
 		}
 
+		bool UsesWeather(TESWeather* a_weather)
+		{
+			using func_t = decltype(&TESRegion::UsesWeather);
+			static REL::Relocation<func_t> func{ RELOCATION_ID(16204, 16450) };
+			return func(this, a_weather);
+		}
+
 		// members
 		TESRegionDataList*                 dataList;        // 20
 		BSSimpleList<TESRegionPointList*>* pointLists;      // 28

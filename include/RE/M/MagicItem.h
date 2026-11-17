@@ -35,6 +35,9 @@ namespace RE
 		class PreloadableVisitor
 		{
 		public:
+			inline static constexpr auto RTTI = RTTI_MagicItem__PreloadableVisitor;
+			inline static constexpr auto VTABLE = VTABLE_MagicItem__PreloadableVisitor;
+
 			// add
 			virtual void VisitModel(TESModel* a_model) = 0;         // 00
 			virtual void VisitWeapon(TESObjectWEAP* a_weapon) = 0;  // 01

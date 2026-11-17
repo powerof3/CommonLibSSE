@@ -28,8 +28,8 @@ namespace RE
 		std::uint64_t  unk60;        // 60
 		std::uint64_t  unk68;        // 68
 		std::uint64_t  unk70;        // 70
-		NiPoint3       unk78;        // 78
-		NiPoint3       unk84;        // 84
+		NiPoint3       boundsMin;    // 78
+		NiPoint3       boundsMax;    // 84
 		std::uint64_t  unk90;        // 90
 		std::uint64_t  unk98;        // 98
 	};
