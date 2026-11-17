@@ -180,11 +180,13 @@ namespace RE
 		bool        IsParentForm() override;                                                                            // 34 - { return true; }
 		bool        IsFormTypeChild(FormType a_type) override;                                                          // 36
 
+		void                         AddPersistentRef(RE::TESObjectREFR* a_ref);
 		[[nodiscard]] bool           HasMaxHeightData() const;
 		[[nodiscard]] bool           GetMaxHeightAt(const NiPoint3& a_xy, float& a_outHeight);
 		[[nodiscard]] TESObjectCELL* GetSkyCell();
 		[[nodiscard]] float          GetDefaultWaterHeight() const;
 		[[nodiscard]] TESObjectCELL* LoadCell(std::int16_t a_x, std::int16_t a_y);
+		void                         RemovePersistentRef(RE::TESObjectREFR* a_ref);
 
 		// members
 		BSTHashMap<CellID, TESObjectCELL*>                            cellMap;                  // 058
