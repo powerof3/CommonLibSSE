@@ -197,7 +197,7 @@ namespace RE
 		void                  SetLinkedRef(TESObjectREFR* a_targetRef, BGSKeyword* a_keyword);
 		void                  SetOverrideName(const char* a_name);
 		void                  SetOwner(TESForm* a_owner);
-
+		bool                  IsEmpty() const noexcept;
 	private:
 		BSExtraData* GetByTypeImpl(ExtraDataType a_type) const;
 		void         MarkType(std::uint32_t a_type, bool a_cleared);
