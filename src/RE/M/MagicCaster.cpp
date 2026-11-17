@@ -44,7 +44,7 @@ namespace RE
 	void MagicCaster::PlayReleaseSound(MagicItem* a_item)
 	{
 		using func_t = decltype(&MagicCaster::PlayReleaseSound);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(33675, 34448) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(33675, 34455) };
 		return func(this, a_item);
 	}
 

@@ -18,6 +18,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSAudio;
+		inline static constexpr auto VTABLE = VTABLE_BSAudio;
 
 		virtual ~BSAudio();  // 00
 

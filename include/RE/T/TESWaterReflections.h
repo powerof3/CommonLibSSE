@@ -42,7 +42,9 @@ namespace RE
 			kWorldOrigin = 1 << 12
 		};
 
-		virtual ~TESWaterReflections() override { Dtor(); };  // 00
+		static TESWaterReflections* Create(const NiPlane& a_plane, BSWaterShaderMaterial* a_mat, std::uint16_t a_flags, const char* a_texture);
+
+		~TESWaterReflections() override = default;  // 00
 
 		bool Update();
 
@@ -62,8 +64,9 @@ namespace RE
 		std::uint8_t                        pad81;                  // 81
 		std::uint16_t                       pad82;                  // 82
 		std::uint32_t                       pad84;                  // 84
+
 	private:
-		void Dtor();
+		TESWaterReflections* Ctor(const NiPlane& a_plane, BSWaterShaderMaterial* a_mat, std::uint16_t a_flags, const char* a_texture);
 	};
 	static_assert(sizeof(TESWaterReflections) == 0x88);
 }

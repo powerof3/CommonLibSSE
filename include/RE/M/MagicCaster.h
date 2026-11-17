@@ -45,6 +45,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_MagicCaster__PostCreationCallback;
+			inline static constexpr auto VTABLE = VTABLE_MagicCaster__PostCreationCallback;
 
 			~PostCreationCallback() override;  // 00
 

@@ -206,6 +206,13 @@ namespace RE
 		return func(this);
 	}
 
+	bool TESNPC::InitWornObject(TESObjectREFR* a_ref, const BSTSmartPointer<BipedAnim>& a_bipedAnim, InventoryEntryData* a_entry)
+	{
+		using func_t = decltype(&TESNPC::InitWornObject);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(24232, 24736) };
+		return func(this, a_ref, a_bipedAnim, a_entry);
+	}
+
 	bool TESNPC::IsInFaction(TESFaction* a_faction) const
 	{
 		return std::ranges::any_of(factions, [&](const auto& faction) {

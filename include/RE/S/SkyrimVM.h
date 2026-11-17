@@ -205,6 +205,9 @@ namespace RE
 
 		struct ISendEventFilter
 		{
+			inline static constexpr auto RTTI = RTTI_SkyrimVM__ISendEventFilter;
+			inline static constexpr auto VTABLE = VTABLE_SkyrimVM__ISendEventFilter;
+
 			virtual bool matchesFilter(VMHandle handle) = 0;
 		};
 

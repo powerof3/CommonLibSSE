@@ -1080,10 +1080,10 @@ namespace RE
 		return func(this, a_caster, a_hasTargetAnim, a_target, a_leftHand);
 	}
 
-	void Actor::RefreshEquippedActorValueCharge(const RE::TESForm* a_object, const RE::ExtraDataList* a_extraList, bool a_isLeft)
+	void Actor::RefreshEquippedActorValueCharge(TESForm* a_object, ExtraDataList* a_extraList, bool a_isLeft)
 	{
 		using func_t = decltype(&Actor::RefreshEquippedActorValueCharge);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(38752, 37803) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(37803, 38752) };
 		return func(this, a_object, a_extraList, a_isLeft);
 	}
 
@@ -1205,6 +1205,13 @@ namespace RE
 		return true;
 	}
 
+	void Actor::Stagger(float a_staggerMult, Actor* a_aggressor)
+	{
+		using func_t = decltype(&Actor::Stagger);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(36700, 37710) };
+		func(this, a_staggerMult, a_aggressor);
+	}
+
 	bool Actor::StartCombat(Actor* a_target, CombatGroup* a_combatGroup)
 	{
 		using func_t = decltype(&Actor::StartCombat);
@@ -1322,13 +1329,6 @@ namespace RE
 				firstPerson->UpdateBodyTint(color);
 			}
 		}
-	}
-
-	void Actor::UpdateWeaponAbility(TESForm* a_weapon, ExtraDataList* a_extraData, bool a_leftHand)
-	{
-		using func_t = decltype(&Actor::UpdateWeaponAbility);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(37803, 38752) };
-		return func(this, a_weapon, a_extraData, a_leftHand);
 	}
 
 	void Actor::VisitArmorAddon(TESObjectARMO* a_armor, TESObjectARMA* a_arma, std::function<void(bool a_firstPerson, NiAVObject& a_obj)> a_visitor)

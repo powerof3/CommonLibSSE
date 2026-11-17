@@ -10,6 +10,13 @@ namespace RE
 		return *reinterpret_cast<const std::uintptr_t*>(this) != 0;
 	}
 
+	TESQuestStageItem* TESQuestStage::GetStageItem(std::uint8_t a_index)
+	{
+		using func_t = decltype(&TESQuestStage::GetStageItem);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(24766, 25246) };
+		return func(this, a_index);
+	}
+
 	ObjectRefHandle& TESQuestTarget::GetTargetRef(ObjectRefHandle& a_out, bool a_allowPickUpActor, const TESQuest* a_quest)
 	{
 		using func_t = decltype(&TESQuestTarget::GetTargetRef);
@@ -125,6 +132,13 @@ namespace RE
 			data.flags.reset(QuestFlag::kEnabled);
 		}
 		AddChange(ChangeFlags::kQuestFlags);
+	}
+
+	bool TESQuest::SetStage(std::uint16_t a_index)
+	{
+		using func_t = decltype(&TESQuest::SetStage);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(24482, 25004) };
+		return func(this, a_index);
 	}
 
 	bool TESQuest::Start()

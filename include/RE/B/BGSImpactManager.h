@@ -1,6 +1,5 @@
 #pragma once
 
-#include "RE/B/BSFixedString.h"
 #include "RE/B/BSSoundHandle.h"
 #include "RE/B/BSTArray.h"
 #include "RE/B/BSTEvent.h"
@@ -22,6 +21,9 @@ namespace RE
 		public BSTSingletonSDM<BGSImpactManager>      // 18
 	{
 	public:
+		inline static constexpr auto RTTI = RTTI_BGSImpactManager;
+		inline static constexpr auto VTABLE = VTABLE_BGSImpactManager;
+
 		struct SoundHandlePool
 		{
 		public:
@@ -56,6 +58,8 @@ namespace RE
 		};
 		static_assert(sizeof(ImpactSoundData) == 0x38);
 
+		~BGSImpactManager() override;  // 00
+
 		// override (BSTEventSink<BGSFootstepEvent>)
 		BSEventNotifyControl ProcessEvent(const BGSFootstepEvent* a_event, BSTEventSource<BGSFootstepEvent>* a_eventSource) override;  // 01
 
@@ -77,11 +81,21 @@ namespace RE
 			static REL::Relocation<func_t> func{ RELOCATION_ID(35320, 36215) };
 			return func(this, a_ref, a_impactEffect, a_nodeName, a_pickDirection, a_pickLength, a_applyNodeRotation, a_useNodeLocalRotation);
 		}
+
 		bool PlayImpactDataSounds(ImpactSoundData& a_impactSoundData)
 		{
 			using func_t = decltype(&BGSImpactManager::PlayImpactDataSounds);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(35317, 36212) };
 			return func(this, a_impactSoundData);
 		}
+
+		// members
+		std::uint8_t            unk19[7];  // 19
+		std::uint64_t           unk20;     // 20 - BSTList
+		BSTArray<std::uint64_t> unk28;     // 28
+		std::uint64_t           unk40;     // 40
+		std::uint64_t           unk48;     // 48
+		std::uint64_t           unk50;     // 50
 	};
+	static_assert(sizeof(BGSImpactManager) == 0x58);
 }

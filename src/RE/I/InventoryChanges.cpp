@@ -106,7 +106,7 @@ namespace RE
 	void InventoryChanges::SetUniqueID(ExtraDataList* a_itemList, TESForm* a_oldForm, TESForm* a_newForm)
 	{
 		using func_t = decltype(&InventoryChanges::SetUniqueID);
-		static REL::Relocation<func_t> func{ RELOCATION_ID(15907, 16149) };
+		static REL::Relocation<func_t> func{ RELOCATION_ID(15907, 16147) };
 		return func(this, a_itemList, a_oldForm, a_newForm);
 	}
 

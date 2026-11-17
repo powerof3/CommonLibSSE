@@ -37,11 +37,12 @@ namespace RE
 		CombatAnimation(Actor* a_actor, BGSAction* a_action);
 		~CombatAnimation() = default;
 
-		bool Execute() { return actionData.Process(); }
-		bool LoadClipData();
+		bool  Execute();
+		bool  LoadClipData();
+		float GetLength();
 
-		static bool ConstructAndExecute(Actor* a_actor, ANIM a_anim);
-		static bool ConstructAndExecute(Actor* a_actor, TESObjectREFR* a_target, ANIM a_anim);
+		static bool Execute(Actor* a_actor, ANIM a_anim);
+		static bool Execute(Actor* a_actor, TESObjectREFR* a_target, ANIM a_anim);
 
 		// members
 		TESActionData                                     actionData;  // 00

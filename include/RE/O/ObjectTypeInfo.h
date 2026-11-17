@@ -206,7 +206,7 @@ namespace RE
 			void*                           data;                               // 30
 
 		private:
-			void ReleaseData();
+			void Clear(bool a_forReload);
 		};
 		static_assert(sizeof(ObjectTypeInfo) == 0x38);
 	}

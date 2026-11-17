@@ -12,6 +12,9 @@ namespace RE
 		public BSTEventSource<BSSystemEvent>  // 008
 	{
 	public:
+		inline static constexpr auto RTTI = RTTI_BSSystemUtility;
+		inline static constexpr auto VTABLE = VTABLE_BSSystemUtility;
+
 		virtual ~BSSystemUtility();  // 00
 
 		// override (BSTEventSink<BSGamepadEvent>)

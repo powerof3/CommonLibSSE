@@ -423,7 +423,12 @@ set(SOURCES
 	include/RE/B/BSTSmartPointer.h
 	include/RE/B/BSTTuple.h
 	include/RE/B/BSTask.h
+	include/RE/B/BSTaskManager.h
+	include/RE/B/BSTaskManagerWaitAction.h
 	include/RE/B/BSTaskletData.h
+	include/RE/B/BSTaskletGroup.h
+	include/RE/B/BSTaskletGroupData.h
+	include/RE/B/BSTaskletManager.h
 	include/RE/B/BSTempEffect.h
 	include/RE/B/BSTempEffectDebris.h
 	include/RE/B/BSTempEffectGeometryDecal.h
@@ -455,6 +460,8 @@ set(SOURCES
 	include/RE/B/BSWin32SaveDataSystemUtility.h
 	include/RE/B/BSWin32SystemUtility.h
 	include/RE/B/BSWin32TaskletData.h
+	include/RE/B/BSWin32TaskletGroupData.h
+	include/RE/B/BSWin32TaskletManager.h
 	include/RE/B/BSWin32VirtualKeyboardDevice.h
 	include/RE/B/BSWindModifier.h
 	include/RE/B/BSXAudio2Audio.h
@@ -544,10 +551,13 @@ set(SOURCES
 	include/RE/C/CombatBehaviorAccessors.h
 	include/RE/C/CombatBehaviorAction.h
 	include/RE/C/CombatBehaviorAdvance.h
+	include/RE/C/CombatBehaviorContextMelee.h
 	include/RE/C/CombatBehaviorController.h
 	include/RE/C/CombatBehaviorStack.h
 	include/RE/C/CombatBehaviorThread.h
 	include/RE/C/CombatBehaviorTree.h
+	include/RE/C/CombatBehaviorTreeCreateContextNode.h
+	include/RE/C/CombatBehaviorTreeCreateContextNodeBase.h
 	include/RE/C/CombatBehaviorTreeLinkNode.h
 	include/RE/C/CombatBehaviorTreeManager.h
 	include/RE/C/CombatBehaviorTreeNode.h
@@ -1107,6 +1117,8 @@ set(SOURCES
 	include/RE/H/hkbRigidBodySetup.h
 	include/RE/H/hkbShapeSetup.h
 	include/RE/H/hkbStateMachine.h
+	include/RE/H/hkbVariableBindingSet.h
+	include/RE/H/hkbVariableValueSet.h
 	include/RE/H/hkp3AxisSweep.h
 	include/RE/H/hkpAabbPhantom.h
 	include/RE/H/hkpAction.h
@@ -1251,6 +1263,7 @@ set(SOURCES
 	include/RE/I/IMovementState.h
 	include/RE/I/INIPrefSettingCollection.h
 	include/RE/I/INISettingCollection.h
+	include/RE/I/IOManager.h
 	include/RE/I/IOTask.h
 	include/RE/I/IObjectHandlePolicy.h
 	include/RE/I/IObjectProcessor.h
@@ -1292,6 +1305,7 @@ set(SOURCES
 	include/RE/I/InputEvent.h
 	include/RE/I/InterfaceLightSchemes.h
 	include/RE/I/InterfaceStrings.h
+	include/RE/I/InterfacedClass.h
 	include/RE/I/InteriorData.h
 	include/RE/I/Inventory.h
 	include/RE/I/Inventory3DManager.h
@@ -1659,6 +1673,7 @@ set(SOURCES
 	include/RE/S/Sun.h
 	include/RE/S/SuspendedStack.h
 	include/RE/S/SyncQueueObj.h
+	include/RE/S/SynchronizedMap.h
 	include/RE/Skyrim.h
 	include/RE/T/TES.h
 	include/RE/T/TESAIForm.h
