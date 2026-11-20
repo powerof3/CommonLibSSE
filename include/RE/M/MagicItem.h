@@ -10,6 +10,7 @@
 #include "RE/M/MagicSystem.h"
 #include "RE/T/TESBoundObject.h"
 #include "RE/T/TESFullName.h"
+#include "RE/X/XAPO.h"
 
 namespace RE
 {
@@ -122,6 +123,8 @@ namespace RE
 		[[nodiscard]] bool                   IsHostile() const;
 		[[nodiscard]] bool                   IsPermanent() const;
 		void                                 Traverse(MagicItemTraversalFunctor& a_visitor) const;
+		[[nodiscard]] bool                   IsSpellPlayable() const;
+		[[nodiscard]] bool                   IsSelfTargeted() const;
 
 		// members
 		BSTArray<Effect*>           effects;          // 58
