@@ -26,13 +26,22 @@ namespace RE
 
 		const auto        objectName = (a_objectName && a_objectName[0]) ? a_objectName : a_object->GetName();
 		const auto        phrase = a_added ? *"sAddItemtoInventory"_gs : *"sRemoveItemfromInventory"_gs;
-		const std::string message = a_count >= 1 ? std::format("{} {}", objectName, phrase) : std::format("{} ({}) {}", objectName, a_count, phrase);
+		const std::string message = a_count <= 1 ? std::format("{} {}", objectName, phrase) : std::format("{} ({}) {}", objectName, a_count, phrase);
 
 		ShowHUDMessage(message.c_str());
 
 		if (a_playSound) {
 			PlayerCharacter::GetSingleton()->PlayPickUpSound(a_object, a_added, false);
 		}
+	}
+	void SendHUDMessage::ShowNotificationFromForm(BGSMessage* a_message, const char* a_soundToPlay, bool a_cancelIfAlreadyQueued) {
+		if(!a_message){
+			return;
+		}
+		BSString message {};
+		a_message->GetDescription(message, a_message);
+		ShowHUDMessage(message.c_str(), a_soundToPlay, a_cancelIfAlreadyQueued);
+		
 	}
 
 	void SendHUDMessage::SetHUDMode(const char* a_mode, bool a_push)
