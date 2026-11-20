@@ -18,6 +18,7 @@
 #include "RE/D/DetectionPriorities.h"
 #include "RE/E/EmotionTypes.h"
 #include "RE/F/FormTypes.h"
+#include "RE/I/InventoryChanges.h"
 #include "RE/I/IPostAnimationChannelUpdateFunctor.h"
 #include "RE/M/MagicSystem.h"
 #include "RE/M/MagicTarget.h"
@@ -526,7 +527,7 @@ namespace RE
 		ActorHandle                  CreateRefHandle();
 		bool                         Decapitate();
 		void                         DeselectSpell(SpellItem* a_spell);
-		void                         DispelAlteredStates(RE::EffectArchetype a_exception);
+		void                         DispelAlteredStates(EffectArchetype a_exception);
 		void                         DispelWornItemEnchantments();
 		void                         DoReset3D(bool a_updateWeight);
 		bool                         DoDamage(float a_healthDamage, Actor* a_source, bool a_dontAdjustDifficulty);
@@ -637,7 +638,7 @@ namespace RE
 		void                         ProcessVATSAttack(MagicCaster* a_caster, bool a_hasTargetAnim, TESObjectREFR* a_target, bool a_leftHand);
 		void                         RemoveAnimationGraphEventSink(BSTEventSink<BSAnimationGraphEvent>* a_sink) const;
 		void                         RemoveCastScroll(SpellItem* a_spell, MagicSystem::CastingSource a_source);
-		void                         RefreshEquippedActorValueCharge(const RE::TESForm* a_object, const RE::ExtraDataList* a_extraList, bool a_isLeft);
+		void                         RefreshEquippedActorValueCharge(const TESForm* a_object, const ExtraDataList* a_extraList, bool a_isLeft);
 		void                         RemoveExtraArrows3D();
 		void                         RemoveFromFaction(TESFaction* a_faction);
 		void                         RemoveOutfitItems(BGSOutfit* a_outfit);
@@ -668,6 +669,29 @@ namespace RE
 		void                         VisitSpells(ForEachSpellVisitor& a_visitor);
 		std::uint8_t                 WhoIsCasting();
 		bool                         WouldBeStealing(const TESObjectREFR* a_target) const;
+		void						 InterruptAttack();
+		void						 GetPerksFromBaseActor(std::vector<BGSPerk*>& a_perksOut);
+		bool						 HasQuestItemInAnyHand() const;
+		bool						 IsVampire() const;
+		bool						 IsUndead() const;
+		bool						 IsDragon() const;
+		float						 GetCurrentLightLevel();
+		void						 TryStagger(float a_staggerMult, Actor* a_attacker);
+		bool						 StartsDead() const;
+		float						 GetMaxHealth() const;
+		float						 GetMaxStamina() const;
+		float						 GetMaxMagicka() const;
+		void						 FullyHealAllAttributes();
+		bool						 HasEffectOfArchetypeActive(EffectArchetypes::ArchetypeID a_type);
+		bool					 	 HasEffectWithKeywordActive(const std::string_view a_keyword);
+		bool						 HasEffectActive(const EffectSetting* a_effect);
+		bool						 HasItem(TESBoundObject* a_item);
+		TESObjectWEAP*				 GetWieldingWeapon();
+		bool						 IsBashing() const;
+		bool						 IsNearbyPlayer(float a_area) const;
+		std::int32_t                 GetItemCount(TESBoundObject* a_item);
+		void                         ApplySpell(Actor* a_target, SpellItem* a_spell);
+		void                         ApplySpellToSelf(SpellItem* a_spell);
 
 		// members
 		REX::TEnumSet<BOOL_BITS, std::uint32_t>            boolBits;                           // 0E0

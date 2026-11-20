@@ -2,6 +2,7 @@
 
 #include "RE/A/AIProcess.h"
 #include "RE/A/ActorMagicCaster.h"
+#include "RE/A/ActorValues.h"
 #include "RE/B/BGSAttackData.h"
 #include "RE/B/BGSColorForm.h"
 #include "RE/B/BGSDefaultObjectManager.h"
@@ -18,6 +19,7 @@
 #include "RE/F/FormTraits.h"
 #include "RE/H/HighProcessData.h"
 #include "RE/I/InventoryEntryData.h"
+#include "RE/M/MagicSystem.h"
 #include "RE/M/MiddleHighProcessData.h"
 #include "RE/M/Misc.h"
 #include "RE/M/MovementControllerNPC.h"
@@ -25,12 +27,14 @@
 #include "RE/N/NiMath.h"
 #include "RE/N/NiNode.h"
 #include "RE/N/NiPoint3.h"
+#include "RE/P/PlayerCharacter.h"
 #include "RE/P/ProcessLists.h"
 #include "RE/T/TESFaction.h"
 #include "RE/T/TESNPC.h"
 #include "RE/T/TESObjectMISC.h"
 #include "RE/T/TESRace.h"
 #include "RE/T/TESWorldSpace.h"
+#include <vector>
 
 namespace RE
 {
@@ -1080,7 +1084,7 @@ namespace RE
 		return func(this, a_caster, a_hasTargetAnim, a_target, a_leftHand);
 	}
 
-	void Actor::RefreshEquippedActorValueCharge(const RE::TESForm* a_object, const RE::ExtraDataList* a_extraList, bool a_isLeft)
+	void Actor::RefreshEquippedActorValueCharge(const TESForm* a_object, const ExtraDataList* a_extraList, bool a_isLeft)
 	{
 		using func_t = decltype(&Actor::RefreshEquippedActorValueCharge);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(38752, 37803) };
@@ -1447,5 +1451,256 @@ namespace RE
 		using func_t = decltype(&Actor::RemoveOutfitItems);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(19264, 19690) };
 		return func(this, a_outfit);
+	}
+
+	void Actor::InterruptAttack()
+	{
+		NotifyAnimationGraph("attackStop");
+		NotifyAnimationGraph("blockStop");
+	}
+
+	void Actor::GetPerksFromBaseActor(std::vector<BGSPerk*>& a_perksOut)
+	{
+		const auto base = GetActorBase();
+		if(!base){
+			return;
+		}
+		const uint32_t perkCount = base->perkCount;
+		for (uint32_t i = 0; i < perkCount; ++i){
+			BGSPerk* perk = base->perks[i].perk;
+			if(!perk){
+				continue;
+			}
+			a_perksOut.push_back(perk);
+		}
+	}
+
+	bool Actor::HasQuestItemInAnyHand() const 
+	{
+		if(const auto* rightHandItem = GetEquippedEntryData(false)){
+			if(rightHandItem->IsQuestObject()){
+				return true;
+			}
+		}
+		if(const auto* leftHandItem = GetEquippedEntryData(true)){
+			if(leftHandItem->IsQuestObject()){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	bool Actor::IsVampire() const 
+	{
+		return HasKeywordWithType(DEFAULT_OBJECT::kKeywordVampire);
+	}
+
+	bool Actor::IsUndead() const
+	{
+		return HasKeywordWithType(DEFAULT_OBJECT::kKeywordUndead);
+	}
+
+	bool Actor::IsDragon() const
+	{
+		// Default object is not filled in in skyrim.esm, but if another mod fills it this is probably preferable
+		if(HasKeywordWithType(DEFAULT_OBJECT::kKeywordDragon)){
+			return true;
+		}
+		
+		static const auto dragon_keyword = TESForm::LookupByEditorID<BGSKeyword>("ActorTypeDragon");
+		if(!dragon_keyword){
+			return false;
+		}
+		return HasKeyword(dragon_keyword);
+	}
+
+	float Actor::GetCurrentLightLevel() 
+	{
+		const auto proc = GetHighProcess();
+		return proc ? proc->lightLevel : 0.0f;
+	}
+
+	void Actor::TryStagger(float a_staggerMult, Actor* a_attacker){
+
+		using func_t = decltype(&Actor::TryStagger);
+		static REL::Relocation<func_t> func {RELOCATION_ID(36700, 37710)};
+		func(this, a_staggerMult, a_attacker);
+	}
+
+	bool Actor::StartsDead() const
+	{
+		return formFlags & RecordFlags::kStartsDead;
+	}
+
+	float Actor::GetMaxHealth() const
+	{
+		return GetActorValueModifier(ACTOR_VALUE_MODIFIER::kTemporary, ActorValue::kHealth) + GetPermanentActorValue(ActorValue::kHealth);
+	}
+
+	float Actor::GetMaxStamina() const{
+		return GetActorValueModifier(ACTOR_VALUE_MODIFIER::kTemporary, ActorValue::kStamina) + GetPermanentActorValue(ActorValue::kStamina);
+	}
+
+	float Actor::GetMaxMagicka() const {
+		return GetActorValueModifier(ACTOR_VALUE_MODIFIER::kTemporary, ActorValue::kMagicka) + GetPermanentActorValue(ActorValue::kMagicka);
+	}
+
+	void Actor::FullyHealAllAttributes(){
+		RestoreActorValue(ActorValue::kHealth, GetMaxHealth());
+		RestoreActorValue(ActorValue::kStamina, GetMaxStamina());
+		RestoreActorValue(ActorValue::kMagicka, GetMaxMagicka());
+	}
+
+	bool Actor::HasEffectOfArchetypeActive(EffectArchetypes::ArchetypeID a_type) {
+
+		const auto& activeEffects = GetActiveEffectList();
+		if(!activeEffects){
+			return false;
+		}
+
+		return std::ranges::any_of(*activeEffects, [a_type](const ActiveEffect* effect){
+			if(!effect || effect->flags.any(ActiveEffect::Flag::kInactive)){
+				return false;
+			}
+			const auto base = effect->GetBaseObject();
+			return base && base->HasArchetype(a_type);
+		});
+	}
+
+	bool Actor::HasEffectWithKeywordActive(const std::string_view a_keyword){
+
+		if(a_keyword.empty()){
+			return false;
+		}
+
+		const auto& activeEffects = GetActiveEffectList();
+		if(!activeEffects){
+			return false;
+		}
+		const auto key = TESForm::LookupByEditorID<BGSKeyword>(a_keyword);
+		if(key){
+			return std::ranges::any_of(*activeEffects, [key](const ActiveEffect* effect){
+				if(!effect || effect->flags.any(ActiveEffect::Flag::kInactive)){
+					return false;
+					
+				}
+				const auto base = effect->GetBaseObject();
+				return base && base->HasKeyword(key);
+			});
+		}
+
+		return std::ranges::any_of(*activeEffects, [a_keyword](const ActiveEffect* effect){
+			if(!effect || effect->flags.any(ActiveEffect::Flag::kInactive)){
+				return false;
+			}
+			const auto base = effect->GetBaseObject();
+			return base && base->HasKeywordString(a_keyword);
+
+		});
+	}
+
+	bool Actor::HasEffectActive(const EffectSetting* a_effect){
+
+		if(!a_effect){
+			return false;
+		}
+
+		const auto& activeEffects = GetActiveEffectList();
+		if(!activeEffects){
+			return false;
+		}
+		return std::ranges::any_of(*activeEffects, [a_effect](const ActiveEffect* effect){
+
+			if(!effect || effect->flags.any(ActiveEffect::Flag::kInactive)){
+				return false;
+			}
+			const auto base = effect->GetBaseObject();
+			return base == a_effect;
+
+		});
+
+	}
+	bool Actor::HasItem(TESBoundObject* a_item){
+		if(!a_item){
+			return false;
+		}
+		const auto& inv = GetInventory();
+		const auto it = inv.find(a_item);
+		return it != inv.end() && it->second.first > 0;
+	}
+
+	TESObjectWEAP* Actor::GetWieldingWeapon(){
+
+		if (const auto atkweap = GetAttackingWeapon()){
+			const auto obj = atkweap->object;
+			return obj ? obj->As<TESObjectWEAP>() : nullptr;
+		}
+
+		if (const auto rweap = GetEquippedObject(false); rweap && rweap->IsWeapon()){
+			return rweap->As<TESObjectWEAP>();
+		}
+
+		if (const auto lweap = GetEquippedObject(true); lweap && lweap->IsWeapon()){
+			return lweap->As<TESObjectWEAP>();
+		}
+
+		return nullptr;
+
+	}
+
+	bool Actor::IsBashing() const {
+		const auto high = GetHighProcess();
+
+		if(!high){
+			return false;
+		}
+
+		if(GetAttackState() == ATTACK_STATE_ENUM::kNone){
+			return false;
+		}
+
+		const auto& atkdata = high->attackData;
+
+		if(!atkdata){
+			return false;
+		}
+
+		return atkdata->data.flags.any(AttackData::AttackFlag::kBashAttack);
+
+	}
+
+	bool Actor::IsNearbyPlayer(float a_area) const {
+
+		auto player = PlayerCharacter::GetSingleton();
+
+		auto dist = GetPosition().GetSquaredDistance(player->GetPosition());
+		return dist <= a_area*a_area;
+	}
+	std::int32_t Actor::GetItemCount(TESBoundObject* a_item) 
+	{
+		if(!a_item){
+			return 0;
+		}
+		const auto& inv = GetInventory();
+
+		const auto it = inv.find(a_item);
+		if(it != inv.end()){
+			return it->second.first;
+		}
+		return 0;
+	}
+	void Actor::ApplySpell(Actor* a_target, SpellItem* a_spell) {
+		if(!a_target || !a_spell){
+			return;
+		}
+		if(a_spell->IsPermanent()){
+			AddSpell(a_spell);
+		}
+		else{
+			GetMagicCaster(MagicSystem::CastingSource::kInstant)->CastSpellImmediate(a_spell, false, a_target, 1.0, false, 0.0, nullptr);
+		}
+	}
+	void Actor::ApplySpellToSelf(SpellItem* a_spell) {
+		ApplySpell(this, a_spell);
 	}
 }
