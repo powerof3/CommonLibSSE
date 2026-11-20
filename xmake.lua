@@ -1,10 +1,18 @@
+-- shouldn't affect windows but is needed to compile with msvc-wine on linux
+if is_plat("windows") then
+    add_cxxflags("cl::/std:c++23preview", {force = true})
+else
+    set_languages("c++23")
+end
+
 -- set minimum xmake version
 set_xmakever("2.8.2")
+
+includes("lib/commonlib-shared")
 
 -- set project
 set_project("commonlibsse")
 set_arch("x64")
-set_languages("c++23")
 set_warnings("allextra")
 set_encodings("utf-8")
 
@@ -70,6 +78,8 @@ target("commonlibsse", function()
     -- set target kind
     set_kind("static")
 
+     add_deps("commonlib-shared", { public = true })
+
     -- set build by default
     set_default(os.scriptdir() == os.projectdir())
 
@@ -105,8 +115,6 @@ target("commonlibsse", function()
     add_includedirs("include", { public = true })
     add_headerfiles(
         "include/(RE/**.h)",
-        "include/(REL/**.h)",
-        "include/(REX/**.h)",
         "include/(SKSE/**.h)"
     )
 

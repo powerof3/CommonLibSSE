@@ -1,6 +1,8 @@
 #include "RE/T/TESObjectCELL.h"
 
 #include "RE/B/BGSEncounterZone.h"
+#include "RE/B/BGSKeyword.h"
+#include "RE/B/BGSLocation.h"
 #include "RE/E/ExtraNorthRotation.h"
 #include "RE/N/NiMath.h"
 #include "RE/T/TESFaction.h"
@@ -217,5 +219,38 @@ namespace RE
 	bool TESObjectCELL::UsesSkyLighting() const
 	{
 		return cellFlags.all(Flag::kUseSkyLighting);
+	}
+	bool TESObjectCELL::IsJail() const 
+	{
+		if(const auto loc = GetLocation(); loc){
+			static const auto jail_keyword = TESForm::LookupByEditorID<BGSKeyword>("LocTypeJail");
+			return jail_keyword && loc->HasKeyword(jail_keyword);
+		}
+		return false;
+
+	}
+	bool TESObjectCELL::IsPlayerHome() const 
+	{
+		if(const auto loc = GetLocation(); loc){
+			static const auto home_keyword = TESForm::LookupByEditorID<BGSKeyword>("LocTypePlayerHouse");
+			return home_keyword && loc->HasKeyword(home_keyword);
+		}
+		return false;
+	}
+	std::vector<Actor*> TESObjectCELL::GetAllActorsInCell() 
+	{
+		std::vector<Actor*> result{};
+
+		for (const auto& ref : references){
+			if(!ref){
+				continue;
+			}
+			auto act = ref->As<Actor>();
+			if(!act){
+				continue;
+			}
+			result.push_back(act);
+		}
+		return result;
 	}
 }
