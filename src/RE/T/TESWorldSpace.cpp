@@ -2,6 +2,13 @@
 
 namespace RE
 {
+	void TESWorldSpace::AddPersistentRef(RE::TESObjectREFR* a_ref)
+	{
+		using func_t = decltype(&TESWorldSpace::AddPersistentRef);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(20077, 20520) };
+		func(this, a_ref);
+	}
+
 	bool TESWorldSpace::HasMaxHeightData() const
 	{
 		return maxHeightData != nullptr;
@@ -35,5 +42,12 @@ namespace RE
 		using func_t = decltype(&TESWorldSpace::LoadCell);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(20026, 20460) };
 		return func(this, a_x, a_y);
+	}
+
+	void TESWorldSpace::RemovePersistentRef(RE::TESObjectREFR* a_ref)
+	{
+		using func_t = decltype(&TESWorldSpace::RemovePersistentRef);
+		static REL::Relocation<func_t> func{ RELOCATION_ID(20078, 20521) };
+		func(this, a_ref);
 	}
 }

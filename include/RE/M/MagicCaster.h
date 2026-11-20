@@ -45,6 +45,7 @@ namespace RE
 		{
 		public:
 			inline static constexpr auto RTTI = RTTI_MagicCaster__PostCreationCallback;
+			inline static constexpr auto VTABLE = VTABLE_MagicCaster__PostCreationCallback;
 
 			~PostCreationCallback() override;  // 00
 
@@ -94,6 +95,7 @@ namespace RE
 		float        GetCurrentSpellCost();
 		void         InterruptCast(bool a_refund);
 		void         PlayReleaseSound(MagicItem* a_item);
+		bool         ProcessQuickRelease(MagicItem* a_spell, TESObjectREFR* a_target, TESBoundObject* a_source, bool a_loadCast);
 		void         SetCurrentSpell(MagicItem* a_item);
 		static bool  TestProjectilePlacement(const Effect& a_effect, const bhkPickData& a_pickData);
 		void         UpdateImpl(float a_delta);

@@ -61,7 +61,7 @@ namespace RE
 
 	bool PlayerCharacter::CheckCast(MagicItem* a_spell, Effect* a_effect, MagicSystem::CannotCastReason& a_reason)
 	{
-		using func_t = decltype(&PlayerCharacter::CheckCast);
+		using func_t = bool(PlayerCharacter*, MagicItem*, Effect*, MagicSystem::CannotCastReason&);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(39409, 40484) };
 		return func(this, a_spell, a_effect, a_reason);
 	}
@@ -209,12 +209,5 @@ namespace RE
 		using func_t = decltype(&PlayerCharacter::CenterOnCell_Impl);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(39365, 40437) };
 		return func(this, a_cellName, a_cell);
-	}
-
-	void PlayerCharacter::AddSkillExperience(ActorValue a_skill, float a_experience)
-	{
-		using func_t = decltype(&PlayerCharacter::AddSkillExperience);
-		static REL::Relocation<func_t> func(RELOCATION_ID(39413, 40488));
-		func(this, a_skill, a_experience);
 	}
 }

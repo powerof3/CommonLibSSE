@@ -300,7 +300,7 @@ namespace RE
 		bool                    SetDialogueWithPlayer(bool a_flag, bool a_forceGreet, TESTopicInfo* a_topic) override;                                                                                                                                // 041
 		BGSAnimationSequencer*  GetSequencer(void) const override;                                                                                                                                                                                    // 045 - { return currentProcess->high->animSequencer; }
 		bool                    HasKeywordHelper(const BGSKeyword* a_keyword) const override;                                                                                                                                                         // 048
-		TESPackage*             CheckForCurrentAliasPackage() override;                                                                                                                                                                               // 049 - { return 0; }
+		TESPackage*             CheckForCurrentAliasPackage() override;                                                                                                                                                                               // 049
 		BGSScene*               GetCurrentScene() const override;                                                                                                                                                                                     // 04A
 		void                    SetCurrentScene(BGSScene* a_scene) override;                                                                                                                                                                          // 04B
 		bool                    UpdateInDialogue(DialogueResponse* a_response, bool a_unused) override;                                                                                                                                               // 04C
@@ -358,10 +358,78 @@ namespace RE
 		TESAmmo*                GetCurrentAmmo() const override;                                                                                                                                                                                      // 09E
 		void                    UnequipItem(std::uint64_t a_arg1, TESBoundObject* a_object) override;                                                                                                                                                 // 0A1
 
+		// override (BSTEventSink<BSAnimationGraphEvent>)
+		BSEventNotifyControl ProcessEvent(const BSAnimationGraphEvent* a_event, BSTEventSource<BSAnimationGraphEvent>* a_dispatcher) override;  // 01
+
+		// override (IAnimationGraphManagerHolder)
+		bool          NotifyAnimationGraph(const BSFixedString& a_eventName) override;                                                                              // 01
+		bool          GetAnimationGraphManagerImpl(BSTSmartPointer<BSAnimationGraphManager>& a_out) const override;                                                 // 02
+		bool          SetAnimationGraphManagerImpl(BSTSmartPointer<BSAnimationGraphManager>& a_in) override;                                                        // 03
+		bool          ConstructAnimationGraph(BSTSmartPointer<BShkbAnimationGraph>& a_out) override;                                                                // 05
+		void          Unk_06(void) override;                                                                                                                        // 06
+		void          Unk_07(void) override;                                                                                                                        // 07
+		bool          SetupAnimEventSinks(const BSTSmartPointer<BShkbAnimationGraph>& a_animGraph) override;                                                        // 08
+		bool          CreateAnimationChannels(BSScrapArray<BSTSmartPointer<BSAnimationGraphChannel>>& animGraphChannels) override;                                  // 0A
+		void          PostCreateAnimationGraphManager(BSTSmartPointer<BSAnimationGraphManager>& a_animGraphMgr) override;                                           // 0B
+		void          Unk_0C(void) override;                                                                                                                        // 0C
+		void          PostChangeAnimationManager(const BSTSmartPointer<BShkbAnimationGraph>& a_arg1, const BSTSmartPointer<BShkbAnimationGraph>& a_arg2) override;  // 0D
+		void          Unk_0E(void) override;                                                                                                                        // 0E
+		std::uint32_t GetGraphVariableCacheSize() const override;                                                                                                   // 0F
+		bool          GetGraphVariableImpl1(const BSFixedString& a_variableName, float& a_out) const override;                                                      // 10
+		bool          GetGraphVariableImpl2(const BSFixedString& a_variableName, std::int32_t& a_out) const override;                                               // 11
+		bool          GetGraphVariableImpl3(const BSFixedString& a_variableName, bool& a_out) const override;                                                       // 12
+
 		// override (MagicTarget)
-		Actor*                       GetTargetStatsObject() override;      // 002 - { return this; }
-		bool                         MagicTargetIsActor() const override;  // 003 - { return true; }
-		BSSimpleList<ActiveEffect*>* GetActiveEffectList() override;       // 007
+		bool                         AddTarget(AddTargetData& a_targetData) override;                                               // 01
+		TESObjectREFR*               GetTargetStatsObject() override;                                                               // 02 - { return this; }
+		bool                         MagicTargetIsActor() const override;                                                           // 03 - { return true; }
+		bool                         IsInvulnerable() override;                                                                     // 04
+		void                         InvalidateCommandedActorEffect(ActiveEffect* a_effect) override;                               // 05
+		bool                         CanAddActiveEffect() override;                                                                 // 06
+		BSSimpleList<ActiveEffect*>* GetActiveEffectList() override;                                                                // 07
+		void                         EffectAdded(ActiveEffect* a_effect) override;                                                  // 08
+		void                         EffectRemoved(ActiveEffect* a_effect) override;                                                // 09
+		float                        CheckResistance(MagicItem* a_magicItem, Effect* a_effect, TESBoundObject* a_object) override;  // 0A
+		bool                         CheckAbsorb(Actor* a_actor, MagicItem* a_magicItem, const Effect* a_effect) override;          // 0B
+
+		// override (ActorValueOwner)
+		float GetActorValue(ActorValue a_akValue) const override;                                            // 01
+		float GetPermanentActorValue(ActorValue a_akValue) const override;                                   // 02
+		float GetBaseActorValue(ActorValue a_akValue) const override;                                        // 03
+		void  SetBaseActorValue(ActorValue a_akValue, float a_value) override;                               // 04
+		void  ModBaseActorValue(ActorValue a_akValue, float a_value) override;                               // 05
+		void  ModActorValue(ACTOR_VALUE_MODIFIER a_modifier, ActorValue a_akValue, float a_value) override;  // 06
+
+		// override (ActorState)
+		std::uint32_t              DoGetNumericID() override;                                                                     // 01
+		void                       DoGetPathingLocation(BSPathingLocation& a_retLocation) override;                               // 02
+		void                       DoGetLocation(NiPoint3& a_retLocation) override;                                               // 03
+		void                       DoGetEulerAngles(NiPoint3& a_retAngles) override;                                              // 04
+		float                      DoGetMovementSpeed() override;                                                                 // 05
+		float                      DoGetRotationSpeed() override;                                                                 // 06
+		float                      DoGetMovementRotation(NiPoint3& a_retMovementRotation) override;                               // 07
+		bool                       DoGetCurrentMaxSpeeds(Movement::MaxSpeeds& a_retMaxSpeeds) override;                           // 08
+		float                      DoGetMovementRadius() override;                                                                // 09
+		float                      DoGetMovementWidth() override;                                                                 // 0A
+		float                      DoGetMovementLength() override;                                                                // 0B
+		float                      DoGetMovementHeight() override;                                                                // 0C
+		float                      DoGetLookingHeight() override;                                                                 // 0D
+		bool                       DoMakeDefaultMovementParameters(BSTSmartPointer<IMovementParameters>& a_parameters) override;  // 0E
+		const IMovementParameters& DoGetDefaultMovementParameters() override;                                                     // 0F
+		bool                       DoGetIdleThresholds(Movement::IdleThresholds& a_unk) override;                                 // 10
+		hkpCharacterStateType      DoGetCharacterState() override;                                                                // 11
+		bool                       DoGetMountedByPlayer() override;                                                               // 12
+		bool                       DoGetUseVelocityObstacles() override;                                                          // 13
+		bool                       SetWeaponMagicDrawn(bool a_drawn) override;                                                    // 15
+
+		// override (BSTEventSink<BSTransformDeltaEvent>)
+		BSEventNotifyControl ProcessEvent(const BSTransformDeltaEvent* a_event, BSTEventSource<BSTransformDeltaEvent>* a_eventSource) override;  // 01
+
+		// override (BSTEventSink<bhkCharacterMoveFinishEvent>)
+		BSEventNotifyControl ProcessEvent(const bhkCharacterMoveFinishEvent* a_event, BSTEventSource<bhkCharacterMoveFinishEvent>* a_eventSource) override;  // 01
+
+		// override (IPostAnimationChannelUpdateFunctor)
+		void Unk_01(void) override;  // 01
 
 		// add
 		virtual void                    Unk_A2(void);                                                                                                                                                                    // 0A2
@@ -464,7 +532,7 @@ namespace RE
 		virtual bool                    IsPowerAttackCoolingDown() const;                                                                                                                                                // 103 - { return false; }
 		virtual void                    HandleHealthDamage(Actor* a_attacker, float a_damage);                                                                                                                           // 104
 		virtual void                    Unk_105(void);                                                                                                                                                                   // 105
-		virtual void                    Unk_106(void);                                                                                                                                                                   // 106 - { return; }
+		virtual void                    Unk_106(void);                                                                                                                                                                   // 106 - { return 0; }
 		virtual bool                    QSpeakingDone() const;                                                                                                                                                           // 107 - { return ~(unk0E0 >> 5) & 1; }
 		virtual void                    SetSpeakingDone(bool a_set);                                                                                                                                                     // 108
 		virtual void                    CreateMovementController();                                                                                                                                                      // 109
@@ -638,7 +706,7 @@ namespace RE
 		void                         ProcessVATSAttack(MagicCaster* a_caster, bool a_hasTargetAnim, TESObjectREFR* a_target, bool a_leftHand);
 		void                         RemoveAnimationGraphEventSink(BSTEventSink<BSAnimationGraphEvent>* a_sink) const;
 		void                         RemoveCastScroll(SpellItem* a_spell, MagicSystem::CastingSource a_source);
-		void                         RefreshEquippedActorValueCharge(const TESForm* a_object, const ExtraDataList* a_extraList, bool a_isLeft);
+		void                         RefreshEquippedActorValueCharge(TESForm* a_object, ExtraDataList* a_extraList, bool a_isLeft);
 		void                         RemoveExtraArrows3D();
 		void                         RemoveFromFaction(TESFaction* a_faction);
 		void                         RemoveOutfitItems(BGSOutfit* a_outfit);
@@ -650,6 +718,7 @@ namespace RE
 		void                         SetLooking(float a_angle);  // SetRotationX
 		void                         SetPlayerControls(bool a_enable);
 		bool                         SetSleepOutfit(BGSOutfit* a_outfit, bool a_update3D);
+		void                         Stagger(float a_staggerMult, Actor* a_aggressor);
 		bool                         StartCombat(Actor* a_target, CombatGroup* a_combatGroup = nullptr);
 		void                         StealAlarm(TESObjectREFR* a_ref, TESForm* a_object, std::int32_t a_num, std::int32_t a_total, TESForm* a_owner, bool a_allowWarning);
 		void                         StopAlarmOnActor();
@@ -663,7 +732,6 @@ namespace RE
 		void                         UpdateHairColor();
 		void                         UpdateRegenDelay(ActorValue a_actorValue, float a_regenDelay);
 		void                         UpdateSkinColor();
-		void                         UpdateWeaponAbility(TESForm* a_weapon, ExtraDataList* a_extraData, bool a_leftHand);
 		void                         VisitArmorAddon(TESObjectARMO* a_armor, TESObjectARMA* a_arma, std::function<void(bool a_firstPerson, NiAVObject& a_obj)> a_visitor);
 		bool                         VisitFactions(std::function<bool(TESFaction* a_faction, std::int8_t a_rank)> a_visitor);
 		void                         VisitSpells(ForEachSpellVisitor& a_visitor);

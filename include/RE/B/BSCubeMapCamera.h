@@ -15,6 +15,10 @@ namespace RE
 	class BSCubeMapCamera : public NiCamera
 	{
 	public:
+		inline static constexpr auto RTTI = RTTI_BSCubeMapCamera;
+		inline static constexpr auto Ni_RTTI = NiRTTI_BSCubeMapCamera;
+		inline static constexpr auto VTABLE = VTABLE_BSCubeMapCamera;
+
 		enum class FaceEnableFlags : std::uint32_t
 		{
 			kEnablePosX = 1 << 0,
@@ -36,33 +40,27 @@ namespace RE
 			kNegZ = 5
 		};
 
-		inline static constexpr auto RTTI = RTTI_BSCubeMapCamera;
-		inline static constexpr auto Ni_RTTI = NiRTTI_BSCubeMapCamera;
-		inline static constexpr auto VTABLE = VTABLE_BSCubeMapCamera;
-
-		static BSCubeMapCamera* Create();
-
-		~BSCubeMapCamera() override;  // 00
+		~BSCubeMapCamera() override = default;  // 00
 
 		// override (NiCamera)
 		const NiRTTI* GetRTTI() const override;  // 02
 
 		// add
-		void         SetFace(Face a_face);
 		virtual void RenderCubemap(FaceEnableFlags a_faceMask, bool a_arg2, bool a_clearScenes, bool a_arg4);  // 35
 
+		static BSCubeMapCamera* Create();
+
+		void SetFace(Face a_face);
+
 		// members
-		BSTArray<NiPointer<NiAVObject>> scenes;             // 188
-		NiPointer<BSShaderAccumulator>  accumulator;        // 1A0
-		NiPointer<BSShaderAccumulator>  secondAccumulator;  // 1A8
-		NiPointer<NiCamera>             unk1B0;             // 1B0
-		NiColorA                        silhouetteColor;    // 1B8
+		BSTArray<NiPointer<NiAVObject>> scenes;                 // 188
+		NiPointer<BSShaderAccumulator>  accumulator;            // 1A0
+		NiPointer<BSShaderAccumulator>  accumulatorBackground;  // 1A8
+		NiPointer<NiCamera>             cameraBackground;       // 1B0
+		NiColorA                        silhouetteColor;        // 1B8
 
 	protected:
 		BSCubeMapCamera* Ctor();
-
-	private:
-		void Dtor();
 	};
 	static_assert(sizeof(BSCubeMapCamera) == 0x1C8);
 }

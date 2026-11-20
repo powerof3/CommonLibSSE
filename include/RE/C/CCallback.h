@@ -7,6 +7,9 @@ namespace RE
 	class CCallbackBase
 	{
 	public:
+		inline static constexpr auto RTTI = RTTI_CCallbackBase;
+		inline static constexpr auto VTABLE = VTABLE_CCallbackBase;
+
 		enum
 		{
 			k_ECallbackFlagsRegistered = 0x01,

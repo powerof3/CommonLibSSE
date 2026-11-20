@@ -10,7 +10,8 @@ namespace RE
 	class GSysAllocPaged : public GSysAllocBase
 	{
 	public:
-		static constexpr auto RTTI{ RTTI_GSysAllocPaged };
+		inline static constexpr auto RTTI = RTTI_GSysAllocPaged;
+		inline static constexpr auto VTABLE = VTABLE_GSysAllocPaged;
 
 		struct Info
 		{

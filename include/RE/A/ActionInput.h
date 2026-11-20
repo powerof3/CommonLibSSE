@@ -25,9 +25,9 @@ namespace RE
 		virtual ~ActionInput();  // 00
 
 		// add
-		virtual ActorState*            GetSourceActorState() const;  // 01 - { return nullptr; }
-		virtual void                   Unk_02(void);                 // 02 - { return 0; }
-		virtual BGSAnimationSequencer* GetSourceSequencer() const;   // 03 - { return nullptr; }
+		virtual ActorState*            GetSourceActorState() const;    // 01 - { return nullptr; }
+		virtual void                   Unk_02(void);                   // 02 - { return 0; }
+		virtual BGSAnimationSequencer* GetAnimationSequencer() const;  // 03 - { return nullptr; }
 
 		// members
 		NiPointer<TESObjectREFR>               source;    // 08

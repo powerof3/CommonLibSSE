@@ -8,6 +8,7 @@
 namespace RE
 {
 	class hkbBehaviorGraphData;
+	class hkbVariableValueSet;
 
 	class hkbBehaviorGraph : public hkbGenerator
 	{
@@ -48,7 +49,7 @@ namespace RE
 		hkRefVariant                              pseudoRandomGenerator;            // 078
 		hkRefPtr<hkbGenerator>                    rootGenerator;                    // 080
 		hkRefPtr<hkbBehaviorGraphData>            data;                             // 088
-		hkRefVariant                              rootGeneratorClone;               // 090
+		hkbGenerator*                             rootGeneratorClone;               // 090
 		NodeList*                                 activeNodes;                      // 098
 		hkRefVariant                              activeNodeTemplateToIndexMap;     // 0A0
 		hkRefVariant                              activeNodesChildrenIndices;       // 0A8
@@ -57,7 +58,7 @@ namespace RE
 		hkRefVariant                              attributeIDMap;                   // 0C0
 		hkRefVariant                              variableIDMap;                    // 0C8
 		hkRefVariant                              characterPropertyIDMap;           // 0D0
-		hkRefVariant                              variableValueSet;                 // 0D8
+		hkbVariableValueSet*                      variableValueSet;                 // 0D8
 		hkRefVariant                              nodeTemplateToCloneMap;           // 0E0
 		hkRefVariant                              nodeCloneToTemplateMap;           // 0E8
 		hkRefVariant                              stateListenerTemplateToCloneMap;  // 0F0

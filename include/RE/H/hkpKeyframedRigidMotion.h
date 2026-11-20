@@ -47,6 +47,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_hkpMaxSizeMotion;
+		inline static constexpr auto VTABLE = VTABLE_hkpMaxSizeMotion;
 	};
 	static_assert(sizeof(hkpMaxSizeMotion) == 0x140);
 }

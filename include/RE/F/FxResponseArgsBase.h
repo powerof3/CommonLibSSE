@@ -7,6 +7,9 @@ namespace RE
 	class FxResponseArgsBase
 	{
 	public:
+		inline static constexpr auto RTTI = RTTI_FxResponseArgsBase;
+		inline static constexpr auto VTABLE = VTABLE_FxResponseArgsBase;
+
 		FxResponseArgsBase() = default;
 		FxResponseArgsBase(const FxResponseArgsBase&) = default;
 		FxResponseArgsBase(FxResponseArgsBase&&) = default;

@@ -2,6 +2,7 @@
 
 #include "RE/B/BSFixedString.h"
 #include "RE/B/BSTArray.h"
+#include "RE/C/CombatBehaviorTreeCreateContextNode.h"
 #include "RE/C/CombatBehaviorTreeNodeObject.h"
 
 namespace RE
@@ -25,13 +26,19 @@ namespace RE
 		};
 		static_assert(sizeof(TreeBuilder) == 0x18);
 
-		virtual void Initialize();  // 00
+		virtual void Initialize() = 0;  // 00
 
 		void CreateTree(CombatBehaviorTreeNode* a_node);
 
 		static TreeBuilder* AddNode(TreeBuilder* a_out, const char* a_name, CombatBehaviorTreeNode* a_node);
 		static Actor*       GetAttacker();
 		static Actor*       GetTarget();
+
+		template <class T>
+		static CombatBehaviorTreeCreateContextNode<T>* CreateContext()
+		{
+			return CombatBehaviorTreeCreateContextNode<T>::CreateContext();
+		}
 
 		template <class T>
 		static CombatBehaviorTreeNodeObject<T>* CreateObject()

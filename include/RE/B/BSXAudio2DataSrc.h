@@ -26,6 +26,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSXAudio2DataSrc;
+		inline static constexpr auto VTABLE = VTABLE_BSXAudio2DataSrc;
 
 		struct StreamPacket
 		{

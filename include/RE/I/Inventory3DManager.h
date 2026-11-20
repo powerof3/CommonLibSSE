@@ -34,6 +34,9 @@ namespace RE
 		public MenuEventHandler                      // 00
 	{
 	public:
+		inline static constexpr auto RTTI = RTTI_Inventory3DManager;
+		inline static constexpr auto VTABLE = VTABLE_Inventory3DManager;
+
 		~Inventory3DManager() override;  // 00
 
 		static Inventory3DManager* GetSingleton();

@@ -16,6 +16,17 @@ namespace RE
 		virtual void Cancel(std::uint32_t a_previousState, void* a_unk);      // 03 - { return; }
 		virtual bool GetDescription(char* a_dest, std::uint32_t a_maxCount);  // 04 - { return false; }
 
+		enum class BS_TASK_STATE : std::uint32_t
+		{
+			kPending = 0,
+			kQueued,
+			kMoving,
+			kRunning,
+			kFinished,
+			kCompleted,
+			kCanceled,
+		};
+
 		void DecRefCount()
 		{
 			REX::TAtomicRef myRefCount{ refCount };
@@ -32,8 +43,8 @@ namespace RE
 
 		// members
 		volatile std::int32_t refCount;  // 08
-		std::uint32_t         unk0C;     // 0C
-		std::uint64_t         unk10;     // 10
+		BS_TASK_STATE         state;     // 0C
+		std::int64_t          mapKey;    // 10
 	};
 	static_assert(sizeof(BSTask) == 0x18);
 }

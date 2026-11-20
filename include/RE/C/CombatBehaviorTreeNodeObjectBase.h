@@ -19,4 +19,5 @@ namespace RE
 		bool                 Validate(const CombatBehaviorTreeNode* a_node) override;                                 // 08
 		const BSFixedString& GetType() override;                                                                      // 09
 	};
+	static_assert(sizeof(CombatBehaviorTreeNodeObjectBase<void>) == 0x28);
 }

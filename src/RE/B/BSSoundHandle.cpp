@@ -54,11 +54,16 @@ namespace RE
 		return func(this, a_frequency);
 	}
 
-	bool BSSoundHandle::SetPosition(NiPoint3 a_pos)
+	bool BSSoundHandle::SetPosition(float a_x, float a_y, float a_z)
 	{
-		using func_t = decltype(&BSSoundHandle::SetPosition);
+		using func_t = bool (*)(BSSoundHandle*, float, float, float);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(66370, 67631) };
-		return func(this, a_pos);
+		return func(this, a_x, a_y, a_z);
+	}
+
+	bool BSSoundHandle::SetPosition(const NiPoint3& a_pos)
+	{
+		return SetPosition(a_pos.x, a_pos.y, a_pos.z);
 	}
 
 	void BSSoundHandle::SetObjectToFollow(NiAVObject* a_node)

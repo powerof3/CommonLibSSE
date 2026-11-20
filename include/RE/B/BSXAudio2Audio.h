@@ -15,6 +15,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI_BSXAudio2Audio;
+		inline static constexpr auto VTABLE = VTABLE_BSXAudio2Audio;
 
 		~BSXAudio2Audio() override;  // 00
 
@@ -44,6 +45,7 @@ namespace RE
 	{
 	public:
 		inline static constexpr auto RTTI = RTTI___MonitorAPO;
+		inline static constexpr auto VTABLE = VTABLE___MonitorAPO;
 
 		~MonitorAPO() override;  // 0E
 

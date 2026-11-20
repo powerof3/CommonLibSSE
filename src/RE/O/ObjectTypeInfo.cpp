@@ -24,7 +24,7 @@ namespace RE
 
 		ObjectTypeInfo::~ObjectTypeInfo()
 		{
-			ReleaseData();
+			Clear(false);
 		}
 
 		const char* ObjectTypeInfo::GetName() const
@@ -166,11 +166,11 @@ namespace RE
 			return static_cast<std::uint32_t>(-1);
 		}
 
-		void ObjectTypeInfo::ReleaseData()
+		void ObjectTypeInfo::Clear(bool a_forReload)
 		{
-			using func_t = decltype(&ObjectTypeInfo::ReleaseData);
+			using func_t = decltype(&ObjectTypeInfo::Clear);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(97538, 104323) };
-			return func(this);
+			func(this, a_forReload);
 		}
 	}
 }

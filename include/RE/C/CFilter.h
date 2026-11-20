@@ -45,6 +45,7 @@ namespace RE
 			enum Flag
 			{
 				kNone = 0,
+				kMoppScaled = 1 << 13,
 				kNoCollision = 1 << 14,
 				kLinkedGroup = 1 << 15,
 
