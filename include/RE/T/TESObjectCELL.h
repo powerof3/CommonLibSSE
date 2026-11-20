@@ -199,26 +199,29 @@ namespace RE
 		EXTERIOR_DATA* GetCoordinates();
 		TESFaction*    GetFactionOwner();
 
-		TESObjectLAND* GetLand() const;
-		INTERIOR_DATA* GetLighting();
-		BGSLocation*   GetLocation() const;
-		float          GetNorthRotation();
-		TESForm*       GetOwner();
-		float          GetExteriorWaterHeight() const;
-		TESRegionList* GetRegionList(bool a_createIfMissing);
-		bool           GetWaterHeight(const NiPoint3& a_pos, float& a_waterHeight);
-		bool           IsAttached() const;
-		bool           IsExteriorCell() const;
-		bool           IsInteriorCell() const;
-		void           SetActorOwner(TESNPC* a_owner);
-		void           SetFactionOwner(TESFaction* a_owner);
-		void           SetFogColor(Color a_near, Color a_far);
-		void           SetFogPlanes(float a_near, float a_far);
-		void           SetFogPower(float a_power);
-		void           SetHandChanged(bool a_changed);
-		void           SetOwner(TESForm* a_owner);
-		void           SetPublic(bool a_public);
-		bool           UsesSkyLighting() const;
+		TESObjectLAND* 			GetLand() const;
+		INTERIOR_DATA* 			GetLighting();
+		BGSLocation*   			GetLocation() const;
+		float          			GetNorthRotation();
+		TESForm*       			GetOwner();
+		float          			GetExteriorWaterHeight() const;
+		TESRegionList* 			GetRegionList(bool a_createIfMissing);
+		bool           			GetWaterHeight(const NiPoint3& a_pos, float& a_waterHeight);
+		bool           			IsAttached() const;
+		bool           			IsExteriorCell() const;
+		bool           			IsInteriorCell() const;
+		void           			SetActorOwner(TESNPC* a_owner);
+		void           			SetFactionOwner(TESFaction* a_owner);
+		void           			SetFogColor(Color a_near, Color a_far);
+		void           			SetFogPlanes(float a_near, float a_far);
+		void           			SetFogPower(float a_power);
+		void           			SetHandChanged(bool a_changed);
+		void           			SetOwner(TESForm* a_owner);
+		void           			SetPublic(bool a_public);
+		bool           			UsesSkyLighting() const;
+		bool                    IsJail() const;
+		bool                    IsPlayerHome() const;
+		std::vector<Actor*>     GetAllActorsInCell();
 
 		// members
 		mutable BSSpinLock                                   grassCreateLock;   // 030
