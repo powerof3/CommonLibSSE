@@ -13,7 +13,7 @@ namespace RE
 		virtual ~IMessageBoxCallback() = default;  // 00
 
 		// add
-		virtual void operator()(std::uint8_t a_button) = 0;   // 01
+		virtual void operator()(std::uint8_t a_button) = 0;  // 01
 
 		// members
 		std::uint32_t pad0C;  // 0C
