@@ -1,10 +1,13 @@
 #include "RE/M/MessageBoxMenu.h"
 
+#include "RE/U/UIDepthPriority.h"
+#include "RE/W/WarningTypes.h"
+
 namespace RE
 {
-	bool MessageBoxMenu::Create(RE::BSString& a_message, const BSTSmartPointer<IMessageBoxCallback>& a_callback, std::uint8_t a_buttonPressOffset, std::int32_t a_warningType, std::int32_t a_menuDepth, const BSTArray<BSString>& a_buttons)
+	bool MessageBoxMenu::Create(const RE::BSString& a_message, const BSTSmartPointer<IMessageBoxCallback>& a_callback, std::uint8_t a_buttonPressOffset, WARNING_TYPES a_warningType, UI_DEPTH_PRIORITY a_menuDepth, const BSTArray<BSString>& a_buttons)
 	{
-		using func_t = bool(RE::BSString&, const BSTSmartPointer<IMessageBoxCallback>&, std::uint8_t, std::int32_t, std::int32_t, const BSTArray<BSString>&);
+		using func_t = bool(const RE::BSString&, const BSTSmartPointer<IMessageBoxCallback>&, std::uint8_t, WARNING_TYPES, UI_DEPTH_PRIORITY, const BSTArray<BSString>&);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(51421, 442726) };  // 1.6.640: 52270
 		return func(a_message, a_callback, a_buttonPressOffset, a_warningType, a_menuDepth, a_buttons);
 	}

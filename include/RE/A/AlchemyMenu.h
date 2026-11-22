@@ -24,7 +24,7 @@ namespace RE
 				virtual ~QuitMenuCallback();  // 00
 
 				// override (IMessageBoxCallback)
-				void Run(std::uint8_t a_button) override;  // 01
+				void operator()(std::uint8_t a_button) override;  // 01
 
 				// members
 				AlchemyMenu* subMenu;  // 10
@@ -40,7 +40,7 @@ namespace RE
 				virtual ~CraftItemCallback();  // 00
 
 				// override (IMessageBoxCallback)
-				void Run(std::uint8_t a_button) override;  // 01
+				void operator()(std::uint8_t a_button) override;  // 01
 
 				// members
 				AlchemyMenu*  subMenu;  // 10
@@ -51,6 +51,7 @@ namespace RE
 			class UsableEffectMap
 			{
 			public:
+				// members
 				std::uint32_t ingredientIndex;               // 00
 				std::uint32_t effectIndex;                   // 04
 				std::uint32_t nextCompatibleEffectMapIndex;  // 08
@@ -60,6 +61,7 @@ namespace RE
 			class MenuIngredientEntry
 			{
 			public:
+				// members
 				InventoryEntryData* ingredient;       // 00
 				std::uint8_t        effect1FilterID;  // 09
 				std::uint8_t        effect2FilterID;  // 0A
@@ -74,6 +76,7 @@ namespace RE
 			class PotionCreationData
 			{
 			public:
+				// members
 				BSTArray<UsableEffectMap>      usableEffectsMaps;  // 0
 				BSTArray<MenuIngredientEntry>* ingredientEntries;  // 18
 			};

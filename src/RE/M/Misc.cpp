@@ -8,9 +8,12 @@
 #include "RE/N/NiSmartPointer.h"
 #include "RE/S/Setting.h"
 #include "RE/T/TESObjectREFR.h"
+#include "RE/W/WarningTypes.h"
 
 namespace RE
 {
+	using namespace literals;
+	
 	bool LookupReferenceByHandle_ActorImpl(const RefHandle& a_handle, NiPointer<Actor>& a_refrOut)
 	{
 		using func_t = decltype(&LookupReferenceByHandle_ActorImpl);
@@ -34,7 +37,7 @@ namespace RE
 
 	void DebugMessageBox(const char* a_message)
 	{
-		MessageBoxMenu::Create(a_message, nullptr, 0, 4, 10, GameSettingCollection::GetSingleton()->GetSetting("sOk")->GetString());
+		MessageBoxMenu::Create(a_message, nullptr, 0, WARNING_TYPES::kScripts, UI_DEPTH_PRIORITY::kMessage, static_cast<const char*>(*"sOk"_gs));
 	}
 
 	float GetArmorFinalRating(RE::InventoryEntryData* a_armorEntryData, float a_armorPerks, float a_skillMultiplier)

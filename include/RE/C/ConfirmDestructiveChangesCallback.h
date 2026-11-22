@@ -15,7 +15,7 @@ namespace RE
 		~ConfirmDestructiveChangesCallback() override;  // 00
 
 		// override (IMessageBoxCallback)
-		virtual void Run(std::uint8_t a_button) override;
+		void operator()(std::uint8_t a_button) override;
 
 		// members
 		RaceSexMenu*  menu;   // 10
