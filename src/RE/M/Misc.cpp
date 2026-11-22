@@ -13,7 +13,7 @@
 namespace RE
 {
 	using namespace literals;
-	
+
 	bool LookupReferenceByHandle_ActorImpl(const RefHandle& a_handle, NiPointer<Actor>& a_refrOut)
 	{
 		using func_t = decltype(&LookupReferenceByHandle_ActorImpl);
