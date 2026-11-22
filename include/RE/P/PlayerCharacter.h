@@ -442,11 +442,6 @@ namespace RE
 		// override (BSTEventSink<TESTrackedStatsEvent>)
 		BSEventNotifyControl ProcessEvent(const TESTrackedStatsEvent* a_event, BSTEventSource<TESTrackedStatsEvent>* a_eventSource) override;  // 01
 
-#ifdef SKYRIM_SUPPORT_AE
-		// override (BSTEventSink<BSSystemEvent>)
-		BSEventNotifyControl ProcessEvent(const BSSystemEvent* a_event, BSTEventSource<BSSystemEvent>* a_eventSource) override;  // 01
-#endif
-
 		// add
 		virtual void          Unk_12A(void);                                                   // 12A
 		virtual std::uint32_t GetViolentCrimeGoldValue(const TESFaction* a_faction) const;     // 12B
