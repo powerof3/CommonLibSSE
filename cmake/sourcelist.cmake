@@ -1849,6 +1849,7 @@ set(SOURCES
 	include/RE/U/UI.h
 	include/RE/U/UI3DSceneManager.h
 	include/RE/U/UIBlurManager.h
+	include/RE/U/UIDepthPriority.h
 	include/RE/U/UIMessage.h
 	include/RE/U/UIMessageDataFactory.h
 	include/RE/U/UIMessageQueue.h
@@ -1869,6 +1870,7 @@ set(SOURCES
 	include/RE/V/VertexDesc.h
 	include/RE/V/VirtualMachine.h
 	include/RE/V/VoiceSpellFireHandler.h
+	include/RE/W/WarningTypes.h
 	include/RE/W/WeaponAnimationGraphManagerHolder.h
 	include/RE/W/WeaponEnchantmentController.h
 	include/RE/W/WeatherType.h

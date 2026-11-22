@@ -4,6 +4,7 @@
 #include "RE/F/FxDelegateHandler.h"
 #include "RE/G/GFxMovieView.h"
 #include "RE/G/GPtr.h"
+#include "RE/U/UIDepthPriority.h"
 #include "RE/U/UserEvents.h"
 
 namespace RE
@@ -104,14 +105,14 @@ namespace RE
 		[[nodiscard]] constexpr bool UsesMovementToDirection() const noexcept { return menuFlags.all(Flag::kUsesMovementToDirection); }
 
 		// members
-		GPtr<GFxMovieView>                          uiMovie{ nullptr };              // 10
-		std::int8_t                                 depthPriority{ 3 };              // 18
-		std::uint8_t                                pad19{ 0 };                      // 19
-		std::uint16_t                               pad20{ 0 };                      // 1A
-		REX::TEnumSet<UI_MENU_FLAGS, std::uint32_t> menuFlags{ Flag::kNone };        // 1C
-		REX::TEnumSet<Context, std::uint32_t>       inputContext{ Context::kNone };  // 20
-		std::uint32_t                               pad24{ 0 };                      // 24
-		GPtr<FxDelegate>                            fxDelegate{ nullptr };           // 28
+		GPtr<GFxMovieView>                          uiMovie{ nullptr };                             // 10
+		REX::TEnum<UI_DEPTH_PRIORITY, std::int8_t>  depthPriority{ UI_DEPTH_PRIORITY::kStandard };  // 18
+		std::uint8_t                                pad19{ 0 };                                     // 19
+		std::uint16_t                               pad20{ 0 };                                     // 1A
+		REX::TEnumSet<UI_MENU_FLAGS, std::uint32_t> menuFlags{ Flag::kNone };                       // 1C
+		REX::TEnumSet<Context, std::uint32_t>       inputContext{ Context::kNone };                 // 20
+		std::uint32_t                               pad24{ 0 };                                     // 24
+		GPtr<FxDelegate>                            fxDelegate{ nullptr };                          // 28
 	};
 	static_assert(sizeof(IMenu) == 0x30);
 }

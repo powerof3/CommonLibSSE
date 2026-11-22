@@ -11,6 +11,9 @@ namespace RE
 	class IMessageBoxCallback;
 	class MessageBoxData;
 
+	enum class WARNING_TYPES;
+	enum class UI_DEPTH_PRIORITY;
+
 	// menuDepth = 10
 	// flags = kPausesGame | kAlwaysOpen | kUsesCursor | kModal
 	// context = kMenuMode
@@ -28,16 +31,16 @@ namespace RE
 		UI_MESSAGE_RESULTS ProcessMessage(UIMessage& a_message) override;    // 04
 
 		template <class... Args>
-		static bool Create(const char* a_message, void (*a_callback)(std::uint8_t), std::uint8_t a_buttonPressOffset, std::int32_t a_warningType, std::int32_t a_menuDepth, Args... a_buttons)
+		static bool Create(const char* a_message, void (*a_callback)(std::uint8_t), std::uint8_t a_buttonPressOffset, WARNING_TYPES a_warningType, UI_DEPTH_PRIORITY a_menuDepth, Args... a_buttons)
 		{
 			// It reads the buttons starting with the first button until it reaches nullptr
 			static_assert((std::is_same_v<std::decay_t<Args>, const char*> && ...), "arguments must all be const char*");
-			using func_t = bool(const char*, void (*)(std::uint8_t), std::uint8_t, std::int32_t, std::int32_t, ...);
+			using func_t = bool(const char*, void (*)(std::uint8_t), std::uint8_t, WARNING_TYPES, UI_DEPTH_PRIORITY, ...);
 			static REL::Relocation<func_t> func{ RELOCATION_ID(51420, 52269) };
 			return func(a_message, a_callback, a_buttonPressOffset, a_warningType, a_menuDepth, a_buttons..., nullptr);
 		}
 
-		static bool Create(RE::BSString& a_message, const BSTSmartPointer<IMessageBoxCallback>& a_callback, std::uint8_t a_buttonPressOffset, std::int32_t a_warningType, std::int32_t a_menuDepth, const BSTArray<BSString>& a_buttons);
+		static bool Create(const RE::BSString& a_message, const BSTSmartPointer<IMessageBoxCallback>& a_callback, std::uint8_t a_buttonPressOffset, WARNING_TYPES a_warningType, UI_DEPTH_PRIORITY a_menuDepth, const BSTArray<BSString>& a_buttons);
 
 		static MessageBoxMenu*            GetCurrentMessageBoxMenu();  // inlined in SE
 		static BSTArray<MessageBoxData*>& GetQueue();

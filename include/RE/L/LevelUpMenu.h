@@ -25,7 +25,7 @@ namespace RE
 			~ConfirmLevelUpAttributeCallback() override;  // 00
 
 			// override (IMessageBoxCallback)
-			void Run(std::uint8_t a_button) override;  // 01
+			void operator()(std::uint8_t a_button) override;  // 01
 
 			// members
 			LevelUpMenu* menu;        // 10

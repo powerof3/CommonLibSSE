@@ -13,7 +13,7 @@ namespace RE
 		~DeviceSelectCallback() override;  // 00
 
 		// override (IMessageBoxCallback)
-		void Run(std::uint8_t a_button) override;  // 01 - { return; }
+		void operator()(std::uint8_t a_button) override;  // 01 - { return; }
 	};
 	static_assert(sizeof(DeviceSelectCallback) == 0x10);
 }
