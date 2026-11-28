@@ -1,0 +1,3 @@
+[submodule "lib/commonlib-shared"]
+	path = lib/commonlib-shared
+	url = https://github.com/libxse/commonlib-shared

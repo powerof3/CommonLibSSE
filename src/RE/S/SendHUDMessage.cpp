@@ -34,6 +34,15 @@ namespace RE
 			PlayerCharacter::GetSingleton()->PlayPickUpSound(a_object, a_added, false);
 		}
 	}
+	void SendHUDMessage::ShowNotificationFromForm(BGSMessage* a_message, const char* a_soundToPlay, bool a_cancelIfAlreadyQueued) {
+		if(!a_message){
+			return;
+		}
+		BSString message {};
+		a_message->GetDescription(message, a_message);
+		ShowHUDMessage(message.c_str(), a_soundToPlay, a_cancelIfAlreadyQueued);
+		
+	}
 
 	void SendHUDMessage::SetHUDMode(const char* a_mode, bool a_push)
 	{

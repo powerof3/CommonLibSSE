@@ -1,4 +1,5 @@
 #include "RE/M/MagicItem.h"
+#include "RE/M/MagicSystem.h"
 
 namespace RE
 {
@@ -90,5 +91,40 @@ namespace RE
 		using func_t = decltype(&MagicItem::Traverse);
 		static REL::Relocation<func_t> func{ RELOCATION_ID(11222, 11341) };
 		return func(this, a_visitor);
+	}
+	[[nodiscard]] bool MagicItem::IsSpellPlayable() const 
+	{
+		using st = MagicSystem::SpellType;
+		const auto type = GetSpellType();
+		const auto skill = GetAssociatedSkill();
+
+		switch (type){
+			case st::kStaffEnchantment:
+			case st::kScroll:
+			case st::kSpell:
+			case st::kLeveledSpell:
+			case st::kVoicePower:
+			case st::kLesserPower:
+			case st::kPower:
+			break;
+			default:
+			return false;
+		}
+
+		switch (skill){
+			case ActorValue::kAlteration:
+			case ActorValue::kConjuration:
+			case ActorValue::kDestruction:
+			case ActorValue::kIllusion:
+			case ActorValue::kRestoration:
+			return true;
+			default: 
+			return false;
+		}
+	}
+
+	[[nodiscard]] bool MagicItem::IsSelfTargeted() const 
+	{
+		return GetDelivery() == MagicSystem::Delivery::kSelf;
 	}
 }
